@@ -11,9 +11,9 @@
   <inceptionYear>2007</inceptionYear>
   <url>http://fest.easytesting.org/swing</url>
   <parent>
-    <groupId>org.easytesting</groupId>
-    <artifactId>fest</artifactId>
-    <version>1.0.1</version>
+    <groupId>org.assertj</groupId>
+    <artifactId>assertj-parent-pom</artifactId>
+    <version>1.2.2</version>
   </parent>
   <mailingLists>
     <mailingList>
@@ -43,7 +43,7 @@
     <dependency>
       <groupId>org.easytesting</groupId>
       <artifactId>fest-swing</artifactId>
-      <version>1.4a1-SNAPSHOT</version>
+      <version>1.2.1</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
