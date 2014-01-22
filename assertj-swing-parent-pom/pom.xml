@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+  <modelVersion>4.0.0</modelVersion>
+  <!-- using oss-parent to release on Sonatype OSS reposirories that are synced with maven central -->
+  <parent>
+    <groupId>org.assertj</groupId>
+    <artifactId>assertj-parent-pom</artifactId>
+    <version>1.2.2</version>
+  </parent>
+
+  <artifactId>assertj-swing-parent-pom</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>AssertJ Swing: Fluent assertions for java unit testing</name>
+  <description>Parent POM for all AssertJ-Swing modules</description>
+  <scm>
+    <developerConnection>scm:git:git@github.com:joel-costigliola/assertj-swing.git</developerConnection>
+    <connection>git://github.com/joel-costigliola/assertj-swing.git</connection>
+    <url>https://github.com/joel-costigliola/assertj-swing</url>
+  </scm>
+  <issueManagement>
+    <system>github</system>
+    <url>https://github.com/joel-costigliola/assertj-swing/issues</url>
+  </issueManagement>
+  <developers>
+    <developer>
+      <id>joel</id>
+      <name>Joel Costigliola</name>
+      <roles>
+        <role>Owner</role>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>croesch</id>
+      <name>Christian Rösch</name>
+      <email>christianroesch at gmx.net</email>
+      <roles>
+        <role>Owner</role>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>alexruiz</id>
+      <name>Alex Ruiz</name>
+      <email>alex.ruiz.05 at gmail.com</email>
+      <url>http://alexruiz.developerblogs.com</url>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>wanghy</id>
+      <name>Yvonne Wang</name>
+      <email>wanghy1101 at gmail.com</email>
+      <roles>
+        <role>Owner</role>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>konermann</id>
+      <name>Ansgar Konermann</name>
+      <url>http://passion.forco.de/</url>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <dependencyManagement>
+    <dependencies>
+    </dependencies>
+  </dependencyManagement>
+  <properties>
+  </properties>
+</project>

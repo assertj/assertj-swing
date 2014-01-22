@@ -7,29 +7,11 @@
   <name>FEST-Swing</name>
   <description>Fluent interface for functional GUI testing</description>
   <inceptionYear>2007</inceptionYear>
-  <url>http://fest.easytesting.org/swing</url>
   <parent>
     <groupId>org.assertj</groupId>
-    <artifactId>assertj-parent-pom</artifactId>
-    <version>1.2.2</version>
+    <artifactId>assertj-swing-parent-pom</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <mailingLists>
-    <mailingList>
-      <name>Easy Testing Group</name>
-      <post>http://groups.google.com/group/easytesting</post>
-      <subscribe>http://groups.google.com/group/easytesting</subscribe>
-      <unsubscribe>http://groups.google.com/group/easytesting</unsubscribe>
-    </mailingList>
-  </mailingLists>
-  <scm>
-    <developerConnection>scm:git:git@github.com:alexruiz/fest-swing-1.x.git</developerConnection>
-    <connection>scm:git:git://github.com/alexruiz/fest-swing-1.x.git</connection>
-    <url>https://github.com/alexruiz/fest-swing-1.x</url>
-  </scm>
-  <issueManagement>
-    <system>github</system>
-    <url>https://github.com/alexruiz/fest-swing-1.x/issues</url>
-  </issueManagement>
   <build>
     <plugins>
       <plugin>
