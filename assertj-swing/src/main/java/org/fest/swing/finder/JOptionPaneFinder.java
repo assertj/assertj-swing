@@ -28,15 +28,17 @@ import org.fest.swing.fixture.JOptionPaneFixture;
 
 /**
  * <p>
- * Finder for {@code JOptionPane}s. Lookups are performed till a file chooser is found, or until the given
- * time to perform the lookup is over. The default lookup time is 5 seconds.
+ * Finder for {@code JOptionPane}s. Lookups are performed till a file chooser is found, or until the given time to
+ * perform the lookup is over. The default lookup time is 5 seconds.
  * </p>
  * 
  * <p>
  * This example illustrates finding a {@code JOptionPane} by name, using the default lookup time (5 seconds):
+ * 
  * <pre>
  * JOptionPaneFixture optionPane = JOptionPaneFinder.findOptionPane().using(robot);
  * </pre>
+ * 
  * </p>
  * 
  * <p>
@@ -45,17 +47,22 @@ import org.fest.swing.fixture.JOptionPaneFixture;
  * 
  * <p>
  * This example shows how to find a {@code JOptionPane} by type using a lookup time of 10 seconds:
+ * 
  * <pre>
  * JOptionPaneFixture optionPane = JOptionPaneFinder.findOptionPane().withTimeout(10000).using(robot);
  * </pre>
+ * 
  * We can also specify the time unit:
+ * 
  * <pre>
  * JOptionPaneFixture optionPane = JOptionPaneFinder.findOptionPane().withTimeout(10, {@link TimeUnit#SECONDS SECONDS}).using(robot);
  * </pre>
+ * 
  * </p>
  * 
  * <p>
  * This example shows how to find a {@code JOptionPane} using a {@link GenericTypeMatcher}:
+ * 
  * <pre>
  * GenericTypeMatcher&lt;JOptionPane&gt; matcher = new GenericTypeMatcher&lt;JOptionPane&gt;() {
  *   protected boolean isMatching(JOptionPane optionPane) {
@@ -64,6 +71,7 @@ import org.fest.swing.fixture.JOptionPaneFixture;
  * };
  * JOptionPaneFixture optionPane = JOptionPaneFinder.findOptionPane(matcher).using(robot);
  * </pre>
+ * 
  * </p>
  * 
  * @author Yvonne Wang
@@ -91,7 +99,8 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * 
    * @return the created finder.
    */
-  public static @Nonnull JOptionPaneFinder findOptionPane() {
+  public static @Nonnull
+  JOptionPaneFinder findOptionPane() {
     return new JOptionPaneFinder();
   }
 
@@ -101,7 +110,8 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @param matcher the given matcher.
    * @return the created finder.
    */
-  public static @Nonnull JOptionPaneFinder findOptionPane(@Nonnull GenericTypeMatcher<? extends JOptionPane> matcher) {
+  public static @Nonnull
+  JOptionPaneFinder findOptionPane(@Nonnull GenericTypeMatcher<? extends JOptionPane> matcher) {
     return new JOptionPaneFinder(matcher);
   }
 
@@ -113,7 +123,8 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @throws org.fest.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
    */
   @Override
-  public @Nonnull JOptionPaneFixture using(@Nonnull Robot robot) {
+  public @Nonnull
+  JOptionPaneFixture using(@Nonnull Robot robot) {
     return new JOptionPaneFixture(robot, findComponentWith(robot));
   }
 
@@ -124,7 +135,8 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @return this finder.
    */
   @Override
-  public @Nonnull JOptionPaneFinder withTimeout(@Nonnegative long timeout) {
+  public @Nonnull
+  JOptionPaneFinder withTimeout(@Nonnegative long timeout) {
     super.withTimeout(timeout);
     return this;
   }
@@ -137,7 +149,8 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @return this finder.
    */
   @Override
-  public @Nonnull JOptionPaneFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
+  public @Nonnull
+  JOptionPaneFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
     super.withTimeout(timeout, unit);
     return this;
   }
@@ -148,7 +161,8 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @return the given {@code Component}, casted to {@code JFileChooser}.
    */
   @Override
-  protected @Nullable JOptionPane cast(@Nullable Component c) {
+  protected @Nullable
+  JOptionPane cast(@Nullable Component c) {
     return (JOptionPane) c;
   }
 }

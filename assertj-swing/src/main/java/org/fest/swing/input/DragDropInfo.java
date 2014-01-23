@@ -57,7 +57,8 @@ class DragDropInfo {
     }
   }
 
-  @Nullable Component source() {
+  @Nullable
+  Component source() {
     return source;
   }
 
@@ -69,7 +70,8 @@ class DragDropInfo {
     return source != null;
   }
 
-  @Nonnull Point origin() {
+  @Nonnull
+  Point origin() {
     return new Point(x, y);
   }
 

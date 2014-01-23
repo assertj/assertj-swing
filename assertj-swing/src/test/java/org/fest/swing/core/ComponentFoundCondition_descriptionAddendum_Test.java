@@ -1,15 +1,15 @@
 /*
  * Created on Feb 11, 2010
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2010-2013 the original author or authors.
  */
 package org.fest.swing.core;
@@ -34,7 +34,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ComponentFoundCondition#descriptionAddendum()}.
- *
+ * 
  * @author Alex Ruiz
  */
 public class ComponentFoundCondition_descriptionAddendum_Test {
@@ -55,9 +55,8 @@ public class ComponentFoundCondition_descriptionAddendum_Test {
       failWhenExpectingException();
     } catch (WaitTimedOutError e) {
       assertThat(e.getMessage()).contains("Timed out waiting for JButton to be found")
-                                .contains("Unable to find component using matcher")
-                                .contains("MyWindow[name='myWindow'")
-                                .contains("javax.swing.JLabel[name=null, text='Hello'");
+          .contains("Unable to find component using matcher").contains("MyWindow[name='myWindow'")
+          .contains("javax.swing.JLabel[name=null, text='Hello'");
     }
   }
 
@@ -69,9 +68,9 @@ public class ComponentFoundCondition_descriptionAddendum_Test {
       failWhenExpectingException();
     } catch (WaitTimedOutError e) {
       assertThat(e.getMessage()).contains("Timed out waiting for JLabel to be found")
-                                .contains("Found more than one component using matcher")
-                                .contains("javax.swing.JLabel[name=null, text='Hello'")
-                                .contains("javax.swing.JLabel[name=null, text='World'");
+          .contains("Found more than one component using matcher")
+          .contains("javax.swing.JLabel[name=null, text='Hello'")
+          .contains("javax.swing.JLabel[name=null, text='World'");
       assertThat(condition.duplicatesFound()).containsOnly(window.helloLabel, window.worldLabel);
     }
   }

@@ -23,7 +23,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Tests for {@link Flushables#flushQuietly(Flushable...)}.
- *
+ * 
  * @author Yvonne Wang
  */
 public class Flushables_flushQuietly_Test {
@@ -49,14 +49,14 @@ public class Flushables_flushQuietly_Test {
 
   @Test
   public void should_flush_Flushables() {
-    FlushableStub[] toFlush = new FlushableStub[]{new FlushableStub(), new FlushableStub()};
+    FlushableStub[] toFlush = new FlushableStub[] { new FlushableStub(), new FlushableStub() };
     Flushables.flushQuietly(toFlush);
     assertFlushed(toFlush);
   }
 
   @Test
   public void should_ignore_thrown_errors() {
-    FlushableStub[] toFlush = new FlushableStub[]{new FlushableStub(new IOException("")), new FlushableStub()};
+    FlushableStub[] toFlush = new FlushableStub[] { new FlushableStub(new IOException("")), new FlushableStub() };
     Flushables.flushQuietly(toFlush);
     assertFlushed(toFlush);
   }
@@ -64,7 +64,7 @@ public class Flushables_flushQuietly_Test {
   @Test
   public void should_ignore_null_Flushables() {
     FlushableStub c = new FlushableStub();
-    FlushableStub[] toFlush = new FlushableStub[]{null, c};
+    FlushableStub[] toFlush = new FlushableStub[] { null, c };
     Flushables.flushQuietly(toFlush);
     assertFlushed(c);
   }

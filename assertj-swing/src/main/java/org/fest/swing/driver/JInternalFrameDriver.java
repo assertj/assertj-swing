@@ -1,15 +1,15 @@
 /*
  * Created on Feb 1, 2008
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2008-2013 the original author or authors.
  */
 package org.fest.swing.driver;
@@ -56,12 +56,12 @@ import org.fest.util.VisibleForTesting;
  * <p>
  * Supports functional testing of {@code JInternalFrame}s.
  * </p>
- *
+ * 
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.fest.swing.fixture} in your tests.
  * </p>
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -69,7 +69,7 @@ import org.fest.util.VisibleForTesting;
 public class JInternalFrameDriver extends JComponentDriver {
   /**
    * Creates a new {@link JInternalFrameDriver}.
-   *
+   * 
    * @param robot the robot to use to simulate user input.
    */
   public JInternalFrameDriver(@Nonnull Robot robot) {
@@ -78,7 +78,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Brings the given {@code JInternalFrame} to the front.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    */
   @RunsInEDT
@@ -94,7 +94,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Brings the given {@code JInternalFrame} to the back.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    */
   @RunsInEDT
@@ -110,7 +110,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Maximizes the given {@code JInternalFrame}, deconifying it first if it is iconified.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not maximizable.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
@@ -123,10 +123,12 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Pair<Container, Point> maximizeLocationOf(final @Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull
+  Pair<Container, Point> maximizeLocationOf(final @Nonnull JInternalFrame internalFrame) {
     Pair<Container, Point> result = execute(new GuiQuery<Pair<Container, Point>>() {
       @Override
-      protected @Nullable Pair<Container, Point> executeInEDT() {
+      protected @Nullable
+      Pair<Container, Point> executeInEDT() {
         checkCanMaximize(internalFrame);
         return findMaximizeLocation(internalFrame);
       }
@@ -145,7 +147,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Normalizes the given {@code JInternalFrame}, deconifying it first if it is iconified.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
    * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
@@ -175,7 +177,8 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Pair<Container, Point> findMaximizeLocation(@Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull
+  Pair<Container, Point> findMaximizeLocation(@Nonnull JInternalFrame internalFrame) {
     Container clickTarget = internalFrame.isIcon() ? internalFrame.getDesktopIcon() : internalFrame;
     Point location = maximizeButtonLocation(checkNotNull(clickTarget));
     return Pair.of(clickTarget, location);
@@ -200,7 +203,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Iconifies the given {@code JInternalFrame}.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
    * @throws IllegalStateException if the {@code JInternalFrame} is not iconifiable.
@@ -217,10 +220,12 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Pair<Boolean, Point> findIconifyInfo(final @Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull
+  Pair<Boolean, Point> findIconifyInfo(final @Nonnull JInternalFrame internalFrame) {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
       @Override
-      protected @Nullable Pair<Boolean, Point> executeInEDT() throws Throwable {
+      protected @Nullable
+      Pair<Boolean, Point> executeInEDT() throws Throwable {
         checkShowingOrIconified(internalFrame);
         if (!internalFrame.isIconifiable()) {
           String msg = String.format("The JInternalFrame <%s> is not iconifiable.", format(internalFrame));
@@ -233,7 +238,8 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Pair<Boolean, Point> iconifyInfo(@Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull
+  Pair<Boolean, Point> iconifyInfo(@Nonnull JInternalFrame internalFrame) {
     boolean iconified = isIconified(internalFrame);
     if (iconified) {
       return Pair.of(true, null);
@@ -243,7 +249,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * De-iconifies the given {@code JInternalFrame}.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
    * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
@@ -259,11 +265,12 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Triple<Boolean, Container, Point> validateAndfindDeiconifyInfo(
-      final @Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull
+  Triple<Boolean, Container, Point> validateAndfindDeiconifyInfo(final @Nonnull JInternalFrame internalFrame) {
     Triple<Boolean, Container, Point> result = execute(new GuiQuery<Triple<Boolean, Container, Point>>() {
       @Override
-      protected @Nullable Triple<Boolean, Container, Point> executeInEDT() throws Throwable {
+      protected @Nullable
+      Triple<Boolean, Container, Point> executeInEDT() throws Throwable {
         checkShowingOrIconified(internalFrame);
         return deiconifyInfo(internalFrame);
       }
@@ -272,7 +279,8 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Triple<Boolean, Container, Point> deiconifyInfo(@Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull
+  Triple<Boolean, Container, Point> deiconifyInfo(@Nonnull JInternalFrame internalFrame) {
     boolean deiconified = !isIconified(internalFrame);
     if (deiconified) {
       return Triple.of(true, null, null);
@@ -282,7 +290,8 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Point findIconifyLocation(JInternalFrame internalFrame) {
+  private static @Nonnull
+  Point findIconifyLocation(JInternalFrame internalFrame) {
     JDesktopIcon desktopIcon = checkNotNull(internalFrame.getDesktopIcon());
     return iconifyButtonLocation(desktopIcon);
   }
@@ -308,7 +317,8 @@ public class JInternalFrameDriver extends JComponentDriver {
     throw actionFailure(msg);
   }
 
-  private @Nullable PropertyVetoException vetoFrom(@Nonnull UnexpectedException unexpected) {
+  private @Nullable
+  PropertyVetoException vetoFrom(@Nonnull UnexpectedException unexpected) {
     Throwable cause = unexpected.getCause();
     if (!(cause instanceof PropertyVetoException)) {
       return null;
@@ -318,7 +328,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Resizes the {@code JInternalFrame} horizontally.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    * @param width the width that the {@code JInternalFrame} should have after being resized.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
@@ -331,7 +341,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Resizes the {@code JInternalFrame} vertically.
-   *
+   * 
    * @param w the target {@code JInternalFrame}.
    * @param height the height that the {@code JInternalFrame} should have after being resized.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
@@ -344,7 +354,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Resizes the {@code JInternalFrame} to the given size.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    * @param size the size to resize the {@code JInternalFrame} to.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
@@ -357,7 +367,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Moves the {@code JInternalFrame} to the given location.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    * @param where the location to move the {@code JInternalFrame} to.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
@@ -369,7 +379,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Closes the given {@code JInternalFrame}.
-   *
+   * 
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
    * @throws IllegalStateException if the {@code JInternalFrame} is not closable.
@@ -386,10 +396,12 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nullable Point findCloseButtonLocation(final @Nonnull JInternalFrame internalFrame) {
+  private static @Nullable
+  Point findCloseButtonLocation(final @Nonnull JInternalFrame internalFrame) {
     return execute(new GuiQuery<Point>() {
       @Override
-      protected @Nullable Point executeInEDT() {
+      protected @Nullable
+      Point executeInEDT() {
         checkShowing(internalFrame);
         if (!internalFrame.isClosable()) {
           String msg = String.format("The JInternalFrame <%s> is not closable", format(internalFrame));

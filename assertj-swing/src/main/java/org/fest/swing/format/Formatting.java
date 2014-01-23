@@ -1,15 +1,15 @@
 /*
  * Created on Sep 16, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2013 the original author or authors.
  */
 package org.fest.swing.format;
@@ -51,7 +51,7 @@ import org.fest.util.VisibleForTesting;
 
 /**
  * Utility methods related to formatting.
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -101,23 +101,25 @@ public class Formatting {
     register(new JTreeFormatter());
   }
 
-  private static @Nonnull ComponentFormatter instrospect(@Nonnull Class<? extends Component> targetType,
-      @Nonnull String... propertyNames) {
+  private static @Nonnull
+  ComponentFormatter instrospect(@Nonnull Class<? extends Component> targetType, @Nonnull String... propertyNames) {
     return new IntrospectionComponentFormatter(targetType, propertyNames);
   }
 
-  private static @Nonnull ComponentFormatter empty(@Nonnull Class<? extends Component> targetType) {
+  private static @Nonnull
+  ComponentFormatter empty(@Nonnull Class<? extends Component> targetType) {
     return new IntrospectionComponentFormatter(targetType);
   }
 
-  private static @Nonnull ComponentFormatter nameOnly(@Nonnull Class<? extends Component> targetType) {
+  private static @Nonnull
+  ComponentFormatter nameOnly(@Nonnull Class<? extends Component> targetType) {
     return new IntrospectionComponentFormatter(targetType, NAME);
   }
 
   /**
    * Registers the given {@link ComponentFormatter}, replacing any other one previously registered for the same
    * supported component type.
-   *
+   * 
    * @param formatter the formatter to register.
    */
   public static void register(@Nonnull ComponentFormatter formatter) {
@@ -137,15 +139,17 @@ public class Formatting {
   /**
    * Returns a {@code String} representation of the given AWT or Swing {@code Component}. This method is invoked in the
    * event dispatch thread (EDT.)
-   *
+   * 
    * @param c the given {@code Component}.
    * @return a {@code String} representation of the given {@code Component}.
    */
   @RunsInEDT
-  public static @Nonnull String inEdtFormat(final @Nonnull Component c) {
+  public static @Nonnull
+  String inEdtFormat(final @Nonnull Component c) {
     String result = execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable String executeInEDT() {
+      protected @Nullable
+      String executeInEDT() {
         return format(c);
       }
     });
@@ -156,17 +160,18 @@ public class Formatting {
    * <p>
    * Returns a {@code String} representation of the given AWT or Swing {@code Component}.
    * </p>
-   *
+   * 
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   *
+   * 
    * @param c the given {@code Component}.
    * @return a {@code String} representation of the given {@code Component}.
    */
   @RunsInCurrentThread
-  public static @Nonnull String format(@Nullable Component c) {
+  public static @Nonnull
+  String format(@Nullable Component c) {
     if (c == null) {
       return NULL_COMPONENT_MESSAGE;
     }
@@ -181,7 +186,8 @@ public class Formatting {
     return String.format("%s[name=%s]", c.getClass().getName(), name);
   }
 
-  private static @Nullable ComponentFormatter formatterFor(@Nonnull Class<?> type) {
+  private static @Nullable
+  ComponentFormatter formatterFor(@Nonnull Class<?> type) {
     ComponentFormatter formatter = FORMATTERS.get(type);
     if (formatter != null) {
       return formatter;
@@ -193,5 +199,6 @@ public class Formatting {
     return null;
   }
 
-  private Formatting() {}
+  private Formatting() {
+  }
 }

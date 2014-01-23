@@ -28,6 +28,6 @@ public class LabelMatcher_toString_Test {
   public void should_implement_toString() {
     LabelMatcher matcher = new LabelMatcher("Hello");
     assertThat(matcher.toString()).contains("label='Hello'").contains("type=java.awt.Component")
-    .contains("requireShowing=false");
+        .contains("requireShowing=false");
   }
 }

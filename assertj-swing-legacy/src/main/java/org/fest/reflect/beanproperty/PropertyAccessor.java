@@ -27,10 +27,9 @@ import static org.fest.util.Preconditions.checkNotNull;
 import static org.fest.util.Preconditions.checkNotNullOrEmpty;
 
 /**
- * Accesses a
- * <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html" target="_blank">JavaBeans</a> property via Bean
- * Introspection.
- *
+ * Accesses a <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html" target="_blank">JavaBeans</a>
+ * property via Bean Introspection.
+ * 
  * @param <T> the type for the property to access.
  * @author Alex Ruiz
  * @since 1.2
@@ -66,8 +65,8 @@ public final class PropertyAccessor<T> {
       Class<?> actualType = found.getPropertyType();
       if (!propertyType.isAssignableFrom(actualType)) {
         String format = "Expecting type of property '%s' in %s to be <%s> but was <%s>";
-        String msg =
-            String.format(format, propertyName, targetType.getName(), propertyType.getName(), actualType.getName());
+        String msg = String.format(format, propertyName, targetType.getName(), propertyType.getName(),
+            actualType.getName());
         throw new ReflectionError(msg);
       }
       return found;
@@ -77,28 +76,29 @@ public final class PropertyAccessor<T> {
   }
 
   /**
-   * Sets a value of the
-   * <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html" target="_blank">JavaBeans</a> property.
+   * Sets a value of the <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html"
+   * target="_blank">JavaBeans</a> property.
    * <p/>
    * Examples:
+   * 
    * <pre>
    * // import static {@link org.fest.reflect.core.Reflection#property(String) org.fest.reflect.core.Reflection.property};
-   *
+   * 
    * // Equivalent to "String name = person.getName()"
    * String name = {@link org.fest.reflect.core.Reflection#property(String) property}("name").{@link org.fest.reflect.beanproperty.PropertyName#ofType(Class) ofType}(String.class).{@link org.fest.reflect.beanproperty.PropertyType#in(Object) in}(person).{@link org.fest.reflect.beanproperty.PropertyAccessor#get() get}();
-   *
+   * 
    * // Equivalent to "person.setName("Yoda")"
    * {@link org.fest.reflect.core.Reflection#property(String) property}("name").{@link org.fest.reflect.beanproperty.PropertyName#ofType(Class) ofType}(String.class).{@link org.fest.reflect.beanproperty.PropertyType#in(Object) in}(person).{@link org.fest.reflect.beanproperty.PropertyAccessor#set(Object) set}("Yoda");
-   *
+   * 
    * // Equivalent to "List&lt;String&gt; powers = jedi.getPowers()"
    * List&lt;String&gt; powers = {@link org.fest.reflect.core.Reflection#property(String) property}("powers").{@link org.fest.reflect.beanproperty.PropertyName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link org.fest.reflect.beanproperty.PropertyTypeRef#in(Object) in}(jedi).{@link org.fest.reflect.beanproperty.PropertyAccessor#get() get}();
-   *
+   * 
    * // Equivalent to "jedi.setPowers(powers)"
    * List&lt;String&gt; powers = new ArrayList&lt;String&gt;();
    * powers.add("heal");
    * {@link org.fest.reflect.core.Reflection#property(String) property}("powers").{@link org.fest.reflect.beanproperty.PropertyName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link org.fest.reflect.beanproperty.PropertyTypeRef#in(Object) in}(jedi).{@link org.fest.reflect.beanproperty.PropertyAccessor#set(Object) set}(powers);
    * </pre>
-   *
+   * 
    * @param value the value to set.
    * @throws ReflectionError if the given value cannot be set.
    */
@@ -113,32 +113,34 @@ public final class PropertyAccessor<T> {
   }
 
   /**
-   * Retrieves the value of the
-   * <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html" target="_blank">JavaBeans</a> property.
+   * Retrieves the value of the <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html"
+   * target="_blank">JavaBeans</a> property.
    * <p/>
    * Examples:
+   * 
    * <pre>
    * // import static {@link org.fest.reflect.core.Reflection#property(String) org.fest.reflect.core.Reflection.property};
-   *
+   * 
    * // Equivalent to "String name = person.getName()"
    * String name = {@link org.fest.reflect.core.Reflection#property(String) property}("name").{@link org.fest.reflect.beanproperty.PropertyName#ofType(Class) ofType}(String.class).{@link org.fest.reflect.beanproperty.PropertyType#in(Object) in}(person).{@link org.fest.reflect.beanproperty.PropertyAccessor#get() get}();
-   *
+   * 
    * // Equivalent to "person.setName("Yoda")"
    * {@link org.fest.reflect.core.Reflection#property(String) property}("name").{@link org.fest.reflect.beanproperty.PropertyName#ofType(Class) ofType}(String.class).{@link org.fest.reflect.beanproperty.PropertyType#in(Object) in}(person).{@link org.fest.reflect.beanproperty.PropertyAccessor#set(Object) set}("Yoda");
-   *
+   * 
    * // Equivalent to "List&lt;String&gt; powers = jedi.getPowers()"
    * List&lt;String&gt; powers = {@link org.fest.reflect.core.Reflection#property(String) property}("powers").{@link org.fest.reflect.beanproperty.PropertyName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link org.fest.reflect.beanproperty.PropertyTypeRef#in(Object) in}(jedi).{@link org.fest.reflect.beanproperty.PropertyAccessor#get() get}();
-   *
+   * 
    * // Equivalent to "jedi.setPowers(powers)"
    * List&lt;String&gt; powers = new ArrayList&lt;String&gt;();
    * powers.add("heal");
    * {@link org.fest.reflect.core.Reflection#property(String) property}("powers").{@link org.fest.reflect.beanproperty.PropertyName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link org.fest.reflect.beanproperty.PropertyTypeRef#in(Object) in}(jedi).{@link org.fest.reflect.beanproperty.PropertyAccessor#set(Object) set}(powers);
    * </pre>
-   *
+   * 
    * @return the value of the JavaBeans property in this fluent interface.
    * @throws ReflectionError if the value of the property cannot be retrieved.
    */
-  public @Nullable T get() {
+  public @Nullable
+  T get() {
     try {
       Object value = descriptor.getReadMethod().invoke(target);
       return castSafely(value, propertyType);
@@ -149,11 +151,11 @@ public final class PropertyAccessor<T> {
   }
 
   /**
-   * @return the underlying
-   *         <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html" target="_blank">JavaBeans</a>
-   *         property to invoke via Bean Introspection.
+   * @return the underlying <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html"
+   *         target="_blank">JavaBeans</a> property to invoke via Bean Introspection.
    */
-  public @Nonnull PropertyDescriptor target() {
+  public @Nonnull
+  PropertyDescriptor target() {
     return descriptor;
   }
 }

@@ -33,14 +33,17 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class JOptionPaneTitleQuery {
   @RunsInEDT
-  static @Nullable String titleOf(final @Nonnull JOptionPane optionPane) {
+  static @Nullable
+  String titleOf(final @Nonnull JOptionPane optionPane) {
     return execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable String executeInEDT() {
+      protected @Nullable
+      String executeInEDT() {
         return ((Dialog) optionPane.getRootPane().getParent()).getTitle();
       }
     });
   }
 
-  private JOptionPaneTitleQuery() {}
+  private JOptionPaneTitleQuery() {
+  }
 }

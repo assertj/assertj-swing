@@ -37,23 +37,28 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * 
    * <p>
    * The following code listing shows how to match a {@code JTextComponent} by name and text:
+   * 
    * <pre>
    * JTextComponentMatcher m = {@link #withName(String) withName}("lastName").{@link #andText(String) andText}("Wang");
    * </pre>
+   * 
    * </p>
    * 
    * <p>
    * The following code listing shows how to match a {@code JTextComponent}, that should be showing on the screen, by
    * name and text:
+   * 
    * <pre>
    * JTextComponentMatcher m = {@link #withName(String) withName}("lastName").{@link #andText(String) andText}("Wang").{@link #andShowing() andShowing}();
    * </pre>
+   * 
    * </p>
    * 
    * @param name the id to match.
    * @return the created matcher.
    */
-  public static @Nonnull JTextComponentMatcher withName(@Nullable String name) {
+  public static @Nonnull
+  JTextComponentMatcher withName(@Nullable String name) {
     return new JTextComponentMatcher(name, anyValue());
   }
 
@@ -64,23 +69,28 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * 
    * <p>
    * The following code listing shows how to match a {@code JTextComponent} by text:
+   * 
    * <pre>
    * JTextComponentMatcher m = {@link #withText(String) withText}("Wang");
    * </pre>
+   * 
    * </p>
    * 
    * <p>
    * The following code listing shows how to match a {@code JTextComponent}, that should be showing on the screen, by
    * text:
+   * 
    * <pre>
    * JTextComponentMatcher m = {@link #withText(String) withText}("Wang").{@link #andShowing() andShowing}();
    * </pre>
+   * 
    * </p>
    * 
    * @param text the text to match. It can be a regular expression.
    * @return the created matcher.
    */
-  public static @Nonnull JTextComponentMatcher withText(@Nonnull String text) {
+  public static @Nonnull
+  JTextComponentMatcher withText(@Nonnull String text) {
     return new JTextComponentMatcher(anyValue(), text);
   }
 
@@ -91,23 +101,28 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * 
    * <p>
    * The following code listing shows how to match a {@code JTextComponent} by text, using a regular expression pattern:
+   * 
    * <pre>
    * JTextComponentMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("W.*"));
    * </pre>
+   * 
    * </p>
    * 
    * <p>
    * The following code listing shows how to match a {@code JTextComponent}, that should be showing on the screen, by
    * text, using a regular expression pattern:
+   * 
    * <pre>
    * JTextComponentMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("W.*")).{@link #andShowing() andShowing}();
    * </pre>
+   * 
    * </p>
    * 
    * @param textPattern the text to match. It can be a regular expression.
    * @return the created matcher.
    */
-  public static @Nonnull JTextComponentMatcher withText(@Nonnull Pattern textPattern) {
+  public static @Nonnull
+  JTextComponentMatcher withText(@Nonnull Pattern textPattern) {
     return new JTextComponentMatcher(anyValue(), textPattern);
   }
 
@@ -116,7 +131,8 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * 
    * @return the created matcher.
    */
-  public static @Nonnull JTextComponentMatcher any() {
+  public static @Nonnull
+  JTextComponentMatcher any() {
     return new JTextComponentMatcher(anyValue(), anyValue());
   }
 
@@ -132,7 +148,8 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * @param newText the new text to match. It can be a regular expression.
    * @return this matcher.
    */
-  public @Nonnull JTextComponentMatcher andText(@Nonnull String newText) {
+  public @Nonnull
+  JTextComponentMatcher andText(@Nonnull String newText) {
     text = newText;
     return this;
   }
@@ -145,7 +162,8 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * @return this matcher.
    * @since 1.2
    */
-  public @Nonnull JTextComponentMatcher andText(@Nonnull Pattern textPattern) {
+  public @Nonnull
+  JTextComponentMatcher andText(@Nonnull Pattern textPattern) {
     text = textPattern;
     return this;
   }
@@ -155,7 +173,8 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * 
    * @return this matcher.
    */
-  public @Nonnull JTextComponentMatcher andShowing() {
+  public @Nonnull
+  JTextComponentMatcher andShowing() {
     requireShowing(true);
     return this;
   }

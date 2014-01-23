@@ -1,16 +1,15 @@
 /*
  * Created on Apr 7, 2009
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- *
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ * 
  * Copyright @2009 the original author or authors.
  */
 package org.fest.swing.junit.ant;
@@ -28,7 +27,7 @@ import org.fest.swing.junit.xml.XmlNode;
 
 /**
  * Understands how to write information about a test to a XML node.
- *
+ * 
  * @author Alex Ruiz
  */
 class TestXmlNodeWriter {
@@ -45,9 +44,10 @@ class TestXmlNodeWriter {
 
   XmlNode addNewTestXmlNode(XmlNode target, Test test) {
     String methodName = testMethodNameFrom(test);
-    if (methodName == null) methodName = UNKNOWN;
-    return target.addNewNode(TESTCASE, attributes(name(ATTR_NAME).value(methodName),
-                                                  name(ATTR_CLASSNAME).value(testClassNameFrom(test))));
+    if (methodName == null)
+      methodName = UNKNOWN;
+    return target.addNewNode(TESTCASE,
+        attributes(name(ATTR_NAME).value(methodName), name(ATTR_CLASSNAME).value(testClassNameFrom(test))));
   }
 
   TestXmlNodeWriter writeTestExecutionTime(XmlNode target, long startTime) {
@@ -62,7 +62,8 @@ class TestXmlNodeWriter {
 
   TestXmlNodeWriter writeError(XmlNode target, Throwable error) {
     String message = error.getMessage();
-    if (!isEmpty(message)) target.addAttribute(name(ATTR_MESSAGE).value(message));
+    if (!isEmpty(message))
+      target.addAttribute(name(ATTR_MESSAGE).value(message));
     target.addAttribute(name(ATTR_TYPE).value(error.getClass().getName()));
     return this;
   }

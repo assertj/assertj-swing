@@ -1,16 +1,15 @@
 /*
  * Created on Mar 13, 2009
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- *
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ * 
  * Copyright @2009 the original author or authors.
  */
 package org.fest.swing.junit.runner;
@@ -27,7 +26,7 @@ import org.fest.swing.image.ScreenshotTaker;
 
 /**
  * Understands taking a screenshot of the desktop when a GUI test fails.
- *
+ * 
  * @author Alex Ruiz
  */
 public class FailureScreenshotTaker {
@@ -39,6 +38,7 @@ public class FailureScreenshotTaker {
 
   /**
    * Creates a new </code>{@link FailureScreenshotTaker}</code>.
+   * 
    * @param imageFolder the folder where screenshots will be saved to.
    */
   public FailureScreenshotTaker(File imageFolder) {
@@ -52,6 +52,7 @@ public class FailureScreenshotTaker {
 
   /**
    * Saves a screenshot of the desktop using the given description as the file name.
+   * 
    * @param failedTest the description of the test failure.
    */
   public void saveScreenshot(String failedTest) {

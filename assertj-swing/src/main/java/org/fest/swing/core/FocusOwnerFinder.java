@@ -54,7 +54,8 @@ public final class FocusOwnerFinder {
   }
 
   @VisibleForTesting
-  static @Nonnull List<FocusOwnerFinderStrategy> strategies() {
+  static @Nonnull
+  List<FocusOwnerFinderStrategy> strategies() {
     return newArrayList(STRATEGIES);
   }
 
@@ -62,10 +63,12 @@ public final class FocusOwnerFinder {
    * @return the focus owner. This method is executed in the event dispatch thread (EDT.)
    */
   @RunsInEDT
-  public static @Nullable Component inEdtFocusOwner() {
+  public static @Nullable
+  Component inEdtFocusOwner() {
     return execute(new GuiQuery<Component>() {
       @Override
-      protected @Nullable Component executeInEDT() {
+      protected @Nullable
+      Component executeInEDT() {
         return focusOwner();
       }
     });
@@ -84,7 +87,8 @@ public final class FocusOwnerFinder {
    * @return the focus owner.
    */
   @RunsInCurrentThread
-  public static @Nullable Component focusOwner() {
+  public static @Nullable
+  Component focusOwner() {
     for (FocusOwnerFinderStrategy strategy : STRATEGIES) {
       Component focusOwner = focusOwnerFrom(checkNotNull(strategy));
       if (focusOwner != null) {
@@ -94,7 +98,8 @@ public final class FocusOwnerFinder {
     return null;
   }
 
-  private static @Nullable Component focusOwnerFrom(@Nonnull FocusOwnerFinderStrategy strategy) {
+  private static @Nullable
+  Component focusOwnerFrom(@Nonnull FocusOwnerFinderStrategy strategy) {
     try {
       return strategy.focusOwner();
     } catch (Exception e) {
@@ -102,5 +107,6 @@ public final class FocusOwnerFinder {
     }
   }
 
-  private FocusOwnerFinder() {}
+  private FocusOwnerFinder() {
+  }
 }

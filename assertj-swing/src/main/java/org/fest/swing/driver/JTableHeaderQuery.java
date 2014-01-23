@@ -19,14 +19,17 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class JTableHeaderQuery {
   @RunsInEDT
-  static @Nullable JTableHeader tableHeader(final @Nonnull JTable table) {
+  static @Nullable
+  JTableHeader tableHeader(final @Nonnull JTable table) {
     return execute(new GuiQuery<JTableHeader>() {
       @Override
-      protected @Nullable JTableHeader executeInEDT() {
+      protected @Nullable
+      JTableHeader executeInEDT() {
         return table.getTableHeader();
       }
     });
   }
 
-  private JTableHeaderQuery() {}
+  private JTableHeaderQuery() {
+  }
 }

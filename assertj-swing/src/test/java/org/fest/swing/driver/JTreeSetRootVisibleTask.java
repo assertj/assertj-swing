@@ -38,5 +38,6 @@ final class JTreeSetRootVisibleTask {
     });
   }
 
-  private JTreeSetRootVisibleTask() {}
+  private JTreeSetRootVisibleTask() {
+  }
 }

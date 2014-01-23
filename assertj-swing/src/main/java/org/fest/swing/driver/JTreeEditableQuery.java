@@ -20,12 +20,14 @@ final class JTreeEditableQuery {
   static boolean isEditable(final @Nonnull JTree tree) {
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable Boolean executeInEDT() {
+      protected @Nullable
+      Boolean executeInEDT() {
         return tree.isEditable();
       }
     });
     return checkNotNull(result);
   }
 
-  private JTreeEditableQuery() {}
+  private JTreeEditableQuery() {
+  }
 }

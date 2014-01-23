@@ -35,7 +35,7 @@ import org.fest.swing.edt.GuiQuery;
  */
 public final class ComponentParentQuery {
   /**
-   * Returns the parent of the given AWT or Swing {@code Component}.  This query is executed in the event dispatch thread
+   * Returns the parent of the given AWT or Swing {@code Component}. This query is executed in the event dispatch thread
    * (EDT.)
    * 
    * @param component the given {@code Component}.
@@ -43,14 +43,17 @@ public final class ComponentParentQuery {
    * @see Component#getParent()
    */
   @RunsInEDT
-  public static @Nullable Container parentOf(final @Nonnull Component component) {
+  public static @Nullable
+  Container parentOf(final @Nonnull Component component) {
     return execute(new GuiQuery<Container>() {
       @Override
-      protected @Nullable Container executeInEDT() {
+      protected @Nullable
+      Container executeInEDT() {
         return component.getParent();
       }
     });
   }
 
-  private ComponentParentQuery() {}
+  private ComponentParentQuery() {
+  }
 }

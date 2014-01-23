@@ -57,7 +57,8 @@ public final class JSliderLocation {
    * @return the coordinates of the given value in the given {@code JSlider}.
    */
   @RunsInCurrentThread
-  public @Nonnull Point pointAt(@Nonnull JSlider slider, int value) {
+  public @Nonnull
+  Point pointAt(@Nonnull JSlider slider, int value) {
     JSliderLocationStrategy strategy = LOCATIONS.get(slider.getOrientation());
     return strategy.locationForValue(slider, value);
   }
@@ -71,7 +72,8 @@ public final class JSliderLocation {
 
     @Override
     @RunsInCurrentThread
-    @Nonnull Point update(@Nonnull Point center, int coordinate) {
+    @Nonnull
+    Point update(@Nonnull Point center, int coordinate) {
       return new Point(coordinate, center.y);
     }
   }
@@ -85,14 +87,16 @@ public final class JSliderLocation {
 
     @RunsInCurrentThread
     @Override
-    @Nonnull Point update(@Nonnull Point center, int coordinate) {
+    @Nonnull
+    Point update(@Nonnull Point center, int coordinate) {
       return new Point(center.x, coordinate);
     }
   }
 
   private static abstract class JSliderLocationStrategy {
     @RunsInCurrentThread
-    final @Nonnull Point locationForValue(JSlider slider, int value) {
+    final @Nonnull
+    Point locationForValue(JSlider slider, int value) {
       Point center = new Point(slider.getWidth() / 2, slider.getHeight() / 2);
       int max = max(slider, checkNotNull(slider.getInsets()));
       int coordinate = (int) (percent(slider, value) * max);
@@ -106,7 +110,8 @@ public final class JSliderLocation {
     abstract int max(@Nonnull JSlider slider, @Nonnull Insets insets);
 
     @RunsInCurrentThread
-    abstract @Nonnull Point update(@Nonnull Point center, int coordinate);
+    abstract @Nonnull
+    Point update(@Nonnull Point center, int coordinate);
 
     @RunsInCurrentThread
     private float percent(@Nonnull JSlider slider, int value) {

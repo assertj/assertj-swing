@@ -64,7 +64,8 @@ class RobotEventGenerator implements InputEventGenerator {
     settings.attachTo(robot);
   }
 
-  @Nonnull Robot robot() {
+  @Nonnull
+  Robot robot() {
     return robot;
   }
 

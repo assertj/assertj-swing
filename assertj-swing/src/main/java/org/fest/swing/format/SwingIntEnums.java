@@ -20,17 +20,18 @@ import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
 
 /**
  * Common Swing {@code int} enumerations.
- *
+ * 
  * @author Alex Ruiz
  */
 final class SwingIntEnums {
   static final IntEnum SELECTION_MODES = new IntEnum();
-  
+
   static {
     SELECTION_MODES.put(SINGLE_SELECTION, "SINGLE_SELECTION")
-                   .put(SINGLE_INTERVAL_SELECTION, "SINGLE_INTERVAL_SELECTION")
-                   .put(MULTIPLE_INTERVAL_SELECTION, "MULTIPLE_INTERVAL_SELECTION");
+        .put(SINGLE_INTERVAL_SELECTION, "SINGLE_INTERVAL_SELECTION")
+        .put(MULTIPLE_INTERVAL_SELECTION, "MULTIPLE_INTERVAL_SELECTION");
   }
 
-  private SwingIntEnums() {}
+  private SwingIntEnums() {
+  }
 }

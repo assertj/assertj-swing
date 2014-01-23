@@ -32,7 +32,8 @@ public interface EditableComponentFixture<S> {
    * @throws AssertionError if the {@code Component} is not editable.
    * @return this fixture.
    */
-  @Nonnull S requireEditable();
+  @Nonnull
+  S requireEditable();
 
   /**
    * Asserts that the {@code Component} is not editable.
@@ -40,6 +41,7 @@ public interface EditableComponentFixture<S> {
    * @throws AssertionError if the {@code Component} is editable.
    * @return this fixture.
    */
-  @Nonnull S requireNotEditable();
+  @Nonnull
+  S requireNotEditable();
 
 }

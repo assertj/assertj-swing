@@ -37,5 +37,6 @@ final class JScrollBarSetValueTask {
     });
   }
 
-  private JScrollBarSetValueTask() {}
+  private JScrollBarSetValueTask() {
+  }
 }

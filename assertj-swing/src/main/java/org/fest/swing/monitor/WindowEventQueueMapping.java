@@ -33,7 +33,7 @@ import org.fest.swing.annotation.RunsInCurrentThread;
 
 /**
  * A mapping of unique event queues to the set of root windows found on each queue.
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -54,10 +54,11 @@ class WindowEventQueueMapping {
     if (!(component instanceof Window) || parentOf(component) != null) {
       return;
     }
-    windowMapping.put((Window)component, TRUE);
+    windowMapping.put((Window) component, TRUE);
   }
 
-  private @Nonnull Map<Window, Boolean> createWindowMapping(EventQueue queue) {
+  private @Nonnull
+  Map<Window, Boolean> createWindowMapping(EventQueue queue) {
     Map<Window, Boolean> windowMapping = newWeakHashMap();
     queueMap.put(queue, windowMapping);
     return windowMapping;
@@ -79,7 +80,8 @@ class WindowEventQueueMapping {
     }
   }
 
-  @Nonnull Collection<Window> windows() {
+  @Nonnull
+  Collection<Window> windows() {
     Set<Window> rootWindows = newHashSet();
     for (EventQueue queue : queueMap.keySet()) {
       rootWindows.addAll(queueMap.get(queue).keySet());
@@ -87,7 +89,8 @@ class WindowEventQueueMapping {
     return rootWindows;
   }
 
-  @Nonnull Collection<EventQueue> eventQueues() {
+  @Nonnull
+  Collection<EventQueue> eventQueues() {
     return queueMap.keySet();
   }
 }

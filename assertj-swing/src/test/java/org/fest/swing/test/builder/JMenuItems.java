@@ -27,7 +27,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JMenuItems {
-  private JMenuItems() {}
+  private JMenuItems() {
+  }
 
   public static JMenuItemFactory menuItem() {
     return new JMenuItemFactory();

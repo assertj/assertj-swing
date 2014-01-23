@@ -38,5 +38,6 @@ public final class AbstractButtonSetSelectedTask {
     });
   }
 
-  private AbstractButtonSetSelectedTask() {}
+  private AbstractButtonSetSelectedTask() {
+  }
 }

@@ -87,7 +87,8 @@ public class JLabelDriver extends JComponentDriver implements TextDisplayDriver<
    */
   @RunsInEDT
   @Override
-  public @Nullable String textOf(@Nonnull JLabel label) {
+  public @Nullable
+  String textOf(@Nonnull JLabel label) {
     return JLabelTextQuery.textOf(label);
   }
 }

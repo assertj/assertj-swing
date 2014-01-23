@@ -28,7 +28,7 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class BasicComponentPrinter_printComponentsUsingComponentMatcherInRoot_Test extends
-BasicComponentPrinter_TestCase {
+    BasicComponentPrinter_TestCase {
   @Test(expected = NullPointerException.class)
   public void should_throw_error_if_OutputStream_is_null() {
     printer.printComponents(null, new NameMatcher("button1"), windowOne);

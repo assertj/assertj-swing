@@ -29,7 +29,7 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class NamedComponentMatcherTemplate_arePropertyValuesMatching_Test extends
-NamedComponentMatcherTemplate_TestCase {
+    NamedComponentMatcherTemplate_TestCase {
   @Test
   public void should_match_values_using_equality_if_values_are_POJOs() {
     matcher = new Matcher(JLabel.class, "hello");

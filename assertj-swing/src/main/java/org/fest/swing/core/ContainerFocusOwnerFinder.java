@@ -30,7 +30,8 @@ import org.fest.swing.annotation.RunsInCurrentThread;
  */
 class ContainerFocusOwnerFinder {
   @RunsInCurrentThread
-  @Nullable Component focusOwnerOf(@Nullable Container c) {
+  @Nullable
+  Component focusOwnerOf(@Nullable Container c) {
     if (!(c instanceof Window)) {
       return null;
     }
@@ -38,7 +39,8 @@ class ContainerFocusOwnerFinder {
   }
 
   @RunsInCurrentThread
-  private @Nullable Component focusOwnerOf(@Nonnull Window w) {
+  private @Nullable
+  Component focusOwnerOf(@Nonnull Window w) {
     if (!w.isShowing()) {
       return null;
     }

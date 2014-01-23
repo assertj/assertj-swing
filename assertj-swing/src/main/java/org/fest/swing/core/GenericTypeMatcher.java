@@ -94,7 +94,8 @@ public abstract class GenericTypeMatcher<T extends Component> extends AbstractCo
   /**
    * @return the supported type of this matcher.
    */
-  public final @Nonnull Class<T> supportedType() {
+  public final @Nonnull
+  Class<T> supportedType() {
     return supportedType;
   }
 

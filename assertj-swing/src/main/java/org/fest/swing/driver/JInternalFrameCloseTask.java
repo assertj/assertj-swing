@@ -38,5 +38,6 @@ final class JInternalFrameCloseTask {
     });
   }
 
-  private JInternalFrameCloseTask() {}
+  private JInternalFrameCloseTask() {
+  }
 }

@@ -24,7 +24,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for {@link Reflection#innerClass(String)}.
- *
+ * 
  * @author Alex Ruiz
  */
 public class Reflection_innerClass_Test {

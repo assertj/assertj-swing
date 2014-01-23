@@ -27,7 +27,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JFileChoosers {
-  private JFileChoosers() {}
+  private JFileChoosers() {
+  }
 
   public static JFileChooserFactory fileChooser() {
     return new JFileChooserFactory();

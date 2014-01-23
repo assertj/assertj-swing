@@ -37,5 +37,6 @@ final class JListSetSelectedIndexTask {
     });
   }
 
-  private JListSetSelectedIndexTask() {}
+  private JListSetSelectedIndexTask() {
+  }
 }

@@ -94,14 +94,15 @@ public class KeyStrokeMap {
    * @return the key code-based {@code KeyStroke} corresponding to the given character, or {@code null} if we cannot
    *         generate it.
    */
-  public static @Nullable KeyStroke keyStrokeFor(char character) {
+  public static @Nullable
+  KeyStroke keyStrokeFor(char character) {
     return maps.keyStrokeFor(character);
   }
 
   /**
    * Given a {@link KeyStroke}, returns the equivalent character. Key strokes are defined properly for US keyboards
-   * only. To contribute your own, please add them using the method
-   * {@link #addKeyStrokesFrom(KeyStrokeMappingProvider)}.
+   * only. To contribute your own, please add them using the method {@link #addKeyStrokesFrom(KeyStrokeMappingProvider)}
+   * .
    * 
    * @param keyStroke the given {@code KeyStroke}.
    * @return {@code KeyEvent.VK_UNDEFINED} if the result is unknown.
@@ -118,10 +119,12 @@ public class KeyStrokeMap {
     return character;
   }
 
-  private static @Nullable Character charWithoutModifiersButShift(@Nonnull KeyStroke keyStroke) {
+  private static @Nullable
+  Character charWithoutModifiersButShift(@Nonnull KeyStroke keyStroke) {
     int mask = keyStroke.getModifiers() & ~SHIFT_MASK;
     return maps.charFor(KeyStroke.getKeyStroke(keyStroke.getKeyCode(), mask));
   }
 
-  private KeyStrokeMap() {}
+  private KeyStrokeMap() {
+  }
 }

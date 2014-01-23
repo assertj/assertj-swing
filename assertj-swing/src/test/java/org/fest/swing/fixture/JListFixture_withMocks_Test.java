@@ -1,15 +1,15 @@
 /*
  * Created on Jun 12, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2013 the original author or authors.
  */
 package org.fest.swing.fixture;
@@ -36,7 +36,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JListFixture}.
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -168,7 +168,7 @@ public class JListFixture_withMocks_Test {
 
   @Test
   public void should_call_selectItems_with_Patterns_in_driver_and_return_self() {
-    Pattern[] patterns = { Pattern.compile("six")  };
+    Pattern[] patterns = { Pattern.compile("six") };
     assertThat(fixture.selectItems(patterns)).isSameAs(fixture);
     verify(driver).selectItems(target, patterns);
   }
@@ -214,7 +214,7 @@ public class JListFixture_withMocks_Test {
 
   @Test
   public void should_call_requireSelectedItems_with_Patterns_in_driver_and_return_self() {
-    Pattern[] patterns = { Pattern.compile("six")  };
+    Pattern[] patterns = { Pattern.compile("six") };
     assertThat(fixture.requireSelectedItems(patterns)).isSameAs(fixture);
     verify(driver).requireSelectedItems(target, patterns);
   }

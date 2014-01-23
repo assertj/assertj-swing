@@ -53,7 +53,8 @@ public final class GUITestFinder {
     return false;
   }
 
-  private static @Nullable Method findMethod(@Nonnull Class<?> type, @Nonnull Method method) {
+  private static @Nullable
+  Method findMethod(@Nonnull Class<?> type, @Nonnull Method method) {
     try {
       return type.getDeclaredMethod(method.getName(), method.getParameterTypes());
     } catch (Throwable t) {
@@ -65,5 +66,6 @@ public final class GUITestFinder {
     return annotatedElement.isAnnotationPresent(GUITest.class);
   }
 
-  private GUITestFinder() {}
+  private GUITestFinder() {
+  }
 }

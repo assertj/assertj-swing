@@ -87,7 +87,7 @@ public class Bug80_JDialogLookup_Test extends RobotBasedTestCase {
     }
 
     private class OpenJDialogAction extends AbstractAction {
-        OpenJDialogAction() {
+      OpenJDialogAction() {
         super("Start!");
       }
 
@@ -100,7 +100,7 @@ public class Bug80_JDialogLookup_Test extends RobotBasedTestCase {
     }
 
     private static class NestedJDialog extends JDialog {
-        NestedJDialog(JDialog owner) {
+      NestedJDialog(JDialog owner) {
         super(owner, true);
         setContentPane(createContentPane());
         setName("NestedDialog");

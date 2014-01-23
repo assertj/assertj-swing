@@ -14,10 +14,10 @@
  */
 /**
  * <p>
- * Provides support to use Java Generics overcoming the limitations of
- * <a href="http://docs.oracle.com/javase/tutorial/java/generics/erasure.html" target="_blank">type erasure</a>.
- * Based on Neal Gafter's
- * <a href="http://gafter.blogspot.com/2006/12/super-type-tokens.html" target="_blank">Super Type Tokens</a>.
+ * Provides support to use Java Generics overcoming the limitations of <a
+ * href="http://docs.oracle.com/javase/tutorial/java/generics/erasure.html" target="_blank">type erasure</a>. Based on
+ * Neal Gafter's <a href="http://gafter.blogspot.com/2006/12/super-type-tokens.html" target="_blank">Super Type
+ * Tokens</a>.
  * </p>
  */
 package org.fest.reflect.reference;

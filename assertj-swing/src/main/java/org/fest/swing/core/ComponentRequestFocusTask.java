@@ -39,5 +39,6 @@ final class ComponentRequestFocusTask {
     });
   }
 
-  private ComponentRequestFocusTask() {}
+  private ComponentRequestFocusTask() {
+  }
 }

@@ -55,7 +55,8 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
     extraSetUp();
   }
 
-  void extraSetUp() {}
+  void extraSetUp() {
+  }
 
   @RunsInEDT
   final void disableTree() {

@@ -39,5 +39,6 @@ final class ComponentSetSizeTask {
     });
   }
 
-  private ComponentSetSizeTask() {}
+  private ComponentSetSizeTask() {
+  }
 }

@@ -37,7 +37,7 @@ public class JTabbedPaneLocation_validateIndex_Test extends JTabbedPaneLocation_
       failWhenExpectingException();
     } catch (IndexOutOfBoundsException e) {
       assertThat(e.getMessage())
-      .isEqualTo("Index <-1> is not within the JTabbedPane bounds of <0> and <1> (inclusive)");
+          .isEqualTo("Index <-1> is not within the JTabbedPane bounds of <0> and <1> (inclusive)");
     }
   }
 

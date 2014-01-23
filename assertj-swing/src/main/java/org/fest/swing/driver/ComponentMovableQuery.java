@@ -35,5 +35,6 @@ final class ComponentMovableQuery {
     return c instanceof Dialog || c instanceof Frame || c instanceof JInternalFrame;
   }
 
-  private ComponentMovableQuery() {}
+  private ComponentMovableQuery() {
+  }
 }

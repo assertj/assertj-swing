@@ -35,9 +35,9 @@ import org.fest.swing.edt.GuiTask;
 
 /**
  * Verifies that a {@code JTree} has the expected selection.
- *
+ * 
  * @author Alex Ruiz
- *
+ * 
  * @since 1.2
  */
 final class JTreeVerifySelectionTask {
@@ -45,7 +45,8 @@ final class JTreeVerifySelectionTask {
   static void checkHasSelection(final @Nonnull JTree tree, final @Nonnull int[] selection,
       final @Nonnull Description errMsg) {
     execute(new GuiTask() {
-      @Override protected void executeInEDT() {
+      @Override
+      protected void executeInEDT() {
         checkSelection(tree, selection, errMsg);
       }
     });
@@ -65,8 +66,8 @@ final class JTreeVerifySelectionTask {
     throw failNotEqualSelection(errMsg, selection, selectionRows);
   }
 
-  private static @Nonnull AssertionError failNotEqualSelection(@Nonnull Description errMsg, @Nonnull int[] expected,
-      @Nonnull int[] actual) {
+  private static @Nonnull
+  AssertionError failNotEqualSelection(@Nonnull Description errMsg, @Nonnull int[] expected, @Nonnull int[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
     String msg = String.format(format, errMsg.value(), format(expected), format(actual));
     throw fail(msg);
@@ -76,7 +77,8 @@ final class JTreeVerifySelectionTask {
   static void checkHasSelection(final @Nonnull JTree tree, final @Nonnull String[] selection,
       final @Nonnull JTreePathFinder pathFinder, final @Nonnull Description errMsg) {
     execute(new GuiTask() {
-      @Override protected void executeInEDT() {
+      @Override
+      protected void executeInEDT() {
         checkSelection(tree, selection, pathFinder, errMsg);
       }
     });
@@ -103,7 +105,8 @@ final class JTreeVerifySelectionTask {
     }
   }
 
-  private static @Nonnull AssertionError failNotEqualSelection(@Nonnull Description errMsg, @Nonnull String[] expected,
+  private static @Nonnull
+  AssertionError failNotEqualSelection(@Nonnull Description errMsg, @Nonnull String[] expected,
       @Nonnull TreePath[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
     String msg = String.format(format, errMsg.value(), format(expected), format(actual));
@@ -114,11 +117,11 @@ final class JTreeVerifySelectionTask {
     fail(String.format("[%s] No selection", errMessage.value()));
   }
 
-
   @RunsInEDT
   static void checkNoSelection(final @Nonnull JTree tree, final @Nonnull Description errMsg) {
     execute(new GuiTask() {
-      @Override protected void executeInEDT() {
+      @Override
+      protected void executeInEDT() {
         if (tree.getSelectionCount() == 0) {
           return;
         }
@@ -129,5 +132,6 @@ final class JTreeVerifySelectionTask {
     });
   }
 
-  private JTreeVerifySelectionTask() {}
+  private JTreeVerifySelectionTask() {
+  }
 }

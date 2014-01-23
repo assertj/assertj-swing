@@ -34,12 +34,14 @@ final class JListItemCountQuery {
   static int itemCountIn(final @Nonnull JList list) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable Integer executeInEDT() {
+      protected @Nullable
+      Integer executeInEDT() {
         return list.getModel().getSize();
       }
     });
     return checkNotNull(result);
   }
 
-  private JListItemCountQuery() {}
+  private JListItemCountQuery() {
+  }
 }

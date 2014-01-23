@@ -40,5 +40,6 @@ public final class ArrayPreconditions {
     return array;
   }
 
-  private ArrayPreconditions() {}
+  private ArrayPreconditions() {
+  }
 }

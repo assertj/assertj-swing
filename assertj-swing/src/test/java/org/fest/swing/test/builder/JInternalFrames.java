@@ -27,7 +27,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JInternalFrames {
-  private JInternalFrames() {}
+  private JInternalFrames() {
+  }
 
   public static JInternalFrameFactory internalFrame() {
     return new JInternalFrameFactory();

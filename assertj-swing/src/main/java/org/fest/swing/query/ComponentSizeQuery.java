@@ -36,7 +36,7 @@ import org.fest.swing.edt.GuiQuery;
  */
 public final class ComponentSizeQuery {
   /**
-   * Returns the size of the given AWT or Swing {@code Component}.  This query is executed in the event dispatch thread
+   * Returns the size of the given AWT or Swing {@code Component}. This query is executed in the event dispatch thread
    * (EDT.)
    * 
    * @param component the given {@code Component}.
@@ -44,15 +44,18 @@ public final class ComponentSizeQuery {
    * @see Component#getSize()
    */
   @RunsInEDT
-  public static @Nonnull Dimension sizeOf(final @Nonnull Component component) {
+  public static @Nonnull
+  Dimension sizeOf(final @Nonnull Component component) {
     Dimension result = execute(new GuiQuery<Dimension>() {
       @Override
-      protected @Nullable Dimension executeInEDT() {
+      protected @Nullable
+      Dimension executeInEDT() {
         return component.getSize();
       }
     });
     return checkNotNull(result);
   }
 
-  private ComponentSizeQuery() {}
+  private ComponentSizeQuery() {
+  }
 }

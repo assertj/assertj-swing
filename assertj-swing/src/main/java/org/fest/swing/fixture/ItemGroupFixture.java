@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 
 /**
  * Supports functional testing of {@code Component}s that contains or display a group of items.
- *
+ * 
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
  *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * 
@@ -32,7 +32,8 @@ public interface ItemGroupFixture<S> {
   /**
    * @return the {@code String} representation of the elements in this fixture's {@code Component}.
    */
-  @Nonnull String[] contents();
+  @Nonnull
+  String[] contents();
 
   /**
    * Clears the selection in this fixture's {@code Component}.
@@ -40,7 +41,8 @@ public interface ItemGroupFixture<S> {
    * @return this fixture.
    * @since 1.2
    */
-  @Nonnull S clearSelection();
+  @Nonnull
+  S clearSelection();
 
   /**
    * Simulates a user selecting an item in this fixture's {@code Component}.
@@ -48,7 +50,8 @@ public interface ItemGroupFixture<S> {
    * @param index the index of the item to select.
    * @return this fixture.
    */
-  @Nonnull S selectItem(int index);
+  @Nonnull
+  S selectItem(int index);
 
   /**
    * Simulates a user selecting an item in this fixture's {@code Component}.
@@ -56,7 +59,8 @@ public interface ItemGroupFixture<S> {
    * @param value the value of the item to select. It can be a regular expression.
    * @return this fixture.
    */
-  @Nonnull S selectItem(@Nullable String value);
+  @Nonnull
+  S selectItem(@Nullable String value);
 
   /**
    * Simulates a user selecting an item in this fixture's {@code Component}. The text of the item to select must match
@@ -67,7 +71,8 @@ public interface ItemGroupFixture<S> {
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @since 1.2
    */
-  @Nonnull S selectItem(@Nonnull Pattern pattern);
+  @Nonnull
+  S selectItem(@Nonnull Pattern pattern);
 
   /**
    * Returns the value of an item in the {@code Component} managed by this fixture. If the value is not meaningful, this
@@ -76,7 +81,8 @@ public interface ItemGroupFixture<S> {
    * @param index the index of the item to return.
    * @return the value of the item under the given index, or {@code null} if nothing meaningful.
    */
-  @Nullable Object valueAt(int index);
+  @Nullable
+  Object valueAt(int index);
 
   /**
    * Verifies that the value of the selected item in this fixture's {@code Component} matches the given value.
@@ -85,7 +91,8 @@ public interface ItemGroupFixture<S> {
    * @return this fixture.
    * @throws AssertionError if the selected item does not match the given value.
    */
-  @Nonnull S requireSelection(@Nullable String value);
+  @Nonnull
+  S requireSelection(@Nullable String value);
 
   /**
    * Verifies that the value of the selected item in this fixture's {@code Component} matches the given regular
@@ -97,7 +104,8 @@ public interface ItemGroupFixture<S> {
    * @throws AssertionError if the selected item does not match the given regular expression pattern.
    * @since 1.2
    */
-  @Nonnull S requireSelection(@Nonnull Pattern pattern);
+  @Nonnull
+  S requireSelection(@Nonnull Pattern pattern);
 
   /**
    * Verifies that the index of the selected item in this fixture's {@code Component} is equal to the given value.
@@ -107,7 +115,8 @@ public interface ItemGroupFixture<S> {
    * @throws AssertionError if the selection index is not equal to the given value.
    * @since 1.2
    */
-  @Nonnull S requireSelection(int index);
+  @Nonnull
+  S requireSelection(int index);
 
   /**
    * Verifies that this fixture's {@code Component} does not have a selection.
@@ -115,7 +124,8 @@ public interface ItemGroupFixture<S> {
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code Component} has a selection.
    */
-  @Nonnull S requireNoSelection();
+  @Nonnull
+  S requireNoSelection();
 
   /**
    * Verifies that this fixture's {@code Component} has the expected number of items
@@ -125,5 +135,6 @@ public interface ItemGroupFixture<S> {
    * @throws AssertionError if the number of items in this fixture's {@code Component} is not equal to the expected one.
    * @since 1.2
    */
-  @Nonnull S requireItemCount(int expected);
+  @Nonnull
+  S requireItemCount(int expected);
 }

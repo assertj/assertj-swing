@@ -38,5 +38,6 @@ final class JTreeSelectRowsTask {
     });
   }
 
-  private JTreeSelectRowsTask() {}
+  private JTreeSelectRowsTask() {
+  }
 }

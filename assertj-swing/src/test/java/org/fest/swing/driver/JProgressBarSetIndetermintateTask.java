@@ -39,5 +39,6 @@ final class JProgressBarSetIndetermintateTask {
     });
   }
 
-  private JProgressBarSetIndetermintateTask() {}
+  private JProgressBarSetIndetermintateTask() {
+  }
 }

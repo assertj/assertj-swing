@@ -31,7 +31,8 @@ import javax.annotation.Nonnull;
 final class FocusMonitor implements FocusListener {
   private volatile boolean hasFocus;
 
-  static @Nonnull FocusMonitor attachTo(@Nonnull Component c) {
+  static @Nonnull
+  FocusMonitor attachTo(@Nonnull Component c) {
     FocusMonitor monitor = new FocusMonitor(c);
     c.addFocusListener(monitor);
     return monitor;

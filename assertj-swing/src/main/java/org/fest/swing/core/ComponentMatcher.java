@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} matches some desired criteria.
- *
+ * 
  * @author Alex Ruiz
  */
 public interface ComponentMatcher {

@@ -37,12 +37,14 @@ final class JComboBoxSelectedIndexQuery {
   static int selectedIndexOf(final @Nonnull JComboBox comboBox) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable Integer executeInEDT() {
+      protected @Nullable
+      Integer executeInEDT() {
         return comboBox.getSelectedIndex();
       }
     });
     return checkNotNull(result);
   }
 
-  private JComboBoxSelectedIndexQuery() {}
+  private JComboBoxSelectedIndexQuery() {
+  }
 }

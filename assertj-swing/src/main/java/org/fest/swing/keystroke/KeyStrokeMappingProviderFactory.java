@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * @since 1.2
  */
 class KeyStrokeMappingProviderFactory {
-  @Nullable KeyStrokeMappingProvider createProvider(@Nonnull String className) {
+  @Nullable
+  KeyStrokeMappingProvider createProvider(@Nonnull String className) {
     try {
       Class<?> type = Class.forName(className);
       if (!KeyStrokeMappingProvider.class.isAssignableFrom(type)) {

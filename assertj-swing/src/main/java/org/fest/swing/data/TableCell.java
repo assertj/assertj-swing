@@ -1,15 +1,15 @@
 /*
  * Created on Mar 2, 2008
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2008-2013 the original author or authors.
  */
 package org.fest.swing.data;
@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 
 /**
  * A cell in a {@code JTable}.
- *
+ * 
  * @author Alex Ruiz
  */
 public class TableCell {
@@ -34,25 +34,28 @@ public class TableCell {
    * <p>
    * Starting point for the creation of a {@link TableCell}.
    * </p>
-   *
+   * 
    * <p>
    * Example:
+   * 
    * <pre>
    * // import static org.fest.swing.data.TableCell.row;
    * TableCell cell = row(5).column(3);
    * </pre>
+   * 
    * </p>
-   *
+   * 
    * @param row the row index of the table cell to create.
    * @return the created builder.
    */
-  public static @Nonnull TableCellBuilder row(int row) {
+  public static @Nonnull
+  TableCellBuilder row(int row) {
     return new TableCellBuilder(row);
   }
 
   /**
    * Factory of {@link TableCell}s.
-   *
+   * 
    * @author Alex Ruiz
    */
   public static class TableCellBuilder {
@@ -63,20 +66,21 @@ public class TableCell {
     }
 
     /**
-     * Creates a new table cell using the row index specified in {@link TableCellBuilder#row(int)} and the
-     * column index specified as the argument in this method.
-     *
+     * Creates a new table cell using the row index specified in {@link TableCellBuilder#row(int)} and the column index
+     * specified as the argument in this method.
+     * 
      * @param column the column index of the table cell to create.
      * @return the created table cell.
      */
-    public @Nonnull TableCell column(int column) {
+    public @Nonnull
+    TableCell column(int column) {
       return new TableCell(row, column);
     }
   }
 
   /**
    * Creates a new {@link TableCell}.
-   *
+   * 
    * @param row the row of the cell.
    * @param column the column of the cell.
    */

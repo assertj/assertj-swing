@@ -49,7 +49,8 @@ public enum MouseButton {
    * @return the found button.
    * @throws IllegalArgumentException if the given mask is not a valid one.
    */
-  public @Nonnull static MouseButton lookup(int mask) {
+  public @Nonnull
+  static MouseButton lookup(int mask) {
     for (MouseButton button : values()) {
       if (button.mask == mask) {
         return button;

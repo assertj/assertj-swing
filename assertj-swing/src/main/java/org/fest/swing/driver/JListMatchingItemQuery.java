@@ -41,15 +41,17 @@ import org.fest.swing.util.TextMatcher;
 /**
  * Looks up the first item in a {@code JList} whose value matches a given one. This query is executed in the event
  * dispatch thread (EDT.)
- *
+ * 
  * @author Alex Ruiz
  */
 final class JListMatchingItemQuery {
   @RunsInEDT
-  static @Nonnull Point centerOfMatchingItemCell(final @Nonnull JList list, final @Nullable String value,
+  static @Nonnull
+  Point centerOfMatchingItemCell(final @Nonnull JList list, final @Nullable String value,
       final @Nonnull JListCellReader cellReader) {
     Point result = execute(new GuiQuery<Point>() {
-      @Override protected Point executeInEDT() {
+      @Override
+      protected Point executeInEDT() {
         int itemIndex = matchingItemIndex(list, new StringTextMatcher(value), cellReader);
         Rectangle cellBounds = checkNotNull(cellBounds(list, itemIndex));
         return cellCenter(list, cellBounds);
@@ -70,10 +72,12 @@ final class JListMatchingItemQuery {
   }
 
   @RunsInEDT
-  static @Nonnull List<Integer> matchingItemIndices(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
+  static @Nonnull
+  List<Integer> matchingItemIndices(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
       final @Nonnull JListCellReader cellReader) {
     List<Integer> result = execute(new GuiQuery<List<Integer>>() {
-      @Override protected List<Integer> executeInEDT() {
+      @Override
+      protected List<Integer> executeInEDT() {
         Set<Integer> indices = newHashSet();
         int size = list.getModel().getSize();
         for (int i = 0; i < size; i++) {
@@ -90,10 +94,12 @@ final class JListMatchingItemQuery {
   }
 
   @RunsInEDT
-  static @Nonnull List<String> matchingItemValues(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
+  static @Nonnull
+  List<String> matchingItemValues(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
       final @Nonnull JListCellReader cellReader) {
     List<String> result = execute(new GuiQuery<List<String>>() {
-      @Override protected List<String> executeInEDT() {
+      @Override
+      protected List<String> executeInEDT() {
         List<String> values = newArrayList();
         int size = list.getModel().getSize();
         for (int i = 0; i < size; i++) {
@@ -108,5 +114,6 @@ final class JListMatchingItemQuery {
     return checkNotNull(result);
   }
 
-  private JListMatchingItemQuery() {}
+  private JListMatchingItemQuery() {
+  }
 }

@@ -1,15 +1,15 @@
 /*
  * Created on Mar 20, 2009
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2009 the original author or authors.
  */
 package org.fest.swing.junit.ant;
@@ -29,7 +29,7 @@ import org.fest.swing.junit.xml.XmlNode;
 
 /**
  * Understands taking a screenshot of the desktop and, encoding and writing the resulting image into a XML element.
- *
+ * 
  * @author Alex Ruiz
  */
 class ScreenshotXmlWriter {
@@ -52,9 +52,11 @@ class ScreenshotXmlWriter {
   void writeScreenshot(XmlNode target, Test test) {
     String testClass = testClassNameFrom(test);
     String testMethod = testMethodNameFrom(test);
-    if (!guiTestRecognizer.isGUITest(testClass, testMethod)) return;
+    if (!guiTestRecognizer.isGUITest(testClass, testMethod))
+      return;
     String image = takeScreenshotAndReturnEncoded();
-    if (isEmpty(image)) return;
+    if (isEmpty(image))
+      return;
     writeScreenshotFileName(target, image, imageFileName(testClass, testMethod));
   }
 

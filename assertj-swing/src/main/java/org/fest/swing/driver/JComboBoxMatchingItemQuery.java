@@ -37,7 +37,8 @@ final class JComboBoxMatchingItemQuery {
       final @Nonnull JComboBoxCellReader cellReader) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable Integer executeInEDT() {
+      protected @Nullable
+      Integer executeInEDT() {
         int itemCount = comboBox.getItemCount();
         for (int i = 0; i < itemCount; i++) {
           String value = cellReader.valueAt(comboBox, i);
@@ -51,5 +52,6 @@ final class JComboBoxMatchingItemQuery {
     return Preconditions.checkNotNull(result);
   }
 
-  private JComboBoxMatchingItemQuery() {}
+  private JComboBoxMatchingItemQuery() {
+  }
 }

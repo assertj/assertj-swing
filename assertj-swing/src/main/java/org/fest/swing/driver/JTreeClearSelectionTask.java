@@ -38,5 +38,6 @@ final class JTreeClearSelectionTask {
     });
   }
 
-  private JTreeClearSelectionTask() {}
+  private JTreeClearSelectionTask() {
+  }
 }

@@ -49,5 +49,6 @@ public interface JTreeCellReader {
    * @param modelValue the value of a cell, retrieved from the model.
    * @return the internal value of a cell in a {@code JTree} as expected in a test.
    */
-  @Nullable String valueAt(@Nonnull JTree tree, @Nullable Object modelValue);
+  @Nullable
+  String valueAt(@Nonnull JTree tree, @Nullable Object modelValue);
 }

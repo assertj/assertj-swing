@@ -44,7 +44,7 @@ public class ComponentDriver_clickComponentWithMouseClickInfo_Test extends Compo
     MouseClickInfo mouseClickInfo = leftButton().times(3);
     driver.click(window.button, mouseClickInfo);
     assertThat(clickRecorder).wasClickedWith(mouseClickInfo.button()).clickedAt(centerOf(window.button))
-    .timesClicked(mouseClickInfo.times());
+        .timesClicked(mouseClickInfo.times());
   }
 
   @Test

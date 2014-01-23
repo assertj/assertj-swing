@@ -45,11 +45,13 @@ class KeyStrokeMapCollection {
     return charToKeyStroke.isEmpty() && keyStrokeToChar.isEmpty();
   }
 
-  @Nullable KeyStroke keyStrokeFor(char character) {
+  @Nullable
+  KeyStroke keyStrokeFor(char character) {
     return charToKeyStroke.get(character);
   }
 
-  @Nullable Character charFor(KeyStroke keyStroke) {
+  @Nullable
+  Character charFor(KeyStroke keyStroke) {
     return keyStrokeToChar.get(keyStroke);
   }
 }

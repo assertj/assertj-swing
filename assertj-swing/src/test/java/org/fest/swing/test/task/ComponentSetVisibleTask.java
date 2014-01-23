@@ -50,5 +50,6 @@ public final class ComponentSetVisibleTask {
     });
   }
 
-  private ComponentSetVisibleTask() {}
+  private ComponentSetVisibleTask() {
+  }
 }

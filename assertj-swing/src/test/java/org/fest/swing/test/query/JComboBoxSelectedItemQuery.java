@@ -40,5 +40,6 @@ public final class JComboBoxSelectedItemQuery {
     });
   }
 
-  private JComboBoxSelectedItemQuery() {}
+  private JComboBoxSelectedItemQuery() {
+  }
 }

@@ -1,16 +1,15 @@
 /*
  * Created on Mar 16, 2009
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- *
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ * 
  * Copyright @2009 the original author or authors.
  */
 package org.fest.swing.junit.v4_3_1.runner;
@@ -32,7 +31,7 @@ import org.junit.runner.notification.RunNotifier;
 
 /**
  * Tests for <code>{@link MethodRunner#addFailure(Throwable)}</code>.
- *
+ * 
  * @author Alex Ruiz
  */
 public class MethodRunner_addFailure_Test {
@@ -45,7 +44,8 @@ public class MethodRunner_addFailure_Test {
   private Exception exception;
   private Failure expectedFailure;
 
-  @Before public void setUp() {
+  @Before
+  public void setUp() {
     testClass = SomeGuiTestFake.class;
     notifier = createMock(RunNotifier.class);
     screenshotTaker = createMock(FailureScreenshotTaker.class);
@@ -117,9 +117,11 @@ public class MethodRunner_addFailure_Test {
     }
 
     public boolean matches(Object argument) {
-      if (!(argument instanceof Failure)) return false;
+      if (!(argument instanceof Failure))
+        return false;
       Failure actual = (Failure) argument;
-      if (!areEqual(expected.getDescription(), actual.getDescription())) return false;
+      if (!areEqual(expected.getDescription(), actual.getDescription()))
+        return false;
       return areEqual(expected.getException(), actual.getException());
     }
   }

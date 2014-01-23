@@ -89,7 +89,8 @@ class WindowFilter {
     filter(c, false);
   }
 
-  @Nonnull Collection<Component> filtered() {
+  @Nonnull
+  Collection<Component> filtered() {
     return ignored.keySet();
   }
 

@@ -44,5 +44,6 @@ final class JTableCellEditableQuery {
     return table.isCellEditable(cell.row, cell.column);
   }
 
-  private JTableCellEditableQuery() {}
+  private JTableCellEditableQuery() {
+  }
 }

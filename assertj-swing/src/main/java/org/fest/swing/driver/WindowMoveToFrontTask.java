@@ -41,5 +41,6 @@ final class WindowMoveToFrontTask {
     });
   }
 
-  private WindowMoveToFrontTask() {}
+  private WindowMoveToFrontTask() {
+  }
 }

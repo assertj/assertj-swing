@@ -26,9 +26,9 @@ import static org.fest.util.Preconditions.checkNotNull;
 import static org.fest.util.Preconditions.checkNotNullOrEmpty;
 
 /**
- * Accesses a field via
- * <a href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java Reflection</a>.
- *
+ * Accesses a field via <a href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java
+ * Reflection</a>.
+ * 
  * @param <T> the type of the field to access.
  * @author Alex Ruiz
  */
@@ -45,7 +45,8 @@ public final class FieldAccessor<T> {
     accessible = field.isAccessible();
   }
 
-  private @Nonnull Field findFieldInClassHierarchy(@Nonnull String fieldName) {
+  private @Nonnull
+  Field findFieldInClassHierarchy(@Nonnull String fieldName) {
     Field field = null;
     Class<?> originalType = target instanceof Class<?> ? (Class<?>) target : target.getClass();
     Class<?> targetType = originalType;
@@ -65,8 +66,8 @@ public final class FieldAccessor<T> {
         Class<?> actualType = field.getType();
         if (!fieldType.isAssignableFrom(actualType)) {
           String format = "Expecting type of field '%s' in %s to be <%s> but was <%s>";
-          String msg =
-              String.format(format, fieldName, originalType.getName(), fieldType.getName(), actualType.getName());
+          String msg = String.format(format, fieldName, originalType.getName(), fieldType.getName(),
+              actualType.getName());
           throw new ReflectionError(msg);
         }
       } finally {
@@ -83,27 +84,28 @@ public final class FieldAccessor<T> {
    * Sets a value in the field specified in this fluent interface.
    * <p/>
    * Examples:
+   * 
    * <pre>
    * // import static {@link org.fest.reflect.core.Reflection#field(String) org.fest.reflect.core.Reflection.field};
-   *
+   * 
    * // Retrieves the value of the field "name"
    * String name = {@link org.fest.reflect.core.Reflection#field(String) field}("name").{@link FieldName#ofType(Class) ofType}(String.class).{@link FieldType#in(Object) in}(person).{@link FieldAccessor#get() get}();
-   *
+   * 
    * // Sets the value of the field "name" to "Yoda"
    * {@link org.fest.reflect.core.Reflection#field(String) field}("name").{@link FieldName#ofType(Class) ofType}(String.class).{@link FieldType#in(Object) in}(person).{@link FieldAccessor#set(Object) set}("Yoda");
-   *
+   * 
    * // Retrieves the value of the field "powers"
    * List&lt;String&gt; powers = {@link org.fest.reflect.core.Reflection#field(String) field}("powers").{@link FieldName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link FieldTypeRef#in(Object) in}(jedi).{@link FieldAccessor#get() get}();
-   *
+   * 
    * // Sets the value of the field "powers"
    * List&lt;String&gt; powers = new ArrayList&lt;String&gt;();
    * powers.add("heal");
    * {@link org.fest.reflect.core.Reflection#field(String) field}("powers").{@link FieldName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link FieldTypeRef#in(Object) in}(jedi).{@link FieldAccessor#set(Object) set}(powers);
-   *
+   * 
    * // Retrieves the value of the static field "count" in Person.class
    * int count = {@link org.fest.reflect.core.Reflection#field(String) field}("count").{@link org.fest.reflect.field.FieldName#ofType(Class) ofType}(int.class).{@link org.fest.reflect.field.FieldType#in(Object) in}(Person.class).{@link org.fest.reflect.field.FieldAccessor#get() get}();
    * </pre>
-   *
+   * 
    * @param value the value to set.
    * @throws ReflectionError if the given value cannot be set.
    */
@@ -125,31 +127,33 @@ public final class FieldAccessor<T> {
    * Retrieves the value of the field specified in this fluent interface.
    * <p/>
    * Examples:
+   * 
    * <pre>
    * // import static {@link org.fest.reflect.core.Reflection#field(String) org.fest.reflect.core.Reflection.field};
-   *
+   * 
    * // Retrieves the value of the field "name"
    * String name = {@link org.fest.reflect.core.Reflection#field(String) field}("name").{@link FieldName#ofType(Class) ofType}(String.class).{@link FieldType#in(Object) in}(person).{@link FieldAccessor#get() get}();
-   *
+   * 
    * // Sets the value of the field "name" to "Yoda"
    * {@link org.fest.reflect.core.Reflection#field(String) field}("name").{@link FieldName#ofType(Class) ofType}(String.class).{@link FieldType#in(Object) in}(person).{@link FieldAccessor#set(Object) set}("Yoda");
-   *
+   * 
    * // Retrieves the value of the field "powers"
    * List&lt;String&gt; powers = {@link org.fest.reflect.core.Reflection#field(String) field}("powers").{@link FieldName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link FieldTypeRef#in(Object) in}(jedi).{@link FieldAccessor#get() get}();
-   *
+   * 
    * // Sets the value of the field "powers"
    * List&lt;String&gt; powers = new ArrayList&lt;String&gt;();
    * powers.add("heal");
    * {@link org.fest.reflect.core.Reflection#field(String) field}("powers").{@link FieldName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link FieldTypeRef#in(Object) in}(jedi).{@link FieldAccessor#set(Object) set}(powers);
-   *
+   * 
    * // Retrieves the value of the static field "count" in Person.class
    * int count = {@link org.fest.reflect.core.Reflection#field(String) field}("count").{@link org.fest.reflect.field.FieldName#ofType(Class) ofType}(int.class).{@link org.fest.reflect.field.FieldType#in(Object) in}(Person.class).{@link org.fest.reflect.field.FieldAccessor#get() get}();
    * </pre>
-   *
+   * 
    * @return the value of the field in this fluent interface.
    * @throws ReflectionError if the value of the field cannot be retrieved.
    */
-  public @Nullable T get() {
+  public @Nullable
+  T get() {
     Field f = checkNotNull(field);
     try {
       setAccessible(f, true);
@@ -166,7 +170,8 @@ public final class FieldAccessor<T> {
   /**
    * @return the underlying field to access.
    */
-  public @Nonnull Field target() {
+  public @Nonnull
+  Field target() {
     return field;
   }
 }

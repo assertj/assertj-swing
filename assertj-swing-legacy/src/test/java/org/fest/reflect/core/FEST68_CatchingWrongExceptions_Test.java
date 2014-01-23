@@ -21,7 +21,7 @@ import static org.fest.reflect.core.Reflection.method;
 
 /**
  * Tests for <a href="http://jira.codehaus.org/browse/FEST-68" target="_blank">FEST-68</a>.
- *
+ * 
  * @author Francis ANDRE
  * @author Alex Ruiz
  */

@@ -30,7 +30,7 @@ import static org.junit.Assert.assertSame;
 
 /**
  * Tests for {@link Reflection#field(String)}.
- *
+ * 
  * @author Alex Ruiz
  */
 public class Reflection_field_Test {

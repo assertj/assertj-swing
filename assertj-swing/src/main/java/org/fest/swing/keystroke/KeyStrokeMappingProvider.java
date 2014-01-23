@@ -30,5 +30,6 @@ public interface KeyStrokeMappingProvider {
   /**
    * @return the {@code KeyStrokeMapping}s to be used by {@link KeyStrokeMap}.
    */
-  @Nonnull Collection<KeyStrokeMapping> keyStrokeMappings();
+  @Nonnull
+  Collection<KeyStrokeMapping> keyStrokeMappings();
 }

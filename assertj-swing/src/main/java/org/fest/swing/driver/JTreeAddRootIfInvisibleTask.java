@@ -33,7 +33,7 @@ import org.fest.swing.annotation.RunsInCurrentThread;
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT.) Client code must call methods in this class from the EDT.
  * </p>
- *
+ * 
  * @author Alex Ruiz
  */
 final class JTreeAddRootIfInvisibleTask {
@@ -42,7 +42,8 @@ final class JTreeAddRootIfInvisibleTask {
    * root node cannot be expanded (issue 293.)
    */
   @RunsInCurrentThread
-  static @Nonnull TreePath addRootIfInvisible(@Nonnull JTree tree, @Nonnull TreePath path) {
+  static @Nonnull
+  TreePath addRootIfInvisible(@Nonnull JTree tree, @Nonnull TreePath path) {
     Object root = tree.getModel().getRoot();
     if (tree.isRootVisible() || root == null) {
       return path;
@@ -60,5 +61,6 @@ final class JTreeAddRootIfInvisibleTask {
     return new TreePath(newPath.toArray());
   }
 
-  private JTreeAddRootIfInvisibleTask() {}
+  private JTreeAddRootIfInvisibleTask() {
+  }
 }

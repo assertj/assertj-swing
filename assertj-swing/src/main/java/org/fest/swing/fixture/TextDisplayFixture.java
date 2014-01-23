@@ -31,7 +31,8 @@ public interface TextDisplayFixture<S> {
   /**
    * @return the text of this fixture's {@code Component}.
    */
-  @Nullable String text();
+  @Nullable
+  String text();
 
   /**
    * Asserts that the text of this fixture's {@code Component} is equal to or matches the specified {@code String}.
@@ -40,7 +41,8 @@ public interface TextDisplayFixture<S> {
    * @return this fixture.
    * @throws AssertionError if the text of the target component is not equal to or does not match the given one.
    */
-  @Nonnull S requireText(@Nullable String expected);
+  @Nonnull
+  S requireText(@Nullable String expected);
 
   /**
    * Asserts that the text of this fixture's {@code Component} matches the given regular expression pattern.
@@ -51,5 +53,6 @@ public interface TextDisplayFixture<S> {
    * @throws AssertionError if the text of the target component does not match the given regular expression pattern.
    * @since 1.2
    */
-  @Nonnull S requireText(@Nonnull Pattern pattern);
+  @Nonnull
+  S requireText(@Nonnull Pattern pattern);
 }

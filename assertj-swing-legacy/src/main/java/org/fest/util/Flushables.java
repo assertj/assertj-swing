@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 
 /**
  * Utility methods related to {@link Flushable}.
- *
+ * 
  * @author Yvonne Wang
  */
 public class Flushables {
@@ -33,7 +33,7 @@ public class Flushables {
 
   /**
    * Flushes the given {@link Flushable}s, ignoring any thrown exceptions.
-   *
+   * 
    * @param flushables the {@code Flushable}s to flush.
    */
   public static void flushQuietly(@Nonnull Flushable... flushables) {

@@ -39,17 +39,20 @@ public interface Robot {
   /**
    * @return the {@code ComponentHierarchy} being used by this robot.
    */
-  @Nonnull ComponentHierarchy hierarchy();
+  @Nonnull
+  ComponentHierarchy hierarchy();
 
   /**
    * @return the {@code ComponentFinder} being used by this robot.
    */
-  @Nonnull ComponentFinder finder();
+  @Nonnull
+  ComponentFinder finder();
 
   /**
    * @return the {@code ComponentPrinter} being used by this robot.
    */
-  @Nonnull ComponentPrinter printer();
+  @Nonnull
+  ComponentPrinter printer();
 
   /**
    * Safely display an AWT or Swing {@code Window} with proper EDT synchronization. This method blocks until the
@@ -122,9 +125,9 @@ public interface Robot {
    * 
    * <p>
    * <strong>Note:</strong> The preferred method to use to clean up resources is {@link #cleanUp()}. Using
-   * {@link #cleanUpWithoutDisposingWindows()} may leave many windows open after each test. Use it on very
-   * special cases. Please read <a href="http://code.google.com/p/fest/issues/detail?id=138" target="_blank">bug 138</a>
-   * for more details.
+   * {@link #cleanUpWithoutDisposingWindows()} may leave many windows open after each test. Use it on very special
+   * cases. Please read <a href="http://code.google.com/p/fest/issues/detail?id=138" target="_blank">bug 138</a> for
+   * more details.
    * </p>
    */
   void cleanUpWithoutDisposingWindows();
@@ -430,7 +433,8 @@ public interface Robot {
    * @return the displayed {@code JPopupMenu}.
    * @throws ComponentLookupException if a {@code JPopupMenu} cannot be found.
    */
-  @Nonnull JPopupMenu showPopupMenu(@Nonnull Component invoker);
+  @Nonnull
+  JPopupMenu showPopupMenu(@Nonnull Component invoker);
 
   /**
    * Shows a {@code JPopupMenu} at the given coordinates.
@@ -440,12 +444,14 @@ public interface Robot {
    * @return the displayed {@code JPopupMenu}.
    * @throws ComponentLookupException if a {@code JPopupMenu} cannot be found.
    */
-  @Nonnull JPopupMenu showPopupMenu(@Nonnull Component invoker, @Nonnull Point location);
+  @Nonnull
+  JPopupMenu showPopupMenu(@Nonnull Component invoker, @Nonnull Point location);
 
   /**
    * @return the currently active {@code JPopupMenu} or {@code null}, if no pop-up is currently showing.
    */
-  @Nullable JPopupMenu findActivePopupMenu();
+  @Nullable
+  JPopupMenu findActivePopupMenu();
 
   /**
    * Ensures that there is no {@code JOptionPane} showing, and potentially blocking GUI tests.
@@ -457,7 +463,8 @@ public interface Robot {
   /**
    * @return the configuration settings for this {@code Robot}.
    */
-  @Nonnull Settings settings();
+  @Nonnull
+  Settings settings();
 
   /**
    * Indicates whether this {@code Robot} is active. Being "active" means that {@link #cleanUp()} has not been called

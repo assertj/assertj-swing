@@ -35,12 +35,14 @@ final class JScrollBarValueQuery {
   static int valueOf(final @Nonnull JScrollBar scrollBar) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable Integer executeInEDT() {
+      protected @Nullable
+      Integer executeInEDT() {
         return scrollBar.getValue();
       }
     });
     return checkNotNull(result);
   }
 
-  private JScrollBarValueQuery() {}
+  private JScrollBarValueQuery() {
+  }
 }

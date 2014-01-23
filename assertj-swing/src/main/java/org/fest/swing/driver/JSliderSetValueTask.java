@@ -38,5 +38,6 @@ final class JSliderSetValueTask {
     });
   }
 
-  private JSliderSetValueTask() {}
+  private JSliderSetValueTask() {
+  }
 }

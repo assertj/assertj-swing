@@ -43,5 +43,6 @@ final class ComponentLocationQuery {
     return checkNotNull(result);
   }
 
-  private ComponentLocationQuery() {}
+  private ComponentLocationQuery() {
+  }
 }

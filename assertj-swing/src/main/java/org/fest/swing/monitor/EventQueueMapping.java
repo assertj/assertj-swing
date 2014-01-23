@@ -31,7 +31,7 @@ import org.fest.swing.annotation.RunsInCurrentThread;
 
 /**
  * A mapping of AWT or Swing {@code Component}s, and their respective {@link EventQueue}.
- *
+ * 
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -45,7 +45,8 @@ class EventQueueMapping {
   }
 
   @RunsInCurrentThread
-  @Nullable EventQueue queueFor(@Nonnull Component c) {
+  @Nullable
+  EventQueue queueFor(@Nonnull Component c) {
     EventQueue queue = storedQueueFor(c);
     if (queue == null) {
       return c.getToolkit().getSystemEventQueue();
@@ -53,11 +54,13 @@ class EventQueueMapping {
     return queue;
   }
 
-  @Nullable EventQueue storedQueueFor(@Nonnull Component c) {
+  @Nullable
+  EventQueue storedQueueFor(@Nonnull Component c) {
     return queueFrom(queueMap.get(c));
   }
 
-  @Nonnull Collection<EventQueue> eventQueues() {
+  @Nonnull
+  Collection<EventQueue> eventQueues() {
     Set<EventQueue> eventQueues = newHashSet();
     for (WeakReference<EventQueue> reference : queueMap.values()) {
       EventQueue queue = queueFrom(reference);
@@ -68,7 +71,8 @@ class EventQueueMapping {
     return eventQueues;
   }
 
-  private @Nullable EventQueue queueFrom(@Nullable WeakReference<EventQueue> reference) {
+  private @Nullable
+  EventQueue queueFrom(@Nullable WeakReference<EventQueue> reference) {
     if (reference == null) {
       return null;
     }

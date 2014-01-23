@@ -41,5 +41,6 @@ final class JTextComponentSelectedTextQuery {
     });
   }
 
-  private JTextComponentSelectedTextQuery() {}
+  private JTextComponentSelectedTextQuery() {
+  }
 }

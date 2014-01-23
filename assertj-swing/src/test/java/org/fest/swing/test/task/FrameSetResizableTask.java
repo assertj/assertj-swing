@@ -39,5 +39,6 @@ public final class FrameSetResizableTask {
     });
   }
 
-  private FrameSetResizableTask() {}
+  private FrameSetResizableTask() {
+  }
 }

@@ -38,5 +38,6 @@ final class JTextComponentSetEditableTask {
     });
   }
 
-  private JTextComponentSetEditableTask() {}
+  private JTextComponentSetEditableTask() {
+  }
 }

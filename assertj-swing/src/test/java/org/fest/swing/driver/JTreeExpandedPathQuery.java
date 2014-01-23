@@ -29,5 +29,6 @@ final class JTreeExpandedPathQuery {
     return checkNotNull(result);
   }
 
-  private JTreeExpandedPathQuery() {}
+  private JTreeExpandedPathQuery() {
+  }
 }

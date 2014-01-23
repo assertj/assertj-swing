@@ -35,9 +35,7 @@ import org.fest.swing.annotation.RunsInCurrentThread;
 public class JFileChooserFormatter extends ComponentFormatterTemplate {
   private static final IntEnum DIALOG_TYPES = new IntEnum();
   static {
-    DIALOG_TYPES.put(OPEN_DIALOG, "OPEN_DIALOG")
-                .put(SAVE_DIALOG, "SAVE_DIALOG")
-                .put(CUSTOM_DIALOG, "CUSTOM_DIALOG");
+    DIALOG_TYPES.put(OPEN_DIALOG, "OPEN_DIALOG").put(SAVE_DIALOG, "SAVE_DIALOG").put(CUSTOM_DIALOG, "CUSTOM_DIALOG");
   }
 
   /**
@@ -48,10 +46,10 @@ public class JFileChooserFormatter extends ComponentFormatterTemplate {
    */
   @RunsInCurrentThread
   @Override
-  protected @Nonnull String doFormat(@Nonnull Component c) {
+  protected @Nonnull
+  String doFormat(@Nonnull Component c) {
     JFileChooser fileChooser = (JFileChooser) c;
-    String format =
-        "%s[name=%s, dialogTitle=%s, dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
+    String format = "%s[name=%s, dialogTitle=%s, dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
     return String.format(format, fileChooser.getClass().getName(), quote(fileChooser.getName()),
         quote(fileChooser.getDialogTitle()), DIALOG_TYPES.get(fileChooser.getDialogType()),
         toStringOf(fileChooser.getCurrentDirectory()), fileChooser.isEnabled(), fileChooser.isVisible(),
@@ -62,7 +60,8 @@ public class JFileChooserFormatter extends ComponentFormatterTemplate {
    * @return {@code JFileChooser.class}.
    */
   @Override
-  public @Nonnull Class<? extends Component> targetType() {
+  public @Nonnull
+  Class<? extends Component> targetType() {
     return JFileChooser.class;
   }
 }

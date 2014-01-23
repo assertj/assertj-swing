@@ -40,9 +40,7 @@ class TestTerminator {
   }
 
   /*
-   * We do three things to signal an abort.
-   * 1) sent an interrupt signal to main thread
-   * 2) dispose all available frames.
+   * We do three things to signal an abort. 1) sent an interrupt signal to main thread 2) dispose all available frames.
    * 3) throw RuntimeException on AWT event thread
    */
   void terminateTests() {

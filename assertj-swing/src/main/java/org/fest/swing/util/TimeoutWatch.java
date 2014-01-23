@@ -33,7 +33,8 @@ public final class TimeoutWatch {
    * @param timeout the given timeout.
    * @return the new timeout watch.
    */
-  public static @Nonnull TimeoutWatch startWatchWithTimeoutOf(long timeout) {
+  public static @Nonnull
+  TimeoutWatch startWatchWithTimeoutOf(long timeout) {
     TimeoutWatch watch = new TimeoutWatch(timeout);
     watch.start();
     return watch;

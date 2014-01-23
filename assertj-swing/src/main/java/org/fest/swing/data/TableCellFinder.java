@@ -37,5 +37,6 @@ public interface TableCellFinder {
    * @throws ActionFailedException if a matching cell could not be found.
    */
   @RunsInEDT
-  @Nonnull TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader);
+  @Nonnull
+  TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader);
 }

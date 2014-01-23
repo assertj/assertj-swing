@@ -1,15 +1,15 @@
 /*
  * Created on May 12, 2008
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2008-2013 the original author or authors.
  */
 package org.fest.swing.util;
@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 
 /**
  * Utility methods for arrays.
- *
+ * 
  * @author Alex Ruiz
  */
 public final class Arrays {
@@ -36,7 +36,7 @@ public final class Arrays {
 
   /**
    * Verifies that the given {@code String} arrays are equal.
-   *
+   * 
    * @param one the first array.
    * @param two the second array.
    * @return {@code true} if the arrays are equal, {@code false} otherwise.
@@ -70,29 +70,26 @@ public final class Arrays {
 
   /**
    * Formats a two-dimensional {@code String} array. For example, the array:
-   *
+   * 
    * <pre>
-   * String[][] array = {
-   *     { &quot;0-0&quot;, &quot;0-1&quot;, &quot;0-2&quot; },
-   *     { &quot;1-0&quot;, &quot;1-1&quot;, &quot;1-2&quot; },
-   *     { &quot;2-0&quot;, &quot;2-1&quot;, &quot;2-2&quot; },
-   *     { &quot;3-0&quot;, &quot;3-1&quot;, &quot;3-2&quot; },
-   * };
+   * String[][] array = { { &quot;0-0&quot;, &quot;0-1&quot;, &quot;0-2&quot; }, { &quot;1-0&quot;, &quot;1-1&quot;, &quot;1-2&quot; }, { &quot;2-0&quot;, &quot;2-1&quot;, &quot;2-2&quot; },
+   *     { &quot;3-0&quot;, &quot;3-1&quot;, &quot;3-2&quot; }, };
    * </pre>
-   *
+   * 
    * will be formatted as:
-   *
+   * 
    * <pre>
    * [['0-0', '0-1', '0-2'],
    *  ['1-0', '1-1', '1-2'],
    *  ['2-0', '2-1', '2-2'],
    *  ['3-0', '3-1', '3-2']]
    * </pre>
-   *
+   * 
    * @param array the array to format.
    * @return the data of the given array formatted to make it easier to read.
    */
-  public static @Nonnull String format(@Nullable String[][] array) {
+  public static @Nonnull
+  String format(@Nullable String[][] array) {
     if (array == null) {
       return NULL;
     }
@@ -136,12 +133,13 @@ public final class Arrays {
 
   /**
    * Creates and returns a copy of the given array.
-   *
+   * 
    * @param array the array to copy.
    * @return the created copy.
    * @throws NullPointerException if the array to copy is {@code null}.
    */
-  public static @Nonnull int[] copyOf(@Nonnull int[] array) {
+  public static @Nonnull
+  int[] copyOf(@Nonnull int[] array) {
     checkNotNull(array);
     int arraySize = array.length;
     int[] copy = new int[arraySize];
@@ -153,7 +151,7 @@ public final class Arrays {
 
   /**
    * Creates and returns a copy of the given array.
-   *
+   * 
    * @param array the array to copy.
    * @return the created copy.
    * @throws NullPointerException if the array to copy is {@code null}.
@@ -169,5 +167,6 @@ public final class Arrays {
     return copy;
   }
 
-  private Arrays() {}
+  private Arrays() {
+  }
 }

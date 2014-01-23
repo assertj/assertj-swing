@@ -1,15 +1,15 @@
 /*
  * Created on Jan 27, 2008
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2008-2013 the original author or authors.
  */
 package org.fest.swing.driver;
@@ -48,12 +48,12 @@ import org.fest.util.VisibleForTesting;
  * <p>
  * Supports functional testing of AWT or Swing {@code Container}s.
  * </p>
- *
+ * 
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.fest.swing.fixture} in your tests.
  * </p>
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -61,7 +61,7 @@ import org.fest.util.VisibleForTesting;
 public abstract class ContainerDriver extends ComponentDriver {
   /**
    * Creates a new {@link ContainerDriver}.
-   *
+   * 
    * @param robot the robot to use to simulate user input.
    */
   public ContainerDriver(@Nonnull Robot robot) {
@@ -70,7 +70,7 @@ public abstract class ContainerDriver extends ComponentDriver {
 
   /**
    * Resizes the AWT or Swing {@code Container} horizontally.
-   *
+   * 
    * @param c the given {@code Container}.
    * @param width the width that the {@code Container} should have after being resized.
    * @throws IllegalStateException if the {@code Container} is not enabled.
@@ -86,7 +86,7 @@ public abstract class ContainerDriver extends ComponentDriver {
 
   /**
    * Resizes the AWT or Swing {@code Container} vertically.
-   *
+   * 
    * @param c the given {@code Container}.
    * @param height the height that the {@code Container} should have after being resized.
    * @throws IllegalStateException if the {@code Container} is not enabled.
@@ -102,7 +102,7 @@ public abstract class ContainerDriver extends ComponentDriver {
 
   /**
    * Resizes the AWT or Swing {@code Container} to the given size.
-   *
+   * 
    * @param c the given {@code Container}.
    * @param width the width to resize the {@code Container} to.
    * @param height the height to resize the {@code Container} to.
@@ -118,10 +118,12 @@ public abstract class ContainerDriver extends ComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull Pair<Dimension, Insets> resizeInfo(final @Nonnull Container c) {
+  private @Nonnull
+  Pair<Dimension, Insets> resizeInfo(final @Nonnull Container c) {
     Pair<Dimension, Insets> result = execute(new GuiQuery<Pair<Dimension, Insets>>() {
       @Override
-      protected @Nullable Pair<Dimension, Insets> executeInEDT() {
+      protected @Nullable
+      Pair<Dimension, Insets> executeInEDT() {
         checkCanResize(c);
         return Pair.of(c.getSize(), c.getInsets());
       }
@@ -168,21 +170,24 @@ public abstract class ContainerDriver extends ComponentDriver {
     moveMouseIgnoringAnyError(c, p.x + x, p.y + y);
   }
 
-  private static @Nonnull Point resizeLocation(final @Nonnull Pair<Dimension, Insets> resizeInfo) {
+  private static @Nonnull
+  Point resizeLocation(final @Nonnull Pair<Dimension, Insets> resizeInfo) {
     return resizeLocation(checkNotNull(resizeInfo.first), checkNotNull(resizeInfo.second));
   }
 
-  private static @Nonnull Point resizeLocation(@Nonnull Dimension size, @Nonnull Insets insets) {
+  private static @Nonnull
+  Point resizeLocation(@Nonnull Dimension size, @Nonnull Insets insets) {
     return resizeLocation(size.width, size.height, insets.right, insets.bottom);
   }
 
-  private static @Nonnull Point resizeLocation(int width, int height, int right, int bottom) {
+  private static @Nonnull
+  Point resizeLocation(int width, int height, int right, int bottom) {
     return new Point(width - right / 2, height - bottom / 2);
   }
 
   /**
    * Move the given AWT or Swing {@code Container} to the requested location.
-   *
+   * 
    * @param c the given {@code Container}.
    * @param x the horizontal coordinate.
    * @param y the vertical coordinate.
@@ -198,10 +203,12 @@ public abstract class ContainerDriver extends ComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull Triple<Dimension, Insets, Point> moveInfo(final @Nonnull Container c) {
+  private @Nonnull
+  Triple<Dimension, Insets, Point> moveInfo(final @Nonnull Container c) {
     Triple<Dimension, Insets, Point> result = execute(new GuiQuery<Triple<Dimension, Insets, Point>>() {
       @Override
-      protected @Nullable Triple<Dimension, Insets, Point> executeInEDT() {
+      protected @Nullable
+      Triple<Dimension, Insets, Point> executeInEDT() {
         checkCanMove(c);
         Point locationOnScreen = null;
         try {
@@ -248,7 +255,8 @@ public abstract class ContainerDriver extends ComponentDriver {
 
   // Returns where the mouse usually grabs to move a container (or window.) Center of the top of the frame is usually a
   // good choice.
-  private @Nonnull Point moveLocation(@Nonnull Dimension size, @Nonnull Insets insets) {
+  private @Nonnull
+  Point moveLocation(@Nonnull Dimension size, @Nonnull Insets insets) {
     return new Point(size.width / 2, insets.top / 2);
   }
 }

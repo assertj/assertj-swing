@@ -49,7 +49,8 @@ class ParentFinder {
    * @return the parent for the given {@code Component}.
    */
   @RunsInCurrentThread
-  @Nullable Container parentOf(@Nonnull Component c) {
+  @Nullable
+  Container parentOf(@Nonnull Component c) {
     Container p = c.getParent();
     if (p == null && c instanceof JInternalFrame) {
       p = parentOf((JInternalFrame) c);
@@ -58,7 +59,8 @@ class ParentFinder {
   }
 
   @RunsInCurrentThread
-  private @Nullable Container parentOf(@Nonnull JInternalFrame internalFrame) {
+  private @Nullable
+  Container parentOf(@Nonnull JInternalFrame internalFrame) {
     // From Abbot: workaround for bug in JInternalFrame: COMPONENT_HIDDEN is sent before the desktop icon is set, so
     // JInternalFrame.getDesktopPane will throw a NPE if called while dispatching that event. Reported against 1.4.x.
     return desktopPaneOf(internalFrame);
@@ -72,7 +74,8 @@ class ParentFinder {
    * @return the window ancestor of the given {@code Component}, or given {@code Component} itself it is a
    *         {@code Window}.
    */
-  @Nullable Window windowFor(@Nullable Component c) {
+  @Nullable
+  Window windowFor(@Nullable Component c) {
     if (c == null) {
       return null;
     }
@@ -96,7 +99,8 @@ class ParentFinder {
    * @return the invoker of the given {@code Component} if found. Otherwise, {@code null}.
    */
   @RunsInCurrentThread
-  @Nullable Component invokerFor(@Nonnull Component c) {
+  @Nullable
+  Component invokerFor(@Nonnull Component c) {
     if (c instanceof JPopupMenu) {
       return ((JPopupMenu) c).getInvoker();
     }

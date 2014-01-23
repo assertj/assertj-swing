@@ -37,7 +37,8 @@ import javax.annotation.Nonnull;
  * @since 1.2
  */
 final class KeyStrokeMappings {
-  static @Nonnull Collection<KeyStrokeMapping> defaultMappings() {
+  static @Nonnull
+  Collection<KeyStrokeMapping> defaultMappings() {
     List<KeyStrokeMapping> mappings = newArrayList();
     mappings.add(mapping('\b', VK_BACK_SPACE, NO_MASK));
     mappings.add(mapping('', VK_DELETE, NO_MASK));
@@ -50,5 +51,6 @@ final class KeyStrokeMappings {
     return mappings;
   }
 
-  private KeyStrokeMappings() {}
+  private KeyStrokeMappings() {
+  }
 }

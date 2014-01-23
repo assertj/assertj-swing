@@ -32,8 +32,8 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class JListItemValueQuery {
   @RunsInEDT
-  static @Nullable String itemValue(final @Nonnull JList list, final int index,
-      final @Nonnull JListCellReader cellReader) {
+  static @Nullable
+  String itemValue(final @Nonnull JList list, final int index, final @Nonnull JListCellReader cellReader) {
     return execute(new GuiQuery<String>() {
       @Override
       protected String executeInEDT() {
@@ -43,5 +43,6 @@ final class JListItemValueQuery {
     });
   }
 
-  private JListItemValueQuery() {}
+  private JListItemValueQuery() {
+  }
 }

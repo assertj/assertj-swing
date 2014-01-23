@@ -37,7 +37,8 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class JPopupMenuElementsAsTextQuery {
   @RunsInEDT
-  static @Nonnull String[] menuElementsAsText(final @Nonnull JPopupMenu popupMenu) {
+  static @Nonnull
+  String[] menuElementsAsText(final @Nonnull JPopupMenu popupMenu) {
     String[] result = execute(new GuiQuery<String[]>() {
       @Override
       protected String[] executeInEDT() throws Throwable {
@@ -53,7 +54,8 @@ final class JPopupMenuElementsAsTextQuery {
     return checkNotNull(result);
   }
 
-  private static @Nullable String textOf(@Nonnull MenuElement e) {
+  private static @Nullable
+  String textOf(@Nonnull MenuElement e) {
     Component c = componentIn(e);
     if (c instanceof JMenuItem) {
       return ((JMenuItem) c).getText();
@@ -61,5 +63,6 @@ final class JPopupMenuElementsAsTextQuery {
     return "-";
   }
 
-  private JPopupMenuElementsAsTextQuery() {}
+  private JPopupMenuElementsAsTextQuery() {
+  }
 }

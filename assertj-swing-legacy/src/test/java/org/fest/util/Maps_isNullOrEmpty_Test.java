@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Tests for {@link Maps#isNullOrEmpty(Map)}.
- *
+ * 
  * @author Yvonne Wang
  * @author Alex Ruiz
  */

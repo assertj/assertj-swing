@@ -1,15 +1,15 @@
 /*
  * Created on Jul 19, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2009 the original author or authors.
  */
 package org.fest.swing.junit.ant;
@@ -34,7 +34,7 @@ import org.apache.tools.ant.util.FileUtils;
 /**
  * Transforms a JUnit XML report. The default transformation generates an HTML report in either framed or non-framed
  * style.
- *
+ * 
  * @author Alex Ruiz
  */
 public class ReportTransformer extends AggregateTransformer {
@@ -54,6 +54,7 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Creates a new <code>{@link ReportTransformer}</code>.
+   * 
    * @param task task delegating to this class.
    */
   public ReportTransformer(Task task) {
@@ -63,9 +64,11 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Create an instance of an XSL parameter for configuration by Ant.
+   * 
    * @return an instance of the <code>Param</code> class to be configured.
    */
-  @Override public Param createParam() {
+  @Override
+  public Param createParam() {
     Param p = new Param();
     params.add(p);
     return p;
@@ -73,9 +76,11 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Performs the XSLT transformation to generate the HTML report.
+   * 
    * @throws BuildException thrown if something goes wrong with the transformation.
    */
-  @Override public void transform() throws BuildException {
+  @Override
+  public void transform() throws BuildException {
     checkOptions();
     TempFile tempFileTask = tempFileTask();
     XSLTProcess xsltTask = xsltTask();
@@ -105,11 +110,14 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Access the stylesheet to be used as a resource.
+   * 
    * @return stylesheet as a resource
    */
-  @Override protected Resource getStylesheet() {
+  @Override
+  protected Resource getStylesheet() {
     String xslname = "junit-frames.xsl";
-    if (NOFRAMES.equals(format)) xslname = "junit-noframes.xsl";
+    if (NOFRAMES.equals(format))
+      xslname = "junit-noframes.xsl";
     if (styleDir == null) {
       URLResource stylesheet = new URLResource();
       URL stylesheetURL = getClass().getClassLoader().getResource(concat(XSL_FILE_PATH, xslname));
@@ -163,7 +171,8 @@ public class ReportTransformer extends AggregateTransformer {
   }
 
   private void delete(File outputFile) {
-    if (!format.equals(FRAMES)) return;
+    if (!format.equals(FRAMES))
+      return;
     Delete deleteTask = new Delete();
     deleteTask.bindToOwner(task);
     deleteTask.setFile(outputFile);
@@ -172,6 +181,7 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Sets an additional classpath.
+   * 
    * @param classpath the additional classpath to append to the current one.
    */
   public void setClasspath(Path classpath) {
@@ -180,6 +190,7 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Sets a reference to a classpath.
+   * 
    * @param r the reference to set.
    */
   public void setClasspathRef(Reference r) {
@@ -188,10 +199,12 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Creates the current classpath.
+   * 
    * @return the created classpath.
    */
   public Path createClasspath() {
-    if (classpath == null) classpath = new Path(task.getProject());
+    if (classpath == null)
+      classpath = new Path(task.getProject());
     return classpath.createPath();
   }
 }

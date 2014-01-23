@@ -51,5 +51,6 @@ public final class JFileChooserCurrentDirectoryQuery {
     return checkNotNull(result);
   }
 
-  private JFileChooserCurrentDirectoryQuery() {}
+  private JFileChooserCurrentDirectoryQuery() {
+  }
 }

@@ -36,12 +36,12 @@ import org.fest.util.VisibleForTesting;
 /**
  * <p>
  * An escape valve for users to abort a running FEST-Swing test by pressing 'Ctrl + Shift + A'. The key combination to
- * use to abort test is configurable through the method
- * {@link EmergencyAbortListener#keyCombination(KeyPressInfo)}.
+ * use to abort test is configurable through the method {@link EmergencyAbortListener#keyCombination(KeyPressInfo)}.
  * </p>
  * 
  * <p>
  * The following example shows to use this listener in a TestNG test:
+ * 
  * <pre>
  * private EmergencyAbortListener listener;
  * 
@@ -57,13 +57,16 @@ import org.fest.util.VisibleForTesting;
  *   listener.unregister();
  * }
  * </pre>
+ * 
  * </p>
  * 
  * <p>
  * Changing the default key combination for aborting test:
+ * 
  * <pre>
  * listener = EmergencyAbortListener.registerInToolkit().{@link EmergencyAbortListener#keyCombination(KeyPressInfo) keyCombination}(key(VK_C).modifiers(SHIFT_MASK));
  * </pre>
+ * 
  * </p>
  * 
  * @author <a href="mailto:simeon.fitch@mseedsoft.com">Simeon H.K. Fitch</a>
@@ -79,8 +82,8 @@ public class EmergencyAbortListener implements AWTEventListener {
   private int modifiers = unify(CTRL_MASK, SHIFT_MASK);
 
   /**
-   * Attaches a new instance of {@link EmergencyAbortListener} to the given AWT {@code Toolkit}.
-   * Any other instances of {@code EmergencyAbortListener} will be removed from the {@code Toolkit}.
+   * Attaches a new instance of {@link EmergencyAbortListener} to the given AWT {@code Toolkit}. Any other instances of
+   * {@code EmergencyAbortListener} will be removed from the {@code Toolkit}.
    * 
    * @return the created listener.
    */

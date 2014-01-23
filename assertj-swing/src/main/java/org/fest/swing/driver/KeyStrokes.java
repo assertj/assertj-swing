@@ -39,8 +39,8 @@ import org.fest.swing.annotation.RunsInCurrentThread;
  */
 final class KeyStrokes {
   @RunsInCurrentThread
-  static @Nonnull KeyStroke[] findKeyStrokesForAction(@Nonnull String actionName, @Nonnull Object actionKey,
-      @Nonnull InputMap inputMap) {
+  static @Nonnull
+  KeyStroke[] findKeyStrokesForAction(@Nonnull String actionName, @Nonnull Object actionKey, @Nonnull InputMap inputMap) {
     List<KeyStroke> keyStrokes = newArrayList();
     for (KeyStroke keyStroke : inputMap.allKeys()) {
       if (actionKey.equals(inputMap.get(keyStroke))) {
@@ -53,5 +53,6 @@ final class KeyStrokes {
     throw actionFailure(String.format("Unable to find valid input event for action with key '%s'", actionName));
   }
 
-  private KeyStrokes() {}
+  private KeyStrokes() {
+  }
 }

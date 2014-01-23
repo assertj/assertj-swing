@@ -31,7 +31,8 @@ public class JLabelTextReader extends TextReader<JLabel> {
    * @return {@code JLabel.class}.
    */
   @Override
-  public @Nonnull Class<JLabel> supportedComponent() {
+  public @Nonnull
+  Class<JLabel> supportedComponent() {
     return JLabel.class;
   }
 

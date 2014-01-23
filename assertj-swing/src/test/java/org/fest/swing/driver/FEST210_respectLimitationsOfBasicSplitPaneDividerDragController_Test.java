@@ -1,6 +1,6 @@
 /*
  * Created on Nov 25, 2009
- *
+ * 
  * Copyright @2009-2013 the original author or authors.
  */
 package org.fest.swing.driver;
@@ -28,7 +28,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-210" target="_blank">FEST-210</a>
- *
+ * 
  * @author Alex Ruiz
  */
 @RunWith(Parameterized.class)
@@ -42,10 +42,7 @@ public class FEST210_respectLimitationsOfBasicSplitPaneDividerDragController_Tes
 
   @Parameters
   public static Collection<Object[]> orientations() {
-    return newArrayList(new Object[][] {
-        { VERTICAL_SPLIT },
-        { HORIZONTAL_SPLIT }
-      });
+    return newArrayList(new Object[][] { { VERTICAL_SPLIT }, { HORIZONTAL_SPLIT } });
   }
 
   public FEST210_respectLimitationsOfBasicSplitPaneDividerDragController_Test(int orientation) {

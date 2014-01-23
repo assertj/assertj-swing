@@ -21,10 +21,10 @@ import java.lang.annotation.Target;
 /**
  * Indicates that a type, method or constructor are meant for internal use only. There are no guarantees of backwards
  * compatibility.
- *
+ * 
  * @author Alex Ruiz
  */
-@Target({ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.TYPE})
+@Target({ ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.TYPE })
 @Documented
 public @interface InternalApi {
 }

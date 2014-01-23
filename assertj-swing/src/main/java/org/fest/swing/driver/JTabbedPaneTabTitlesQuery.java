@@ -31,10 +31,12 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class JTabbedPaneTabTitlesQuery {
   @RunsInEDT
-  static @Nonnull String[] tabTitlesOf(final @Nonnull JTabbedPane tabbedPane) {
+  static @Nonnull
+  String[] tabTitlesOf(final @Nonnull JTabbedPane tabbedPane) {
     String[] result = execute(new GuiQuery<String[]>() {
       @Override
-      protected @Nonnull String[] executeInEDT() {
+      protected @Nonnull
+      String[] executeInEDT() {
         int count = tabbedPane.getTabCount();
         String[] titles = new String[count];
         for (int i = 0; i < count; i++) {
@@ -46,5 +48,6 @@ final class JTabbedPaneTabTitlesQuery {
     return checkNotNull(result);
   }
 
-  private JTabbedPaneTabTitlesQuery() {}
+  private JTabbedPaneTabTitlesQuery() {
+  }
 }

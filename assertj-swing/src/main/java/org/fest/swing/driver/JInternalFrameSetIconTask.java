@@ -41,5 +41,6 @@ final class JInternalFrameSetIconTask {
     });
   }
 
-  private JInternalFrameSetIconTask() {}
+  private JInternalFrameSetIconTask() {
+  }
 }

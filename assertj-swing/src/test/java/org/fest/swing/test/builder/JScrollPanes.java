@@ -32,7 +32,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JScrollPanes {
-  private JScrollPanes() {}
+  private JScrollPanes() {
+  }
 
   public static JScrollPaneFactory scrollPane() {
     return new JScrollPaneFactory();

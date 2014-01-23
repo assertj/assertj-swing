@@ -45,12 +45,14 @@ public final class ComponentVisibleQuery {
   public static boolean isVisible(final @Nonnull Component component) {
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable Boolean executeInEDT() {
+      protected @Nullable
+      Boolean executeInEDT() {
         return component.isVisible();
       }
     });
     return checkNotNull(result);
   }
 
-  private ComponentVisibleQuery() {}
+  private ComponentVisibleQuery() {
+  }
 }

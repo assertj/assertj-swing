@@ -46,5 +46,6 @@ public class FestSwingTestCaseTemplate_setUpRobot_cleanUp_Test {
     assertThat(robot.isActive()).isFalse();
   }
 
-  private static class TestCase extends FestSwingTestCaseTemplate {}
+  private static class TestCase extends FestSwingTestCaseTemplate {
+  }
 }

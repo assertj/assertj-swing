@@ -29,5 +29,6 @@ final class RandomFileNameCreator {
     return concat(uuid.toString(), ".png");
   }
 
-  private RandomFileNameCreator() {}
+  private RandomFileNameCreator() {
+  }
 }

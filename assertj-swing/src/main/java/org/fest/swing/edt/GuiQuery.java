@@ -56,9 +56,11 @@ public abstract class GuiQuery<T> extends GuiAction {
    * @return the result of the execution of the action.
    * @throws Throwable any error thrown when executing an action in the event dispatch thread (EDT.)
    */
-  protected abstract @Nullable T executeInEDT() throws Throwable;
+  protected abstract @Nullable
+  T executeInEDT() throws Throwable;
 
-  final @Nullable T result() {
+  final @Nullable
+  T result() {
     return result;
   }
 

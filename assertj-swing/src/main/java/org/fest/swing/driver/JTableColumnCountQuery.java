@@ -35,12 +35,14 @@ final class JTableColumnCountQuery {
   static int columnCountOf(final @Nonnull JTable table) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable Integer executeInEDT() {
+      protected @Nullable
+      Integer executeInEDT() {
         return table.getColumnCount();
       }
     });
     return checkNotNull(result);
   }
 
-  private JTableColumnCountQuery() {}
+  private JTableColumnCountQuery() {
+  }
 }

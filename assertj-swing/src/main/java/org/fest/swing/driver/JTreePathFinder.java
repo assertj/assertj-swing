@@ -47,7 +47,8 @@ class JTreePathFinder {
   }
 
   @RunsInCurrentThread
-  @Nonnull TreePath findMatchingPath(@Nonnull JTree tree, @Nonnull String path) {
+  @Nonnull
+  TreePath findMatchingPath(@Nonnull JTree tree, @Nonnull String path) {
     String[] pathStrings = splitPath(path);
     TreeModel model = tree.getModel();
     List<Object> newPathValues = newArrayList();
@@ -82,11 +83,13 @@ class JTreePathFinder {
     return new TreePath(newPathValues.toArray());
   }
 
-  private @Nonnull LocationUnavailableException pathNotFound(@Nonnull String path) {
+  private @Nonnull
+  LocationUnavailableException pathNotFound(@Nonnull String path) {
     throw new LocationUnavailableException(String.format("Unable to find path %s", quote(path)));
   }
 
-  private @Nonnull String[] splitPath(@Nonnull String path) {
+  private @Nonnull
+  String[] splitPath(@Nonnull String path) {
     List<String> result = newArrayList();
     int separatorSize = separator.length();
     int index = 0;
@@ -102,17 +105,19 @@ class JTreePathFinder {
     return result.toArray(new String[result.size()]);
   }
 
-  private @Nonnull LocationUnavailableException multipleMatchingNodes(@Nonnull String matchingText,
-      @Nullable Object parentText) {
+  private @Nonnull
+  LocationUnavailableException multipleMatchingNodes(@Nonnull String matchingText, @Nullable Object parentText) {
     String msg = String.format("There is more than one node with value '%s' under", matchingText, quote(parentText));
     throw new LocationUnavailableException(msg);
   }
 
-  private @Nullable String value(@Nonnull JTree tree, @Nullable Object modelValue) {
+  private @Nullable
+  String value(@Nonnull JTree tree, @Nullable Object modelValue) {
     return cellReader.valueAt(tree, modelValue);
   }
 
-  @Nonnull String separator() {
+  @Nonnull
+  String separator() {
     return separator;
   }
 
@@ -124,7 +129,8 @@ class JTreePathFinder {
     cellReader = newCellReader;
   }
 
-  @Nonnull JTreeCellReader cellReader() {
+  @Nonnull
+  JTreeCellReader cellReader() {
     return cellReader;
   }
 }

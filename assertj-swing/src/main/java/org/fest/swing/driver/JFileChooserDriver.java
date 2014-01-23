@@ -1,15 +1,15 @@
 /*
  * Created on Feb 26, 2008
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2008-2013 the original author or authors.
  */
 package org.fest.swing.driver;
@@ -44,7 +44,7 @@ import org.fest.util.InternalApi;
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.fest.swing.fixture} in your tests.
  * </p>
- *
+ * 
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -55,7 +55,7 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Creates a new {@link JFileChooserDriver}.
-   *
+   * 
    * @param robot the robot to use to simulate user input.
    */
   public JFileChooserDriver(@Nonnull Robot robot) {
@@ -64,7 +64,7 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Selects the given file in the {@code JFileChooser}.
-   *
+   * 
    * @param fileChooser the target {@code JFileChooser}.
    * @param file the file to select.
    * @throws NullPointerException if the given file is {@code null}.
@@ -82,7 +82,7 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Selects the given file in the {@code JFileChooser}.
-   *
+   * 
    * @param fileChooser the target {@code JFileChooser}.
    * @param files the files to select.
    * @throws NullPointerException if the given array of files is {@code null}.
@@ -106,7 +106,7 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Sets the current directory in the {@code JFileChooser} to the given one.
-   *
+   * 
    * @param fileChooser the target {@code JFileChooser}.
    * @param dir the directory to set as current.
    * @throws IllegalStateException if the {@code JFileChooser} is disabled.
@@ -115,7 +115,8 @@ public class JFileChooserDriver extends JComponentDriver {
   @RunsInEDT
   public void setCurrentDirectory(@Nonnull final JFileChooser fileChooser, @Nonnull final File dir) {
     execute(new GuiTask() {
-      @Override protected void executeInEDT() {
+      @Override
+      protected void executeInEDT() {
         checkEnabledAndShowing(fileChooser);
         fileChooser.setCurrentDirectory(dir);
       }
@@ -124,7 +125,7 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Returns the text field where the user can enter the name of the file to select.
-   *
+   * 
    * @param fileChooser the target {@code JFileChooser}.
    * @return the found text field.
    * @throws ComponentLookupException if a matching text field could not be found.
@@ -136,7 +137,7 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Finds and clicks the "Cancel" button in the given {@code JFileChooser}.
-   *
+   * 
    * @param fileChooser the target {@code JFileChooser}.
    * @throws ComponentLookupException if the "Cancel" button cannot be found.
    * @throws IllegalStateException if the "Cancel" button is disabled.
@@ -149,19 +150,20 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Finds the "Cancel" button in the given {@code JFileChooser}.
-   *
+   * 
    * @param fileChooser the target {@code JFileChooser}.
    * @return the found "Cancel" button.
    * @throws ComponentLookupException if the "Cancel" button cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JButton cancelButton(@Nonnull JFileChooser fileChooser) {
+  public @Nonnull
+  JButton cancelButton(@Nonnull JFileChooser fileChooser) {
     return findButton(fileChooser, CANCEL_BUTTON, cancelButtonText());
   }
 
   /**
    * Finds and clicks the "Approve" button in the given {@code JFileChooser}.
-   *
+   * 
    * @param fileChooser the target {@code JFileChooser}.
    * @throws ComponentLookupException if the "Approve" button cannot be found.
    * @throws IllegalStateException if the "Approve" button is disabled.
@@ -174,19 +176,20 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Finds the "Approve" button in the given {@code JFileChooser}.
-   *
+   * 
    * @param fileChooser the target {@code JFileChooser}.
    * @return the found "Approve" button.
    * @throws ComponentLookupException if the "Approve" button cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JButton approveButton(@Nonnull JFileChooser fileChooser) {
+  public @Nonnull
+  JButton approveButton(@Nonnull JFileChooser fileChooser) {
     return findButton(fileChooser, APPROVE_BUTTON, approveButtonTextFrom(fileChooser));
   }
 
   @RunsInEDT
-  private @Nonnull JButton findButton(@Nonnull JFileChooser fileChooser, @Nonnull String logicalName,
-      @Nullable String text) {
+  private @Nonnull
+  JButton findButton(@Nonnull JFileChooser fileChooser, @Nonnull String logicalName, @Nullable String text) {
     return robot.finder().find(fileChooser, withText(text).andShowing());
   }
 }

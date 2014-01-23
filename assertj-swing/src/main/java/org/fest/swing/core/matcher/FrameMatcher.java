@@ -37,17 +37,21 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * 
    * <p>
    * The following code listing shows how to match a {@code Frame} by name and title:
+   * 
    * <pre>
    * FrameMatcher m = {@link #withName(String) withName}("myApp").{@link #andTitle(String) andTitle}("My App");
    * </pre>
+   * 
    * </p>
    * 
    * <p>
    * The following code listing shows how to match a {@code Frame}, that should be showing on the screen, by name and
    * title:
+   * 
    * <pre>
    * FrameMatcher m = {@link #withName(String) withName}("myApp").{@link #andTitle(String) andTitle}("My App").{@link #andShowing() andShowing}();
    * </pre>
+   * 
    * </p>
    * 
    * @param name the id to match.
@@ -64,16 +68,20 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * 
    * <p>
    * The following code listing shows how to match a {@code Frame} by title:
+   * 
    * <pre>
    * FrameMatcher m = {@link #withTitle(String) withTitle}("My App");
    * </pre>
+   * 
    * </p>
    * 
    * <p>
    * The following code listing shows how to match a {@code Frame}, that should be showing on the screen, by title:
+   * 
    * <pre>
    * FrameMatcher m = {@link #withTitle(String) withTitle}("My App").{@link #andShowing() andShowing}();
    * </pre>
+   * 
    * </p>
    * 
    * @param title the title to match. It can be a regular expression.
@@ -90,23 +98,28 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * 
    * <p>
    * The following code listing shows how to match a {@code Frame} by title, using a regular expression matcher:
+   * 
    * <pre>
    * FrameMatcher m = {@link #withTitle(Pattern) withTitle}(Pattern.compile("My.*"));
    * </pre>
+   * 
    * </p>
    * 
    * <p>
    * The following code listing shows how to match a {@code Frame}, that should be showing on the screen, by title:
+   * 
    * <pre>
    * FrameMatcher m = {@link #withTitle(Pattern) withTitle}(Pattern.compile("My.*")).{@link #andShowing() andShowing}();
    * </pre>
+   * 
    * </p>
    * 
    * @param pattern the title to match.
    * @return the created matcher.
    * @since 1.2
    */
-  public static @Nonnull FrameMatcher withTitle(@Nonnull Pattern pattern) {
+  public static @Nonnull
+  FrameMatcher withTitle(@Nonnull Pattern pattern) {
     return new FrameMatcher(anyValue(), pattern);
   }
 
@@ -115,7 +128,8 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * 
    * @return the created matcher.
    */
-  public static @Nonnull FrameMatcher any() {
+  public static @Nonnull
+  FrameMatcher any() {
     return new FrameMatcher(anyValue(), anyValue());
   }
 
@@ -131,7 +145,8 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * @param newTitle the new title to match. It can be a regular expression.
    * @return this matcher.
    */
-  public @Nonnull FrameMatcher andTitle(@Nonnull String newTitle) {
+  public @Nonnull
+  FrameMatcher andTitle(@Nonnull String newTitle) {
     title = newTitle;
     return this;
   }
@@ -144,7 +159,8 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * @return this matcher.
    * @since 1.2
    */
-  public @Nonnull FrameMatcher andTitle(@Nonnull Pattern titlePattern) {
+  public @Nonnull
+  FrameMatcher andTitle(@Nonnull Pattern titlePattern) {
     title = titlePattern;
     return this;
   }
@@ -154,7 +170,8 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * 
    * @return this matcher.
    */
-  public @Nonnull FrameMatcher andShowing() {
+  public @Nonnull
+  FrameMatcher andShowing() {
     requireShowing(true);
     return this;
   }

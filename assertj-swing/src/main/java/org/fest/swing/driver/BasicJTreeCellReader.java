@@ -70,7 +70,8 @@ public class BasicJTreeCellReader implements JTreeCellReader {
    */
   @Override
   @RunsInCurrentThread
-  public @Nullable String valueAt(@Nonnull JTree tree, @Nullable Object modelValue) {
+  public @Nullable
+  String valueAt(@Nonnull JTree tree, @Nullable Object modelValue) {
     TreeCellRenderer r = tree.getCellRenderer();
     Component c = r.getTreeCellRendererComponent(tree, modelValue, false, false, false, 0, false);
     String value = (c != null) ? rendererReader.valueFrom(c) : null;

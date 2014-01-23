@@ -38,5 +38,6 @@ final class JTextComponentSetTextTask {
     });
   }
 
-  private JTextComponentSetTextTask() {}
+  private JTextComponentSetTextTask() {
+  }
 }

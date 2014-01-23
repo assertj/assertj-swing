@@ -80,7 +80,8 @@ class Context {
     return rootWindows;
   }
 
-  @Nullable EventQueue storedQueueFor(@Nonnull Component c) {
+  @Nullable
+  EventQueue storedQueueFor(@Nonnull Component c) {
     synchronized (lock) {
       return eventQueueMapping.storedQueueFor(c);
     }
@@ -100,15 +101,16 @@ class Context {
   }
 
   /**
-   * Return the event queue corresponding to the given AWT or Swing {@code Component}. In most cases, this is the same as
-   * {@link java.awt.Toolkit#getSystemEventQueue()}, but in the case of applets will bypass the {@code AppContext} and
-   * provide the real event queue.
+   * Return the event queue corresponding to the given AWT or Swing {@code Component}. In most cases, this is the same
+   * as {@link java.awt.Toolkit#getSystemEventQueue()}, but in the case of applets will bypass the {@code AppContext}
+   * and provide the real event queue.
    * 
    * @param c the given {@code Component}.
    * @return the event queue corresponding to the given {@code Component}.
    */
   @RunsInEDT
-  @Nullable EventQueue eventQueueFor(@Nonnull Component c) {
+  @Nullable
+  EventQueue eventQueueFor(@Nonnull Component c) {
     Component component = topParentOf(c);
     if (component == null) {
       return null;
@@ -119,10 +121,12 @@ class Context {
   }
 
   @RunsInEDT
-  private static @Nullable Component topParentOf(final @Nonnull Component c) {
+  private static @Nullable
+  Component topParentOf(final @Nonnull Component c) {
     return execute(new GuiQuery<Component>() {
       @Override
-      protected @Nullable Component executeInEDT() {
+      protected @Nullable
+      Component executeInEDT() {
         Component parent = c;
         // Components above the applet in the hierarchy may or may not share the same context with the applet itself.
         while (!(parent instanceof java.applet.Applet) && parent.getParent() != null) {
@@ -136,7 +140,8 @@ class Context {
   /**
    * @return all known event queues.
    */
-  @Nonnull Collection<EventQueue> allEventQueues() {
+  @Nonnull
+  Collection<EventQueue> allEventQueues() {
     Set<EventQueue> eventQueues = newLinkedHashSet();
     synchronized (lock) {
       eventQueues.addAll(windowEventQueueMapping.eventQueues());

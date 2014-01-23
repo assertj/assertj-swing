@@ -25,16 +25,17 @@ import static org.junit.rules.ExpectedException.none;
 
 /**
  * Tests for {@link Lists#newArrayList(Object...)}.
- *
+ * 
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public class Lists_newArrayList_withVarArgs_Test {
-  @Rule public ExpectedException thrown = none();
+  @Rule
+  public ExpectedException thrown = none();
 
   @Test
   public void should_return_List_containing_all_elements_in_array() {
-    String[] expected = {"One", "Two"};
+    String[] expected = { "One", "Two" };
     ArrayList<String> list = Lists.newArrayList(expected);
     assertArrayEquals(expected, list.toArray());
   }

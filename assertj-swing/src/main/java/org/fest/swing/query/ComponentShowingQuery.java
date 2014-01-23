@@ -36,7 +36,7 @@ import org.fest.swing.edt.GuiQuery;
  */
 public final class ComponentShowingQuery {
   /**
-   * Indicates whether the given AWT or Swing {@code Component} is showing or not.  This query is executed in the event
+   * Indicates whether the given AWT or Swing {@code Component} is showing or not. This query is executed in the event
    * dispatch thread (EDT.)
    * 
    * @param component the given {@code Component}.
@@ -47,12 +47,14 @@ public final class ComponentShowingQuery {
   public static boolean isShowing(final @Nonnull Component component) {
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable Boolean executeInEDT() {
+      protected @Nullable
+      Boolean executeInEDT() {
         return component.isShowing();
       }
     });
     return checkNotNull(result);
   }
 
-  private ComponentShowingQuery() {}
+  private ComponentShowingQuery() {
+  }
 }

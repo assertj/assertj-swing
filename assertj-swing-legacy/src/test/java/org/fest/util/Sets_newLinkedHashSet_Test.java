@@ -25,16 +25,17 @@ import static org.junit.rules.ExpectedException.none;
 
 /**
  * Tests for {@link Sets#newLinkedHashSet(Object...)}.
- *
+ * 
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 public class Sets_newLinkedHashSet_Test {
-  @Rule public ExpectedException thrown = none();
+  @Rule
+  public ExpectedException thrown = none();
 
   @Test
   public void should_return_Set_containing_all_elements_in_array() {
-    String[] expected = {"One", "Two"};
+    String[] expected = { "One", "Two" };
     LinkedHashSet<String> set = Sets.newLinkedHashSet(expected);
     assertArrayEquals(expected, set.toArray());
   }

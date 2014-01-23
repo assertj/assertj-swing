@@ -31,14 +31,18 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class AbstractButtonTextQuery {
   @RunsInEDT
-  static @Nonnull String textOf(final @Nonnull AbstractButton button) {
+  static @Nonnull
+  String textOf(final @Nonnull AbstractButton button) {
     String result = execute(new GuiQuery<String>() {
-      @Override protected @Nullable String executeInEDT() {
+      @Override
+      protected @Nullable
+      String executeInEDT() {
         return button.getText();
       }
     });
     return result == null ? "" : result;
   }
 
-  private AbstractButtonTextQuery() {}
+  private AbstractButtonTextQuery() {
+  }
 }

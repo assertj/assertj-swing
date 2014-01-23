@@ -1,16 +1,15 @@
 /*
  * Created on Apr 13, 2009
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- *
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ * 
  * Copyright @2009 the original author or authors.
  */
 package org.fest.swing.junit.ant;
@@ -34,7 +33,7 @@ import org.junit.Before;
 
 /**
  * Base test case for <code>{@link XmlJUnitResultFormatter}</code>.
- *
+ * 
  * @author Alex Ruiz
  */
 public abstract class XmlJUnitResultFormatter_TestCase {
@@ -46,7 +45,8 @@ public abstract class XmlJUnitResultFormatter_TestCase {
   BasicXmlJUnitResultFormatter formatter;
   TestCollection tests;
 
-  @Before public final void setUp() {
+  @Before
+  public final void setUp() {
     formatter = new BasicXmlJUnitResultFormatter();
     tests = formatter.tests();
     output = new ByteArrayOutputStream();
@@ -54,7 +54,8 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     onSetUp();
   }
 
-  void onSetUp() {}
+  void onSetUp() {
+  }
 
   static void assertThatThereAreNoPropertiesIn(XmlNode root) {
     XmlNode properties = root.child(0);
@@ -77,7 +78,9 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     }
   }
 
-  private static Date now() { return new Date(); }
+  private static Date now() {
+    return new Date();
+  }
 
   private static String localHostName() {
     try {
@@ -134,11 +137,13 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     final OnStartTestSuiteAssert onStartTestSuiteMethod = new OnStartTestSuiteAssert();
     final OnFailureOrErrorAssert onFailureOrErrorMethod = new OnFailureOrErrorAssert();
 
-    @Override protected void onStartTestSuite(JUnitTest suite) {
+    @Override
+    protected void onStartTestSuite(JUnitTest suite) {
       onStartTestSuiteMethod.calledWith(suite);
     }
 
-    @Override protected void onFailureOrError(junit.framework.Test test, Throwable error, XmlNode errorXmlNode) {
+    @Override
+    protected void onFailureOrError(junit.framework.Test test, Throwable error, XmlNode errorXmlNode) {
       onFailureOrErrorMethod.calledWith(test, error, errorXmlNode);
     }
   }

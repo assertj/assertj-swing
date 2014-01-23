@@ -54,7 +54,8 @@ public class JMenuItemFixture extends AbstractJComponentFixture<JMenuItemFixture
   }
 
   @Override
-  protected @Nonnull JMenuItemDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull
+  JMenuItemDriver createDriver(@Nonnull Robot robot) {
     return new JMenuItemDriver(robot);
   }
 }

@@ -35,7 +35,8 @@ public interface MouseInputSimulationFixture<S> {
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
-  @Nonnull S click();
+  @Nonnull
+  S click();
 
   /**
    * Simulates a user clicking this fixture's {@code Component}.
@@ -45,7 +46,8 @@ public interface MouseInputSimulationFixture<S> {
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
-  @Nonnull S click(@Nonnull MouseButton button);
+  @Nonnull
+  S click(@Nonnull MouseButton button);
 
   /**
    * Simulates a user clicking this fixture's {@code Component}.
@@ -56,7 +58,8 @@ public interface MouseInputSimulationFixture<S> {
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
-  @Nonnull S click(@Nonnull MouseClickInfo mouseClickInfo);
+  @Nonnull
+  S click(@Nonnull MouseClickInfo mouseClickInfo);
 
   /**
    * Simulates a user double-clicking this fixture's {@code Component}.
@@ -65,7 +68,8 @@ public interface MouseInputSimulationFixture<S> {
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
-  @Nonnull S doubleClick();
+  @Nonnull
+  S doubleClick();
 
   /**
    * Simulates a user right-clicking this fixture's {@code Component}.
@@ -74,5 +78,6 @@ public interface MouseInputSimulationFixture<S> {
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
-  @Nonnull S rightClick();
+  @Nonnull
+  S rightClick();
 }

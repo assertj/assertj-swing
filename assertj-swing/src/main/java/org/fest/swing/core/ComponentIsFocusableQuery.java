@@ -43,5 +43,6 @@ final class ComponentIsFocusableQuery {
     return Preconditions.checkNotNull(result);
   }
 
-  private ComponentIsFocusableQuery() {}
+  private ComponentIsFocusableQuery() {
+  }
 }

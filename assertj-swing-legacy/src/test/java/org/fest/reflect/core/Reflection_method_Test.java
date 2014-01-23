@@ -27,7 +27,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for {@link Reflection#method(String)}.
- *
+ * 
  * @author Alex Ruiz
  */
 public class Reflection_method_Test {
@@ -68,9 +68,8 @@ public class Reflection_method_Test {
   public void should_invoke_method_without_parameters_and_TypeRef_return_type() {
     List<String> list = newArrayList();
     list.add("Test");
-    Iterator<String> iterator =
-        Reflection.method("iterator").withReturnType(new TypeRef<Iterator<String>>() {
-        }).in(list).invoke();
+    Iterator<String> iterator = Reflection.method("iterator").withReturnType(new TypeRef<Iterator<String>>() {
+    }).in(list).invoke();
     assertEquals(list, newArrayList(iterator));
   }
 
@@ -85,10 +84,8 @@ public class Reflection_method_Test {
   @Test
   public void should_invoke_method_with_Object_parameters_and_Object_return_type() {
     BigDecimal number = new BigDecimal("10.00");
-    BigDecimal result = Reflection.method("add").withReturnType(BigDecimal.class)
-        .withParameterTypes(BigDecimal.class)
-        .in(number)
-        .invoke(ONE);
+    BigDecimal result = Reflection.method("add").withReturnType(BigDecimal.class).withParameterTypes(BigDecimal.class)
+        .in(number).invoke(ONE);
     assertEquals(new BigDecimal("11.00"), result);
   }
 

@@ -38,5 +38,6 @@ final class JTreeSetEditableTask {
     });
   }
 
-  private JTreeSetEditableTask() {}
+  private JTreeSetEditableTask() {
+  }
 }

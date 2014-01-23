@@ -26,7 +26,7 @@ import static org.junit.Assert.assertNull;
 
 /**
  * Tests for {@link Maps#format(Map)}.
- *
+ * 
  * @author Yvonne Wang
  * @author Alex Ruiz
  */

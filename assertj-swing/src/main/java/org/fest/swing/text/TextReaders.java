@@ -85,7 +85,8 @@ public class TextReaders {
     checkNotNull(text);
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable Boolean executeInEDT() {
+      protected @Nullable
+      Boolean executeInEDT() {
         if (componentContainsText(container, text)) {
           return true;
         }
@@ -119,7 +120,8 @@ public class TextReaders {
     return reader.containsText(c, text);
   }
 
-  private @Nullable TextReader<?> readerFor(@Nonnull Component c) {
+  private @Nullable
+  TextReader<?> readerFor(@Nonnull Component c) {
     Class<?> type = c.getClass();
     while (type != null) {
       TextReader<?> reader = readers.get(type);
@@ -137,7 +139,8 @@ public class TextReaders {
   /**
    * @return the singleton instance of this class.
    */
-  public static @Nonnull TextReaders instance() {
+  public static @Nonnull
+  TextReaders instance() {
     return SingletonHolder.INSTANCE;
   }
 

@@ -13,27 +13,28 @@
  * Copyright @2013 the original author or authors.
  */
 /**
- * Provides a fluent interface for accessing fields via
- * <a href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java Reflection</a>.
+ * Provides a fluent interface for accessing fields via <a
+ * href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java Reflection</a>.
  * <p/>
  * Examples:
+ * 
  * <pre>
  * // import static {@link org.fest.reflect.core.Reflection#field(String) org.fest.reflect.core.Reflection.field};
- *
+ * 
  * // Retrieves the value of the field "name"
  * String name = {@link org.fest.reflect.core.Reflection#field(String) field}("name").{@link org.fest.reflect.field.FieldName#ofType(Class) ofType}(String.class).{@link org.fest.reflect.field.FieldType#in(Object) in}(person).{@link org.fest.reflect.field.FieldAccessor#get() get}();
- *
+ * 
  * // Sets the value of the field "name" to "Yoda"
  * {@link org.fest.reflect.core.Reflection#field(String) field}("name").{@link org.fest.reflect.field.FieldName#ofType(Class) ofType}(String.class).{@link org.fest.reflect.field.FieldType#in(Object) in}(person).{@link org.fest.reflect.field.FieldAccessor#set(Object) set}("Yoda");
- *
+ * 
  * // Retrieves the value of the field "powers"
  * List&lt;String&gt; powers = {@link org.fest.reflect.core.Reflection#field(String) field}("powers").{@link org.fest.reflect.field.FieldName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link org.fest.reflect.field.FieldTypeRef#in(Object) in}(jedi).{@link org.fest.reflect.field.FieldAccessor#get() get}();
- *
+ * 
  * // Sets the value of the field "powers"
  * List&lt;String&gt; powers = new ArrayList&lt;String&gt;();
  * powers.add("heal");
  * {@link org.fest.reflect.core.Reflection#field(String) field}("powers").{@link org.fest.reflect.field.FieldName#ofType(org.fest.reflect.reference.TypeRef) ofType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {}).{@link org.fest.reflect.field.FieldTypeRef#in(Object) in}(jedi).{@link org.fest.reflect.field.FieldAccessor#set(Object) set}(powers);
- *
+ * 
  * // Retrieves the value of the static field "count" in Person.class
  * int count = {@link org.fest.reflect.core.Reflection#field(String) field}("count").{@link org.fest.reflect.field.FieldName#ofType(Class) ofType}(int.class).{@link org.fest.reflect.field.FieldType#in(Object) in}(Person.class).{@link org.fest.reflect.field.FieldAccessor#get() get}();
  * </pre>

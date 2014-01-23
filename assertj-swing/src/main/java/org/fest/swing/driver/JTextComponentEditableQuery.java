@@ -34,12 +34,14 @@ final class JTextComponentEditableQuery {
   static boolean isEditable(final @Nonnull JTextComponent textBox) {
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable Boolean executeInEDT() {
+      protected @Nullable
+      Boolean executeInEDT() {
         return textBox.isEditable();
       }
     });
     return checkNotNull(result);
   }
 
-  private JTextComponentEditableQuery() {}
+  private JTextComponentEditableQuery() {
+  }
 }

@@ -33,10 +33,12 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class JComboBoxContentQuery {
   @RunsInEDT
-  static @Nonnull String[] contents(final @Nonnull JComboBox comboBox, final @Nonnull JComboBoxCellReader cellReader) {
+  static @Nonnull
+  String[] contents(final @Nonnull JComboBox comboBox, final @Nonnull JComboBoxCellReader cellReader) {
     String[] result = execute(new GuiQuery<String[]>() {
       @Override
-      protected @Nullable String[] executeInEDT() {
+      protected @Nullable
+      String[] executeInEDT() {
         int itemCount = comboBox.getItemCount();
         String[] values = new String[itemCount];
         for (int i = 0; i < itemCount; i++) {
@@ -48,5 +50,6 @@ final class JComboBoxContentQuery {
     return checkNotNull(result);
   }
 
-  private JComboBoxContentQuery() {}
+  private JComboBoxContentQuery() {
+  }
 }

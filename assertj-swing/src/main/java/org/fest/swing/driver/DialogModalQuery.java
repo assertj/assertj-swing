@@ -37,12 +37,14 @@ final class DialogModalQuery {
   static boolean isModal(final @Nonnull Dialog dialog) {
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable Boolean executeInEDT() {
+      protected @Nullable
+      Boolean executeInEDT() {
         return dialog.isModal();
       }
     });
     return checkNotNull(result);
   }
 
-  private DialogModalQuery() {}
+  private DialogModalQuery() {
+  }
 }

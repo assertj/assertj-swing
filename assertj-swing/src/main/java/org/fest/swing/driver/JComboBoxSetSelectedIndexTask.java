@@ -41,5 +41,6 @@ final class JComboBoxSetSelectedIndexTask {
     });
   }
 
-  private JComboBoxSetSelectedIndexTask() {}
+  private JComboBoxSetSelectedIndexTask() {
+  }
 }

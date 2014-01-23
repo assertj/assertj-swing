@@ -38,12 +38,14 @@ public interface ItemFixture<S> extends MouseInputSimulationFixture<S> {
    * @throws IllegalStateException if the component containing this fixture's item is disabled.
    * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
    */
-  @Nonnull S select();
+  @Nonnull
+  S select();
 
   /**
    * @return the {@code String} representation of this fixture's item, or {@code null} if one can not be obtained.
    */
-  @Nullable String value();
+  @Nullable
+  String value();
 
   /**
    * Simulates a user dragging this fixture's item.
@@ -52,7 +54,8 @@ public interface ItemFixture<S> extends MouseInputSimulationFixture<S> {
    * @throws IllegalStateException if the component containing this fixture's item is disabled.
    * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
    */
-  @Nonnull S drag();
+  @Nonnull
+  S drag();
 
   /**
    * Simulates a user dropping into this fixture's item.
@@ -62,7 +65,8 @@ public interface ItemFixture<S> extends MouseInputSimulationFixture<S> {
    * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
    * @throws ActionFailedException if there is no drag action in effect.
    */
-  @Nonnull S drop();
+  @Nonnull
+  S drop();
 
   /**
    * Shows a pop-up menu using this fixture's item as the invoker of the pop-up menu.
@@ -72,5 +76,6 @@ public interface ItemFixture<S> extends MouseInputSimulationFixture<S> {
    * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
-  @Nonnull JPopupMenuFixture showPopupMenu();
+  @Nonnull
+  JPopupMenuFixture showPopupMenu();
 }

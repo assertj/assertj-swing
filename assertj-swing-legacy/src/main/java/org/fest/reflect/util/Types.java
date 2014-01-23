@@ -23,7 +23,7 @@ import static org.fest.util.Preconditions.checkNotNull;
 
 /**
  * Utility methods related to Java types.
- *
+ * 
  * @author Alex Ruiz
  */
 public final class Types {
@@ -46,8 +46,8 @@ public final class Types {
 
   /**
    * Casts the given object to the given type. This method handles primitive types properly.
-   *
-   * @param o    the object to cast.
+   * 
+   * @param o the object to cast.
    * @param type the type to cast the given object to.
    * @return the given object casted to the given type.
    */
@@ -60,7 +60,8 @@ public final class Types {
   }
 
   @SuppressWarnings("unchecked")
-  private static @Nonnull <T> Class<T> getWrapperType(@Nonnull Class<T> primitiveClass) {
+  private static @Nonnull
+  <T> Class<T> getWrapperType(@Nonnull Class<T> primitiveClass) {
     checkNotNull(primitiveClass);
     if (!primitiveClass.isPrimitive()) {
       String msg = String.format("The class %s is not a primitive type", primitiveClass.getName());

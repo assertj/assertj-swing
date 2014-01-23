@@ -45,5 +45,6 @@ final class JTreeExpandPathTask {
     });
   }
 
-  private JTreeExpandPathTask() {}
+  private JTreeExpandPathTask() {
+  }
 }

@@ -23,6 +23,7 @@ import javax.annotation.Nonnull;
  * 
  * <p>
  * For example, the following code listing:
+ * 
  * <pre>
  * // import static org.fest.swing.launcher.AppletParameter.name;
  * 
@@ -49,7 +50,8 @@ public class AppletParameter {
    * @param name the name of the {@code Applet} parameter.
    * @return a builder of {@code AppletParameter}s.
    */
-  public static @Nonnull AppletParameterBuilder name(String name) {
+  public static @Nonnull
+  AppletParameterBuilder name(String name) {
     return new AppletParameterBuilder(name);
   }
 

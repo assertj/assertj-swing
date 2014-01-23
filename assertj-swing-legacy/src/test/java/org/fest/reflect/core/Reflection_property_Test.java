@@ -26,7 +26,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for {@link Reflection#property(String)}.
- *
+ * 
  * @author Alex Ruiz
  */
 public class Reflection_property_Test {

@@ -33,18 +33,22 @@ import javax.annotation.Nonnull;
  * 
  * <p>
  * Specify that the right button should be clicked once:
+ * 
  * <pre>
  * // import static org.fest.swing.fixture.MouseClickInfo.*;
  * MouseClickInfo i = rightButton();
  * </pre>
+ * 
  * </p>
  * 
  * <p>
  * Specify that the left button should be clicked two times (similar to double-click):
+ * 
  * <pre>
  * // import static org.fest.swing.fixture.MouseClickInfo.*;
  * MouseClickInfo i = leftButton().times(2);
  * </pre>
+ * 
  * </p>
  * 
  * @author Alex Ruiz
@@ -58,7 +62,8 @@ public final class MouseClickInfo {
    * 
    * @return the created click info.
    */
-  public static @Nonnull MouseClickInfo leftButton() {
+  public static @Nonnull
+  MouseClickInfo leftButton() {
     return button(LEFT_BUTTON);
   }
 
@@ -67,7 +72,8 @@ public final class MouseClickInfo {
    * 
    * @return the created click info.
    */
-  public static @Nonnull MouseClickInfo middleButton() {
+  public static @Nonnull
+  MouseClickInfo middleButton() {
     return button(MIDDLE_BUTTON);
   }
 
@@ -76,7 +82,8 @@ public final class MouseClickInfo {
    * 
    * @return the created click info.
    */
-  public static @Nonnull MouseClickInfo rightButton() {
+  public static @Nonnull
+  MouseClickInfo rightButton() {
     return button(RIGHT_BUTTON);
   }
 
@@ -87,7 +94,8 @@ public final class MouseClickInfo {
    * @return the created click info.
    * @throws NullPointerException if {@code button} is {@code null}.
    */
-  public static @Nonnull MouseClickInfo button(@Nonnull MouseButton button) {
+  public static @Nonnull
+  MouseClickInfo button(@Nonnull MouseButton button) {
     return new MouseClickInfo(button, 1);
   }
 
@@ -99,7 +107,8 @@ public final class MouseClickInfo {
   /**
    * @return the button to click.
    */
-  public @Nonnull MouseButton button() {
+  public @Nonnull
+  MouseButton button() {
     return button;
   }
 
@@ -122,7 +131,8 @@ public final class MouseClickInfo {
   }
 
   @Override
-  public @Nonnull String toString() {
+  public @Nonnull
+  String toString() {
     return concat(String.format("%s[button=%s, times=%d]", getClass().getName(), button.toString(), times));
   }
 }

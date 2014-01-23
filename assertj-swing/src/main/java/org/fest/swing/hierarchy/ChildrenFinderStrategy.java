@@ -44,5 +44,6 @@ interface ChildrenFinderStrategy {
    * @return a collection containing the non-explicit children found.
    */
   @RunsInCurrentThread
-  @Nonnull Collection<Component> nonExplicitChildrenOf(@Nonnull Container c);
+  @Nonnull
+  Collection<Component> nonExplicitChildrenOf(@Nonnull Container c);
 }

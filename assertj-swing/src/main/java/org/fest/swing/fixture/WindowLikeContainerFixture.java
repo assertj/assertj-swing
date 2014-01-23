@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 
 /**
  * Supports functional testing of window-like containers (not necessarily subclasses of {@code Window}).
- *
+ * 
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
  *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * 
@@ -40,7 +40,8 @@ public interface WindowLikeContainerFixture<S> {
    * @param width the width that this fixture's window-like container should have after being resized.
    * @return this fixture.
    */
-  @Nonnull S resizeWidthTo(int width);
+  @Nonnull
+  S resizeWidthTo(int width);
 
   /**
    * Simulates a user resizing vertically this fixture's window-like container.
@@ -48,7 +49,8 @@ public interface WindowLikeContainerFixture<S> {
    * @param height the height that this fixture's window-like container should have after being resized.
    * @return this fixture.
    */
-  @Nonnull S resizeHeightTo(int height);
+  @Nonnull
+  S resizeHeightTo(int height);
 
   /**
    * Simulates a user resizing this fixture's window-like container.
@@ -56,7 +58,8 @@ public interface WindowLikeContainerFixture<S> {
    * @param size the size that the target window should have after being resized.
    * @return this fixture.
    */
-  @Nonnull S resizeTo(@Nonnull Dimension size);
+  @Nonnull
+  S resizeTo(@Nonnull Dimension size);
 
   /**
    * Asserts that the size of this fixture's window-like container is equal to given one.
@@ -65,7 +68,8 @@ public interface WindowLikeContainerFixture<S> {
    * @return this fixture.
    * @throws AssertionError if the size of this fixture's window-like container is not equal to the given size.
    */
-  @Nonnull S requireSize(@Nonnull Dimension size);
+  @Nonnull
+  S requireSize(@Nonnull Dimension size);
 
   /**
    * Simulates a user moving this fixture's window-like container to the given point.
@@ -73,19 +77,22 @@ public interface WindowLikeContainerFixture<S> {
    * @param p the point to move this fixture's window-like container to.
    * @return this fixture.
    */
-  @Nonnull S moveTo(@Nonnull Point p);
+  @Nonnull
+  S moveTo(@Nonnull Point p);
 
   /**
    * Brings this fixture's window-like component to the front.
    * 
    * @return this fixture.
    */
-  @Nonnull S moveToFront();
+  @Nonnull
+  S moveToFront();
 
   /**
    * Sends this fixture's window-like component to the back.
    * 
    * @return this fixture.
    */
-  @Nonnull S moveToBack();
+  @Nonnull
+  S moveToBack();
 }

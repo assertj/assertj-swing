@@ -186,5 +186,6 @@ public final class Pause {
     pause(SLEEP_INTERVAL);
   }
 
-  private Pause() {}
+  private Pause() {
+  }
 }

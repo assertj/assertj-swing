@@ -35,5 +35,6 @@ final class JInternalFrameIconifyTask {
     });
   }
 
-  private JInternalFrameIconifyTask() {}
+  private JInternalFrameIconifyTask() {
+  }
 }

@@ -39,5 +39,6 @@ public final class DialogSetModalTask {
     });
   }
 
-  private DialogSetModalTask() {}
+  private DialogSetModalTask() {
+  }
 }

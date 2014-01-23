@@ -31,14 +31,17 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class JTextComponentTextQuery {
   @RunsInEDT
-  static @Nullable String textOf(final @Nonnull JTextComponent textComponent) {
+  static @Nullable
+  String textOf(final @Nonnull JTextComponent textComponent) {
     return execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable String executeInEDT() {
+      protected @Nullable
+      String executeInEDT() {
         return textComponent.getText();
       }
     });
   }
 
-  private JTextComponentTextQuery() {}
+  private JTextComponentTextQuery() {
+  }
 }

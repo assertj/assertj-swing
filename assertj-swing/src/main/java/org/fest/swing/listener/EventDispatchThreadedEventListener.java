@@ -57,7 +57,8 @@ public abstract class EventDispatchThreadedEventListener implements AWTEventList
 
   /**
    * If this method is called in the event dispatch thread, it processes the given event and the queued ones. Otherwise
-   * it will add the given event to the queue and process all the events in the queue in the event dispatch thread (EDT.)
+   * it will add the given event to the queue and process all the events in the queue in the event dispatch thread
+   * (EDT.)
    * 
    * @param event the event to process.
    */

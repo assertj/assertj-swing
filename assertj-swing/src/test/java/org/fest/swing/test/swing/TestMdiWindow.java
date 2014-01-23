@@ -1,15 +1,15 @@
 /*
  * Created on Oct 25, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2013 the original author or authors.
  */
 package org.fest.swing.test.swing;
@@ -28,7 +28,7 @@ import org.fest.swing.edt.GuiQuery;
 
 /**
  * An MDI frame.
- *
+ * 
  * @author Alex Ruiz
  */
 public class TestMdiWindow extends TestWindow {
@@ -37,7 +37,7 @@ public class TestMdiWindow extends TestWindow {
   /**
    * Creates a new {@link TestMdiWindow} and displays it on the screen. The default size of the created window is 500 x
    * 300. This method is executed in the event dispatch thread (EDT.)
-   *
+   * 
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
    * @return the created window.
@@ -56,7 +56,7 @@ public class TestMdiWindow extends TestWindow {
 
   /**
    * Creates a new {@link TestMdiWindow}. This method is executed in the event dispatch thread (EDT.)
-   *
+   * 
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
    * @return the created window.
@@ -81,7 +81,7 @@ public class TestMdiWindow extends TestWindow {
 
   /**
    * Creates a new {@link TestMdiWindow}.
-   *
+   * 
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
    */
@@ -99,7 +99,7 @@ public class TestMdiWindow extends TestWindow {
    * Creates a new {@code JInternalFrame} with a size of 200 x 100. The title of the created internal frame includes the
    * value of a counter that is automatically increased every time a new internal frame is created. This method is
    * {@code not} executed in the event dispatch thread (EDT.)
-   *
+   * 
    * @return the created frame.
    */
   @RunsInCurrentThread
@@ -116,7 +116,7 @@ public class TestMdiWindow extends TestWindow {
 
   /**
    * Returns the container containing multiple documents (internal frames.)
-   *
+   * 
    * @return the container containing multiple documents (internal frames.)
    */
   public JDesktopPane desktop() {
@@ -125,7 +125,7 @@ public class TestMdiWindow extends TestWindow {
 
   /**
    * Returns the internal frame created by default.
-   *
+   * 
    * @return the internal frame created by default.
    */
   public JInternalFrame internalFrame() {

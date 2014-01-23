@@ -29,7 +29,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JPanels {
-  private JPanels() {}
+  private JPanels() {
+  }
 
   public static JPanelFactory panel() {
     return new JPanelFactory();

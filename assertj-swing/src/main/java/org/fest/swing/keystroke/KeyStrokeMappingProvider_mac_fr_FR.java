@@ -79,7 +79,8 @@ public class KeyStrokeMappingProvider_mac_fr_FR implements KeyStrokeMappingProvi
    * @return the mapping between characters and {@code KeyStroke}s for Mac OS and {@code Locale.FRENCH}.
    */
   @Override
-  public @Nonnull Collection<KeyStrokeMapping> keyStrokeMappings() {
+  public @Nonnull
+  Collection<KeyStrokeMapping> keyStrokeMappings() {
     return SingletonHolder.instance;
   }
 
@@ -88,7 +89,8 @@ public class KeyStrokeMappingProvider_mac_fr_FR implements KeyStrokeMappingProvi
     static List<KeyStrokeMapping> instance = createMappings();
   }
 
-  private static @Nonnull List<KeyStrokeMapping> createMappings() {
+  private static @Nonnull
+  List<KeyStrokeMapping> createMappings() {
     List<KeyStrokeMapping> mappings = newArrayList();
     mappings.add(mapping('\b', VK_BACK_SPACE, NO_MASK));
     mappings.add(mapping('', VK_DELETE, NO_MASK));

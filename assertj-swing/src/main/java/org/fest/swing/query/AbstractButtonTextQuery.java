@@ -41,14 +41,17 @@ public final class AbstractButtonTextQuery {
    * @return the text of the given Swing {@code AbstractButton}.
    */
   @RunsInEDT
-  public static @Nullable String textOf(final @Nonnull AbstractButton button) {
+  public static @Nullable
+  String textOf(final @Nonnull AbstractButton button) {
     return execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable String executeInEDT() {
+      protected @Nullable
+      String executeInEDT() {
         return button.getText();
       }
     });
   }
 
-  private AbstractButtonTextQuery() {}
+  private AbstractButtonTextQuery() {
+  }
 }

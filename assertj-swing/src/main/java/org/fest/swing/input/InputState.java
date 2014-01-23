@@ -123,7 +123,8 @@ public class InputState {
     }
   }
 
-  private @Nullable Point screenLocation(@Nonnull MouseEvent event) {
+  private @Nullable
+  Point screenLocation(@Nonnull MouseEvent event) {
     // childAt and locationOnScreenOf want the tree lock, so be careful not to use any additional locks at the same time
     // to avoid deadlock.
     // Determine the current mouse position in screen coordinates
@@ -151,7 +152,8 @@ public class InputState {
   /**
    * @return the most deeply nested AWT or Swing {@code Component} which currently contains the pointer.
    */
-  public synchronized @Nullable Component deepestComponentUnderMousePointer() {
+  public synchronized @Nullable
+  Component deepestComponentUnderMousePointer() {
     Component c = mouseComponent();
     if (c != null) {
       Point mouseLocation = mouseLocation();
@@ -168,7 +170,8 @@ public class InputState {
    * 
    * @return the last known {@code Component} to contain the pointer, or {@code null} if none.
    */
-  public synchronized @Nullable Component mouseComponent() {
+  public synchronized @Nullable
+  Component mouseComponent() {
     return mouseInfo.component();
   }
 
@@ -260,14 +263,16 @@ public class InputState {
    * @return the mouse location relative to the component that currently contains the pointer, or {@code null} if
    *         outside all components.
    */
-  public synchronized @Nullable Point mouseLocation() {
+  public synchronized @Nullable
+  Point mouseLocation() {
     return mouseInfo.location();
   }
 
   /**
    * @return the last known mouse location.
    */
-  public synchronized @Nullable Point mouseLocationOnScreen() {
+  public synchronized @Nullable
+  Point mouseLocationOnScreen() {
     return mouseInfo.locationOnScreen();
   }
 

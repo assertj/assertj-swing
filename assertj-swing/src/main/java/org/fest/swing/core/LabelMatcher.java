@@ -28,8 +28,7 @@ import javax.swing.JLabel;
 import org.fest.swing.annotation.RunsInCurrentThread;
 
 /**
- * Matches an AWT or Swing {@code Component} by the text of the associated {@code JLabel} and
- * (optionally) by type.
+ * Matches an AWT or Swing {@code Component} by the text of the associated {@code JLabel} and (optionally) by type.
  * 
  * @see JLabel#getLabelFor()
  * @see JLabel#setLabelFor(Component)
@@ -96,8 +95,8 @@ public class LabelMatcher extends AbstractComponentMatcher {
    * <p>
    * Indicates whether the given AWT or Swing {@code Component} matches the criteria specified in this matcher:
    * <ol>
-   * <li>the text of the {@code JLabel} attached to the {@code Component} to look for matches the text specified in
-   * this matcher</li>
+   * <li>the text of the {@code JLabel} attached to the {@code Component} to look for matches the text specified in this
+   * matcher</li>
    * <li>the {@code Component} to look for is of the type specified in this matcher (if specified)</li>
    * <li>visibility of the given {@code Component} matches the value specified in this matcher</li>
    * </ol>

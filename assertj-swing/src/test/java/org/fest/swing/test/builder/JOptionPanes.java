@@ -26,7 +26,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JOptionPanes {
-  private JOptionPanes() {}
+  private JOptionPanes() {
+  }
 
   public static JOptionPaneFactory optionPane() {
     return new JOptionPaneFactory();

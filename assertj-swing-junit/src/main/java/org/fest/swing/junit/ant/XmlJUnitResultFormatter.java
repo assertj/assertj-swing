@@ -1,15 +1,15 @@
 /*
  * Created on Jun 6, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2009 the original author or authors.
  */
 package org.fest.swing.junit.ant;
@@ -29,14 +29,14 @@ import org.fest.swing.junit.xml.XmlNode;
 
 /**
  * Understands a copy of the original <code>XMLJUnitResultFormatter</code>, with flexibility for extension.
- *
+ * 
  * @author Alex Ruiz
  */
 public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   private XmlNode xmlRoot;
 
-  private OutputStream out;  // where to write the log to
+  private OutputStream out; // where to write the log to
 
   private final TestCollection tests;
 
@@ -58,10 +58,13 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
   }
 
   // for testing only
-  final TestCollection tests() { return tests; }
+  final TestCollection tests() {
+    return tests;
+  }
 
   /**
    * Sets the stream the formatter is supposed to write its results to.
+   * 
    * @param out the output stream to use.
    */
   public final void setOutput(OutputStream out) {
@@ -70,6 +73,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * This is what the test has written to <code>System.out</code>,
+   * 
    * @param out the <code>String</code> to write.
    */
   public final void setSystemOutput(String out) {
@@ -78,6 +82,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * This is what the test has written to <code>System.err</code>.
+   * 
    * @param out the <code>String</code> to write.
    */
   public final void setSystemError(String out) {
@@ -88,43 +93,49 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
     xmlRoot.addNewNode(type).addCdata(output);
   }
 
-  protected final XmlNode xmlRootNode() { return xmlRoot; }
+  protected final XmlNode xmlRootNode() {
+    return xmlRoot;
+  }
 
   /**
    * The whole test suite started. This method starts creation of the XML report.
+   * 
    * @param suite the test suite.
    * @throws ExceptionInInitializerError if the underlying XML document could not be created.
    */
   public final void startTestSuite(JUnitTest suite) {
     XmlDocument document = new XmlDocument();
     xmlRoot = document.newRoot(TESTSUITE);
-    suiteXmlNodeWriter.writeSuiteName(xmlRoot, suite)
-                      .writeSuiteProperties(xmlRoot, suite);
-    environmentXmlNodeWriter.writeHostName(xmlRoot)
-                            .writeTimestamp(xmlRoot);
+    suiteXmlNodeWriter.writeSuiteName(xmlRoot, suite).writeSuiteProperties(xmlRoot, suite);
+    environmentXmlNodeWriter.writeHostName(xmlRoot).writeTimestamp(xmlRoot);
     onStartTestSuite(suite);
   }
 
   /**
    * Hook for subclasses to add extra functionality after the whole test suite started.
+   * 
    * @param suite the test suite.
    */
-  protected void onStartTestSuite(JUnitTest suite) {}
+  protected void onStartTestSuite(JUnitTest suite) {
+  }
 
   /**
-   * The whole test suite ended. This method finishes writing the XML report and writes its contents to this
-   * formatter's <code>{@link OutputStream}</code>.
+   * The whole test suite ended. This method finishes writing the XML report and writes its contents to this formatter's
+   * <code>{@link OutputStream}</code>.
+   * 
    * @param suite the test suite.
    * @throws BuildException on error.
    */
   public final void endTestSuite(JUnitTest suite) {
     suiteXmlNodeWriter.writeSuiteStatistics(xmlRoot, suite);
-    if (out == null) return;
+    if (out == null)
+      return;
     xmlOutputWriter.write(xmlRoot, out);
   }
 
   /**
    * A new test is started.
+   * 
    * @param test the test.
    */
   public final void startTest(Test test) {
@@ -133,16 +144,19 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * A test is finished.
+   * 
    * @param test the test.
    */
   public final void endTest(Test test) {
-    if (!tests.wasStarted(test)) startTest(test);
+    if (!tests.wasStarted(test))
+      startTest(test);
     XmlNode testNode = xmlNodeForFinished(test);
     testXmlNodeWriter.writeTestExecutionTime(testNode, tests.startTimeOf(test));
   }
 
   private XmlNode xmlNodeForFinished(Test test) {
-    if (tests.wasFailed(test)) return tests.xmlNodeFor(test);
+    if (tests.wasFailed(test))
+      return tests.xmlNodeFor(test);
     XmlNode newTestXmlNode = testXmlNodeWriter.addNewTestXmlNode(xmlRoot, test);
     tests.addXmlNode(test, newTestXmlNode);
     return newTestXmlNode;
@@ -150,15 +164,17 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * A test failed.
+   * 
    * @param test the test.
    * @param failedAssertion the failed assertion.
    */
   public final void addFailure(Test test, AssertionFailedError failedAssertion) {
-    addFailure(test, (Throwable)failedAssertion);
+    addFailure(test, (Throwable) failedAssertion);
   }
 
   /**
    * A test failed.
+   * 
    * @param test the test.
    * @param error the exception.
    */
@@ -169,6 +185,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * An error occurred while running the test.
+   * 
    * @param test the test.
    * @param error the error.
    */
@@ -188,12 +205,14 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
   }
 
   private XmlNode xmlForFailed(Test test) {
-    if (test != null) return tests.xmlNodeFor(test);
+    if (test != null)
+      return tests.xmlNodeFor(test);
     return xmlRoot;
   }
 
   /**
    * Writes the stack trace and message of the given error to the given XML node.
+   * 
    * @param error the given error.
    * @param errorXmlNode the XML node to write to.
    */
@@ -203,9 +222,11 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * Hook for subclasses to add extra functionality after a test failure or a test execution error.
+   * 
    * @param test the executing test.
    * @param error the reason of the failure or error.
    * @param errorXmlNode the XML element containing information about the test failure or error.
    */
-  protected void onFailureOrError(Test test, Throwable error, XmlNode errorXmlNode) {}
+  protected void onFailureOrError(Test test, Throwable error, XmlNode errorXmlNode) {
+  }
 }

@@ -32,7 +32,8 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class JOptionPaneOptionsQuery {
   @RunsInEDT
-  static @Nonnull Object[] optionsOf(final @Nonnull JOptionPane optionPane) {
+  static @Nonnull
+  Object[] optionsOf(final @Nonnull JOptionPane optionPane) {
     Object[] result = execute(new GuiQuery<Object[]>() {
       @Override
       protected Object[] executeInEDT() throws Throwable {
@@ -42,5 +43,6 @@ final class JOptionPaneOptionsQuery {
     return checkNotNull(result);
   }
 
-  private JOptionPaneOptionsQuery() {}
+  private JOptionPaneOptionsQuery() {
+  }
 }

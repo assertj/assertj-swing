@@ -28,7 +28,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JFrames {
-  private JFrames() {}
+  private JFrames() {
+  }
 
   public static JFrameFactory frame() {
     return new JFrameFactory();

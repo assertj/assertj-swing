@@ -1,15 +1,15 @@
 /*
  * Created on Jan 12, 2009
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2009-2013 the original author or authors.
  */
 package org.fest.swing.core.matcher;
@@ -30,9 +30,9 @@ import org.fest.swing.core.GenericTypeMatcher;
 /**
  * Template for matching AWT or Swing {@code Component} by name. Subclasses are free to add other properties to use as
  * search criteria.
- *
+ * 
  * @param <T> the type of {@code Component} supported by this matcher.
- *
+ * 
  * @author Alex Ruiz
  */
 public abstract class NamedComponentMatcherTemplate<T extends Component> extends GenericTypeMatcher<T> {
@@ -51,7 +51,7 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
 
   /**
    * Creates a new {@link NamedComponentMatcherTemplate}.
-   *
+   * 
    * @param supportedType the type supported by this matcher.
    * @throws NullPointerException if the given type is {@code null}.
    */
@@ -62,7 +62,7 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
 
   /**
    * Creates a new {@link NamedComponentMatcherTemplate}.
-   *
+   * 
    * @param supportedType the type supported by this matcher.
    * @param name the name to match.
    * @throws NullPointerException if the given type is {@code null}.
@@ -75,23 +75,25 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
   /**
    * Returns the name to match surrounded by double quotes. If the name to match has not been set, it will return
    * {@link #anyValue()}. This method is commonly used in implementations of {@code toString}.
-   *
+   * 
    * @return the component name to match surrounded by double quotes, or {@link #anyValue()} if the name to match has
    *         not been set.
    */
-  protected final @Nullable Object quotedName() {
+  protected final @Nullable
+  Object quotedName() {
     return quoted(name);
   }
 
   /**
    * Returns the given property value to match surrounded by double quotes. If the property has not been set, it will
    * return {@link #anyValue()}. This method is commonly used in implementations of {@code toString}.
-   *
+   * 
    * @param propertyValue the given property value.
    * @return the given property value to match surrounded by double quotes, or {@link #anyValue()} if the property value
    *         has not been set.
    */
-  protected final @Nullable Object quoted(@Nullable Object propertyValue) {
+  protected final @Nullable
+  Object quoted(@Nullable Object propertyValue) {
     if (ANY.equals(propertyValue)) {
       return ANY;
     }
@@ -105,7 +107,7 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
   /**
    * Indicates whether the given value matches the name in this matcher. It always returns {@code true} if this
    * matcher's name is {@link #anyValue()}.
-   *
+   * 
    * @param actual the actual name of an AWT or Swing {@code Component}.
    * @return {@code true} if this matcher's name is {@code ANY} or if both the actual name is equal to the one in this
    *         matcher. Otherwise {@code false}.
@@ -127,7 +129,7 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
    * matching is performed</li>
    * <li>otherwise, it checks that both the expected and actual values are equal</li>
    * </ol>
-   *
+   * 
    * @param expected the expected value in this matcher.
    * @param actual the actual property value.
    * @return {@code true} if the values match, otherwise {@code false}.
@@ -145,11 +147,13 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
     return areEqual(expected, actual);
   }
 
-  protected final @Nullable Object name() {
+  protected final @Nullable
+  Object name() {
     return name;
   }
 
-  protected static final @Nonnull Object anyValue() {
+  protected static final @Nonnull
+  Object anyValue() {
     return ANY;
   }
 }

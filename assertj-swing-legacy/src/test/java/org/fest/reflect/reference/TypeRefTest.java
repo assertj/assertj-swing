@@ -22,11 +22,12 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for {@link TypeRef}.
- *
+ * 
  * @author Alex Ruiz
  */
 public class TypeRefTest {
-  @Test public void should_return_raw_type() {
+  @Test
+  public void should_return_raw_type() {
     TypeRef<List<String>> typeRef = new TypeRef<List<String>>() {
     };
     Class<List<String>> rawType = typeRef.rawType();

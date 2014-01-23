@@ -1,15 +1,15 @@
 /*
  * Created on Feb 2, 2008
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2008-2013 the original author or authors.
  */
 package org.fest.swing.driver;
@@ -73,12 +73,12 @@ import org.fest.util.VisibleForTesting;
  * <p>
  * Supports functional testing of {@code JTable}s.
  * </p>
- *
+ * 
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.fest.swing.fixture} in your tests.
  * </p>
- *
+ * 
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -96,7 +96,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Creates a new {@link JTableDriver}.
-   *
+   * 
    * @param robot the robot to use to simulate user events.
    */
   public JTableDriver(@Nonnull Robot robot) {
@@ -107,31 +107,33 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Returns the {@code JTableHeader} of the given {@code JTable}.
-   *
+   * 
    * @param table the given {@code JTable}.
    * @return the {@code JTableHeader} of the given {@code JTable}.
    */
   @RunsInEDT
-  public @Nullable JTableHeader tableHeaderOf(@Nonnull JTable table) {
+  public @Nullable
+  JTableHeader tableHeaderOf(@Nonnull JTable table) {
     return tableHeader(table);
   }
 
   /**
    * Returns the {@code String} representation of the value of the selected cell, using this driver's
    * {@link JTableCellReader}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @return the {@code String} representation of the value of the selected cell.
    * @see #replaceCellReader(JTableCellReader)
    */
   @RunsInEDT
-  public @Nullable String selectionValue(@Nonnull JTable table) {
+  public @Nullable
+  String selectionValue(@Nonnull JTable table) {
     return selectionValue(table, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable String selectionValue(final @Nonnull JTable table,
-      final @Nonnull JTableCellReader cellReader) {
+  private static @Nullable
+  String selectionValue(final @Nonnull JTable table, final @Nonnull JTableCellReader cellReader) {
     return execute(new GuiQuery<String>() {
       @Override
       protected String executeInEDT() {
@@ -145,7 +147,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Returns a cell from the given {@code JTable} using the given cell finder.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cellFinder knows how to find a cell.
    * @return the found cell, if any.
@@ -154,7 +156,8 @@ public class JTableDriver extends JComponentDriver {
    * @throws ActionFailedException if a matching cell could not be found.
    */
   @RunsInEDT
-  public @Nonnull TableCell cell(@Nonnull JTable table, @Nonnull TableCellFinder cellFinder) {
+  public @Nonnull
+  TableCell cell(@Nonnull JTable table, @Nonnull TableCellFinder cellFinder) {
     checkNotNull(cellFinder);
     TableCell cell = cellFinder.findCell(table, cellReader());
     checkCellIndicesInBounds(table, cell);
@@ -163,20 +166,21 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Returns a cell from the given {@code JTable} whose value matches the given one.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param value the value of the cell to look for. It can be a regular expression.
    * @return a cell from the given {@code JTable} whose value matches the given one.
    * @throws ActionFailedException if a cell with a matching value cannot be found.
    */
   @RunsInEDT
-  public @Nonnull TableCell cell(@Nonnull JTable table, @Nullable String value) {
+  public @Nonnull
+  TableCell cell(@Nonnull JTable table, @Nullable String value) {
     return cellWithValue(table, new StringTextMatcher(value), cellReader());
   }
 
   /**
    * Returns a cell from the given {@code JTable} whose value matches the given regular expression pattern.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param pattern the regular expression pattern to match
    * @return a cell from the given {@code JTable} whose value matches the given one.
@@ -185,14 +189,15 @@ public class JTableDriver extends JComponentDriver {
    * @since 1.2
    */
   @RunsInEDT
-  public @Nonnull TableCell cell(@Nonnull JTable table, @Nonnull Pattern pattern) {
+  public @Nonnull
+  TableCell cell(@Nonnull JTable table, @Nonnull Pattern pattern) {
     return cellWithValue(table, new PatternTextMatcher(pattern), cellReader());
   }
 
   /**
    * Returns the {@code String} representation of the value at the given cell, using this driver's
    * {@link JTableCellReader}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the table cell.
    * @return the {@code String} representation of the value at the given cell.
@@ -201,13 +206,15 @@ public class JTableDriver extends JComponentDriver {
    * @see #replaceCellReader(JTableCellReader)
    */
   @RunsInEDT
-  public @Nullable String value(@Nonnull JTable table, @Nonnull TableCell cell) {
+  public @Nullable
+  String value(@Nonnull JTable table, @Nonnull TableCell cell) {
     checkNotNull(cell);
     return cellValue(table, cell, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable String cellValue(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  private static @Nullable
+  String cellValue(final @Nonnull JTable table, final @Nonnull TableCell cell,
       final @Nonnull JTableCellReader cellReader) {
     return execute(new GuiQuery<String>() {
       @Override
@@ -221,7 +228,7 @@ public class JTableDriver extends JComponentDriver {
   /**
    * Returns the {@code String} representation of the value at the given row and column, using this driver's
    * {@link JTableCellReader}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param row the given row.
    * @param column the given column.
@@ -230,12 +237,14 @@ public class JTableDriver extends JComponentDriver {
    * @see #replaceCellReader(JTableCellReader)
    */
   @RunsInEDT
-  public @Nullable String value(@Nonnull JTable table, int row, int column) {
+  public @Nullable
+  String value(@Nonnull JTable table, int row, int column) {
     return cellValue(table, row, column, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable String cellValue(final @Nonnull JTable table, final int row, final int column,
+  private static @Nullable
+  String cellValue(final @Nonnull JTable table, final int row, final int column,
       final @Nonnull JTableCellReader cellReader) {
     return execute(new GuiQuery<String>() {
       @Override
@@ -248,7 +257,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Returns the font of the given table cell.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the table cell.
    * @return the font of the given table cell.
@@ -256,14 +265,15 @@ public class JTableDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
   @RunsInEDT
-  public @Nullable Font font(@Nonnull JTable table, @Nonnull TableCell cell) {
+  public @Nullable
+  Font font(@Nonnull JTable table, @Nonnull TableCell cell) {
     checkNotNull(cell);
     return cellFont(table, cell, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable Font cellFont(final @Nonnull JTable table, final @Nonnull TableCell cell,
-      final @Nonnull JTableCellReader cellReader) {
+  private static @Nullable
+  Font cellFont(final @Nonnull JTable table, final @Nonnull TableCell cell, final @Nonnull JTableCellReader cellReader) {
     return execute(new GuiQuery<Font>() {
       @Override
       protected Font executeInEDT() {
@@ -275,7 +285,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Returns the background color of the given table cell.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the table cell.
    * @return the background color of the given table cell.
@@ -289,7 +299,8 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nullable Color cellBackground(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  private static @Nullable
+  Color cellBackground(final @Nonnull JTable table, final @Nonnull TableCell cell,
       final @Nonnull JTableCellReader cellReader) {
     return execute(new GuiQuery<Color>() {
       @Override
@@ -302,7 +313,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Returns the foreground color of the given table cell.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the table cell.
    * @return the foreground color of the given table cell.
@@ -310,13 +321,15 @@ public class JTableDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
   @RunsInEDT
-  public @Nullable Color foreground(@Nonnull JTable table, @Nonnull TableCell cell) {
+  public @Nullable
+  Color foreground(@Nonnull JTable table, @Nonnull TableCell cell) {
     checkNotNull(cell);
     return cellForeground(table, cell, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable Color cellForeground(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  private static @Nullable
+  Color cellForeground(final @Nonnull JTable table, final @Nonnull TableCell cell,
       final @Nonnull JTableCellReader cellReader) {
     return execute(new GuiQuery<Color>() {
       @Override
@@ -329,7 +342,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Selects the given cells of the {@code JTable}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cells the cells to select.
    * @throws NullPointerException if {@code cells} is {@code null} or empty.
@@ -356,7 +369,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Verifies that the {@code JTable} does not have any selection.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @throws AssertionError is the {@code JTable} has a selection.
    */
@@ -383,7 +396,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Selects the given cell, if it is not selected already.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the cell to select.
    * @throws NullPointerException if the cell is {@code null}.
@@ -399,7 +412,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Clicks the given cell, using the specified mouse button, the given number of times.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the table cell.
    * @param mouseButton the mouse button to use.
@@ -421,7 +434,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Starts a drag operation at the location of the given table cell.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the table cell.
    * @throws NullPointerException if the cell is {@code null}.
@@ -437,7 +450,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Starts a drop operation at the location of the given table cell.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the table cell.
    * @throws NullPointerException if the cell is {@code null}.
@@ -453,7 +466,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Shows a pop-up menu at the given table cell.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the table cell.
    * @return the displayed pop-up menu.
@@ -463,13 +476,15 @@ public class JTableDriver extends JComponentDriver {
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu showPopupMenuAt(@Nonnull JTable table, @Nonnull TableCell cell) {
+  public @Nonnull
+  JPopupMenu showPopupMenuAt(@Nonnull JTable table, @Nonnull TableCell cell) {
     Point pointAtCell = scrollToPointAtCell(table, cell, location());
     return robot.showPopupMenu(table, pointAtCell);
   }
 
   @RunsInEDT
-  private static @Nonnull Point scrollToPointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  private static @Nonnull
+  Point scrollToPointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
       final @Nonnull JTableLocation location) {
     checkNotNull(cell);
     Point result = execute(new GuiQuery<Point>() {
@@ -491,7 +506,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Converts the given table cell into a coordinate pair.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the table cell.
    * @return the coordinates of the given row and column.
@@ -499,13 +514,14 @@ public class JTableDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
   @RunsInEDT
-  public @Nonnull Point pointAt(@Nonnull JTable table, @Nonnull TableCell cell) {
+  public @Nonnull
+  Point pointAt(@Nonnull JTable table, @Nonnull TableCell cell) {
     return pointAtCell(table, cell, location());
   }
 
   @RunsInEDT
-  private static @Nonnull Point pointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
-      final @Nonnull JTableLocation location) {
+  private static @Nonnull
+  Point pointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell, final @Nonnull JTableLocation location) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -520,7 +536,7 @@ public class JTableDriver extends JComponentDriver {
    * Asserts that the {@code String} representation of the cell values in the {@code JTable} is equal to the given
    * {@code String} array. This method uses this driver's {@link JTableCellReader} to read the values of the table cells
    * as {@code String}s.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param contents the expected {@code String} representation of the cell values in the {@code JTable}.
    * @see #replaceCellReader(JTableCellReader)
@@ -543,19 +559,20 @@ public class JTableDriver extends JComponentDriver {
   /**
    * Returns the {@code String} representation of the cells in the {@code JTable}, using this driver's
    * {@link JTableCellReader}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @return the {@code String} representation of the cells in the {@code JTable}.
    * @see #replaceCellReader(JTableCellReader)
    */
   @RunsInEDT
-  public @Nonnull String[][] contents(@Nonnull JTable table) {
+  public @Nonnull
+  String[][] contents(@Nonnull JTable table) {
     return tableContents(table, cellReader());
   }
 
   /**
    * Asserts that the value of the given cell matches the given value.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the given table cell.
    * @param value the expected value. It can be a regular expression.
@@ -570,7 +587,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Asserts that the value of the given cell matches the given regular expression pattern.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the given table cell.
    * @param pattern the regular expression pattern to match.
@@ -586,13 +603,14 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull Description cellValueProperty(@Nonnull JTable table, @Nonnull TableCell cell) {
+  private @Nonnull
+  Description cellValueProperty(@Nonnull JTable table, @Nonnull TableCell cell) {
     return cellProperty(table, concat(VALUE_PROPERTY, " ", cell));
   }
 
   /**
    * Enters the given value in the given cell of the {@code JTable}, using this driver's {@link JTableCellWriter}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the given cell.
    * @param value the given value.
@@ -612,7 +630,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Asserts that the given table cell is editable.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the given table cell.
    * @throws NullPointerException if the cell is {@code null}.
@@ -626,7 +644,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Asserts that the given table cell is not editable.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the given table cell.
    * @throws NullPointerException if the cell is {@code null}.
@@ -652,13 +670,14 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Description cellProperty(@Nonnull JTable table, @Nonnull String propertyName) {
+  private static @Nonnull
+  Description cellProperty(@Nonnull JTable table, @Nonnull String propertyName) {
     return propertyName(table, propertyName);
   }
 
   /**
    * Returns the editor in the given cell of the {@code JTable}, using this driver's {@link JTableCellWriter}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the given cell.
    * @return the editor in the given cell of the {@code JTable}.
@@ -676,7 +695,7 @@ public class JTableDriver extends JComponentDriver {
   /**
    * Starts editing the given cell of the {@code JTable}, using this driver's {@link JTableCellWriter}. This method
    * should be called before manipulating the {@code Component} returned by {@link #cellEditor(JTable, TableCell)}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the given cell.
    * @throws NullPointerException if the cell is {@code null}.
@@ -696,7 +715,7 @@ public class JTableDriver extends JComponentDriver {
   /**
    * Stops editing the given cell of the {@code JTable}, using this driver's {@link JTableCellWriter}. This method
    * should be called after manipulating the {@code Component} returned by {@link #cellEditor(JTable, TableCell)}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the given cell.
    * @throws NullPointerException if the cell is {@code null}.
@@ -716,7 +735,7 @@ public class JTableDriver extends JComponentDriver {
   /**
    * Cancels editing the given cell of the {@code JTable}, using this driver's {@link JTableCellWriter}. This method
    * should be called after manipulating the {@code Component} returned by {@link #cellEditor(JTable, TableCell)}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell the given cell.
    * @throws NullPointerException if the cell is {@code null}.
@@ -735,7 +754,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Validates that the given table cell is non {@code null} and its indices are not out of bounds.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param cell to validate.
    * @throws NullPointerException if the cell is {@code null}.
@@ -754,7 +773,7 @@ public class JTableDriver extends JComponentDriver {
   /**
    * Updates the implementation of {@link JTableCellReader} to use when comparing internal values of a {@code JTable}
    * and the values expected in a test.
-   *
+   * 
    * @param newCellReader the new {@code JTableCellValueReader} to use.
    * @throws NullPointerException if {@code newCellReader} is {@code null}.
    */
@@ -764,7 +783,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Updates the implementation of {@link JTableCellWriter} to use to edit cell values in a {@code JTable}.
-   *
+   * 
    * @param newCellWriter the new {@code JTableCellWriter} to use.
    * @throws NullPointerException if {@code newCellWriter} is {@code null}.
    */
@@ -774,7 +793,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Returns the number of rows that can be shown in the given {@code JTable}, given unlimited space.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @return the number of rows shown in the given {@code JTable}.
    * @see JTable#getRowCount()
@@ -786,7 +805,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Returns the index of the column in the given {@code JTable} whose id matches the given one.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param columnId the id of the column to look for.
    * @return the index of the column whose id matches the given one.
@@ -812,13 +831,14 @@ public class JTableDriver extends JComponentDriver {
     return checkNotNull(result);
   }
 
-  private static @Nonnull ActionFailedException failColumnIndexNotFound(@Nonnull Object columnId) {
+  private static @Nonnull
+  ActionFailedException failColumnIndexNotFound(@Nonnull Object columnId) {
     throw actionFailure(String.format("Unable to find a column with id '%s'", columnId.toString()));
   }
 
   /**
    * Asserts that the given {@code JTable} has the given number of rows.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param rowCount the expected number of rows.
    * @throws AssertionError if the given {@code JTable} does not have the given number of rows.
@@ -830,7 +850,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Asserts that the given {@code JTable} has the given number of columns.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param columnCount the expected number of columns.
    * @throws AssertionError if the given {@code JTable} does not have the given number of columns.
@@ -842,7 +862,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Simulates a user selecting the given rows in the given {@code JTable}.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param rows the indices of the row to select.
    * @throws NullPointerException if the given array of indices is {@code null}.
@@ -879,7 +899,8 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Pair<Boolean, Point> cellSelectionInfo(final @Nonnull JTable table, final int row, final int column,
+  private static @Nonnull
+  Pair<Boolean, Point> cellSelectionInfo(final @Nonnull JTable table, final int row, final int column,
       final @Nonnull JTableLocation location) {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
       @Override
@@ -905,7 +926,7 @@ public class JTableDriver extends JComponentDriver {
 
   /**
    * Asserts that the set of selected rows in the given {@code JTable} contains to the given row indices.
-   *
+   * 
    * @param table the target {@code JTable}.
    * @param rows the indices of the rows expected to be selected.
    * @throws AssertionError if the sets of selected rows in the given {@code JTable} (if any) do not contain the given
@@ -919,7 +940,8 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull int[] selectedRowsOf(final @Nonnull JTable table) {
+  private static @Nonnull
+  int[] selectedRowsOf(final @Nonnull JTable table) {
     int[] result = execute(new GuiQuery<int[]>() {
       @Override
       protected int[] executeInEDT() {
@@ -930,11 +952,13 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @VisibleForTesting
-  @Nonnull JTableCellReader cellReader() {
+  @Nonnull
+  JTableCellReader cellReader() {
     return cellReader;
   }
 
-  private @Nonnull JTableLocation location() {
+  private @Nonnull
+  JTableLocation location() {
     return location;
   }
 }

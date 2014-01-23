@@ -43,5 +43,6 @@ final class JSliderValueQuery {
     return checkNotNull(result);
   }
 
-  private JSliderValueQuery() {}
+  private JSliderValueQuery() {
+  }
 }

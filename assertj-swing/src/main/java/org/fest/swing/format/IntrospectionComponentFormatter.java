@@ -1,15 +1,15 @@
 /*
  * Created on Dec 22, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2013 the original author or authors.
  */
 package org.fest.swing.format;
@@ -39,7 +39,7 @@ import org.fest.util.Arrays;
  * Formatter that uses <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html"
  * target="_blank">introspection</a> to display property values of an AWT or Swing {@code Component}. This formatter
  * does not support nested properties.
- *
+ * 
  * @author Alex Ruiz
  */
 public final class IntrospectionComponentFormatter extends ComponentFormatterTemplate {
@@ -50,7 +50,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 
   /**
    * Creates a new {@link IntrospectionComponentFormatter}.
-   *
+   * 
    * @param targetType the type of AWT or Swing {@code Component} that this formatter supports.
    * @param propertyNames the property names to show as the {@code String} representation of a given {@code Component}.
    * @throws NullPointerException if {@code targetType} is {@code null}.
@@ -85,7 +85,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
   /**
    * Returns a {@code String} representation of the given AWT or Swing {@code Component}, showing only the properties
    * specified in this formatter's {@link #IntrospectionComponentFormatter(Class, String[]) constructor}.
-   *
+   * 
    * @param c the given {@code Component}.
    * @return a {@code String} representation of the given {@code Component}.
    * @throws NullPointerException if the given {@code Component} is {@code null}.
@@ -94,7 +94,8 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
    */
   @RunsInCurrentThread
   @Override
-  protected @Nonnull String doFormat(@Nonnull Component c) {
+  protected @Nonnull
+  String doFormat(@Nonnull Component c) {
     StringBuilder b = new StringBuilder();
     b.append(c.getClass().getName()).append("[");
     int max = propertyNames.size() - 1;
@@ -117,7 +118,8 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
     }
   }
 
-  private @Nullable Object propertyValue(@Nonnull Component c, @Nonnull String property) throws Exception {
+  private @Nullable
+  Object propertyValue(@Nonnull Component c, @Nonnull String property) throws Exception {
     if ("showing".equals(property)) {
       return c.isShowing();
     }
@@ -137,7 +139,8 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
    * @return the type of AWT or Swing {@code Component} this formatter supports.
    */
   @Override
-  public @Nonnull Class<? extends Component> targetType() {
+  public @Nonnull
+  Class<? extends Component> targetType() {
     return targetType;
   }
 

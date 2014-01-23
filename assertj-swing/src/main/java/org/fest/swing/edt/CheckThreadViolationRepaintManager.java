@@ -36,7 +36,7 @@ import javax.swing.RepaintManager;
  * @author Scott Delap
  * @author Alexander Potochkin
  * 
- * https://swinghelper.dev.java.net/
+ *         https://swinghelper.dev.java.net/
  */
 abstract class CheckThreadViolationRepaintManager extends RepaintManager {
   private final boolean completeCheck;

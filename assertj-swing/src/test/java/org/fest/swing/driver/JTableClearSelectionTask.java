@@ -23,5 +23,6 @@ final class JTableClearSelectionTask {
     });
   }
 
-  private JTableClearSelectionTask() {}
+  private JTableClearSelectionTask() {
+  }
 }

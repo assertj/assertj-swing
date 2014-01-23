@@ -30,7 +30,8 @@ public abstract class SequentialEDTSafeTestCase extends EDTSafeTestCase {
     onSetUp();
   }
 
-  protected void onSetUp() {}
+  protected void onSetUp() {
+  }
 
   @After
   public final void tearDown() {
@@ -41,5 +42,6 @@ public abstract class SequentialEDTSafeTestCase extends EDTSafeTestCase {
     }
   }
 
-  protected void onTearDown() {}
+  protected void onTearDown() {
+  }
 }

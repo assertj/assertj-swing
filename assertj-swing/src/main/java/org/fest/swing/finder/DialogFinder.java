@@ -67,7 +67,8 @@ public class DialogFinder extends WindowFinderTemplate<Dialog> {
    * @return this finder.
    */
   @Override
-  public @Nonnull DialogFinder withTimeout(@Nonnegative long timeout) {
+  public @Nonnull
+  DialogFinder withTimeout(@Nonnegative long timeout) {
     super.withTimeout(timeout);
     return this;
   }
@@ -80,7 +81,8 @@ public class DialogFinder extends WindowFinderTemplate<Dialog> {
    * @return this finder.
    */
   @Override
-  public @Nonnull DialogFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
+  public @Nonnull
+  DialogFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
     super.withTimeout(timeout, unit);
     return this;
   }
@@ -93,7 +95,8 @@ public class DialogFinder extends WindowFinderTemplate<Dialog> {
    * @throws org.fest.swing.exception.WaitTimedOutError if a {@code Dialog} could not be found.
    */
   @Override
-  public @Nonnull DialogFixture using(@Nonnull Robot robot) {
+  public @Nonnull
+  DialogFixture using(@Nonnull Robot robot) {
     return new DialogFixture(robot, findComponentWith(robot));
   }
 
@@ -103,7 +106,8 @@ public class DialogFinder extends WindowFinderTemplate<Dialog> {
    * @return the given {@code Component}, casted to {@code Dialog}.
    */
   @Override
-  protected @Nullable Dialog cast(@Nullable Component c) {
+  protected @Nullable
+  Dialog cast(@Nullable Component c) {
     return (Dialog) c;
   }
 }

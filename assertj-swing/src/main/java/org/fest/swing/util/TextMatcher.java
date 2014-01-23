@@ -34,10 +34,12 @@ public interface TextMatcher {
   /**
    * @return the description of the type of value this matcher supports.
    */
-  @Nonnull String description();
+  @Nonnull
+  String description();
 
   /**
    * @return the values in this matcher, formatted as a {@code String}.
    */
-  @Nonnull String formattedValues();
+  @Nonnull
+  String formattedValues();
 }

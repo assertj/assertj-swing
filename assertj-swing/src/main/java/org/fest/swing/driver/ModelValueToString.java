@@ -33,7 +33,8 @@ final class ModelValueToString {
    * @return the {@code toString} value from the given object, or {@code null} if the given object does not implement
    *         {@code toString}.
    */
-  static @Nullable String asText(@Nullable Object o) {
+  static @Nullable
+  String asText(@Nullable Object o) {
     if (o == null) {
       return null;
     }
@@ -44,5 +45,6 @@ final class ModelValueToString {
     return null;
   }
 
-  private ModelValueToString() {}
+  private ModelValueToString() {
+  }
 }

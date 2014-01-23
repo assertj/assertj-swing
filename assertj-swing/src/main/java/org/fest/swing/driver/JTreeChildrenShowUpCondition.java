@@ -26,14 +26,15 @@ import org.fest.swing.timing.Condition;
 
 /**
  * Verifies that the children of a node in a {@code JTree} are displayed.
- *
+ * 
  * @author Alex Ruiz
  */
 class JTreeChildrenShowUpCondition extends Condition {
   private JTree tree;
   private TreePath path;
 
-  static @Nonnull JTreeChildrenShowUpCondition untilChildrenShowUp(@Nonnull JTree tree, @Nonnull TreePath path) {
+  static @Nonnull
+  JTreeChildrenShowUpCondition untilChildrenShowUp(@Nonnull JTree tree, @Nonnull TreePath path) {
     return new JTreeChildrenShowUpCondition(tree, path);
   }
 
@@ -43,12 +44,14 @@ class JTreeChildrenShowUpCondition extends Condition {
     this.path = path;
   }
 
-  @Override @RunsInEDT
+  @Override
+  @RunsInEDT
   public boolean test() {
     return childCount(tree, path) != 0;
   }
 
-  @Override protected void done() {
+  @Override
+  protected void done() {
     tree = null;
     path = null;
   }

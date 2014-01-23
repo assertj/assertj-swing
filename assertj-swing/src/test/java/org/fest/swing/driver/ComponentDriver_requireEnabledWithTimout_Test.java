@@ -45,7 +45,7 @@ public class ComponentDriver_requireEnabledWithTimout_Test extends ComponentDriv
       failWhenExpectingException();
     } catch (WaitTimedOutError e) {
       assertThat(e.getMessage()).contains("Timed out waiting for").contains(window.button.getClass().getName())
-      .contains("to be enabled");
+          .contains("to be enabled");
     }
     stopWatch.stop();
     assertThatWaited(stopWatch, timeout);

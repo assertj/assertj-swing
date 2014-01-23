@@ -27,7 +27,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JLabels {
-  private JLabels() {}
+  private JLabels() {
+  }
 
   public static JLabelFactory label() {
     return new JLabelFactory();

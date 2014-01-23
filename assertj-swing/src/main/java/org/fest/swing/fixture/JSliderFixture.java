@@ -55,7 +55,8 @@ public class JSliderFixture extends AbstractJPopupMenuInvokerFixture<JSliderFixt
   }
 
   @Override
-  protected @Nonnull JSliderDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull
+  JSliderDriver createDriver(@Nonnull Robot robot) {
     return new JSliderDriver(robot);
   }
 
@@ -68,7 +69,8 @@ public class JSliderFixture extends AbstractJPopupMenuInvokerFixture<JSliderFixt
    * @throws IllegalStateException if this fixture's {@code JSlider} is not showing on the screen.
    * @throws IllegalArgumentException if the given position is not within the {@code JSlider} bounds.
    */
-  public @Nonnull JSliderFixture slideTo(int value) {
+  public @Nonnull
+  JSliderFixture slideTo(int value) {
     driver().slide(target(), value);
     return this;
   }
@@ -80,7 +82,8 @@ public class JSliderFixture extends AbstractJPopupMenuInvokerFixture<JSliderFixt
    * @throws IllegalStateException if this fixture's {@code JSlider} is disabled.
    * @throws IllegalStateException if this fixture's {@code JSlider} is not showing on the screen.
    */
-  public @Nonnull JSliderFixture slideToMaximum() {
+  public @Nonnull
+  JSliderFixture slideToMaximum() {
     driver().slideToMaximum(target());
     return this;
   }
@@ -92,7 +95,8 @@ public class JSliderFixture extends AbstractJPopupMenuInvokerFixture<JSliderFixt
    * @throws IllegalStateException if this fixture's {@code JSlider} is disabled.
    * @throws IllegalStateException if this fixture's {@code JSlider} is not showing on the screen.
    */
-  public @Nonnull JSliderFixture slideToMinimum() {
+  public @Nonnull
+  JSliderFixture slideToMinimum() {
     driver().slideToMinimum(target());
     return this;
   }

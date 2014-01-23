@@ -1,16 +1,15 @@
 /*
  * Created on Mar 9, 2010
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- *
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ * 
  * Copyright @2010 the original author or authors.
  */
 package org.fest.swing.testng.listener;
@@ -31,7 +30,7 @@ import org.testng.ITestContext;
 
 /**
  * Tests for <code>{@link OutputDirectory#createIfNecessary()}</code>.
- *
+ * 
  * @author Alex Ruiz
  */
 public class OutputDirectory_createIfNecessary_Test {
@@ -52,19 +51,22 @@ public class OutputDirectory_createIfNecessary_Test {
     deleteFiles(path, parentPath);
   }
 
-  private void deleteFiles(String...paths) {
-    for (String p : paths) new File(p).delete();
+  private void deleteFiles(String... paths) {
+    for (String p : paths)
+      new File(p).delete();
   }
 
   @Test
   public void should_not_create_output_folder_if_it_already_exists() {
     assertThat(new File(parentPath)).exists();
     new EasyMockTemplate(context) {
-      @Override protected void expectations() {
+      @Override
+      protected void expectations() {
         expect(context.getOutputDirectory()).andReturn(parentPath);
       }
 
-      @Override protected void codeToTest() {
+      @Override
+      protected void codeToTest() {
         OutputDirectory output = new OutputDirectory(context);
         output.createIfNecessary();
         assertThat(new File(parentPath)).exists();
@@ -76,11 +78,13 @@ public class OutputDirectory_createIfNecessary_Test {
   public void should_create_output_folder_if_it_does_not_exist() {
     assertThat(new File(path)).doesNotExist();
     new EasyMockTemplate(context) {
-      @Override protected void expectations() {
+      @Override
+      protected void expectations() {
         expect(context.getOutputDirectory()).andReturn(path);
       }
 
-      @Override protected void codeToTest() {
+      @Override
+      protected void codeToTest() {
         OutputDirectory output = new OutputDirectory(context);
         output.createIfNecessary();
         assertThat(new File(path)).exists();
@@ -91,11 +95,13 @@ public class OutputDirectory_createIfNecessary_Test {
   @Test(expected = FilesException.class)
   public void should_throw_error_if_output_folder_cannot_be_created() {
     new EasyMockTemplate(context) {
-      @Override protected void expectations() {
+      @Override
+      protected void expectations() {
         expect(context.getOutputDirectory()).andReturn("zz:-//");
       }
 
-      @Override protected void codeToTest() {
+      @Override
+      protected void codeToTest() {
         OutputDirectory output = new OutputDirectory(context);
         output.createIfNecessary();
       }

@@ -24,5 +24,6 @@ import javax.annotation.Nullable;
  * @author Alex Ruiz
  */
 interface FocusOwnerFinderStrategy {
-  @Nullable Component focusOwner();
+  @Nullable
+  Component focusOwner();
 }

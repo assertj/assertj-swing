@@ -28,7 +28,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Tests for {@link Type}.
- *
+ * 
  * @author Alex Ruiz
  */
 public class Type_Test {

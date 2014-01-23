@@ -128,7 +128,8 @@ public final class ScreenLock {
   /**
    * @return the singleton instance of this class.
    */
-  public static @Nonnull ScreenLock instance() {
+  public static @Nonnull
+  ScreenLock instance() {
     return ScreenLockHolder.instance;
   }
 
@@ -136,5 +137,6 @@ public final class ScreenLock {
     static ScreenLock instance = new ScreenLock();
   }
 
-  ScreenLock() {}
+  ScreenLock() {
+  }
 }

@@ -88,7 +88,7 @@ public class Bug76_JOptionPaneLookup_Test extends RobotBasedTestCase {
     }
 
     private class OpenJOptionPaneAction extends AbstractAction {
-        private final String m_message;
+      private final String m_message;
 
       OpenJOptionPaneAction(String message) {
         super("Start!");

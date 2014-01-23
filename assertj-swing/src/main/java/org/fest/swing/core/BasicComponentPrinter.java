@@ -1,15 +1,15 @@
 /*
  * Created on Dec 22, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2013 the original author or authors.
  */
 package org.fest.swing.core;
@@ -36,9 +36,9 @@ import org.fest.swing.hierarchy.SingleComponentHierarchy;
 
 /**
  * Default implementation of {@link ComponentPrinter}.
- *
+ * 
  * @author Alex Ruiz
- *
+ * 
  * @see ComponentPrinter
  * @see Formatting#format(Component)
  */
@@ -47,7 +47,8 @@ public final class BasicComponentPrinter implements ComponentPrinter {
 
   private static final ComponentMatcher ALWAYS_MATCHES = alwaysMatches();
 
-  private static @Nonnull ComponentMatcher alwaysMatches() {
+  private static @Nonnull
+  ComponentMatcher alwaysMatches() {
     return new ComponentMatcher() {
       @Override
       public boolean matches(@Nullable Component c) {
@@ -61,26 +62,28 @@ public final class BasicComponentPrinter implements ComponentPrinter {
   /**
    * Creates a new {@link BasicComponentPrinter} with a new AWT hierarchy. AWT and Swing {@code Component}s created
    * before the created {@link BasicComponentPrinter} cannot be accessed by the created {@link BasicComponentPrinter}.
-   *
+   * 
    * @return the created finder.
    */
-  public static @Nonnull ComponentPrinter printerWithNewAwtHierarchy() {
+  public static @Nonnull
+  ComponentPrinter printerWithNewAwtHierarchy() {
     return new BasicComponentPrinter(ignoreExistingComponents());
   }
 
   /**
    * Creates a new {@link BasicComponentPrinter} that has access to all the AWT and Swing {@code Component}s in the AWT
    * hierarchy.
-   *
+   * 
    * @return the created printer.
    */
-  public static @Nonnull ComponentPrinter printerWithCurrentAwtHierarchy() {
+  public static @Nonnull
+  ComponentPrinter printerWithCurrentAwtHierarchy() {
     return new BasicComponentPrinter(new ExistingHierarchy());
   }
 
   /**
    * Creates a new {@link BasicComponentPrinter}.
-   *
+   * 
    * @param hierarchy the component hierarchy to use.
    */
   protected BasicComponentPrinter(@Nonnull ComponentHierarchy hierarchy) {
@@ -90,7 +93,8 @@ public final class BasicComponentPrinter implements ComponentPrinter {
   /**
    * @return the component hierarchy used by this printer.
    */
-  protected final @Nonnull ComponentHierarchy hierarchy() {
+  protected final @Nonnull
+  ComponentHierarchy hierarchy() {
     return hierarchy;
   }
 
@@ -118,8 +122,8 @@ public final class BasicComponentPrinter implements ComponentPrinter {
   /** {@inheritDoc} */
   @RunsInEDT
   @Override
-  public void printComponents(
-      @Nonnull PrintStream out, @Nonnull Class<? extends Component> type, @Nullable Container root) {
+  public void printComponents(@Nonnull PrintStream out, @Nonnull Class<? extends Component> type,
+      @Nullable Container root) {
     print(hierarchy(root), new TypeMatcher(checkNotNull(type)), checkNotNull(out));
   }
 
@@ -135,7 +139,8 @@ public final class BasicComponentPrinter implements ComponentPrinter {
     print(hierarchy(root), checkNotNull(matcher), checkNotNull(out));
   }
 
-  private @Nonnull ComponentHierarchy hierarchy(@Nullable Container root) {
+  private @Nonnull
+  ComponentHierarchy hierarchy(@Nullable Container root) {
     return root != null ? new SingleComponentHierarchy(root, hierarchy) : hierarchy;
   }
 

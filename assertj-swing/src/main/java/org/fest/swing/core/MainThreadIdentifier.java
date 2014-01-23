@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * @author Alex Ruiz
  */
 class MainThreadIdentifier {
-  @Nullable Thread mainThreadIn(@Nonnull Thread[] threads) {
+  @Nullable
+  Thread mainThreadIn(@Nonnull Thread[] threads) {
     for (Thread t : threads) {
       if (isMain(checkNotNull(t))) {
         return t;

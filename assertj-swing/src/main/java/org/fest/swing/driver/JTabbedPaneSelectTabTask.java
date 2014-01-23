@@ -23,7 +23,8 @@ import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiTask;
 
 /**
- * Selects the tab with the given index in a {@code JTabbedPane}. This task is executed in the event dispatch thread (EDT.)
+ * Selects the tab with the given index in a {@code JTabbedPane}. This task is executed in the event dispatch thread
+ * (EDT.)
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -39,5 +40,6 @@ final class JTabbedPaneSelectTabTask {
     });
   }
 
-  private JTabbedPaneSelectTabTask() {}
+  private JTabbedPaneSelectTabTask() {
+  }
 }

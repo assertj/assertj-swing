@@ -35,11 +35,13 @@ import org.fest.assertions.Description;
 class TextAssert extends Assert implements AssertExtension {
   private final String actual;
 
-  static @Nonnull TextAssert assertThat(@Nullable String s) {
+  static @Nonnull
+  TextAssert assertThat(@Nullable String s) {
     return new TextAssert(s);
   }
 
-  static @Nonnull TextAssert verifyThat(@Nullable String s) {
+  static @Nonnull
+  TextAssert verifyThat(@Nullable String s) {
     return new TextAssert(s);
   }
 
@@ -47,17 +49,20 @@ class TextAssert extends Assert implements AssertExtension {
     this.actual = actual;
   }
 
-  @Nonnull TextAssert as(@Nullable String description) {
+  @Nonnull
+  TextAssert as(@Nullable String description) {
     description(description);
     return this;
   }
 
-  @Nonnull TextAssert as(@Nullable Description description) {
+  @Nonnull
+  TextAssert as(@Nullable Description description) {
     description(description);
     return this;
   }
 
-  @Nonnull TextAssert isEqualOrMatches(@Nullable String s) {
+  @Nonnull
+  TextAssert isEqualOrMatches(@Nullable String s) {
     if (areEqualOrMatch(s, actual)) {
       return this;
     }
@@ -66,7 +71,8 @@ class TextAssert extends Assert implements AssertExtension {
     throw failure(msg);
   }
 
-  @Nonnull TextAssert matches(@Nonnull Pattern pattern) {
+  @Nonnull
+  TextAssert matches(@Nonnull Pattern pattern) {
     if (match(pattern, actual)) {
       return this;
     }

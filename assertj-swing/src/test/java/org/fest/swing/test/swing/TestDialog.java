@@ -1,15 +1,15 @@
 /*
  * Created on Sep 11, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2013 the original author or authors.
  */
 package org.fest.swing.test.swing;
@@ -36,7 +36,7 @@ import org.fest.swing.test.task.FrameShowTask;
 
 /**
  * Base dialog for all GUI tests.
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -49,7 +49,7 @@ public class TestDialog extends JDialog {
    * Creates a new {@link TestDialog} and displays it on the screen with the given frame as its owner. This constructor
    * will set the title of the dialog to be the same as its owner. This method is executed in the event dispatch thread
    * (EDT.)
-   *
+   * 
    * @param owner the owner of the dialog to create.
    * @return the created window.
    */
@@ -68,7 +68,7 @@ public class TestDialog extends JDialog {
   /**
    * Creates a new {@link TestDialog} with the given frame as its owner. This constructor will set the title of the
    * dialog to be the same as its owner. This method is executed in the event dispatch thread (EDT.)
-   *
+   * 
    * @param owner the owner of the dialog to create.
    * @return the created window.
    */
@@ -90,7 +90,7 @@ public class TestDialog extends JDialog {
   /**
    * Creates a new {@link TestDialog} with the given frame as its owner. This constructor will set the title of the
    * dialog to be the same as its owner.
-   *
+   * 
    * @param owner the owner of the dialog to create.
    */
   @RunsInCurrentThread
@@ -103,7 +103,7 @@ public class TestDialog extends JDialog {
   /**
    * Adds the given GUI components to this dialog. This method is <b>not</b> executed in the event dispatch thread
    * (EDT.)
-   *
+   * 
    * @param components the components to add.
    */
   @RunsInCurrentThread
@@ -123,7 +123,7 @@ public class TestDialog extends JDialog {
 
   /**
    * Displays the given dialog on the screen. the current thread where it is called.
-   *
+   * 
    * @param dialog the dialog to display on the screen.
    */
   @RunsInCurrentThread
@@ -134,7 +134,7 @@ public class TestDialog extends JDialog {
   /**
    * Displays this dialog on the screen using the given dimension as its preferred size. This method is executed in the
    * event dispatch thread (EDT.)
-   *
+   * 
    * @param preferredSize the preferred size to set to this dialog before displaying it on the screen.
    */
   @RunsInEDT
@@ -150,7 +150,7 @@ public class TestDialog extends JDialog {
   /**
    * Displays the given dialog on the screen using the given dimension as its preferred size. This method is executed in
    * the current thread where it is called.
-   *
+   * 
    * @param dialog the dialog to display on the screen.
    * @param preferredSize the preferred size to set to the given dialog before displaying it on the screen.
    */
@@ -194,7 +194,7 @@ public class TestDialog extends JDialog {
 
   /**
    * Hides and disposes the given dialog. This method is executed in the current thread where it is called.
-   *
+   * 
    * @param dialog the dialog to destroy.
    */
   @RunsInCurrentThread

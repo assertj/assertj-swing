@@ -30,7 +30,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JDialogs {
-  private JDialogs() {}
+  private JDialogs() {
+  }
 
   public static JDialogFactory dialog() {
     return new JDialogFactory();

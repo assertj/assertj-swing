@@ -67,5 +67,6 @@ public final class WindowDestroyTask {
     w.dispose();
   }
 
-  private WindowDestroyTask() {}
+  private WindowDestroyTask() {
+  }
 }

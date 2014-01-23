@@ -51,5 +51,6 @@ public final class ContainerInsetsQuery {
     return checkNotNull(result);
   }
 
-  private ContainerInsetsQuery() {}
+  private ContainerInsetsQuery() {
+  }
 }

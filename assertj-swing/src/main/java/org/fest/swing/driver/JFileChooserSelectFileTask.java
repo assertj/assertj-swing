@@ -83,5 +83,6 @@ final class JFileChooserSelectFileTask {
     return new IllegalArgumentException(msg);
   }
 
-  private JFileChooserSelectFileTask() {}
+  private JFileChooserSelectFileTask() {
+  }
 }

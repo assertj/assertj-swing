@@ -63,5 +63,6 @@ final class JTableCancelCellEditingTask {
     cellEditor.cancelCellEditing();
   }
 
-  private JTableCancelCellEditingTask() {}
+  private JTableCancelCellEditingTask() {
+  }
 }

@@ -34,7 +34,8 @@ public interface JPopupMenuInvokerFixture {
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
-  @Nonnull JPopupMenuFixture showPopupMenu();
+  @Nonnull
+  JPopupMenuFixture showPopupMenu();
 
   /**
    * Shows a pop-up menu at the given point using this fixture's {@code Component} as the invoker of the pop-up menu.
@@ -45,5 +46,6 @@ public interface JPopupMenuInvokerFixture {
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
-  @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull Point p);
+  @Nonnull
+  JPopupMenuFixture showPopupMenuAt(@Nonnull Point p);
 }

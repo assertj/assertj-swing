@@ -1,15 +1,15 @@
 /*
  * Created on Sep 10, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2013 the original author or authors.
  */
 package org.fest.swing.fixture;
@@ -39,19 +39,21 @@ import org.fest.util.VisibleForTesting;
  * <p>
  * Supports functional testing of single cells in {@code JTable}s.
  * </p>
- *
+ * 
  * <p>
  * Example:
+ * 
  * <pre>
  * // import static org.fest.swing.data.TableCell.row;
  * {@link JTableCellFixture} cell = dialog.{@link JTableFixture table}("records").cell({@link TableCell#row(int) row}(3).column(0));
  * cell.select().showPopupMenu();
  * </pre>
+ * 
  * </p>
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
- *
+ * 
  * @see TableCell
  */
 public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
@@ -62,7 +64,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 
   /**
    * Creates a new {@link JTableCellFixture}.
-   *
+   * 
    * @param table handles the {@code JTable} containing the cell in this fixture.
    * @param cell row and column indices of the table cell to be managed by this fixture.
    * @throws NullPointerException if {@code table} is {@code null}.
@@ -83,33 +85,35 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 
   /**
    * Simulates a user selecting this fixture's table cell.
-   *
+   * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTableCellFixture select() {
+  public @Nonnull
+  JTableCellFixture select() {
     table.selectCell(cell());
     return this;
   }
 
   /**
    * Simulates a user clicking this fixture's table cell.
-   *
+   * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTableCellFixture click() {
+  public @Nonnull
+  JTableCellFixture click() {
     table.click(cell(), LEFT_BUTTON);
     return this;
   }
 
   /**
    * Simulates a user clicking this fixture's table cell.
-   *
+   * 
    * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
@@ -117,39 +121,42 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTableCellFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
+  public @Nonnull
+  JTableCellFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
     table.click(cell(), mouseClickInfo);
     return this;
   }
 
   /**
    * Simulates a user double-clicking this fixture's table cell.
-   *
+   * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTableCellFixture doubleClick() {
+  public @Nonnull
+  JTableCellFixture doubleClick() {
     table.click(cell(), LEFT_BUTTON, 2);
     return this;
   }
 
   /**
    * Simulates a user right-clicking this fixture's table cell.
-   *
+   * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTableCellFixture rightClick() {
+  public @Nonnull
+  JTableCellFixture rightClick() {
     return click(RIGHT_BUTTON);
   }
 
   /**
    * Simulates a user clicking a cell in this fixture's table cell once, using the specified mouse button.
-   *
+   * 
    * @param button the mouse button to use.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
@@ -157,7 +164,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTableCellFixture click(@Nonnull MouseButton button) {
+  public @Nonnull
+  JTableCellFixture click(@Nonnull MouseButton button) {
     table.click(cell(), button);
     return this;
   }
@@ -168,7 +176,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * <p>
    * This method uses the {@link JTableCellWriter} from the {@link JTableFixture} that created this fixture.
    * </p>
-   *
+   * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
@@ -179,7 +187,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @see JTableCellWriter
    * @see #editor()
    */
-  public @Nonnull JTableCellFixture startEditing() {
+  public @Nonnull
+  JTableCellFixture startEditing() {
     driver.startCellEditing(target, cell());
     return this;
   }
@@ -190,7 +199,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * <p>
    * This method uses the {@link JTableCellWriter} from the {@link JTableFixture} that created this fixture.
    * </p>
-   *
+   * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
@@ -201,7 +210,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @see JTableCellWriter
    * @see #editor()
    */
-  public @Nonnull JTableCellFixture stopEditing() {
+  public @Nonnull
+  JTableCellFixture stopEditing() {
     driver.stopCellEditing(target, cell());
     return this;
   }
@@ -210,7 +220,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * Cancels editing this fixture's table cell. This method should be called <strong>after</strong> manipulating the
    * {@code Component} returned by {@link #editor()}.
    * <p>
-   *
+   * 
    * <pre>
    * TableCellFixture cell = table.cell(row(6).column(8));
    * Component editor = cell.editor();
@@ -221,12 +231,12 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * // discard any entered value
    * cell.cancelEditing();
    * </pre>
-   *
+   * 
    * </p>
    * <p>
    * This method uses the {@link JTableCellWriter} from the {@link JTableFixture} that created this fixture.
    * </p>
-   *
+   * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
@@ -237,7 +247,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @see JTableCellWriter
    * @see #editor()
    */
-  public @Nonnull JTableCellFixture cancelEditing() {
+  public @Nonnull
+  JTableCellFixture cancelEditing() {
     driver.cancelCellEditing(target, cell());
     return this;
   }
@@ -249,7 +260,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * from the {@link JTableFixture} that created this fixture.
    * <p>
    * Example:
-   *
+   * 
    * <pre>
    * TableCellFixture cell = table.cell(row(6).column(8));
    * Component editor = cell.editor();
@@ -259,9 +270,9 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * editorFixture.enterText(&quot;Hello&quot;);
    * cell.{@link #stopEditing()};
    * </pre>
-   *
+   * 
    * </p>
-   *
+   * 
    * @return the editor of this fixture's table cell.
    * @see JTableFixture#replaceCellWriter(JTableCellWriter)
    * @see JTableCellWriter
@@ -277,7 +288,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * <p>
    * This method uses the {@link JTableCellWriter} from the {@link JTableFixture} that created this fixture.
    * </p>
-   *
+   * 
    * @param value the value to enter in the cell.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
@@ -288,26 +299,28 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @see JTableFixture#replaceCellWriter(JTableCellWriter)
    * @see JTableCellWriter
    */
-  public @Nonnull JTableCellFixture enterValue(@Nonnull String value) {
+  public @Nonnull
+  JTableCellFixture enterValue(@Nonnull String value) {
     driver.enterValueInCell(target, cell(), value);
     return this;
   }
 
   /**
    * Asserts that the value of this fixture's table cell matches the given value.
-   *
+   * 
    * @param value the expected value of this fixture's table cell. It can be a regular expression.
    * @return this fixture.
    * @throws AssertionError if the value of this fixture's table cell does not match the expected one.
    */
-  public @Nonnull JTableCellFixture requireValue(@Nullable String value) {
+  public @Nonnull
+  JTableCellFixture requireValue(@Nullable String value) {
     table.requireCellValue(cell(), value);
     return this;
   }
 
   /**
    * Asserts that the value of this fixture's table cell matches the given regular expression pattern.
-   *
+   * 
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
@@ -315,7 +328,8 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    *           expression pattern.
    * @since 1.2
    */
-  public @Nonnull JTableCellFixture requireValue(@Nonnull Pattern pattern) {
+  public @Nonnull
+  JTableCellFixture requireValue(@Nonnull Pattern pattern) {
     table.requireCellValue(cell(), pattern);
     return this;
   }
@@ -323,7 +337,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
   /**
    * Returns a fixture that verifies the font of this fixture's table cell. This method uses the
    * {@link JTableCellReader} from the {@link JTableFixture} that created this fixture.
-   *
+   * 
    * @return a fixture that verifies the font of this fixture's table cell.
    * @see JTableFixture#replaceCellReader(JTableCellReader)
    * @see JTableCellReader
@@ -335,91 +349,99 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
   /**
    * Returns a fixture that verifies the background color of this fixture's table cell. This method uses the
    * {@link JTableCellReader} from the {@link JTableFixture} that created this fixture.
-   *
+   * 
    * @return a fixture that verifies the background color of this fixture's table cell.
    * @see JTableFixture#replaceCellReader(JTableCellReader)
    * @see JTableCellReader
    */
-  public @Nonnull ColorFixture background() {
+  public @Nonnull
+  ColorFixture background() {
     return table.backgroundAt(cell());
   }
 
   /**
    * Returns a fixture that verifies the foreground color of this fixture's table cell. This method uses the
    * {@link JTableCellReader} from the {@link JTableFixture} that created this fixture.
-   *
+   * 
    * @return a fixture that verifies the foreground color of this fixture's table cell.
    * @see JTableFixture#replaceCellReader(JTableCellReader)
    * @see JTableCellReader
    */
-  public @Nonnull ColorFixture foreground() {
+  public @Nonnull
+  ColorFixture foreground() {
     return table.foregroundAt(cell());
   }
 
   /**
    * Returns the {@code String} representation of the value of this fixture's table cell. This method uses the
    * {@link JTableCellReader} from the {@link JTableFixture} that created this fixture.
-   *
+   * 
    * @return the {@code String} representation of the value of this fixture's table cell.
    * @see JTableFixture#replaceCellReader(JTableCellReader)
    * @see JTableCellReader
    */
   @Override
-  public @Nullable String value() {
+  public @Nullable
+  String value() {
     return table.valueAt(cell());
   }
 
   /**
    * Simulates a user dragging this fixture's table cell.
-   *
+   * 
    * @return this fixture.
    */
   @Override
-  public @Nonnull JTableCellFixture drag() {
+  public @Nonnull
+  JTableCellFixture drag() {
     table.drag(cell());
     return this;
   }
 
   /**
    * Simulates a user dropping into this fixture's table cell.
-   *
+   * 
    * @return this fixture.
    */
   @Override
-  public @Nonnull JTableCellFixture drop() {
+  public @Nonnull
+  JTableCellFixture drop() {
     table.drop(cell());
     return this;
   }
 
   /**
    * Shows a pop-up menu using this fixture's table cell as the invoker of the pop-up menu.
-   *
+   * 
    * @return a fixture that manages the displayed pop-up menu.
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull JPopupMenuFixture showPopupMenu() {
+  public @Nonnull
+  JPopupMenuFixture showPopupMenu() {
     return table.showPopupMenuAt(cell());
   }
 
   /**
    * Asserts that this fixture's table cell is editable.
-   *
+   * 
    * @return this fixture.
    * @throws AssertionError if this fixture's table cell is not editable.
    */
-  public @Nonnull JTableCellFixture requireEditable() {
+  public @Nonnull
+  JTableCellFixture requireEditable() {
     table.requireEditable(cell());
     return this;
   }
 
   /**
    * Asserts that this fixture's table cell is not editable.
-   *
+   * 
    * @return this fixture.
    * @throws AssertionError if this fixture's table cell is editable.
    */
-  public @Nonnull JTableCellFixture requireNotEditable() {
+  public @Nonnull
+  JTableCellFixture requireNotEditable() {
     table.requireNotEditable(cell());
     return this;
   }
@@ -439,12 +461,14 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
   }
 
   @VisibleForTesting
-  @Nonnull JTableFixture tableFixture() {
+  @Nonnull
+  JTableFixture tableFixture() {
     return table;
   }
 
   @VisibleForTesting
-  @Nonnull TableCell cell() {
+  @Nonnull
+  TableCell cell() {
     return cell;
   }
 }

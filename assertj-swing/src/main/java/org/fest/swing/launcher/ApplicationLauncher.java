@@ -32,6 +32,7 @@ import org.fest.swing.exception.UnexpectedException;
  * 
  * <p>
  * The following example shows how to start an application without any arguments:
+ * 
  * <pre>
  * ApplicationLauncher.application(JavaApp.class).start();
  * 
@@ -39,10 +40,12 @@ import org.fest.swing.exception.UnexpectedException;
  * 
  * ApplicationLauncher.{@link #application(String) application}(&quot;org.fest.swing.application.JavaApp&quot;).{@link #start() start}();
  * </pre>
+ * 
  * </p>
  * 
  * <p>
  * The following example shows how to start an application with arguments:
+ * 
  * <pre>
  * ApplicationLauncher.{@link #application(Class) application}(JavaApp.class).{@link #withArgs(String...) withArgs}(&quot;arg1&quot;, &quot;arg2&quot;).{@link #start() start}();
  * 
@@ -50,6 +53,7 @@ import org.fest.swing.exception.UnexpectedException;
  * 
  * ApplicationLauncher.{@link #application(String) application}(&quot;org.fest.swing.application.JavaApp&quot;).{@link #withArgs(String...) withArgs}(&quot;arg1&quot;, &quot;arg2&quot;).{@link #start() start}();
  * </pre>
+ * 
  * </p>
  * 
  * @author Yvonne Wang
@@ -62,7 +66,8 @@ public class ApplicationLauncher {
    * @return the created {@code ApplicationStarter}.
    * @throws UnexpectedException if the class specified in the given name cannot be loaded.
    */
-  public static @Nonnull ApplicationLauncher application(@Nonnull String applicationTypeName) {
+  public static @Nonnull
+  ApplicationLauncher application(@Nonnull String applicationTypeName) {
     try {
       Class<?> applicationType = Thread.currentThread().getContextClassLoader().loadClass(applicationTypeName);
       return application(applicationType);
@@ -77,7 +82,8 @@ public class ApplicationLauncher {
    * @param applicationType the class containing the "main" method.
    * @return the created {@code ApplicationStarter}.
    */
-  public static @Nonnull ApplicationLauncher application(@Nonnull Class<?> applicationType) {
+  public static @Nonnull
+  ApplicationLauncher application(@Nonnull Class<?> applicationType) {
     return new ApplicationLauncher(applicationType);
   }
 
@@ -96,7 +102,8 @@ public class ApplicationLauncher {
    * @return this {@code ApplicationStarter}.
    * @throws NullPointerException if {@code newArgs} is {@code null}.
    */
-  public @Nonnull ApplicationLauncher withArgs(@Nonnull String... newArgs) {
+  public @Nonnull
+  ApplicationLauncher withArgs(@Nonnull String... newArgs) {
     args = copyOf(checkNotNull(newArgs));
     return this;
   }

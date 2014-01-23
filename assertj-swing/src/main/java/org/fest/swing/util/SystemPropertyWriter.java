@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * @author Alex Ruiz
  */
 class SystemPropertyWriter {
-  @Nullable String updateSystemProperty(@Nonnull String propertyName, @Nullable String value) {
+  @Nullable
+  String updateSystemProperty(@Nonnull String propertyName, @Nullable String value) {
     return System.setProperty(propertyName, value);
   }
 }

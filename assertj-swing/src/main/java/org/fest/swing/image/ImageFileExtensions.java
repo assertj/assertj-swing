@@ -23,5 +23,6 @@ public final class ImageFileExtensions {
   /** PNG file extension */
   public static final String PNG = "png";
 
-  private ImageFileExtensions() {}
+  private ImageFileExtensions() {
+  }
 }

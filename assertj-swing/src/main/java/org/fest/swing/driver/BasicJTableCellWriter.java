@@ -123,7 +123,8 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
     cellWriterFor(table, row, column).cancelCellEditing(table, row, column);
   }
 
-  private @Nonnull JTableCellWriter cellWriterFor(@Nonnull JTable table, int row, int column) {
+  private @Nonnull
+  JTableCellWriter cellWriterFor(@Nonnull JTable table, int row, int column) {
     Component editor = editorForCell(table, row, column);
     if (editor instanceof JCheckBox) {
       return checkBoxWriter;

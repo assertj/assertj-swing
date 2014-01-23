@@ -42,5 +42,6 @@ final class AbstractButtonSelectedQuery {
     return checkNotNull(result);
   }
 
-  private AbstractButtonSelectedQuery() {}
+  private AbstractButtonSelectedQuery() {
+  }
 }

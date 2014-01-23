@@ -37,5 +37,6 @@ final class JTableSingleRowCellSelectedQuery {
     return table.isRowSelected(row) && table.isColumnSelected(column) && table.getSelectedRowCount() == 1;
   }
 
-  private JTableSingleRowCellSelectedQuery() {}
+  private JTableSingleRowCellSelectedQuery() {
+  }
 }

@@ -41,5 +41,6 @@ class JOptionPaneMessageTypeQuery {
     return checkNotNull(result);
   }
 
-  private JOptionPaneMessageTypeQuery() {}
+  private JOptionPaneMessageTypeQuery() {
+  }
 }

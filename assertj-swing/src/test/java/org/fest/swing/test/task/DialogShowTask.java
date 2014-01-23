@@ -49,5 +49,6 @@ public final class DialogShowTask {
     });
   }
 
-  private DialogShowTask() {}
+  private DialogShowTask() {
+  }
 }

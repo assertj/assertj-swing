@@ -48,7 +48,8 @@ final class WindowLikeContainers {
    * @return the coordinates of the 'close' button.
    */
   @RunsInCurrentThread
-  static @Nonnull Point closeButtonLocation(@Nonnull Container c) {
+  static @Nonnull
+  Point closeButtonLocation(@Nonnull Container c) {
     Insets insets = c.getInsets();
     if (isOSX()) {
       return new Point(insets.left + 15, insets.top / 2);
@@ -60,7 +61,7 @@ final class WindowLikeContainers {
    * <p>
    * Identifies the coordinates of the 'maximize' button.
    * </p>
-   *
+   * 
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
@@ -70,7 +71,8 @@ final class WindowLikeContainers {
    * @return the coordinates of the 'maximize' button.
    */
   @RunsInCurrentThread
-  static @Nonnull Point maximizeButtonLocation(@Nonnull Container c) {
+  static @Nonnull
+  Point maximizeButtonLocation(@Nonnull Container c) {
     Point p = iconifyButtonLocation(c);
     p.x += MAXIMIZE_BUTTON_OFFSET;
     return p;
@@ -90,7 +92,8 @@ final class WindowLikeContainers {
    * @return the coordinates of the 'iconify' button, returning (0, 0) if not found.
    */
   @RunsInCurrentThread
-  static @Nonnull Point iconifyButtonLocation(@Nonnull Container c) {
+  static @Nonnull
+  Point iconifyButtonLocation(@Nonnull Container c) {
     Insets insets = c.getInsets();
     // From Abbot: We know the exact layout of the window manager frames for w32 and OSX. Currently no way of detecting
     // the WM under X11. Maybe we could send a WM message (WM_ICONIFY)?
@@ -106,5 +109,6 @@ final class WindowLikeContainers {
     return p;
   }
 
-  private WindowLikeContainers() {}
+  private WindowLikeContainers() {
+  }
 }

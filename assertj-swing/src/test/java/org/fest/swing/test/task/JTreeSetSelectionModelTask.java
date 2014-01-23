@@ -39,5 +39,6 @@ public final class JTreeSetSelectionModelTask {
     });
   }
 
-  private JTreeSetSelectionModelTask() {}
+  private JTreeSetSelectionModelTask() {
+  }
 }

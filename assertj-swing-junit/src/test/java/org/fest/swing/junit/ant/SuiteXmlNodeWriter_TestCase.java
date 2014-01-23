@@ -1,16 +1,15 @@
 /*
  * Created on Apr 6, 2009
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- *
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ * 
  * Copyright @2009 the original author or authors.
  */
 package org.fest.swing.junit.ant;
@@ -31,7 +30,7 @@ import org.junit.Before;
 
 /**
  * Base test case for <code>{@link SuiteXmlNodeWriter}</code>.
- *
+ * 
  * @author Alex Ruiz
  */
 public abstract class SuiteXmlNodeWriter_TestCase {
@@ -46,7 +45,8 @@ public abstract class SuiteXmlNodeWriter_TestCase {
     onSetUp();
   }
 
-  void onSetUp() {}
+  void onSetUp() {
+  }
 
   public void shouldWriterPropertiesAsAttributes() {
     Properties properties = new Properties();
@@ -56,7 +56,8 @@ public abstract class SuiteXmlNodeWriter_TestCase {
     suite.setProperties(properties);
     final XmlNode propertiesNode = mockXmlNode();
     new EasyMockTemplate(targetNode, propertiesNode) {
-      @Override protected void expectations() throws Exception {
+      @Override
+      protected void expectations() throws Exception {
         expect(targetNode.addNewNode(PROPERTIES)).andReturn(propertiesNode);
         XmlAttributes attributes1 = attributes(name(ATTR_NAME).value("key1"), name(ATTR_VALUE).value("value1"));
         expect(propertiesNode.addNewNode(PROPERTY, attributes1)).andReturn(mockXmlNode());
@@ -64,7 +65,8 @@ public abstract class SuiteXmlNodeWriter_TestCase {
         expect(propertiesNode.addNewNode(PROPERTY, attributes2)).andReturn(mockXmlNode());
       }
 
-      @Override protected void codeToTest() {
+      @Override
+      protected void codeToTest() {
         assertThat(writer.writeSuiteProperties(targetNode, suite)).isSameAs(writer);
       }
     }.run();
@@ -75,11 +77,13 @@ public abstract class SuiteXmlNodeWriter_TestCase {
     assertThat(suite.getProperties()).isNull();
     final XmlNode propertiesNode = mockXmlNode();
     new EasyMockTemplate(targetNode, propertiesNode) {
-      @Override protected void expectations() throws Exception {
+      @Override
+      protected void expectations() throws Exception {
         expect(targetNode.addNewNode(PROPERTIES)).andReturn(propertiesNode);
       }
 
-      @Override protected void codeToTest() {
+      @Override
+      protected void codeToTest() {
         assertThat(writer.writeSuiteProperties(targetNode, suite)).isSameAs(writer);
       }
     }.run();
@@ -91,11 +95,13 @@ public abstract class SuiteXmlNodeWriter_TestCase {
     assertThat(suite.getProperties()).isEmpty();
     final XmlNode propertiesNode = mockXmlNode();
     new EasyMockTemplate(targetNode, propertiesNode) {
-      @Override protected void expectations() throws Exception {
+      @Override
+      protected void expectations() throws Exception {
         expect(targetNode.addNewNode(PROPERTIES)).andReturn(propertiesNode);
       }
 
-      @Override protected void codeToTest() {
+      @Override
+      protected void codeToTest() {
         assertThat(writer.writeSuiteProperties(targetNode, suite)).isSameAs(writer);
       }
     }.run();
@@ -110,7 +116,8 @@ public abstract class SuiteXmlNodeWriter_TestCase {
     suite.setCounts(6l, 2l, 1l);
     suite.setRunTime(8000l);
     new EasyMockTemplate(targetNode) {
-      @Override protected void expectations() {
+      @Override
+      protected void expectations() {
         expectAttributeAdded(name(ATTR_TESTS).value(6l));
         expectAttributeAdded(name(ATTR_FAILURES).value(2l));
         expectAttributeAdded(name(ATTR_ERRORS).value(1l));
@@ -122,7 +129,8 @@ public abstract class SuiteXmlNodeWriter_TestCase {
         expectLastCall().once();
       }
 
-      @Override protected void codeToTest() {
+      @Override
+      protected void codeToTest() {
         assertThat(writer.writeSuiteStatistics(targetNode, suite)).isSameAs(writer);
       }
     }.run();

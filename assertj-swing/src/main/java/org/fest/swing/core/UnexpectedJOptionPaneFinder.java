@@ -52,7 +52,8 @@ class UnexpectedJOptionPaneFinder {
     return newArrayList(finder.findAll(m));
   }
 
-  private @Nonnull AssertionError unexpectedJOptionPanesFound(@Nonnull List<Component> found) {
+  private @Nonnull
+  AssertionError unexpectedJOptionPanesFound(@Nonnull List<Component> found) {
     StringBuilder message = new StringBuilder();
     message.append("Expecting no JOptionPane to be showing, but found:<[");
     int size = found.size();

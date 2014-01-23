@@ -22,7 +22,8 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 class ThreadsSource {
-  @Nonnull Thread[] allThreads() {
+  @Nonnull
+  Thread[] allThreads() {
     Thread[] all = new Thread[Thread.activeCount()];
     Thread.enumerate(all);
     return all;

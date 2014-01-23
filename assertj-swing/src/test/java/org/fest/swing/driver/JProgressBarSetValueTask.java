@@ -38,5 +38,6 @@ final class JProgressBarSetValueTask {
     });
   }
 
-  private JProgressBarSetValueTask() {}
+  private JProgressBarSetValueTask() {
+  }
 }

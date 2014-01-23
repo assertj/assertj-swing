@@ -54,5 +54,6 @@ final class JListItemPreconditions {
     throw new IndexOutOfBoundsException(msg);
   }
 
-  private JListItemPreconditions() {}
+  private JListItemPreconditions() {
+  }
 }

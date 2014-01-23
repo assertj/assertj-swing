@@ -21,7 +21,8 @@ final class JTreeChildOfPathCountQuery {
   static int childCount(final @Nonnull JTree tree, final @Nonnull TreePath path) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable Integer executeInEDT() {
+      protected @Nullable
+      Integer executeInEDT() {
         Object lastPathComponent = path.getLastPathComponent();
         return tree.getModel().getChildCount(lastPathComponent);
       }
@@ -29,5 +30,6 @@ final class JTreeChildOfPathCountQuery {
     return checkNotNull(result);
   }
 
-  private JTreeChildOfPathCountQuery() {}
+  private JTreeChildOfPathCountQuery() {
+  }
 }

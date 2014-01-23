@@ -56,7 +56,8 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
     extraSetUp();
   }
 
-  void extraSetUp() {}
+  void extraSetUp() {
+  }
 
   static Object[][] indicesOutOfBounds() {
     return new Object[][] { { -1 }, { 100 } };

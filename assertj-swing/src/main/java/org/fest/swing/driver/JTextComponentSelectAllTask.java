@@ -40,5 +40,6 @@ final class JTextComponentSelectAllTask {
     });
   }
 
-  private JTextComponentSelectAllTask() {}
+  private JTextComponentSelectAllTask() {
+  }
 }

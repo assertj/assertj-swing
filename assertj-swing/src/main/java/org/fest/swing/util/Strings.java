@@ -110,5 +110,6 @@ public final class Strings {
     return p.matcher(s).matches();
   }
 
-  private Strings() {}
+  private Strings() {
+  }
 }

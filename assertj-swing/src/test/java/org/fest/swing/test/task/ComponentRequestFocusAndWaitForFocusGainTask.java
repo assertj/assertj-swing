@@ -48,5 +48,6 @@ public final class ComponentRequestFocusAndWaitForFocusGainTask {
     pause(untilFocused(c), timeout(500));
   }
 
-  private ComponentRequestFocusAndWaitForFocusGainTask() {}
+  private ComponentRequestFocusAndWaitForFocusGainTask() {
+  }
 }

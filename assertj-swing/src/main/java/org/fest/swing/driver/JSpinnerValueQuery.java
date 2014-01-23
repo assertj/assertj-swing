@@ -31,14 +31,17 @@ import org.fest.swing.edt.GuiQuery;
  */
 final class JSpinnerValueQuery {
   @RunsInEDT
-  static @Nullable Object valueOf(final @Nonnull JSpinner spinner) {
+  static @Nullable
+  Object valueOf(final @Nonnull JSpinner spinner) {
     return execute(new GuiQuery<Object>() {
       @Override
-      protected @Nullable Object executeInEDT() {
+      protected @Nullable
+      Object executeInEDT() {
         return spinner.getValue();
       }
     });
   }
 
-  private JSpinnerValueQuery() {}
+  private JSpinnerValueQuery() {
+  }
 }

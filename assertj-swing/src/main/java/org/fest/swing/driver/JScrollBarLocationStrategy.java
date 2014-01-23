@@ -38,9 +38,12 @@ import org.fest.swing.annotation.RunsInCurrentThread;
 abstract class JScrollBarLocationStrategy {
   abstract int arrow(@Nonnull JScrollBar scrollBar);
 
-  abstract @Nonnull Point thumbLocation(@Nonnull JScrollBar scrollBar, double fraction);
+  abstract @Nonnull
+  Point thumbLocation(@Nonnull JScrollBar scrollBar, double fraction);
 
-  abstract @Nonnull Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset);
+  abstract @Nonnull
+  Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset);
 
-  abstract @Nonnull Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar);
+  abstract @Nonnull
+  Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar);
 }

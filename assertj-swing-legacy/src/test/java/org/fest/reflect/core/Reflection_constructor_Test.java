@@ -26,7 +26,7 @@ import static org.junit.Assert.*;
 
 /**
  * Tests for {@link Reflection#constructor()}.
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -42,15 +42,15 @@ public class Reflection_constructor_Test {
 
   @Test
   public void should_create_new_instance_using_given_constructor_parameters() {
-    Person person =
-        Reflection.constructor().withParameterTypes(String.class).in(Person.class).newInstance("Yoda");
+    Person person = Reflection.constructor().withParameterTypes(String.class).in(Person.class).newInstance("Yoda");
     assertNotNull(person);
     assertEquals("Yoda", person.name);
   }
 
   @Test
   public void should_return_real_constructor() {
-    Constructor<Person> constructor = Reflection.constructor().withParameterTypes(String.class).in(Person.class).target();
+    Constructor<Person> constructor = Reflection.constructor().withParameterTypes(String.class).in(Person.class)
+        .target();
     assertNotNull(constructor);
     Class<?>[] parameterTypes = constructor.getParameterTypes();
     assertEquals(1, parameterTypes.length);
@@ -106,4 +106,3 @@ public class Reflection_constructor_Test {
     }
   }
 }
-

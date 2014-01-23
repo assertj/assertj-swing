@@ -1,16 +1,15 @@
 /*
  * Created on Apr 6, 2009
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- *
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ * 
  * Copyright @2009 the original author or authors.
  */
 package org.fest.swing.junit.ant;
@@ -28,7 +27,7 @@ import org.fest.swing.junit.xml.XmlNode;
 
 /**
  * Understands how to write information about a test suite to a XML node.
- *
+ * 
  * @author Alex Ruiz
  */
 class SuiteXmlNodeWriter {
@@ -42,10 +41,11 @@ class SuiteXmlNodeWriter {
   SuiteXmlNodeWriter writeSuiteProperties(XmlNode target, JUnitTest suite) {
     XmlNode propertiesNode = target.addNewNode(PROPERTIES);
     Properties properties = suite.getProperties();
-    if (properties == null) return this;
+    if (properties == null)
+      return this;
     Enumeration<?> propertyNames = properties.propertyNames();
     while (propertyNames.hasMoreElements())
-      writeProperty(propertiesNode, properties, (String)propertyNames.nextElement());
+      writeProperty(propertiesNode, properties, (String) propertyNames.nextElement());
     return this;
   }
 

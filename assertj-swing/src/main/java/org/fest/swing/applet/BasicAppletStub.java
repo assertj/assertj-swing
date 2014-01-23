@@ -45,8 +45,7 @@ public class BasicAppletStub implements AppletStub {
    * @param parameters the parameters included in an "applet" HTML tag.
    * @throws NullPointerException if {@code viewer}, {@code context} or {@code parameters} are {@code null}.
    */
-  public BasicAppletStub(@Nonnull Window viewer, @Nonnull AppletContext context,
-      @Nonnull Map<String, String> parameters) {
+  public BasicAppletStub(@Nonnull Window viewer, @Nonnull AppletContext context, @Nonnull Map<String, String> parameters) {
     this(viewer, context);
     this.parameters.putAll(checkNotNull(parameters));
   }
@@ -88,7 +87,8 @@ public class BasicAppletStub implements AppletStub {
    * @return the {@code Applet}'s context.
    */
   @Override
-  public @Nonnull AppletContext getAppletContext() {
+  public @Nonnull
+  AppletContext getAppletContext() {
     return context;
   }
 
@@ -119,7 +119,8 @@ public class BasicAppletStub implements AppletStub {
    * @return the value of the named parameter, or {@code null} if not set.
    */
   @Override
-  public @Nullable String getParameter(@Nullable String name) {
+  public @Nullable
+  String getParameter(@Nullable String name) {
     return parameters.get(name);
   }
 }

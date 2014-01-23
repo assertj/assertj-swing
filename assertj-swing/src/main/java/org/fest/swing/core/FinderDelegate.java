@@ -36,7 +36,8 @@ import org.fest.swing.hierarchy.ComponentHierarchy;
  */
 final class FinderDelegate {
   @RunsInEDT
-  @Nonnull Collection<Component> find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
+  @Nonnull
+  Collection<Component> find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
     Set<Component> found = newLinkedHashSet();
     for (Component c : rootsOf(h)) {
       find(h, m, checkNotNull(c), found);
@@ -56,8 +57,8 @@ final class FinderDelegate {
   }
 
   @RunsInEDT
-  private static @Nonnull Collection<Component> childrenOfComponent(
-      final @Nonnull Component c, final @Nonnull ComponentHierarchy h) {
+  private static @Nonnull
+  Collection<Component> childrenOfComponent(final @Nonnull Component c, final @Nonnull ComponentHierarchy h) {
     Collection<Component> children = execute(new GuiQuery<Collection<Component>>() {
       @Override
       protected Collection<Component> executeInEDT() {
@@ -79,7 +80,8 @@ final class FinderDelegate {
   }
 
   @RunsInEDT
-  @Nonnull <T extends Component> Collection<T> find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m) {
+  @Nonnull
+  <T extends Component> Collection<T> find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m) {
     Set<T> found = newLinkedHashSet();
     for (Component c : rootsOf(h)) {
       find(h, m, checkNotNull(c), found);
@@ -88,7 +90,8 @@ final class FinderDelegate {
   }
 
   @RunsInEDT
-  private static @Nonnull Collection<? extends Component> rootsOf(final @Nonnull ComponentHierarchy h) {
+  private static @Nonnull
+  Collection<? extends Component> rootsOf(final @Nonnull ComponentHierarchy h) {
     Collection<? extends Component> roots = execute(new GuiQuery<Collection<? extends Component>>() {
       @Override
       protected Collection<? extends Component> executeInEDT() {

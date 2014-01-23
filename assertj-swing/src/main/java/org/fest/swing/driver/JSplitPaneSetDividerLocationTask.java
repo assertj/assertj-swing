@@ -39,5 +39,6 @@ final class JSplitPaneSetDividerLocationTask {
     });
   }
 
-  private JSplitPaneSetDividerLocationTask() {}
+  private JSplitPaneSetDividerLocationTask() {
+  }
 }

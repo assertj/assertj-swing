@@ -19,22 +19,22 @@ import org.fest.util.InternalApi;
 import javax.annotation.Nonnull;
 
 /**
- * Starting point of the fluent interface for invoking constructors via
- * <a href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java Reflection</a>.
+ * Starting point of the fluent interface for invoking constructors via <a
+ * href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java Reflection</a>.
  * <p/>
  * <strong>Note:</strong> To improve code readability, we recommend invoking the static method
- * {@link org.fest.reflect.core.Reflection#constructor() Reflection.constructor()} instead of this class'
- * constructor:
+ * {@link org.fest.reflect.core.Reflection#constructor() Reflection.constructor()} instead of this class' constructor:
+ * 
  * <pre>
  * // import static {@link org.fest.reflect.core.Reflection#constructor() org.fest.reflect.core.Reflection.constructor};
- *
+ * 
  * // Equivalent to 'Person p = new Person()'
  * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#in in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}();
- *
+ * 
  * // Equivalent to 'Person p = new Person("Yoda")'
  * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#withParameterTypes(Class...) withParameterTypes}(String.class).{@link org.fest.reflect.constructor.ParameterTypes#in(Class) in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}("Yoda");
  * </pre>
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -44,12 +44,13 @@ public final class TargetType {
    * <p/>
    * <strong>Note:</strong> To improve code readability, we recommend invoking the static method
    * {@link org.fest.reflect.core.Reflection#constructor() Reflection.constructor()} instead of this constructor:
+   * 
    * <pre>
    * // import static {@link org.fest.reflect.core.Reflection#constructor() org.fest.reflect.core.Reflection.constructor};
-   *
+   * 
    * // Equivalent to 'Person p = new Person()'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#in in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}();
-   *
+   * 
    * // Equivalent to 'Person p = new Person("Yoda")'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#withParameterTypes(Class...) withParameterTypes}(String.class).{@link org.fest.reflect.constructor.ParameterTypes#in(Class) in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}("Yoda");
    * </pre>
@@ -62,21 +63,23 @@ public final class TargetType {
    * Indicates the data type of the object to create.
    * <p/>
    * Examples:
+   * 
    * <pre>
    * // import static {@link org.fest.reflect.core.Reflection#constructor() org.fest.reflect.core.Reflection.constructor};
-   *
+   * 
    * // Equivalent to 'Person p = new Person()'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#in in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}();
-   *
+   * 
    * // Equivalent to 'Person p = new Person("Yoda")'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#withParameterTypes(Class...) withParameterTypes}(String.class).{@link org.fest.reflect.constructor.ParameterTypes#in(Class) in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}("Yoda");
    * </pre>
-   *
+   * 
    * @param target the type of the object to create by invoking a constructor.
    * @return the created constructor invoker.
    * @throws NullPointerException if the given type is {@code null}.
    */
-  public @Nonnull <T> ConstructorInvoker<T> in(@Nonnull Class<T> target) {
+  public @Nonnull
+  <T> ConstructorInvoker<T> in(@Nonnull Class<T> target) {
     return new ConstructorInvoker<T>(target);
   }
 
@@ -87,21 +90,23 @@ public final class TargetType {
    * constructor.
    * <p/>
    * Examples:
+   * 
    * <pre>
    * // import static {@link org.fest.reflect.core.Reflection#constructor() org.fest.reflect.core.Reflection.constructor};
-   *
+   * 
    * // Equivalent to 'Person p = new Person()'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#in in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}();
-   *
+   * 
    * // Equivalent to 'Person p = new Person("Yoda")'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#withParameterTypes(Class...) withParameterTypes}(String.class).{@link org.fest.reflect.constructor.ParameterTypes#in(Class) in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}("Yoda");
    * </pre>
-   *
+   * 
    * @param parameterTypes the types of the parameters to pass to the constructor.
    * @return the created parameter type holder.
    * @throws NullPointerException if the given array is {@code null}.
    */
-  public @Nonnull ParameterTypes withParameterTypes(@Nonnull Class<?>... parameterTypes) {
+  public @Nonnull
+  ParameterTypes withParameterTypes(@Nonnull Class<?>... parameterTypes) {
     return new ParameterTypes(parameterTypes);
   }
 }

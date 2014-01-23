@@ -30,14 +30,16 @@ import javax.annotation.Nullable;
 final class IntEnum {
   private final Map<Integer, String> map = newHashMap();
 
-  @Nullable String get(int key) {
+  @Nullable
+  String get(int key) {
     if (map.containsKey(key)) {
       return map.get(key);
     }
     return valueOf(key);
   }
 
-  @Nonnull IntEnum put(int key, @Nullable String value) {
+  @Nonnull
+  IntEnum put(int key, @Nullable String value) {
     map.put(key, value);
     return this;
   }

@@ -1,15 +1,15 @@
 /*
  * Created on Aug 30, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2013 the original author or authors.
  */
 package org.fest.swing.util;
@@ -30,7 +30,7 @@ import org.fest.util.VisibleForTesting;
 
 /**
  * Platform-specific functionality.
- *
+ * 
  * @author Alex Ruiz
  */
 public final class Platform {
@@ -53,8 +53,9 @@ public final class Platform {
   }
 
   /**
-   * Return the modifier key for the appropriate accelerator key for menu shortcuts:
-   * {@link KeyEvent#VK_CONTROL} (default) or {@link KeyEvent#VK_META} (MacOS.)
+   * Return the modifier key for the appropriate accelerator key for menu shortcuts: {@link KeyEvent#VK_CONTROL}
+   * (default) or {@link KeyEvent#VK_META} (MacOS.)
+   * 
    * @return the modifier key for the appropriate accelerator key for menu shortcuts.
    * @throws AssertionError if unable to find the appropriate key.
    * @throws HeadlessException if {@code GraphicsEnvironment.isHeadless()}.
@@ -67,8 +68,9 @@ public final class Platform {
   }
 
   /**
-   * Return the modifier mask for the appropriate accelerator key for menu shortcuts:
-   * {@link Event#CTRL_MASK} (default) or {@link Event#META_MASK} (MacOS.)
+   * Return the modifier mask for the appropriate accelerator key for menu shortcuts: {@link Event#CTRL_MASK} (default)
+   * or {@link Event#META_MASK} (MacOS.)
+   * 
    * @return the modifier mask for the appropriate accelerator key for menu shortcuts.
    * @throws HeadlessException if {@code GraphicsEnvironment.isHeadless()}.
    */
@@ -77,11 +79,11 @@ public final class Platform {
   }
 
   /**
-   * Indicates whether it is possible to resize windows that are not an instance of {@link java.awt.Frame}
-   * or {@link java.awt.Dialog}. Most X11 window managers will allow this, but stock Macintosh and Windows
-   * do not.
-   * @return {@code true} if it is possible to resize windows other than {@code Frame}s or
-   * {@code Dialog}s, {@code false} otherwise.
+   * Indicates whether it is possible to resize windows that are not an instance of {@link java.awt.Frame} or
+   * {@link java.awt.Dialog}. Most X11 window managers will allow this, but stock Macintosh and Windows do not.
+   * 
+   * @return {@code true} if it is possible to resize windows other than {@code Frame}s or {@code Dialog}s,
+   *         {@code false} otherwise.
    */
   public static boolean canResizeWindows() {
     return !isWindows() && !isMacintosh();
@@ -89,10 +91,10 @@ public final class Platform {
 
   /**
    * Indicates whether it is possible to move windows that are not an instance of {@link java.awt.Frame} or
-   * {@link java.awt.Dialog}. Most X11 window managers will allow this, but stock Macintosh and Windows do
-   * not.
-   * @return {@code true} if it is possible to move windows other than {@code Frame}s or {@code Dialog}s,
-   * {@code false} otherwise.
+   * {@link java.awt.Dialog}. Most X11 window managers will allow this, but stock Macintosh and Windows do not.
+   * 
+   * @return {@code true} if it is possible to move windows other than {@code Frame}s or {@code Dialog}s, {@code false}
+   *         otherwise.
    */
   public static boolean canMoveWindows() {
     return !isWindows() && !isMacintosh();
@@ -100,6 +102,7 @@ public final class Platform {
 
   /**
    * Indicates whether the operating system is Windows.
+   * 
    * @return {@code true} if the operation system is Windows, {@code false} otherwise.
    */
   public static boolean isWindows() {
@@ -108,6 +111,7 @@ public final class Platform {
 
   /**
    * Indicates whether the operating system is Windows 9x (95, 98 or ME.)
+   * 
    * @return {@code true} if the operating system is Windows 9x (95, 98 or ME,) {@code false} otherwise.
    */
   public static boolean isWindows9x() {
@@ -116,6 +120,7 @@ public final class Platform {
 
   /**
    * Indicates whether the operating system is Windows XP.
+   * 
    * @return {@code true} if the operating system is Windows XP, {@code false} otherwise.
    */
   public static boolean isWindowsXP() {
@@ -124,6 +129,7 @@ public final class Platform {
 
   /**
    * Indicates whether the operating system is a Macintosh OS.
+   * 
    * @return {@code true} is the operating system is a Macintosh OS, {@code false} otherwise.
    */
   public static boolean isMacintosh() {
@@ -132,6 +138,7 @@ public final class Platform {
 
   /**
    * Indicates whether the operating system is Mac OS X.
+   * 
    * @return {@code true} if the operating system is Mac OS X, {@code false} otherwise.
    */
   public static boolean isOSX() {
@@ -140,6 +147,7 @@ public final class Platform {
 
   /**
    * Indicates whether the operating system is using the X11 Windowing system.
+   * 
    * @return {@code true} if the operating system is using the X11 Windowing system, {@code false} otherwise.
    */
   public static boolean isX11() {
@@ -148,6 +156,7 @@ public final class Platform {
 
   /**
    * Indicates whether the operating system is Solaris.
+   * 
    * @return {@code true} if the operating system is Solaris, {@code false} otherwise.
    */
   public static boolean isSolaris() {
@@ -156,6 +165,7 @@ public final class Platform {
 
   /**
    * Indicates whether the operating system is HP-UX.
+   * 
    * @return {@code true} if the operating system is HP-UX, {@code false} otherwise.
    */
   public static boolean isHPUX() {
@@ -164,6 +174,7 @@ public final class Platform {
 
   /**
    * Indicates whether the operating system is Linux.
+   * 
    * @return {@code true} if the operating system is Linux, {@code false} otherwise.
    */
   public static boolean isLinux() {
@@ -174,9 +185,11 @@ public final class Platform {
    * @return the current operating system family.
    * @since 1.2
    */
-  public static @Nonnull OSFamily osFamily() {
+  public static @Nonnull
+  OSFamily osFamily() {
     return osIdentifier.osFamily();
   }
 
-  private Platform() {}
+  private Platform() {
+  }
 }

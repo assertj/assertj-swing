@@ -39,5 +39,6 @@ public final class JComboBoxSetSelectedItemTask {
     });
   }
 
-  private JComboBoxSetSelectedItemTask() {}
+  private JComboBoxSetSelectedItemTask() {
+  }
 }

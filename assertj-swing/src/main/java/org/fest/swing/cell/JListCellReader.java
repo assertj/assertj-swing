@@ -48,5 +48,6 @@ public interface JListCellReader {
    * @param index the index of the cell.
    * @return the internal value of a cell in a {@code JList} as expected in a test.
    */
-  @Nullable String valueAt(@Nonnull JList list, int index);
+  @Nullable
+  String valueAt(@Nonnull JList list, int index);
 }

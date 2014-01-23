@@ -20,7 +20,7 @@ import static org.fest.util.Preconditions.checkNotNull;
 
 /**
  * Stores the parameter types for the constructor to invoke.
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -35,21 +35,23 @@ public final class ParameterTypes {
    * Indicates the data type of the object to create.
    * <p/>
    * Examples:
+   * 
    * <pre>
    * // import static {@link org.fest.reflect.core.Reflection#constructor() org.fest.reflect.core.Reflection.constructor};
-   *
+   * 
    * // Equivalent to 'Person p = new Person()'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#in in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}();
-   *
+   * 
    * // Equivalent to 'Person p = new Person("Yoda")'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#withParameterTypes(Class...) withParameterTypes}(String.class).{@link org.fest.reflect.constructor.ParameterTypes#in(Class) in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}("Yoda");
    * </pre>
-   *
+   * 
    * @param target the type of the object to create by invoking a constructor.
    * @return the created constructor invoker.
    * @throws NullPointerException if the given type is {@code null}.
    */
-  public @Nonnull <T> ConstructorInvoker<T> in(@Nonnull Class<T> target) {
+  public @Nonnull
+  <T> ConstructorInvoker<T> in(@Nonnull Class<T> target) {
     return new ConstructorInvoker<T>(target, parameterTypes);
   }
 }

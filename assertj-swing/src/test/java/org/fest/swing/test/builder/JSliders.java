@@ -27,7 +27,8 @@ import org.fest.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 public final class JSliders {
-  private JSliders() {}
+  private JSliders() {
+  }
 
   public static JSliderFactory slider() {
     return new JSliderFactory();

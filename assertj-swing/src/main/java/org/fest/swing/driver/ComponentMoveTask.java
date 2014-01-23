@@ -40,5 +40,6 @@ final class ComponentMoveTask {
     });
   }
 
-  private ComponentMoveTask() {}
+  private ComponentMoveTask() {
+  }
 }

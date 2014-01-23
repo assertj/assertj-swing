@@ -28,5 +28,6 @@ final class JTreeToggleExpandStateTask {
     method("toggleExpandState").withParameterTypes(TreePath.class).in(treeUI).invoke(path);
   }
 
-  private JTreeToggleExpandStateTask() {}
+  private JTreeToggleExpandStateTask() {
+  }
 }

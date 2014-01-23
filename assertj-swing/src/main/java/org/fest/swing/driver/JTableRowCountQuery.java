@@ -35,12 +35,14 @@ final class JTableRowCountQuery {
   static int rowCountOf(final @Nonnull JTable table) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable Integer executeInEDT() {
+      protected @Nullable
+      Integer executeInEDT() {
         return table.getRowCount();
       }
     });
     return checkNotNull(result);
   }
 
-  private JTableRowCountQuery() {}
+  private JTableRowCountQuery() {
+  }
 }

@@ -43,5 +43,6 @@ final class JInternalFrameIconQuery {
     return frame.isIcon();
   }
 
-  private JInternalFrameIconQuery() {}
+  private JInternalFrameIconQuery() {
+  }
 }

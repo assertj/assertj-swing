@@ -37,23 +37,28 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * 
    * <p>
    * The following code listing shows how to match a {@code JLabel} by name and text:
+   * 
    * <pre>
    * JLabelMatcher m = {@link #withName(String) withName}("firstName").{@link #andText(String) andText}("First Name:");
    * </pre>
+   * 
    * </p>
    * 
    * <p>
    * The following code listing shows how to match a {@code JLabel}, that should be showing on the screen, by name and
    * text:
+   * 
    * <pre>
    * JLabelMatcher m = {@link #withName(String) withName}("firstName").{@link #andText(String) andText}("First Name:").{@link #andShowing() andShowing}();
    * </pre>
+   * 
    * </p>
    * 
    * @param name the id to match.
    * @return the created matcher.
    */
-  public static @Nonnull JLabelMatcher withName(@Nullable String name) {
+  public static @Nonnull
+  JLabelMatcher withName(@Nullable String name) {
     return new JLabelMatcher(name, anyValue());
   }
 
@@ -64,22 +69,27 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * 
    * <p>
    * The following code listing shows how to match a {@code JLabel} by text:
+   * 
    * <pre>
    * JLabelMatcher m = {@link #withText(String) withText}("First Name:");
    * </pre>
+   * 
    * </p>
    * 
    * <p>
    * The following code listing shows how to match a {@code JLabel}, that should be showing on the screen, by text:
+   * 
    * <pre>
    * JLabelMatcher m = {@link #withText(String) withText}("First Name:").{@link #andShowing() andShowing}();
    * </pre>
+   * 
    * </p>
    * 
    * @param text the text to match. It can be a regular expression.
    * @return the created matcher.
    */
-  public static @Nonnull JLabelMatcher withText(@Nullable String text) {
+  public static @Nonnull
+  JLabelMatcher withText(@Nullable String text) {
     return new JLabelMatcher(anyValue(), text);
   }
 
@@ -90,23 +100,28 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * 
    * <p>
    * The following code listing shows how to match a {@code JLabel} by text:
+   * 
    * <pre>
    * JLabelMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("F.*");
    * </pre>
+   * 
    * </p>
    * 
    * <p>
    * The following code listing shows how to match a {@code JLabel}, that should be showing on the screen, by text:
+   * 
    * <pre>
    * JLabelMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("F.*").{@link #andShowing() andShowing}();
    * </pre>
+   * 
    * </p>
    * 
    * @param textPattern the regular expression pattern to match.
    * @return the created matcher.
    * @since 1.2
    */
-  public static @Nonnull JLabelMatcher withText(@Nonnull Pattern textPattern) {
+  public static @Nonnull
+  JLabelMatcher withText(@Nonnull Pattern textPattern) {
     return new JLabelMatcher(anyValue(), textPattern);
   }
 
@@ -115,7 +130,8 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * 
    * @return the created matcher.
    */
-  public static @Nonnull JLabelMatcher any() {
+  public static @Nonnull
+  JLabelMatcher any() {
     return new JLabelMatcher(anyValue(), anyValue());
   }
 
@@ -131,7 +147,8 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * @param newText the new text to match. It can be a regular expression.
    * @return this matcher.
    */
-  public @Nonnull JLabelMatcher andText(@Nullable String newText) {
+  public @Nonnull
+  JLabelMatcher andText(@Nullable String newText) {
     text = newText;
     return this;
   }
@@ -144,7 +161,8 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * @return this matcher.
    * @since 1.2
    */
-  public @Nonnull JLabelMatcher andText(@Nonnull Pattern textPattern) {
+  public @Nonnull
+  JLabelMatcher andText(@Nonnull Pattern textPattern) {
     text = textPattern;
     return this;
   }

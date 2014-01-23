@@ -66,7 +66,8 @@ public class PatternTextMatcher implements TextMatcher {
    *         pattern.
    */
   @Override
-  public @Nonnull String description() {
+  public @Nonnull
+  String description() {
     return patterns.length == 1 ? "pattern" : "patterns";
   }
 
@@ -74,7 +75,8 @@ public class PatternTextMatcher implements TextMatcher {
    * @return the regular expression patterns in this matcher, formatted as a single {@code String}.
    */
   @Override
-  public @Nonnull String formattedValues() {
+  public @Nonnull
+  String formattedValues() {
     if (patterns.length == 1) {
       return checkNotNull(quote(patterns[0].pattern()));
     }

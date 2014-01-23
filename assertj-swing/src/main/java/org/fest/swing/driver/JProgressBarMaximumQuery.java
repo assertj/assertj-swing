@@ -34,12 +34,14 @@ final class JProgressBarMaximumQuery {
   static int maximumOf(final @Nonnull JProgressBar progressBar) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable Integer executeInEDT() {
+      protected @Nullable
+      Integer executeInEDT() {
         return progressBar.getMaximum();
       }
     });
     return checkNotNull(result);
   }
 
-  private JProgressBarMaximumQuery() {}
+  private JProgressBarMaximumQuery() {
+  }
 }

@@ -93,7 +93,8 @@ public class JMenuItemDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull JMenuItemLocation locationOf(final @Nonnull JMenuItem menuItem) {
+  private static @Nonnull
+  JMenuItemLocation locationOf(final @Nonnull JMenuItem menuItem) {
     JMenuItemLocation result = execute(new GuiQuery<JMenuItemLocation>() {
       @Override
       protected JMenuItemLocation executeInEDT() {

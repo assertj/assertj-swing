@@ -26,15 +26,16 @@ import static org.junit.rules.ExpectedException.none;
 
 /**
  * Tests for {@link Lists#newArrayList(Iterable)}.
- *
+ * 
  * @author Joel Costigliola
  */
 public class Lists_newArrayList_withIterable_Test {
-  @Rule public ExpectedException thrown = none();
+  @Rule
+  public ExpectedException thrown = none();
 
   @Test
   public void should_return_List_containing_all_elements_in_iterable() {
-    String[] expected = {"One", "Two"};
+    String[] expected = { "One", "Two" };
     Iterable<String> elements = asList(expected);
     ArrayList<String> list = Lists.newArrayList(elements);
     assertArrayEquals(expected, list.toArray());

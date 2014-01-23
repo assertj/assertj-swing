@@ -103,6 +103,7 @@ public interface JTableCellWriter {
    * 
    * <p>
    * Example:
+   * 
    * <pre>
    * Component editor = writer.editorForCell(table, 6, 8);
    * // assume editor is a JTextField
@@ -111,6 +112,7 @@ public interface JTableCellWriter {
    * editorFixture.enterText(&quot;Hello&quot;);
    * writer.{@link #stopCellEditing(JTable, int, int) stopCellEditing}(table, 6, 8);
    * </pre>
+   * 
    * </p>
    * 
    * @param table the target {@code JTable}.
@@ -120,5 +122,6 @@ public interface JTableCellWriter {
    * @throws IllegalStateException if the {@code JTable} cell is not editable.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  @Nullable Component editorForCell(@Nonnull JTable table, int row, int column);
+  @Nullable
+  Component editorForCell(@Nonnull JTable table, int row, int column);
 }

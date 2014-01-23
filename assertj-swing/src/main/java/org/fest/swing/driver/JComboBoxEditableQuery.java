@@ -41,5 +41,6 @@ final class JComboBoxEditableQuery {
     return Preconditions.checkNotNull(result);
   }
 
-  private JComboBoxEditableQuery() {}
+  private JComboBoxEditableQuery() {
+  }
 }

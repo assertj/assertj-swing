@@ -61,7 +61,8 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
     extraSetUp();
   }
 
-  void extraSetUp() {}
+  void extraSetUp() {
+  }
 
   final void showWindow() {
     robot.showWindow(window);

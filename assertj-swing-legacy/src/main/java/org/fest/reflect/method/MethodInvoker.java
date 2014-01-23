@@ -30,9 +30,9 @@ import static org.fest.util.Preconditions.checkNotNullOrEmpty;
 import static org.fest.util.Strings.quote;
 
 /**
- * Invokes a method using
- * <a href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java Reflection</a>.
- *
+ * Invokes a method using <a href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java
+ * Reflection</a>.
+ * 
  * @param <T> the return type of the method to invoke.
  * @author Yvonne Wang
  * @author Alex Ruiz
@@ -43,14 +43,14 @@ public final class MethodInvoker<T> {
   private final Method method;
 
   MethodInvoker(@Nonnull String methodName, @Nonnull Class<T> returnType, @Nonnull Class<?>[] parameterTypes,
-                @Nonnull Object target) {
+      @Nonnull Object target) {
     this.returnType = checkNotNull(returnType);
     this.target = checkNotNull(target);
     this.method = findMethodInClassHierarchy(checkNotNullOrEmpty(methodName), checkNotNull(parameterTypes));
   }
 
-  private static @Nullable Method findMethod(
-      @Nonnull String methodName, @Nonnull Class<?> type, @Nonnull Class<?>[] parameterTypes) {
+  private static @Nullable
+  Method findMethod(@Nonnull String methodName, @Nonnull Class<?> type, @Nonnull Class<?>[] parameterTypes) {
     try {
       return type.getDeclaredMethod(methodName, parameterTypes);
     } catch (SecurityException e) {
@@ -60,7 +60,8 @@ public final class MethodInvoker<T> {
     }
   }
 
-  private @Nonnull Method findMethodInClassHierarchy(@Nonnull String methodName, @Nonnull Class<?>[] parameterTypes) {
+  private @Nonnull
+  Method findMethodInClassHierarchy(@Nonnull String methodName, @Nonnull Class<?>[] parameterTypes) {
     Method method = null;
     Class<?> targetType = target instanceof Class<?> ? (Class<?>) target : target.getClass();
     Class<?> type = targetType;
@@ -82,31 +83,33 @@ public final class MethodInvoker<T> {
    * Invokes a method.
    * <p/>
    * Examples:
+   * 
    * <pre>
    * // Equivalent to invoking the method 'person.setName("Luke")'
    * {@link org.fest.reflect.core.Reflection#method(String) method}("setName").{@link org.fest.reflect.method.MethodName#withParameterTypes(Class...) withParameterTypes}(String.class)
    *                  .{@link org.fest.reflect.method.ParameterTypes#in(Object) in}(person)
    *                  .{@link org.fest.reflect.method.MethodInvoker#invoke(Object...) invoke}("Luke");
-   *
+   * 
    * // Equivalent to invoking the method 'jedi.getPowers()'
    * List&lt;String&gt; powers = {@link org.fest.reflect.core.Reflection#method(String) method}("getPowers").{@link org.fest.reflect.method.MethodName#withReturnType(org.fest.reflect.reference.TypeRef) withReturnType}(new {@link org.fest.reflect.reference.TypeRef TypeRef}&lt;List&lt;String&gt;&gt;() {})
    *                                          .{@link org.fest.reflect.method.ReturnTypeRef#in(Object) in}(person)
    *                                          .{@link org.fest.reflect.method.MethodInvoker#invoke(Object...) invoke}();
-   *
+   * 
    * // Equivalent to invoking the static method 'Jedi.setCommonPower("Jump")'
    * {@link org.fest.reflect.core.Reflection#method(String) method}("setCommonPower").{@link org.fest.reflect.method.MethodName#withParameterTypes(Class...) withParameterTypes}(String.class)
    *                         .{@link org.fest.reflect.method.ParameterTypes#in(Object) in}(Jedi.class)
    *                         .{@link org.fest.reflect.method.MethodInvoker#invoke(Object...) invoke}("Jump");
-   *
+   * 
    * // Equivalent to invoking the static method 'Jedi.addPadawan()'
    * {@link org.fest.reflect.core.Reflection#method(String) method}("addPadawan").{@link org.fest.reflect.method.MethodName#in(Object) in}(Jedi.class).{@link org.fest.reflect.method.MethodInvoker#invoke(Object...) invoke}();
    * </pre>
-   *
+   * 
    * @param args the arguments to use to call the method managed by this class.
    * @return the result of the method call.
    * @throws ReflectionError if the method cannot be invoked.
    */
-  public @Nullable T invoke(@Nonnull Object... args) {
+  public @Nullable
+  T invoke(@Nonnull Object... args) {
     checkNotNull(args);
     Method method = target();
     boolean accessible = method.isAccessible();
@@ -129,7 +132,8 @@ public final class MethodInvoker<T> {
   /**
    * @return the underlying method to invoke via Java Reflection.
    */
-  public @Nonnull Method target() {
+  public @Nonnull
+  Method target() {
     return method;
   }
 }

@@ -24,16 +24,18 @@ import org.fest.swing.core.GenericTypeMatcher;
 
 /**
  * <p>
- * Looks up {@code Frame}s and {@code Dialog}s. Lookups are performed till the window of interest is found,
- * or until the given time to perform the lookup is over. The default lookup time is 5 seconds.
+ * Looks up {@code Frame}s and {@code Dialog}s. Lookups are performed till the window of interest is found, or until the
+ * given time to perform the lookup is over. The default lookup time is 5 seconds.
  * </p>
  * 
  * <p>
  * {@link WindowFinder} is the &quot;entry point&quot; of a fluent interface to look up frames and dialogs. This example
  * illustrates finding a {@code Frame} by name, using the default lookup time (5 seconds):
+ * 
  * <pre>
  * FrameFixture frame = WindowFinder.findFrame(&quot;someFrame&quot;).using(robot);
  * </pre>
+ * 
  * </p>
  * 
  * <p>
@@ -42,17 +44,22 @@ import org.fest.swing.core.GenericTypeMatcher;
  * 
  * <p>
  * This example shows how to find a {@code Dialog} by type using a lookup time of 10 seconds:
+ * 
  * <pre>
  * DialogFixture dialog = WindowFinder.findDialog(MyDialog.class).withTimeout(10000).using(robot);
  * </pre>
+ * 
  * We can also specify the time unit:
+ * 
  * <pre>
  * DialogFixture dialog = WindowFinder.findDialog(MyDialog.class).withTimeout(10, {@link java.util.concurrent.TimeUnit#SECONDS SECONDS}).using(robot);
  * </pre>
+ * 
  * </p>
  * 
  * <p>
  * This example shows how to use a {@link GenericTypeMatcher} to find a {@code Frame} with title "Hello":
+ * 
  * <pre>
  * GenericTypeMatcher&lt;JFrame&gt; matcher = new GenericTypeMatcher&lt;JFrame&gt;() {
  *   protected boolean isMatching(JFrame frame) {
@@ -61,13 +68,15 @@ import org.fest.swing.core.GenericTypeMatcher;
  * };
  * FrameFixture frame = WindowFinder.findFrame(matcher).using(robot);
  * </pre>
+ * 
  * </p>
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 public final class WindowFinder {
-  private WindowFinder() {}
+  private WindowFinder() {
+  }
 
   /**
    * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} by name.
@@ -75,7 +84,8 @@ public final class WindowFinder {
    * @param frameName the name of the frame to find.
    * @return the created finder.
    */
-  public static @Nonnull FrameFinder findFrame(@Nullable String frameName) {
+  public static @Nonnull
+  FrameFinder findFrame(@Nullable String frameName) {
     return new FrameFinder(frameName);
   }
 
@@ -85,7 +95,8 @@ public final class WindowFinder {
    * @param frameType the type of the frame to find.
    * @return the created finder.
    */
-  public static @Nonnull FrameFinder findFrame(@Nonnull Class<? extends Frame> frameType) {
+  public static @Nonnull
+  FrameFinder findFrame(@Nonnull Class<? extends Frame> frameType) {
     return new FrameFinder(frameType);
   }
 
@@ -95,7 +106,8 @@ public final class WindowFinder {
    * @param matcher the matcher to use to find a frame.
    * @return the created finder.
    */
-  public static @Nonnull FrameFinder findFrame(@Nonnull GenericTypeMatcher<? extends Frame> matcher) {
+  public static @Nonnull
+  FrameFinder findFrame(@Nonnull GenericTypeMatcher<? extends Frame> matcher) {
     return new FrameFinder(matcher);
   }
 
@@ -105,7 +117,8 @@ public final class WindowFinder {
    * @param dialogName the name of the dialog to find.
    * @return the created finder.
    */
-  public static @Nonnull DialogFinder findDialog(@Nullable String dialogName) {
+  public static @Nonnull
+  DialogFinder findDialog(@Nullable String dialogName) {
     return new DialogFinder(dialogName);
   }
 
@@ -115,7 +128,8 @@ public final class WindowFinder {
    * @param dialogType the type of the dialog to find.
    * @return the created finder.
    */
-  public static @Nonnull DialogFinder findDialog(@Nonnull Class<? extends Dialog> dialogType) {
+  public static @Nonnull
+  DialogFinder findDialog(@Nonnull Class<? extends Dialog> dialogType) {
     return new DialogFinder(dialogType);
   }
 
@@ -125,7 +139,8 @@ public final class WindowFinder {
    * @param matcher the matcher to use to find a dialog.
    * @return the created finder.
    */
-  public static @Nonnull DialogFinder findDialog(@Nonnull GenericTypeMatcher<? extends Dialog> matcher) {
+  public static @Nonnull
+  DialogFinder findDialog(@Nonnull GenericTypeMatcher<? extends Dialog> matcher) {
     return new DialogFinder(matcher);
   }
 }

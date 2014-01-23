@@ -49,5 +49,6 @@ public final class ComponentSetEnabledTask {
     });
   }
 
-  private ComponentSetEnabledTask() {}
+  private ComponentSetEnabledTask() {
+  }
 }

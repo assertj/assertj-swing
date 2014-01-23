@@ -60,5 +60,6 @@ public final class AWTExceptionHandlerInstaller {
     writer.updateSystemProperty("sun.awt.exception.handler", exceptionHandlerType.getName());
   }
 
-  private AWTExceptionHandlerInstaller() {}
+  private AWTExceptionHandlerInstaller() {
+  }
 }

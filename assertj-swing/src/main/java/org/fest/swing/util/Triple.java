@@ -37,7 +37,8 @@ public class Triple<F, S, T> extends Pair<F, S> {
    * @param third the 3rd. value in this tuple.
    * @return the created {@code Triple}.
    */
-  public static @Nonnull <F, S, T> Triple<F, S, T> of(F first, S second, T third) {
+  public static @Nonnull
+  <F, S, T> Triple<F, S, T> of(F first, S second, T third) {
     return new Triple<F, S, T>(first, second, third);
   }
 

@@ -43,7 +43,8 @@ import org.fest.swing.util.Pair;
  */
 final class PointAndParentForScrollingJTextFieldQuery {
   @RunsInCurrentThread
-  static @Nonnull Pair<Point, Container> pointAndParentForScrolling(final @Nonnull JTextField textField) {
+  static @Nonnull
+  Pair<Point, Container> pointAndParentForScrolling(final @Nonnull JTextField textField) {
     Point origin = new Point(textField.getX(), textField.getY());
     Container parent = textField.getParent();
     while (parent != null && !(parent instanceof JComponent) && !(parent instanceof CellRendererPane)) {
@@ -53,12 +54,14 @@ final class PointAndParentForScrollingJTextFieldQuery {
     return Pair.of(origin, parent);
   }
 
-  private static @Nonnull Point addRectangleToPoint(@Nonnull Rectangle r, @Nonnull Point p) {
+  private static @Nonnull
+  Point addRectangleToPoint(@Nonnull Rectangle r, @Nonnull Point p) {
     Point newPoint = new Point(p);
     newPoint.x += r.x;
     newPoint.y += r.y;
     return newPoint;
   }
 
-  private PointAndParentForScrollingJTextFieldQuery() {}
+  private PointAndParentForScrollingJTextFieldQuery() {
+  }
 }

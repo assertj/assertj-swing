@@ -37,14 +37,16 @@ import org.fest.swing.annotation.RunsInCurrentThread;
 class VerticalJScrollBarLocation extends JScrollBarLocationStrategy {
   @RunsInCurrentThread
   @Override
-  @Nonnull Point thumbLocation(@Nonnull JScrollBar scrollBar, double fraction) {
+  @Nonnull
+  Point thumbLocation(@Nonnull JScrollBar scrollBar, double fraction) {
     int arrow = arrow(scrollBar);
     return new Point(arrow / 2, arrow + (int) (fraction * (scrollBar.getHeight() - 2 * arrow)));
   }
 
   @RunsInCurrentThread
   @Override
-  @Nonnull Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset) {
+  @Nonnull
+  Point blockLocation(@Nonnull JScrollBar scrollBar, @Nonnull Point unitLocation, int offset) {
     Point p = new Point(unitLocation);
     p.y += offset;
     return p;
@@ -52,7 +54,8 @@ class VerticalJScrollBarLocation extends JScrollBarLocationStrategy {
 
   @RunsInCurrentThread
   @Override
-  @Nonnull Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar) {
+  @Nonnull
+  Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar) {
     int arrow = arrow(scrollBar);
     return new Point(arrow / 2, scrollBar.getHeight() - arrow / 2);
   }

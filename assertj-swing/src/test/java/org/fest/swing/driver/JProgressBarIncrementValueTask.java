@@ -45,5 +45,6 @@ final class JProgressBarIncrementValueTask {
     return checkNotNull(result);
   }
 
-  private JProgressBarIncrementValueTask() {}
+  private JProgressBarIncrementValueTask() {
+  }
 }

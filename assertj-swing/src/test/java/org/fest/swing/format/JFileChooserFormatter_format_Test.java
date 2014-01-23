@@ -49,9 +49,9 @@ public class JFileChooserFormatter_format_Test extends SequentialEDTSafeTestCase
   public void should_format_JFileChooser() {
     String formatted = formatter.format(fileChooser);
     assertThat(formatted).contains("javax.swing.JFileChooser").contains("name='fileChooser'")
-    .contains("dialogTitle='A file chooser'").contains("dialogType=OPEN_DIALOG")
-    .contains(concat("currentDirectory=", currentDirectoryOf(fileChooser))).contains("enabled=true")
-    .contains("visible=true").contains("showing=false");
+        .contains("dialogTitle='A file chooser'").contains("dialogType=OPEN_DIALOG")
+        .contains(concat("currentDirectory=", currentDirectoryOf(fileChooser))).contains("enabled=true")
+        .contains("visible=true").contains("showing=false");
   }
 
   private static class MyWindow extends TestWindow {

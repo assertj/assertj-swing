@@ -26,9 +26,9 @@ import static org.fest.util.Preconditions.checkNotNull;
 import static org.fest.util.ToString.toStringOf;
 
 /**
- * Invokes a constructor via
- * <a href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java Reflection</a>.
- *
+ * Invokes a constructor via <a href="http://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank">Java
+ * Reflection</a>.
+ * 
  * @param <T> the type in which the constructor is declared.
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -52,16 +52,17 @@ public final class ConstructorInvoker<T> {
    * Invokes the constructor of the specified type with the given arguments.
    * <p/>
    * Examples:
+   * 
    * <pre>
    * // import static {@link org.fest.reflect.core.Reflection#constructor() org.fest.reflect.core.Reflection.constructor};
-   *
+   * 
    * // Equivalent to 'Person p = new Person()'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#in in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}();
-   *
+   * 
    * // Equivalent to 'Person p = new Person("Yoda")'
    * Person p = {@link org.fest.reflect.core.Reflection#constructor() constructor}().{@link org.fest.reflect.constructor.TargetType#withParameterTypes(Class...) withParameterTypes}(String.class).{@link org.fest.reflect.constructor.ParameterTypes#in(Class) in}(Person.class).{@link org.fest.reflect.constructor.ConstructorInvoker#newInstance newInstance}("Yoda");
    * </pre>
-   *
+   * 
    * @param args the arguments to pass to the constructor (can be zero or more).
    * @return the created instance of {@code T}.
    * @throws ReflectionError if a new instance cannot be created.
@@ -86,7 +87,8 @@ public final class ConstructorInvoker<T> {
   /**
    * @return the underlying constructor to invoke.
    */
-  public @Nonnull Constructor<T> target() {
+  public @Nonnull
+  Constructor<T> target() {
     return constructor;
   }
 }

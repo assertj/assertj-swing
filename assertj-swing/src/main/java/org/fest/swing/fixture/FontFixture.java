@@ -87,7 +87,8 @@ public class FontFixture {
    * @throws AssertionError if the family name of this fixture's font is not equal to the given one.
    * @see Font#getFamily()
    */
-  public @Nonnull FontFixture requireFamily(@Nonnull String family) {
+  public @Nonnull
+  FontFixture requireFamily(@Nonnull String family) {
     assertThat(target.getFamily()).as(property(FAMILY_PROPERTY)).isEqualTo(family);
     return this;
   }
@@ -100,7 +101,8 @@ public class FontFixture {
    * @throws AssertionError if the logical name of this fixture's font is not equal to the given one.
    * @see Font#getName()
    */
-  public @Nonnull FontFixture requireName(@Nonnull String name) {
+  public @Nonnull
+  FontFixture requireName(@Nonnull String name) {
     assertThat(target.getName()).as(property(NAME_PROPERTY)).isEqualTo(name);
     return this;
   }
@@ -113,7 +115,8 @@ public class FontFixture {
    * @throws AssertionError if the point size of this fixture's font is not equal to the given one.
    * @see Font#getSize()
    */
-  public @Nonnull FontFixture requireSize(int size) {
+  public @Nonnull
+  FontFixture requireSize(int size) {
     assertThat(target.getSize()).as(property(SIZE_PROPERTY)).isEqualTo(size);
     return this;
   }
@@ -125,7 +128,8 @@ public class FontFixture {
    * @throws AssertionError if this fixture's font is not bold.
    * @see Font#isBold()
    */
-  public @Nonnull FontFixture requireBold() {
+  public @Nonnull
+  FontFixture requireBold() {
     return requireBold(true);
   }
 
@@ -136,11 +140,13 @@ public class FontFixture {
    * @throws AssertionError if this fixture's font is bold.
    * @see Font#isBold()
    */
-  public @Nonnull FontFixture requireNotBold() {
+  public @Nonnull
+  FontFixture requireNotBold() {
     return requireBold(false);
   }
 
-  private @Nonnull FontFixture requireBold(boolean bold) {
+  private @Nonnull
+  FontFixture requireBold(boolean bold) {
     assertThat(target.isBold()).as(property(BOLD_PROPERTY)).isEqualTo(bold);
     return this;
   }
@@ -152,7 +158,8 @@ public class FontFixture {
    * @throws AssertionError if this fixture's font is not italic.
    * @see Font#isItalic()
    */
-  public @Nonnull FontFixture requireItalic() {
+  public @Nonnull
+  FontFixture requireItalic() {
     return requireItalic(true);
   }
 
@@ -163,11 +170,13 @@ public class FontFixture {
    * @throws AssertionError if this fixture's font is italic.
    * @see Font#isItalic()
    */
-  public @Nonnull FontFixture requireNotItalic() {
+  public @Nonnull
+  FontFixture requireNotItalic() {
     return requireItalic(false);
   }
 
-  private @Nonnull FontFixture requireItalic(boolean italic) {
+  private @Nonnull
+  FontFixture requireItalic(boolean italic) {
     assertThat(target.isItalic()).as(property(ITALIC_PROPERTY)).isEqualTo(italic);
     return this;
   }
@@ -179,7 +188,8 @@ public class FontFixture {
    * @throws AssertionError if this fixture's font is not plain.
    * @see Font#isPlain()
    */
-  public @Nonnull FontFixture requirePlain() {
+  public @Nonnull
+  FontFixture requirePlain() {
     return requirePlain(true);
   }
 
@@ -190,16 +200,19 @@ public class FontFixture {
    * @throws AssertionError if this fixture's font is plain.
    * @see Font#isPlain()
    */
-  public @Nonnull FontFixture requireNotPlain() {
+  public @Nonnull
+  FontFixture requireNotPlain() {
     return requirePlain(false);
   }
 
-  private @Nonnull FontFixture requirePlain(boolean plain) {
+  private @Nonnull
+  FontFixture requirePlain(boolean plain) {
     assertThat(target.isBold()).as(property(PLAIN_PROPERTY)).isEqualTo(plain);
     return this;
   }
 
-  private @Nonnull String property(@Nonnull String s) {
+  private @Nonnull
+  String property(@Nonnull String s) {
     if (!isNullOrEmpty(description())) {
       return concat(description.value(), PROPERTY_SEPARATOR, s);
     }
@@ -209,14 +222,16 @@ public class FontFixture {
   /**
    * @return this fixture's font.
    */
-  public @Nonnull Font target() {
+  public @Nonnull
+  Font target() {
     return target;
   }
 
   /**
    * @return this fixture's description.
    */
-  public final @Nullable String description() {
+  public final @Nullable
+  String description() {
     return description != null ? description.value() : null;
   }
 }

@@ -52,13 +52,14 @@ public interface JTableCellReader {
    * @param column the column index of the cell.
    * @return the internal value of a cell in a {@code JTable} as expected in a test.
    */
-  @Nullable String valueAt(@Nonnull JTable table, int row, int column);
+  @Nullable
+  String valueAt(@Nonnull JTable table, int row, int column);
 
   /**
    * <p>
    * Returns the font of the cell renderer for the given table cell.
    * </p>
-   *
+   * 
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
@@ -69,13 +70,14 @@ public interface JTableCellReader {
    * @param column the column index of the cell.
    * @return the font of the cell renderer for the given table cell.
    */
-  @Nullable Font fontAt(@Nonnull JTable table, int row, int column);
+  @Nullable
+  Font fontAt(@Nonnull JTable table, int row, int column);
 
   /**
    * <p>
    * Returns the background color of the cell renderer for the given table cell.
    * </p>
-   *
+   * 
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
@@ -86,7 +88,8 @@ public interface JTableCellReader {
    * @param column the column index of the cell.
    * @return the background color of the cell renderer for the given table cell.
    */
-  @Nullable Color backgroundAt(@Nonnull JTable table, int row, int column);
+  @Nullable
+  Color backgroundAt(@Nonnull JTable table, int row, int column);
 
   /**
    * <p>
@@ -103,5 +106,6 @@ public interface JTableCellReader {
    * @param column the column index of the cell.
    * @return the foreground color of the cell renderer for the given table cell.
    */
-  @Nullable Color foregroundAt(@Nonnull JTable table, int row, int column);
+  @Nullable
+  Color foregroundAt(@Nonnull JTable table, int row, int column);
 }

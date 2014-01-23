@@ -31,18 +31,22 @@ import org.fest.swing.util.Platform;
  * 
  * <p>
  * Specify that 'CTRL' + 'C' should be pressed:
+ * 
  * <pre>
  * // import static org.fest.swing.fixture.KeyPressInfo.*;
  * KeyPressInfo i = key(VK_C).modifiers(CTRL_MASK);
  * </pre>
+ * 
  * </p>
  * 
  * <p>
  * Specify that 'SHIFT' + 'R' should be pressed:
+ * 
  * <pre>
  * // import static org.fest.swing.fixture.KeyPressInfo.*;
  * KeyPressInfo i = key(VK_R).modifiers(SHIFT_MASK);
  * </pre>
+ * 
  * </p>
  * <p>
  * For platform-safe mask pressing (e.g. 'Control' in Windows or 'Command' in MacOS) use
@@ -84,7 +88,8 @@ public final class KeyPressInfo {
   /**
    * @return the modifiers to use when pressing {@link #keyCode() the specified key}.
    */
-  public @Nonnull int[] modifiers() {
+  public @Nonnull
+  int[] modifiers() {
     return copyOf(modifiers);
   }
 
@@ -103,7 +108,8 @@ public final class KeyPressInfo {
    * @return this object.
    * @throws NullPointerException if {@code newModifiers} is {@code null}.
    */
-  public @Nonnull KeyPressInfo modifiers(@Nonnull int... newModifiers) {
+  public @Nonnull
+  KeyPressInfo modifiers(@Nonnull int... newModifiers) {
     modifiers = copyOf(newModifiers);
     return this;
   }

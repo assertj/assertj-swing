@@ -94,8 +94,8 @@ public class JSplitPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull GenericRange<Point> findWhereToMoveDividerVertically(final @Nonnull JSplitPane splitPane,
-      final int location) {
+  private static @Nonnull
+  GenericRange<Point> findWhereToMoveDividerVertically(final @Nonnull JSplitPane splitPane, final int location) {
     GenericRange<Point> result = execute(new GuiQuery<GenericRange<Point>>() {
       @Override
       protected GenericRange<Point> executeInEDT() {
@@ -107,8 +107,8 @@ public class JSplitPaneDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull GenericRange<Point> whereToMoveDividerVertically(@Nonnull JSplitPane splitPane,
-      int location) {
+  private static @Nonnull
+  GenericRange<Point> whereToMoveDividerVertically(@Nonnull JSplitPane splitPane, int location) {
     int x = splitPane.getWidth() / 2;
     int dividerLocation = splitPane.getDividerLocation();
     return new GenericRange<Point>(new Point(x, dividerLocation), new Point(x, location));
@@ -120,8 +120,8 @@ public class JSplitPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull GenericRange<Point> findWhereToMoveDividerHorizontally(final @Nonnull JSplitPane splitPane,
-      final int location) {
+  private static @Nonnull
+  GenericRange<Point> findWhereToMoveDividerHorizontally(final @Nonnull JSplitPane splitPane, final int location) {
     GenericRange<Point> result = execute(new GuiQuery<GenericRange<Point>>() {
       @Override
       protected GenericRange<Point> executeInEDT() {
@@ -133,8 +133,8 @@ public class JSplitPaneDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull GenericRange<Point> whereToMoveDividerHorizontally(@Nonnull JSplitPane splitPane,
-      int location) {
+  private static @Nonnull
+  GenericRange<Point> whereToMoveDividerHorizontally(@Nonnull JSplitPane splitPane, int location) {
     int y = splitPane.getHeight() / 2;
     int dividerLocation = splitPane.getDividerLocation();
     return new GenericRange<Point>(new Point(dividerLocation, y), new Point(location, y));

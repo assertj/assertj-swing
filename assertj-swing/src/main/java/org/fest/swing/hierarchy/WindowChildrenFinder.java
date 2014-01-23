@@ -29,25 +29,28 @@ import org.fest.swing.annotation.RunsInCurrentThread;
 
 /**
  * Find children {@code Component}s in a {@code Window}.
- *
+ * 
  * @author Yvonne Wang
  */
 final class WindowChildrenFinder implements ChildrenFinderStrategy {
   @RunsInCurrentThread
   @Override
-  public @Nonnull Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
+  public @Nonnull
+  Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
     if (!(c instanceof Window)) {
       return emptyList();
     }
-    return ownedWindows((Window)c);
+    return ownedWindows((Window) c);
   }
 
   @RunsInCurrentThread
-  private @Nonnull Collection<Component> ownedWindows(Window w) {
+  private @Nonnull
+  Collection<Component> ownedWindows(Window w) {
     return windows(w.getOwnedWindows());
   }
 
-  private @Nonnull Collection<Component> windows(@Nonnull Component[] windows) {
+  private @Nonnull
+  Collection<Component> windows(@Nonnull Component[] windows) {
     if (isNullOrEmpty(windows)) {
       return emptyList();
     }

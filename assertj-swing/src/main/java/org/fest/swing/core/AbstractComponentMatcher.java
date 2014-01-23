@@ -92,5 +92,6 @@ public abstract class AbstractComponentMatcher implements ResettableComponentMat
    * @since 1.2
    */
   @Override
-  public void reset(boolean matchFound) {}
+  public void reset(boolean matchFound) {
+  }
 }

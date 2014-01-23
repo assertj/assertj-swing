@@ -79,7 +79,8 @@ public class ColorFixture {
    * @throws NumberFormatException if the hexadecimal code is empty.
    * @throws AssertionError if this fixture's {@code Color} is not equal to the given one.
    */
-  public @Nonnull ColorFixture requireEqualTo(@Nonnull String hexValue) {
+  public @Nonnull
+  ColorFixture requireEqualTo(@Nonnull String hexValue) {
     return requireEqualTo(colorFromHexString(hexValue));
   }
 
@@ -90,7 +91,8 @@ public class ColorFixture {
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code Color} is not equal to the given one.
    */
-  public @Nonnull ColorFixture requireEqualTo(@Nullable Color color) {
+  public @Nonnull
+  ColorFixture requireEqualTo(@Nullable Color color) {
     assertThat(target).as(description).isEqualTo(color);
     return this;
   }
@@ -106,7 +108,8 @@ public class ColorFixture {
    * @throws NumberFormatException if the hexadecimal code is empty.
    * @throws AssertionError if this fixture's {@code Color} is equal to the given one.
    */
-  public @Nonnull ColorFixture requireNotEqualTo(@Nonnull String hexValue) {
+  public @Nonnull
+  ColorFixture requireNotEqualTo(@Nonnull String hexValue) {
     return requireNotEqualTo(colorFromHexString(hexValue));
   }
 
@@ -117,7 +120,8 @@ public class ColorFixture {
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code Color} is equal to the given one.
    */
-  public @Nonnull ColorFixture requireNotEqualTo(@Nullable Color color) {
+  public @Nonnull
+  ColorFixture requireNotEqualTo(@Nullable Color color) {
     assertThat(target).as(description).isNotEqualTo(color);
     return this;
   }
@@ -125,14 +129,16 @@ public class ColorFixture {
   /**
    * @return this fixture's {@code Color}.
    */
-  public @Nonnull Color target() {
+  public @Nonnull
+  Color target() {
     return target;
   }
 
   /**
    * @return this fixture's description.
    */
-  public final @Nullable String description() {
+  public final @Nullable
+  String description() {
     return description != null ? description.value() : null;
   }
 }

@@ -1,16 +1,15 @@
 /*
  * Created on Jun 8, 2007
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- *
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ * 
  * Copyright @2007-2009 the original author or authors.
  */
 package org.fest.swing.junit.ant;
@@ -26,7 +25,7 @@ import org.fest.swing.image.ImageFileWriter;
 
 /**
  * Understands base64 encoding and decoding of an image.
- *
+ * 
  * @author Alex Ruiz
  */
 public final class ImageHandler {
@@ -42,6 +41,7 @@ public final class ImageHandler {
   /**
    * Encodes the given image using the base64 algorithm. Failures in encoding an image are simply logged, no exceptions
    * are thrown.
+   * 
    * @param image the image to encode.
    * @return base64 characters.
    */
@@ -62,6 +62,7 @@ public final class ImageHandler {
   /**
    * Decodes the given base64 characters into an image. Failures in decoding base64 characters are simply logged, no
    * exceptions are thrown.
+   * 
    * @param encoded the given base64 characters.
    * @return the decoded image.
    */
@@ -82,10 +83,11 @@ public final class ImageHandler {
   /**
    * Decodes the given base64 characters into an image, and saves the decoded image as a file using the given path.
    * Failures in decoding or saving the image as a file are simply logged, no exceptions are thrown.
+   * 
    * @param encoded the given base64 characters.
    * @param path the path where to save the image file.
    * @return empty <code>String</code>. This method is used by this extensions XSL stylesheets to decode the image in
-   * the XML report.
+   *         the XML report.
    */
   public static String decodeBase64AndSaveAsPng(String encoded, String path) {
     return decodeBase64AndSaveAsPng(encoded, path, imageDecoder, imageFileWriter);
@@ -93,8 +95,10 @@ public final class ImageHandler {
 
   // makes testing easier
   static String decodeBase64AndSaveAsPng(String encoded, String path, ImageDecoder decoder, ImageFileWriter writer) {
-    if (isEmpty(encoded)) return EMPTY_STRING;
-    if (isEmpty(path)) return EMPTY_STRING;
+    if (isEmpty(encoded))
+      return EMPTY_STRING;
+    if (isEmpty(path))
+      return EMPTY_STRING;
     String realPath = path.replace("/", separator);
     BufferedImage image = decodeBase64(encoded, decoder);
     try {
@@ -105,5 +109,6 @@ public final class ImageHandler {
     return EMPTY_STRING;
   }
 
-  private ImageHandler() {}
+  private ImageHandler() {
+  }
 }

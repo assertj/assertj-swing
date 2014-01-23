@@ -1,19 +1,18 @@
 /*
  * Created on Nov 17, 2007
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright @2007-2009 the original author or authors.
  */
 package org.fest.swing.junit.v4_3_1.runner;
-
 
 import static org.junit.runner.Description.createSuiteDescription;
 import static org.junit.runner.Description.createTestDescription;
@@ -32,7 +31,7 @@ import org.junit.runner.notification.RunNotifier;
 
 /**
  * Understands a JUnit 4.3.1 test runner that takes a screenshot of a failed GUI test.
- *
+ * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -45,6 +44,7 @@ public class GUITestRunner extends Runner {
 
   /**
    * Creates a new <code>{@link GUITestRunner}</code>.
+   * 
    * @param testClass the class containing the tests to run.
    * @throws InitializationError if something goes wrong when creating this runner.
    */
@@ -63,6 +63,7 @@ public class GUITestRunner extends Runner {
 
   /**
    * Run the tests for this runner, taking screenshots of failing tests.
+   * 
    * @param notifier will be notified of events while tests are being run, started, finishing, and failing.
    */
   @Override
@@ -72,7 +73,8 @@ public class GUITestRunner extends Runner {
 
   // called by InnerRunner
   void doRun(RunNotifier notifier) {
-    if (testMethods.isEmpty()) notifier.testAborted(getDescription(), new Exception("No runnable methods"));
+    if (testMethods.isEmpty())
+      notifier.testAborted(getDescription(), new Exception("No runnable methods"));
     for (Method method : testMethods)
       invokeTestMethod(method, notifier);
   }
@@ -101,6 +103,7 @@ public class GUITestRunner extends Runner {
 
   /**
    * Returns a <code>{@link Description}</code> showing the tests to be run by the receiver.
+   * 
    * @return a <code>Description</code> showing the tests to be run by the receiver.
    */
   public Description getDescription() {
