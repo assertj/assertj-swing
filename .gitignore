@@ -1,5 +1,5 @@
 # Maven build result directory
-/target
+target/
 # IntelliJ project files
 /.idea
 /*.iml
