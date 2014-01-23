@@ -13,7 +13,6 @@
   <version>2.0.0-SNAPSHOT</version>
   <name>AssertJ-Swing</name>
   <description>Fluent interface for functional GUI testing</description>
-  <inceptionYear>2007</inceptionYear>
 
   <build>
     <plugins>
