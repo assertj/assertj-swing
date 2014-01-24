@@ -14,11 +14,15 @@
  */
 package org.fest.swing.junit.ant;
 
-import static java.util.Calendar.*;
+import static java.util.Calendar.AM;
+import static java.util.Calendar.AM_PM;
+import static java.util.Calendar.JUNE;
+import static java.util.Calendar.MILLISECOND;
 import static org.fest.assertions.Assertions.assertThat;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -39,8 +43,11 @@ public class TimestampFormatter_format_Test {
 
   @Test
   public void should_format_date_using_ISO8601_pattern() {
+    // make sure we have the right timezone so that the expected string matches the result
+    TimeZone.setDefault(TimeZone.getTimeZone("Etc/GMT"));
+
     String formatted = formatter.format(due().getTime());
-    assertThat(formatted).isEqualTo("2009-06-13T15:06:10");
+    assertThat(formatted).isEqualTo("2009-06-13T08:06:10");
   }
 
   private Calendar due() {
