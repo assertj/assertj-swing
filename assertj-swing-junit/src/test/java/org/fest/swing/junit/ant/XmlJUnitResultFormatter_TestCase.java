@@ -114,10 +114,10 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     return formatter.xmlRootNode();
   }
 
-  final void assertThatTestCaseNodeWasAddedTo(XmlNode root) {
+  final void assertThatTestCaseNodeWasAddedTo(XmlNode root, Object test) {
     XmlNode testNode = firstTestCaseNodeIn(root);
     assertThat(testNode.name()).isEqualTo("testcase");
-    assertThat(testNode.valueOfAttribute("classname")).startsWith("$Proxy");
+    assertThat(testNode.valueOfAttribute("classname")).isEqualTo(test.getClass().getName());
     assertThat(testNode.valueOfAttribute("name")).isEqualTo("unknown");
     double executionTime = Double.parseDouble(testNode.valueOfAttribute("time"));
     assertThat(executionTime).isGreaterThanOrEqualTo(0d);

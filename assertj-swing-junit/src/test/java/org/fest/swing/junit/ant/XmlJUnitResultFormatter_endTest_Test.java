@@ -29,6 +29,6 @@ public class XmlJUnitResultFormatter_endTest_Test extends XmlJUnitResultFormatte
     junit.framework.Test test = mockTest();
     formatter.endTest(test);
     assertThatTestWasStarted(test);
-    assertThatTestCaseNodeWasAddedTo(root());
+    assertThatTestCaseNodeWasAddedTo(root(), test);
   }
 }

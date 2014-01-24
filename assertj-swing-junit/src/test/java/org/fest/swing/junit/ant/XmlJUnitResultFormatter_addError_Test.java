@@ -34,11 +34,10 @@ public class XmlJUnitResultFormatter_addError_Test extends XmlJUnitResultFormatt
     AssertionFailedError error = errorOrFailure();
     formatter.addError(test, error);
     XmlNode root = root();
-    assertThatTestCaseNodeWasAddedTo(root);
+    assertThatTestCaseNodeWasAddedTo(root, test);
     XmlNode errorNode = firstTestCaseNodeIn(root).child(0);
     assertThat(errorNode.name()).isEqualTo("error");
     assertThatErrorOrFailureWasWrittenTo(errorNode);
     assertThat(formatter.onFailureOrErrorMethod).wasCalledPassing(test, error, errorNode);
   }
-
 }
