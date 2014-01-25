@@ -66,8 +66,9 @@ public class Bug233_cannotSelectItemInSmallJList_Test extends RobotBasedTestCase
 
     private MyWindow() {
       super(Bug233_cannotSelectItemInSmallJList_Test.class);
-      list.setPreferredSize(new Dimension(5, 100));
       addComponents(list);
+      setMinimumSize(new Dimension(5, 100));
+      list.setPreferredSize(new Dimension(5, 100));
     }
   }
 
