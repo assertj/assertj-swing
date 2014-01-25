@@ -90,7 +90,7 @@ public class BasicRobot_rotateMouseWheelTest extends BasicRobot_TestCase {
 
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
-      wheelRotation = e.getWheelRotation();
+      wheelRotation += e.getWheelRotation();
     }
 
     int wheelRotation() {
