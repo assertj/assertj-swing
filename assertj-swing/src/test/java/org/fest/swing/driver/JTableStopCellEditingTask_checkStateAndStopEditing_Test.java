@@ -43,7 +43,7 @@ public class JTableStopCellEditingTask_checkStateAndStopEditing_Test extends JTa
 
   @Test
   public void should_throw_error_if_cell_is_not_editable() {
-    thrown.expect(IndexOutOfBoundsException.class, "Expecting cell [0, 0] to be editable");
+    thrown.expect(IllegalStateException.class, "Expecting cell [0, 0] to be editable");
     JTableStopCellEditingTask.checkStateAndStopEditing(window.table, 0, 0);
   }
 
