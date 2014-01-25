@@ -16,6 +16,10 @@ package org.fest.swing.driver;
 
 import static org.fest.assertions.Assertions.assertThat;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.concurrent.CountDownLatch;
+
 import org.fest.swing.test.swing.TestWindow;
 import org.junit.Test;
 
@@ -25,13 +29,36 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class WindowDriver_moveToBack_Test extends WindowDriver_TestCase {
-  @Test
-  public void should_move_Window_to_back() {
+
+  private final CountDownLatch latch = new CountDownLatch(1);
+
+  /** Timeout is important - to fail if the window is never activated! */
+  @Test(timeout = 5000)
+  public void should_move_Window_to_back() throws InterruptedException {
     // TODO(alruiz): Test on Windows
     showWindow();
+
     TestWindow window2 = TestWindow.createAndShowNewWindow(getClass());
+    registerDeactivationLatch(window2);
+    // wait for idle, since some OSs may take a while
+    driver.robot.waitForIdle();
+
     assertThat(isActive(window2)).isTrue();
     driver.moveToBack(window2);
+
+    // see Window#toBack: no guarantees about changes to the focused and active Windows can be made.
+    // we have to wait for the window to be deactivated
+    latch.await();
     assertThat(isActive(window2)).isFalse();
+  }
+
+  private void registerDeactivationLatch(TestWindow window2) {
+    window2.addWindowListener(new WindowAdapter() {
+      @Override
+      public void windowDeactivated(WindowEvent e) {
+        super.windowDeactivated(e);
+        latch.countDown();
+      }
+    });
   }
 }
