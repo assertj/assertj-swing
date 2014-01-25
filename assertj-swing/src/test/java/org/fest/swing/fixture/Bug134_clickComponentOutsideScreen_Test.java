@@ -61,7 +61,7 @@ public class Bug134_clickComponentOutsideScreen_Test extends RobotBasedTestCase 
 
   private void moveWindowOutOfScreen() {
     Rectangle screen = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-    int x = screen.width - (window.getWidth() / 3);
+    int x = screen.width;
     int y = screen.height / 2;
     fixture.moveTo(new Point(x, y));
   }
