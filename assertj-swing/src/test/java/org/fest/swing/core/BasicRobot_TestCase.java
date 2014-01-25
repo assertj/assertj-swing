@@ -48,12 +48,11 @@ public abstract class BasicRobot_TestCase extends EDTSafeTestCase {
   @Before
   public final void setUp() {
     robot = (BasicRobot) BasicRobot.robotWithCurrentAwtHierarchy();
-    MyWindow w = MyWindow.createAndShow(checkNotNull(getClass()));
+    window = MyWindow.createAndShow(checkNotNull(getClass()));
     beforeShowingWindow();
-    robot.showWindow(w); // implicitly test 'showWindow(Window)'
-    assertThat(isShowing(w)).isTrue();
-    assertThat(locationOnScreen(w)).isEqualTo(new Point(100, 100));
-    window = w;
+    robot.showWindow(window); // implicitly test 'showWindow(Window)'
+    assertThat(isShowing(window)).isTrue();
+    assertThat(locationOnScreen(window)).isEqualTo(new Point(100, 100));
   }
 
   void beforeShowingWindow() {
