@@ -21,6 +21,8 @@ import static org.fest.swing.driver.JTextComponentTextQuery.textOf;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.task.ComponentSetEnabledTask.disable;
 
+import java.awt.Dimension;
+
 import javax.swing.JTextField;
 
 import org.fest.swing.annotation.RunsInEDT;
@@ -44,6 +46,7 @@ public abstract class JTextComponentDriver_TestCase extends RobotBasedTestCase {
   protected final void onSetUp() {
     driver = new JTextComponentDriver(robot);
     window = MyWindow.createNew(getClass());
+    window.setMinimumSize(new Dimension(100, 50));
     textField = window.textField;
     extraSetUp();
   }
