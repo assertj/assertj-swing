@@ -16,7 +16,6 @@ package org.fest.swing.core;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
 import static org.fest.swing.query.ComponentSizeQuery.sizeOf;
 import static org.fest.util.Preconditions.checkNotNull;
 
@@ -63,7 +62,6 @@ public class BasicRobot_showWindowBySizeAndPacking_Test extends EDTSafeTestCase 
     robot.showWindow(w, size, false);
     assertThat(sizeOf(w)).isEqualTo(size);
     assertThat(w.wasPacked()).isFalse();
-    assertThat(locationOnScreen(w).x).isEqualTo(0);
   }
 
   private static class WindowToShow extends JWindow {
