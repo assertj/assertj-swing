@@ -98,6 +98,15 @@ public class Bug200_expandCellInJTreeBeforeSelectingIt_Test extends RobotBasedTe
 
     @Override
     public void mouseReleased(MouseEvent e) {
+      showMe(e);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+      showMe(e);
+    }
+
+    private void showMe(MouseEvent e) {
       if (!e.isPopupTrigger()) {
         return;
       }
