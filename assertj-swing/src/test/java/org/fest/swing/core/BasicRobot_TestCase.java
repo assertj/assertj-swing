@@ -22,6 +22,7 @@ import static org.fest.swing.test.task.ComponentRequestFocusAndWaitForFocusGainT
 import static org.fest.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
 import static org.fest.util.Preconditions.checkNotNull;
 
+import java.awt.Dimension;
 import java.awt.Point;
 
 import javax.annotation.Nonnull;
@@ -95,6 +96,7 @@ public abstract class BasicRobot_TestCase extends EDTSafeTestCase {
     private MyWindow(@Nonnull Class<?> testClass) {
       super(testClass);
       addComponents(textField);
+      setMinimumSize(new Dimension(100, 50));
     }
 
     @Nonnull
