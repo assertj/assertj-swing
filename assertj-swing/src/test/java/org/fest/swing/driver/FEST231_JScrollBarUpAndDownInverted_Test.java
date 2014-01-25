@@ -64,7 +64,7 @@ public class FEST231_JScrollBarUpAndDownInverted_Test extends RobotBasedTestCase
     // TODO(Alex): Test in Windows
     driver.requireValue(verticalScrollBar, 0);
     driver.scrollBlockDown(verticalScrollBar);
-    driver.requireValue(verticalScrollBar, 6);
+    driver.requireValue(verticalScrollBar, 10);
     driver.scrollBlockUp(verticalScrollBar);
     driver.requireValue(verticalScrollBar, 0);
   }
@@ -95,7 +95,7 @@ public class FEST231_JScrollBarUpAndDownInverted_Test extends RobotBasedTestCase
 
     private MyWindow() {
       super(FEST231_JScrollBarUpAndDownInverted_Test.class);
-      scrollPane.setPreferredSize(new Dimension(50, 120));
+      scrollPane.setPreferredSize(new Dimension(50, 50));
       addComponents(scrollPane);
     }
 
