@@ -39,14 +39,14 @@ public class FontFixture_requireBold_Test extends FontFixture_TestCase {
   @Test
   public void should_fail_if_font_is_not_bold() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("[bold] expected:<true> but was:<false>");
+    thrown.expectMessage("[bold] expected:<[tru]e> but was:<[fals]e>");
     fixture().requireBold();
   }
 
   @Test
   public void should_fail_showing_description_if_font_is_not_bold() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("[test - bold] expected:<true> but was:<false>");
+    thrown.expectMessage("[test - bold] expected:<[tru]e> but was:<[fals]e>");
     FontFixture fixture = new FontFixture(font(), "test");
     fixture.requireBold();
   }

@@ -38,7 +38,7 @@ public class FontFixture_requireNotItalic_Test extends FontFixture_TestCase {
   @Test
   public void should_fail_if_font_is_italic() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("[italic] expected:<false> but was:<true>");
+    thrown.expectMessage("[italic] expected:<[fals]e> but was:<[tru]e>");
     FontFixture fixture = new FontFixture(italicFont());
     fixture.requireNotItalic();
   }
@@ -46,7 +46,7 @@ public class FontFixture_requireNotItalic_Test extends FontFixture_TestCase {
   @Test
   public void should_fail_showing_description_if_font_is_italic() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("[test - italic] expected:<false> but was:<true>");
+    thrown.expectMessage("[test - italic] expected:<[fals]e> but was:<[tru]e>");
     FontFixture fixture = new FontFixture(italicFont(), "test");
     fixture.requireNotItalic();
   }

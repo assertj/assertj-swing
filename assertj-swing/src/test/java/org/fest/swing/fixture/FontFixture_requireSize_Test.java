@@ -38,14 +38,14 @@ public class FontFixture_requireSize_Test extends FontFixture_TestCase {
   @Test
   public void should_fail_if_size_is_not_equal_to_expected() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("[size] expected:<6> but was:<8>");
+    thrown.expectMessage("[size] expected:<[6]> but was:<[8]>");
     fixture().requireSize(6);
   }
 
   @Test
   public void should_fail_showing_description_if_size_is_not_equal_to_expected() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("[test - size] expected:<6> but was:<8>");
+    thrown.expectMessage("[test - size] expected:<[6]> but was:<[8]>");
     FontFixture fixture = new FontFixture(font(), "test");
     fixture.requireSize(6);
   }

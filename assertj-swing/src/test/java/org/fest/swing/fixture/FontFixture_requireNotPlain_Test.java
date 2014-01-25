@@ -38,7 +38,7 @@ public class FontFixture_requireNotPlain_Test extends FontFixture_TestCase {
   @Test
   public void should_fail_if_font_is_plain() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("[plain] expected:<false> but was:<true>");
+    thrown.expectMessage("[plain] expected:<[fals]e> but was:<[tru]e>");
     FontFixture fixture = new FontFixture(boldFont());
     fixture.requireNotPlain();
   }
@@ -46,7 +46,7 @@ public class FontFixture_requireNotPlain_Test extends FontFixture_TestCase {
   @Test
   public void should_fail_showing_description_if_font_is_plain() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("[test - plain] expected:<false> but was:<true>");
+    thrown.expectMessage("[test - plain] expected:<[fals]e> but was:<[tru]e>");
     FontFixture fixture = new FontFixture(boldFont(), "test");
     fixture.requireNotPlain();
   }
