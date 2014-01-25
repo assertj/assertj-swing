@@ -93,7 +93,7 @@ public class Bug305_TableContentsTest extends RobotBasedTestCase {
       failWhenExpectingException();
     } catch (AssertionError e) {
       assertThat(e.getMessage()).contains("property:'contents'").contains("expected:<[['hello']]>")
-          .contains(concat("but was:<", format(fixture.contents()), ">"));
+          .contains(concat("but was<", format(fixture.contents()), ">"));
     }
   }
 
