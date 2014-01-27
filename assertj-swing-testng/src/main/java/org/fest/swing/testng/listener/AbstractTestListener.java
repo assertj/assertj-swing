@@ -28,6 +28,7 @@ public abstract class AbstractTestListener implements ITestListener {
    * 
    * @param context test context containing all the information for a given test run.
    */
+  @Override
   public void onStart(ITestContext context) {
   }
 
@@ -36,6 +37,7 @@ public abstract class AbstractTestListener implements ITestListener {
    * 
    * @param context test context containing all the information for a given test run.
    */
+  @Override
   public void onFinish(ITestContext context) {
   }
 
@@ -45,6 +47,7 @@ public abstract class AbstractTestListener implements ITestListener {
    * 
    * @param result contains information about the run test.
    */
+  @Override
   public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
   }
 
@@ -54,6 +57,7 @@ public abstract class AbstractTestListener implements ITestListener {
    * 
    * @param result the partially filled test result.
    */
+  @Override
   public void onTestStart(ITestResult result) {
   }
 
@@ -62,6 +66,7 @@ public abstract class AbstractTestListener implements ITestListener {
    * 
    * @param result contains information about the run test.
    */
+  @Override
   public void onTestSuccess(ITestResult result) {
   }
 
@@ -70,6 +75,7 @@ public abstract class AbstractTestListener implements ITestListener {
    * 
    * @param result contains information about the run test.
    */
+  @Override
   public void onTestFailure(ITestResult result) {
   }
 
@@ -78,6 +84,7 @@ public abstract class AbstractTestListener implements ITestListener {
    * 
    * @param result contains information about the run test.
    */
+  @Override
   public void onTestSkipped(ITestResult result) {
   }
 }

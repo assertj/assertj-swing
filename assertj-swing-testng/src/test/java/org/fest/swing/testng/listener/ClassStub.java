@@ -29,25 +29,30 @@ public class ClassStub implements IClass {
   private Class<?> realClass;
 
   /** @see org.testng.IClass#addInstance(java.lang.Object) */
+  @Override
   public void addInstance(Object instance) {
   }
 
   /** @see org.testng.IClass#getInstanceCount() */
+  @Override
   public int getInstanceCount() {
     return 0;
   }
 
   /** @see org.testng.IClass#getInstanceHashCodes() */
+  @Override
   public long[] getInstanceHashCodes() {
     return null;
   }
 
   /** @see org.testng.IClass#getInstances(boolean) */
+  @Override
   public Object[] getInstances(boolean create) {
     return null;
   }
 
   /** @see org.testng.IClass#getName() */
+  @Override
   public String getName() {
     return name;
   }
@@ -57,6 +62,7 @@ public class ClassStub implements IClass {
   }
 
   /** @see org.testng.IClass#getRealClass() */
+  @Override
   public Class<?> getRealClass() {
     return realClass;
   }

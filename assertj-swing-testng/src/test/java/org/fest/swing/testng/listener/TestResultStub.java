@@ -31,69 +31,83 @@ public class TestResultStub implements ITestResult {
   private Object[] parameters;
 
   /** @see org.testng.ITestResult#getEndMillis() */
+  @Override
   public long getEndMillis() {
     return 0;
   }
 
   /** @see org.testng.ITestResult#getHost() */
+  @Override
   public String getHost() {
     return null;
   }
 
   /** @see org.testng.ITestResult#getMethod() */
+  @Override
   public TestNGMethodStub getMethod() {
     return method;
   }
 
   /** @see org.testng.ITestResult#getName() */
+  @Override
   public String getName() {
     return null;
   }
 
   /** @see org.testng.ITestResult#getParameters() */
+  @Override
   public Object[] getParameters() {
     return parameters;
   }
 
   /** @see org.testng.ITestResult#getStartMillis() */
+  @Override
   public long getStartMillis() {
     return 0;
   }
 
   /** @see org.testng.ITestResult#getStatus() */
+  @Override
   public int getStatus() {
     return 0;
   }
 
   /** @see org.testng.ITestResult#getTestClass() */
+  @Override
   public ClassStub getTestClass() {
     return testClass;
   }
 
   /** @see org.testng.ITestResult#getThrowable() */
+  @Override
   public Throwable getThrowable() {
     return null;
   }
 
   /** @see org.testng.ITestResult#isSuccess() */
+  @Override
   public boolean isSuccess() {
     return false;
   }
 
   /** @see org.testng.ITestResult#setEndMillis(long) */
+  @Override
   public void setEndMillis(long millis) {
   }
 
   /** @see org.testng.ITestResult#setParameters(java.lang.Object[]) */
+  @Override
   public void setParameters(Object[] newParameters) {
     parameters = newParameters;
   }
 
   /** @see org.testng.ITestResult#setStatus(int) */
+  @Override
   public void setStatus(int status) {
   }
 
   /** @see org.testng.ITestResult#setThrowable(java.lang.Throwable) */
+  @Override
   public void setThrowable(Throwable throwable) {
   }
 
