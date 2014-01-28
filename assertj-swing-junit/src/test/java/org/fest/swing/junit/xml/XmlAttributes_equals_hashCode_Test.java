@@ -36,23 +36,27 @@ public class XmlAttributes_equals_hashCode_Test implements EqualsHashCodeContrac
     attributes = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
   }
 
+  @Override
   @Test
   public void should_have_consistent_equals() {
     XmlAttributes other = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
     assertThat(attributes.equals(other)).isTrue();
   }
 
+  @Override
   @Test
   public void should_have_reflexive_equals() {
     assertEqualsIsReflexive(attributes);
   }
 
+  @Override
   @Test
   public void should_have_symmetric_equals() {
     XmlAttributes other = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
     assertEqualsIsSymmetric(attributes, other);
   }
 
+  @Override
   @Test
   public void should_have_transitive_equals() {
     XmlAttributes other1 = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
@@ -60,17 +64,20 @@ public class XmlAttributes_equals_hashCode_Test implements EqualsHashCodeContrac
     assertEqualsIsTransitive(attributes, other1, other2);
   }
 
+  @Override
   @Test
   public void should_maintain_equals_and_hashCode_contract() {
     XmlAttributes other = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
     assertMaintainsEqualsAndHashCodeContract(attributes, other);
   }
 
+  @Override
   @Test
   public void should_not_be_equal_to_null() {
     assertThat(attributes.equals(null)).isFalse();
   }
 
+  @Override
   @Test
   public void should_not_be_equal_to_Object_not_being_of_same_type() {
     assertThat(attributes.equals("Hello")).isFalse();

@@ -29,11 +29,13 @@ public class InnerRunner_runUnprotected_Test extends InnerRunner_TestCase {
   @Test
   public void should_call_delegate_when_running_unprotected() {
     new EasyMockTemplate(delegate, notifier) {
+      @Override
       protected void expectations() {
         delegate.doRun(notifier);
         expectLastCall().once();
       }
 
+      @Override
       protected void codeToTest() {
         runner.runUnprotected();
       }

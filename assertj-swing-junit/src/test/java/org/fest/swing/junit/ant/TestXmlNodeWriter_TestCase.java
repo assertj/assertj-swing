@@ -74,10 +74,12 @@ public abstract class TestXmlNodeWriter_TestCase {
       return name;
     }
 
+    @Override
     public int countTestCases() {
       return 0;
     }
 
+    @Override
     public void run(TestResult result) {
     }
   }

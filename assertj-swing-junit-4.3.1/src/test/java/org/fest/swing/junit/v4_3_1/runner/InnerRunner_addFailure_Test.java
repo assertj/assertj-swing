@@ -45,6 +45,7 @@ public class InnerRunner_addFailure_Test extends InnerRunner_TestCase {
   @Test
   public void shouldNotifyWhenAddingFailure() {
     new EasyMockTemplate(delegate, notifier) {
+      @Override
       protected void expectations() {
         expect(delegate.getDescription()).andReturn(description);
         reportMatcher(new FailureMatcher(failure));
@@ -52,6 +53,7 @@ public class InnerRunner_addFailure_Test extends InnerRunner_TestCase {
         expectLastCall().once();
       }
 
+      @Override
       protected void codeToTest() {
         runner.addFailure(cause);
       }
@@ -65,10 +67,12 @@ public class InnerRunner_addFailure_Test extends InnerRunner_TestCase {
       this.failure = failure;
     }
 
+    @Override
     public void appendTo(StringBuffer buffer) {
       buffer.append(failure);
     }
 
+    @Override
     public boolean matches(Object argument) {
       if (!(argument instanceof Failure))
         return false;

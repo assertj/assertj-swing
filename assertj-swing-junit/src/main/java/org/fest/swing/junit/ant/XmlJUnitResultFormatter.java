@@ -67,6 +67,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * 
    * @param out the output stream to use.
    */
+  @Override
   public final void setOutput(OutputStream out) {
     this.out = out;
   }
@@ -76,6 +77,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * 
    * @param out the <code>String</code> to write.
    */
+  @Override
   public final void setSystemOutput(String out) {
     formatOutput(SYSTEM_OUT, out);
   }
@@ -85,6 +87,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * 
    * @param out the <code>String</code> to write.
    */
+  @Override
   public final void setSystemError(String out) {
     formatOutput(SYSTEM_ERR, out);
   }
@@ -103,6 +106,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * @param suite the test suite.
    * @throws ExceptionInInitializerError if the underlying XML document could not be created.
    */
+  @Override
   public final void startTestSuite(JUnitTest suite) {
     XmlDocument document = new XmlDocument();
     xmlRoot = document.newRoot(TESTSUITE);
@@ -126,6 +130,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * @param suite the test suite.
    * @throws BuildException on error.
    */
+  @Override
   public final void endTestSuite(JUnitTest suite) {
     suiteXmlNodeWriter.writeSuiteStatistics(xmlRoot, suite);
     if (out == null)
@@ -138,6 +143,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * 
    * @param test the test.
    */
+  @Override
   public final void startTest(Test test) {
     tests.started(test);
   }
@@ -147,6 +153,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * 
    * @param test the test.
    */
+  @Override
   public final void endTest(Test test) {
     if (!tests.wasStarted(test))
       startTest(test);
@@ -168,6 +175,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * @param test the test.
    * @param failedAssertion the failed assertion.
    */
+  @Override
   public final void addFailure(Test test, AssertionFailedError failedAssertion) {
     addFailure(test, (Throwable) failedAssertion);
   }
@@ -189,6 +197,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * @param test the test.
    * @param error the error.
    */
+  @Override
   public final void addError(Test test, Throwable error) {
     XmlNode errorXmlNode = formatError(ERROR, test, error);
     onFailureOrError(test, error, errorXmlNode);

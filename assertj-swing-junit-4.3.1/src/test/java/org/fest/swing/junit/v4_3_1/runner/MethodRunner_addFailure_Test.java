@@ -56,6 +56,7 @@ public class MethodRunner_addFailure_Test {
   public void should_take_screenshot_if_test_fails_and_is_GUI_test() throws Exception {
     setUpUsing("failedGUITest");
     new EasyMockTemplate(notifier, screenshotTaker) {
+      @Override
       protected void expectations() {
         screenshotTaker.saveScreenshot(testInfo.screenshotFileName());
         expectLastCall().once();
@@ -63,6 +64,7 @@ public class MethodRunner_addFailure_Test {
         expectNotifierToFireTestFailure();
       }
 
+      @Override
       protected void codeToTest() {
         runner.addFailure(exception);
       }
@@ -73,11 +75,13 @@ public class MethodRunner_addFailure_Test {
   public void should_not_take_screenshot_if_test_fails_and_is_not_GUI_test() throws Exception {
     setUpUsing("failedNonGUITest");
     new EasyMockTemplate(notifier, screenshotTaker) {
+      @Override
       protected void expectations() {
         reportMatcherForFailure();
         expectNotifierToFireTestFailure();
       }
 
+      @Override
       protected void codeToTest() {
         runner.addFailure(exception);
       }
@@ -110,12 +114,14 @@ public class MethodRunner_addFailure_Test {
       this.expected = expected;
     }
 
+    @Override
     public void appendTo(StringBuffer buffer) {
       buffer.append(expected.getClass().getName()).append("[");
       buffer.append("description=").append(expected.getDescription()).append(",");
       buffer.append("exception=").append(expected.getException().getMessage()).append("]");
     }
 
+    @Override
     public boolean matches(Object argument) {
       if (!(argument instanceof Failure))
         return false;

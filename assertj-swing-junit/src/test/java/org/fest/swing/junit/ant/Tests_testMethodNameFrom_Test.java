@@ -62,10 +62,12 @@ public class Tests_testMethodNameFrom_Test extends Tests_TestCase {
       return "name";
     }
 
+    @Override
     public int countTestCases() {
       return 0;
     }
 
+    @Override
     public void run(TestResult result) {
     }
   }
@@ -82,10 +84,12 @@ public class Tests_testMethodNameFrom_Test extends Tests_TestCase {
       return "name";
     }
 
+    @Override
     public int countTestCases() {
       return 0;
     }
 
+    @Override
     public void run(TestResult result) {
     }
   }
@@ -93,10 +97,12 @@ public class Tests_testMethodNameFrom_Test extends Tests_TestCase {
   @Test
   public void should_return_word_unknown_if_test_does_not_have_name_or_getName_methods() {
     junit.framework.Test test = new junit.framework.Test() {
+      @Override
       public int countTestCases() {
         return 0;
       }
 
+      @Override
       public void run(TestResult result) {
       }
     };

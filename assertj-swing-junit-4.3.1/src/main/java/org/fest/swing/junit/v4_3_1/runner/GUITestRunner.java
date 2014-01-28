@@ -106,6 +106,7 @@ public class GUITestRunner extends Runner {
    * 
    * @return a <code>Description</code> showing the tests to be run by the receiver.
    */
+  @Override
   public Description getDescription() {
     Description spec = createSuiteDescription(testClass.getName());
     for (Method method : testMethods)

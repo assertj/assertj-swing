@@ -97,10 +97,12 @@ public class ScreenshotXmlWriter_writeScreenshot_Test {
   }
 
   private static class MyTest implements junit.framework.Test {
+    @Override
     public int countTestCases() {
       return 0;
     }
 
+    @Override
     public void run(TestResult result) {
     }
   }

@@ -49,6 +49,7 @@ public class XmlAttributes implements Iterable<XmlAttribute> {
    * 
    * @return an iterator containing all the <code>XmlAttribute</code>s in this collection.
    */
+  @Override
   public Iterator<XmlAttribute> iterator() {
     return attributes.iterator();
   }

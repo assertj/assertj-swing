@@ -66,6 +66,7 @@ public class EnvironmentXmlNodeWriter_writeTimestamp_Test extends EnvironmentXml
       this.date = date;
     }
 
+    @Override
     public boolean matches(Object argument) {
       if (!(argument instanceof Date))
         return false;
@@ -73,6 +74,7 @@ public class EnvironmentXmlNodeWriter_writeTimestamp_Test extends EnvironmentXml
       return date.before(other) || date.equals(other);
     }
 
+    @Override
     public void appendTo(StringBuffer buffer) {
       buffer.append(date);
     }

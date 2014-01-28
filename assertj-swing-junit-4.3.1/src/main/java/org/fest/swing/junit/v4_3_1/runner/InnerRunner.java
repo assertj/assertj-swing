@@ -31,10 +31,12 @@ class InnerRunner extends BeforeAndAfterRunner {
     this.notifier = notifier;
   }
 
+  @Override
   protected void runUnprotected() {
     delegate.doRun(notifier);
   }
 
+  @Override
   protected void addFailure(Throwable targetException) {
     notifier.fireTestFailure(new Failure(delegate.getDescription(), targetException));
   }
