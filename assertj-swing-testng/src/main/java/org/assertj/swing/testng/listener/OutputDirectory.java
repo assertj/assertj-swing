@@ -14,7 +14,8 @@
  */
 package org.assertj.swing.testng.listener;
 
-import static org.fest.util.Strings.*;
+import static org.fest.util.Strings.concat;
+import static org.fest.util.Strings.isEmpty;
 
 import java.io.File;
 

@@ -16,7 +16,10 @@ package org.assertj.swing.testng.listener;
 
 import java.lang.reflect.Method;
 
-import org.testng.*;
+import org.testng.IClass;
+import org.testng.IRetryAnalyzer;
+import org.testng.ITestClass;
+import org.testng.ITestNGMethod;
 
 /**
  * Understands an <code>{@link ITestNGMethod}</code> stub for testing purposes.

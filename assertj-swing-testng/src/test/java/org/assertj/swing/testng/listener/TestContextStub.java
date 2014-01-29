@@ -17,7 +17,10 @@ package org.assertj.swing.testng.listener;
 import java.util.Collection;
 import java.util.Date;
 
-import org.testng.*;
+import org.testng.IResultMap;
+import org.testng.ISuite;
+import org.testng.ITestContext;
+import org.testng.ITestNGMethod;
 
 /**
  * Understands an <code>{@link ITestContext}</code> stub for testing purposes.

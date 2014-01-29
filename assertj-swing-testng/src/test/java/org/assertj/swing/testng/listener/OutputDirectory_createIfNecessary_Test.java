@@ -23,10 +23,11 @@ import static org.fest.util.Strings.concat;
 
 import java.io.File;
 
-import org.assertj.swing.testng.listener.OutputDirectory;
 import org.fest.mocks.EasyMockTemplate;
 import org.fest.util.FilesException;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.testng.ITestContext;
 
 /**

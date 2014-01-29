@@ -17,13 +17,15 @@ package org.assertj.swing.testng.listener;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.assertions.ImageAssert.read;
 import static org.fest.util.Files.temporaryFolderPath;
-import static org.fest.util.Strings.*;
+import static org.fest.util.Strings.concat;
+import static org.fest.util.Strings.join;
 
 import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
-import org.assertj.swing.testng.listener.ScreenshotOnFailureListener;
 import org.fest.swing.annotation.GUITest;
 import org.junit.BeforeClass;
 import org.junit.Test;

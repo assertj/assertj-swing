@@ -17,7 +17,9 @@ package org.assertj.swing.testng.testcase;
 import org.fest.swing.core.Robot;
 import org.fest.swing.edt.FailOnThreadViolationRepaintManager;
 import org.fest.swing.testing.FestSwingTestCaseTemplate;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 /**
  * Understands a template for test cases that use FEST-Swing and TestNG. This template installs a

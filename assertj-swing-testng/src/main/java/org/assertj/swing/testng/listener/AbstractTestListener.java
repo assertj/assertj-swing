@@ -14,7 +14,9 @@
  */
 package org.assertj.swing.testng.listener;
 
-import org.testng.*;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
 
 /**
  * Understands a base class for TestNG listeners.
