@@ -12,7 +12,7 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.testng.listener;
+package org.assertj.swing.testng.listener;
 
 import static org.fest.swing.image.ImageFileExtensions.PNG;
 import static org.fest.util.Strings.join;

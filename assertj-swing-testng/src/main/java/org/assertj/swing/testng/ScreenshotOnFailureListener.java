@@ -12,16 +12,16 @@
  * 
  * Copyright @2007-2009 the original author or authors.
  */
-package org.fest.swing.testng;
+package org.assertj.swing.testng;
 
 /**
  * Understands a <a href="http://testng.org" target="_blank">TestNG</a> listener that takes a screenshot when a GUI test
  * fails.
  * 
- * @deprecated Use <code>{@link org.fest.swing.testng.listener.ScreenshotOnFailureListener}</code> instead.
+ * @deprecated Use <code>{@link org.assertj.swing.testng.listener.ScreenshotOnFailureListener}</code> instead.
  * 
  * @author Alex Ruiz
  */
 @Deprecated
-public class ScreenshotOnFailureListener extends org.fest.swing.testng.listener.ScreenshotOnFailureListener {
+public class ScreenshotOnFailureListener extends org.assertj.swing.testng.listener.ScreenshotOnFailureListener {
 }

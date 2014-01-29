@@ -12,7 +12,7 @@
  * 
  * Copyright @2007-2009 the original author or authors.
  */
-package org.fest.swing.testng.listener;
+package org.assertj.swing.testng.listener;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.assertions.ImageAssert.read;
@@ -23,6 +23,7 @@ import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import org.assertj.swing.testng.listener.ScreenshotOnFailureListener;
 import org.fest.swing.annotation.GUITest;
 import org.junit.BeforeClass;
 import org.junit.Test;

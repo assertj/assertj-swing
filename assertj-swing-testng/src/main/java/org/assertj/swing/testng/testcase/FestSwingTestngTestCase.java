@@ -12,7 +12,7 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.testng.testcase;
+package org.assertj.swing.testng.testcase;
 
 import org.fest.swing.core.Robot;
 import org.fest.swing.edt.FailOnThreadViolationRepaintManager;

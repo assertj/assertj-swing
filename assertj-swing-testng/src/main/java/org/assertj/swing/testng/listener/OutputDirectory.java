@@ -12,7 +12,7 @@
  * 
  * Copyright @2010 the original author or authors.
  */
-package org.fest.swing.testng.listener;
+package org.assertj.swing.testng.listener;
 
 import static org.fest.util.Strings.*;
 

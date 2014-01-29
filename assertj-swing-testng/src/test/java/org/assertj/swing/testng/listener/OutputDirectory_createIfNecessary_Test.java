@@ -12,7 +12,7 @@
  * 
  * Copyright @2010 the original author or authors.
  */
-package org.fest.swing.testng.listener;
+package org.assertj.swing.testng.listener;
 
 import static java.io.File.separator;
 import static org.easymock.EasyMock.expect;
@@ -23,6 +23,7 @@ import static org.fest.util.Strings.concat;
 
 import java.io.File;
 
+import org.assertj.swing.testng.listener.OutputDirectory;
 import org.fest.mocks.EasyMockTemplate;
 import org.fest.util.FilesException;
 import org.junit.*;

@@ -12,10 +12,10 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.testng.listener;
+package org.assertj.swing.testng.listener;
 
+import static org.assertj.swing.testng.listener.ScreenshotFileNameGenerator.screenshotFileNameFrom;
 import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.swing.testng.listener.ScreenshotFileNameGenerator.screenshotFileNameFrom;
 import static org.fest.util.Arrays.array;
 
 import org.junit.Before;
