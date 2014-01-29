@@ -76,20 +76,17 @@ public final class SingleComponentHierarchy implements ComponentHierarchy {
     return list;
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   Collection<Component> childrenOf(@Nonnull Component c) {
     return hierarchy.childrenOf(c);
   }
 
-  /** {@inheritDoc} */
   @Override
   public boolean contains(@Nonnull Component c) {
     return hierarchy.contains(c) && isDescendingFrom(c, root);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void dispose(@Nonnull Window w) {
     hierarchy.dispose(w);

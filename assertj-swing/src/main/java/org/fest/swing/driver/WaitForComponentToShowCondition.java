@@ -59,7 +59,6 @@ public class WaitForComponentToShowCondition extends Condition {
     return isShowing(c);
   }
 
-  /** ${@inheritDoc} */
   @Override
   protected void done() {
     c = null;

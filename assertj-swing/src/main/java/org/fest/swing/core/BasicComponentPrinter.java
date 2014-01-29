@@ -98,28 +98,24 @@ public final class BasicComponentPrinter implements ComponentPrinter {
     return hierarchy;
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void printComponents(@Nonnull PrintStream out) {
     printComponents(out, ALWAYS_MATCHES);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void printComponents(@Nonnull PrintStream out, @Nullable Container root) {
     printComponents(out, ALWAYS_MATCHES, root);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void printComponents(@Nonnull PrintStream out, @Nonnull Class<? extends Component> type) {
     printComponents(out, type, null);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void printComponents(@Nonnull PrintStream out, @Nonnull Class<? extends Component> type,
@@ -127,13 +123,11 @@ public final class BasicComponentPrinter implements ComponentPrinter {
     print(hierarchy(root), new TypeMatcher(checkNotNull(type)), checkNotNull(out));
   }
 
-  /** ${@inheritDoc} */
   @Override
   public void printComponents(@Nonnull PrintStream out, @Nonnull ComponentMatcher matcher) {
     printComponents(out, matcher, null);
   }
 
-  /** ${@inheritDoc} */
   @Override
   public void printComponents(@Nonnull PrintStream out, @Nonnull ComponentMatcher matcher, @Nullable Container root) {
     print(hierarchy(root), checkNotNull(matcher), checkNotNull(out));

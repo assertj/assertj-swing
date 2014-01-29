@@ -44,7 +44,6 @@ public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWrite
     driver = new JTextComponentDriver(robot);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
@@ -53,7 +52,6 @@ public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWrite
     stopCellEditing(table, row, column);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void startCellEditing(@Nonnull JTable table, int row, int column) {

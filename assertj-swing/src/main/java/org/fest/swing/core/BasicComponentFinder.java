@@ -99,21 +99,18 @@ public final class BasicComponentFinder implements ComponentFinder {
     includeHierarchyIfComponentNotFound(true);
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   ComponentPrinter printer() {
     return printer;
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   <T extends Component> T findByType(@Nonnull Class<T> type) {
     return findByType(type, requireShowing());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -121,7 +118,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return type.cast(find(new TypeMatcher(type, showing)));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -129,7 +125,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return findByType(root, type, requireShowing());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -137,7 +132,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return type.cast(find(root, new TypeMatcher(type, showing)));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -145,7 +139,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return findByName(name, type, requireShowing());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -154,7 +147,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return type.cast(found);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -162,7 +154,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return findByName(name, requireShowing());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -170,7 +161,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return find(new NameMatcher(name, showing));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -178,7 +168,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return findByLabel(label, type, requireShowing());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -187,7 +176,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return labelFor(found, type);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -195,7 +183,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return findByLabel(label, requireShowing());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -204,7 +191,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return labelFor(found, Component.class);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -213,7 +199,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return m.supportedType().cast(found);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -221,7 +206,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return find(hierarchy, m);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -229,7 +213,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return findByName(root, name, type, requireShowing());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -239,7 +222,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return type.cast(found);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -247,7 +229,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return findByName(root, name, requireShowing());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -255,7 +236,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return find(root, new NameMatcher(name, showing));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -263,7 +243,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return findByLabel(root, label, type, requireShowing());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -273,7 +252,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return labelFor(found, type);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -285,7 +263,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return requireShowingFromSettingsOr(false);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -302,7 +279,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return type.cast(target);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -311,7 +287,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     return m.supportedType().cast(found);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -386,40 +361,34 @@ public final class BasicComponentFinder implements ComponentFinder {
     });
   }
 
-  /** {@inheritDoc} */
   @Override
   public boolean includeHierarchyIfComponentNotFound() {
     return includeHierarchyInComponentLookupException;
   }
 
-  /** {@inheritDoc} */
   @Override
   public void includeHierarchyIfComponentNotFound(boolean newValue) {
     includeHierarchyInComponentLookupException = newValue;
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   Collection<Component> findAll(@Nonnull ComponentMatcher m) {
     return finderDelegate.find(hierarchy, m);
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   Collection<Component> findAll(@Nonnull Container root, @Nonnull ComponentMatcher m) {
     return finderDelegate.find(hierarchy(root), m);
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   <T extends Component> Collection<T> findAll(@Nonnull GenericTypeMatcher<T> m) {
     return finderDelegate.find(hierarchy, m);
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   <T extends Component> Collection<T> findAll(@Nonnull Container root, @Nonnull GenericTypeMatcher<T> m) {

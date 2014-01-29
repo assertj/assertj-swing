@@ -127,7 +127,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     menuItemFinder = new JMenuItemFinder(robot, target());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -135,7 +134,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JButtonFixture(robot(), findByType(JButton.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -143,7 +141,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JButtonFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -151,7 +148,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JButtonFixture(robot(), findByName(name, JButton.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -159,7 +155,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JCheckBoxFixture(robot(), findByType(JCheckBox.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -167,7 +162,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JCheckBoxFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -175,7 +169,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JCheckBoxFixture(robot(), findByName(name, JCheckBox.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -183,7 +176,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JComboBoxFixture(robot(), findByType(JComboBox.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -191,7 +183,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JComboBoxFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -199,7 +190,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JComboBoxFixture(robot(), findByName(name, JComboBox.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -207,7 +197,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return dialog(defaultDialogLookupTimeout());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -216,7 +205,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return findDialog(matcher, timeout);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -224,7 +212,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return dialog(matcher, defaultDialogLookupTimeout());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -232,7 +219,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return findDialog(matcher, timeout);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -240,7 +226,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return dialog(name, defaultDialogLookupTimeout());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -258,7 +243,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new DialogFixture(robot(), checkNotNull(dialog));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -266,7 +250,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return fileChooser(defaultDialogLookupTimeout());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -275,7 +258,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return findFileChooser(matcher, timeout);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -283,7 +265,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return fileChooser(matcher, defaultDialogLookupTimeout());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -291,7 +272,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return findFileChooser(matcher, timeout);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -299,7 +279,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JFileChooserFixture(robot(), findByName(name, JFileChooser.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -317,7 +296,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JFileChooserFixture(robot(), checkNotNull(fileChooser));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -325,7 +303,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JLabelFixture(robot(), findByType(JLabel.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -333,7 +310,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JLabelFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -341,7 +317,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JLabelFixture(robot(), findByName(name, JLabel.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -349,7 +324,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JListFixture(robot(), findByType(JList.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -357,7 +331,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JListFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -365,7 +338,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JListFixture(robot(), findByName(name, JList.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -373,7 +345,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JMenuItemFixture(robot(), menuItemFinder.menuItemWithPath(path));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -382,7 +353,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JMenuItemFixture(robot(), finder().findByName(target(), name, JMenuItem.class, requireShowing));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -390,7 +360,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JMenuItemFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -398,7 +367,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return optionPane(defaultDialogLookupTimeout());
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -411,7 +379,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JOptionPaneFixture(robot(), checkNotNull(optionPane));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -419,7 +386,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JPanelFixture(robot(), findByType(JPanel.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -427,7 +393,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JPanelFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -435,7 +400,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JPanelFixture(robot(), findByName(name, JPanel.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -443,7 +407,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JProgressBarFixture(robot(), findByType(JProgressBar.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -451,7 +414,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JProgressBarFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -459,7 +421,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JProgressBarFixture(robot(), findByName(name, JProgressBar.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -467,7 +428,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JRadioButtonFixture(robot(), findByType(JRadioButton.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -475,7 +435,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JRadioButtonFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -483,7 +442,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JRadioButtonFixture(robot(), findByName(name, JRadioButton.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -491,7 +449,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JScrollBarFixture(robot(), findByType(JScrollBar.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -499,7 +456,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JScrollBarFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -507,7 +463,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JScrollBarFixture(robot(), findByName(name, JScrollBar.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -515,7 +470,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JScrollPaneFixture(robot(), findByType(JScrollPane.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -523,7 +477,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JScrollPaneFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -531,7 +484,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JScrollPaneFixture(robot(), findByName(name, JScrollPane.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -539,7 +491,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JSliderFixture(robot(), findByType(JSlider.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -547,7 +498,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JSliderFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -555,7 +505,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JSliderFixture(robot(), findByName(name, JSlider.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -563,7 +512,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JSpinnerFixture(robot(), findByType(JSpinner.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -571,7 +519,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JSpinnerFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -579,7 +526,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JSpinnerFixture(robot(), findByName(name, JSpinner.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -587,7 +533,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JSplitPaneFixture(robot(), findByType(JSplitPane.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -595,7 +540,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JSplitPaneFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -603,7 +547,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JSplitPaneFixture(robot(), findByName(name, JSplitPane.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -611,7 +554,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTabbedPaneFixture(robot(), findByType(JTabbedPane.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -619,7 +561,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTabbedPaneFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -627,7 +568,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTabbedPaneFixture(robot(), findByName(name, JTabbedPane.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -635,7 +575,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTableFixture(robot(), findByType(JTable.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -643,7 +582,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTableFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -651,7 +589,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTableFixture(robot(), findByName(name, JTable.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -659,7 +596,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTextComponentFixture(robot(), findByType(JTextComponent.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -667,7 +603,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTextComponentFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -675,7 +610,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTextComponentFixture(robot(), findByName(name, JTextComponent.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -683,7 +617,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JToggleButtonFixture(robot(), findByType(JToggleButton.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -691,7 +624,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JToggleButtonFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -699,7 +631,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JToggleButtonFixture(robot(), findByName(name, JToggleButton.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -707,7 +638,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JToolBarFixture(robot(), findByType(JToolBar.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -715,7 +645,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JToolBarFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -723,7 +652,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JToolBarFixture(robot(), findByName(name, JToolBar.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -731,7 +659,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTreeFixture(robot(), findByType(JTree.class));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -739,7 +666,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return new JTreeFixture(robot(), find(matcher));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -788,7 +714,6 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     return finder().find(target(), matcher);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull

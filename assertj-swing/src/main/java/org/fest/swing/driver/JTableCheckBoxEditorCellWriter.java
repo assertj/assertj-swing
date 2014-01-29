@@ -41,7 +41,6 @@ public class JTableCheckBoxEditorCellWriter extends AbstractJTableCellWriter {
     super(robot);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
@@ -53,7 +52,6 @@ public class JTableCheckBoxEditorCellWriter extends AbstractJTableCellWriter {
     robot.click(table, checkNotNull(editingInfo.second));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void startCellEditing(@Nonnull JTable table, int row, int column) {

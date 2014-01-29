@@ -63,7 +63,6 @@ class ComponentEnabledCondition extends Condition {
     return isEnabled(checkNotNull(c));
   }
 
-  /** ${@inheritDoc} */
   @Override
   protected void done() {
     c = null;

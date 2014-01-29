@@ -69,7 +69,6 @@ class RobotEventGenerator implements InputEventGenerator {
     return robot;
   }
 
-  /** {@inheritDoc} */
   @Override
   public void pressMouse(@Nonnull Component c, @Nonnull Point where, int buttons) {
     Point p = checkNotNull(translate(c, where.x, where.y));
@@ -79,45 +78,38 @@ class RobotEventGenerator implements InputEventGenerator {
     pressMouse(p, buttons);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void pressMouse(@Nonnull Point where, int buttons) {
     moveMouse(where.x, where.y);
     pressMouse(buttons);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void pressMouse(int buttons) {
     robot.mousePress(buttons);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void releaseMouse(int buttons) {
     robot.mouseRelease(buttons);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void rotateMouseWheel(int amount) {
     robot.mouseWheel(amount);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void moveMouse(@Nonnull Component c, int x, int y) {
     Point p = checkNotNull(translate(c, x, y));
     moveMouse(p.x, p.y);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void moveMouse(int x, int y) {
     robot.mouseMove(x, y);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void pressKey(int keyCode, char keyChar) {
     try {
@@ -127,7 +119,6 @@ class RobotEventGenerator implements InputEventGenerator {
     }
   }
 
-  /** {@inheritDoc} */
   @Override
   public void releaseKey(int keyCode) {
     robot.keyRelease(keyCode);

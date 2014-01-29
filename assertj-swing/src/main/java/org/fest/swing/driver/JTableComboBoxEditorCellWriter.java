@@ -42,7 +42,6 @@ public class JTableComboBoxEditorCellWriter extends AbstractJTableCellWriter {
     driver = new JComboBoxDriver(robot);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
@@ -63,7 +62,6 @@ public class JTableComboBoxEditorCellWriter extends AbstractJTableCellWriter {
     driver.enterText(editor, value);
   }
 
-  /** {@inheritDoc} */
   @Override
   @RunsInEDT
   public void startCellEditing(@Nonnull JTable table, int row, int column) {

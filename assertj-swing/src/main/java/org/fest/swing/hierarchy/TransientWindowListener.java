@@ -41,7 +41,6 @@ public final class TransientWindowListener implements AWTEventListener {
     this.filter = filter;
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void eventDispatched(AWTEvent event) {

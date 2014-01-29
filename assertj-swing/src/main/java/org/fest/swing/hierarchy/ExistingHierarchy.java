@@ -52,7 +52,6 @@ public class ExistingHierarchy implements ComponentHierarchy {
     this.childrenFinder = childrenFinder;
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   Collection<Container> roots() {

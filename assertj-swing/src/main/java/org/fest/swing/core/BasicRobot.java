@@ -181,35 +181,30 @@ public class BasicRobot implements Robot {
     active = true;
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   ComponentPrinter printer() {
     return finder().printer();
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   ComponentFinder finder() {
     return finder;
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void showWindow(@Nonnull Window w) {
     showWindow(w, null, true);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void showWindow(@Nonnull Window w, @Nonnull Dimension size) {
     showWindow(w, size, true);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void showWindow(@Nonnull final Window w, @Nullable final Dimension size, final boolean pack) {
@@ -246,7 +241,6 @@ public class BasicRobot implements Robot {
     }
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void close(@Nonnull Window w) {
@@ -275,14 +269,12 @@ public class BasicRobot implements Robot {
     return null;
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void focusAndWaitForFocusGain(@Nonnull Component c) {
     focus(c, true);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void focus(@Nonnull Component c) {
@@ -354,14 +346,12 @@ public class BasicRobot implements Robot {
     moveMouse(w); // For pointer-focus systems
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public synchronized void cleanUp() {
     cleanUp(true);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public synchronized void cleanUpWithoutDisposingWindows() {
@@ -409,35 +399,30 @@ public class BasicRobot implements Robot {
     w.dispose();
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void click(@Nonnull Component c) {
     click(c, LEFT_BUTTON);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void rightClick(@Nonnull Component c) {
     click(c, RIGHT_BUTTON);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void click(@Nonnull Component c, @Nonnull MouseButton button) {
     click(c, button, 1);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void doubleClick(@Nonnull Component c) {
     click(c, LEFT_BUTTON, 2);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void click(@Nonnull Component c, @Nonnull MouseButton button, int times) {
@@ -454,21 +439,18 @@ public class BasicRobot implements Robot {
     return visibleCenterOf(c);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void click(@Nonnull Component c, @Nonnull Point where) {
     click(c, where, LEFT_BUTTON, 1);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void click(@Nonnull Point where, @Nonnull MouseButton button, int times) {
     doClick(null, where, button, times);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void click(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button, int times) {
@@ -509,7 +491,6 @@ public class BasicRobot implements Robot {
     return times > 1 /* FEST-137: && settings.delayBetweenEvents() * 2 > 200 */;
   }
 
-  /** {@inheritDoc} */
   @Override
   public void pressModifiers(int modifierMask) {
     for (int modifierKey : keysFor(modifierMask)) {
@@ -517,7 +498,6 @@ public class BasicRobot implements Robot {
     }
   }
 
-  /** {@inheritDoc} */
   @Override
   public void releaseModifiers(int modifierMask) {
     // For consistency, release in the reverse order of press.
@@ -527,21 +507,18 @@ public class BasicRobot implements Robot {
     }
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void moveMouse(@Nonnull Component c) {
     moveMouse(c, visibleCenterOf(c));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void moveMouse(@Nonnull Component c, @Nonnull Point p) {
     moveMouse(c, p.x, p.y);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void moveMouse(@Nonnull Component c, int x, int y) {
@@ -552,31 +529,26 @@ public class BasicRobot implements Robot {
     waitForIdle();
   }
 
-  /** {@inheritDoc} */
   @Override
   public void moveMouse(@Nonnull Point p) {
     moveMouse(p.x, p.y);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void moveMouse(int x, int y) {
     eventGenerator.moveMouse(x, y);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void pressMouse(@Nonnull MouseButton button) {
     eventGenerator.pressMouse(button.mask);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void pressMouse(@Nonnull Component c, @Nonnull Point where) {
     pressMouse(c, where, LEFT_BUTTON);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void pressMouse(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button) {
     jitter(c, where);
@@ -584,20 +556,17 @@ public class BasicRobot implements Robot {
     eventGenerator.pressMouse(c, where, button.mask);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void pressMouse(@Nonnull Point where, @Nonnull MouseButton button) {
     eventGenerator.pressMouse(where, button.mask);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void releaseMouse(@Nonnull MouseButton button) {
     mouseRelease(button.mask);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void releaseMouseButtons() {
@@ -608,28 +577,24 @@ public class BasicRobot implements Robot {
     mouseRelease(buttons);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void rotateMouseWheel(@Nonnull Component c, int amount) {
     moveMouse(c);
     rotateMouseWheel(amount);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void rotateMouseWheel(int amount) {
     eventGenerator.rotateMouseWheel(amount);
     waitForIdle();
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void jitter(@Nonnull Component c) {
     jitter(c, visibleCenterOf(c));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void jitter(@Nonnull Component c, @Nonnull Point where) {
@@ -675,7 +640,6 @@ public class BasicRobot implements Robot {
     return checkNotNull(result);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void enterText(@Nonnull String text) {
@@ -688,7 +652,6 @@ public class BasicRobot implements Robot {
     }
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void type(char character) {
@@ -712,7 +675,6 @@ public class BasicRobot implements Robot {
     return new KeyEvent(c, KEY_TYPED, currentTimeMillis(), 0, VK_UNDEFINED, character);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void pressAndReleaseKey(int keyCode, @Nonnull int... modifiers) {
@@ -720,7 +682,6 @@ public class BasicRobot implements Robot {
     waitForIdle();
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void pressAndReleaseKeys(@Nonnull int... keyCodes) {
@@ -742,7 +703,6 @@ public class BasicRobot implements Robot {
     releaseModifiers(updatedModifiers);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void pressKey(int keyCode) {
@@ -755,7 +715,6 @@ public class BasicRobot implements Robot {
     eventGenerator.pressKey(keyCode, CHAR_UNDEFINED);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void releaseKey(int keyCode) {
@@ -768,7 +727,6 @@ public class BasicRobot implements Robot {
     eventGenerator.releaseMouse(buttons);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void waitForIdle() {
@@ -844,13 +802,11 @@ public class BasicRobot implements Robot {
     }
   }
 
-  /** {@inheritDoc} */
   @Override
   public boolean isDragging() {
     return inputState.dragInProgress();
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -858,7 +814,6 @@ public class BasicRobot implements Robot {
     return showPopupMenu(invoker, visibleCenterOf(invoker));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nonnull
@@ -914,7 +869,6 @@ public class BasicRobot implements Robot {
     return c.isShowing() && windowMonitor.isWindowReady(w);
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nullable
@@ -943,28 +897,24 @@ public class BasicRobot implements Robot {
     return null;
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void requireNoJOptionPaneIsShowing() {
     unexpectedJOptionPaneFinder.requireNoJOptionPaneIsShowing();
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   Settings settings() {
     return settings;
   }
 
-  /** {@inheritDoc} */
   @Override
   public @Nonnull
   ComponentHierarchy hierarchy() {
     return hierarchy;
   }
 
-  /** {@inheritDoc} */
   @Override
   public synchronized boolean isActive() {
     return active;

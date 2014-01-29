@@ -65,7 +65,6 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
     this.robot = robot;
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void cancelCellEditing(@Nonnull JTable table, int row, int column) {
@@ -88,7 +87,6 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
     robot.waitForIdle();
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public void stopCellEditing(@Nonnull JTable table, int row, int column) {
@@ -151,7 +149,6 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
     table.scrollRectToVisible(location.cellBounds(table, row, column));
   }
 
-  /** {@inheritDoc} */
   @RunsInEDT
   @Override
   public @Nullable

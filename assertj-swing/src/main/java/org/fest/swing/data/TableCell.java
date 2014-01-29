@@ -89,7 +89,6 @@ public class TableCell {
     this.column = column;
   }
 
-  /** ${@inheritDoc} */
   @Override
   public boolean equals(Object obj) {
     if (this == obj) {
@@ -108,7 +107,6 @@ public class TableCell {
     return column == other.column;
   }
 
-  /** ${@inheritDoc} */
   @Override
   public int hashCode() {
     int result = 1;
