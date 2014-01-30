@@ -74,7 +74,7 @@ public class GUITestFinder_isGUITest_Test {
   @Test
   public void should_return_true_if_class_has_GUITest_annotation() {
     Class<? extends GUITestClass> guiTestType = guiTest.getClass();
-    Method guiTestMethod = method("guiTestMethodWithoutAnnotation").in(guiTest).target();
+    Method guiTestMethod = method("guiTestMethodWithoutAnnotation").in(guiTest).info();
     boolean isGUITest = GUITestFinder.isGUITest(guiTestType, guiTestMethod);
     assertThat(isGUITest).isTrue();
   }
@@ -82,7 +82,7 @@ public class GUITestFinder_isGUITest_Test {
   @Test
   public void should_return_true_if_only_one_method_has_GUITest_annotation() {
     Class<? extends NonGUITestClass> nonGUITestType = nonGUITest.getClass();
-    Method guiTestMethod = method("guiTestMethod").in(nonGUITest).target();
+    Method guiTestMethod = method("guiTestMethod").in(nonGUITest).info();
     boolean isGUITest = GUITestFinder.isGUITest(nonGUITestType, guiTestMethod);
     assertThat(isGUITest).isTrue();
   }
@@ -90,7 +90,7 @@ public class GUITestFinder_isGUITest_Test {
   @Test
   public void should_return_true_if_superclass_is_GUI_test() {
     Class<? extends GUITestSubclass> guiTestSubtype = guiTestSubclass.getClass();
-    Method guiTestMethod = method("guiTestMethodWithoutAnnotation").in(guiTestSubclass).target();
+    Method guiTestMethod = method("guiTestMethodWithoutAnnotation").in(guiTestSubclass).info();
     boolean isGUITest = GUITestFinder.isGUITest(guiTestSubtype, guiTestMethod);
     assertThat(isGUITest).isTrue();
   }
@@ -98,7 +98,7 @@ public class GUITestFinder_isGUITest_Test {
   @Test
   public void should_return_true_if_overriden_method_is_GUI_test() {
     Class<? extends NonGUITestSubclass> nonGUITestSubtype = nonGUITestSubclass.getClass();
-    Method guiTestMethod = method("guiTestMethod").in(nonGUITestSubclass).target();
+    Method guiTestMethod = method("guiTestMethod").in(nonGUITestSubclass).info();
     boolean isGUITest = GUITestFinder.isGUITest(nonGUITestSubtype, guiTestMethod);
     assertThat(isGUITest).isTrue();
   }
@@ -106,7 +106,7 @@ public class GUITestFinder_isGUITest_Test {
   @Test
   public void should_return_false_if_not_containing_GUITest_annotation() {
     String s = "Yoda";
-    Method concat = method("concat").withReturnType(String.class).withParameterTypes(String.class).in(s).target();
+    Method concat = method("concat").withReturnType(String.class).withParameterTypes(String.class).in(s).info();
     assertThat(GUITestFinder.isGUITest(s.getClass(), concat)).isFalse();
   }
 }

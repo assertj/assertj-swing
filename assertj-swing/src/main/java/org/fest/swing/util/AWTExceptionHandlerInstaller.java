@@ -53,7 +53,7 @@ public final class AWTExceptionHandlerInstaller {
   @VisibleForTesting
   static void installAWTExceptionHandler(@Nonnull Class<?> exceptionHandlerType, SystemPropertyWriter writer) {
     try {
-      constructor().in(exceptionHandlerType).target();
+      constructor().in(exceptionHandlerType).info();
     } catch (RuntimeException e) {
       throw new IllegalArgumentException("The exception handler type should have a default constructor");
     }
