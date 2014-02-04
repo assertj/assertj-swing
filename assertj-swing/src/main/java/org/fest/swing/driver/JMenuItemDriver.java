@@ -67,6 +67,19 @@ public class JMenuItemDriver extends JComponentDriver {
     super(robot);
   }
 
+  @Override
+  public void click(Component c) {
+    /*
+     * Since our internal methods now all call click(Component) this is used to route the method calls to the correct
+     * method (either the parent method or the click(JMenuItem)).
+     */
+    if (c instanceof JMenuItem) {
+      click((JMenuItem) c);
+    } else {
+      super.click(c);
+    }
+  }
+
   /**
    * Finds and selects the given {@code JMenuItem}.
    * 
