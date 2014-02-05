@@ -85,6 +85,7 @@ public class Bug197_clickVisibleAreaInComponent_Test extends RobotBasedTestCase 
       scrollPane = new JScrollPane(button);
       scrollPane.setPreferredSize(new Dimension(20, 60));
       addComponents(scrollPane);
+      setMinimumSize(new Dimension(20, 60));
     }
   }
 }
