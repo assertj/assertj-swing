@@ -23,8 +23,8 @@ import java.awt.Point;
 
 import javax.swing.JPopupMenu;
 
-import org.fest.swing.test.recorder.ClickRecorder;
 import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.fest.swing.test.recorder.ToolkitClickRecorder;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -41,7 +41,7 @@ public class ComponentDriver_invokePopupAtPoint_Test extends ComponentDriver_inv
   public void should_show_JPopupMenu() {
     showWindow();
     Point p = new Point(8, 6);
-    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.textField);
+    ToolkitClickRecorder recorder = clickRecorder.attachToToolkitFor(window.textField);
     JPopupMenu found = driver.invokePopupMenu(window.textField, p);
     assertThat(found).isSameAs(popupMenu);
     assertThat(recorder).wasRightClicked().timesClicked(1).clickedAt(p);

@@ -21,8 +21,8 @@ import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDi
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 
-import org.fest.swing.test.recorder.ClickRecorder;
 import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.fest.swing.test.recorder.ToolkitClickRecorder;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -40,7 +40,7 @@ public class JListDriver_showPopupMenuAtItemByIndex_Test extends JListDriver_sho
   public void should_show_popup_menu_at_item_with_given_index() {
     showWindow();
     driver.click(list);
-    ClickRecorder recorder = clickRecorder.attachDirectlyTo(list);
+    ToolkitClickRecorder recorder = clickRecorder.attachToToolkitFor(list);
     driver.showPopupMenu(list, 0);
     assertThat(recorder).clicked(RIGHT_BUTTON);
     assertThat(isVisible(popupMenu)).isTrue();
