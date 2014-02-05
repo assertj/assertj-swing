@@ -23,6 +23,8 @@ import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingExcepti
 import javax.swing.JTree;
 
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -31,10 +33,13 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class JTreeDriver_clickRow_Test extends JTreeDriver_clickCell_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_click_cell() {
     showWindow();
-    ClickRecorder recorder = ClickRecorder.attachTo(tree);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     int row = 5;
     driver.clickRow(tree, row);
     assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(1);

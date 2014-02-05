@@ -16,11 +16,12 @@ package org.fest.swing.driver;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 
 import java.util.regex.Pattern;
 
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -29,10 +30,13 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class JTableHeaderDriver_clickColumnByPatternUsingButtonAndTimes_Test extends JTableHeaderDriver_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_click_column() {
     showWindow();
-    ClickRecorder recorder = attachTo(tableHeader);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.clickColumn(tableHeader, Pattern.compile("0.*"), LEFT_BUTTON, 3);
     assertThat(recorder).wasClickedWith(LEFT_BUTTON).timesClicked(3);
     assertThatColumnWasClicked(recorder, 0);

@@ -26,6 +26,8 @@ import java.util.Collection;
 import javax.annotation.Nonnull;
 
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -39,6 +41,9 @@ import org.junit.runners.Parameterized.Parameters;
  */
 @RunWith(Parameterized.class)
 public abstract class InputEventGenerator_pressMouseOnComponent_TestCase extends InputEventGenerator_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private final MouseButton button;
   private final int buttonMask;
 
@@ -55,7 +60,7 @@ public abstract class InputEventGenerator_pressMouseOnComponent_TestCase extends
 
   @Test
   public void should_press_mouse_button_on_Component_and_release_mouse_button() {
-    ClickRecorder recorder = ClickRecorder.attachTo(window.textBox);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.textBox);
     Point componentCenter = centerOf(window.textBox);
     eventGenerator.pressMouse(window.textBox, componentCenter, buttonMask);
     eventGenerator.releaseMouse(buttonMask);

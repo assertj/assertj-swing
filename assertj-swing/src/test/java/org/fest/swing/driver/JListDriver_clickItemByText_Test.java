@@ -24,6 +24,8 @@ import java.awt.Point;
 
 import org.fest.swing.exception.LocationUnavailableException;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -33,11 +35,14 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class JListDriver_clickItemByText_Test extends JListDriver_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_click_item_with_text_equal_to_given_one() {
     clearSelection();
     showWindow();
-    ClickRecorder recorder = ClickRecorder.attachTo(list);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(list);
     driver.clickItem(list, "two", RIGHT_BUTTON, 2);
     assertThat(recorder).clicked(RIGHT_BUTTON).timesClicked(2);
     Point pointClicked = recorder.pointClicked();
@@ -48,7 +53,7 @@ public class JListDriver_clickItemByText_Test extends JListDriver_TestCase {
   public void should_click_item_with_text_matching_given_pattern() {
     clearSelection();
     showWindow();
-    ClickRecorder recorder = ClickRecorder.attachTo(list);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(list);
     driver.clickItem(list, "tw.*", RIGHT_BUTTON, 2);
     assertThat(recorder).clicked(RIGHT_BUTTON).timesClicked(2);
     Point pointClicked = recorder.pointClicked();

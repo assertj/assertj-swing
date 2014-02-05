@@ -23,6 +23,8 @@ import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingExcepti
 import java.awt.Point;
 
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -32,20 +34,23 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class ComponentDriver_clickComponentAtPoint_Test extends ComponentDriver_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_click_Component_at_given_point() {
     showWindow();
     Point center = centerOf(window.button);
     Point where = new Point(center.x + 1, center.y + 1);
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     driver.click(window.button, where);
-    assertThat(clickRecorder).wasClicked().clickedAt(where).timesClicked(1);
+    assertThat(recorder).wasClicked().clickedAt(where).timesClicked(1);
 
   }
 
   @Test
   public void should_throw_error_if_Component_is_disabled() {
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     disableButton();
     try {
       driver.click(window.button, new Point(10, 10));
@@ -53,18 +58,18 @@ public class ComponentDriver_clickComponentAtPoint_Test extends ComponentDriver_
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsDisabledComponent(e);
     }
-    assertThat(clickRecorder).wasNotClicked();
+    assertThat(recorder).wasNotClicked();
   }
 
   @Test
   public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     try {
       driver.click(window.button, new Point(10, 10));
       failWhenExpectingException();
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsNotShowingComponent(e);
     }
-    assertThat(clickRecorder).wasNotClicked();
+    assertThat(recorder).wasNotClicked();
   }
 }

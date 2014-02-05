@@ -21,6 +21,8 @@ import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNo
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -30,17 +32,20 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class ComponentDriver_doubleClick_Test extends ComponentDriver_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_double_click_Component() {
     showWindow();
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     driver.doubleClick(window.button);
-    assertThat(clickRecorder).wasDoubleClicked().clickedAt(centerOf(window.button));
+    assertThat(recorder).wasDoubleClicked().clickedAt(centerOf(window.button));
   }
 
   @Test
   public void should_throw_error_if_Component_is_disabled() {
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     disableButton();
     try {
       driver.doubleClick(window.button);
@@ -48,18 +53,18 @@ public class ComponentDriver_doubleClick_Test extends ComponentDriver_TestCase {
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsDisabledComponent(e);
     }
-    assertThat(clickRecorder).wasNotClicked();
+    assertThat(recorder).wasNotClicked();
   }
 
   @Test
   public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     try {
       driver.doubleClick(window.button);
       failWhenExpectingException();
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsNotShowingComponent(e);
     }
-    assertThat(clickRecorder).wasNotClicked();
+    assertThat(recorder).wasNotClicked();
   }
 }

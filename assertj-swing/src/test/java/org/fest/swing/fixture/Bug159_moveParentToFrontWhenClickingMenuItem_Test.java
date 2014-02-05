@@ -17,7 +17,6 @@ package org.fest.swing.fixture;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.builder.JFrames.frame;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 import static org.fest.swing.timing.Pause.pause;
 import static org.fest.util.Strings.concat;
 
@@ -35,7 +34,9 @@ import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
 import org.fest.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -44,6 +45,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class Bug159_moveParentToFrontWhenClickingMenuItem_Test extends RobotBasedTestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private static final int DELAY_BEFORE_SHOWING_MENU = 2000;
 
   private static Logger logger = Logger.getAnonymousLogger();
@@ -65,9 +69,9 @@ public class Bug159_moveParentToFrontWhenClickingMenuItem_Test extends RobotBase
     JMenuItem menuItem = window.menuItemFromMenuBar;
     JMenuItemFixture fixture = fixtureFor(menuItem);
     pauseBeforeShowingMenu();
-    ClickRecorder clickRecorder = attachTo(menuItem);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(menuItem);
     fixture.click();
-    assertThat(clickRecorder).wasClicked();
+    assertThat(recorder).wasClicked();
   }
 
   @Test
@@ -76,9 +80,9 @@ public class Bug159_moveParentToFrontWhenClickingMenuItem_Test extends RobotBase
     JMenuItemFixture fixture = fixtureFor(menuItem);
     pauseBeforeShowingMenu();
     robot.showPopupMenu(window.textField);
-    ClickRecorder clickRecorder = attachTo(menuItem);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(menuItem);
     fixture.click();
-    assertThat(clickRecorder).wasClicked();
+    assertThat(recorder).wasClicked();
   }
 
   private void pauseBeforeShowingMenu() {

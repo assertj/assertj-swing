@@ -15,7 +15,6 @@
 package org.fest.swing.driver;
 
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 
 import java.awt.Dimension;
 
@@ -27,7 +26,9 @@ import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
 import org.fest.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -37,6 +38,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class JMenuItemDriver_click_Test extends RobotBasedTestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private JMenuItem menuItem;
   private JMenuItemDriver driver;
 
@@ -50,9 +54,9 @@ public class JMenuItemDriver_click_Test extends RobotBasedTestCase {
 
   @Test
   public void should_click_menu() {
-    ClickRecorder clickRecorder = attachTo(menuItem);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(menuItem);
     driver.click(menuItem);
-    clickRecorder.wasClicked();
+    recorder.wasClicked();
   }
 
   private static class MyWindow extends TestWindow {

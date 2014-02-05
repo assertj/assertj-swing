@@ -26,6 +26,8 @@ import javax.swing.tree.TreePath;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.exception.LocationUnavailableException;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -34,6 +36,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class JTreeDriver_selectPath_Test extends JTreeDriver_selectCell_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_throw_error_if_path_not_found() {
     showWindow();
@@ -61,7 +66,7 @@ public class JTreeDriver_selectPath_Test extends JTreeDriver_selectCell_TestCase
     showWindow();
     clearTreeSelection();
     select(pathToBranch_1_1_1());
-    ClickRecorder recorder = ClickRecorder.attachTo(tree);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     driver.selectPath(tree, "root/branch1/branch1.1/branch1.1.1");
     assertThat(recorder).wasNotClicked();
     requireSelectedPaths("root/branch1/branch1.1/branch1.1.1");

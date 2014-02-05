@@ -24,6 +24,8 @@ import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingExcepti
 import java.util.regex.Pattern;
 
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -33,10 +35,13 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class JListDriver_showPopupMenuAtItemAsPattern_Test extends JListDriver_showPopupMenu_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_show_popup_menu_at_item_matching_pattern() {
     showWindow();
-    ClickRecorder recorder = ClickRecorder.attachTo(list);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(list);
     driver.showPopupMenu(list, Pattern.compile("o.*"));
     assertThat(recorder).clicked(RIGHT_BUTTON);
     assertThat(isVisible(popupMenu)).isTrue();

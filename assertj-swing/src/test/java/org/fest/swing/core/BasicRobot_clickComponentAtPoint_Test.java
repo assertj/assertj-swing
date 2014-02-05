@@ -16,7 +16,6 @@ package org.fest.swing.core;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 
 import java.awt.Point;
 
@@ -29,11 +28,11 @@ import org.junit.Test;
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
-public class BasicRobot_clickComponentAtPoint_Test extends BasicRobot_TestCase {
+public class BasicRobot_clickComponentAtPoint_Test extends BasicRobot_ClickTestCase {
   @Test
   public void should_click_Component_once_with_left_button_at_given_point() {
     Point p = new Point(10, 10);
-    ClickRecorder recorder = attachTo(window().textField());
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window().textField());
     robot().click(window().textField(), p);
     assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(1).clickedAt(p);
   }

@@ -17,11 +17,12 @@ package org.fest.swing.driver;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.fest.swing.query.ComponentVisibleQuery.isVisible;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 
 import java.util.regex.Pattern;
 
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -30,11 +31,14 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class JTableHeaderDriver_showPopupMenuByPattern_Test extends JTableHeaderDriver_showPopupMenu_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_show_popup_menu() {
     showWindow();
     driver.click(tableHeader);
-    ClickRecorder recorder = attachTo(tableHeader);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.showPopupMenu(tableHeader, Pattern.compile("1.*"));
     recorder.clicked(RIGHT_BUTTON).timesClicked(1);
     assertThatColumnWasClicked(recorder, 1);

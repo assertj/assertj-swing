@@ -17,7 +17,6 @@ package org.fest.swing.fixture;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 import static org.fest.swing.util.Platform.isOSX;
 
 import java.awt.Dimension;
@@ -31,7 +30,9 @@ import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
 import org.fest.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -42,6 +43,9 @@ import org.junit.Test;
  */
 // TODO(Alex): Test JMenuItemFinder instead.
 public class JPopupMenuFixture_menuItemWithPath_Test extends RobotBasedTestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private MyWindow window;
   private JPopupMenuFixture fixture;
 
@@ -56,7 +60,7 @@ public class JPopupMenuFixture_menuItemWithPath_Test extends RobotBasedTestCase 
 
   @Test
   public void should_find_first_level_JMenuItem_by_path() {
-    ClickRecorder recorder = attachTo(window.fileMenu);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.fileMenu);
     JMenuItemFixture menuItem = fixture.menuItemWithPath("File");
     menuItem.click();
     assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(1);
@@ -64,7 +68,7 @@ public class JPopupMenuFixture_menuItemWithPath_Test extends RobotBasedTestCase 
 
   @Test
   public void should_find_second_level_JMenuItem_by_path() {
-    ClickRecorder recorder = attachTo(window.openMenu);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.openMenu);
     if (isOSX()) {
       fixture.menuItemWithPath("File").click();
     }

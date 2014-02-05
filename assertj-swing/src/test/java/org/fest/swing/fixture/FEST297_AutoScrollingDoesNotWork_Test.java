@@ -32,7 +32,9 @@ import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
 import org.fest.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -42,6 +44,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class FEST297_AutoScrollingDoesNotWork_Test extends RobotBasedTestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private FrameFixture frame;
   private MyWindow window;
 
@@ -54,9 +59,9 @@ public class FEST297_AutoScrollingDoesNotWork_Test extends RobotBasedTestCase {
 
   @Test
   public void should_scroll_and_click_JButton() {
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     frame.button("button").click();
-    assertThat(clickRecorder).wasClicked();
+    assertThat(recorder).wasClicked();
   }
 
   private static class MyWindow extends TestWindow {

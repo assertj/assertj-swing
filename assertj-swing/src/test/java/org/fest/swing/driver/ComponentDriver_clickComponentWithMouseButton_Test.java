@@ -25,6 +25,8 @@ import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingExcepti
 
 import org.fest.swing.core.MouseButton;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -34,6 +36,9 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class ComponentDriver_clickComponentWithMouseButton_Test extends ComponentDriver_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_click_Component_with_left_mouse_button_once() {
     shouldClickComponentWith(LEFT_BUTTON);
@@ -51,9 +56,9 @@ public class ComponentDriver_clickComponentWithMouseButton_Test extends Componen
 
   private void shouldClickComponentWith(MouseButton mouseButton) {
     showWindow();
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     driver.click(window.button, mouseButton);
-    assertThat(clickRecorder).wasClickedWith(mouseButton).clickedAt(centerOf(window.button)).timesClicked(1);
+    assertThat(recorder).wasClickedWith(mouseButton).clickedAt(centerOf(window.button)).timesClicked(1);
   }
 
   @Test(expected = NullPointerException.class)
@@ -63,7 +68,7 @@ public class ComponentDriver_clickComponentWithMouseButton_Test extends Componen
 
   @Test
   public void should_throw_error_if_Component_is_disabled() {
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     disableButton();
     try {
       driver.click(window.button, RIGHT_BUTTON);
@@ -71,18 +76,18 @@ public class ComponentDriver_clickComponentWithMouseButton_Test extends Componen
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsDisabledComponent(e);
     }
-    assertThat(clickRecorder).wasNotClicked();
+    assertThat(recorder).wasNotClicked();
   }
 
   @Test
   public void should_throw_error_when_clicking_Component_not_showing() {
-    ClickRecorder clickRecorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     try {
       driver.click(window.button, RIGHT_BUTTON);
       failWhenExpectingException();
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsNotShowingComponent(e);
     }
-    assertThat(clickRecorder).wasNotClicked();
+    assertThat(recorder).wasNotClicked();
   }
 }

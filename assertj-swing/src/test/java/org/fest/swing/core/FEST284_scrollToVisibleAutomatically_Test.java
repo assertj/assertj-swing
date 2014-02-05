@@ -20,7 +20,6 @@ import static javax.swing.BoxLayout.Y_AXIS;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -33,7 +32,9 @@ import javax.swing.JScrollPane;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
 import org.fest.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -43,6 +44,9 @@ import org.junit.Test;
  * @author Juhos Csaba-Zsolt
  */
 public class FEST284_scrollToVisibleAutomatically_Test extends RobotBasedTestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private MyWindow window;
 
   @Override
@@ -52,7 +56,7 @@ public class FEST284_scrollToVisibleAutomatically_Test extends RobotBasedTestCas
 
   @Test
   public void should_auto_scroll_when_clicking_JButton() {
-    ClickRecorder recorder = attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     robot.click(window.button);
     assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(1);
   }

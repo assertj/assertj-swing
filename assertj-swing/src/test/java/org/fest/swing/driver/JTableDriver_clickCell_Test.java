@@ -20,10 +20,11 @@ import static org.fest.swing.data.TableCell.row;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 
 import org.fest.swing.data.TableCell;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -34,10 +35,13 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class JTableDriver_clickCell_Test extends JTableDriver_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_click_cell() {
     showWindow();
-    ClickRecorder recorder = attachTo(table);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(table);
     TableCell cell = row(0).column(1);
     driver.click(table, cell, LEFT_BUTTON, 3);
     assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(3);

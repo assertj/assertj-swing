@@ -15,12 +15,13 @@
 package org.fest.swing.driver;
 
 import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 import static org.fest.util.Lists.newArrayList;
 
 import java.util.Collection;
 
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -33,6 +34,9 @@ import org.junit.runners.Parameterized.Parameters;
  */
 @RunWith(Parameterized.class)
 public class JTableHeaderDriver_clickColumnByName_withManyNames_Test extends JTableHeaderDriver_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private final String name;
   private final int index;
 
@@ -49,7 +53,7 @@ public class JTableHeaderDriver_clickColumnByName_withManyNames_Test extends JTa
   @Test
   public void should_click_column() {
     showWindow();
-    ClickRecorder recorder = attachTo(tableHeader);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.clickColumn(tableHeader, name);
     assertThat(recorder).wasClicked();
     assertThatColumnWasClicked(recorder, index);

@@ -20,13 +20,14 @@ import static org.fest.swing.data.TableCell.row;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 import static org.fest.swing.test.task.ComponentSetPopupMenuTask.createAndSetPopupMenu;
 
 import javax.swing.JPopupMenu;
 
 import org.fest.swing.data.TableCell;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -36,6 +37,9 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class JTableDriver_showPopupMenuAt_Test extends JTableDriver_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private JPopupMenu popupMenu;
 
   @Override
@@ -47,7 +51,7 @@ public class JTableDriver_showPopupMenuAt_Test extends JTableDriver_TestCase {
   public void should_show_popup_menu() {
     showWindow();
     driver.click(table);
-    ClickRecorder recorder = attachTo(table);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(table);
     TableCell cell = row(0).column(1);
     JPopupMenu found = driver.showPopupMenuAt(table, cell);
     assertThat(found).isSameAs(popupMenu);

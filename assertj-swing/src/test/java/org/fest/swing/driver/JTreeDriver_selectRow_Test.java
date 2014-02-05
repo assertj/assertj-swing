@@ -20,6 +20,8 @@ import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNo
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -28,6 +30,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class JTreeDriver_selectRow_Test extends JTreeDriver_selectCell_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_select_cell() {
     showWindow();
@@ -45,7 +50,7 @@ public class JTreeDriver_selectRow_Test extends JTreeDriver_selectCell_TestCase 
     showWindow();
     clearTreeSelection();
     select(1);
-    ClickRecorder recorder = ClickRecorder.attachTo(tree);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     driver.selectRow(tree, 1);
     assertThat(recorder).wasNotClicked();
     requireSelectedRows(1);

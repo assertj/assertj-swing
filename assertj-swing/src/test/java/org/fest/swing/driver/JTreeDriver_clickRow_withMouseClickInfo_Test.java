@@ -23,6 +23,8 @@ import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingExcepti
 
 import org.fest.swing.core.MouseClickInfo;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -31,6 +33,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class JTreeDriver_clickRow_withMouseClickInfo_Test extends JTreeDriver_clickCell_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private static MouseClickInfo mouseClickInfo = rightButton().times(2);
 
   @Test(expected = NullPointerException.class)
@@ -42,7 +47,7 @@ public class JTreeDriver_clickRow_withMouseClickInfo_Test extends JTreeDriver_cl
   @Test
   public void should_click_row() {
     showWindow();
-    ClickRecorder recorder = ClickRecorder.attachTo(tree);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     driver.clickRow(tree, 1, mouseClickInfo);
     assertThat(recorder).clicked(RIGHT_BUTTON).timesClicked(2);
     assertThat(rowAt(recorder.pointClicked())).isEqualTo(1);

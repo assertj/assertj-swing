@@ -26,7 +26,9 @@ import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.recorder.ClickRecorder;
+import org.fest.swing.test.recorder.ClickRecorderManager;
 import org.fest.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -35,6 +37,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class Bug197_clickVisibleAreaInComponent_Test extends RobotBasedTestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   private FrameFixture fixture;
   private MyWindow window;
 
@@ -47,14 +52,14 @@ public class Bug197_clickVisibleAreaInComponent_Test extends RobotBasedTestCase 
 
   @Test
   public void should_click_center_of_visible_area_of_Component_when_visible_area_is_on_the_left() {
-    ClickRecorder recorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     fixture.button("clickMe").click();
     assertThat(recorder).wasClicked();
   }
 
   @Test
   public void should_click_center_of_visible_area_of_Component_when_visible_area_is_on_the_right() {
-    ClickRecorder recorder = ClickRecorder.attachTo(window.button);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     fixture.scrollPane().horizontalScrollBar().scrollToMaximum();
     fixture.button("clickMe").click();
     assertThat(recorder).wasClicked();

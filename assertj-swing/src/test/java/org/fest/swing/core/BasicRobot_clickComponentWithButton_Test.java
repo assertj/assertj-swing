@@ -18,7 +18,6 @@ import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.core.MouseButton.MIDDLE_BUTTON;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.fest.swing.test.recorder.ClickRecorder.attachTo;
 import static org.fest.util.Lists.newArrayList;
 import static org.fest.util.Preconditions.checkNotNull;
 
@@ -40,7 +39,7 @@ import org.junit.runners.Parameterized.Parameters;
  * @author Alex Ruiz
  */
 @RunWith(Parameterized.class)
-public class BasicRobot_clickComponentWithButton_Test extends BasicRobot_TestCase {
+public class BasicRobot_clickComponentWithButton_Test extends BasicRobot_ClickTestCase {
   private final MouseButton button;
 
   @Parameters
@@ -55,7 +54,7 @@ public class BasicRobot_clickComponentWithButton_Test extends BasicRobot_TestCas
   @Test
   public void should_click_Component_Once_with_given_button() {
     JTextField textField = window().textField();
-    ClickRecorder recorder = attachTo(textField);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
     robot().click(textField, button);
     assertThat(recorder).clicked(button).timesClicked(1);
   }

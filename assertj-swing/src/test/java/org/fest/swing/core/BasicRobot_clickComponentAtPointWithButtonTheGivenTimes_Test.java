@@ -39,7 +39,7 @@ import org.junit.runners.Parameterized.Parameters;
  * @author Alex Ruiz
  */
 @RunWith(Parameterized.class)
-public class BasicRobot_clickComponentAtPointWithButtonTheGivenTimes_Test extends BasicRobot_TestCase {
+public class BasicRobot_clickComponentAtPointWithButtonTheGivenTimes_Test extends BasicRobot_ClickTestCase {
   private final MouseButton button;
   private final int times;
 
@@ -56,7 +56,7 @@ public class BasicRobot_clickComponentAtPointWithButtonTheGivenTimes_Test extend
   @Test
   public void should_click_at_given_point_with_given_mouse_button_and_given_number_of_times() {
     JTextField textField = window().textField();
-    ClickRecorder recorder = ClickRecorder.attachTo(textField);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
     Point screenLocation = checkNotNull(locationOnScreenOf(textField));
     Point visibleCenter = visibleCenterOf(textField);
     screenLocation.translate(visibleCenter.x, visibleCenter.y);
