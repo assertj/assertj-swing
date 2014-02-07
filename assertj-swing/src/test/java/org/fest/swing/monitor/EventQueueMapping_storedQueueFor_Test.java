@@ -35,7 +35,7 @@ public class EventQueueMapping_storedQueueFor_Test extends EventQueueMapping_Tes
 
   @Test
   public void should_return_null_if_EventQueue_not_stored() {
-    assertThat(queueMap.keySet()).excludes(eventQueue);
+    assertThat(queueMap.keySet()).excludes(component);
     EventQueue storedEventQueue = mapping.storedQueueFor(component);
     assertThat(storedEventQueue).isNull();
   }

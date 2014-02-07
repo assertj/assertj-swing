@@ -17,6 +17,7 @@ package org.fest.swing.monitor;
 import static org.fest.assertions.Assertions.assertThat;
 
 import java.awt.EventQueue;
+import java.lang.ref.WeakReference;
 
 import org.junit.Test;
 
@@ -28,14 +29,16 @@ import org.junit.Test;
 public class EventQueueMapping_queueFor_Test extends EventQueueMapping_TestCase {
   @Test
   public void should_return_EventQueue() {
-    mapping.addQueueFor(component);
+    EventQueue testQueue = new EventQueue();
+    queueMap.put(component, new WeakReference<EventQueue>(testQueue));
     EventQueue storedEventQueue = mapping.queueFor(component);
-    assertThat(storedEventQueue).isSameAs(eventQueue);
+    assertThat(storedEventQueue).isNotSameAs(eventQueue);
+    assertThat(storedEventQueue).isSameAs(testQueue);
   }
 
   @Test
   public void should_return_EventQueue_in_Component_if_no_mapping_found() {
-    assertThat(queueMap.keySet()).excludes(eventQueue);
+    assertThat(queueMap.keySet()).excludes(component);
     EventQueue storedEventQueue = mapping.queueFor(component);
     assertThat(storedEventQueue).isSameAs(eventQueue);
   }
