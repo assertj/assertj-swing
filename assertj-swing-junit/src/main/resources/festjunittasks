@@ -1,1 +1,1 @@
-festreport=org.fest.swing.junit.ant.JUnitReportTask
+festreport=org.assertj.swing.junit.ant.JUnitReportTask
