@@ -15,9 +15,9 @@
 package org.fest.swing.applet;
 
 import static java.util.Collections.enumeration;
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Maps.newHashMap;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.applet.Applet;
 import java.applet.AppletContext;

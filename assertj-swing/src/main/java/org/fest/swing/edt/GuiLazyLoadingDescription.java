@@ -14,13 +14,13 @@
  */
 package org.fest.swing.edt;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
 import org.fest.swing.annotation.RunsInCurrentThread;
 
 /**
@@ -29,7 +29,7 @@ import org.fest.swing.annotation.RunsInCurrentThread;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public abstract class GuiLazyLoadingDescription implements Description {
+public abstract class GuiLazyLoadingDescription extends Description {
   /**
    * Executes {@link #loadDescription()} in the event dispatch thread (EDT.)
    * 

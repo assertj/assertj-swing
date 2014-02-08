@@ -1,3 +1,5 @@
+package org.assertj.swing.internal.annotation;
+
 /*
  * Created on May 16, 2007
  * 
@@ -12,11 +14,11 @@
  * 
  * Copyright @2007-2013 the original author or authors.
  */
-package org.fest.util;
+
+import java.io.IOException;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.io.IOException;
 
 /**
  * Signals that an I/O exception of some sort has occurred.
@@ -24,6 +26,9 @@ import java.io.IOException;
  * @author Yvonne Wang
  */
 public final class IORuntimeException extends RuntimeException {
+  /** generated serial version UID */
+  private static final long serialVersionUID = 9189918696991341935L;
+
   /**
    * Creates a new {@link IORuntimeException}.
    * 

@@ -14,7 +14,7 @@
  */
 package org.fest.swing.image;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.image.BufferedImage;

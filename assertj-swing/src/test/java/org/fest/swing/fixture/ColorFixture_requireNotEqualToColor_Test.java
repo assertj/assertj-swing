@@ -16,7 +16,7 @@ package org.fest.swing.fixture;
 
 import static java.awt.Color.BLUE;
 import static java.awt.Color.RED;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.junit.Test;

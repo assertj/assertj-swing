@@ -15,7 +15,7 @@
 package org.fest.swing.finder;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.query.ComponentShowingQuery.isShowing;
 
 import javax.annotation.Nonnull;

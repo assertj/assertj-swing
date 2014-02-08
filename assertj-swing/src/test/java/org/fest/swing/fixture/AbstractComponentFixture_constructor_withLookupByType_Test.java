@@ -14,7 +14,7 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.ComponentLookupScope.SHOWING_ONLY;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

@@ -16,7 +16,7 @@ package org.fest.swing.util;
 
 import static java.awt.event.ComponentEvent.COMPONENT_HIDDEN;
 import static java.awt.event.ComponentEvent.COMPONENT_SHOWN;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.builder.JLabels.label;
 
 import java.awt.AWTEvent;

@@ -16,7 +16,7 @@ package org.fest.swing.driver;
 
 import static java.lang.String.valueOf;
 import static org.fest.swing.driver.ModelValueToString.asText;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Color;
 import java.awt.Component;

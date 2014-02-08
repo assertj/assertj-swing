@@ -14,7 +14,7 @@
  */
 package org.fest.swing.core;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.fest.swing.hierarchy.ExistingHierarchy;
 import org.junit.Test;

@@ -14,9 +14,9 @@
  */
 package org.fest.swing.core;
 
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 import java.util.List;
@@ -24,10 +24,10 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Finds the AWT or Swing {@code Component} owning the input focus.

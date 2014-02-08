@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.fest.swing.test.swing.TestWindow;
 import org.junit.Test;

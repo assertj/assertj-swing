@@ -16,8 +16,8 @@ package org.fest.swing.keystroke;
 
 import static java.awt.event.InputEvent.CTRL_MASK;
 import static java.awt.event.KeyEvent.VK_A;
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.mockito.Mockito.mock;
 
 import java.util.Collection;

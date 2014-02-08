@@ -15,8 +15,8 @@
 package org.fest.swing.format;
 
 import static org.fest.swing.format.SwingIntEnums.SELECTION_MODES;
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Strings.quote;
 
 import java.awt.Component;
 import java.util.List;

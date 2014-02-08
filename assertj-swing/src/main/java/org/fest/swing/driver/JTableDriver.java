@@ -14,8 +14,11 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.assertions.Fail.fail;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.swing.internal.Fail.fail;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.driver.JTableCellEditableQuery.isCellEditable;
@@ -32,9 +35,6 @@ import static org.fest.swing.query.JTableColumnByIdentifierQuery.columnIndexById
 import static org.fest.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
 import static org.fest.swing.util.Arrays.equal;
 import static org.fest.util.Arrays.format;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Preconditions.checkNotNullOrEmpty;
-import static org.fest.util.Strings.concat;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -49,7 +49,8 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.cell.JTableCellReader;
@@ -66,7 +67,6 @@ import org.fest.swing.util.Arrays;
 import org.fest.swing.util.Pair;
 import org.fest.swing.util.PatternTextMatcher;
 import org.fest.swing.util.StringTextMatcher;
-import org.fest.util.InternalApi;
 import org.fest.util.VisibleForTesting;
 
 /**

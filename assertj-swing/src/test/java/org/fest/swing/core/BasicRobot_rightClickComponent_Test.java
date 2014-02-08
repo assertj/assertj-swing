@@ -14,7 +14,6 @@
  */
 package org.fest.swing.core;
 
-import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
 
 import javax.swing.JTextField;
@@ -34,6 +33,6 @@ public class BasicRobot_rightClickComponent_Test extends BasicRobot_ClickTestCas
     JTextField textField = window().textField();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
     robot().rightClick(textField);
-    assertThat(recorder).clicked(RIGHT_BUTTON).timesClicked(1);
+    recorder.clicked(RIGHT_BUTTON).timesClicked(1);
   }
 }

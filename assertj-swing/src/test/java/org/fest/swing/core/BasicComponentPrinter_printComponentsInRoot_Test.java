@@ -14,7 +14,7 @@
  */
 package org.fest.swing.core;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.format.Formatting.format;
 
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class BasicComponentPrinter_printComponentsInRoot_Test extends BasicCompo
   @Test
   public void should_print_Components_in_given_root() {
     printer.printComponents(out, windowOne);
-    assertThat(out.printed()).contains(format(windowOne), format(windowOne.button)).excludes(format(windowTwo),
+    assertThat(out.printed()).contains(format(windowOne), format(windowOne.button)).doesNotContain(format(windowTwo),
         format(windowTwo.button));
   }
 }

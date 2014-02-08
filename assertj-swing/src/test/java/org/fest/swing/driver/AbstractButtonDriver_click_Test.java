@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
@@ -24,7 +24,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.AbstractButton;
 
-import org.fest.assertions.AssertExtension;
 import org.junit.Test;
 
 /**
@@ -38,7 +37,7 @@ public class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCa
     showWindow();
     ActionPerformedRecorder recorder = ActionPerformedRecorder.attachTo(checkBox);
     driver.click(checkBox);
-    assertThat(recorder).wasPerformed();
+    recorder.wasPerformed();
   }
 
   @Test
@@ -51,7 +50,7 @@ public class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCa
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsDisabledComponent(e);
     }
-    assertThat(action).wasNotPerformed();
+    action.wasNotPerformed();
   }
 
   @Test
@@ -63,10 +62,10 @@ public class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCa
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsNotShowingComponent(e);
     }
-    assertThat(action).wasNotPerformed();
+    action.wasNotPerformed();
   }
 
-  private static class ActionPerformedRecorder implements ActionListener, AssertExtension {
+  private static class ActionPerformedRecorder implements ActionListener {
     private boolean actionPerformed;
 
     static ActionPerformedRecorder attachTo(AbstractButton button) {

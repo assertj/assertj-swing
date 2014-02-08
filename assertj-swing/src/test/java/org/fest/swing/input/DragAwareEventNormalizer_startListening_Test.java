@@ -14,7 +14,7 @@
  */
 package org.fest.swing.input;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.awt.Toolkits.newToolkitStub;
 
 import org.fest.swing.test.awt.ToolkitStub;

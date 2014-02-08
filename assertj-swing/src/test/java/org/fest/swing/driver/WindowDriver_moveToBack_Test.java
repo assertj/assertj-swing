@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;

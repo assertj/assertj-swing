@@ -16,9 +16,9 @@ package org.fest.swing.driver;
 
 import static org.fest.swing.driver.AbstractButtonTextQuery.textOf;
 import static org.fest.util.Objects.areEqual;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.join;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.join;
+import static org.assertj.core.util.Strings.quote;
 
 import java.awt.Component;
 

@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.awt.AWT.centerOf;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.core.MouseButton.MIDDLE_BUTTON;
@@ -58,7 +58,7 @@ public class ComponentDriver_clickComponentWithMouseButton_Test extends Componen
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     driver.click(window.button, mouseButton);
-    assertThat(recorder).wasClickedWith(mouseButton).clickedAt(centerOf(window.button)).timesClicked(1);
+    recorder.wasClickedWith(mouseButton).clickedAt(centerOf(window.button)).timesClicked(1);
   }
 
   @Test(expected = NullPointerException.class)
@@ -76,7 +76,7 @@ public class ComponentDriver_clickComponentWithMouseButton_Test extends Componen
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsDisabledComponent(e);
     }
-    assertThat(recorder).wasNotClicked();
+    recorder.wasNotClicked();
   }
 
   @Test
@@ -88,6 +88,6 @@ public class ComponentDriver_clickComponentWithMouseButton_Test extends Componen
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsNotShowingComponent(e);
     }
-    assertThat(recorder).wasNotClicked();
+    recorder.wasNotClicked();
   }
 }

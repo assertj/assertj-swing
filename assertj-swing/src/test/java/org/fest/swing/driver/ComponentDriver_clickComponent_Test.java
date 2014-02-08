@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.awt.AWT.centerOf;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
@@ -40,7 +40,7 @@ public class ComponentDriver_clickComponent_Test extends ComponentDriver_TestCas
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     driver.click(window.button);
-    assertThat(recorder).wasClicked().clickedAt(centerOf(window.button)).timesClicked(1);
+    recorder.wasClicked().clickedAt(centerOf(window.button)).timesClicked(1);
   }
 
   @Test
@@ -53,7 +53,7 @@ public class ComponentDriver_clickComponent_Test extends ComponentDriver_TestCas
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsDisabledComponent(e);
     }
-    assertThat(recorder).wasNotClicked();
+    recorder.wasNotClicked();
   }
 
   @Test
@@ -65,6 +65,6 @@ public class ComponentDriver_clickComponent_Test extends ComponentDriver_TestCas
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsNotShowingComponent(e);
     }
-    assertThat(recorder).wasNotClicked();
+    recorder.wasNotClicked();
   }
 }

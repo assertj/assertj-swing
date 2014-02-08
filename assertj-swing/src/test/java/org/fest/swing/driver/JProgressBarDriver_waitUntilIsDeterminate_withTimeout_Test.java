@@ -16,7 +16,7 @@ package org.fest.swing.driver;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.JProgressBarIndeterminateQuery.isIndeterminate;
 import static org.fest.swing.driver.JProgressBarMakeDeterminateAsyncTask.makeDeterminate;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;

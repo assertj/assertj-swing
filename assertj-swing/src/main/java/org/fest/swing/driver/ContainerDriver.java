@@ -14,6 +14,7 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.reflect.core.Reflection.method;
 import static org.fest.swing.driver.ComponentMovableQuery.isUserMovable;
 import static org.fest.swing.driver.ComponentMoveTask.moveComponent;
@@ -22,7 +23,6 @@ import static org.fest.swing.driver.ComponentPreconditions.checkShowing;
 import static org.fest.swing.driver.ComponentSetSizeTask.setComponentSize;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.format.Formatting.format;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -34,6 +34,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JInternalFrame;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.reflect.exception.ReflectionError;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
@@ -41,7 +42,6 @@ import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.util.Pair;
 import org.fest.swing.util.Triple;
-import org.fest.util.InternalApi;
 import org.fest.util.VisibleForTesting;
 
 /**

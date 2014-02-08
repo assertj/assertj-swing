@@ -14,7 +14,7 @@
  */
 package org.fest.swing.core.matcher;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.builder.JFrames.frame;
 
 import javax.swing.JFrame;

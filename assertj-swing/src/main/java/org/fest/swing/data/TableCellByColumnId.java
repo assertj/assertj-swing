@@ -18,9 +18,9 @@ import static java.lang.String.valueOf;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

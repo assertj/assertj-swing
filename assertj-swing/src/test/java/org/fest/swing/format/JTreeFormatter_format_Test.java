@@ -15,7 +15,7 @@
 package org.fest.swing.format;
 
 import static javax.swing.tree.TreeSelectionModel.CONTIGUOUS_TREE_SELECTION;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.task.JTreeSelectRowTask.selectRow;
 import static org.fest.swing.test.task.JTreeSetSelectionModelTask.setSelectionModel;
 

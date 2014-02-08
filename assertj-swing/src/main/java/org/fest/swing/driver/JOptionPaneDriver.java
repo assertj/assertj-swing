@@ -19,14 +19,14 @@ import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.driver.JOptionPaneMessageQuery.messageOf;
 import static org.fest.swing.driver.JOptionPaneMessageTypeQuery.messageTypeOf;
 import static org.fest.swing.driver.JOptionPaneMessageTypes.messageTypeAsText;
 import static org.fest.swing.driver.JOptionPaneOptionsQuery.optionsOf;
 import static org.fest.swing.driver.JOptionPaneTitleQuery.titleOf;
 import static org.fest.swing.driver.TextAssert.verifyThat;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.util.regex.Pattern;
 
@@ -36,12 +36,12 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
 import org.fest.swing.core.matcher.JButtonMatcher;
 import org.fest.swing.exception.ComponentLookupException;
-import org.fest.util.InternalApi;
 
 /**
  * <p>

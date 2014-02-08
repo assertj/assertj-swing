@@ -14,21 +14,21 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.core.NeverMatchingComponentMatcher.neverMatches;
-import static org.fest.test.ExpectedException.none;
 import static org.fest.util.Arrays.array;
 
 import javax.annotation.Nonnull;
 import javax.swing.JComboBox;
 
+import org.assertj.swing.test.ExpectedException;
 import org.fest.swing.core.GenericTypeMatcher;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.exception.ComponentLookupException;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.swing.TestWindow;
-import org.fest.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -94,8 +94,7 @@ public class AbstractContainerFixture_comboBox_Test extends RobotBasedTestCase {
 
   @Test
   public void should_fail_if_visible_JComboBox_not_found_by_Matcher() {
-    thrown.expect(ComponentLookupException.class);
-    thrown.expectMessageToContain("Unable to find component using matcher");
+    thrown.expect(ComponentLookupException.class, "Unable to find component using matcher");
     fixture.comboBox(neverMatches(JComboBox.class));
   }
 

@@ -15,7 +15,7 @@
 package org.fest.swing.applet;
 
 import static javax.swing.SwingUtilities.getAncestorOfClass;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.Container;
 

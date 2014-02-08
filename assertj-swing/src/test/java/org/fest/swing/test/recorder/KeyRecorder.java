@@ -14,7 +14,7 @@
  */
 package org.fest.swing.test.recorder;
 
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Component;
 import java.awt.event.KeyAdapter;

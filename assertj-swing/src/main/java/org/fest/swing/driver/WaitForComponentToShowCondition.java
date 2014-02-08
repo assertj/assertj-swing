@@ -16,8 +16,8 @@ package org.fest.swing.driver;
 
 import static org.fest.swing.format.Formatting.format;
 import static org.fest.swing.query.ComponentShowingQuery.isShowing;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Component;
 

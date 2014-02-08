@@ -14,13 +14,13 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.driver.JScrollBarSetValueTask.setValue;
 import static org.fest.swing.driver.JScrollBarValueQuery.valueOf;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Point;
 
@@ -33,7 +33,7 @@ import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.util.GenericRange;
 import org.fest.swing.util.Pair;
-import org.fest.util.InternalApi;
+import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

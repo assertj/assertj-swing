@@ -14,7 +14,7 @@
  */
 package org.fest.swing.keystroke;
 
-import static org.fest.util.Maps.newHashMap;
+import static org.assertj.core.util.Maps.newHashMap;
 
 import java.util.Map;
 

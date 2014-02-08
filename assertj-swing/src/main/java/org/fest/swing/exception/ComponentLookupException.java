@@ -15,7 +15,7 @@
 package org.fest.swing.exception;
 
 import static java.util.Collections.unmodifiableCollection;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Component;
 import java.util.Collection;
@@ -54,7 +54,7 @@ public class ComponentLookupException extends RuntimeException {
    * @return the AWT and Swing {@code Component}s found by the lookup (if any.)
    */
   public final @Nonnull
-  Collection<? extends Component> found() {
+  Collection<Component> found() {
     return unmodifiableCollection(found);
   }
 }

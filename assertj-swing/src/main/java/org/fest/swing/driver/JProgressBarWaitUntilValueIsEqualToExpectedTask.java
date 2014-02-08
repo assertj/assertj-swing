@@ -21,7 +21,7 @@ import static org.fest.swing.timing.Pause.pause;
 import javax.annotation.Nonnull;
 import javax.swing.JProgressBar;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiLazyLoadingDescription;
 import org.fest.swing.timing.Condition;

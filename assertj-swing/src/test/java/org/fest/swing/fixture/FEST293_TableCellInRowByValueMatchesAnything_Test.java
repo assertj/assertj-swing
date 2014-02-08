@@ -14,7 +14,7 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.data.TableCellInRowByValue.rowWithValue;
 import static org.fest.util.Arrays.array;
 

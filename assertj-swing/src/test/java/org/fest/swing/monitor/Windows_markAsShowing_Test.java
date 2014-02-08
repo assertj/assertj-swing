@@ -16,9 +16,9 @@ package org.fest.swing.monitor;
 
 import static java.lang.String.valueOf;
 import static java.util.logging.Logger.getAnonymousLogger;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.timing.Pause.pause;
-import static org.fest.util.Strings.concat;
 
 import java.util.logging.Logger;
 
@@ -39,6 +39,6 @@ public class Windows_markAsShowing_Test extends Windows_TestCase {
     int timeToPause = Windows.WINDOW_READY_DELAY * 2;
     logger.info(concat("Pausing for ", valueOf(timeToPause), " ms: waiting for window to be marked as showing"));
     pause(timeToPause);
-    assertThat(windowState()).isReady();
+    windowState().isReady();
   }
 }

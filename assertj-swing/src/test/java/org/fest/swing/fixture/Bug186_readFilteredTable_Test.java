@@ -15,7 +15,7 @@
 package org.fest.swing.fixture;
 
 import static javax.swing.RowFilter.regexFilter;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.data.TableCell.row;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 

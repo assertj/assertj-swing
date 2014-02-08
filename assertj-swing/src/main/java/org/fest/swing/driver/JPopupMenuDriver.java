@@ -25,7 +25,7 @@ import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.GenericTypeMatcher;
 import org.fest.swing.core.Robot;
 import org.fest.swing.exception.ComponentLookupException;
-import org.fest.util.InternalApi;
+import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

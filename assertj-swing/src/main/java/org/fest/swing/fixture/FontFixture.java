@@ -14,18 +14,18 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.isNullOrEmpty;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.isNullOrEmpty;
 
 import java.awt.Font;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.fest.assertions.BasicDescription;
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
+import org.assertj.core.description.TextDescription;
 
 /**
  * Verifies the state of {@code Font}s.
@@ -64,7 +64,7 @@ public class FontFixture {
    * @throws NullPointerException if {@code target} is {@code null}.
    */
   public FontFixture(@Nonnull Font target, @Nonnull String description) {
-    this(target, new BasicDescription(description));
+    this(target, new TextDescription(description));
   }
 
   /**

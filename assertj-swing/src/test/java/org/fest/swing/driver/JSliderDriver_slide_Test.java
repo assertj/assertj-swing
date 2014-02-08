@@ -16,7 +16,7 @@ package org.fest.swing.driver;
 
 import static javax.swing.SwingConstants.HORIZONTAL;
 import static javax.swing.SwingConstants.VERTICAL;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 

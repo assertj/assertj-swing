@@ -14,8 +14,8 @@
  */
 package org.fest.swing.monitor;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.mockito.Mockito.when;
 
 import java.awt.EventQueue;

@@ -14,7 +14,7 @@
  */
 package org.fest.swing.testing;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.fest.swing.core.BasicRobot;
 import org.fest.swing.core.Robot;

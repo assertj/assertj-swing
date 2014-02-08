@@ -15,7 +15,7 @@
 package org.fest.swing.driver;
 
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.swing.test.swing.JOptionPaneLauncher.pack;
 

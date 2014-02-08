@@ -15,13 +15,13 @@
 package org.fest.swing.test.core;
 
 import static java.util.Arrays.deepEquals;
-import static org.fest.assertions.Fail.fail;
+import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
+import static org.assertj.swing.internal.Fail.fail;
 import static org.fest.swing.util.Arrays.copyOf;
 import static org.fest.util.Arrays.format;
-import static org.fest.util.Maps.newHashMap;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
 
 import java.util.Map;
 

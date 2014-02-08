@@ -20,9 +20,9 @@ import static javax.swing.BorderFactory.createEmptyBorder;
 import static javax.swing.SwingUtilities.invokeLater;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 import static javax.swing.border.BevelBorder.LOWERED;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
 
 import java.applet.Applet;
 import java.applet.AppletStub;

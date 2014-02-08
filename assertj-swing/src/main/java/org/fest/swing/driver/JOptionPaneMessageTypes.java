@@ -19,10 +19,10 @@ import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
-import static org.fest.util.Maps.newHashMap;
-import static org.fest.util.Preconditions.checkNotNullOrEmpty;
-import static org.fest.util.Strings.concat;
 
 import java.util.Map;
 

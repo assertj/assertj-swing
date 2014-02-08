@@ -14,8 +14,8 @@
  */
 package org.fest.swing.input;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.util.Maps.newHashMap;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Maps.newHashMap;
 
 import java.awt.Window;
 import java.awt.event.ComponentEvent;

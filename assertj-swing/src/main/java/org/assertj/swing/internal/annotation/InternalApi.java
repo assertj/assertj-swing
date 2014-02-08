@@ -12,7 +12,7 @@
  * 
  * Copyright @2012 the original author or authors.
  */
-package org.fest.util;
+package org.assertj.swing.internal.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

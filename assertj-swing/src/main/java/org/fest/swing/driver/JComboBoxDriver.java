@@ -15,8 +15,10 @@
 package org.fest.swing.driver;
 
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.assertions.Fail.fail;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.quote;
+import static org.assertj.swing.internal.Fail.fail;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.driver.JComboBoxContentQuery.contents;
 import static org.fest.swing.driver.JComboBoxEditableQuery.isEditable;
@@ -31,8 +33,6 @@ import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.swing.format.Formatting.format;
 import static org.fest.util.Arrays.format;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.quote;
 
 import java.awt.Component;
 import java.util.regex.Pattern;
@@ -44,7 +44,8 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JList;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.cell.JComboBoxCellReader;
@@ -58,7 +59,6 @@ import org.fest.swing.util.Pair;
 import org.fest.swing.util.PatternTextMatcher;
 import org.fest.swing.util.StringTextMatcher;
 import org.fest.swing.util.TextMatcher;
-import org.fest.util.InternalApi;
 import org.fest.util.VisibleForTesting;
 
 /**
@@ -235,7 +235,7 @@ public class JComboBoxDriver extends JComponentDriver {
       return;
     }
     String format = "[%s] Expecting no selection, but found:<%s>";
-    fail(String.format(format, selectedIndexProperty(comboBox).value(), quote(selection.second)));
+    throw fail(String.format(format, selectedIndexProperty(comboBox).value(), quote(selection.second)));
   }
 
   /**

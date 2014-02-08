@@ -17,12 +17,12 @@ package org.fest.swing.driver;
 import static java.awt.Frame.ICONIFIED;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import static java.awt.Frame.NORMAL;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.driver.WindowLikeContainers.iconifyButtonLocation;
 import static org.fest.swing.driver.WindowLikeContainers.maximizeButtonLocation;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.awt.Frame;
 import java.awt.Point;
@@ -31,13 +31,13 @@ import java.awt.Toolkit;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.annotation.ThreadSafeAction;
 import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.exception.ActionFailedException;
 import org.fest.swing.util.ToolkitProvider;
-import org.fest.util.InternalApi;
 
 /**
  * <p>

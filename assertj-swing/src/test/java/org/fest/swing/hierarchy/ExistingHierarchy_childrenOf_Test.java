@@ -15,7 +15,7 @@
 package org.fest.swing.hierarchy;
 
 import static java.util.Collections.emptyList;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.builder.JTextFields.textField;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

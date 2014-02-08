@@ -21,7 +21,7 @@ import static org.fest.swing.driver.JToolBarIsFloatingQuery.isJToolBarFloating;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.swing.format.Formatting.format;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Container;
 import java.awt.Point;
@@ -39,7 +39,7 @@ import org.fest.swing.edt.GuiTask;
 import org.fest.swing.exception.ActionFailedException;
 import org.fest.swing.util.GenericRange;
 import org.fest.swing.util.Pair;
-import org.fest.util.InternalApi;
+import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

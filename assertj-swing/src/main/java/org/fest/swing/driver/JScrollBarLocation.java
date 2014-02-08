@@ -16,8 +16,8 @@ package org.fest.swing.driver;
 
 import static java.awt.Adjustable.HORIZONTAL;
 import static java.awt.Adjustable.VERTICAL;
-import static org.fest.util.Maps.newHashMap;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Point;
 import java.util.Map;

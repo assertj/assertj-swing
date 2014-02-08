@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
@@ -44,7 +44,7 @@ public class ComponentDriver_invokePopupAtPoint_Test extends ComponentDriver_inv
     ToolkitClickRecorder recorder = clickRecorder.attachToToolkitFor(window.textField);
     JPopupMenu found = driver.invokePopupMenu(window.textField, p);
     assertThat(found).isSameAs(popupMenu);
-    assertThat(recorder).wasRightClicked().timesClicked(1).clickedAt(p);
+    recorder.wasRightClicked().timesClicked(1).clickedAt(p);
   }
 
   @Test(expected = NullPointerException.class)

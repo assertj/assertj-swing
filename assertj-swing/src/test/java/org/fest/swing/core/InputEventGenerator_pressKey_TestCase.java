@@ -18,11 +18,11 @@ import static java.awt.event.KeyEvent.CHAR_UNDEFINED;
 import static java.awt.event.KeyEvent.VK_A;
 import static java.awt.event.KeyEvent.VK_D;
 import static java.awt.event.KeyEvent.VK_S;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.task.ComponentRequestFocusAndWaitForFocusGainTask.giveFocusAndWaitTillIsFocused;
 import static org.fest.swing.timing.Pause.pause;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 

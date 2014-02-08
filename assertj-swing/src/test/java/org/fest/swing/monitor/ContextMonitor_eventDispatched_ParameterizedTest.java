@@ -21,7 +21,7 @@ import static java.awt.event.WindowEvent.WINDOW_LAST;
 import static java.awt.event.WindowEvent.WINDOW_OPENED;
 import static org.fest.swing.monitor.TestContexts.newMockContext;
 import static org.fest.swing.monitor.TestWindows.newWindowsMock;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

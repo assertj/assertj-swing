@@ -15,12 +15,12 @@
 package org.fest.swing.driver;
 
 import static java.util.Arrays.sort;
-import static org.fest.assertions.Fail.fail;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.internal.Fail.fail;
 import static org.fest.swing.driver.JTreeMatchingPathQuery.matchingPathWithRootIfInvisible;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.util.Arrays.format;
 import static org.fest.util.Objects.areEqual;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.util.Arrays;
 
@@ -28,7 +28,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiTask;

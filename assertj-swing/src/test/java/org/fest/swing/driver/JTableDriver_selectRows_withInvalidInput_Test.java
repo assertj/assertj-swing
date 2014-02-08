@@ -15,12 +15,12 @@
 package org.fest.swing.driver;
 
 import static org.fest.swing.test.builder.JTables.table;
-import static org.fest.test.ExpectedException.none;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import javax.swing.JTable;
 
 import org.fest.swing.test.core.RobotBasedTestCase;
-import org.fest.test.ExpectedException;
+import org.assertj.swing.test.ExpectedException;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;

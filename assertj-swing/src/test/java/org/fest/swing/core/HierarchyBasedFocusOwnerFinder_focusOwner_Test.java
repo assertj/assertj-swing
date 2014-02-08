@@ -14,7 +14,7 @@
  */
 package org.fest.swing.core;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.awt.TestComponents.singletonComponentMock;
 import static org.fest.swing.test.awt.TestContainers.singletonContainerMock;
 import static org.fest.util.Arrays.array;

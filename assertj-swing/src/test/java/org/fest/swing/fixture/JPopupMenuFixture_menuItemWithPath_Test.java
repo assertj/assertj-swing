@@ -14,7 +14,7 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.util.Platform.isOSX;
@@ -63,7 +63,7 @@ public class JPopupMenuFixture_menuItemWithPath_Test extends RobotBasedTestCase 
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.fileMenu);
     JMenuItemFixture menuItem = fixture.menuItemWithPath("File");
     menuItem.click();
-    assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(1);
+    recorder.clicked(LEFT_BUTTON).timesClicked(1);
   }
 
   @Test
@@ -74,7 +74,7 @@ public class JPopupMenuFixture_menuItemWithPath_Test extends RobotBasedTestCase 
     }
     JMenuItemFixture menuItem = fixture.menuItemWithPath("File", "Open");
     menuItem.click();
-    assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(1);
+    recorder.clicked(LEFT_BUTTON).timesClicked(1);
   }
 
   private static class MyWindow extends TestWindow {

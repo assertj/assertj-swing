@@ -14,7 +14,7 @@
  */
 package org.fest.swing.data;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsReflexive;
 import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsSymmetric;
 import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsTransitive;

@@ -14,7 +14,7 @@
  */
 package org.fest.swing.monitor;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.EventQueue;
 

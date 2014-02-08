@@ -27,7 +27,7 @@ import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.exception.LocationUnavailableException;
 import org.fest.swing.util.StringTextMatcher;
 import org.fest.swing.util.TextMatcher;
-import org.fest.util.InternalApi;
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.util.VisibleForTesting;
 
 /**

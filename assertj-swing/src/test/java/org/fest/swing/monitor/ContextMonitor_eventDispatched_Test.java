@@ -19,7 +19,7 @@ import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
 import static java.awt.event.WindowEvent.WINDOW_CLOSED;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static java.awt.event.WindowEvent.WINDOW_OPENED;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.monitor.TestContexts.newMockContext;
 import static org.fest.swing.monitor.TestWindows.newWindowsMock;
 import static org.fest.swing.test.awt.Toolkits.newToolkitStub;

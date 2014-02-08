@@ -16,7 +16,7 @@ package org.fest.swing.driver;
 
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.JTableCellValueQuery.cellValueOf;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 

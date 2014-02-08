@@ -20,9 +20,9 @@ import static java.awt.event.MouseEvent.MOUSE_DRAGGED;
 import static java.awt.event.MouseEvent.MOUSE_ENTERED;
 import static java.awt.event.MouseEvent.MOUSE_EXITED;
 import static java.awt.event.MouseEvent.MOUSE_WHEEL;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.builder.JComboBoxes.comboBox;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.event.MouseEvent;
 import java.util.Collection;

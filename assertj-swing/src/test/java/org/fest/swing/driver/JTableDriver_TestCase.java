@@ -16,7 +16,7 @@ package org.fest.swing.driver;
 
 import static java.lang.Integer.parseInt;
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.JTableClearSelectionTask.clearSelectionOf;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.task.ComponentSetEnabledTask.disable;

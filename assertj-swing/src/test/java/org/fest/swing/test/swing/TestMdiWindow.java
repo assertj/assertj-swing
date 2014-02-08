@@ -15,7 +15,7 @@
 package org.fest.swing.test.swing;
 
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Dimension;
 

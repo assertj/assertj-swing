@@ -22,15 +22,15 @@ import static java.awt.event.KeyEvent.VK_DELETE;
 import static java.awt.event.KeyEvent.VK_ENTER;
 import static java.awt.event.KeyEvent.VK_ESCAPE;
 import static java.awt.event.KeyEvent.VK_TAB;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Flushables.flush;
+import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 import static org.fest.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.fest.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.swing.util.Platform.isWindows;
 import static org.fest.util.Closeables.closeQuietly;
 import static org.fest.util.Files.newTemporaryFile;
-import static org.fest.util.Flushables.flushQuietly;
-import static org.fest.util.SystemProperties.lineSeparator;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -119,10 +119,10 @@ public class KeyStrokeMappingProvider_parse_Test {
     try {
       for (String mapping : mappings) {
         output.write(mapping);
-        output.write(lineSeparator());
+        output.write(LINE_SEPARATOR);
       }
     } finally {
-      flushQuietly(output);
+      flush(output);
       closeQuietly(output);
     }
     return f;

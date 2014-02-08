@@ -14,7 +14,7 @@
  */
 package org.fest.swing.monitor;
 
-import static org.fest.util.Maps.newWeakHashMap;
+import static org.assertj.core.util.Maps.newWeakHashMap;
 
 import java.awt.Component;
 import java.awt.Window;

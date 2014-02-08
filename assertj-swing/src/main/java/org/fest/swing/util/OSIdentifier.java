@@ -19,7 +19,7 @@ import static org.fest.swing.util.OSFamily.LINUX;
 import static org.fest.swing.util.OSFamily.MAC;
 import static org.fest.swing.util.OSFamily.UNIX;
 import static org.fest.swing.util.OSFamily.WINDOWS;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import javax.annotation.Nonnull;
 

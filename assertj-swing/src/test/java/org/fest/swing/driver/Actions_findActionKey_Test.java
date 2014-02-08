@@ -15,15 +15,15 @@
 package org.fest.swing.driver;
 
 import static javax.swing.Action.NAME;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import javax.swing.Action;
 import javax.swing.ActionMap;
 
+import org.assertj.swing.test.ExpectedException;
 import org.fest.swing.exception.ActionFailedException;
-import org.fest.test.ExpectedException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

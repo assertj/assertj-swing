@@ -14,10 +14,10 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.test.ExpectedException.none;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.ExpectedException.none;
 
-import org.fest.test.ExpectedException;
+import org.assertj.swing.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;
 

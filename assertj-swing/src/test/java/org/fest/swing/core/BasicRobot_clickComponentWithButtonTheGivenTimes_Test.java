@@ -14,11 +14,10 @@
  */
 package org.fest.swing.core;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.awt.AWT.centerOf;
 import static org.fest.swing.core.ClickingDataProvider.clickingData;
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.util.Collection;
 
@@ -58,6 +57,6 @@ public class BasicRobot_clickComponentWithButtonTheGivenTimes_Test extends Basic
     JTextField textField = window().textField();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
     robot().click(textField, button, times);
-    assertThat(recorder).clicked(button).timesClicked(times).clickedAt(centerOf(textField));
+    recorder.clicked(button).timesClicked(times).clickedAt(centerOf(textField));
   }
 }

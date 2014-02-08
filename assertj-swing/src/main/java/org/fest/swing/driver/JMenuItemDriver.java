@@ -24,8 +24,8 @@ import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.swing.format.Formatting.format;
 import static org.fest.swing.timing.Pause.pause;
 import static org.fest.swing.util.Platform.isOSX;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Component;
 import java.awt.Window;
@@ -41,7 +41,7 @@ import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.edt.GuiTask;
 import org.fest.swing.exception.ActionFailedException;
-import org.fest.util.InternalApi;
+import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

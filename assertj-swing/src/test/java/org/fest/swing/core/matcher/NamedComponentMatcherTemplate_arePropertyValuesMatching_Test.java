@@ -14,7 +14,7 @@
  */
 package org.fest.swing.core.matcher;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.util.Objects.HASH_CODE_PRIME;
 import static org.fest.util.Objects.areEqual;
 import static org.fest.util.Objects.hashCodeFor;

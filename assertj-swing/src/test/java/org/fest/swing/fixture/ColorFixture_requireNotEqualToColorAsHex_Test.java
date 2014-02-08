@@ -15,7 +15,7 @@
 package org.fest.swing.fixture;
 
 import static java.awt.Color.BLUE;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.fixture.ColorHexCodes.BLACK_HEX_CODE;
 import static org.fest.swing.fixture.ColorHexCodes.BLUE_HEX_CODE;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;

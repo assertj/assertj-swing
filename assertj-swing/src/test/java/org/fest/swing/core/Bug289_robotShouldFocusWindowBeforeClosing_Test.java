@@ -15,9 +15,9 @@
 package org.fest.swing.core;
 
 import static java.lang.String.valueOf;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.timing.Pause.pause;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;

@@ -14,7 +14,7 @@
  */
 package org.fest.swing.hierarchy;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.Window;
 import java.util.Collection;
@@ -32,6 +32,6 @@ public class ExistingHierarchy_roots_Test extends ExistingHierarchy_TestCase {
   @Test
   public void should_return_all_root_Windows() {
     Collection<Window> rootWindows = WindowMonitor.instance().rootWindows();
-    assertThat(hierarchy.roots()).containsOnly(rootWindows.toArray());
+    assertThat(hierarchy.roots()).containsExactlyElementsOf(rootWindows);
   }
 }

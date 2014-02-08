@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.builder.JComboBoxes.comboBox;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 

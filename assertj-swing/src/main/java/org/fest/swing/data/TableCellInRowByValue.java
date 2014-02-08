@@ -18,8 +18,8 @@ import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.util.Arrays.format;
 import static org.fest.util.Objects.areEqual;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
 
 import javax.annotation.Nonnull;
 import javax.swing.JTable;

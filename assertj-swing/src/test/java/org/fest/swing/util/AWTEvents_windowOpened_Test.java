@@ -16,7 +16,7 @@ package org.fest.swing.util;
 
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static java.awt.event.WindowEvent.WINDOW_OPENED;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.AWTEvent;
 import java.awt.event.WindowEvent;

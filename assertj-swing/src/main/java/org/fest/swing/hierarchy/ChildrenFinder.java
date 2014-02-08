@@ -14,8 +14,8 @@
  */
 package org.fest.swing.hierarchy;
 
-import static org.fest.util.Lists.emptyList;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.emptyList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Component;
 import java.awt.Container;

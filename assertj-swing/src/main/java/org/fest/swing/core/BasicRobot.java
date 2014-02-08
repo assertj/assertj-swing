@@ -24,6 +24,9 @@ import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static java.lang.System.currentTimeMillis;
 import static javax.swing.SwingUtilities.getWindowAncestor;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.awt.AWT.centerOf;
 import static org.fest.swing.awt.AWT.visibleCenterOf;
 import static org.fest.swing.core.ActivateWindowTask.activateWindow;
@@ -47,9 +50,6 @@ import static org.fest.swing.timing.Pause.pause;
 import static org.fest.swing.util.Modifiers.keysFor;
 import static org.fest.swing.util.Modifiers.updateModifierWithKeyCode;
 import static org.fest.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
 
 import java.applet.Applet;
 import java.awt.Component;
@@ -73,6 +73,7 @@ import javax.swing.JMenu;
 import javax.swing.JPopupMenu;
 import javax.swing.KeyStroke;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
@@ -88,7 +89,6 @@ import org.fest.swing.monitor.WindowMonitor;
 import org.fest.swing.util.Pair;
 import org.fest.swing.util.TimeoutWatch;
 import org.fest.swing.util.ToolkitProvider;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Default implementation of {@link Robot}.

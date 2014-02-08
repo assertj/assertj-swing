@@ -15,7 +15,7 @@
 package org.fest.swing.hierarchy;
 
 import static javax.swing.SwingUtilities.isDescendingFrom;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Component;
 import java.awt.Container;

@@ -14,7 +14,7 @@
  */
 package org.fest.swing.awt;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.builder.JTextFields.textField;
 

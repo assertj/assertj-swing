@@ -15,8 +15,8 @@
 package org.fest.swing.driver;
 
 import static java.util.Collections.enumeration;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.applet.Applet;
 import java.applet.AppletContext;
@@ -29,11 +29,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JApplet;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.edt.GuiTask;
-import org.fest.util.InternalApi;
 
 /**
  * <p>

@@ -14,7 +14,7 @@
  */
 package org.fest.swing.monitor;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.EventQueue;
 import java.lang.ref.WeakReference;
@@ -38,7 +38,7 @@ public class EventQueueMapping_queueFor_Test extends EventQueueMapping_TestCase 
 
   @Test
   public void should_return_EventQueue_in_Component_if_no_mapping_found() {
-    assertThat(queueMap.keySet()).excludes(component);
+    assertThat(queueMap.keySet()).doesNotContain(component);
     EventQueue storedEventQueue = mapping.queueFor(component);
     assertThat(storedEventQueue).isSameAs(eventQueue);
   }

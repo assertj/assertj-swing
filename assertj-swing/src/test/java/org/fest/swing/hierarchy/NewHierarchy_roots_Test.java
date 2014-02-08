@@ -14,7 +14,7 @@
  */
 package org.fest.swing.hierarchy;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class NewHierarchy_roots_Test extends NewHierarchy_TestCase {
   @Test
   public void should_not_contain_ignored_Windows() {
     NewHierarchy hierarchy = new NewHierarchy(toolkit, filter, true);
-    assertThat(hierarchy.roots()).excludes(window);
+    assertThat(hierarchy.roots()).doesNotContain(window);
   }
 
   @Test
@@ -40,7 +40,7 @@ public class NewHierarchy_roots_Test extends NewHierarchy_TestCase {
   @Test
   public void should_recognize_given_Component() {
     NewHierarchy hierarchy = new NewHierarchy(toolkit, filter, true);
-    assertThat(hierarchy.roots()).excludes(window);
+    assertThat(hierarchy.roots()).doesNotContain(window);
     hierarchy.recognize(window);
     assertThat(hierarchy.roots()).contains(window);
   }

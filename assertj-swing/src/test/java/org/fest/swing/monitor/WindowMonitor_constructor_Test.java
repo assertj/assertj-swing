@@ -19,7 +19,7 @@ import static java.awt.AWTEvent.MOUSE_EVENT_MASK;
 import static java.awt.AWTEvent.MOUSE_MOTION_EVENT_MASK;
 import static java.awt.AWTEvent.PAINT_EVENT_MASK;
 import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.event.AWTEventListener;
 import java.util.List;

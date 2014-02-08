@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.JTextComponentSelectedTextQuery.selectedTextOf;
 import static org.fest.swing.driver.JTextComponentSetEditableTask.setTextFieldEditable;
 import static org.fest.swing.driver.JTextComponentTextQuery.textOf;

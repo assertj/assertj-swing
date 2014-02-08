@@ -14,8 +14,8 @@
  */
 package org.fest.swing.applet;
 
-import static org.fest.util.Maps.newHashMap;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.applet.AppletContext;
 import java.applet.AppletStub;

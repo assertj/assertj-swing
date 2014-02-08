@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.fest.swing.core.MouseClickInfo.rightButton;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
@@ -49,7 +49,7 @@ public class JTreeDriver_clickRow_withMouseClickInfo_Test extends JTreeDriver_cl
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     driver.clickRow(tree, 1, mouseClickInfo);
-    assertThat(recorder).clicked(RIGHT_BUTTON).timesClicked(2);
+    recorder.clicked(RIGHT_BUTTON).timesClicked(2);
     assertThat(rowAt(recorder.pointClicked())).isEqualTo(1);
   }
 

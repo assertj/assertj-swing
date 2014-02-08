@@ -14,7 +14,7 @@
  */
 package org.fest.swing.annotation;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.method;
 
 import java.lang.reflect.Method;

@@ -15,7 +15,7 @@
 package org.fest.swing.driver;
 
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import javax.annotation.Nonnull;
 import javax.swing.JScrollBar;
@@ -24,7 +24,7 @@ import javax.swing.JScrollPane;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
-import org.fest.util.InternalApi;
+import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

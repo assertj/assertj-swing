@@ -14,10 +14,10 @@
  */
 package org.fest.swing.core;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.format.Formatting.format;
 import static org.fest.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 import java.awt.Container;

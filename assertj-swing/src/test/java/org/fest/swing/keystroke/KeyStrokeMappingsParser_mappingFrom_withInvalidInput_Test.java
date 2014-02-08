@@ -14,7 +14,7 @@
  */
 package org.fest.swing.keystroke;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.fest.swing.exception.ParsingException;
 import org.junit.Before;

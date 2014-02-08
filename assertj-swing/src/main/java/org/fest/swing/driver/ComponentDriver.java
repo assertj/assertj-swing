@@ -14,7 +14,8 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.fest.swing.driver.ComponentEnabledCondition.untilIsEnabled;
@@ -28,7 +29,6 @@ import static org.fest.swing.query.ComponentSizeQuery.sizeOf;
 import static org.fest.swing.query.ComponentVisibleQuery.isVisible;
 import static org.fest.swing.timing.Pause.pause;
 import static org.fest.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -41,7 +41,8 @@ import javax.annotation.Nullable;
 import javax.swing.JMenu;
 import javax.swing.JPopupMenu;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.ComponentDragAndDrop;
@@ -60,7 +61,6 @@ import org.fest.swing.format.ComponentFormatter;
 import org.fest.swing.format.Formatting;
 import org.fest.swing.timing.Timeout;
 import org.fest.swing.util.TimeoutWatch;
-import org.fest.util.InternalApi;
 
 /**
  * <p>

@@ -15,7 +15,7 @@
 package org.fest.swing.format;
 
 import static java.lang.String.valueOf;
-import static org.fest.util.Maps.newHashMap;
+import static org.assertj.core.util.Maps.newHashMap;
 
 import java.util.Map;
 

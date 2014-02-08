@@ -15,7 +15,7 @@
 package org.fest.swing.driver;
 
 import static java.awt.Adjustable.HORIZONTAL;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.JScrollBarValueQuery.valueOf;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 

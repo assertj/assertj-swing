@@ -16,7 +16,7 @@ package org.fest.swing.hierarchy;
 
 import static java.awt.event.ComponentEvent.COMPONENT_SHOWN;
 import static java.awt.event.WindowEvent.WINDOW_OPENED;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

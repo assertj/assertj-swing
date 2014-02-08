@@ -18,8 +18,8 @@ import static java.awt.BorderLayout.EAST;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 import static java.awt.BorderLayout.WEST;
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Point;
 import java.awt.Window;

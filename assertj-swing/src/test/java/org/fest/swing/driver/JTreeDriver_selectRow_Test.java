@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
@@ -52,7 +52,7 @@ public class JTreeDriver_selectRow_Test extends JTreeDriver_selectCell_TestCase 
     select(1);
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     driver.selectRow(tree, 1);
-    assertThat(recorder).wasNotClicked();
+    recorder.wasNotClicked();
     requireSelectedRows(1);
   }
 

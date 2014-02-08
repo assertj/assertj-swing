@@ -14,7 +14,7 @@
  */
 package org.fest.swing.image;
 
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Strings.concat;
 
 import java.util.UUID;
 

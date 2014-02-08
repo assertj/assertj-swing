@@ -20,7 +20,7 @@ import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import static javax.swing.JOptionPane.YES_NO_CANCEL_OPTION;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.AbstractButtonTextQuery.textOf;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.util.Objects.HASH_CODE_PRIME;

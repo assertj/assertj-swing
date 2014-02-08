@@ -14,11 +14,11 @@
  */
 package org.fest.swing.core;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.UnexpectedJOptionPaneFinder.OPTION_PANE_MATCHER;
 import static org.fest.swing.test.builder.JOptionPanes.optionPane;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

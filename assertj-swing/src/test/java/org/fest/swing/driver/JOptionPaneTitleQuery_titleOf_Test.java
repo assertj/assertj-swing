@@ -14,12 +14,12 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.swing.JOptionPaneLauncher.launch;
 
 import javax.swing.JOptionPane;
 
-import org.fest.assertions.Assertions;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.test.core.RobotBasedTestCase;
@@ -45,7 +45,7 @@ public class JOptionPaneTitleQuery_titleOf_Test extends RobotBasedTestCase {
   @Test
   public void should_return_title_of_JOptionPane() {
     String title = JOptionPaneTitleQuery.titleOf(optionPane);
-    Assertions.assertThat(title).isEqualTo(TITLE);
+    assertThat(title).isEqualTo(TITLE);
   }
 
   private static class MyOptionPane extends JOptionPane {

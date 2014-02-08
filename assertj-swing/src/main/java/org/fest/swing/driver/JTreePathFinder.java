@@ -14,8 +14,8 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Strings.quote;
 
 import java.util.List;
 

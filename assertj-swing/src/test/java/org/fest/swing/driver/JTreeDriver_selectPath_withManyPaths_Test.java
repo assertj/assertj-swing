@@ -14,16 +14,16 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Lists.newArrayList;
 
 import java.util.Collection;
 
 import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
-import org.fest.assertions.StringAssert;
+import org.assertj.core.api.StringAssert;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
 import org.junit.Test;

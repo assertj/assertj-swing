@@ -17,7 +17,7 @@ package org.fest.swing.core;
 import static java.awt.event.InputEvent.ALT_MASK;
 import static java.awt.event.InputEvent.META_MASK;
 import static java.awt.event.KeyEvent.VK_C;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.InputModifiers.isAltDown;
 import static org.fest.swing.core.InputModifiers.isAltGraphDown;
 import static org.fest.swing.core.InputModifiers.isControlDown;

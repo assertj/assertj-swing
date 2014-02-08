@@ -15,13 +15,13 @@
 package org.fest.swing.driver;
 
 import static java.awt.event.KeyEvent.VK_UNDEFINED;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.driver.Actions.findActionKey;
 import static org.fest.swing.driver.JComponentToolTipQuery.toolTipOf;
 import static org.fest.swing.driver.KeyStrokes.findKeyStrokesForAction;
 import static org.fest.swing.driver.TextAssert.verifyThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -32,12 +32,12 @@ import javax.annotation.Nullable;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.exception.ActionFailedException;
-import org.fest.util.InternalApi;
 
 /**
  * <p>

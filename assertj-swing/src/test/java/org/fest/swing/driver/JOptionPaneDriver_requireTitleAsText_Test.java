@@ -14,10 +14,10 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.swing.test.swing.JOptionPaneLauncher.pack;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Strings.concat;
 
 import javax.swing.JOptionPane;
 

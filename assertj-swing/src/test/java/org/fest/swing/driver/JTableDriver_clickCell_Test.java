@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.data.TableCell.row;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
@@ -44,7 +44,7 @@ public class JTableDriver_clickCell_Test extends JTableDriver_TestCase {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(table);
     TableCell cell = row(0).column(1);
     driver.click(table, cell, LEFT_BUTTON, 3);
-    assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(3);
+    recorder.clicked(LEFT_BUTTON).timesClicked(3);
     assertThatCellWasClicked(cell, recorder.pointClicked());
   }
 

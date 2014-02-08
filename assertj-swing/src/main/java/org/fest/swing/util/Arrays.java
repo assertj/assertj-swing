@@ -15,9 +15,9 @@
 package org.fest.swing.util;
 
 import static org.fest.util.Objects.areEqual;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.quote;
-import static org.fest.util.SystemProperties.lineSeparator;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.quote;
+import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 
 import java.lang.reflect.Array;
 
@@ -104,7 +104,7 @@ public final class Arrays {
     b.append("[");
     for (int i = 0; i < size; i++) {
       if (i != 0) {
-        b.append(lineSeparator()).append(" ");
+        b.append(LINE_SEPARATOR).append(" ");
       }
       addLine(array[i], b);
       if (i != size - 1) {

@@ -14,17 +14,17 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.util.Colors.colorFromHexString;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.awt.Color;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.fest.assertions.BasicDescription;
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
+import org.assertj.core.description.TextDescription;
 
 /**
  * Verifies the state of {@code Color}s.
@@ -53,7 +53,7 @@ public class ColorFixture {
    * @throws NullPointerException if {@code target} is {@code null}.
    */
   public ColorFixture(@Nonnull Color target, @Nonnull String description) {
-    this(target, new BasicDescription(description));
+    this(target, new TextDescription(description));
   }
 
   /**

@@ -14,27 +14,25 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.core.util.Strings.quote;
+import static org.assertj.swing.internal.Fail.fail;
 import static org.fest.swing.util.Strings.areEqualOrMatch;
 import static org.fest.swing.util.Strings.match;
-import static org.fest.util.Strings.quote;
 
 import java.util.regex.Pattern;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.fest.assertions.Assert;
-import org.fest.assertions.AssertExtension;
-import org.fest.assertions.Description;
+import org.assertj.core.api.AbstractAssert;
+import org.assertj.core.internal.Failures;
 
 /**
  * Assertion methods related to text.
  * 
  * @author Alex Ruiz
  */
-class TextAssert extends Assert implements AssertExtension {
-  private final String actual;
-
+class TextAssert extends AbstractAssert<TextAssert, String> {
   static @Nonnull
   TextAssert assertThat(@Nullable String s) {
     return new TextAssert(s);
@@ -46,19 +44,7 @@ class TextAssert extends Assert implements AssertExtension {
   }
 
   TextAssert(@Nullable String actual) {
-    this.actual = actual;
-  }
-
-  @Nonnull
-  TextAssert as(@Nullable String description) {
-    description(description);
-    return this;
-  }
-
-  @Nonnull
-  TextAssert as(@Nullable Description description) {
-    description(description);
-    return this;
+    super(actual, TextAssert.class);
   }
 
   @Nonnull
@@ -68,7 +54,7 @@ class TextAssert extends Assert implements AssertExtension {
     }
     String format = "actual value:<%s> is not equal to or does not match pattern:<%s>";
     String msg = String.format(format, quote(actual), quote(s));
-    throw failure(msg);
+    throw Failures.instance().failure(msg);
   }
 
   @Nonnull
@@ -78,6 +64,6 @@ class TextAssert extends Assert implements AssertExtension {
     }
     String format = "actual value:<%s> does not match pattern:<%s>";
     String msg = String.format(format, quote(actual), quote(pattern.pattern()));
-    throw failure(msg);
+    throw fail(msg);
   }
 }

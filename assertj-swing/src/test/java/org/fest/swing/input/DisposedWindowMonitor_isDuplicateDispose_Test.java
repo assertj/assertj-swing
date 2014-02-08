@@ -17,8 +17,7 @@ package org.fest.swing.input;
 import static java.awt.event.WindowEvent.WINDOW_CLOSED;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static java.awt.event.WindowEvent.WINDOW_OPENED;
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.assertions.MapAssert.entry;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
 import static org.fest.swing.test.builder.JFrames.frame;
 
@@ -72,14 +71,14 @@ public class DisposedWindowMonitor_isDuplicateDispose_Test {
     WindowEvent e = new WindowEvent(window, WINDOW_CLOSED);
     assertThat(monitor.isDuplicateDispose(e)).isTrue();
     assertThat(monitor.disposedWindows).hasSize(1);
-    assertThat(monitor.disposedWindows).includes(entry(window, true));
+    assertThat(monitor.disposedWindows).containsEntry(window, true);
   }
 
   @Test
   public void should_return_is_not_duplicate_if_Window_is_closed_and_it_is_not_marked_as_disposed() {
     WindowEvent e = new WindowEvent(window, WINDOW_CLOSED);
     assertThat(monitor.isDuplicateDispose(e)).isFalse();
-    assertThat(monitor.disposedWindows).hasSize(1).includes(entry(window, true));
+    assertThat(monitor.disposedWindows).hasSize(1).containsEntry(window, true);
     ComponentListener[] componentListeners = window.getComponentListeners();
     assertThat(componentListeners).hasSize(1);
     assertThat(componentListeners[0]).isInstanceOf(DisposalMonitor.class);

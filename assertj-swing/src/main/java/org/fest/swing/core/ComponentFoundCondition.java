@@ -15,8 +15,8 @@
 package org.fest.swing.core;
 
 import static java.util.Collections.emptyList;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.SystemProperties.lineSeparator;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -26,8 +26,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.fest.assertions.BasicDescription;
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
+import org.assertj.core.description.TextDescription;
 import org.fest.swing.exception.ComponentLookupException;
 import org.fest.swing.timing.Condition;
 
@@ -68,7 +68,7 @@ public final class ComponentFoundCondition extends Condition {
    */
   public ComponentFoundCondition(@Nonnull String description, @Nonnull ComponentFinder finder,
       @Nonnull ComponentMatcher matcher, @Nullable Container root) {
-    this(new BasicDescription(description), finder, matcher, root);
+    this(new TextDescription(description), finder, matcher, root);
   }
 
   /**
@@ -139,7 +139,7 @@ public final class ComponentFoundCondition extends Condition {
     if (error == null) {
       return EMPTY_TEXT;
     }
-    return concat(lineSeparator(), error.getMessage());
+    return concat(LINE_SEPARATOR, error.getMessage());
   }
 
   /**
@@ -154,7 +154,7 @@ public final class ComponentFoundCondition extends Condition {
    * @return all the AWT or Swing {@code Component}s that satisfied the search criteria specified by this condition's
    *         {@code ComponentMatcher}.
    */
-  public Collection<? extends Component> duplicatesFound() {
+  public Collection<Component> duplicatesFound() {
     ComponentLookupException error = notFoundError.get();
     if (error == null) {
       return emptyList();

@@ -15,7 +15,7 @@
 package org.fest.swing.fixture;
 
 import static java.awt.event.KeyEvent.VK_ENTER;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.util.Arrays.array;
 

@@ -14,7 +14,6 @@
  */
 package org.fest.swing.monitor;
 
-import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import org.fest.swing.annotation.RunsInEDT;
@@ -32,14 +31,14 @@ public class Windows_markExisting_Test extends Windows_TestCase {
   public void should_mark_visible_Window_as_ready_and_not_hidden() {
     window.display();
     markExisting(windows, window);
-    assertThat(windowState()).isReady();
+    windowState().isReady();
   }
 
   @Test
   public void should_mark_not_visible_Window_as_ready_and_hidden() {
     pack(window);
     markExisting(windows, window);
-    assertThat(windowState()).isOpen().isNotClosed().isHidden().isNotPending();
+    windowState().isOpen().isNotClosed().isHidden().isNotPending();
   }
 
   @RunsInEDT

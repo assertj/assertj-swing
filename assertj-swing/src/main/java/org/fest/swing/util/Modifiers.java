@@ -25,8 +25,8 @@ import static java.awt.event.KeyEvent.VK_CONTROL;
 import static java.awt.event.KeyEvent.VK_META;
 import static java.awt.event.KeyEvent.VK_SHIFT;
 import static java.lang.String.valueOf;
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Strings.concat;
 
 import java.util.LinkedHashMap;
 import java.util.List;

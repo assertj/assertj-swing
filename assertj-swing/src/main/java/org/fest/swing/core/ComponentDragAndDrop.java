@@ -20,7 +20,7 @@ import static org.fest.swing.timing.Pause.pause;
 import static org.fest.swing.util.Platform.isMacintosh;
 import static org.fest.swing.util.Platform.isWindows;
 import static org.fest.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 import java.awt.Dimension;

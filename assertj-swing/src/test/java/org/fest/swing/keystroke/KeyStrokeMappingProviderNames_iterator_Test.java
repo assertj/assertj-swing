@@ -15,7 +15,7 @@
 package org.fest.swing.keystroke;
 
 import static java.util.Locale.US;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.swing.util.OSFamily.WINDOWS;
 

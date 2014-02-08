@@ -14,12 +14,12 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.JList;
 
-import org.fest.assertions.Assertions;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiTask;
 import org.junit.Test;
@@ -41,7 +41,7 @@ public class JListItemIndexValidator_validateIndices_Test extends JListItemIndex
       validateIndices(-1, 0, 1);
       failWhenExpectingException();
     } catch (IndexOutOfBoundsException e) {
-      Assertions.assertThat(e.getMessage()).isEqualTo("Item index (-1) should be between [0] and [2] (inclusive)");
+      assertThat(e.getMessage()).isEqualTo("Item index (-1) should be between [0] and [2] (inclusive)");
     }
   }
 
@@ -51,7 +51,7 @@ public class JListItemIndexValidator_validateIndices_Test extends JListItemIndex
       validateIndices(0, 1, 3);
       failWhenExpectingException();
     } catch (IndexOutOfBoundsException e) {
-      Assertions.assertThat(e.getMessage()).isEqualTo("Item index (3) should be between [0] and [2] (inclusive)");
+      assertThat(e.getMessage()).isEqualTo("Item index (3) should be between [0] and [2] (inclusive)");
     }
   }
 

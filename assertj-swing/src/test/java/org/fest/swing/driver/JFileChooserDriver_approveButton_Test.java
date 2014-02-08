@@ -14,9 +14,9 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.AbstractButtonTextQuery.textOf;
-import static org.fest.util.Strings.isNullOrEmpty;
+import static org.assertj.core.util.Strings.isNullOrEmpty;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;

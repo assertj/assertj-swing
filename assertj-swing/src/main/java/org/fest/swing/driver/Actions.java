@@ -17,10 +17,10 @@ package org.fest.swing.driver;
 import static java.util.Collections.sort;
 import static javax.swing.Action.NAME;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 import java.util.List;
 

@@ -14,21 +14,21 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.ExpectedException.none;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 import static org.fest.swing.timing.Timeout.timeout;
-import static org.fest.test.ExpectedException.none;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
 
 import javax.annotation.Nonnull;
 import javax.swing.JFileChooser;
 
+import org.assertj.swing.test.ExpectedException;
 import org.fest.swing.core.GenericTypeMatcher;
 import org.fest.swing.exception.ComponentLookupException;
 import org.fest.swing.exception.WaitTimedOutError;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.swing.JFileChooserLauncherWindow;
-import org.fest.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -76,8 +76,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
 
   @Test
   public void should_fail_if_visible_JFileChooser_not_found_by_name_with_timeout() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for file chooser to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for file chooser to be found");
     fixture.fileChooser("fileChooser", timeout(300));
   }
 
@@ -107,8 +106,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
 
   @Test
   public void should_fail_if_visible_JFileChooser_not_found_by_type_with_timeout() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for file chooser to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for file chooser to be found");
     fixture.fileChooser(timeout(100));
   }
 
@@ -122,8 +120,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
 
   @Test
   public void should_fail_if_visible_JFileChooser_not_found_by_Matcher() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for file chooser to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for file chooser to be found");
     fixture.fileChooser(new JFileChooserByTitleMatcher());
   }
 
@@ -137,8 +134,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
 
   @Test
   public void should_fail_if_visible_JFileChooser_not_found_by_Matcher_with_timeout() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for file chooser to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for file chooser to be found");
     fixture.fileChooser(new JFileChooserByTitleMatcher(), timeout(300));
   }
 

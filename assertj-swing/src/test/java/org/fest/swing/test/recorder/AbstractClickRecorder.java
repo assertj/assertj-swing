@@ -14,11 +14,11 @@
  */
 package org.fest.swing.test.recorder;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Maps.newHashMap;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.core.MouseButton.MIDDLE_BUTTON;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.fest.util.Maps.newHashMap;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -26,7 +26,6 @@ import java.util.Map;
 
 import javax.annotation.Nonnull;
 
-import org.fest.assertions.AssertExtension;
 import org.fest.swing.core.MouseButton;
 
 /**
@@ -35,7 +34,7 @@ import org.fest.swing.core.MouseButton;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class AbstractClickRecorder implements AssertExtension {
+public class AbstractClickRecorder {
 
   private static final Map<Integer, MouseButton> MOUSE_BUTTON_MAP = newHashMap();
 

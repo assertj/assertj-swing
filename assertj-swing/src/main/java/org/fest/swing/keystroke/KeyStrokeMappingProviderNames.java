@@ -14,7 +14,7 @@
  */
 package org.fest.swing.keystroke;
 
-import static org.fest.util.Strings.join;
+import static org.assertj.core.util.Strings.join;
 
 import java.util.Iterator;
 import java.util.Locale;

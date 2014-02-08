@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.fest.swing.query.ComponentVisibleQuery.isVisible;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
@@ -42,7 +42,7 @@ public class JListDriver_showPopupMenuAtItemAsText_Test extends JListDriver_show
     driver.click(list);
     ToolkitClickRecorder recorder = clickRecorder.attachToToolkitFor(list);
     driver.showPopupMenu(list, "one");
-    assertThat(recorder).clicked(RIGHT_BUTTON);
+    recorder.clicked(RIGHT_BUTTON);
     assertThat(isVisible(popupMenu)).isTrue();
     assertThat(locationToIndex(recorder.pointClicked())).isEqualTo(0);
     assertThatCellReaderWasCalled();
@@ -54,7 +54,7 @@ public class JListDriver_showPopupMenuAtItemAsText_Test extends JListDriver_show
     driver.click(list);
     ToolkitClickRecorder recorder = clickRecorder.attachToToolkitFor(list);
     driver.showPopupMenu(list, "o.*");
-    assertThat(recorder).clicked(RIGHT_BUTTON);
+    recorder.clicked(RIGHT_BUTTON);
     assertThat(isVisible(popupMenu)).isTrue();
     assertThat(locationToIndex(recorder.pointClicked())).isEqualTo(0);
     assertThatCellReaderWasCalled();

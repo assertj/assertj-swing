@@ -14,7 +14,6 @@
  */
 package org.fest.swing.core;
 
-import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 
 import org.fest.swing.test.recorder.ClickRecorder;
@@ -31,6 +30,6 @@ public class BasicRobot_clickComponent_Test extends BasicRobot_ClickTestCase {
   public void should_click_Component() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window().textField());
     robot().click(window().textField());
-    assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(1);
+    recorder.clicked(LEFT_BUTTON).timesClicked(1);
   }
 }

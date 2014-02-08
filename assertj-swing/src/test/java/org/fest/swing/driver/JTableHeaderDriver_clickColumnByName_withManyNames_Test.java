@@ -14,8 +14,8 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 
@@ -55,7 +55,7 @@ public class JTableHeaderDriver_clickColumnByName_withManyNames_Test extends JTa
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.clickColumn(tableHeader, name);
-    assertThat(recorder).wasClicked();
+    recorder.wasClicked();
     assertThatColumnWasClicked(recorder, index);
   }
 }

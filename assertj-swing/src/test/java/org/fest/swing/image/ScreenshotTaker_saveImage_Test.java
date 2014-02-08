@@ -14,7 +14,7 @@
  */
 package org.fest.swing.image;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.image.TestImageFileWriters.newImageFileWriterMock;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.mockito.Mockito.mock;
@@ -23,8 +23,8 @@ import static org.mockito.Mockito.when;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import org.assertj.swing.internal.annotation.IORuntimeException;
 import org.fest.swing.util.RobotFactory;
-import org.fest.util.IORuntimeException;
 import org.junit.Before;
 import org.junit.Test;
 

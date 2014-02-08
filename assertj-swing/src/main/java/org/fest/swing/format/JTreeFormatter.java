@@ -17,7 +17,7 @@ package org.fest.swing.format;
 import static javax.swing.tree.TreeSelectionModel.CONTIGUOUS_TREE_SELECTION;
 import static javax.swing.tree.TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION;
 import static javax.swing.tree.TreeSelectionModel.SINGLE_TREE_SELECTION;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Strings.quote;
 
 import java.awt.Component;
 

@@ -18,9 +18,9 @@ import static java.util.Collections.sort;
 import static org.fest.swing.driver.JListCellBoundsQuery.cellBounds;
 import static org.fest.swing.driver.JListCellCenterQuery.cellCenter;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Sets.newHashSet;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Sets.newHashSet;
 
 import java.awt.Point;
 import java.awt.Rectangle;

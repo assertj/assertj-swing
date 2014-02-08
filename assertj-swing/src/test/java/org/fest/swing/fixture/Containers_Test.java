@@ -16,7 +16,7 @@ package org.fest.swing.fixture;
 
 import static java.awt.GridBagConstraints.REMAINDER;
 import static javax.swing.BorderFactory.createEmptyBorder;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.GridBagConstraints;

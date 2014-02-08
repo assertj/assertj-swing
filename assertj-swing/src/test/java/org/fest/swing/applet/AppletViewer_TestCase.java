@@ -15,7 +15,7 @@
 package org.fest.swing.applet;
 
 import static javax.swing.SwingUtilities.invokeLater;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.timing.Pause.pause;
 

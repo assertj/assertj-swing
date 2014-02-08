@@ -16,9 +16,9 @@ package org.fest.swing.launcher;
 
 import static org.fest.reflect.core.Reflection.method;
 import static org.fest.swing.util.Arrays.copyOf;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 import javax.annotation.Nonnull;
 

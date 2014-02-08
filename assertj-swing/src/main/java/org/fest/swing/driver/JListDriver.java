@@ -16,8 +16,9 @@ package org.fest.swing.driver;
 
 import static java.awt.event.KeyEvent.VK_SHIFT;
 import static java.util.Arrays.sort;
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.assertions.Fail.fail;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.internal.Fail.fail;
 import static org.fest.swing.awt.AWT.visibleCenterOf;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.driver.JListContentQuery.contents;
@@ -40,7 +41,6 @@ import static org.fest.swing.driver.TextAssert.verifyThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
 import static org.fest.util.Arrays.format;
-import static org.fest.util.Preconditions.checkNotNull;
 
 import java.awt.Point;
 import java.util.List;
@@ -51,7 +51,8 @@ import javax.annotation.Nullable;
 import javax.swing.JList;
 import javax.swing.JPopupMenu;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.cell.JListCellReader;
 import org.fest.swing.core.MouseButton;
@@ -67,7 +68,6 @@ import org.fest.swing.util.Range.From;
 import org.fest.swing.util.Range.To;
 import org.fest.swing.util.StringTextMatcher;
 import org.fest.swing.util.TextMatcher;
-import org.fest.util.InternalApi;
 
 /**
  * <p>

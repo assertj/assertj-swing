@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
@@ -39,7 +39,7 @@ public class JTreeDriver_clickPath_Test extends JTreeDriver_clickCell_TestCase {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     driver.clickPath(tree, "root/branch1/branch1.1/branch1.1.1");
-    assertThat(recorder).wasClicked().timesClicked(1);
+    recorder.wasClicked().timesClicked(1);
     String clickedPath = pathAtPoint(tree, recorder.pointClicked(), driver.separator());
     assertThat(clickedPath).isEqualTo("root/branch1/branch1.1/branch1.1.1");
   }

@@ -16,7 +16,7 @@ package org.fest.swing.input;
 
 import static java.awt.event.WindowEvent.WINDOW_CLOSED;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
-import static org.fest.util.Maps.newWeakHashMap;
+import static org.assertj.core.util.Maps.newWeakHashMap;
 
 import java.awt.AWTEvent;
 import java.awt.Window;

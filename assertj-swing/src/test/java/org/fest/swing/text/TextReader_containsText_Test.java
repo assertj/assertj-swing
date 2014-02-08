@@ -14,7 +14,7 @@
  */
 package org.fest.swing.text;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.builder.JLabels.label;
 import static org.junit.rules.ExpectedException.none;
 import static org.mockito.Mockito.mock;

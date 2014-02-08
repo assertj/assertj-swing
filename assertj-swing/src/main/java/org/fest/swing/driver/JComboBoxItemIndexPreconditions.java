@@ -15,7 +15,7 @@
 package org.fest.swing.driver;
 
 import static java.lang.String.valueOf;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Strings.concat;
 
 import javax.annotation.Nonnull;
 import javax.swing.JComboBox;

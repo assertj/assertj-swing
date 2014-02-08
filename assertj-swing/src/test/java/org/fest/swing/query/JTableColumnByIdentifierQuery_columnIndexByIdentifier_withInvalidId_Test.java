@@ -14,7 +14,7 @@
  */
 package org.fest.swing.query;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.MethodInvocations.Args.args;
 
 import org.junit.Test;

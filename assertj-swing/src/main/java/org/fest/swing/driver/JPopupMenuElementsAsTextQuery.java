@@ -16,7 +16,7 @@ package org.fest.swing.driver;
 
 import static org.fest.swing.driver.MenuElementComponentQuery.componentIn;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 

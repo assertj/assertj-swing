@@ -14,7 +14,7 @@
  */
 package org.fest.swing.monitor;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.EventQueue;
 
@@ -35,7 +35,7 @@ public class EventQueueMapping_storedQueueFor_Test extends EventQueueMapping_Tes
 
   @Test
   public void should_return_null_if_EventQueue_not_stored() {
-    assertThat(queueMap.keySet()).excludes(component);
+    assertThat(queueMap.keySet()).doesNotContain(component);
     EventQueue storedEventQueue = mapping.storedQueueFor(component);
     assertThat(storedEventQueue).isNull();
   }

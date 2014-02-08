@@ -14,7 +14,7 @@
  */
 package org.fest.swing.awt;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.BasicRobot.robotWithNewAwtHierarchy;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.query.ContainerInsetsQuery.insetsOf;

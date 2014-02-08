@@ -14,11 +14,11 @@
  */
 package org.fest.swing.image;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.assertions.ImageAssert.read;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.swing.test.assertion.ImageAssert.read;
+import static org.assertj.swing.test.assertion.TestAssertions.assertThat;
 import static org.fest.swing.image.RandomFileNameCreator.randomFileName;
 import static org.fest.util.Files.temporaryFolderPath;
-import static org.fest.util.Strings.concat;
 
 import java.awt.Toolkit;
 import java.io.File;

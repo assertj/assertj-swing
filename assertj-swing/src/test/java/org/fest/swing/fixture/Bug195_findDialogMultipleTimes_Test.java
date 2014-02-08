@@ -17,8 +17,8 @@ package org.fest.swing.fixture;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.SOUTH;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 import java.awt.BorderLayout;
 import java.awt.Dialog;

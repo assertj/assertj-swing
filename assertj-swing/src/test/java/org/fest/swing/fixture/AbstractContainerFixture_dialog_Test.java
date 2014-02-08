@@ -14,21 +14,21 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.ExpectedException.none;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 import static org.fest.swing.timing.Timeout.timeout;
-import static org.fest.test.ExpectedException.none;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
 
 import javax.annotation.Nonnull;
 import javax.swing.JDialog;
 
+import org.assertj.swing.test.ExpectedException;
 import org.fest.swing.core.GenericTypeMatcher;
 import org.fest.swing.exception.WaitTimedOutError;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.swing.WindowLauncher;
 import org.fest.swing.test.swing.WindowLauncher.DialogToLaunch;
-import org.fest.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -59,8 +59,7 @@ public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
 
   @Test
   public void should_fail_if_visible_Dialog_not_found_by_name() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for dialog to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog("dialog");
   }
 
@@ -73,8 +72,7 @@ public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
 
   @Test
   public void should_fail_if_visible_Dialog_not_found_by_name_with_timeout() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for dialog to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog("dialog", timeout(100));
   }
 
@@ -87,8 +85,7 @@ public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
 
   @Test
   public void should_fail_if_visible_Dialog_not_found_by_type() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for dialog to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog();
   }
 
@@ -101,8 +98,7 @@ public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
 
   @Test
   public void should_fail_if_visible_Dialog_not_found_by_type_with_timeout() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for dialog to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog(timeout(100));
   }
 
@@ -115,8 +111,7 @@ public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
 
   @Test
   public void should_fail_if_visible_Dialog_not_found_by_Matcher() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for dialog to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog(new DialogByTitleMatcher());
   }
 
@@ -129,8 +124,7 @@ public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
 
   @Test
   public void should_fail_if_visible_Dialog_not_found_by_Matcher_with_timeout() {
-    thrown.expect(WaitTimedOutError.class);
-    thrown.expectMessageToContain("Timed out waiting for dialog to be found");
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog(new DialogByTitleMatcher(), timeout(100));
   }
 

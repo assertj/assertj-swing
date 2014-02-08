@@ -14,18 +14,16 @@
  */
 package org.fest.swing.monitor;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.Window;
-
-import org.fest.assertions.AssertExtension;
 
 /**
  * Assertions related to the internal state of {@link Windows} with respect a particular {@code Window}.
  * 
  * @author Alex Ruiz
  */
-class WindowStateAssert implements AssertExtension {
+class WindowStateAssert {
   private final Windows windows;
   private final Window target;
 

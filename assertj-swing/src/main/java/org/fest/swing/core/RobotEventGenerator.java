@@ -21,7 +21,7 @@ import static org.fest.swing.exception.UnexpectedException.unexpected;
 import static org.fest.swing.timing.Pause.pause;
 import static org.fest.swing.util.Platform.isOSX;
 import static org.fest.swing.util.Platform.isWindows;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.AWTException;
 import java.awt.Component;

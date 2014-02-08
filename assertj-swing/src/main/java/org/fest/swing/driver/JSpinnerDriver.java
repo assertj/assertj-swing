@@ -15,16 +15,16 @@
 package org.fest.swing.driver;
 
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.driver.JSpinnerSetValueTask.setValue;
 import static org.fest.swing.driver.JSpinnerValueQuery.valueOf;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.swing.format.Formatting.format;
-import static org.fest.util.Lists.newArrayList;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 import java.awt.Component;
 import java.text.ParseException;

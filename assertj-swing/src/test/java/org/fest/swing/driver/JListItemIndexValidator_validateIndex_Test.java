@@ -19,7 +19,7 @@ import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingExcepti
 
 import javax.swing.JList;
 
-import org.fest.assertions.Assertions;
+import org.assertj.core.api.Assertions;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiTask;
 import org.junit.Test;

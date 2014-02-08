@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.util.regex.Pattern;
@@ -49,7 +49,7 @@ public class JTableHeaderDriver_clickColumnByPattern_Test extends JTableHeaderDr
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.clickColumn(tableHeader, Pattern.compile("0.*"));
-    assertThat(recorder).wasClicked();
+    recorder.wasClicked();
     assertThatColumnWasClicked(recorder, 0);
   }
 }

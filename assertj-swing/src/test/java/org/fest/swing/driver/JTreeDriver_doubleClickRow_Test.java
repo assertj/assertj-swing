@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
@@ -42,7 +42,7 @@ public class JTreeDriver_doubleClickRow_Test extends JTreeDriver_clickCell_TestC
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     int row = 5;
     driver.doubleClickRow(tree, row);
-    assertThat(recorder).clicked(MouseButton.LEFT_BUTTON).timesClicked(2);
+    recorder.clicked(MouseButton.LEFT_BUTTON).timesClicked(2);
     assertThat(rowAt(recorder.pointClicked())).isEqualTo(row);
   }
 

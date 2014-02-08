@@ -14,7 +14,7 @@
  */
 package org.fest.swing.exception;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.test.builder.JLabels.label;
 import static org.fest.swing.test.builder.JTextFields.textField;
 
@@ -36,6 +36,6 @@ public class ComponentLookupException_found_Test {
     found.add(label().createNew());
     found.add(textField().createNew());
     ComponentLookupException e = new ComponentLookupException("Hello", found);
-    assertThat(e.found()).isNotSameAs(found).containsOnly(found.toArray());
+    assertThat(e.found()).isNotSameAs(found).containsExactlyElementsOf(found);
   }
 }

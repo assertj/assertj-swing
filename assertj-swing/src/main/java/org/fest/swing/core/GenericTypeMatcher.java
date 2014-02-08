@@ -14,7 +14,7 @@
  */
 package org.fest.swing.core;
 
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 

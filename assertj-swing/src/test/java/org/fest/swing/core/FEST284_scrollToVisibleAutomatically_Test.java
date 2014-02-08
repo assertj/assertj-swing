@@ -17,7 +17,6 @@ package org.fest.swing.core;
 import static java.awt.BorderLayout.CENTER;
 import static javax.swing.Box.createVerticalStrut;
 import static javax.swing.BoxLayout.Y_AXIS;
-import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 
@@ -58,7 +57,7 @@ public class FEST284_scrollToVisibleAutomatically_Test extends RobotBasedTestCas
   public void should_auto_scroll_when_clicking_JButton() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     robot.click(window.button);
-    assertThat(recorder).clicked(LEFT_BUTTON).timesClicked(1);
+    recorder.clicked(LEFT_BUTTON).timesClicked(1);
   }
 
   private static class MyWindow extends TestWindow {

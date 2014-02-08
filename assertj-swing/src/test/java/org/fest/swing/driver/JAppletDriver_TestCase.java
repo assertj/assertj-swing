@@ -17,9 +17,9 @@ package org.fest.swing.driver;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 import static org.fest.swing.core.TestRobots.singletonRobotMock;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Maps.newHashMap;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 import java.applet.AppletContext;
 import java.net.URL;

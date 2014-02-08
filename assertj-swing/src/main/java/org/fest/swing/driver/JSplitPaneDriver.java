@@ -20,7 +20,7 @@ import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowin
 import static org.fest.swing.driver.JSplitPaneLocationCalculator.locationToMoveDividerTo;
 import static org.fest.swing.driver.JSplitPaneSetDividerLocationTask.setDividerLocation;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Point;
 
@@ -32,7 +32,7 @@ import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.util.GenericRange;
-import org.fest.util.InternalApi;
+import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

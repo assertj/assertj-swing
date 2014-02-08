@@ -15,8 +15,8 @@
 package org.fest.swing.fixture;
 
 import static org.fest.swing.driver.ComponentDriver.propertyName;
-import static org.fest.util.Preconditions.checkNotNull;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
 import org.fest.swing.cell.JTableCellReader;
 import org.fest.swing.cell.JTableCellWriter;
 import org.fest.swing.core.MouseButton;

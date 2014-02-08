@@ -15,7 +15,7 @@
 package org.fest.swing.driver;
 
 import static java.awt.Font.PLAIN;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Font;

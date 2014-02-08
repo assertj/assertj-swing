@@ -15,7 +15,7 @@
 package org.fest.swing.driver;
 
 import static java.awt.Color.BLUE;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.data.TableCell.row;
 import static org.mockito.Mockito.when;
 

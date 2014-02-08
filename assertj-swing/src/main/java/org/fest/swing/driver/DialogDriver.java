@@ -14,16 +14,16 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.driver.DialogModalQuery.isModal;
 
 import java.awt.Dialog;
 
 import javax.annotation.Nonnull;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
-import org.fest.util.InternalApi;
 
 /**
  * <p>

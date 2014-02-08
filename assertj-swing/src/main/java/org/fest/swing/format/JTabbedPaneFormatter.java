@@ -14,7 +14,7 @@
  */
 package org.fest.swing.format;
 
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Strings.quote;
 
 import java.awt.Component;
 

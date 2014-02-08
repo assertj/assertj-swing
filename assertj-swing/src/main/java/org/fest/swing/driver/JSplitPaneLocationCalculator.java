@@ -10,8 +10,8 @@ import static java.lang.Math.min;
 import static javax.swing.JSplitPane.HORIZONTAL_SPLIT;
 import static javax.swing.JSplitPane.VERTICAL_SPLIT;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Maps.newHashMap;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 import java.awt.Insets;

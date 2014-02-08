@@ -23,7 +23,7 @@ import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import static javax.swing.JOptionPane.YES_NO_CANCEL_OPTION;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Strings.quote;
 
 import java.awt.Component;
 

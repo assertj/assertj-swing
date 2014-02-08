@@ -17,7 +17,7 @@ package org.fest.swing.keystroke;
 import static java.awt.event.InputEvent.SHIFT_MASK;
 import static java.awt.event.KeyEvent.VK_A;
 import static javax.swing.KeyStroke.getKeyStroke;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 

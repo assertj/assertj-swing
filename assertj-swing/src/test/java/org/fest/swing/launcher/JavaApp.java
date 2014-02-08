@@ -15,7 +15,7 @@
 package org.fest.swing.launcher;
 
 import static javax.swing.SwingUtilities.invokeLater;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Dimension;
 import java.util.List;

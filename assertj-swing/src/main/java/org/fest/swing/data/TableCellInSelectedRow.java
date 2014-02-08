@@ -16,7 +16,7 @@ package org.fest.swing.data;
 
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import javax.annotation.Nonnull;
 import javax.swing.JTable;

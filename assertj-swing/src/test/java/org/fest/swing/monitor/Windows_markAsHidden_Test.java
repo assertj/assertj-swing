@@ -14,8 +14,6 @@
  */
 package org.fest.swing.monitor;
 
-import static org.fest.assertions.Assertions.assertThat;
-
 import org.junit.Test;
 
 /**
@@ -27,6 +25,6 @@ public class Windows_markAsHidden_Test extends Windows_TestCase {
   @Test
   public void should_mark_Window_as_hidden() {
     windows.markAsHidden(window);
-    assertThat(windowState()).isNotClosed().isHidden().isNotOpen().isNotPending();
+    windowState().isNotClosed().isHidden().isNotOpen().isNotPending();
   }
 }

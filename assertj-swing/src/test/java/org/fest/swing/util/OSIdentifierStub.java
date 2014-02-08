@@ -14,8 +14,8 @@
  */
 package org.fest.swing.util;
 
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 import javax.annotation.Nonnull;
 

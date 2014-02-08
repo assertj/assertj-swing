@@ -14,10 +14,10 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.core.NeverMatchingComponentMatcher.neverMatches;
-import static org.fest.test.ExpectedException.none;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import javax.annotation.Nonnull;
 import javax.swing.JTree;
@@ -28,7 +28,7 @@ import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.exception.ComponentLookupException;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.swing.TestWindow;
-import org.fest.test.ExpectedException;
+import org.assertj.swing.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;
 

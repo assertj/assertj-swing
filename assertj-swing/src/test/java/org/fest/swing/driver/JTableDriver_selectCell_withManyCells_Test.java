@@ -15,7 +15,7 @@
 package org.fest.swing.driver;
 
 import static org.fest.swing.data.TableCell.row;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 

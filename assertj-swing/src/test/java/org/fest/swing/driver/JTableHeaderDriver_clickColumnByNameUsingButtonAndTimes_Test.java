@@ -14,9 +14,9 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 
@@ -56,7 +56,7 @@ public class JTableHeaderDriver_clickColumnByNameUsingButtonAndTimes_Test extend
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.clickColumn(tableHeader, name, LEFT_BUTTON, 3);
-    assertThat(recorder).wasClickedWith(LEFT_BUTTON).timesClicked(3);
+    recorder.wasClickedWith(LEFT_BUTTON).timesClicked(3);
     assertThatColumnWasClicked(recorder, index);
   }
 }

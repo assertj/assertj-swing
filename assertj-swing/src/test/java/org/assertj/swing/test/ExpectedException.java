@@ -10,17 +10,16 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * 
- * Copyright @2010-2013 the original author or authors.
+ * Copyright @2010-2012 the original author or authors.
  */
-package org.fest.test;
+package org.assertj.swing.test;
+
+import java.util.Arrays;
 
 import org.junit.internal.matchers.TypeSafeMatcher;
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
-
-import javax.annotation.Nonnull;
-import java.util.Arrays;
 
 /**
  * Allows in-test specification of expected exception types and messages.
@@ -30,11 +29,11 @@ import java.util.Arrays;
 public class ExpectedException implements TestRule {
   private final org.junit.rules.ExpectedException delegate = org.junit.rules.ExpectedException.none();
 
-  private ExpectedException() {
-  }
-
   public static ExpectedException none() {
     return new ExpectedException();
+  }
+
+  private ExpectedException() {
   }
 
   @Override
@@ -42,20 +41,45 @@ public class ExpectedException implements TestRule {
     return delegate.apply(base, description);
   }
 
-  public void expect(@Nonnull Class<? extends Throwable> type, @Nonnull String message) {
+  public void expectAssertionError(String message) {
+    expect(AssertionError.class, message);
+  }
+
+  public void expectNullPointerException(String message) {
+    expect(NullPointerException.class, message);
+  }
+
+  public void expectIllegalArgumentException(String message) {
+    expect(IllegalArgumentException.class, message);
+  }
+
+  public void expectIndexOutOfBoundsException(String message) {
+    expect(IndexOutOfBoundsException.class, message);
+  }
+
+  public void expectUnsupportedOperationException(String message) {
+    expect(UnsupportedOperationException.class, message);
+  }
+
+  public void expect(Class<? extends Throwable> type, String message) {
     expect(type);
     expectMessage(message);
   }
 
-  public void expect(@Nonnull Class<? extends Throwable> type) {
+  public void expect(Throwable error) {
+    expect(error.getClass());
+    expectMessage(error.getMessage());
+  }
+
+  public void expect(Class<? extends Throwable> type) {
     delegate.expect(type);
   }
 
-  public void expectMessage(@Nonnull String message) {
+  public void expectMessage(String message) {
     delegate.expectMessage(message);
   }
 
-  public void expectMessageToContain(final @Nonnull String... strings) {
+  public void expectMessageToContain(final String... strings) {
     delegate.expectMessage(new TypeSafeMatcher<String>() {
       @Override
       public void describeTo(org.hamcrest.Description description) {

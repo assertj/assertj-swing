@@ -14,7 +14,7 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Dimension;
@@ -54,7 +54,7 @@ public class Bug197_clickVisibleAreaInComponent_Test extends RobotBasedTestCase 
   public void should_click_center_of_visible_area_of_Component_when_visible_area_is_on_the_left() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     fixture.button("clickMe").click();
-    assertThat(recorder).wasClicked();
+    recorder.wasClicked();
   }
 
   @Test
@@ -62,7 +62,7 @@ public class Bug197_clickVisibleAreaInComponent_Test extends RobotBasedTestCase 
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     fixture.scrollPane().horizontalScrollBar().scrollToMaximum();
     fixture.button("clickMe").click();
-    assertThat(recorder).wasClicked();
+    recorder.wasClicked();
   }
 
   private static class MyWindow extends TestWindow {

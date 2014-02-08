@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
@@ -46,7 +46,7 @@ public class JListDriver_clickItemByPattern_Test extends JListDriver_TestCase {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(list);
     driver.clickItem(list, Pattern.compile("tw.*"), RIGHT_BUTTON, 2);
-    assertThat(recorder).clicked(RIGHT_BUTTON).timesClicked(2);
+    recorder.clicked(RIGHT_BUTTON).timesClicked(2);
     Point pointClicked = recorder.pointClicked();
     assertThat(locationToIndex(pointClicked)).isEqualTo(1);
   }

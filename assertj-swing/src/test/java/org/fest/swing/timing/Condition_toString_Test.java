@@ -14,10 +14,10 @@
  */
 package org.fest.swing.timing;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Strings.concat;
 
-import org.fest.assertions.Description;
+import org.assertj.core.description.Description;
 import org.junit.Test;
 
 /**

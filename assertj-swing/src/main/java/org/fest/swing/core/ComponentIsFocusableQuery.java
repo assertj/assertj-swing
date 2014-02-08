@@ -20,9 +20,9 @@ import java.awt.Component;
 
 import javax.annotation.Nonnull;
 
+import org.assertj.core.util.Preconditions;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
-import org.fest.util.Preconditions;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} is focusable or not.

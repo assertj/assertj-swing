@@ -17,7 +17,7 @@ package org.fest.swing.format;
 import static javax.swing.JFileChooser.CUSTOM_DIALOG;
 import static javax.swing.JFileChooser.OPEN_DIALOG;
 import static javax.swing.JFileChooser.SAVE_DIALOG;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Strings.quote;
 import static org.fest.util.ToString.toStringOf;
 
 import java.awt.Component;

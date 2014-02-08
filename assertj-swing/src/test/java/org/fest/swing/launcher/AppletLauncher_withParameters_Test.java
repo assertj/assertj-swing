@@ -14,7 +14,7 @@
  */
 package org.fest.swing.launcher;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.launcher.AppletParameter.name;
 
 import org.fest.swing.test.swing.TestApplet;

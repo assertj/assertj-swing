@@ -19,7 +19,7 @@ import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.image.ImageFileExtensions.PNG;
 import static org.fest.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
 import static org.fest.swing.query.ComponentSizeQuery.sizeOf;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.AWTException;
 import java.awt.Component;
@@ -36,11 +36,11 @@ import javax.annotation.Nullable;
 import javax.swing.text.Caret;
 import javax.swing.text.JTextComponent;
 
+import org.assertj.swing.internal.annotation.IORuntimeException;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.edt.GuiTask;
 import org.fest.swing.util.RobotFactory;
-import org.fest.util.IORuntimeException;
 import org.fest.util.Preconditions;
 import org.fest.util.VisibleForTesting;
 

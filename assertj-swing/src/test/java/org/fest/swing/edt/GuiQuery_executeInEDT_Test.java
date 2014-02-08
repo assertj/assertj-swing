@@ -15,7 +15,7 @@
 package org.fest.swing.edt;
 
 import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import org.junit.Test;

@@ -14,7 +14,7 @@
  */
 package org.fest.swing.test.swing;
 
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import javax.swing.DefaultListModel;
 

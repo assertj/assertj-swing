@@ -16,7 +16,7 @@ package org.fest.swing.driver;
 
 import static org.fest.swing.timing.Pause.pause;
 import static org.fest.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-import static org.fest.util.Lists.newArrayList;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Component;
 import java.awt.Container;

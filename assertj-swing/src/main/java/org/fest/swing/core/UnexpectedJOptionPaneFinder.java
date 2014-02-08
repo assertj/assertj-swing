@@ -14,9 +14,9 @@
  */
 package org.fest.swing.core;
 
-import static org.fest.assertions.Fail.fail;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.swing.internal.Fail.fail;
 import static org.fest.swing.format.Formatting.format;
-import static org.fest.util.Lists.newArrayList;
 
 import java.awt.Component;
 import java.util.List;

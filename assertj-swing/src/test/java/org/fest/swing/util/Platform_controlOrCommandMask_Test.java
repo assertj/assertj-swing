@@ -15,7 +15,7 @@
 package org.fest.swing.util;
 
 import static java.awt.Event.CTRL_MASK;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import org.junit.Test;

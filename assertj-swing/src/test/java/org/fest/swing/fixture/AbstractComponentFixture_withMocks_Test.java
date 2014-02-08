@@ -16,7 +16,7 @@ package org.fest.swing.fixture;
 
 import static java.awt.Color.BLUE;
 import static java.awt.event.KeyEvent.VK_C;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.KeyPressInfo.keyCode;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.core.MouseClickInfo.leftButton;

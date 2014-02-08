@@ -14,14 +14,14 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.fest.swing.timing.Timeout.timeout;
-import static org.fest.test.ExpectedException.none;
 
+import org.assertj.swing.test.ExpectedException;
 import org.fest.swing.exception.WaitTimedOutError;
 import org.fest.swing.test.core.RobotBasedTestCase;
 import org.fest.swing.test.swing.JOptionPaneLauncherWindow;
-import org.fest.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;
 

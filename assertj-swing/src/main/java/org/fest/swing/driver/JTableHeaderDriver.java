@@ -18,7 +18,7 @@ import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.timing.Pause.pause;
-import static org.fest.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Point;
 import java.util.regex.Pattern;
@@ -38,7 +38,7 @@ import org.fest.swing.util.Pair;
 import org.fest.swing.util.PatternTextMatcher;
 import org.fest.swing.util.StringTextMatcher;
 import org.fest.swing.util.TextMatcher;
-import org.fest.util.InternalApi;
+import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

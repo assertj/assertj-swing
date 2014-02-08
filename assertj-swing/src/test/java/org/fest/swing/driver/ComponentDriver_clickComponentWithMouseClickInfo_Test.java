@@ -14,7 +14,7 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.awt.AWT.centerOf;
 import static org.fest.swing.core.MouseClickInfo.leftButton;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
@@ -48,7 +48,7 @@ public class ComponentDriver_clickComponentWithMouseClickInfo_Test extends Compo
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     MouseClickInfo mouseClickInfo = leftButton().times(3);
     driver.click(window.button, mouseClickInfo);
-    assertThat(recorder).wasClickedWith(mouseClickInfo.button()).clickedAt(centerOf(window.button))
+    recorder.wasClickedWith(mouseClickInfo.button()).clickedAt(centerOf(window.button))
         .timesClicked(mouseClickInfo.times());
   }
 
@@ -62,7 +62,7 @@ public class ComponentDriver_clickComponentWithMouseClickInfo_Test extends Compo
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsDisabledComponent(e);
     }
-    assertThat(recorder).wasNotClicked();
+    recorder.wasNotClicked();
   }
 
   @Test
@@ -74,6 +74,6 @@ public class ComponentDriver_clickComponentWithMouseClickInfo_Test extends Compo
     } catch (IllegalStateException e) {
       assertThatErrorCauseIsNotShowingComponent(e);
     }
-    assertThat(recorder).wasNotClicked();
+    recorder.wasNotClicked();
   }
 }
