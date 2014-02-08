@@ -12,7 +12,7 @@
  * 
  * Copyright @2010 the original author or authors.
  */
-package org.fest.swing.junit.v4_5.runner;
+package org.assertj.swing.junit.v4_5.runner;
 
 import static org.fest.swing.annotation.GUITestFinder.isGUITest;
 import static org.fest.swing.junit.runner.Formatter.testNameFrom;

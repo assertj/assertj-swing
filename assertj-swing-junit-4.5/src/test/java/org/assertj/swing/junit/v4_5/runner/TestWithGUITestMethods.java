@@ -12,7 +12,7 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_5.runner;
+package org.assertj.swing.junit.v4_5.runner;
 
 import org.fest.swing.annotation.GUITest;
 import org.junit.Ignore;

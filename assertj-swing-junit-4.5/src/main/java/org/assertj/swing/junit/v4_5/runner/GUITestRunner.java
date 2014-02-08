@@ -12,12 +12,14 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_5.runner;
+package org.assertj.swing.junit.v4_5.runner;
 
 import org.fest.swing.junit.runner.FailureScreenshotTaker;
 import org.fest.swing.junit.runner.ImageFolderCreator;
 import org.junit.runners.BlockJUnit4ClassRunner;
-import org.junit.runners.model.*;
+import org.junit.runners.model.FrameworkMethod;
+import org.junit.runners.model.InitializationError;
+import org.junit.runners.model.Statement;
 
 /**
  * Understands a JUnit 4.5 test runner that takes a screenshot of a failed GUI test.
