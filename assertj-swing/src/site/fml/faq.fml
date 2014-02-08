@@ -11,7 +11,7 @@
       <answer>
         <p>
           To set a delay between generated events, simply call the method '<code class="code">robotAutoDelay(int)</code>'
-          in <code class="code">org.fest.swing.core.Settings</code>. The parameter is the millisecond count in between 
+          in <code class="code">org.assertj.swing.core.Settings</code>. The parameter is the millisecond count in between 
           generated events. Example:
           <pre class="prettyprint">
 Settings.<span class="fnc">robotAutoDelay</span>(100);</pre>                  
@@ -26,7 +26,7 @@ Settings.<span class="fnc">robotAutoDelay</span>(100);</pre>
         <p>  
 	        By default, the fixtures FEST-Swing look up components that are showing only. To change the scope of the
 	        lookup call the method '<code class="code">componentLookupScope(ComponentLookupScope)</code>' 
-	        in <code class="code">org.fest.swing.core.Settings</code> passing
+	        in <code class="code">org.assertj.swing.core.Settings</code> passing
 	        <code class="code">ComponentLookupScope.ALL</code> as parameter. Example:
 	          <pre class="prettyprint">
 Settings.<span class="fnc">componentLookupScope</span>(ComponentLookupScope.ALL);</pre>
@@ -111,7 +111,7 @@ Settings.<span class="fnc">componentLookupScope</span>(ComponentLookupScope.ALL)
       </question>
       <answer>
         <p>
-          You can use a <code class="code">org.fest.swing.core.ComponentPrinter</code> to &quot;print&quot; the AWT
+          You can use a <code class="code">org.assertj.swing.core.ComponentPrinter</code> to &quot;print&quot; the AWT
           component hierarchy used in your GUI test. The following code listing shows how to print the component 
           hierarchy to the &quot;stardard&quot; output stream:
           <pre class="prettyprint">
