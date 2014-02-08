@@ -17,9 +17,9 @@ package org.fest.swing.fixture;
 import static java.awt.event.InputEvent.CTRL_MASK;
 import static java.awt.event.InputEvent.SHIFT_MASK;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.data.TableCell.row;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.List;
 

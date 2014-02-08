@@ -61,8 +61,8 @@ import static java.awt.event.KeyEvent.VK_W;
 import static java.awt.event.KeyEvent.VK_X;
 import static java.awt.event.KeyEvent.VK_Y;
 import static java.awt.event.KeyEvent.VK_Z;
-import static org.fest.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.keystroke.KeyStrokeMapping.mapping;
 
 import java.util.Collection;
 import java.util.List;

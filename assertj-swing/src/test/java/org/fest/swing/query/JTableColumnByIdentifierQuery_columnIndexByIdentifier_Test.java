@@ -16,8 +16,8 @@ package org.fest.swing.query;
 
 import static java.lang.Integer.parseInt;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.test.core.MethodInvocations.Args.args;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.test.core.MethodInvocations.Args.args;
 
 import java.util.Collection;
 

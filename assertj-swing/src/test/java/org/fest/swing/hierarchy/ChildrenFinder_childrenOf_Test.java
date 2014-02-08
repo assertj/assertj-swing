@@ -15,9 +15,9 @@
 package org.fest.swing.hierarchy;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.test.awt.TestComponents.newComponentMock;
 import static org.fest.swing.test.awt.TestContainers.newContainerMock;
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

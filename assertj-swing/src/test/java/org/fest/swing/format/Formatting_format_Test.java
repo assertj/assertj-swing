@@ -16,6 +16,7 @@ package org.fest.swing.format;
 
 import static java.awt.Adjustable.VERTICAL;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.builder.JButtons.button;
 import static org.fest.swing.test.builder.JDialogs.dialog;
@@ -32,7 +33,6 @@ import static org.fest.swing.test.builder.JSliders.slider;
 import static org.fest.swing.test.builder.JSpinners.spinner;
 import static org.fest.swing.test.builder.JTextFields.textField;
 import static org.fest.swing.test.builder.JToggleButtons.toggleButton;
-import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Component;
 import java.util.logging.Logger;

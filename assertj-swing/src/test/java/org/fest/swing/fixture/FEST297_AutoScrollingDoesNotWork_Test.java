@@ -15,7 +15,6 @@
 package org.fest.swing.fixture;
 
 import static javax.swing.BoxLayout.Y_AXIS;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Dimension;

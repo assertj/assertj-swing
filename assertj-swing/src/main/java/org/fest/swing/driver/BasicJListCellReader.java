@@ -14,8 +14,8 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.swing.driver.ModelValueToString.asText;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.fest.swing.driver.ModelValueToString.asText;
 
 import java.awt.Component;
 

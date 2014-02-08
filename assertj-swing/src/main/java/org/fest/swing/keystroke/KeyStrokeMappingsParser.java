@@ -16,16 +16,16 @@ package org.fest.swing.keystroke;
 
 import static java.lang.Thread.currentThread;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.reflect.core.Reflection.field;
-import static org.fest.swing.keystroke.KeyStrokeMapping.mapping;
-import static org.fest.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
-import static org.fest.util.Closeables.closeQuietly;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
+import static org.fest.reflect.core.Reflection.field;
+import static org.fest.swing.keystroke.KeyStrokeMapping.mapping;
+import static org.fest.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
+import static org.fest.util.Closeables.closeQuietly;
 
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;

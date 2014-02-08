@@ -19,6 +19,11 @@ import static java.lang.Math.min;
 import static java.lang.String.valueOf;
 import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.isNullOrEmpty;
+import static org.assertj.core.util.Strings.quote;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.driver.JTextComponentEditableQuery.isEditable;
 import static org.fest.swing.driver.JTextComponentSelectAllTask.selectAllText;
@@ -29,11 +34,6 @@ import static org.fest.swing.driver.TextAssert.verifyThat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.swing.format.Formatting.format;
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
-import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.Strings.isNullOrEmpty;
-import static org.assertj.core.util.Strings.quote;
 
 import java.awt.Container;
 import java.awt.Point;
@@ -49,6 +49,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.core.description.Description;
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
@@ -57,7 +58,6 @@ import org.fest.swing.edt.GuiTask;
 import org.fest.swing.exception.ActionFailedException;
 import org.fest.swing.util.Pair;
 import org.fest.swing.util.Platform;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

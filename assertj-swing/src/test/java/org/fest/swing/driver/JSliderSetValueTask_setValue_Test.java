@@ -15,9 +15,9 @@
 package org.fest.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.driver.JSliderValueQuery.valueOf;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 

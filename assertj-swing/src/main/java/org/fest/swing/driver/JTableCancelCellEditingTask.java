@@ -14,8 +14,8 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.swing.driver.JTableCellPreconditions.validateCellIsEditable;
 import static org.fest.swing.driver.JTableCellPreconditions.checkCellIndicesInBounds;
+import static org.fest.swing.driver.JTableCellPreconditions.validateCellIsEditable;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;

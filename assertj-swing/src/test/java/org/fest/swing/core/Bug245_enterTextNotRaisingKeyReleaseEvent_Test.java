@@ -20,8 +20,8 @@ import static java.awt.event.KeyEvent.VK_L;
 import static java.awt.event.KeyEvent.VK_O;
 import static java.awt.event.KeyEvent.VK_SHIFT;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

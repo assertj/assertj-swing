@@ -14,8 +14,8 @@
  */
 package org.fest.swing.keystroke;
 
-import static org.fest.util.Objects.HASH_CODE_PRIME;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.fest.util.Objects.HASH_CODE_PRIME;
 
 import javax.annotation.Nonnull;
 import javax.swing.KeyStroke;

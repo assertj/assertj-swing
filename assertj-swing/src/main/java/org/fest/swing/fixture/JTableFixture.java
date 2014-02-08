@@ -14,9 +14,9 @@
  */
 package org.fest.swing.fixture;
 
-import static org.fest.swing.driver.ComponentDriver.propertyName;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
+import static org.fest.swing.driver.ComponentDriver.propertyName;
 
 import java.awt.Color;
 import java.awt.Font;

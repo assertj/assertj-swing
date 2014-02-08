@@ -14,9 +14,9 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.util.List;
 

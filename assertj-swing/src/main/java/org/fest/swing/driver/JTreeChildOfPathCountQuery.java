@@ -1,7 +1,7 @@
 package org.fest.swing.driver;
 
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

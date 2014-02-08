@@ -16,9 +16,9 @@ package org.fest.swing.format;
 
 import static javax.swing.JFileChooser.OPEN_DIALOG;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.query.JFileChooserCurrentDirectoryQuery.currentDirectoryOf;
-import static org.assertj.core.util.Strings.concat;
 
 import javax.swing.JFileChooser;
 

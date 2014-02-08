@@ -14,13 +14,13 @@
  */
 package org.fest.swing.core;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.swing.timing.Pause.pause;
 import static org.fest.swing.util.Platform.isMacintosh;
 import static org.fest.swing.util.Platform.isWindows;
 import static org.fest.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 import java.awt.Dimension;

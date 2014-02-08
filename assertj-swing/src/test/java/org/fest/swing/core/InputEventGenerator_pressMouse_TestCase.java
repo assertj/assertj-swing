@@ -15,10 +15,10 @@
 package org.fest.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.awt.AWT.centerOf;
-import static org.fest.swing.timing.Pause.pause;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.fest.swing.awt.AWT.centerOf;
+import static org.fest.swing.timing.Pause.pause;
 
 import java.awt.Point;
 import java.util.Collection;

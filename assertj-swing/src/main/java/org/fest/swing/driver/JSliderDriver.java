@@ -14,23 +14,23 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.driver.JSliderSetValueTask.setValue;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Point;
 
 import javax.annotation.Nonnull;
 import javax.swing.JSlider;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.util.GenericRange;
 import org.fest.swing.util.Pair;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

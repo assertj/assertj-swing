@@ -14,11 +14,11 @@
  */
 package org.fest.swing.core;
 
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.test.builder.JFrames.frame;
 import static org.fest.swing.test.task.FrameShowTask.packAndShow;
 import static org.fest.swing.test.task.WindowDestroyTask.hideAndDispose;
 import static org.fest.swing.timing.Pause.pause;
-import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Component;
 import java.awt.Dimension;

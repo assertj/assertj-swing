@@ -20,11 +20,11 @@ import static java.awt.event.KeyEvent.VK_ENTER;
 import static java.awt.event.KeyEvent.VK_ESCAPE;
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.timing.Pause.pause;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
+import static org.fest.swing.timing.Pause.pause;
 
 import java.awt.Dimension;
 import java.util.Collection;

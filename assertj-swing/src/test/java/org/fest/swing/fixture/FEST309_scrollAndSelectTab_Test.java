@@ -17,8 +17,8 @@ package org.fest.swing.fixture;
 import static java.awt.BorderLayout.CENTER;
 import static javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT;
 import static javax.swing.SwingConstants.BOTTOM;
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Strings.concat;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

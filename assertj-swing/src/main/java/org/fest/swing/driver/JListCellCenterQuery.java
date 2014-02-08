@@ -14,10 +14,10 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.awt.AWT.centerOf;
 import static org.fest.swing.awt.AWT.centerOfVisibleRect;
 import static org.fest.swing.awt.AWT.translate;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Point;
 import java.awt.Rectangle;

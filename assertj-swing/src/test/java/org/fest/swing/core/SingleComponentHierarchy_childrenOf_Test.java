@@ -15,8 +15,8 @@
 package org.fest.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.mockito.Mockito.when;
 
 import java.awt.Component;

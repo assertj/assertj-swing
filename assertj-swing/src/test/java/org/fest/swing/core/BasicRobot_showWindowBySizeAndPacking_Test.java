@@ -15,9 +15,9 @@
 package org.fest.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.query.ComponentSizeQuery.sizeOf;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Dimension;
 

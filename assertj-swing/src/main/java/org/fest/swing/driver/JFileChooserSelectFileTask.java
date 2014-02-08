@@ -16,10 +16,10 @@ package org.fest.swing.driver;
 
 import static javax.swing.JFileChooser.DIRECTORIES_ONLY;
 import static javax.swing.JFileChooser.FILES_ONLY;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.format.Formatting.format;
-import static org.assertj.core.util.Strings.concat;
 import static org.fest.util.ToString.toStringOf;
 
 import java.io.File;

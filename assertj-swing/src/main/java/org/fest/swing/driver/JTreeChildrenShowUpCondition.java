@@ -14,8 +14,8 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.swing.driver.JTreeChildOfPathCountQuery.childCount;
 import static org.assertj.core.util.Strings.concat;
+import static org.fest.swing.driver.JTreeChildOfPathCountQuery.childCount;
 
 import javax.annotation.Nonnull;
 import javax.swing.JTree;

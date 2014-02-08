@@ -17,10 +17,10 @@ package org.fest.swing.core;
 import static java.awt.event.InputEvent.BUTTON1_MASK;
 import static java.awt.event.InputEvent.BUTTON2_MASK;
 import static java.awt.event.InputEvent.BUTTON3_MASK;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.core.MouseButton.MIDDLE_BUTTON;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 

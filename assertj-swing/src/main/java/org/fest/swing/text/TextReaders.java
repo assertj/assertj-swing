@@ -14,10 +14,10 @@
  */
 package org.fest.swing.text;
 
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Maps.newConcurrentHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 import java.awt.Container;

@@ -15,8 +15,8 @@
 package org.fest.swing.keystroke;
 
 import static java.util.Collections.unmodifiableList;
-import static org.fest.swing.keystroke.KeyStrokeMappings.defaultMappings;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.keystroke.KeyStrokeMappings.defaultMappings;
 
 import java.util.Collection;
 import java.util.List;

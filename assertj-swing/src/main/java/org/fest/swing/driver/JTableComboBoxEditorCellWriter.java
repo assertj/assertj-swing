@@ -14,9 +14,9 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.driver.JComboBoxEditableQuery.isEditable;
 import static org.fest.swing.driver.JTableStopCellEditingTask.stopEditing;
-import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Point;
 

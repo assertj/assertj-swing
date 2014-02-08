@@ -15,8 +15,8 @@
 package org.fest.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.driver.JComboBoxSetSelectedIndexTask.setSelectedIndex;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.driver.JComboBoxSetSelectedIndexTask.setSelectedIndex;
 
 import java.util.Collection;
 

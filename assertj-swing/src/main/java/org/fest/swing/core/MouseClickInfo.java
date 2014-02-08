@@ -14,11 +14,11 @@
  */
 package org.fest.swing.core;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.core.MouseButton.MIDDLE_BUTTON;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Strings.concat;
 
 import javax.annotation.Nonnull;
 

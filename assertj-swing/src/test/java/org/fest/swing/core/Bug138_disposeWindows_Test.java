@@ -14,10 +14,10 @@
  */
 package org.fest.swing.core;
 
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.core.TestComponentHierarchies.newComponentHierarchyMock;
 import static org.fest.swing.test.builder.JFrames.frame;
 import static org.fest.swing.test.task.WindowDestroyTask.hideAndDisposeInEDT;
-import static org.assertj.core.util.Lists.newArrayList;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;

@@ -14,10 +14,10 @@
  */
 package org.fest.swing.timing;
 
-import static org.fest.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-import static org.fest.util.Arrays.format;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
+import static org.fest.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
+import static org.fest.util.Arrays.format;
 
 import java.util.concurrent.TimeUnit;
 

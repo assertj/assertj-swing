@@ -14,6 +14,7 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.driver.ComponentPreconditions.checkShowing;
 import static org.fest.swing.driver.JInternalFrameAction.DEICONIFY;
 import static org.fest.swing.driver.JInternalFrameAction.ICONIFY;
@@ -28,7 +29,6 @@ import static org.fest.swing.driver.WindowLikeContainers.maximizeButtonLocation;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.swing.format.Formatting.format;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
 import javax.swing.JInternalFrame;
 import javax.swing.JInternalFrame.JDesktopIcon;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInCurrentThread;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
@@ -49,7 +50,6 @@ import org.fest.swing.exception.ActionFailedException;
 import org.fest.swing.exception.UnexpectedException;
 import org.fest.swing.util.Pair;
 import org.fest.swing.util.Triple;
-import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.util.VisibleForTesting;
 
 /**

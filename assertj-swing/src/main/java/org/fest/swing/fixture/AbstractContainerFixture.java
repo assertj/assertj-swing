@@ -14,10 +14,10 @@
  */
 package org.fest.swing.fixture;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.core.ComponentLookupScope.SHOWING_ONLY;
 import static org.fest.swing.timing.Pause.pause;
 import static org.fest.swing.timing.Timeout.timeout;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 import java.awt.Container;

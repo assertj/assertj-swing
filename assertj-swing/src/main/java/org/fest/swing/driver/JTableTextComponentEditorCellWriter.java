@@ -15,8 +15,8 @@
 package org.fest.swing.driver;
 
 import static java.awt.event.KeyEvent.VK_F2;
-import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 
 import java.awt.Point;
 

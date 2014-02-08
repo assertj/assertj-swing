@@ -15,8 +15,8 @@
 package org.fest.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.test.task.AbstractButtonSetSelectedTask.setSelected;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.test.task.AbstractButtonSetSelectedTask.setSelected;
 
 import java.util.Collection;
 

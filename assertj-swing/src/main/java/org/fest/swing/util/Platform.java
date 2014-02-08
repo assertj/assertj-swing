@@ -16,8 +16,8 @@ package org.fest.swing.util;
 
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.util.Modifiers.keysFor;
 import static org.assertj.core.util.Strings.concat;
+import static org.fest.swing.util.Modifiers.keysFor;
 
 import java.awt.Event;
 import java.awt.HeadlessException;

@@ -14,11 +14,10 @@
  */
 package org.fest.swing.fixture;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.builder.JFrames.frame;
 import static org.fest.swing.timing.Pause.pause;
-import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Dimension;
 import java.util.logging.Logger;

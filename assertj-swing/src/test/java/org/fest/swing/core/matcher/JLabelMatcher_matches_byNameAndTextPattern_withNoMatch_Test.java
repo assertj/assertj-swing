@@ -15,8 +15,8 @@
 package org.fest.swing.core.matcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.test.builder.JLabels.label;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.test.builder.JLabels.label;
 
 import java.util.Collection;
 import java.util.regex.Pattern;

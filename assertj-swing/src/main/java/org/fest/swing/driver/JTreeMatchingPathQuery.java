@@ -1,9 +1,9 @@
 package org.fest.swing.driver;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.driver.JTreeAddRootIfInvisibleTask.addRootIfInvisible;
 import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import javax.annotation.Nonnull;
 import javax.swing.JTree;

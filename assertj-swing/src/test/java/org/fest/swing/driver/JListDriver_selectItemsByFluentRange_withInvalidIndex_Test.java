@@ -16,11 +16,11 @@ package org.fest.swing.driver;
 
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.swing.util.Range.from;
 import static org.fest.swing.util.Range.to;
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Strings.concat;
 
 import java.util.Collection;
 

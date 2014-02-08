@@ -16,8 +16,8 @@ package org.fest.swing.test.swing;
 
 import static java.lang.String.valueOf;
 import static javax.swing.ListSelectionModel.SINGLE_SELECTION;
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Strings.concat;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;

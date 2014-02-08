@@ -21,11 +21,11 @@ import javax.annotation.Nullable;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.GenericTypeMatcher;
 import org.fest.swing.core.Robot;
 import org.fest.swing.exception.ComponentLookupException;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

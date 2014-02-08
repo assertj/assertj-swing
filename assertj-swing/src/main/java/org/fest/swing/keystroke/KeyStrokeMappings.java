@@ -19,10 +19,10 @@ import static java.awt.event.KeyEvent.VK_DELETE;
 import static java.awt.event.KeyEvent.VK_ENTER;
 import static java.awt.event.KeyEvent.VK_ESCAPE;
 import static java.awt.event.KeyEvent.VK_TAB;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.fest.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
 import static org.fest.swing.util.Platform.isWindows;
-import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 import java.util.List;

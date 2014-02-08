@@ -15,9 +15,9 @@
 package org.fest.swing.edt;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
-import static org.assertj.core.util.Strings.concat;
 
 import org.junit.Test;
 

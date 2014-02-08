@@ -16,11 +16,11 @@ package org.fest.swing.driver;
 
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.driver.JInternalFrameAction.ICONIFY;
 import static org.fest.swing.driver.JInternalFrameSetIconTask.setIcon;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.task.ComponentSetEnabledTask.disable;
-import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Dimension;
 

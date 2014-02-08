@@ -15,8 +15,8 @@
 package org.fest.swing.launcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.awt.Frame;
 import java.util.List;

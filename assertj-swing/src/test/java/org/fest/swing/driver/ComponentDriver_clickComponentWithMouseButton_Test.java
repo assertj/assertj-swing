@@ -14,7 +14,6 @@
  */
 package org.fest.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.awt.AWT.centerOf;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.core.MouseButton.MIDDLE_BUTTON;

@@ -14,11 +14,11 @@
  */
 package org.fest.swing.test.swing;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.task.FrameShowTask.packAndShow;
 import static org.fest.swing.test.task.FrameShowTask.waitForShowing;
 import static org.fest.swing.test.task.WindowDestroyTask.hideAndDispose;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 import java.awt.Dimension;

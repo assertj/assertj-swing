@@ -14,8 +14,8 @@
  */
 package org.fest.swing.hierarchy;
 
-import static org.fest.swing.awt.AWT.isSharedInvisibleFrame;
 import static org.assertj.core.util.Maps.newWeakHashMap;
+import static org.fest.swing.awt.AWT.isSharedInvisibleFrame;
 
 import java.awt.Component;
 import java.awt.Window;

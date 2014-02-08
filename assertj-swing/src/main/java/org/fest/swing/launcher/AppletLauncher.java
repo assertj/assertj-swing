@@ -14,11 +14,11 @@
  */
 package org.fest.swing.launcher;
 
-import static org.fest.swing.edt.GuiActionRunner.execute;
-import static org.fest.swing.launcher.NewAppletViewerQuery.showAppletViewerWith;
 import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
+import static org.fest.swing.edt.GuiActionRunner.execute;
+import static org.fest.swing.launcher.NewAppletViewerQuery.showAppletViewerWith;
 
 import java.applet.Applet;
 import java.util.Map;

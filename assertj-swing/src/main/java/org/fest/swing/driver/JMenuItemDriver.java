@@ -15,6 +15,8 @@
 package org.fest.swing.driver;
 
 import static java.lang.Boolean.getBoolean;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.core.WindowAncestorFinder.windowAncestorOf;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.driver.JMenuPopupMenuQuery.popupMenuOf;
@@ -24,8 +26,6 @@ import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.swing.format.Formatting.format;
 import static org.fest.swing.timing.Pause.pause;
 import static org.fest.swing.util.Platform.isOSX;
-import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Strings.concat;
 
 import java.awt.Component;
 import java.awt.Window;
@@ -36,12 +36,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.edt.GuiTask;
 import org.fest.swing.exception.ActionFailedException;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

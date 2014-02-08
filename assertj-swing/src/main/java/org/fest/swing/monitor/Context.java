@@ -14,9 +14,9 @@
  */
 package org.fest.swing.monitor;
 
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Sets.newLinkedHashSet;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 import java.awt.EventQueue;

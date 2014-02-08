@@ -15,8 +15,8 @@
 package org.fest.swing.core;
 
 import static javax.swing.SwingUtilities.convertRectangle;
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 import java.awt.Container;

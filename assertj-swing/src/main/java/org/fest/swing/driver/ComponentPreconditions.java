@@ -14,8 +14,8 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.swing.format.Formatting.format;
 import static org.assertj.core.util.Strings.concat;
+import static org.fest.swing.format.Formatting.format;
 
 import java.awt.Component;
 

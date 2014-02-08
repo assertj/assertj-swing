@@ -16,8 +16,8 @@ package org.fest.swing.data;
 
 import static java.lang.Integer.parseInt;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.data.TableCellByColumnId.row;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.data.TableCellByColumnId.row;
 
 import java.util.Collection;
 

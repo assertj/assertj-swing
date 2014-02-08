@@ -15,9 +15,9 @@
 package org.fest.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.driver.ComponentDriver.propertyName;
 import static org.fest.swing.format.Formatting.format;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Color;
 import java.awt.Component;

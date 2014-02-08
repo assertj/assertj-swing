@@ -15,8 +15,8 @@
 package org.fest.swing.driver;
 
 import static java.util.concurrent.Executors.newSingleThreadExecutor;
-import static org.fest.swing.driver.JProgressBarIncrementValueTask.incrementValue;
 import static org.assertj.core.util.Strings.concat;
+import static org.fest.swing.driver.JProgressBarIncrementValueTask.incrementValue;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;

@@ -14,7 +14,6 @@
  */
 package org.fest.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.awt.AWT.centerOf;
 import static org.fest.swing.core.MouseClickInfo.leftButton;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;

@@ -15,8 +15,8 @@
 package org.fest.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.ExpectedException.none;
+import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -24,12 +24,12 @@ import java.awt.Point;
 
 import javax.swing.table.JTableHeader;
 
+import org.assertj.swing.test.ExpectedException;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.exception.LocationUnavailableException;
 import org.fest.swing.util.Pair;
 import org.fest.swing.util.TextMatcher;
-import org.assertj.swing.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;
 

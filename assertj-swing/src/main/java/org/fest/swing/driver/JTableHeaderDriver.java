@@ -14,11 +14,11 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.timing.Pause.pause;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Point;
 import java.util.regex.Pattern;
@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
 import javax.swing.JPopupMenu;
 import javax.swing.table.JTableHeader;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.MouseButton;
 import org.fest.swing.core.Robot;
@@ -38,7 +39,6 @@ import org.fest.swing.util.Pair;
 import org.fest.swing.util.PatternTextMatcher;
 import org.fest.swing.util.StringTextMatcher;
 import org.fest.swing.util.TextMatcher;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

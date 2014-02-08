@@ -14,12 +14,12 @@
  */
 package org.fest.swing.image;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.core.FocusOwnerFinder.focusOwner;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.image.ImageFileExtensions.PNG;
 import static org.fest.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
 import static org.fest.swing.query.ComponentSizeQuery.sizeOf;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.AWTException;
 import java.awt.Component;

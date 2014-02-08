@@ -14,10 +14,10 @@
  */
 package org.fest.swing.driver;
 
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
-import static org.assertj.swing.test.ExpectedException.none;
 
 import org.assertj.swing.test.ExpectedException;
 import org.junit.Rule;

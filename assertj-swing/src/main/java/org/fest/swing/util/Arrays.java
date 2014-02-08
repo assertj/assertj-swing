@@ -14,10 +14,10 @@
  */
 package org.fest.swing.util;
 
-import static org.fest.util.Objects.areEqual;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
+import static org.fest.util.Objects.areEqual;
 
 import java.lang.reflect.Array;
 

@@ -16,8 +16,8 @@ package org.fest.swing.hierarchy;
 
 import static java.awt.AWTEvent.COMPONENT_EVENT_MASK;
 import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
-import static org.fest.swing.listener.WeakEventListener.attachAsWeakEventListener;
 import static org.assertj.core.util.Lists.emptyList;
+import static org.fest.swing.listener.WeakEventListener.attachAsWeakEventListener;
 
 import java.awt.Component;
 import java.awt.Container;

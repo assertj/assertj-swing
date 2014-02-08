@@ -14,10 +14,10 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.swing.format.Formatting.format;
-import static org.fest.swing.query.ComponentShowingQuery.isShowing;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
+import static org.fest.swing.format.Formatting.format;
+import static org.fest.swing.query.ComponentShowingQuery.isShowing;
 
 import java.awt.Component;
 

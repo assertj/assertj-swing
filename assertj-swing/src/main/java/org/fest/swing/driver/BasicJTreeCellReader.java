@@ -14,8 +14,8 @@
  */
 package org.fest.swing.driver;
 
-import static org.fest.swing.util.Strings.isDefaultToString;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.fest.swing.util.Strings.isDefaultToString;
 
 import java.awt.Component;
 

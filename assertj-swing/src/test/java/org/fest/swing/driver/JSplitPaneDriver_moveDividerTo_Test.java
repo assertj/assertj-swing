@@ -17,12 +17,12 @@ package org.fest.swing.driver;
 import static javax.swing.JSplitPane.HORIZONTAL_SPLIT;
 import static javax.swing.JSplitPane.VERTICAL_SPLIT;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
 import static org.fest.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.swing.test.task.ComponentSetEnabledTask.disable;
-import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Dimension;
 import java.util.Collection;

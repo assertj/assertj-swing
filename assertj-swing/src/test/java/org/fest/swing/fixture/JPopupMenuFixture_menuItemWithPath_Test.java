@@ -14,7 +14,6 @@
  */
 package org.fest.swing.fixture;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.util.Platform.isOSX;

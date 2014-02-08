@@ -17,7 +17,8 @@ package org.fest.swing.fixture;
 import static org.fest.swing.data.TableCell.row;
 import static org.fest.util.Arrays.array;
 
-import javax.swing.*;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import org.fest.swing.edt.GuiActionRunner;
 import org.fest.swing.edt.GuiQuery;

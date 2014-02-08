@@ -22,9 +22,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JLabel;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

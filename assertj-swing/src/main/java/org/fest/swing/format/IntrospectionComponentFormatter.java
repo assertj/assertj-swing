@@ -14,12 +14,12 @@
  */
 package org.fest.swing.format;
 
-import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
+import static org.fest.swing.exception.ActionFailedException.actionFailure;
 import static org.fest.util.ToString.toStringOf;
 
 import java.awt.Component;

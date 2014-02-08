@@ -21,8 +21,8 @@ import static java.awt.event.InputEvent.META_MASK;
 import static java.awt.event.InputEvent.SHIFT_MASK;
 import static java.awt.event.KeyEvent.VK_A;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.swing.test.awt.TestComponents.singletonComponentMock;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.fest.swing.test.awt.TestComponents.singletonComponentMock;
 
 import java.awt.event.KeyEvent;
 import java.util.Collection;

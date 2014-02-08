@@ -14,9 +14,9 @@
  */
 package org.fest.swing.hierarchy;
 
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.fest.swing.awt.AWT.isAppletViewer;
 import static org.fest.swing.awt.AWT.isSharedInvisibleFrame;
-import static org.assertj.core.util.Lists.newArrayList;
 
 import java.awt.Component;
 import java.awt.Container;

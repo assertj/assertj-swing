@@ -16,6 +16,7 @@ package org.fest.swing.driver;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.driver.JProgressBarIndeterminateQuery.isIndeterminate;
 import static org.fest.swing.driver.JProgressBarMinimumAndMaximumQuery.minimumAndMaximumOf;
 import static org.fest.swing.driver.JProgressBarStringQuery.stringOf;
@@ -24,7 +25,6 @@ import static org.fest.swing.driver.JProgressBarWaitUntilIsDeterminate.waitUntil
 import static org.fest.swing.driver.JProgressBarWaitUntilValueIsEqualToExpectedTask.waitUntilValueIsEqualToExpected;
 import static org.fest.swing.driver.TextAssert.verifyThat;
 import static org.fest.swing.timing.Timeout.timeout;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.util.regex.Pattern;
 
@@ -32,12 +32,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JProgressBar;
 
+import org.assertj.swing.internal.annotation.InternalApi;
 import org.fest.swing.annotation.RunsInEDT;
 import org.fest.swing.core.Robot;
 import org.fest.swing.exception.WaitTimedOutError;
 import org.fest.swing.timing.Timeout;
 import org.fest.swing.util.Pair;
-import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>

@@ -15,9 +15,9 @@
 package org.fest.swing.monitor;
 
 import static java.lang.Boolean.TRUE;
-import static org.fest.swing.query.ComponentParentQuery.parentOf;
 import static org.assertj.core.util.Maps.newWeakHashMap;
 import static org.assertj.core.util.Sets.newHashSet;
+import static org.fest.swing.query.ComponentParentQuery.parentOf;
 
 import java.awt.Component;
 import java.awt.EventQueue;

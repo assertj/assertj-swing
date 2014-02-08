@@ -14,11 +14,11 @@
  */
 package org.fest.swing.util;
 
-import static org.fest.swing.util.Patterns.format;
-import static org.fest.swing.util.Strings.match;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.quote;
+import static org.fest.swing.util.Patterns.format;
+import static org.fest.swing.util.Strings.match;
 
 import java.util.regex.Pattern;
 

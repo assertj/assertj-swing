@@ -14,9 +14,9 @@
  */
 package org.fest.swing.fixture;
 
+import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.fest.swing.core.MouseButton.LEFT_BUTTON;
 import static org.fest.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

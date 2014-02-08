@@ -15,10 +15,10 @@
 package org.fest.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Strings.concat;
 import static org.fest.swing.edt.GuiActionRunner.execute;
 import static org.fest.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.swing.util.Arrays.format;
-import static org.assertj.core.util.Strings.concat;
 
 import javax.swing.JTable;
 
