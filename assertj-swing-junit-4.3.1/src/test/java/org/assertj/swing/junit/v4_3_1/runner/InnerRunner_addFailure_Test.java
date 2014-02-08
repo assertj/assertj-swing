@@ -12,9 +12,11 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_3_1.runner;
+package org.assertj.swing.junit.v4_3_1.runner;
 
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
+import static org.easymock.EasyMock.reportMatcher;
 import static org.fest.util.Objects.areEqual;
 import static org.junit.runner.Description.createSuiteDescription;
 

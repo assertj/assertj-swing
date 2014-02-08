@@ -12,7 +12,7 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_3_1.runner;
+package org.assertj.swing.junit.v4_3_1.runner;
 
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.reportMatcher;

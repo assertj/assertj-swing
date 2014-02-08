@@ -1,5 +1,5 @@
 /*
- * Created on Mar 16, 2009
+ * Created on Apr 24, 2009
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,35 +12,32 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_3_1.runner;
+package org.assertj.swing.junit.v4_3_1.runner;
 
-import org.fest.swing.annotation.GUITest;
-import org.junit.Test;
+import static org.easymock.classextension.EasyMock.createMock;
+
+import org.junit.Before;
+import org.junit.runner.notification.RunNotifier;
 
 /**
- * Understands a JUnit test that has some test methods marked as GUI tests.
+ * Base test case for <code>{@link InnerRunner}</code>.
  * 
  * @author Alex Ruiz
  */
-public class SomeGuiTestFake {
+public abstract class InnerRunner_TestCase {
 
-  @GUITest
-  @Test
-  public void successfulGUITest() {
+  GUITestRunner delegate;
+  RunNotifier notifier;
+  InnerRunner runner;
+
+  @Before
+  public final void setUp() {
+    delegate = createMock(GUITestRunner.class);
+    notifier = createMock(RunNotifier.class);
+    runner = new InnerRunner(delegate, notifier);
+    onSetUp();
   }
 
-  @GUITest
-  @Test
-  public void failedGUITest() {
-    throw new RuntimeException("Failed on purpose");
-  }
-
-  @Test
-  public void successfulNonGUITest() {
-  }
-
-  @Test
-  public void failedNonGUITest() {
-    throw new RuntimeException("Failed on purpose");
+  void onSetUp() {
   }
 }

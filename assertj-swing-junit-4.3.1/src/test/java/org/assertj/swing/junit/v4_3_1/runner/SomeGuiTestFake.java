@@ -1,5 +1,5 @@
 /*
- * Created on Apr 24, 2009
+ * Created on Mar 16, 2009
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,33 +12,35 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_3_1.runner;
+package org.assertj.swing.junit.v4_3_1.runner;
 
-import static org.easymock.EasyMock.expectLastCall;
-
-import org.fest.mocks.EasyMockTemplate;
+import org.fest.swing.annotation.GUITest;
 import org.junit.Test;
 
 /**
- * Tests for <code>{@link InnerRunner#runUnprotected()}</code>.
+ * Understands a JUnit test that has some test methods marked as GUI tests.
  * 
  * @author Alex Ruiz
  */
-public class InnerRunner_runUnprotected_Test extends InnerRunner_TestCase {
+public class SomeGuiTestFake {
+
+  @GUITest
+  @Test
+  public void successfulGUITest() {
+  }
+
+  @GUITest
+  @Test
+  public void failedGUITest() {
+    throw new RuntimeException("Failed on purpose");
+  }
 
   @Test
-  public void should_call_delegate_when_running_unprotected() {
-    new EasyMockTemplate(delegate, notifier) {
-      @Override
-      protected void expectations() {
-        delegate.doRun(notifier);
-        expectLastCall().once();
-      }
+  public void successfulNonGUITest() {
+  }
 
-      @Override
-      protected void codeToTest() {
-        runner.runUnprotected();
-      }
-    }.run();
+  @Test
+  public void failedNonGUITest() {
+    throw new RuntimeException("Failed on purpose");
   }
 }

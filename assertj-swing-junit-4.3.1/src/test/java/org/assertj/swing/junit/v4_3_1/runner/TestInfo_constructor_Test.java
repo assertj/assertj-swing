@@ -12,7 +12,7 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_3_1.runner;
+package org.assertj.swing.junit.v4_3_1.runner;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -44,7 +44,7 @@ public class TestInfo_constructor_Test {
     assertTestInfoCreatedCorrectly(testInfo, method);
     assertThat(testInfo.isGUITest()).isTrue();
     assertThat(testInfo.screenshotFileName()).isEqualTo(
-        "org.fest.swing.junit.v4_3_1.runner.SomeGuiTestFake.successfulGUITest");
+        "org.assertj.swing.junit.v4_3_1.runner.SomeGuiTestFake.successfulGUITest");
   }
 
   @Test

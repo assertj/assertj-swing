@@ -12,32 +12,33 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_3_1.runner;
+package org.assertj.swing.junit.v4_3_1.runner;
 
-import static org.easymock.classextension.EasyMock.createMock;
+import static org.easymock.EasyMock.expectLastCall;
 
-import org.junit.Before;
-import org.junit.runner.notification.RunNotifier;
+import org.fest.mocks.EasyMockTemplate;
+import org.junit.Test;
 
 /**
- * Base test case for <code>{@link InnerRunner}</code>.
+ * Tests for <code>{@link InnerRunner#runUnprotected()}</code>.
  * 
  * @author Alex Ruiz
  */
-public abstract class InnerRunner_TestCase {
+public class InnerRunner_runUnprotected_Test extends InnerRunner_TestCase {
 
-  GUITestRunner delegate;
-  RunNotifier notifier;
-  InnerRunner runner;
+  @Test
+  public void should_call_delegate_when_running_unprotected() {
+    new EasyMockTemplate(delegate, notifier) {
+      @Override
+      protected void expectations() {
+        delegate.doRun(notifier);
+        expectLastCall().once();
+      }
 
-  @Before
-  public final void setUp() {
-    delegate = createMock(GUITestRunner.class);
-    notifier = createMock(RunNotifier.class);
-    runner = new InnerRunner(delegate, notifier);
-    onSetUp();
-  }
-
-  void onSetUp() {
+      @Override
+      protected void codeToTest() {
+        runner.runUnprotected();
+      }
+    }.run();
   }
 }

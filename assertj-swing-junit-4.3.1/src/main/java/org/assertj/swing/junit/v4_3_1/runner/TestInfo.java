@@ -12,7 +12,7 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_3_1.runner;
+package org.assertj.swing.junit.v4_3_1.runner;
 
 import static org.fest.swing.junit.runner.Formatter.testNameFrom;
 import static org.junit.runner.Description.createTestDescription;

@@ -12,7 +12,7 @@
  * 
  * Copyright @2007-2009 the original author or authors.
  */
-package org.fest.swing.junit.runner;
+package org.assertj.swing.junit.runner;
 
 import org.junit.internal.runners.InitializationError;
 
@@ -22,17 +22,17 @@ import org.junit.internal.runners.InitializationError;
  * @author Alex Ruiz
  * @author Yvonne Wang
  * 
- * @deprecated use <code>{@link org.fest.swing.junit.v4_3_1.runner.GUITestRunner}</code> instead.
+ * @deprecated use <code>{@link org.assertj.swing.junit.v4_3_1.runner.GUITestRunner}</code> instead.
  */
 @Deprecated
-public class GUITestRunner extends org.fest.swing.junit.v4_3_1.runner.GUITestRunner {
+public class GUITestRunner extends org.assertj.swing.junit.v4_3_1.runner.GUITestRunner {
 
   /**
    * Creates a new </code>{@link GUITestRunner}</code>.
    * 
    * @param testClass the class containing the tests to run.
    * @throws InitializationError if something goes wrong when creating this runner.
-   * @deprecated use <code>{@link org.fest.swing.junit.v4_3_1.runner.GUITestRunner}</code> instead.
+   * @deprecated use <code>{@link org.assertj.swing.junit.v4_3_1.runner.GUITestRunner}</code> instead.
    */
   @Deprecated
   public GUITestRunner(Class<?> testClass) throws InitializationError {

@@ -12,7 +12,7 @@
  * 
  * Copyright @2007-2009 the original author or authors.
  */
-package org.fest.swing.junit.v4_3_1.runner;
+package org.assertj.swing.junit.v4_3_1.runner;
 
 import static org.junit.runner.Description.createSuiteDescription;
 import static org.junit.runner.Description.createTestDescription;
@@ -24,7 +24,9 @@ import java.util.List;
 import org.fest.swing.junit.runner.FailureScreenshotTaker;
 import org.fest.swing.junit.runner.ImageFolderCreator;
 import org.junit.Test;
-import org.junit.internal.runners.*;
+import org.junit.internal.runners.InitializationError;
+import org.junit.internal.runners.MethodValidator;
+import org.junit.internal.runners.TestIntrospector;
 import org.junit.runner.Description;
 import org.junit.runner.Runner;
 import org.junit.runner.notification.RunNotifier;
