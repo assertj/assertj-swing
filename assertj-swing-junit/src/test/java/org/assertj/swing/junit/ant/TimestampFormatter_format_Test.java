@@ -18,7 +18,7 @@ import static java.util.Calendar.AM;
 import static java.util.Calendar.AM_PM;
 import static java.util.Calendar.JUNE;
 import static java.util.Calendar.MILLISECOND;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

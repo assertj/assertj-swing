@@ -18,14 +18,14 @@ import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ERROR;
 import junit.framework.Test;
 
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
+import org.assertj.swing.image.ImageException;
 import org.assertj.swing.junit.xml.XmlNode;
-import org.fest.swing.image.ImageException;
 
 /**
  * Understands a JUnit XML report formatter that takes a screenshot when a GUI test fails.
  * <p>
  * <strong>Note:</strong> A test is consider a GUI test if it is marked with the annotation
- * <code>{@link org.fest.swing.annotation.GUITest}</code>.
+ * <code>{@link org.assertj.swing.annotation.GUITest}</code>.
  * </p>
  * 
  * @author Alex Ruiz

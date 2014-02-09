@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
 import org.assertj.swing.junit.xml.XmlNode;

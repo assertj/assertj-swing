@@ -17,10 +17,10 @@ package org.assertj.swing.junit.ant;
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_CLASSNAME;
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_NAME;
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.TESTCASE;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.assertj.swing.junit.xml.XmlAttributes.attributes;
 import static org.easymock.EasyMock.expect;
-import static org.fest.assertions.Assertions.assertThat;
 
 import org.assertj.swing.junit.xml.XmlAttributes;
 import org.assertj.swing.junit.xml.XmlNode;

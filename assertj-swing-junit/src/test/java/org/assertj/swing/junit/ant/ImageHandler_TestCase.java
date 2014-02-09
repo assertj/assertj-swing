@@ -19,7 +19,7 @@ import static org.easymock.classextension.EasyMock.createMock;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import org.fest.swing.image.ScreenshotTaker;
+import org.assertj.swing.image.ScreenshotTaker;
 import org.junit.BeforeClass;
 
 /**

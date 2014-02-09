@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.junit.xml;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.w3c.dom.Node;

@@ -15,9 +15,9 @@
 package org.assertj.swing.testng.listener;
 
 import static java.io.File.separator;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.util.Files.newTemporaryFolder;
 import static org.fest.util.Strings.concat;
 

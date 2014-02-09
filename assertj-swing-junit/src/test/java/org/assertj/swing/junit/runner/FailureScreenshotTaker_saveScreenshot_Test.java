@@ -23,8 +23,8 @@ import static org.fest.util.Strings.concat;
 import java.io.File;
 import java.io.IOException;
 
+import org.assertj.swing.image.ScreenshotTaker;
 import org.fest.mocks.EasyMockTemplate;
-import org.fest.swing.image.ScreenshotTaker;
 import org.junit.Before;
 import org.junit.Test;
 

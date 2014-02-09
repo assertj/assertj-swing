@@ -15,10 +15,10 @@
 package org.assertj.swing.junit.ant;
 
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.HOSTNAME;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
-import static org.fest.assertions.Assertions.assertThat;
 
 import java.net.UnknownHostException;
 

@@ -14,8 +14,8 @@
  */
 package org.assertj.swing.junit.xml;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
-import static org.fest.assertions.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.junit.v4_5.runner;
 
-import org.fest.swing.annotation.GUITest;
+import org.assertj.swing.annotation.GUITest;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;

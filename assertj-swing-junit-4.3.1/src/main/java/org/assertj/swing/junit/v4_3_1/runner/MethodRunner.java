@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.junit.v4_3_1.runner;
 
-import org.fest.swing.junit.runner.FailureScreenshotTaker;
+import org.assertj.swing.junit.runner.FailureScreenshotTaker;
 import org.junit.internal.runners.TestMethodRunner;
 import org.junit.runner.notification.RunNotifier;
 

@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.constructor;
 import static org.fest.reflect.core.Reflection.staticInnerClass;
 import junit.framework.JUnit4TestCaseFacade;

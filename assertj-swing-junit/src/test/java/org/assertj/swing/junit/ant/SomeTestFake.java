@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import org.fest.swing.annotation.GUITest;
+import org.assertj.swing.annotation.GUITest;
 
 /**
  * Understands a test case with GUI tests and regular non-GUI tests.

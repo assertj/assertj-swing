@@ -22,12 +22,12 @@ import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_TIM
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_VALUE;
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.PROPERTIES;
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.PROPERTY;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.assertj.swing.junit.xml.XmlAttributes.attributes;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.assertions.Assertions.assertThat;
 
 import java.util.Properties;
 

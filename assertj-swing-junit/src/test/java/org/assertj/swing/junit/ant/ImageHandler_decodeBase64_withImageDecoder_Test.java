@@ -14,8 +14,8 @@
  */
 package org.assertj.swing.junit.ant;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expect;
-import static org.fest.assertions.Assertions.assertThat;
 
 import org.fest.mocks.EasyMockTemplate;
 import org.junit.Before;

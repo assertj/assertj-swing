@@ -14,10 +14,10 @@
  */
 package org.assertj.swing.junit.ant;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.assertions.Assertions.assertThat;
 import junit.framework.TestResult;
 
 import org.assertj.swing.junit.xml.XmlNode;

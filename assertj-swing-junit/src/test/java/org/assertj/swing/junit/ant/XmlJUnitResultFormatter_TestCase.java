@@ -15,8 +15,8 @@
 package org.assertj.swing.junit.ant;
 
 import static org.apache.tools.ant.util.DateUtils.parseIso8601DateTimeOrDate;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.createMock;
-import static org.fest.assertions.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.net.UnknownHostException;
@@ -27,8 +27,8 @@ import java.util.Map;
 import junit.framework.AssertionFailedError;
 
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
+import org.assertj.core.api.AutoAssert;
 import org.assertj.swing.junit.xml.XmlNode;
-import org.fest.assertions.AssertExtension;
 import org.junit.Before;
 
 /**
@@ -133,7 +133,7 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     assertThat(errorNode.text()).startsWith("junit.framework.AssertionFailedError: " + ERROR_OR_FAILURE_MESSAGE);
   }
 
-  static class BasicXmlJUnitResultFormatter extends XmlJUnitResultFormatter implements AssertExtension {
+  static class BasicXmlJUnitResultFormatter extends XmlJUnitResultFormatter implements AutoAssert {
     final OnStartTestSuiteAssert onStartTestSuiteMethod = new OnStartTestSuiteAssert();
     final OnFailureOrErrorAssert onFailureOrErrorMethod = new OnFailureOrErrorAssert();
 
@@ -148,7 +148,7 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     }
   }
 
-  static class OnStartTestSuiteAssert implements AssertExtension {
+  static class OnStartTestSuiteAssert implements AutoAssert {
     private boolean called;
     private JUnitTest suite;
 
@@ -163,7 +163,7 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     }
   }
 
-  static class OnFailureOrErrorAssert implements AssertExtension {
+  static class OnFailureOrErrorAssert implements AutoAssert {
     private boolean called;
     private junit.framework.Test test;
     private Throwable error;

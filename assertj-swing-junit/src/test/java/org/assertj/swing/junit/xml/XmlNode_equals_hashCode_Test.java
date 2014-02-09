@@ -14,9 +14,9 @@
  */
 package org.assertj.swing.junit.xml;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.assertj.swing.junit.xml.XmlAttributes.attributes;
-import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsReflexive;
 import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsSymmetric;
 import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsTransitive;

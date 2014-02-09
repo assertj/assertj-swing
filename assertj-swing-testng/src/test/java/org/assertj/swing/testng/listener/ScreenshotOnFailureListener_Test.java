@@ -14,8 +14,9 @@
  */
 package org.assertj.swing.testng.listener;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.fest.assertions.ImageAssert.read;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.assertion.ImageAssert.read;
+import static org.assertj.swing.test.assertion.TestAssertions.assertThat;
 import static org.fest.util.Files.temporaryFolderPath;
 import static org.fest.util.Strings.concat;
 import static org.fest.util.Strings.join;
@@ -26,7 +27,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.fest.swing.annotation.GUITest;
+import org.assertj.swing.annotation.GUITest;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.testng.Reporter;

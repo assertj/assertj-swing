@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.image.BufferedImage;
 

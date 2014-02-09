@@ -14,12 +14,12 @@
  */
 package org.assertj.swing.junit.v4_3_1.runner;
 
-import static org.fest.swing.junit.runner.Formatter.testNameFrom;
+import static org.assertj.swing.junit.runner.Formatter.testNameFrom;
 import static org.junit.runner.Description.createTestDescription;
 
 import java.lang.reflect.Method;
 
-import org.fest.swing.annotation.GUITestFinder;
+import org.assertj.swing.annotation.GUITestFinder;
 import org.junit.runner.Description;
 
 /**

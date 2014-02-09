@@ -15,10 +15,10 @@
 package org.assertj.swing.junit.ant;
 
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.TIMESTAMP;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.reportMatcher;
-import static org.fest.assertions.Assertions.assertThat;
 
 import java.util.Date;
 

@@ -14,8 +14,8 @@
  */
 package org.assertj.swing.junit.ant;
 
+import static org.assertj.swing.image.ImageFileExtensions.PNG;
 import static org.assertj.swing.junit.ant.CommonConstants.UTF_8;
-import static org.fest.swing.image.ImageFileExtensions.PNG;
 import static org.fest.util.Files.flushAndClose;
 
 import java.awt.image.BufferedImage;

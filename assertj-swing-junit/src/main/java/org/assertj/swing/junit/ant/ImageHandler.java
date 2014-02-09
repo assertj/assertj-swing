@@ -21,7 +21,7 @@ import static org.fest.util.Strings.isEmpty;
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;
 
-import org.fest.swing.image.ImageFileWriter;
+import org.assertj.swing.image.ImageFileWriter;
 
 /**
  * Understands base64 encoding and decoding of an image.

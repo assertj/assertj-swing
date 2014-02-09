@@ -14,12 +14,12 @@
  */
 package org.assertj.swing.junit.v4_5.runner;
 
-import static org.fest.swing.annotation.GUITestFinder.isGUITest;
-import static org.fest.swing.junit.runner.Formatter.testNameFrom;
+import static org.assertj.swing.annotation.GUITestFinder.isGUITest;
+import static org.assertj.swing.junit.runner.Formatter.testNameFrom;
 
 import java.lang.reflect.Method;
 
-import org.fest.swing.junit.runner.FailureScreenshotTaker;
+import org.assertj.swing.junit.runner.FailureScreenshotTaker;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
 

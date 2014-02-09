@@ -16,9 +16,9 @@ package org.assertj.swing.junit.ant;
 
 import static java.lang.String.valueOf;
 import static java.security.AccessController.doPrivileged;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.field;
 
 import java.security.PrivilegedAction;

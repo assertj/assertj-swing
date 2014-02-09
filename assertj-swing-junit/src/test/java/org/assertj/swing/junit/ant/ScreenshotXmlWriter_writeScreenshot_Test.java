@@ -15,21 +15,21 @@
 package org.assertj.swing.junit.ant;
 
 import static java.awt.image.BufferedImage.TYPE_BYTE_BINARY;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.ant.ImageHandler.encodeBase64;
 import static org.assertj.swing.junit.ant.Tests.testClassNameFrom;
 import static org.assertj.swing.junit.ant.Tests.testMethodNameFrom;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.assertions.Assertions.assertThat;
 
 import java.awt.image.BufferedImage;
 
 import junit.framework.TestResult;
 
+import org.assertj.swing.image.ScreenshotTaker;
 import org.assertj.swing.junit.xml.XmlDocument;
 import org.assertj.swing.junit.xml.XmlNode;
 import org.fest.mocks.EasyMockTemplate;
-import org.fest.swing.image.ScreenshotTaker;
 import org.junit.Before;
 import org.junit.Test;
 

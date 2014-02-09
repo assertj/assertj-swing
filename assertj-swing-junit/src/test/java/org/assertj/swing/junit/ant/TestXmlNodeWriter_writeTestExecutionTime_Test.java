@@ -17,7 +17,7 @@ package org.assertj.swing.junit.ant;
 import static java.lang.Double.parseDouble;
 import static java.lang.System.currentTimeMillis;
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_TIME;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.assertj.swing.junit.xml.XmlDocument;
 import org.assertj.swing.junit.xml.XmlNode;

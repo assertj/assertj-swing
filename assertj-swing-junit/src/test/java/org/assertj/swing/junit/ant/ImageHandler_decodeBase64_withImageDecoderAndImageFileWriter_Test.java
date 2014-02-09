@@ -14,21 +14,21 @@
  */
 package org.assertj.swing.junit.ant;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.assertions.Assertions.assertThat;
 
 import java.awt.image.BufferedImage;
 
+import org.assertj.swing.image.ImageFileWriter;
 import org.fest.mocks.EasyMockTemplate;
-import org.fest.swing.image.ImageFileWriter;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Tests for
- * <code>{@link ImageHandler#decodeBase64AndSaveAsPng(String, String, ImageDecoder, org.fest.swing.image.ImageFileWriter)}</code>
+ * <code>{@link ImageHandler#decodeBase64AndSaveAsPng(String, String, ImageDecoder, org.assertj.swing.image.ImageFileWriter)}</code>
  * .
  * 
  * @author Alex Ruiz

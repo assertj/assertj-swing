@@ -21,8 +21,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.fest.swing.junit.runner.FailureScreenshotTaker;
-import org.fest.swing.junit.runner.ImageFolderCreator;
+import org.assertj.swing.junit.runner.FailureScreenshotTaker;
+import org.assertj.swing.junit.runner.ImageFolderCreator;
 import org.junit.Test;
 import org.junit.internal.runners.InitializationError;
 import org.junit.internal.runners.MethodValidator;

@@ -21,9 +21,9 @@ import static org.fest.util.Objects.areEqual;
 
 import java.lang.reflect.Method;
 
+import org.assertj.swing.junit.runner.FailureScreenshotTaker;
 import org.easymock.IArgumentMatcher;
 import org.fest.mocks.EasyMockTemplate;
-import org.fest.swing.junit.runner.FailureScreenshotTaker;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.notification.Failure;

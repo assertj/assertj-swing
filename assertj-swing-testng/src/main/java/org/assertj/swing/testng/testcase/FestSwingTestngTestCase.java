@@ -14,9 +14,9 @@
  */
 package org.assertj.swing.testng.testcase;
 
-import org.fest.swing.core.Robot;
-import org.fest.swing.edt.FailOnThreadViolationRepaintManager;
-import org.fest.swing.testing.FestSwingTestCaseTemplate;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
+import org.assertj.swing.testing.FestSwingTestCaseTemplate;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;

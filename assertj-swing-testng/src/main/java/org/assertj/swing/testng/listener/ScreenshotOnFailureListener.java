@@ -24,9 +24,9 @@ import static org.fest.util.Strings.quote;
 import java.lang.reflect.Method;
 import java.util.logging.Logger;
 
-import org.fest.swing.annotation.GUITestFinder;
-import org.fest.swing.image.ImageException;
-import org.fest.swing.image.ScreenshotTaker;
+import org.assertj.swing.annotation.GUITestFinder;
+import org.assertj.swing.image.ImageException;
+import org.assertj.swing.image.ScreenshotTaker;
 import org.fest.util.VisibleForTesting;
 import org.testng.ITestContext;
 import org.testng.ITestResult;

@@ -14,11 +14,11 @@
  */
 package org.assertj.swing.junit.ant;
 
+import static org.assertj.swing.image.ImageFileExtensions.PNG;
 import static org.assertj.swing.junit.ant.ImageHandler.encodeBase64;
 import static org.assertj.swing.junit.ant.Tests.testClassNameFrom;
 import static org.assertj.swing.junit.ant.Tests.testMethodNameFrom;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
-import static org.fest.swing.image.ImageFileExtensions.PNG;
 import static org.fest.util.Strings.isEmpty;
 import static org.fest.util.Strings.join;
 
@@ -26,8 +26,8 @@ import java.awt.image.BufferedImage;
 
 import junit.framework.Test;
 
+import org.assertj.swing.image.ScreenshotTaker;
 import org.assertj.swing.junit.xml.XmlNode;
-import org.fest.swing.image.ScreenshotTaker;
 
 /**
  * Understands taking a screenshot of the desktop and, encoding and writing the resulting image into a XML element.

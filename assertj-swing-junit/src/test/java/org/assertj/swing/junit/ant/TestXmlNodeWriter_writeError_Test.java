@@ -16,9 +16,9 @@ package org.assertj.swing.junit.ant;
 
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_MESSAGE;
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_TYPE;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.easymock.EasyMock.expectLastCall;
-import static org.fest.assertions.Assertions.assertThat;
 
 import org.assertj.swing.junit.xml.XmlNode;
 import org.fest.mocks.EasyMockTemplate;
