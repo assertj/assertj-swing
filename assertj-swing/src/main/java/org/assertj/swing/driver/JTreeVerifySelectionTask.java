@@ -15,10 +15,10 @@
 package org.assertj.swing.driver;
 
 import static java.util.Arrays.sort;
+import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.driver.JTreeMatchingPathQuery.matchingPathWithRootIfInvisible;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.internal.Fail.fail;
 import static org.fest.util.Arrays.format;
 import static org.fest.util.Objects.areEqual;
 
@@ -63,14 +63,13 @@ final class JTreeVerifySelectionTask {
     if (Arrays.equals(selectionRows, selection)) {
       return;
     }
-    throw failNotEqualSelection(errMsg, selection, selectionRows);
+    failNotEqualSelection(errMsg, selection, selectionRows);
   }
 
-  private static @Nonnull
-  AssertionError failNotEqualSelection(@Nonnull Description errMsg, @Nonnull int[] expected, @Nonnull int[] actual) {
+  private static void failNotEqualSelection(@Nonnull Description errMsg, @Nonnull int[] expected, @Nonnull int[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
     String msg = String.format(format, errMsg.value(), format(expected), format(actual));
-    throw fail(msg);
+    fail(msg);
   }
 
   @RunsInEDT
@@ -94,23 +93,22 @@ final class JTreeVerifySelectionTask {
     }
     int selectionCount = selection.length;
     if (selectionCount != selectionPaths.length) {
-      throw failNotEqualSelection(errMsg, selection, selectionPaths);
+      failNotEqualSelection(errMsg, selection, selectionPaths);
     }
     for (int i = 0; i < selectionCount; i++) {
       TreePath expected = matchingPathWithRootIfInvisible(tree, checkNotNull(selection[i]), pathFinder);
       TreePath actual = selectionPaths[i];
       if (!areEqual(expected, actual)) {
-        throw failNotEqualSelection(errMsg, selection, selectionPaths);
+        failNotEqualSelection(errMsg, selection, selectionPaths);
       }
     }
   }
 
-  private static @Nonnull
-  AssertionError failNotEqualSelection(@Nonnull Description errMsg, @Nonnull String[] expected,
+  private static void failNotEqualSelection(@Nonnull Description errMsg, @Nonnull String[] expected,
       @Nonnull TreePath[] actual) {
     String format = "[%s] expecting selection:<%s> but was:<%s>";
     String msg = String.format(format, errMsg.value(), format(expected), format(actual));
-    throw fail(msg);
+    fail(msg);
   }
 
   private static void failNoSelection(final @Nonnull Description errMessage) {

@@ -16,6 +16,7 @@ package org.assertj.swing.driver;
 
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
@@ -31,7 +32,6 @@ import static org.assertj.swing.driver.TextAssert.verifyThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
-import static org.assertj.swing.internal.Fail.fail;
 import static org.fest.util.Arrays.format;
 
 import java.awt.Component;
@@ -194,7 +194,7 @@ public class JComboBoxDriver extends JComponentDriver {
     Pair<Boolean, String> selection = selection(comboBox, cellReader());
     boolean hasSelection = selection.first;
     if (!hasSelection) {
-      throw failNoSelection(comboBox);
+      failNoSelection(comboBox);
     }
     return selection.second;
   }
@@ -216,9 +216,8 @@ public class JComboBoxDriver extends JComponentDriver {
     assertThat(selectedIndex).as(selectedIndexProperty(comboBox)).isEqualTo(index);
   }
 
-  private @Nonnull
-  AssertionError failNoSelection(@Nonnull JComboBox comboBox) {
-    throw fail(String.format("[%s] No selection", selectedIndexProperty(comboBox).value()));
+  private void failNoSelection(@Nonnull JComboBox comboBox) {
+    fail(String.format("[%s] No selection", selectedIndexProperty(comboBox).value()));
   }
 
   /**
@@ -235,7 +234,7 @@ public class JComboBoxDriver extends JComponentDriver {
       return;
     }
     String format = "[%s] Expecting no selection, but found:<%s>";
-    throw fail(String.format(format, selectedIndexProperty(comboBox).value(), quote(selection.second)));
+    fail(String.format(format, selectedIndexProperty(comboBox).value(), quote(selection.second)));
   }
 
   /**

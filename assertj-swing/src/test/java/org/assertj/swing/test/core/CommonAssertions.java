@@ -15,7 +15,7 @@
 package org.assertj.swing.test.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.internal.Fail.fail;
+import static org.assertj.core.api.Fail.fail;
 
 /**
  * Common assertions using in the test suite.

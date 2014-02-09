@@ -15,11 +15,11 @@
 package org.assertj.swing.test.core;
 
 import static java.util.Arrays.deepEquals;
+import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
-import static org.assertj.swing.internal.Fail.fail;
 import static org.assertj.swing.util.Arrays.copyOf;
 import static org.fest.util.Arrays.format;
 

@@ -15,7 +15,7 @@
 package org.assertj.swing.junit.runner;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.internal.Fail.fail;
+import static org.assertj.core.api.Fail.fail;
 import static org.easymock.classextension.EasyMock.createMock;
 import static org.fest.util.Files.newTemporaryFolder;
 
@@ -82,7 +82,7 @@ public class FolderCreator_createFolder_Test {
       protected void codeToTest() {
         try {
           creator.createFolder(f, "hello");
-          throw fail("expecting exception");
+          fail("expecting exception");
         } catch (FilesException e) {
           assertThat(e).hasMessage("Unable to create directory 'hello'");
           assertThat(e.getCause()).isSameAs(error);

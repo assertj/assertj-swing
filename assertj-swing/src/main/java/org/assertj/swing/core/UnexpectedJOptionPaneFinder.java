@@ -14,9 +14,9 @@
  */
 package org.assertj.swing.core;
 
+import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.swing.format.Formatting.format;
-import static org.assertj.swing.internal.Fail.fail;
 
 import java.awt.Component;
 import java.util.List;
@@ -44,7 +44,7 @@ class UnexpectedJOptionPaneFinder {
   void requireNoJOptionPaneIsShowing() {
     List<Component> found = findAll(OPTION_PANE_MATCHER);
     if (!found.isEmpty()) {
-      throw unexpectedJOptionPanesFound(found);
+      unexpectedJOptionPanesFound(found);
     }
   }
 
@@ -52,8 +52,7 @@ class UnexpectedJOptionPaneFinder {
     return newArrayList(finder.findAll(m));
   }
 
-  private @Nonnull
-  AssertionError unexpectedJOptionPanesFound(@Nonnull List<Component> found) {
+  private void unexpectedJOptionPanesFound(@Nonnull List<Component> found) {
     StringBuilder message = new StringBuilder();
     message.append("Expecting no JOptionPane to be showing, but found:<[");
     int size = found.size();
@@ -64,6 +63,6 @@ class UnexpectedJOptionPaneFinder {
       }
     }
     message.append("]>");
-    throw fail(message.toString());
+    fail(message.toString());
   }
 }

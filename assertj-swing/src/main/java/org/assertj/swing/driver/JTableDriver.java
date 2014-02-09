@@ -15,6 +15,7 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.concat;
@@ -30,7 +31,6 @@ import static org.assertj.swing.driver.JTableSingleRowCellSelectedQuery.isCellSe
 import static org.assertj.swing.driver.TextAssert.verifyThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
-import static org.assertj.swing.internal.Fail.fail;
 import static org.assertj.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
 import static org.assertj.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.util.Arrays.equal;

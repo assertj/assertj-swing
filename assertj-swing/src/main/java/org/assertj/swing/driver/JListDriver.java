@@ -17,6 +17,7 @@ package org.assertj.swing.driver;
 import static java.awt.event.KeyEvent.VK_SHIFT;
 import static java.util.Arrays.sort;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.awt.AWT.visibleCenterOf;
 import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
@@ -38,7 +39,6 @@ import static org.assertj.swing.driver.JListSelectionValueQuery.singleSelectionV
 import static org.assertj.swing.driver.JListSelectionValuesQuery.selectionValues;
 import static org.assertj.swing.driver.TextAssert.verifyThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.internal.Fail.fail;
 import static org.assertj.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
 import static org.fest.util.Arrays.format;
 

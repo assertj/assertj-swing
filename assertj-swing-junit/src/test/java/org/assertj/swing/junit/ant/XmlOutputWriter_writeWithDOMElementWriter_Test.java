@@ -15,7 +15,7 @@
 package org.assertj.swing.junit.ant;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.internal.Fail.fail;
+import static org.assertj.core.api.Fail.fail;
 import static org.easymock.classextension.EasyMock.createMock;
 
 import java.io.ByteArrayOutputStream;
@@ -43,7 +43,7 @@ public class XmlOutputWriter_writeWithDOMElementWriter_Test extends XmlOutputWri
     MyDOMElementWriter xmlWriter = new MyDOMElementWriter();
     try {
       writer.write(xmlNode, new ByteArrayOutputStream(), xmlWriter);
-      throw fail("expecting exception");
+      fail("expecting exception");
     } catch (BuildException expected) {
       assertThat(expected.getMessage()).isEqualTo("Unable to write log file");
       assertThat(expected.getCause()).isSameAs(xmlWriter.error);
