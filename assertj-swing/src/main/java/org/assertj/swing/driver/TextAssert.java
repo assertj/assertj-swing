@@ -14,17 +14,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Fail.fail;
-import static org.assertj.core.util.Strings.quote;
+import static org.assertj.core.error.ShouldMatchPattern.shouldMatch;
 import static org.assertj.swing.util.Strings.areEqualOrMatch;
-import static org.assertj.swing.util.Strings.match;
-
-import java.util.regex.Pattern;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.core.api.AbstractAssert;
+import org.assertj.core.api.AbstractCharSequenceAssert;
 import org.assertj.core.internal.Failures;
 
 /**
@@ -32,7 +28,7 @@ import org.assertj.core.internal.Failures;
  * 
  * @author Alex Ruiz
  */
-class TextAssert extends AbstractAssert<TextAssert, String> {
+class TextAssert extends AbstractCharSequenceAssert<TextAssert, String> {
   static @Nonnull
   TextAssert assertThat(@Nullable String s) {
     return new TextAssert(s);
@@ -47,25 +43,10 @@ class TextAssert extends AbstractAssert<TextAssert, String> {
     super(actual, TextAssert.class);
   }
 
-  @Nonnull
-  TextAssert isEqualOrMatches(@Nullable String s) {
+  void isEqualOrMatches(@Nullable String s) {
     if (areEqualOrMatch(s, actual)) {
-      return this;
+      return;
     }
-    String format = "actual value:<%s> is not equal to or does not match pattern:<%s>";
-    String msg = String.format(format, quote(actual), quote(s));
-    throw Failures.instance().failure(msg);
-  }
-
-  @Nonnull
-  TextAssert matches(@Nonnull Pattern pattern) {
-    if (match(pattern, actual)) {
-      return this;
-    }
-    String format = "actual value:<%s> does not match pattern:<%s>";
-    String msg = String.format(format, quote(actual), quote(pattern.pattern()));
-    fail(msg);
-    // dead code (cause fail throws an exception) - but needed for the compiler
-    return this;
+    throw Failures.instance().failure(info, shouldMatch(actual, s));
   }
 }

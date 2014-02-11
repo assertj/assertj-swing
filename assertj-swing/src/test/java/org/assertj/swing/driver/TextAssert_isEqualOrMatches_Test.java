@@ -14,11 +14,11 @@
  */
 package org.assertj.swing.driver;
 
-import static org.junit.rules.ExpectedException.none;
+import static org.assertj.swing.test.ExpectedException.none;
 
+import org.assertj.swing.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 /**
  * Tests for {@link TextAssert#isEqualOrMatches(String)}.
@@ -31,16 +31,19 @@ public class TextAssert_isEqualOrMatches_Test {
 
   @Test
   public void should_fail_if_actual_is_not_equal_to_expected() {
-    thrown.expect(AssertionError.class);
-    thrown.expectMessage("actual value:<'hello'> is not equal to or does not match pattern:<'bye'>");
+    thrown.expectAssertionError("Expecting:\n \"hello\"\nto match pattern:\n \"bye\"");
     new TextAssert("hello").isEqualOrMatches("bye");
   }
 
   @Test
   public void should_fail_showing_description_if_actual_is_not_equal_to_expected() {
-    thrown.expect(AssertionError.class);
-    thrown.expectMessage("[A Test] actual value:<'hello'> is not equal to or does not match pattern:<'bye'>");
+    thrown.expectAssertionError("[A Test] \nExpecting:\n \"hello\"\nto match pattern:\n \"bye\"");
     new TextAssert("hello").as("A Test").isEqualOrMatches("bye");
+  }
+
+  @Test
+  public void should_pass_if_actual_is_equal_to_expected_but_no_valid_pattern() {
+    new TextAssert("[He$$o").isEqualOrMatches("[He$$o");
   }
 
   @Test
