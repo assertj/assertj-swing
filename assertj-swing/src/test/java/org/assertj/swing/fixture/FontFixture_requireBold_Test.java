@@ -14,11 +14,7 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.junit.rules.ExpectedException.none;
-
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 /**
  * Tests for {@link FontFixture#requireBold()}.
@@ -27,9 +23,6 @@ import org.junit.rules.ExpectedException;
  * @author Alex Ruiz
  */
 public class FontFixture_requireBold_Test extends FontFixture_TestCase {
-  @Rule
-  public ExpectedException thrown = none();
-
   @Test
   public void should_pass_if_font_is_bold() {
     FontFixture fixture = new FontFixture(boldFont());

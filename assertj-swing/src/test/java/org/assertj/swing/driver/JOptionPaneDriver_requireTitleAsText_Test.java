@@ -14,10 +14,9 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.swing.test.swing.JOptionPaneLauncher.pack;
+
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -47,12 +46,7 @@ public class JOptionPaneDriver_requireTitleAsText_Test extends JOptionPaneDriver
   public void should_fail_if_title_is_not_equal_to_expected() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
-    try {
-      driver.requireTitle(optionPane, "Yoda");
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'title'").contains(
-          concat("actual value:<'", title(), "'> is not equal to or does not match pattern:<'Yoda'>"));
-    }
+    thrown.expectAssertionError("title", title(), Pattern.compile("Yoda"));
+    driver.requireTitle(optionPane, "Yoda");
   }
 }

@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -34,11 +31,7 @@ public class JSpinnerDriver_requireValue_Test extends JSpinnerDriver_TestCase {
   @Test
   public void should_fail_if_value_is_not_equal_to_expected() {
     selectLastValue();
-    try {
-      driver.requireValue(spinner, "Frodo");
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'value'").contains("expected:<'[Frodo]'> but was:<'[Gandalf]'>");
-    }
+    thrown.expectAssertionError("value", "[Frodo]", "[Gandalf]");
+    driver.requireValue(spinner, "Frodo");
   }
 }

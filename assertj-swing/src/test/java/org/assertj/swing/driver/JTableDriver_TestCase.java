@@ -19,6 +19,7 @@ import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JTableClearSelectionTask.clearSelectionOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
 import java.awt.Component;
@@ -34,10 +35,12 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.data.TableCell;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTable;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link JTableDriver}.
@@ -50,6 +53,8 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
   MyWindow window;
   TestTable table;
   JTableDriver driver;
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected final void onSetUp() {

@@ -14,13 +14,13 @@
  */
 package org.assertj.swing.driver;
 
-import static org.junit.rules.ExpectedException.none;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import java.util.regex.Pattern;
 
+import org.assertj.swing.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 /**
  * Tests for {@link TextAssert#matches(java.util.regex.Pattern)}.
@@ -34,14 +34,14 @@ public class TextAssert_matches_Test {
   @Test
   public void should_fail_if_actual_does_not_match_regex_pattern() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("actual value:<'hello'> does not match pattern:<'bye'>");
+    thrown.expectMessage("Expecting:\n \"hello\"\nto match pattern:\n \"bye\"");
     new TextAssert("hello").matches(Pattern.compile("bye"));
   }
 
   @Test
   public void should_fail_showing_description_if_actual_does_not_match_regex_pattern() {
     thrown.expect(AssertionError.class);
-    thrown.expectMessage("[A Test] actual value:<'hello'> does not match pattern:<'bye'>");
+    thrown.expectMessage("[A Test] \nExpecting:\n \"hello\"\nto match pattern:\n \"bye\"");
     new TextAssert("hello").as("A Test").matches(Pattern.compile("bye"));
   }
 

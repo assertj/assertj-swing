@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.util.regex.Pattern;
 
 import org.junit.Test;
@@ -34,14 +31,8 @@ public class AbstractButtonDriver_requireTextAsPattern_Test extends AbstractButt
 
   @Test
   public void should_fail_if_text_does_not_match_regex_pattern() {
-    try {
-      Pattern pattern = Pattern.compile("Bye.");
-      driver.requireText(checkBox, pattern);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      System.out.println(e.getMessage());
-      assertThat(e.getMessage()).contains("property:'text'").contains(
-          "actual value:<'Hello'> does not match pattern:<'Bye.'>");
-    }
+    Pattern pattern = Pattern.compile("Bye.");
+    thrown.expectAssertionError("text", "Hello", pattern);
+    driver.requireText(checkBox, pattern);
   }
 }

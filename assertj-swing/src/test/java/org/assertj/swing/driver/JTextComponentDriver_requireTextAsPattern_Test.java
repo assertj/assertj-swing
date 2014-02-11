@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.util.regex.Pattern;
 
 import org.junit.Test;
@@ -37,12 +34,7 @@ public class JTextComponentDriver_requireTextAsPattern_Test extends JTextCompone
   @Test
   public void should_fail_if_text_does_not_match_pattern() {
     setTextFieldText("Hi");
-    try {
-      driver.requireText(textField, Pattern.compile("Bye"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'text'").contains(
-          "actual value:<'Hi'> does not match pattern:<'Bye'>");
-    }
+    thrown.expectAssertionError("text", "Hi", Pattern.compile("Bye"));
+    driver.requireText(textField, Pattern.compile("Bye"));
   }
 }

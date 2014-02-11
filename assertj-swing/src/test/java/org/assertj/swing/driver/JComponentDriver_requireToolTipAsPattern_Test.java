@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.util.regex.Pattern;
 
 import javax.swing.JComponent;
@@ -42,12 +39,7 @@ public class JComponentDriver_requireToolTipAsPattern_Test extends JComponentDri
 
   @Test
   public void should_fail_if_toolTip_does_not_match_pattern() {
-    try {
-      driver.requireToolTip(button, Pattern.compile("Hello"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'toolTipText'").contains(
-          "actual value:<'A ToolTip'> does not match pattern:<'Hello'>");
-    }
+    thrown.expectAssertionError("toolTipText", "A ToolTip", Pattern.compile("Hello"));
+    driver.requireToolTip(button, Pattern.compile("Hello"));
   }
 }

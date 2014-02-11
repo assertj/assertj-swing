@@ -17,6 +17,7 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JSpinnerValueQuery.valueOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 import static org.fest.util.Arrays.array;
 
@@ -29,8 +30,10 @@ import javax.swing.SpinnerListModel;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link JSpinnerDriver}.
@@ -41,6 +44,8 @@ public abstract class JSpinnerDriver_TestCase extends RobotBasedTestCase {
   MyWindow window;
   JSpinner spinner;
   JSpinnerDriver driver;
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected final void onSetUp() {

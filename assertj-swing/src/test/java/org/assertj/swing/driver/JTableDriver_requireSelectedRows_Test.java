@@ -15,9 +15,7 @@
 package org.assertj.swing.driver;
 
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.JTable;
 
@@ -34,13 +32,10 @@ public class JTableDriver_requireSelectedRows_Test extends JTableDriver_TestCase
   @Test
   public void should_fail_if_JTable_does_not_have_the_expected_selected_rows() {
     selectRows(6, 8);
-    try {
-      driver.requireSelectedRows(table, 0, 1);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'selectedRows'").contains(
-          "<[6, 7, 8]> does not contain element(s):<[0, 1]>");
-    }
+    thrown.expect(AssertionError.class);
+    thrown.expectMessage("property:'selectedRows'");
+    thrown.expectMessage("Expecting:\n <[6, 7, 8]>\nto contain:\n <[0, 1]>\nbut could not find:\n <[0, 1]>");
+    driver.requireSelectedRows(table, 0, 1);
   }
 
   @Test

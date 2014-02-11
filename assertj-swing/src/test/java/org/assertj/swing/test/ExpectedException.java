@@ -15,6 +15,7 @@
 package org.assertj.swing.test;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 import org.junit.internal.matchers.TypeSafeMatcher;
 import org.junit.rules.TestRule;
@@ -43,6 +44,40 @@ public class ExpectedException implements TestRule {
 
   public void expectAssertionError(String message) {
     expect(AssertionError.class, message);
+  }
+
+  public void expectAssertionError(String property, String expected, String actual) {
+    expectAssertionError(property, new String[] { expected }, new String[] { actual });
+  }
+
+  public void expectAssertionError(String property, String[] expected, String[] actual) {
+    expect(AssertionError.class);
+    expectMessageToContain("property:'" + property + "'");
+    expectMessageToContain("expected:<" + buildStringForMessage(expected) + "> but was:<"
+        + buildStringForMessage(actual) + ">");
+  }
+
+  public void expectAssertionError(String property, String content, Pattern pattern) {
+    expect(AssertionError.class);
+    expectMessageToContain("property:'" + property + "'");
+    expectMessageToContain("\nExpecting:\n \"" + content + "\"\nto match pattern:\n \"" + pattern.pattern() + "\"");
+  }
+
+  private String buildStringForMessage(String[] array) {
+    StringBuilder sb = new StringBuilder();
+    if (array.length > 1) {
+      sb.append("[");
+    }
+    for (int i = 0; i < array.length; ++i) {
+      sb.append("\"").append(array[i]).append("\"");
+      if (i + 1 < array.length) {
+        sb.append(", ");
+      }
+    }
+    if (array.length > 1) {
+      sb.append("]");
+    }
+    return sb.toString();
   }
 
   public void expectNullPointerException(String message) {

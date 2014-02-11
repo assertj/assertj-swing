@@ -14,8 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.swing.test.swing.JOptionPaneLauncher.pack;
 
 import java.util.regex.Pattern;
@@ -48,13 +46,7 @@ public class JOptionPaneDriver_requireMessageByPattern_Test extends JOptionPaneD
   public void should_fail_is_message_does_match_pattern() {
     JOptionPane optionPane = messageWithValue("Palpatine");
     pack(optionPane, title());
-    try {
-      driver.requireMessage(optionPane, Pattern.compile("Anakin"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'message'").contains(
-          "actual value:<'Palpatine'> does not match pattern:<'Anakin'>");
-    }
+    thrown.expectAssertionError("message", "Palpatine", Pattern.compile("Anakin"));
+    driver.requireMessage(optionPane, Pattern.compile("Anakin"));
   }
-
 }

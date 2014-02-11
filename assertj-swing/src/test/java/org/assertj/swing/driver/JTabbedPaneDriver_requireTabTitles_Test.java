@@ -14,8 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.util.Arrays.array;
 
 import org.junit.Test;
@@ -28,13 +26,8 @@ import org.junit.Test;
 public class JTabbedPaneDriver_requireTabTitles_Test extends JTabbedPaneDriver_TestCase {
   @Test
   public void should_fail_if_titles_are_not_equal_to_expected() {
-    try {
-      driver.requireTabTitles(tabbedPane, array("Three", "Four"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'tabTitles'").contains(
-          "expected:<['Three', 'Four']> but was:<['One', 'Two']>");
-    }
+    thrown.expectAssertionError("tabTitles", array("[Three", "Four]"), array("[One", "Two]"));
+    driver.requireTabTitles(tabbedPane, array("Three", "Four"));
   }
 
   @Test

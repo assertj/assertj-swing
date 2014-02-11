@@ -17,10 +17,13 @@ package org.assertj.swing.fixture;
 import static java.awt.Font.BOLD;
 import static java.awt.Font.ITALIC;
 import static java.awt.Font.PLAIN;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import java.awt.Font;
 
+import org.assertj.swing.test.ExpectedException;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 
 /**
  * Base test class for {@link FontFixture}.
@@ -31,11 +34,18 @@ import org.junit.BeforeClass;
 public class FontFixture_TestCase {
   private static Font font;
   private static FontFixture fixture;
+  @Rule
+  public ExpectedException thrown = none();
 
   @BeforeClass
   public static void setUpOnce() {
     font = new Font("SansSerif", PLAIN, 8);
     fixture = new FontFixture(font);
+  }
+
+  public void expectAssertionError(String property, String expected, String actual) {
+    thrown.expect(AssertionError.class);
+    thrown.expectMessageToContain("[" + property + "] expected:<\"" + expected + "\"> but was:<\"" + actual + "\">");
   }
 
   final Font boldFont() {

@@ -14,9 +14,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.data.Index.atIndex;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.util.regex.Pattern;
 
@@ -32,13 +30,8 @@ import org.junit.Test;
 public class JTabbedPaneDriver_requireTabTitleAsPattern_Test extends JTabbedPaneDriver_TestCase {
   @Test
   public void should_fail_if_title_does_not_match_pattern() {
-    try {
-      driver.requireTabTitle(tabbedPane, Pattern.compile("Hello"), atIndex(0));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'titleAt'").contains(
-          "actual value:<'One'> does not match pattern:<'Hello'>");
-    }
+    thrown.expectAssertionError("titleAt", "One", Pattern.compile("Hello"));
+    driver.requireTabTitle(tabbedPane, Pattern.compile("Hello"), atIndex(0));
   }
 
   @Test

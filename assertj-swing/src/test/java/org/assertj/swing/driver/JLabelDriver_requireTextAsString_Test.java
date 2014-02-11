@@ -14,8 +14,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import java.util.regex.Pattern;
 
 import javax.swing.JLabel;
 
@@ -39,12 +38,7 @@ public class JLabelDriver_requireTextAsString_Test extends JLabelDriver_TestCase
 
   @Test
   public void should_fail_if_text_is_not_equal_to_expected() {
-    try {
-      driver.requireText(label, "Bye");
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'text'").contains(
-          "actual value:<'Hi'> is not equal to or does not match pattern:<'Bye'>");
-    }
+    thrown.expectAssertionError("text", "Hi", Pattern.compile("Bye"));
+    driver.requireText(label, "Bye");
   }
 }

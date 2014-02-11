@@ -15,12 +15,15 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import javax.swing.JButton;
 
 import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link JComponentDriver}.
@@ -31,6 +34,8 @@ public class JComponentDriver_TestCase extends RobotBasedTestCase {
   MyWindow window;
   JButton button;
   JComponentDriver driver;
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected final void onSetUp() {

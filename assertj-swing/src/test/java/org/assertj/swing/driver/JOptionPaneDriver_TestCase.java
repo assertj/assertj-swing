@@ -23,6 +23,7 @@ import static javax.swing.JOptionPane.YES_NO_OPTION;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.AbstractButtonTextQuery.textOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.fest.util.Objects.HASH_CODE_PRIME;
 import static org.fest.util.Objects.areEqual;
 import static org.fest.util.Objects.hashCodeFor;
@@ -34,7 +35,9 @@ import javax.swing.UIManager;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link JOptionPaneDriver}.
@@ -44,6 +47,9 @@ import org.assertj.swing.test.core.RobotBasedTestCase;
 public abstract class JOptionPaneDriver_TestCase extends RobotBasedTestCase {
   private static final Icon ICON = null;
   private static final String MESSAGE = "Message";
+
+  @Rule
+  public ExpectedException thrown = none();
 
   JOptionPaneDriver driver;
 

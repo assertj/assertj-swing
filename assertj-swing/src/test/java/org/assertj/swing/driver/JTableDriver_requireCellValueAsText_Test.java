@@ -14,9 +14,9 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.data.TableCell.row;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+
+import java.util.regex.Pattern;
 
 import org.junit.Test;
 
@@ -39,12 +39,7 @@ public class JTableDriver_requireCellValueAsText_Test extends JTableDriver_TestC
 
   @Test
   public void should_fail_if_cell_value_is_not_equal_to_expected() {
-    try {
-      driver.requireCellValue(table, row(0).column(0), "0-1");
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'value [row=0, column=0]'").contains(
-          "actual value:<'0-0'> is not equal to or does not match pattern:<'0-1'>");
-    }
+    thrown.expectAssertionError("value [row=0, column=0]", "0-0", Pattern.compile("0-1"));
+    driver.requireCellValue(table, row(0).column(0), "0-1");
   }
 }

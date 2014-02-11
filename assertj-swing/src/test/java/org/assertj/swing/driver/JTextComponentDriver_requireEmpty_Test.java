@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -41,11 +38,8 @@ public class JTextComponentDriver_requireEmpty_Test extends JTextComponentDriver
   @Test
   public void should_fail_if_JTexComponent_is_not_empty() {
     setTextFieldText("Hi");
-    try {
-      driver.requireEmpty(textField);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'text'").contains("expecting empty, but was:<'Hi'>");
-    }
+    thrown.expect(AssertionError.class);
+    thrown.expectMessageToContain("property:'text'", "Expecting empty but was:<\"Hi\">");
+    driver.requireEmpty(textField);
   }
 }

@@ -14,9 +14,9 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.data.Index.atIndex;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+
+import java.util.regex.Pattern;
 
 import org.junit.Test;
 
@@ -28,13 +28,8 @@ import org.junit.Test;
 public class JTabbedPaneDriver_requireTabTitleAsText_Test extends JTabbedPaneDriver_TestCase {
   @Test
   public void should_fail_if_title_is_not_equal_to_expected() {
-    try {
-      driver.requireTabTitle(tabbedPane, "Hello", atIndex(0));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'titleAt'").contains(
-          "actual value:<'One'> is not equal to or does not match pattern:<'Hello'>");
-    }
+    thrown.expectAssertionError("titleAt", "One", Pattern.compile("Hello"));
+    driver.requireTabTitle(tabbedPane, "Hello", atIndex(0));
   }
 
   @Test

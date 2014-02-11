@@ -14,11 +14,7 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.junit.rules.ExpectedException.none;
-
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 /**
  * Tests for {@link FontFixture#requireName(String)}.
@@ -27,9 +23,6 @@ import org.junit.rules.ExpectedException;
  * @author Alex Ruiz
  */
 public class FontFixture_requireName_Test extends FontFixture_TestCase {
-  @Rule
-  public ExpectedException thrown = none();
-
   @Test
   public void should_pass_if_name_is_equal_to_expected() {
     fixture().requireName("SansSerif");
@@ -37,15 +30,13 @@ public class FontFixture_requireName_Test extends FontFixture_TestCase {
 
   @Test
   public void should_fail_if_name_is_not_equal_to_expected() {
-    thrown.expect(AssertionError.class);
-    thrown.expectMessage("[name] expected:<'[Monospace]'> but was:<'[SansSerif]'>");
+    expectAssertionError("name", "[Monospace]", "[SansSerif]");
     fixture().requireName("Monospace");
   }
 
   @Test
   public void should_fail_showing_description_if_name_is_not_equal_to_expected() {
-    thrown.expect(AssertionError.class);
-    thrown.expectMessage("[test - name] expected:<'[Monospace]'> but was:<'[SansSerif]'>");
+    expectAssertionError("test - name", "[Monospace]", "[SansSerif]");
     FontFixture fixture = new FontFixture(font(), "test");
     fixture.requireName("Monospace");
   }

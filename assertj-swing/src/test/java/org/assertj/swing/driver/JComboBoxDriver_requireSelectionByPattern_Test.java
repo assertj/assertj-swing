@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.util.regex.Pattern;
 
 import org.junit.Test;
@@ -38,23 +35,15 @@ public class JComboBoxDriver_requireSelectionByPattern_Test extends JComboBoxDri
   @Test
   public void should_pass_if_JComboBox_does_not_have_matching_selection() {
     selectFirstItem();
-    try {
-      driver.requireSelection(comboBox, Pattern.compile("sec.*"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'selectedIndex'").contains(
-          "actual value:<'first'> does not match pattern:<'sec.*'>");
-    }
+    thrown.expectAssertionError("selectedIndex", "first", Pattern.compile("sec.*"));
+    driver.requireSelection(comboBox, Pattern.compile("sec.*"));
   }
 
   @Test
   public void should_fail_if_JComboBox_does_not_have_any_selection() {
     clearSelection();
-    try {
-      driver.requireSelection(comboBox, Pattern.compile("second"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'selectedIndex'").contains("No selection");
-    }
+    thrown.expect(AssertionError.class);
+    thrown.expectMessageToContain("property:'selectedIndex'", "No selection");
+    driver.requireSelection(comboBox, Pattern.compile("second"));
   }
 }

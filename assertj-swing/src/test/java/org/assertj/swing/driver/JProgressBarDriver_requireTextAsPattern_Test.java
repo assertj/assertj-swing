@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.util.regex.Pattern;
 
 import javax.swing.JProgressBar;
@@ -36,12 +33,7 @@ public class JProgressBarDriver_requireTextAsPattern_Test extends JProgressBarDr
 
   @Test
   public void should_fail_if_text_does_not_match_pattern() {
-    try {
-      driver.requireText(progressBar, Pattern.compile("50%"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'string'").contains(
-          "actual value:<'60%'> does not match pattern:<'50%'>");
-    }
+    thrown.expectAssertionError("string", "60%", Pattern.compile("50%"));
+    driver.requireText(progressBar, Pattern.compile("50%"));
   }
 }

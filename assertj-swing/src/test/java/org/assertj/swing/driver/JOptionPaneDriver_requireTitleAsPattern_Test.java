@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.swing.test.swing.JOptionPaneLauncher.pack;
 
 import java.util.regex.Pattern;
@@ -42,12 +39,7 @@ public class JOptionPaneDriver_requireTitleAsPattern_Test extends JOptionPaneDri
   public void should_fail_if_title_does_not_match_pattern() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
-    try {
-      driver.requireTitle(optionPane, Pattern.compile("Yoda"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'title'").contains(
-          concat("actual value:<'", title(), "'> does not match pattern:<'Yoda'>"));
-    }
+    thrown.expectAssertionError("title", title(), Pattern.compile("Yoda"));
+    driver.requireTitle(optionPane, Pattern.compile("Yoda"));
   }
 }

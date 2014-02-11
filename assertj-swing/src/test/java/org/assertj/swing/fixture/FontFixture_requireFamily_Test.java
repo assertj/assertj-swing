@@ -14,11 +14,7 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.junit.rules.ExpectedException.none;
-
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 /**
  * Tests for {@link FontFixture#requireFamily(String)}.
@@ -27,9 +23,6 @@ import org.junit.rules.ExpectedException;
  * @author Alex Ruiz
  */
 public class FontFixture_requireFamily_Test extends FontFixture_TestCase {
-  @Rule
-  public ExpectedException thrown = none();
-
   @Test
   public void should_pass_if_family_is_equal_to_expected() {
     fixture().requireFamily("SansSerif");
@@ -37,15 +30,13 @@ public class FontFixture_requireFamily_Test extends FontFixture_TestCase {
 
   @Test
   public void should_fail_if_family_is_not_equal_to_expected() {
-    thrown.expect(AssertionError.class);
-    thrown.expectMessage("[family] expected:<'[Monospace]'> but was:<'[SansSerif]'>");
+    expectAssertionError("family", "[Monospace]", "[SansSerif]");
     fixture().requireFamily("Monospace");
   }
 
   @Test
   public void should_fail_showing_description_if_family_is_not_equal_to_expected() {
-    thrown.expect(AssertionError.class);
-    thrown.expectMessage("[test - family] expected:<'[Monospace]'> but was:<'[SansSerif]'>");
+    expectAssertionError("test - family", "[Monospace]", "[SansSerif]");
     FontFixture fixture = new FontFixture(font(), "test");
     fixture.requireFamily("Monospace");
   }
