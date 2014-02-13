@@ -23,6 +23,7 @@ import java.awt.Color;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.assertj.core.api.ObjectAssert;
 import org.assertj.core.description.Description;
 import org.assertj.core.description.TextDescription;
 
@@ -93,8 +94,16 @@ public class ColorFixture {
    */
   public @Nonnull
   ColorFixture requireEqualTo(@Nullable Color color) {
-    assertThat(target).as(description).isEqualTo(color);
+    ObjectAssert<Color> assertThat = assertThat(target);
+    describe(assertThat);
+    assertThat.isEqualTo(color);
     return this;
+  }
+
+  private void describe(ObjectAssert<Color> assertThat) {
+    if (description != null) {
+      assertThat.as(description);
+    }
   }
 
   /**
@@ -122,7 +131,9 @@ public class ColorFixture {
    */
   public @Nonnull
   ColorFixture requireNotEqualTo(@Nullable Color color) {
-    assertThat(target).as(description).isNotEqualTo(color);
+    ObjectAssert<Color> assertThat = assertThat(target);
+    describe(assertThat);
+    assertThat.isNotEqualTo(color);
     return this;
   }
 
