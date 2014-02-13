@@ -55,6 +55,7 @@ public class ActivateWindowTask_activeWindow_Test extends SequentialEDTSafeTestC
   @Override
   protected void onTearDown() {
     hideAndDispose(frameOne);
+    frameTwo.toFront();
     hideAndDispose(frameTwo);
   }
 
