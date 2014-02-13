@@ -49,7 +49,7 @@ public final class FrameShowTask {
     pause(new Condition("Frame is showing") {
       @Override
       public boolean test() {
-        return isShowing(frame);
+        return isShowing(frame) && frame.isActive();
       }
     }, 20000);
   }
