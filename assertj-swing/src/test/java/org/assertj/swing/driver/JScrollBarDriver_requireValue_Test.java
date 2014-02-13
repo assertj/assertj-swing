@@ -14,9 +14,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JScrollBarSetValueTask.setValue;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.junit.Test;
 
@@ -37,11 +35,8 @@ public class JScrollBarDriver_requireValue_Test extends JScrollBarDriver_TestCas
   public void should_fail_if_value_is_not_equal_to_expected() {
     setValue(scrollBar, 30);
     robot.waitForIdle();
-    try {
-      driver.requireValue(scrollBar, 20);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'value'").contains("expected:<[2]0> but was:<[3]0>");
-    }
+    thrown.expectAssertionError("property:'value'");
+    thrown.expectMessageToContain("expected:<[2]0> but was:<[3]0>");
+    driver.requireValue(scrollBar, 20);
   }
 }

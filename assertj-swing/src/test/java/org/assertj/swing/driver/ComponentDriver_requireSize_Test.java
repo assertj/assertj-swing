@@ -14,9 +14,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.awt.Dimension;
 
@@ -38,12 +36,8 @@ public class ComponentDriver_requireSize_Test extends ComponentDriver_TestCase {
   @Test
   public void should_fail_if_actual_size_is_not_equal_to_expected() {
     showWindow();
-    try {
-      driver.requireSize(window.button, new Dimension(0, 0));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'size'")
-          .contains("expected:<...awt.Dimension[width=[0,height=0]]>").contains("but was:<");
-    }
+    thrown.expectAssertionError("property:'size'");
+    thrown.expectMessageToContain("expected:<...awt.Dimension[width=[0,height=0]]>", "but was:<");
+    driver.requireSize(window.button, new Dimension(0, 0));
   }
 }

@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -34,11 +31,8 @@ public class ComponentDriver_requireEnabled_Test extends ComponentDriver_TestCas
   @Test
   public void should_fail_if_Component_is_not_enabled() {
     disableButton();
-    try {
-      driver.requireEnabled(window.button);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'enabled'").contains("expected:<[tru]e> but was:<[fals]e>");
-    }
+    thrown.expectAssertionError("property:'enabled'");
+    thrown.expectMessageToContain("expected:<[tru]e> but was:<[fals]e>");
+    driver.requireEnabled(window.button);
   }
 }

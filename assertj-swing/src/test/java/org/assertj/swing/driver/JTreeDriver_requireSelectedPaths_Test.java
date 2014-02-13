@@ -14,8 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.util.Arrays.array;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -60,23 +58,16 @@ public class JTreeDriver_requireSelectedPaths_Test extends JTreeDriver_selectCel
   @Test
   public void should_fail_if_JTree_does_not_have_selection() {
     clearTreeSelection();
-    try {
-      driver.requireSelection(tree, array("root/branch1"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'selection'").contains("No selection");
-    }
+    thrown.expectAssertionError("property:'selection'");
+    thrown.expectMessageToContain("No selection");
+    driver.requireSelection(tree, array("root/branch1"));
   }
 
   @Test
   public void should_fail_if_selection_is_not_equal_to_expected() {
     selectFirstChildOfRoot();
-    try {
-      driver.requireSelection(tree, array("root/branch2"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'selection'").contains(
-          "expecting selection:<['root/branch2']> but was:<[[root, branch1]]>");
-    }
+    thrown.expectAssertionError("property:'selection'");
+    thrown.expectMessageToContain("expecting selection:<['root/branch2']> but was:<[[root, branch1]]>");
+    driver.requireSelection(tree, array("root/branch2"));
   }
 }

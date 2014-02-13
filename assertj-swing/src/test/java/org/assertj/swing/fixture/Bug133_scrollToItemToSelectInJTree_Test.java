@@ -17,7 +17,7 @@ package org.assertj.swing.fixture;
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.timing.Pause.pause;
 
 import java.awt.Dimension;
@@ -30,9 +30,11 @@ import javax.swing.tree.DefaultTreeModel;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.LocationUnavailableException;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTree;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -43,6 +45,8 @@ import org.junit.Test;
 public class Bug133_scrollToItemToSelectInJTree_Test extends RobotBasedTestCase {
   private FrameFixture frame;
   private MyWindow window;
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   public void onSetUp() {
@@ -82,12 +86,9 @@ public class Bug133_scrollToItemToSelectInJTree_Test extends RobotBasedTestCase 
   }
 
   private void assertPathNotFoundInDragTree(String path) {
-    try {
-      frame.tree("drag").selectPath(path);
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).contains(path);
-    }
+    thrown.expect(LocationUnavailableException.class);
+    thrown.expectMessageToContain(path);
+    frame.tree("drag").selectPath(path);
   }
 
   @RunsInEDT

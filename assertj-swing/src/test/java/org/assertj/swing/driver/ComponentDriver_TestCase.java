@@ -18,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JTextComponentTextQuery.textOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.query.ComponentHasFocusQuery.hasFocus;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 import static org.assertj.swing.timing.Pause.pause;
 
@@ -28,9 +29,11 @@ import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.assertj.swing.test.util.StopWatch;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link ComponentDriver}.
@@ -39,7 +42,8 @@ import org.assertj.swing.test.util.StopWatch;
  */
 public abstract class ComponentDriver_TestCase extends RobotBasedTestCase {
   static final int TIME_TO_WAIT_FOR_FOCUS_GAIN = 2000;
-
+  @Rule
+  public ExpectedException thrown = none();
   ComponentDriver driver;
   MyWindow window;
 

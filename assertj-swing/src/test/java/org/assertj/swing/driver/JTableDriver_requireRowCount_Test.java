@@ -14,9 +14,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JTableDriver_TestCase.MyWindow.ROW_COUNT;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.junit.Test;
 
@@ -29,12 +27,9 @@ import org.junit.Test;
 public class JTableDriver_requireRowCount_Test extends JTableDriver_TestCase {
   @Test
   public void should_fail_if_row_count_is_not_equal_to_expected() {
-    try {
-      driver.requireRowCount(table, 12);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'rowCount'").contains("expected:<1[2]> but was:<1[0]>");
-    }
+    thrown.expectAssertionError("property:'rowCount'");
+    thrown.expectMessageToContain("expected:<1[2]> but was:<1[0]>");
+    driver.requireRowCount(table, 12);
   }
 
   @Test

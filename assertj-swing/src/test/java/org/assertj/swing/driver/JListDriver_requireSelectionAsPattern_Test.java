@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.util.regex.Pattern;
 
 import org.junit.Test;
@@ -38,22 +35,15 @@ public class JListDriver_requireSelectionAsPattern_Test extends JListDriver_Test
   @Test
   public void should_fail_if_there_is_no_selection() {
     clearSelection();
-    try {
-      driver.requireSelection(list, Pattern.compile("one"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("No selection");
-    }
+    thrown.expectAssertionError("property:'selectedIndex'");
+    thrown.expectMessageToContain("No selection");
+    driver.requireSelection(list, Pattern.compile("one"));
   }
 
   @Test
   public void should_fail_if_selection_does_not_match_pattern() {
     select(1);
-    try {
-      driver.requireSelection(list, Pattern.compile("one"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("actual value:<'two'> does not match pattern:<'one'>");
-    }
+    thrown.expectAssertionError("selectedIndex", "two", Pattern.compile("one"));
+    driver.requireSelection(list, Pattern.compile("one"));
   }
 }

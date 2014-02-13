@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -34,11 +31,8 @@ public class AbstractButtonDriver_requireNotSelected_Test extends AbstractButton
   @Test
   public void should_fail_if_button_is_selected() {
     selectCheckBox();
-    try {
-      driver.requireNotSelected(checkBox);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'selected'").contains("expected:<[fals]e> but was:<[tru]e>");
-    }
+    thrown.expectAssertionError("property:'selected'");
+    thrown.expectMessageToContain("expected:<[fals]e> but was:<[tru]e>");
+    driver.requireNotSelected(checkBox);
   }
 }

@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -34,12 +31,8 @@ public class JTreeDriver_requireNoSelection_Test extends JTreeDriver_selectCell_
   @Test
   public void should_fail_if_JTree_has_selection() {
     selectFirstChildOfRoot();
-    try {
-      driver.requireNoSelection(tree);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'selection'").contains(
-          "expected no selection but was:<[[root, branch1]]>");
-    }
+    thrown.expectAssertionError("property:'selection'");
+    thrown.expectMessageToContain("expected no selection but was:<[[root, branch1]]>");
+    driver.requireNoSelection(tree);
   }
 }

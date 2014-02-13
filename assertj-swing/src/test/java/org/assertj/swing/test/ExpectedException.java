@@ -47,14 +47,17 @@ public class ExpectedException implements TestRule {
   }
 
   public void expectAssertionError(String property, String expected, String actual) {
-    expectAssertionError(property, new String[] { expected }, new String[] { actual });
+    expectAssertionErrorForProperty(property, expected, actual);
   }
 
   public void expectAssertionError(String property, String[] expected, String[] actual) {
+    expectAssertionErrorForProperty(property, buildStringForMessage(expected), buildStringForMessage(actual));
+  }
+
+  private void expectAssertionErrorForProperty(String property, String expected, String actual) {
     expect(AssertionError.class);
     expectMessageToContain("property:'" + property + "'");
-    expectMessageToContain("expected:<" + buildStringForMessage(expected) + "> but was:<"
-        + buildStringForMessage(actual) + ">");
+    expectMessageToContain("expected:<" + expected + "> but was:<" + actual + ">");
   }
 
   public void expectAssertionError(String property, String content, Pattern pattern) {
@@ -65,18 +68,14 @@ public class ExpectedException implements TestRule {
 
   private String buildStringForMessage(String[] array) {
     StringBuilder sb = new StringBuilder();
-    if (array.length > 1) {
-      sb.append("[");
-    }
+    sb.append("[");
     for (int i = 0; i < array.length; ++i) {
       sb.append("\"").append(array[i]).append("\"");
       if (i + 1 < array.length) {
         sb.append(", ");
       }
     }
-    if (array.length > 1) {
-      sb.append("]");
-    }
+    sb.append("]");
     return sb.toString();
   }
 
@@ -131,5 +130,20 @@ public class ExpectedException implements TestRule {
         return true;
       }
     });
+  }
+
+  public void expectIllegalStateIsNotShowingComponent() {
+    expect(IllegalStateException.class, "Expecting component");
+    expectMessageToContain("to be showing on the screen");
+  }
+
+  public void expectIllegalStateIsNotResizableComponent() {
+    expect(IllegalStateException.class, "Expecting component");
+    expectMessageToContain("to be resizable by the user");
+  }
+
+  public void expectIllegalStateIsDisabledComponent() {
+    expect(IllegalStateException.class, "Expecting component");
+    expectMessageToContain("to be enabled");
   }
 }

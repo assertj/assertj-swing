@@ -15,11 +15,12 @@
 package org.assertj.swing.fixture;
 
 import static java.awt.Color.BLUE;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.fixture.ColorHexCodes.BLACK_HEX_CODE;
 import static org.assertj.swing.fixture.ColorHexCodes.BLUE_HEX_CODE;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 
+import org.assertj.swing.test.ExpectedException;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -29,6 +30,9 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class ColorFixture_requireNotEqualToColorAsHex_Test {
+  @Rule
+  public ExpectedException thrown = none();
+
   @Test
   public void should_pass_if_Color_is_not_equal_to_hex_value() {
     ColorFixture fixture = new ColorFixture(BLUE);
@@ -44,12 +48,7 @@ public class ColorFixture_requireNotEqualToColorAsHex_Test {
   @Test
   public void should_fail_showing_description_if_Color_is_equal_to_hex_value() {
     ColorFixture fixture = new ColorFixture(BLUE, "test");
-    try {
-      fixture.requireNotEqualTo(BLUE_HEX_CODE);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("test");
-    }
+    thrown.expectAssertionError("test");
+    fixture.requireNotEqualTo(BLUE_HEX_CODE);
   }
-
 }

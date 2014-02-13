@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -32,22 +29,14 @@ public class JTabbedPaneLocation_validateIndex_Test extends JTabbedPaneLocation_
 
   @Test
   public void should_fail_if_index_is_negative() {
-    try {
-      location.checkIndexInBounds(tabbedPane, -1);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage())
-          .isEqualTo("Index <-1> is not within the JTabbedPane bounds of <0> and <1> (inclusive)");
-    }
+    thrown
+        .expectIndexOutOfBoundsException("Index <-1> is not within the JTabbedPane bounds of <0> and <1> (inclusive)");
+    location.checkIndexInBounds(tabbedPane, -1);
   }
 
   @Test
   public void should_fail_if_index_is_out_of_bounds() {
-    try {
-      location.checkIndexInBounds(tabbedPane, 2);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage()).isEqualTo("Index <2> is not within the JTabbedPane bounds of <0> and <1> (inclusive)");
-    }
+    thrown.expectIndexOutOfBoundsException("Index <2> is not within the JTabbedPane bounds of <0> and <1> (inclusive)");
+    location.checkIndexInBounds(tabbedPane, 2);
   }
 }

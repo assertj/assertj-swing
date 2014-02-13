@@ -15,13 +15,10 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.builder.JButtons.button;
 import static org.assertj.swing.test.builder.JDialogs.dialog;
 import static org.assertj.swing.test.builder.JFrames.frame;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotResizableComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.mockito.Mockito.mock;
 
 import java.awt.Container;
@@ -33,9 +30,11 @@ import javax.swing.JInternalFrame;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiTask;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestMdiWindow;
 import org.assertj.swing.test.task.ComponentSetEnabledTask;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -45,6 +44,9 @@ import org.junit.Test;
  */
 public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   private ContainerDriver driver;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected void onSetUp() {
@@ -62,35 +64,23 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   @Test
   public void should_fail_if_Frame_is_not_resizable() {
     JFrame f = frame().resizable(false).createNew();
-    try {
-      checkCanResize(f);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotResizableComponent(e);
-    }
+    thrown.expectIllegalStateIsNotResizableComponent();
+    checkCanResize(f);
   }
 
   @Test
   public void should_fail_if_Frame_is_resizable_but_disabled() {
     JFrame f = frame().createNew();
     disable(f);
-    try {
-      checkCanResize(f);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    checkCanResize(f);
   }
 
   @Test
   public void should_fail_if_Frame_is_resizable_but_not_showing_on_the_screen() {
     JFrame f = frame().createNew();
-    try {
-      checkCanResize(f);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    checkCanResize(f);
   }
 
   @Test
@@ -103,24 +93,16 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   @Test
   public void should_fail_if_Dialog_is_not_resizable() {
     JDialog d = dialog().resizable(false).createNew();
-    try {
-      checkCanResize(d);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotResizableComponent(e);
-    }
+    thrown.expectIllegalStateIsNotResizableComponent();
+    checkCanResize(d);
   }
 
   @Test
   public void should_fail_if_Dialog_is_resizable_but_disabled() {
     JDialog d = dialog().createNew();
     disable(d);
-    try {
-      checkCanResize(d);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    checkCanResize(d);
   }
 
   @RunsInEDT
@@ -132,12 +114,8 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   @Test
   public void should_fail_if_Dialog_is_resizable_but_not_showing_on_the_screen() {
     JDialog d = dialog().createNew();
-    try {
-      checkCanResize(d);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    checkCanResize(d);
   }
 
   @Test
@@ -162,12 +140,8 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
     JInternalFrame i = w.internalFrame();
     makeNotResizable(i);
     robot.waitForIdle();
-    try {
-      checkCanResize(i);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotResizableComponent(e);
-    }
+    thrown.expectIllegalStateIsNotResizableComponent();
+    checkCanResize(i);
   }
 
   @RunsInEDT
@@ -183,22 +157,14 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   @Test
   public void should_fail_if_JInternalFrame_is_resizable_but_not_showing_on_the_screen() {
     TestMdiWindow w = TestMdiWindow.createNewWindow(getClass());
-    try {
-      checkCanResize(w.internalFrame());
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    checkCanResize(w.internalFrame());
   }
 
   @Test
   public void should_fail_if_Component_is_not_Window() {
-    try {
-      checkCanResize(button().createNew());
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotResizableComponent(e);
-    }
+    thrown.expectIllegalStateIsNotResizableComponent();
+    checkCanResize(button().createNew());
   }
 
   @RunsInEDT

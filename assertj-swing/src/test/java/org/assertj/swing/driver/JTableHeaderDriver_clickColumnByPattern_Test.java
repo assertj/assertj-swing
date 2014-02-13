@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.util.regex.Pattern;
 
 import org.assertj.swing.exception.LocationUnavailableException;
@@ -36,12 +33,8 @@ public class JTableHeaderDriver_clickColumnByPattern_Test extends JTableHeaderDr
 
   @Test
   public void should_fail_if_matching_column_was_not_found() {
-    try {
-      driver.clickColumn(tableHeader, Pattern.compile("hello"));
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).isEqualTo("Unable to find column with name matching pattern 'hello'");
-    }
+    thrown.expect(LocationUnavailableException.class, "Unable to find column with name matching pattern 'hello'");
+    driver.clickColumn(tableHeader, Pattern.compile("hello"));
   }
 
   @Test

@@ -15,6 +15,7 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.swing.TreeNodeFactory.node;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
@@ -33,9 +34,11 @@ import javax.swing.tree.TreePath;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTree;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link JTreeDriver}.
@@ -46,6 +49,9 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
   MyWindow window;
   JTree tree;
   JTreeDriver driver;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected final void onSetUp() {

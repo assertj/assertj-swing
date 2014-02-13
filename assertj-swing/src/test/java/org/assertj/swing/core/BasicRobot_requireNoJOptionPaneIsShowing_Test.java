@@ -14,9 +14,8 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.timing.Pause.pause;
 
 import java.awt.Component;
@@ -29,7 +28,9 @@ import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiTask;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.timing.Condition;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -40,6 +41,8 @@ import org.junit.Test;
  */
 public class BasicRobot_requireNoJOptionPaneIsShowing_Test extends BasicRobot_TestCase {
   private JButton button;
+  @Rule
+  public ExpectedException thrown = none();
 
   @RunsInEDT
   @Override
@@ -68,12 +71,8 @@ public class BasicRobot_requireNoJOptionPaneIsShowing_Test extends BasicRobot_Te
   public void should_fail_if_a_JOptionPane_is_showing() {
     robot().click(button);
     pauseTillJOptionPaneIsShowing();
-    try {
-      robot().requireNoJOptionPaneIsShowing();
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("Expecting no JOptionPane to be showing");
-    }
+    thrown.expectAssertionError("Expecting no JOptionPane to be showing");
+    robot().requireNoJOptionPaneIsShowing();
   }
 
   private void pauseTillJOptionPaneIsShowing() {

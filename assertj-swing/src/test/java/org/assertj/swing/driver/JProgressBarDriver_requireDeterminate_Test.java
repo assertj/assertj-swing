@@ -14,9 +14,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JProgressBarSetIndetermintateTask.setIntedeterminate;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.JProgressBar;
 
@@ -38,11 +36,8 @@ public class JProgressBarDriver_requireDeterminate_Test extends JProgressBarDriv
   @Test
   public void should_fail_if_JProgressBar_is_not_determinate() {
     makeIndeterminate();
-    try {
-      driver.requireDeterminate(progressBar);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'indeterminate'").contains("expected:<[fals]e> but was:<[tru]e>");
-    }
+    thrown.expectAssertionError("property:'indeterminate'");
+    thrown.expectMessageToContain("expected:<[fals]e> but was:<[tru]e>");
+    driver.requireDeterminate(progressBar);
   }
 }

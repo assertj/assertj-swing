@@ -14,8 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
 import static org.assertj.swing.timing.Timeout.timeout;
 
@@ -40,14 +38,13 @@ public class ComponentDriver_requireEnabledWithTimout_Test extends ComponentDriv
     disableButton();
     int timeout = 1000;
     StopWatch stopWatch = startNewStopWatch();
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for");
+    thrown.expectMessageToContain(window.button.getClass().getName(), "to be enabled");
     try {
       driver.requireEnabled(window.button, timeout(timeout));
-      failWhenExpectingException();
-    } catch (WaitTimedOutError e) {
-      assertThat(e.getMessage()).contains("Timed out waiting for").contains(window.button.getClass().getName())
-          .contains("to be enabled");
+    } finally {
+      stopWatch.stop();
+      assertThatWaited(stopWatch, timeout);
     }
-    stopWatch.stop();
-    assertThatWaited(stopWatch, timeout);
   }
 }

@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -34,11 +31,8 @@ public class JComboBoxDriver_requireEditable_Test extends JComboBoxDriver_TestCa
 
   @Test
   public void should_fail_if_JComboBox_is_not_editable() {
-    try {
-      driver.requireEditable(comboBox);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'editable'").contains("expected:<[tru]e> but was:<[fals]e>");
-    }
+    thrown.expectAssertionError("property:'editable'");
+    thrown.expectMessageToContain("expected:<[tru]e> but was:<[fals]e>");
+    driver.requireEditable(comboBox);
   }
 }

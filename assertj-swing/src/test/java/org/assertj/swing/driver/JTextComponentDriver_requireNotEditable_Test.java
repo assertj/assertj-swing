@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -35,11 +32,8 @@ public class JTextComponentDriver_requireNotEditable_Test extends JTextComponent
   @Test
   public void should_fail_if_JTextComponent_is_editable() {
     makeTextFieldEditable();
-    try {
-      driver.requireNotEditable(textField);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'editable'").contains("expected:<[fals]e> but was:<[tru]e>");
-    }
+    thrown.expectAssertionError("property:'editable'");
+    thrown.expectMessageToContain("expected:<[fals]e> but was:<[tru]e>");
+    driver.requireNotEditable(textField);
   }
 }

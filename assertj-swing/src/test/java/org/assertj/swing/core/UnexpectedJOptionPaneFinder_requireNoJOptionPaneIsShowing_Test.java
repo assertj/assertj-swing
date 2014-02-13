@@ -14,19 +14,20 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.swing.core.UnexpectedJOptionPaneFinder.OPTION_PANE_MATCHER;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.builder.JOptionPanes.optionPane;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.awt.Component;
 import java.util.List;
 
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -37,6 +38,8 @@ import org.junit.Test;
 public class UnexpectedJOptionPaneFinder_requireNoJOptionPaneIsShowing_Test extends EDTSafeTestCase {
   private ComponentFinder delegate;
   private UnexpectedJOptionPaneFinder finder;
+  @Rule
+  public ExpectedException thrown = none();
 
   @Before
   public void setUp() {
@@ -56,11 +59,7 @@ public class UnexpectedJOptionPaneFinder_requireNoJOptionPaneIsShowing_Test exte
     List<Component> found = newArrayList();
     found.add(optionPane().createNew());
     when(delegate.findAll(OPTION_PANE_MATCHER)).thenReturn(found);
-    try {
-      finder.requireNoJOptionPaneIsShowing();
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("Expecting no JOptionPane to be showing");
-    }
+    thrown.expectAssertionError("Expecting no JOptionPane to be showing");
+    finder.requireNoJOptionPaneIsShowing();
   }
 }

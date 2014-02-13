@@ -17,6 +17,7 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JScrollBarValueQuery.valueOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
 import java.awt.Dimension;
@@ -25,8 +26,10 @@ import javax.swing.JScrollBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link JScrollBarDriver}.
@@ -37,6 +40,9 @@ public abstract class JScrollBarDriver_TestCase extends RobotBasedTestCase {
   static final int MINIMUM = 10;
   static final int MAXIMUM = 80;
   static final int EXTENT = 10;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   JScrollBarDriver driver;
   MyWindow window;

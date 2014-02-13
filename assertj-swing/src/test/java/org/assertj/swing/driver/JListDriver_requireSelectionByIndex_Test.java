@@ -35,22 +35,16 @@ public class JListDriver_requireSelectionByIndex_Test extends JListDriver_TestCa
   @Test
   public void should_fail_if_there_is_no_selection() {
     clearSelection();
-    try {
-      driver.requireSelection(list, 0);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("No selection");
-    }
+    thrown.expectAssertionError("property:'selectedIndex'");
+    thrown.expectMessageToContain("No selection");
+    driver.requireSelection(list, 0);
   }
 
   @Test
   public void should_fail_if_selection_is_not_equal_to_expected() {
     select(1);
-    try {
-      driver.requireSelection(list, 0);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("expected:<[0]> but was:<[1]>");
-    }
+    thrown.expectAssertionError("property:'selectedIndex'");
+    thrown.expectMessageToContain("expected:<[0]> but was:<[1]>");
+    driver.requireSelection(list, 0);
   }
 }

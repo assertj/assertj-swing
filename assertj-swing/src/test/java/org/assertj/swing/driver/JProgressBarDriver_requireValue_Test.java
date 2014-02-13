@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import javax.swing.JProgressBar;
 
 import org.junit.Test;
@@ -34,11 +31,8 @@ public class JProgressBarDriver_requireValue_Test extends JProgressBarDriver_Tes
 
   @Test
   public void should_fail_if_value_is_not_equal_to_expected() {
-    try {
-      driver.requireValue(progressBar, 50);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'value'").contains("expected:<[5]0> but was:<[6]0>");
-    }
+    thrown.expectAssertionError("property:'value'");
+    thrown.expectMessageToContain("expected:<[5]0> but was:<[6]0>");
+    driver.requireValue(progressBar, 50);
   }
 }

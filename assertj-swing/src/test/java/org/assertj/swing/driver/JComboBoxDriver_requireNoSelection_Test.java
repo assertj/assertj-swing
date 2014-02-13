@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -35,12 +32,8 @@ public class JComboBoxDriver_requireNoSelection_Test extends JComboBoxDriver_Tes
   @Test
   public void should_fail_if_JComboBox_has_selection() {
     selectFirstItem();
-    try {
-      driver.requireNoSelection(comboBox);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'selectedIndex'").contains(
-          "Expecting no selection, but found:<'first'>");
-    }
+    thrown.expectAssertionError("property:'selectedIndex'");
+    thrown.expectMessageToContain("Expecting no selection, but found:<'first'>");
+    driver.requireNoSelection(comboBox);
   }
 }

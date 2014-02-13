@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -28,12 +25,9 @@ import org.junit.Test;
 public class ComponentDriver_requireFocused_Test extends ComponentDriver_TestCase {
   @Test
   public void should_fail_if_Component_does_not_have_focus() {
-    try {
-      driver.requireFocused(window.button);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("Expected component").contains("to have input focus");
-    }
+    thrown.expectAssertionError("Expected component");
+    thrown.expectMessageToContain("to have input focus");
+    driver.requireFocused(window.button);
   }
 
   @Test

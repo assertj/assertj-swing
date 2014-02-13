@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -35,11 +32,8 @@ public class JListDriver_requireNoSelection_Test extends JListDriver_TestCase {
   @Test
   public void should_fail_if_JList_has_selection() {
     selectFirstItem();
-    try {
-      driver.requireNoSelection(list);
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'selectedIndex'").contains("expected:<[-1]> but was:<[0]>");
-    }
+    thrown.expectAssertionError("property:'selectedIndex'");
+    thrown.expectMessageToContain("expected:<[-1]> but was:<[0]>");
+    driver.requireNoSelection(list);
   }
 }

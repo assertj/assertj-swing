@@ -14,8 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.swing.test.swing.JOptionPaneLauncher.pack;
 import static org.fest.util.Arrays.array;
 
@@ -36,15 +34,11 @@ public class JOptionPaneDriver_requireOptions_Test extends JOptionPaneDriver_Tes
     driver.requireOptions(optionPane, array("First", "Second"));
   }
 
+  @Test
   public void should_fail_if_options_are_not_equal_to_expected() {
     JOptionPane optionPane = messageWithOptions("First", "Second");
     pack(optionPane, title());
-    try {
-      driver.requireOptions(optionPane, array("Third"));
-      failWhenExpectingException();
-    } catch (AssertionError e) {
-      assertThat(e.getMessage()).contains("property:'options'").contains(
-          "expected:<['Third']> but was:<['First', 'Second']>");
-    }
+    thrown.expectAssertionError("options", array("[Thir]d"), array("[First", "Secon]d"));
+    driver.requireOptions(optionPane, array("Third"));
   }
 }

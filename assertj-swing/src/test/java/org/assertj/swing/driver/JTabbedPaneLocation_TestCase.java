@@ -15,6 +15,7 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import java.awt.Dimension;
 
@@ -23,8 +24,10 @@ import javax.swing.JTabbedPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link JTabbedPaneLocation}.
@@ -34,6 +37,8 @@ import org.assertj.swing.test.swing.TestWindow;
 public abstract class JTabbedPaneLocation_TestCase extends RobotBasedTestCase {
   JTabbedPane tabbedPane;
   JTabbedPaneLocation location;
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected final void onSetUp() {

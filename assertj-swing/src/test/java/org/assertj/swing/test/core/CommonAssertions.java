@@ -17,24 +17,34 @@ package org.assertj.swing.test.core;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
 
+import org.assertj.swing.test.ExpectedException;
+
 /**
  * Common assertions using in the test suite.
  * 
  * @author Alex Ruiz
  */
 public final class CommonAssertions {
+  /** @deprecated use {@link ExpectedException#expectIllegalStateIsDisabledComponent()} instead. */
+  @Deprecated
   public static void assertThatErrorCauseIsDisabledComponent(IllegalStateException e) {
     assertThat(e.getMessage()).contains("Expecting component").contains("to be enabled");
   }
 
+  /** @deprecated use {@link ExpectedException#expectIllegalStateIsNotResizableComponent()} instead. */
+  @Deprecated
   public static void assertThatErrorCauseIsNotResizableComponent(IllegalStateException e) {
     assertThat(e.getMessage()).contains("Expecting component").contains("to be resizable by the user");
   }
 
+  /** @deprecated use {@link ExpectedException#expectIllegalStateIsNotShowingComponent()} instead. */
+  @Deprecated
   public static void assertThatErrorCauseIsNotShowingComponent(IllegalStateException e) {
     assertThat(e.getMessage()).contains("Expecting component").contains("to be showing on the screen");
   }
 
+  /** @deprecated use {@link ExpectedException#expect(Class, String)} instead. */
+  @Deprecated
   public static void failWhenExpectingException() {
     fail("Expecting exception");
   }
