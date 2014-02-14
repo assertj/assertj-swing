@@ -15,17 +15,17 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
 import java.awt.Component;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiTask;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -35,6 +35,9 @@ import org.junit.Test;
  */
 public class ComponentStateValidator_validateIsEnabledAndShowing_Test extends RobotBasedTestCase {
   private TestWindow window;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected void onSetUp() {
@@ -52,22 +55,14 @@ public class ComponentStateValidator_validateIsEnabledAndShowing_Test extends Ro
     robot.showWindow(window);
     disable(window);
     robot.waitForIdle();
-    try {
-      validateWindowIsEnabledAndShowing(window);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    validateWindowIsEnabledAndShowing(window);
   }
 
   @Test
   public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
-    try {
-      validateWindowIsEnabledAndShowing(window);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    validateWindowIsEnabledAndShowing(window);
   }
 
   @RunsInEDT

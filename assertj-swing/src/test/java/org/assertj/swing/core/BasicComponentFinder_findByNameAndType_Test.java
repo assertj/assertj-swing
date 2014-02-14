@@ -15,7 +15,6 @@
 package org.assertj.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -38,21 +37,15 @@ public class BasicComponentFinder_findByNameAndType_Test extends BasicComponentF
 
   @Test
   public void should_throw_error_if_Component_not_found() {
-    try {
-      finder.findByName("list", JLabel.class);
-      failWhenExpectingException();
-    } catch (ComponentLookupException e) {
-      assertThat(e.getMessage()).contains("name='list'").contains("type=javax.swing.JLabel");
-    }
+    thrown.expect(ComponentLookupException.class, "name='list'");
+    thrown.expectMessageToContain("type=javax.swing.JLabel");
+    finder.findByName("list", JLabel.class);
   }
 
   @Test
   public void should_throw_error_if_Component_found_by_name_but_not_by_type() {
-    try {
-      finder.findByName("button", JLabel.class);
-      failWhenExpectingException();
-    } catch (ComponentLookupException e) {
-      assertThat(e.getMessage()).contains("name='button'").contains("type=javax.swing.JLabel");
-    }
+    thrown.expect(ComponentLookupException.class, "name='button'");
+    thrown.expectMessageToContain("type=javax.swing.JLabel");
+    finder.findByName("button", JLabel.class);
   }
 }

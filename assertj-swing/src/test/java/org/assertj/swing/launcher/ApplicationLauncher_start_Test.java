@@ -16,7 +16,7 @@ package org.assertj.swing.launcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import java.awt.Frame;
 import java.util.List;
@@ -28,7 +28,9 @@ import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.finder.WindowFinder;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.launcher.JavaApp.ArgumentObserver;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -37,14 +39,13 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class ApplicationLauncher_start_Test extends RobotBasedTestCase {
+  @Rule
+  public ExpectedException thrown = none();
+
   @Test
   public void should_throw_error_if_application_class_name_is_invalid() {
-    try {
-      ApplicationLauncher.application("Hello").start();
-      failWhenExpectingException();
-    } catch (UnexpectedException e) {
-      assertThat(e.getMessage()).contains("Unable to load class 'Hello'");
-    }
+    thrown.expect(UnexpectedException.class, "Unable to load class 'Hello'");
+    ApplicationLauncher.application("Hello").start();
   }
 
   @Test

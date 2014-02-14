@@ -15,9 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.junit.Test;
@@ -32,13 +29,9 @@ public class JListDriver_selectItemByText_Test extends JListDriver_TestCase {
   @Test
   public void should_throw_error_if_a_matching_item_was_not_found() {
     showWindow();
-    try {
-      driver.selectItem(list, "ten");
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).isEqualTo(
-          "Unable to find item matching the value 'ten' among the JList contents ['one', 'two', 'three']");
-    }
+    thrown.expect(LocationUnavailableException.class,
+        "Unable to find item matching the value 'ten' among the JList contents ['one', 'two', 'three']");
+    driver.selectItem(list, "ten");
   }
 
   @Test
@@ -68,21 +61,13 @@ public class JListDriver_selectItemByText_Test extends JListDriver_TestCase {
   @Test
   public void should_throw_error_if_JList_is_disabled() {
     disableList();
-    try {
-      driver.selectItem(list, "two");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectItem(list, "two");
   }
 
   @Test
   public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
-    try {
-      driver.selectItem(list, "two");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectItem(list, "two");
   }
 }

@@ -14,9 +14,8 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
@@ -34,8 +33,10 @@ import javax.swing.JTextField;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ActionFailedException;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -48,6 +49,9 @@ public class ComponentPerformDefaultAccessibleActionTask_performDefaultAccessibl
   private AccessibleAction accessibleAction;
   private AccessibleContextStub accessibleContext;
   private Component component;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected void onSetUp() {
@@ -68,30 +72,25 @@ public class ComponentPerformDefaultAccessibleActionTask_performDefaultAccessibl
   @Test
   public void should_throw_error_if_AccessibleAction_is_null() {
     accessibleContext.accessibleAction(null);
+    assertActionFailedThrown();
     try {
       ComponentPerformDefaultAccessibleActionTask.performDefaultAccessibleAction(component);
       robot.waitForIdle();
-      failWhenExpectingException();
-    } catch (ActionFailedException e) {
-      assertActionFailedThrown(e);
+    } finally {
+      verifyZeroInteractions(accessibleAction);
     }
-    verifyZeroInteractions(accessibleAction);
   }
 
   @Test
   public void should_throw_error_if_AccessibleAction_is_empty() {
     when(accessibleAction.getAccessibleActionCount()).thenReturn(0);
-    try {
-      ComponentPerformDefaultAccessibleActionTask.performDefaultAccessibleAction(component);
-      robot.waitForIdle();
-      failWhenExpectingException();
-    } catch (ActionFailedException e) {
-      assertActionFailedThrown(e);
-    }
+    assertActionFailedThrown();
+    ComponentPerformDefaultAccessibleActionTask.performDefaultAccessibleAction(component);
+    robot.waitForIdle();
   }
 
-  private void assertActionFailedThrown(ActionFailedException e) {
-    assertThat(e.getMessage()).contains("Unable to perform accessible action for");
+  private void assertActionFailedThrown() {
+    thrown.expect(ActionFailedException.class, "Unable to perform accessible action for");
   }
 
   private static class MyWindow extends TestWindow {

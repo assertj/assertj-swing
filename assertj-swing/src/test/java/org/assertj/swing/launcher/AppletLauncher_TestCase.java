@@ -15,12 +15,15 @@
 package org.assertj.swing.launcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import java.applet.Applet;
 
 import org.assertj.swing.applet.AppletViewer;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestApplet;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link AppletLauncher}.
@@ -30,6 +33,9 @@ import org.assertj.swing.test.swing.TestApplet;
 public abstract class AppletLauncher_TestCase extends SequentialEDTSafeTestCase {
   TestApplet applet;
   AppletViewer viewer;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected final void onTearDown() {

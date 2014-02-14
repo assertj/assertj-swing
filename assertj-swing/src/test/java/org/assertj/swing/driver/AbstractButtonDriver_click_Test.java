@@ -15,9 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,25 +41,23 @@ public class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCa
   public void should_throw_error_if_AbstractButton_is_disabled() {
     disableCheckBox();
     ActionPerformedRecorder action = ActionPerformedRecorder.attachTo(checkBox);
+    thrown.expectIllegalStateIsDisabledComponent();
     try {
       driver.click(checkBox);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
+    } finally {
+      action.wasNotPerformed();
     }
-    action.wasNotPerformed();
   }
 
   @Test
   public void should_throw_error_if_AbstractButton_is_not_showing_on_the_screen() {
     ActionPerformedRecorder action = ActionPerformedRecorder.attachTo(checkBox);
+    thrown.expectIllegalStateIsNotShowingComponent();
     try {
       driver.click(checkBox);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
+    } finally {
+      action.wasNotPerformed();
     }
-    action.wasNotPerformed();
   }
 
   private static class ActionPerformedRecorder implements ActionListener {

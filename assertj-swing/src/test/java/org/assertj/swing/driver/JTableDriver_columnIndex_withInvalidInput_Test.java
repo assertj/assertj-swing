@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.assertj.swing.exception.ActionFailedException;
 import org.junit.Test;
 
@@ -29,11 +26,7 @@ import org.junit.Test;
 public class JTableDriver_columnIndex_withInvalidInput_Test extends JTableDriver_TestCase {
   @Test
   public void should_throw_error_if_column_with_given_id_was_not_found() {
-    try {
-      driver.columnIndex(table, "Hello World");
-      failWhenExpectingException();
-    } catch (ActionFailedException e) {
-      assertThat(e.getMessage()).contains("Unable to find a column with id 'Hello World");
-    }
+    thrown.expect(ActionFailedException.class, "Unable to find a column with id 'Hello World");
+    driver.columnIndex(table, "Hello World");
   }
 }

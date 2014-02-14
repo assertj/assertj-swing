@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.launcher;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.applet.Applet;
 
 import org.assertj.swing.exception.UnexpectedException;
@@ -36,11 +33,7 @@ public class AppletLauncher_appletWithType_Test extends AppletLauncher_TestCase 
 
   @Test
   public void should_throw_error_if_Applet_cannot_be_instantiated() {
-    try {
-      AppletLauncher.applet(AnApplet.class);
-      failWhenExpectingException();
-    } catch (UnexpectedException e) {
-      assertThat(e.getMessage()).contains("Unable to create a new instance");
-    }
+    thrown.expect(UnexpectedException.class, "Unable to create a new instance");
+    AppletLauncher.applet(AnApplet.class);
   }
 }

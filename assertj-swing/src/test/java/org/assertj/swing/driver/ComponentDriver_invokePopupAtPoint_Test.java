@@ -15,9 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.awt.Point;
 
@@ -55,23 +52,21 @@ public class ComponentDriver_invokePopupAtPoint_Test extends ComponentDriver_inv
   @Test
   public void should_throw_error_if_Component_is_disabled() {
     disableTextField();
+    thrown.expectIllegalStateIsDisabledComponent();
     try {
       driver.invokePopupMenu(window.textField, new Point(8, 6));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
+    } finally {
+      assertThatTextFieldIsEmpty();
     }
-    assertThatTextFieldIsEmpty();
   }
 
   @Test
   public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+    thrown.expectIllegalStateIsNotShowingComponent();
     try {
       driver.invokePopupMenu(window.textField, new Point(8, 6));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
+    } finally {
+      assertThatTextFieldIsEmpty();
     }
-    assertThatTextFieldIsEmpty();
   }
 }

@@ -15,7 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.junit.Test;
@@ -34,11 +33,7 @@ public class JTabbedPaneLocation_indexOf_Test extends JTabbedPaneLocation_TestCa
 
   @Test
   public void should_throw_error_if_a_matching_tab_cannot_be_found() {
-    try {
-      location.indexOf(tabbedPane, "three");
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).isEqualTo("Unable to find a tab with title matching value 'three'");
-    }
+    thrown.expect(LocationUnavailableException.class, "Unable to find a tab with title matching value 'three'");
+    location.indexOf(tabbedPane, "three");
   }
 }

@@ -15,9 +15,6 @@
 package org.assertj.swing.driver;
 
 import static java.awt.event.KeyEvent.VK_A;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.junit.Test;
 
@@ -29,48 +26,35 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class ComponentDriver_releaseKey_Test extends ComponentDriver_TestCase {
+  @Override
+  protected void onTearDown() {
+    assertThatTextFieldIsEmpty();
+  }
+
   @Test
   public void should_throw_error_if_Component_is_disabled() {
     disableTextField();
-    try {
-      driver.pressKey(window.textField, VK_A);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
-    assertThatTextFieldIsEmpty();
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.pressKey(window.textField, VK_A);
   }
 
   @Test
   public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
     assertThatTextFieldIsEmpty();
-    try {
-      driver.pressKey(window.textField, VK_A);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
-    assertThatTextFieldIsEmpty();
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.pressKey(window.textField, VK_A);
   }
 
+  @Test
   public void shouldThrowErrorWhenReleasingKeyInDisabledComponent() {
     disableTextField();
-    try {
-      driver.releaseKey(window.textField, VK_A);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
-    assertThatTextFieldIsEmpty();
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.releaseKey(window.textField, VK_A);
   }
 
+  @Test
   public void shouldThrowErrorWhenReleasingKeyInNotShowingComponent() {
-    try {
-      driver.releaseKey(window.textField, VK_A);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
-    assertThatTextFieldIsEmpty();
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.releaseKey(window.textField, VK_A);
   }
 }

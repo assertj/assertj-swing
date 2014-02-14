@@ -16,9 +16,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.AbstractButtonSelectedQuery.isSelected;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.junit.Test;
 
@@ -51,21 +48,13 @@ public class AbstractButtonDriver_select_Test extends AbstractButtonDriver_TestC
   @Test
   public void should_throw_error_if_AbstractButton_disabled() {
     disableCheckBox();
-    try {
-      driver.select(checkBox);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.select(checkBox);
   }
 
   @Test
   public void should_throw_error_if_AbstractButton_is_not_showing_on_the_screen() {
-    try {
-      driver.select(checkBox);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.select(checkBox);
   }
 }

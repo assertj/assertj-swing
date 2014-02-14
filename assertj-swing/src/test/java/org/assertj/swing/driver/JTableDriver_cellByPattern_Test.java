@@ -15,7 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.util.regex.Pattern;
 
@@ -40,11 +39,7 @@ public class JTableDriver_cellByPattern_Test extends JTableDriver_TestCase {
 
   @Test
   public void should_throw_error_if_a_matching_cell_was_not_found() {
-    try {
-      driver.cell(table, Pattern.compile("Hello World"));
-      failWhenExpectingException();
-    } catch (ActionFailedException expected) {
-      assertThat(expected.getMessage()).contains("Unable to find cell matching pattern 'Hello World'");
-    }
+    thrown.expect(ActionFailedException.class, "Unable to find cell matching pattern 'Hello World'");
+    driver.cell(table, Pattern.compile("Hello World"));
   }
 }

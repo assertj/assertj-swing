@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
 
 import java.util.concurrent.CountDownLatch;
@@ -58,21 +55,13 @@ public class ComponentDriver_focusAndWaitForFocusGain_Test extends ComponentDriv
   @Test
   public void should_throw_error_if_Component_is_disabled() {
     disableButton();
-    try {
-      driver.focusAndWaitForFocusGain(window.button);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.focusAndWaitForFocusGain(window.button);
   }
 
   @Test
   public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
-    try {
-      driver.focusAndWaitForFocusGain(window.button);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.focusAndWaitForFocusGain(window.button);
   }
 }

@@ -15,9 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.fest.util.Arrays.array;
 
 import java.util.regex.Pattern;
@@ -35,13 +32,9 @@ public class JListDriver_selectItemsByPattern_Test extends JListDriver_TestCase 
   @Test
   public void should_throw_error_if_a_matching_item_was_not_found() {
     showWindow();
-    try {
-      driver.selectItems(list, array(Pattern.compile("ten")));
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).isEqualTo(
-          "Unable to find item matching the pattern 'ten' among the JList contents ['one', 'two', 'three']");
-    }
+    thrown.expect(LocationUnavailableException.class,
+        "Unable to find item matching the pattern 'ten' among the JList contents ['one', 'two', 'three']");
+    driver.selectItems(list, array(Pattern.compile("ten")));
   }
 
   @Test
@@ -71,21 +64,13 @@ public class JListDriver_selectItemsByPattern_Test extends JListDriver_TestCase 
   @Test
   public void should_throw_error_if_JList_is_disabled() {
     disableList();
-    try {
-      driver.selectItems(list, array(Pattern.compile("two"), Pattern.compile("three")));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectItems(list, array(Pattern.compile("two"), Pattern.compile("three")));
   }
 
   @Test
   public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
-    try {
-      driver.selectItems(list, array(Pattern.compile("two"), Pattern.compile("three")));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectItems(list, array(Pattern.compile("two"), Pattern.compile("three")));
   }
 }

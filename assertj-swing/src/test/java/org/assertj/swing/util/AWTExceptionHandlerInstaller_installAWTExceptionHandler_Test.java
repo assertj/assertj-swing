@@ -14,12 +14,13 @@
  */
 package org.assertj.swing.util;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import org.assertj.swing.test.ExpectedException;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -29,6 +30,9 @@ import org.junit.Test;
  */
 public class AWTExceptionHandlerInstaller_installAWTExceptionHandler_Test {
   private SystemPropertyWriter writer;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Before
   public void setUp() {
@@ -44,12 +48,8 @@ public class AWTExceptionHandlerInstaller_installAWTExceptionHandler_Test {
 
   @Test
   public void should_throw_error_if_AWT_event_handler_type_does_not_have_default_constructor() {
-    try {
-      AWTExceptionHandlerInstaller.installAWTExceptionHandler(WrongEventHandler.class, writer);
-      failWhenExpectingException();
-    } catch (IllegalArgumentException e) {
-      assertThat(e.getMessage()).isEqualTo("The exception handler type should have a default constructor");
-    }
+    thrown.expectIllegalArgumentException("The exception handler type should have a default constructor");
+    AWTExceptionHandlerInstaller.installAWTExceptionHandler(WrongEventHandler.class, writer);
   }
 
   static class CorrectEventHandler {

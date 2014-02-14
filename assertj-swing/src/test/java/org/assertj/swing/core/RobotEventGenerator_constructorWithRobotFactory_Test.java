@@ -15,7 +15,7 @@
 package org.assertj.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.util.TestRobotFactories.newRobotFactoryMock;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -24,8 +24,10 @@ import java.awt.AWTException;
 import java.awt.Robot;
 
 import org.assertj.swing.exception.UnexpectedException;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.util.RobotFactory;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -35,6 +37,9 @@ import org.junit.Test;
  */
 public class RobotEventGenerator_constructorWithRobotFactory_Test {
   private RobotFactory robotFactory;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Before
   public void setUp() {
@@ -53,11 +58,12 @@ public class RobotEventGenerator_constructorWithRobotFactory_Test {
   public void should_rethrow_any_error_from_RobotFactory() throws AWTException {
     AWTException toThrow = new AWTException("Thrown on purpose");
     when(robotFactory.newRobotInPrimaryScreen()).thenThrow(toThrow);
+    thrown.expect(UnexpectedException.class);
     try {
       new RobotEventGenerator(robotFactory, new Settings());
-      failWhenExpectingException();
     } catch (UnexpectedException e) {
       assertThat(e.getCause()).isSameAs(toThrow);
+      throw e;
     }
   }
 }

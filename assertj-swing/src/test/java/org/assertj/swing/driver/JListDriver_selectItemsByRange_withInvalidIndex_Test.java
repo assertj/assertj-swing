@@ -18,7 +18,6 @@ import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.util.Collection;
 
@@ -48,35 +47,27 @@ public class JListDriver_selectItemsByRange_withInvalidIndex_Test extends JListD
 
   @Test
   public void should_throw_error_if_starting_index_is_out_of_bounds() {
-    try {
-      driver.selectItems(list, index, 1);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage()).isEqualTo(
-          concat("Item index (", valueOf(index), ") should be between [0] and [2] (inclusive)"));
-    }
+    thrown.expectIndexOutOfBoundsException(concat("Item index (", valueOf(index),
+        ") should be between [0] and [2] (inclusive)"));
+    driver.selectItems(list, index, 1);
   }
 
   @Test
-  public void should_throw_error_if_endng_index_is_out_of_bounds() {
-    try {
-      driver.selectItems(list, 0, index);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage()).isEqualTo(
-          concat("Item index (", valueOf(index), ") should be between [0] and [2] (inclusive)"));
-    }
+  public void should_throw_error_if_ending_index_is_out_of_bounds() {
+    thrown.expectIndexOutOfBoundsException(concat("Item index (", valueOf(index),
+        ") should be between [0] and [2] (inclusive)"));
+    driver.selectItems(list, 0, index);
   }
 
   @Test
   public void should_keep_original_selection_if_index_is_out_of_bounds() {
     select(1);
     showWindow();
+    thrown.expect(IndexOutOfBoundsException.class);
     try {
       driver.selectItems(list, 0, index);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
+    } finally {
+      assertThat(selectedValue()).isEqualTo("two");
     }
-    assertThat(selectedValue()).isEqualTo("two");
   }
 }
