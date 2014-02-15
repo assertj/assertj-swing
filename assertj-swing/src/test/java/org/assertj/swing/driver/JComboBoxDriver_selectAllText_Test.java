@@ -16,9 +16,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.awt.Component;
 
@@ -39,33 +36,21 @@ public class JComboBoxDriver_selectAllText_Test extends JComboBoxDriver_TestCase
   @Test
   public void should_throw_error_if_JComboBox_is_disabled() {
     disableComboBox();
-    try {
-      driver.selectAllText(comboBox);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectAllText(comboBox);
   }
 
   @Test
   public void should_throw_error_if_JComboBox_is_not_showing_on_the_screen() {
-    try {
-      driver.selectAllText(comboBox);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectAllText(comboBox);
   }
 
   @Test
   public void should_throw_error_if_JComboBox_is_not_editable() {
     showWindow();
-    try {
-      driver.selectAllText(comboBox);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotEditableComboBox(e);
-    }
+    assertThatIllegalStateExceptionCauseIsNotEditableComboBox();
+    driver.selectAllText(comboBox);
   }
 
   @Test

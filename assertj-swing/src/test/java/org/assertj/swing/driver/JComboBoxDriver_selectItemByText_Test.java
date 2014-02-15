@@ -14,10 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.junit.Test;
 
@@ -55,22 +51,14 @@ public class JComboBoxDriver_selectItemByText_Test extends JComboBoxDriver_TestC
   @Test
   public void should_throw_error_if_JComboBox_is_disabled() {
     disableComboBox();
-    try {
-      driver.selectItem(comboBox, "first");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectItem(comboBox, "first");
   }
 
   @Test
   public void should_throw_error_if_JComboBox_is_not_showing_on_the_screen() {
-    try {
-      driver.selectItem(comboBox, "first");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectItem(comboBox, "first");
   }
 
   @Test(expected = LocationUnavailableException.class)

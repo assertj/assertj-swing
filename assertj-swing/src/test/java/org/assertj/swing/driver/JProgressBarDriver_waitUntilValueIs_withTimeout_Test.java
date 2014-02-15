@@ -18,7 +18,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JProgressBarIncrementValueAsyncTask.with;
 import static org.assertj.swing.driver.JProgressBarValueQuery.valueOf;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.swing.timing.Timeout.timeout;
 
 import javax.swing.JProgressBar;
@@ -35,22 +34,14 @@ import org.junit.Test;
 public class JProgressBarDriver_waitUntilValueIs_withTimeout_Test extends JProgressBarDriver_TestCase {
   @Test
   public void should_throw_error_if_expected_value_is_less_than_minimum() {
-    try {
-      driver.waitUntilValueIs(progressBar, -1, timeout(2, SECONDS));
-      failWhenExpectingException();
-    } catch (IllegalArgumentException e) {
-      assertThat(e.getMessage()).contains("Value <-1> should be between <[0, 100]>");
-    }
+    thrown.expectIllegalArgumentException("Value <-1> should be between <[0, 100]>");
+    driver.waitUntilValueIs(progressBar, -1, timeout(2, SECONDS));
   }
 
   @Test
   public void should_throw_error_if_expected_value_is_greater_than_maximum() {
-    try {
-      driver.waitUntilValueIs(progressBar, 200, timeout(2, SECONDS));
-      failWhenExpectingException();
-    } catch (IllegalArgumentException e) {
-      assertThat(e.getMessage()).contains("Value <200> should be between <[0, 100]>");
-    }
+    thrown.expectIllegalArgumentException("Value <200> should be between <[0, 100]>");
+    driver.waitUntilValueIs(progressBar, 200, timeout(2, SECONDS));
   }
 
   @Test(expected = NullPointerException.class)
@@ -73,11 +64,8 @@ public class JProgressBarDriver_waitUntilValueIs_withTimeout_Test extends JProgr
 
   @Test
   public void should_time_out_if_expected_value_never_reached() {
-    try {
-      driver.waitUntilValueIs(progressBar, 100, timeout(1, SECONDS));
-      failWhenExpectingException();
-    } catch (WaitTimedOutError e) {
-      assertThat(e.getMessage()).contains("Timed out waiting for value").contains("to be equal to 100");
-    }
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for value");
+    thrown.expectMessageToContain("to be equal to 100");
+    driver.waitUntilValueIs(progressBar, 100, timeout(1, SECONDS));
   }
 }

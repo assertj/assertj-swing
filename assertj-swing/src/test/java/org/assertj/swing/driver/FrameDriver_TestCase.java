@@ -16,15 +16,18 @@ package org.assertj.swing.driver;
 
 import static org.assertj.swing.query.ComponentLocationOnScreenQuery.locationOnScreen;
 import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 import static org.assertj.swing.test.task.FrameSetResizableTask.setResizable;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.annotation.ThreadSafeAction;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.awt.FluentDimension;
 import org.assertj.swing.test.awt.FluentPoint;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link FrameDriver}.
@@ -34,6 +37,9 @@ import org.assertj.swing.test.swing.TestWindow;
 public abstract class FrameDriver_TestCase extends RobotBasedTestCase {
   TestWindow window;
   FrameDriver driver;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected final void onSetUp() {

@@ -15,7 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.junit.Test;
 
@@ -35,11 +34,7 @@ public class JListDriver_value_Test extends JListDriver_TestCase {
 
   @Test
   public void should_throw_error_if_index_is_out_of_bounds() {
-    try {
-      driver.value(list, 6);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException expected) {
-      assertThat(expected.getMessage()).isEqualTo("Item index (6) should be between [0] and [2] (inclusive)");
-    }
+    thrown.expectIndexOutOfBoundsException("Item index (6) should be between [0] and [2] (inclusive)");
+    driver.value(list, 6);
   }
 }

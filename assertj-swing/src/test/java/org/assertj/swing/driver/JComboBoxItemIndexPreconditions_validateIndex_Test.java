@@ -14,13 +14,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.builder.JComboBoxes.comboBox;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.JComboBox;
 
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.EDTSafeTestCase;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -29,6 +30,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class JComboBoxItemIndexPreconditions_validateIndex_Test extends EDTSafeTestCase {
+  @Rule
+  public ExpectedException thrown = none();
+
   @Test
   public void should_not_throw_error_if_index_is_in_bounds() {
     JComboBox comboBox = comboBox().withItems("One", "Two", "Three").createNew();
@@ -37,32 +41,20 @@ public class JComboBoxItemIndexPreconditions_validateIndex_Test extends EDTSafeT
 
   @Test
   public void should_throw_error_if_index_is_negative() {
-    try {
-      JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox().createNew(), -1);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage()).isEqualTo("Item index (-1) should not be less than zero");
-    }
+    thrown.expectIndexOutOfBoundsException("Item index (-1) should not be less than zero");
+    JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox().createNew(), -1);
   }
 
   @Test
   public void should_throw_error_if_JComboBox_is_empty() {
-    try {
-      JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox().createNew(), 0);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage()).isEqualTo("JComboBox is empty");
-    }
+    thrown.expectIndexOutOfBoundsException("JComboBox is empty");
+    JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox().createNew(), 0);
   }
 
   @Test
   public void should_throw_error_if_index_is_out_of_bounds() {
-    try {
-      JComboBox comboBox = comboBox().withItems("One", "Two", "Three").createNew();
-      JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox, 6);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage()).isEqualTo("Item index (6) should be between [0] and [2] (inclusive)");
-    }
+    thrown.expectIndexOutOfBoundsException("Item index (6) should be between [0] and [2] (inclusive)");
+    JComboBox comboBox = comboBox().withItems("One", "Two", "Three").createNew();
+    JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox, 6);
   }
 }

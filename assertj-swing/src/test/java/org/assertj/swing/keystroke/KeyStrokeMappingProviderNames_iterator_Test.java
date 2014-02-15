@@ -16,14 +16,16 @@ package org.assertj.swing.keystroke;
 
 import static java.util.Locale.US;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.util.OSFamily.WINDOWS;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import org.assertj.swing.test.ExpectedException;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -34,6 +36,9 @@ import org.junit.Test;
 public class KeyStrokeMappingProviderNames_iterator_Test {
   private static KeyStrokeMappingProviderNames names;
   private Iterator<String> iterator;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @BeforeClass
   public static void setUpOnce() {
@@ -57,21 +62,13 @@ public class KeyStrokeMappingProviderNames_iterator_Test {
     iterator.next(); // full name
     iterator.next(); // without country
     iterator.next(); // language only
-    try {
-      iterator.next();
-      failWhenExpectingException();
-    } catch (NoSuchElementException e) {
-      assertThat(e.getMessage()).isEqualTo("There are no more names to generate");
-    }
+    thrown.expect(NoSuchElementException.class, "There are no more names to generate");
+    iterator.next();
   }
 
   @Test
   public void should_throw_error_if_remove_is_called_on_iterator() {
-    try {
-      iterator.remove();
-      failWhenExpectingException();
-    } catch (UnsupportedOperationException e) {
-      assertThat(e.getMessage()).isEqualTo("This iterator does not support 'remove'");
-    }
+    thrown.expectUnsupportedOperationException("This iterator does not support 'remove'");
+    iterator.remove();
   }
 }

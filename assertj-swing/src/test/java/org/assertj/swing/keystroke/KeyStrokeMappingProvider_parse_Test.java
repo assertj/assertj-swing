@@ -27,7 +27,7 @@ import static org.assertj.core.util.Flushables.flush;
 import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 import static org.assertj.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.assertj.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.util.Platform.isWindows;
 import static org.fest.util.Closeables.closeQuietly;
 import static org.fest.util.Files.newTemporaryFile;
@@ -40,7 +40,9 @@ import java.io.Writer;
 import java.util.Collection;
 
 import org.assertj.swing.exception.ParsingException;
+import org.assertj.swing.test.ExpectedException;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -50,6 +52,9 @@ import org.junit.Test;
  */
 public class KeyStrokeMappingProvider_parse_Test {
   private KeyStrokeMappingsParser parser;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Before
   public void setUp() {
@@ -78,12 +83,8 @@ public class KeyStrokeMappingProvider_parse_Test {
 
   @Test
   public void should_throw_error_if_file_not_found() {
-    try {
-      parser.parse("abc.txt");
-      failWhenExpectingException();
-    } catch (ParsingException e) {
-      assertThat(e.getMessage()).isEqualTo("Unable to open file abc.txt");
-    }
+    thrown.expect(ParsingException.class, "Unable to open file abc.txt");
+    parser.parse("abc.txt");
   }
 
   @Test(expected = AssertionError.class)

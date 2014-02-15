@@ -15,10 +15,8 @@
 package org.assertj.swing.driver;
 
 import static java.lang.String.valueOf;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.swing.util.Range.from;
 import static org.assertj.swing.util.Range.to;
 
@@ -31,7 +29,8 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * Tests for
- * {@link JListDriver#selectItems(javax.swing.JList, org.assertj.swing.util.Range.From, org.assertj.swing.util.Range.To)}.
+ * {@link JListDriver#selectItems(javax.swing.JList, org.assertj.swing.util.Range.From, org.assertj.swing.util.Range.To)}
+ * .
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -52,24 +51,16 @@ public class JListDriver_selectItemsByFluentRange_withInvalidIndex_Test extends 
   @Test
   public void should_throw_error_if_starting_index_is_out_of_bounds() {
     showWindow();
-    try {
-      driver.selectItems(list, from(index), to(1));
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage()).isEqualTo(
-          concat("Item index (", valueOf(index), ") should be between [0] and [2] (inclusive)"));
-    }
+    thrown.expectIndexOutOfBoundsException(concat("Item index (", valueOf(index),
+        ") should be between [0] and [2] (inclusive)"));
+    driver.selectItems(list, from(index), to(1));
   }
 
   @Test
-  public void should_throw_error_if_endng_index_is_out_of_bounds() {
+  public void should_throw_error_if_ending_index_is_out_of_bounds() {
     showWindow();
-    try {
-      driver.selectItems(list, from(0), to(index));
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage()).isEqualTo(
-          concat("Item index (", valueOf(index), ") should be between [0] and [2] (inclusive)"));
-    }
+    thrown.expectIndexOutOfBoundsException(concat("Item index (", valueOf(index),
+        ") should be between [0] and [2] (inclusive)"));
+    driver.selectItems(list, from(0), to(index));
   }
 }

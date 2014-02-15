@@ -14,10 +14,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.assertj.swing.cell.JTableCellWriter;
-import org.assertj.swing.exception.ActionFailedException;
 import org.junit.Test;
 
 /**
@@ -29,11 +26,7 @@ import org.junit.Test;
 public abstract class JTableCellWriter_startCellEditing_TestCase extends JTableCellWriter_TestCase {
   @Test
   public void should_throw_error_if_editor_Component_cannot_be_handled() {
-    try {
-      writer.startCellEditing(window.table, 0, 1);
-      failWhenExpectingException();
-    } catch (ActionFailedException e) {
-      assertMessageIndicatesWriterWasUnableToActivateEditor(e);
-    }
+    assertActionFailedExceptionWithMessageIndicatingWriterWasUnableToActivateEditor();
+    writer.startCellEditing(window.table, 0, 1);
   }
 }

@@ -14,10 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.util.regex.Pattern;
 
 import org.assertj.swing.exception.LocationUnavailableException;
@@ -49,22 +45,14 @@ public class JComboBoxDriver_selectItemByPattern_Test extends JComboBoxDriver_Te
   @Test
   public void should_throw_error_if_JComboBox_is_disabled() {
     disableComboBox();
-    try {
-      driver.selectItem(comboBox, Pattern.compile("first"));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectItem(comboBox, Pattern.compile("first"));
   }
 
   @Test
   public void should_throw_error_if_JComboBox_is_not_showing_on_the_screen() {
-    try {
-      driver.selectItem(comboBox, Pattern.compile("first"));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectItem(comboBox, Pattern.compile("first"));
   }
 
   @Test(expected = LocationUnavailableException.class)

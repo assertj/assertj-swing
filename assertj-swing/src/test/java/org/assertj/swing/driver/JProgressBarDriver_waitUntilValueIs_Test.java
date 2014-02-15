@@ -18,7 +18,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JProgressBarIncrementValueAsyncTask.with;
 import static org.assertj.swing.driver.JProgressBarValueQuery.valueOf;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.JProgressBar;
 
@@ -33,22 +32,14 @@ import org.junit.Test;
 public class JProgressBarDriver_waitUntilValueIs_Test extends JProgressBarDriver_TestCase {
   @Test
   public void should_throw_error_if_expected_value_is_less_than_minimum() {
-    try {
-      driver.waitUntilValueIs(progressBar, -1);
-      failWhenExpectingException();
-    } catch (IllegalArgumentException e) {
-      assertThat(e.getMessage()).contains("Value <-1> should be between <[0, 100]>");
-    }
+    thrown.expectIllegalArgumentException("Value <-1> should be between <[0, 100]>");
+    driver.waitUntilValueIs(progressBar, -1);
   }
 
   @Test
   public void should_throw_error_if_expected_value_is_greater_than_maximum() {
-    try {
-      driver.waitUntilValueIs(progressBar, 200);
-      failWhenExpectingException();
-    } catch (IllegalArgumentException e) {
-      assertThat(e.getMessage()).contains("Value <200> should be between <[0, 100]>");
-    }
+    thrown.expectIllegalArgumentException("Value <200> should be between <[0, 100]>");
+    driver.waitUntilValueIs(progressBar, 200);
   }
 
   @Test
@@ -66,11 +57,8 @@ public class JProgressBarDriver_waitUntilValueIs_Test extends JProgressBarDriver
 
   @Test
   public void should_time_out_if_expected_value_never_reached() {
-    try {
-      driver.waitUntilValueIs(progressBar, 100);
-      failWhenExpectingException();
-    } catch (WaitTimedOutError e) {
-      assertThat(e.getMessage()).contains("Timed out waiting for value").contains("to be equal to 100");
-    }
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for value");
+    thrown.expectMessageToContain("to be equal to 100");
+    driver.waitUntilValueIs(progressBar, 100);
   }
 }

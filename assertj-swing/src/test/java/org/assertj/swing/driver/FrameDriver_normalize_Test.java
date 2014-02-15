@@ -17,9 +17,6 @@ package org.assertj.swing.driver;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import static java.awt.Frame.NORMAL;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.junit.Test;
 
@@ -40,21 +37,13 @@ public class FrameDriver_normalize_Test extends FrameDriver_TestCase {
   @Test
   public void should_throw_error_if_Frame_is_disabled() {
     disableWindow();
-    try {
-      driver.normalize(window);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.normalize(window);
   }
 
   @Test
   public void should_throw_error_if_Frame_is_not_showing_on_the_screen() {
-    try {
-      driver.normalize(window);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.normalize(window);
   }
 }

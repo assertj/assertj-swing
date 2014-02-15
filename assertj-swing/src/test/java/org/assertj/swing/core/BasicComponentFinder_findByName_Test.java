@@ -15,7 +15,6 @@
 package org.assertj.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.awt.Component;
 
@@ -37,11 +36,7 @@ public class BasicComponentFinder_findByName_Test extends BasicComponentFinder_T
 
   @Test
   public void should_throw_error_if_Component_not_found() {
-    try {
-      finder.findByName("list");
-      failWhenExpectingException();
-    } catch (ComponentLookupException e) {
-      assertThat(e.getMessage()).contains("name='list'");
-    }
+    thrown.expect(ComponentLookupException.class, "name='list'");
+    finder.findByName("list");
   }
 }

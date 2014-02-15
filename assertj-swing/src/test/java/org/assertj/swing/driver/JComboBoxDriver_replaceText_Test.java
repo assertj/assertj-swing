@@ -39,32 +39,20 @@ public class JComboBoxDriver_replaceText_Test extends JComboBoxDriver_TestCase {
   @Test
   public void should_throw_error_if_JComboBox_is_disabled() {
     disableComboBox();
-    try {
-      driver.replaceText(comboBox, "Hello");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.replaceText(comboBox, "Hello");
   }
 
   @Test
   public void should_throw_error_if_JComboBox_is_not_showing_on_the_screen() {
-    try {
-      driver.replaceText(comboBox, "Hello");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.replaceText(comboBox, "Hello");
   }
 
   @Test
   public void should_throw_error_if_JComboBox_is_not_editable() {
     showWindow();
-    try {
-      driver.replaceText(comboBox, "Hello");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotEditableComboBox(e);
-    }
+    assertThatIllegalStateExceptionCauseIsNotEditableComboBox();
+    driver.replaceText(comboBox, "Hello");
   }
 }

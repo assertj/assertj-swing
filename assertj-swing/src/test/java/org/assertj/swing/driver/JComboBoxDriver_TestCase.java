@@ -103,8 +103,9 @@ public abstract class JComboBoxDriver_TestCase extends RobotBasedTestCase {
     robot.waitForIdle();
   }
 
-  final void assertThatErrorCauseIsNotEditableComboBox(IllegalStateException e) {
-    assertThat(e.getMessage()).contains("Expecting component").contains("to be editable");
+  final void assertThatIllegalStateExceptionCauseIsNotEditableComboBox() {
+    thrown.expect(IllegalStateException.class, "Expecting component");
+    thrown.expectMessageToContain("to be editable");
   }
 
   @RunsInEDT

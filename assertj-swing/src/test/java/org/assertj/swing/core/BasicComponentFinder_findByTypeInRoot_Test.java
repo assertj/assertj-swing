@@ -15,7 +15,6 @@
 package org.assertj.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.JButton;
 import javax.swing.JList;
@@ -41,12 +40,8 @@ public class BasicComponentFinder_findByTypeInRoot_Test extends BasicComponentFi
 
   @Test
   public void should_throw_error_if_Component_not_found() {
-    try {
-      finder.findByType(window, JList.class);
-      failWhenExpectingException();
-    } catch (ComponentLookupException e) {
-      assertThat(e.getMessage()).contains("type=javax.swing.JList");
-    }
+    thrown.expect(ComponentLookupException.class, "type=javax.swing.JList");
+    finder.findByType(window, JList.class);
   }
 
   @Override

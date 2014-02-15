@@ -15,10 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotResizableComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.awt.Dimension;
 
@@ -41,32 +37,20 @@ public class FrameDriver_resizeHeightTo_Test extends FrameDriver_TestCase {
   @Test
   public void should_throw_error_if_Frame_is_disabled() {
     disableWindow();
-    try {
-      driver.resizeHeightTo(window, 10);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.resizeHeightTo(window, 10);
   }
 
   @Test
   public void should_throw_error_if_Frame_is_not_showing_on_the_screen() {
-    try {
-      driver.resizeHeightTo(window, 10);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.resizeHeightTo(window, 10);
   }
 
   @Test
   public void should_throw_error_if_Frame_is_not_resizable() {
     makeWindowNotResizable();
-    try {
-      driver.resizeHeightTo(window, 10);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotResizableComponent(e);
-    }
+    thrown.expectIllegalStateIsNotResizableComponent();
+    driver.resizeHeightTo(window, 10);
   }
 }

@@ -15,7 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.util.regex.Pattern;
 
@@ -38,12 +37,8 @@ public class JListDriver_indexOfValueAsPattern_Test extends JListDriver_TestCase
 
   @Test
   public void should_throw_error_if_item_matching_given_value_was_not_found() {
-    try {
-      driver.indexOf(list, Pattern.compile("fou.*"));
-      failWhenExpectingException();
-    } catch (LocationUnavailableException expected) {
-      assertThat(expected.getMessage()).isEqualTo(
-          "Unable to find item matching the pattern 'fou.*' among the JList contents ['one', 'two', 'three']");
-    }
+    thrown.expect(LocationUnavailableException.class,
+        "Unable to find item matching the pattern 'fou.*' among the JList contents ['one', 'two', 'three']");
+    driver.indexOf(list, Pattern.compile("fou.*"));
   }
 }
