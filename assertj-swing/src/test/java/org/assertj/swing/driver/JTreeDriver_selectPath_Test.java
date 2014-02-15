@@ -42,23 +42,15 @@ public class JTreeDriver_selectPath_Test extends JTreeDriver_selectCell_TestCase
   @Test
   public void should_throw_error_if_path_not_found() {
     showWindow();
-    try {
-      driver.selectPath(tree, "another");
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).isEqualTo("Unable to find path 'another'");
-    }
+    thrown.expect(LocationUnavailableException.class, "Unable to find path 'another'");
+    driver.selectPath(tree, "another");
   }
 
   @Test
   public void should_throw_error_if_JTree_is_disabled() {
     disableTree();
-    try {
-      driver.selectPath(tree, "root/branch1");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectPath(tree, "root/branch1");
   }
 
   @Test
@@ -82,11 +74,7 @@ public class JTreeDriver_selectPath_Test extends JTreeDriver_selectCell_TestCase
 
   @Test
   public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
-    try {
-      driver.selectPath(tree, "root/branch1");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectPath(tree, "root/branch1");
   }
 }

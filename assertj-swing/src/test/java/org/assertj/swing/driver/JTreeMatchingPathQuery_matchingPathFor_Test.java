@@ -17,7 +17,7 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JTreeSetRootVisibleTask.setRootVisible;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.swing.TreeNodeFactory.node;
 
 import java.awt.Component;
@@ -34,9 +34,11 @@ import javax.swing.tree.TreePath;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.LocationUnavailableException;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTree;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -45,6 +47,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class JTreeMatchingPathQuery_matchingPathFor_Test extends RobotBasedTestCase {
+  @Rule
+  public ExpectedException thrown = none();
+
   private MyWindow window;
   private JTreePathFinder pathFinder;
 
@@ -88,12 +93,8 @@ public class JTreeMatchingPathQuery_matchingPathFor_Test extends RobotBasedTestC
 
   @Test
   public void should_throw_error_if_path_not_found() {
-    try {
-      JTreeMatchingPathQuery.matchingPathFor(window.tree, "hello", pathFinder);
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).isEqualTo("Unable to find path 'hello'");
-    }
+    thrown.expect(LocationUnavailableException.class, "Unable to find path 'hello'");
+    JTreeMatchingPathQuery.matchingPathFor(window.tree, "hello", pathFinder);
   }
 
   static class MyWindow extends TestWindow {

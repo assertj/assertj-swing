@@ -15,9 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.JTree;
 
@@ -48,21 +45,13 @@ public class JTreeDriver_doubleClickPath_Test extends JTreeDriver_clickCell_Test
   @Test
   public void should_throw_error_if_JTree_is_disabled() {
     disableTree();
-    try {
-      driver.doubleClickPath(tree, "root");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.doubleClickPath(tree, "root");
   }
 
   @Test
   public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
-    try {
-      driver.doubleClickPath(tree, "root");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.doubleClickPath(tree, "root");
   }
 }

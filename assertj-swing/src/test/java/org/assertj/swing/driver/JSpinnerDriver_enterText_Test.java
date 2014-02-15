@@ -16,9 +16,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JTextComponentTextQuery.textOf;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.text.JTextComponent;
 
@@ -51,21 +48,13 @@ public class JSpinnerDriver_enterText_Test extends JSpinnerDriver_TestCase {
   @Test
   public void should_throw_error_if_JSpinner_is_disabled() {
     disableSpinner();
-    try {
-      driver.enterText(spinner, "Gandalf");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.enterText(spinner, "Gandalf");
   }
 
   @Test
   public void should_throw_error_if_JSpinner_is_not_showing_on_the_screen() {
-    try {
-      driver.enterText(spinner, "Gandalf");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.enterText(spinner, "Gandalf");
   }
 }

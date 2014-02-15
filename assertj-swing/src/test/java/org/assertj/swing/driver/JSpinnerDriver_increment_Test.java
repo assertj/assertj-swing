@@ -14,10 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -37,21 +33,13 @@ public class JSpinnerDriver_increment_Test extends JSpinnerDriver_TestCase {
   @Test
   public void should_throw_error_if_JSpinner_is_disabled() {
     disableSpinner();
-    try {
-      driver.increment(spinner);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.increment(spinner);
   }
 
   @Test
   public void should_throw_error_if_JSpinner_is_not_showing_on_the_screen() {
-    try {
-      driver.increment(spinner);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.increment(spinner);
   }
 }

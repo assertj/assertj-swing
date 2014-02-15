@@ -14,10 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -40,22 +36,14 @@ public class JTreeDriver_selectPaths_Test extends JTreeDriver_selectCell_TestCas
   public void should_throw_error_if_JTree_is_disabled() {
     disableTree();
     String[] paths = { "root/branch1/branch1.1", "root/branch1/branch1.2" };
-    try {
-      driver.selectPaths(tree, paths);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectPaths(tree, paths);
   }
 
   @Test
   public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
     String[] paths = { "root/branch1/branch1.1", "root/branch1/branch1.2" };
-    try {
-      driver.selectPaths(tree, paths);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectPaths(tree, paths);
   }
 }

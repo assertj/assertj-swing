@@ -16,9 +16,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.recorder.ClickRecorder;
@@ -48,32 +45,20 @@ public class JTreeDriver_rightClickPath_Test extends JTreeDriver_clickCell_TestC
   @Test
   public void should_throw_error_if_path_not_found() {
     showWindow();
-    try {
-      driver.rightClickPath(tree, "another");
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).isEqualTo("Unable to find path 'another'");
-    }
+    thrown.expect(LocationUnavailableException.class, "Unable to find path 'another'");
+    driver.rightClickPath(tree, "another");
   }
 
   @Test
   public void should_throw_error_if_JTree_is_disabled() {
     disableTree();
-    try {
-      driver.rightClickPath(tree, "root/branch1");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.rightClickPath(tree, "root/branch1");
   }
 
   @Test
   public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
-    try {
-      driver.rightClickPath(tree, "root/branch1");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.rightClickPath(tree, "root/branch1");
   }
 }

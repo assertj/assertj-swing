@@ -14,9 +14,6 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import javax.swing.JTextField;
 
 import org.assertj.swing.exception.ComponentLookupException;
@@ -31,11 +28,8 @@ import org.junit.Test;
 public class BasicComponentFinder_findUsingComponentMatcher_Test extends BasicComponentFinder_TestCase {
   @Test
   public void should_throw_error_if_more_than_one_Component_matched() {
-    try {
-      finder.find(new TypeMatcher(JTextField.class));
-      failWhenExpectingException();
-    } catch (ComponentLookupException e) {
-      assertThat(e.getMessage()).contains("Found:").contains("text='TextField 1'").contains("text='TextField 2'");
-    }
+    thrown.expect(ComponentLookupException.class, "Found:");
+    thrown.expectMessageToContain("text='TextField 1'", "text='TextField 2'");
+    finder.find(new TypeMatcher(JTextField.class));
   }
 }

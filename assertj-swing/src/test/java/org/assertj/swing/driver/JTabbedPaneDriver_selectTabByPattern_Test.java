@@ -14,10 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import java.util.regex.Pattern;
 
 import org.junit.Test;
@@ -39,21 +35,13 @@ public class JTabbedPaneDriver_selectTabByPattern_Test extends JTabbedPaneDriver
   @Test
   public void should_throw_error_if_JTabbedPane_is_disabled() {
     disableTabbedPane();
-    try {
-      driver.selectTab(tabbedPane, Pattern.compile("Tw.*"));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectTab(tabbedPane, Pattern.compile("Tw.*"));
   }
 
   @Test
   public void should_throw_error_if_JTabbedPane_is_not_showing_on_the_screen() {
-    try {
-      driver.selectTab(tabbedPane, Pattern.compile("Tw.*"));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectTab(tabbedPane, Pattern.compile("Tw.*"));
   }
 }

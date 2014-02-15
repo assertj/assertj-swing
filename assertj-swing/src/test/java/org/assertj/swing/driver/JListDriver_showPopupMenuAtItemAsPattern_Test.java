@@ -52,21 +52,13 @@ public class JListDriver_showPopupMenuAtItemAsPattern_Test extends JListDriver_s
   @Test
   public void should_throw_error_if_JList_is_disabled() {
     disableList();
-    try {
-      driver.showPopupMenu(list, Pattern.compile("o.*"));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.showPopupMenu(list, Pattern.compile("o.*"));
   }
 
   @Test
   public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
-    try {
-      driver.showPopupMenu(list, Pattern.compile("o.*"));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.showPopupMenu(list, Pattern.compile("o.*"));
   }
 }

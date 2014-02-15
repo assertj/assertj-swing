@@ -14,6 +14,9 @@
  */
 package org.assertj.swing.core;
 
+import static org.assertj.swing.test.ExpectedException.none;
+import org.assertj.swing.test.ExpectedException;
+import org.junit.Rule;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
@@ -38,6 +41,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class BasicRobot_showWindow_Test extends EDTSafeTestCase {
+  @Rule
+  public ExpectedException thrown = none();
+
   private static final Logger LOGGER = Logger.getAnonymousLogger();
 
   private BasicRobot robot;
@@ -54,14 +60,10 @@ public class BasicRobot_showWindow_Test extends EDTSafeTestCase {
 
   @Test
   public void should_throw_error_if_window_never_shown() {
-    try {
-      AlwaysInvisibleFrame window = AlwaysInvisibleFrame.createNew();
-      LOGGER.info(concat("Waiting for ", AlwaysInvisibleFrame.class.getSimpleName(), " to show up"));
-      robot.showWindow(window);
-      failWhenExpectingException();
-    } catch (WaitTimedOutError e) {
-      assertThat(e.getMessage()).contains("Timed out waiting for Window to open");
-    }
+    AlwaysInvisibleFrame window = AlwaysInvisibleFrame.createNew();
+    LOGGER.info(concat("Waiting for ", AlwaysInvisibleFrame.class.getSimpleName(), " to show up"));
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for Window to open");
+    robot.showWindow(window);
   }
 
   private static class AlwaysInvisibleFrame extends JFrame {

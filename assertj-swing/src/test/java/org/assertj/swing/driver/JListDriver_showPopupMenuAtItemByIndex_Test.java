@@ -17,9 +17,6 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.query.ComponentVisibleQuery.isVisible;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.assertj.swing.test.recorder.ClickRecorderManager;
 import org.assertj.swing.test.recorder.ToolkitClickRecorder;
@@ -50,21 +47,13 @@ public class JListDriver_showPopupMenuAtItemByIndex_Test extends JListDriver_sho
   @Test
   public void should_throw_error_if_JList_is_disabled() {
     disableList();
-    try {
-      driver.showPopupMenu(list, 0);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.showPopupMenu(list, 0);
   }
 
   @Test
   public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
-    try {
-      driver.showPopupMenu(list, "o.*");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.showPopupMenu(list, "o.*");
   }
 }

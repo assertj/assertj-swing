@@ -16,9 +16,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.util.Collection;
 
@@ -65,21 +62,13 @@ public class JSliderDriver_slideToMinimum_Test extends JSliderDriver_TestCase {
   @Test
   public void should_throw_error_if_JSlider_is_disabled() {
     disableSlider();
-    try {
-      driver.slideToMinimum(slider);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.slideToMinimum(slider);
   }
 
   @Test
   public void should_throw_error_if_JSlider_is_not_showing_on_the_screen() {
-    try {
-      driver.slideToMinimum(slider);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.slideToMinimum(slider);
   }
 }

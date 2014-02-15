@@ -41,12 +41,8 @@ public class BasicComponentFinder_findByNameInRoot_Test extends BasicComponentFi
 
   @Test
   public void should_throw_errror_if_Component_not_found() {
-    try {
-      finder.findByName(window, "label");
-      failWhenExpectingException();
-    } catch (ComponentLookupException e) {
-      assertThat(e.getMessage()).contains("name='label'");
-    }
+    thrown.expect(ComponentLookupException.class, "name='label'");
+    finder.findByName(window, "label");
   }
 
   @Override

@@ -17,9 +17,6 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.core.MouseClickInfo.rightButton;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.exception.LocationUnavailableException;
@@ -58,32 +55,20 @@ public class JTreeDriver_clickPath_withMouseClickInfo_Test extends JTreeDriver_c
   @Test
   public void should_throw_error_if_path_not_found() {
     showWindow();
-    try {
-      driver.clickPath(tree, "another", mouseClickInfo);
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).isEqualTo("Unable to find path 'another'");
-    }
+    thrown.expect(LocationUnavailableException.class, "Unable to find path 'another'");
+    driver.clickPath(tree, "another", mouseClickInfo);
   }
 
   @Test
   public void should_throw_error_if_JTree_is_disabled() {
     disableTree();
-    try {
-      driver.clickPath(tree, "root/branch1", mouseClickInfo);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.clickPath(tree, "root/branch1", mouseClickInfo);
   }
 
   @Test
   public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
-    try {
-      driver.clickPath(tree, "root/branch1", mouseClickInfo);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.clickPath(tree, "root/branch1", mouseClickInfo);
   }
 }

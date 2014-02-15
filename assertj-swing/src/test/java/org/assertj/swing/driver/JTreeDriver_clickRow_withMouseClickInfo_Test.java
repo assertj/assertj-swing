@@ -17,9 +17,6 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.core.MouseClickInfo.rightButton;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.test.recorder.ClickRecorder;
@@ -56,32 +53,20 @@ public class JTreeDriver_clickRow_withMouseClickInfo_Test extends JTreeDriver_cl
   @Test
   public void should_throw_error_if_row_is_out_of_bounds() {
     showWindow();
-    try {
-      driver.clickRow(tree, 100, mouseClickInfo);
-      failWhenExpectingException();
-    } catch (IndexOutOfBoundsException e) {
-      assertThat(e.getMessage()).isEqualTo("The given row <100> should be between <0> and <6>");
-    }
+    thrown.expectIndexOutOfBoundsException("The given row <100> should be between <0> and <6>");
+    driver.clickRow(tree, 100, mouseClickInfo);
   }
 
   @Test
   public void should_throw_error_if_JTree_is_disabled() {
     disableTree();
-    try {
-      driver.clickRow(tree, 1, mouseClickInfo);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.clickRow(tree, 1, mouseClickInfo);
   }
 
   @Test
   public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
-    try {
-      driver.clickRow(tree, 1, mouseClickInfo);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.clickRow(tree, 1, mouseClickInfo);
   }
 }

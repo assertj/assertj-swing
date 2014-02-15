@@ -16,9 +16,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.data.TableCell.row;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.assertj.swing.data.TableCell;
 import org.assertj.swing.test.recorder.ClickRecorder;
@@ -28,7 +25,8 @@ import org.junit.Test;
 
 /**
  * Tests for
- * {@link JTableDriver#click(javax.swing.JTable, org.assertj.swing.data.TableCell, org.assertj.swing.core.MouseButton, int)}.
+ * {@link JTableDriver#click(javax.swing.JTable, org.assertj.swing.data.TableCell, org.assertj.swing.core.MouseButton, int)}
+ * .
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -50,21 +48,13 @@ public class JTableDriver_clickCell_Test extends JTableDriver_TestCase {
   @Test
   public void should_throw_error_if_JTable_is_disabled() {
     disableTable();
-    try {
-      driver.selectCell(table, row(0).column(0));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectCell(table, row(0).column(0));
   }
 
   @Test
   public void should_throw_error_if_JTable_is_not_showing_on_the_screen() {
-    try {
-      driver.selectCell(table, row(0).column(0));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectCell(table, row(0).column(0));
   }
 }

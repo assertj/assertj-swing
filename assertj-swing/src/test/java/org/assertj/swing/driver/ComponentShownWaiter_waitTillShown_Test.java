@@ -15,13 +15,15 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
 
 import org.assertj.swing.exception.WaitTimedOutError;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.assertj.swing.test.util.StopWatch;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -30,6 +32,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class ComponentShownWaiter_waitTillShown_Test extends RobotBasedTestCase {
+  @Rule
+  public ExpectedException thrown = none();
+
   private TestWindow window;
 
   @Override
@@ -40,12 +45,12 @@ public class ComponentShownWaiter_waitTillShown_Test extends RobotBasedTestCase 
   @Test
   public void should_use_default_timeout() {
     StopWatch stopWatch = startNewStopWatch();
+    thrown.expect(WaitTimedOutError.class);
     try {
       ComponentShownWaiter.waitTillShown(window);
-      failWhenExpectingException();
-    } catch (WaitTimedOutError e) {
+    } finally {
       stopWatch.stop();
+      assertThat(stopWatch.ellapsedTime()).isGreaterThanOrEqualTo(5000);
     }
-    assertThat(stopWatch.ellapsedTime()).isGreaterThanOrEqualTo(5000);
   }
 }

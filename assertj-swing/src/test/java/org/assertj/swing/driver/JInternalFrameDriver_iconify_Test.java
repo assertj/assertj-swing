@@ -17,8 +17,6 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JInternalFrameIconQuery.isIconified;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import javax.swing.JInternalFrame;
 
@@ -43,24 +41,17 @@ public class JInternalFrameDriver_iconify_Test extends JInternalFrameDriver_Test
 
   @Test
   public void should_throw_error_if_JInternalFrame_is_not_showing_on_the_screen() {
-    try {
-      driver.iconify(internalFrame);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.iconify(internalFrame);
   }
 
   @Test
   public void should_throw_error_when_iconifying_not_iconfiable_JInternalFrame() {
     makeNotIconfiable();
     showWindow();
-    try {
-      driver.iconify(internalFrame);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThat(e.getMessage()).contains("The JInternalFrame <").contains("> is not iconifiable");
-    }
+    thrown.expect(IllegalStateException.class, "The JInternalFrame <");
+    thrown.expectMessageToContain("> is not iconifiable");
+    driver.iconify(internalFrame);
   }
 
   @RunsInEDT

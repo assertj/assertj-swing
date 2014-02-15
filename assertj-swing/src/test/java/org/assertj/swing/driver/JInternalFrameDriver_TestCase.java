@@ -20,6 +20,7 @@ import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.driver.JInternalFrameAction.ICONIFY;
 import static org.assertj.swing.driver.JInternalFrameSetIconTask.setIcon;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
 import java.awt.Dimension;
@@ -29,8 +30,10 @@ import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link JInternalFrameDriver}.
@@ -43,6 +46,9 @@ public abstract class JInternalFrameDriver_TestCase extends RobotBasedTestCase {
   JInternalFrame internalFrame;
   JDesktopPane desktopPane;
   JInternalFrameDriver driver;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected final void onSetUp() {

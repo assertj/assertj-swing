@@ -14,10 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -36,21 +32,13 @@ public class JScrollBarDriver_scrollUnitUp_Test extends JScrollBarDriver_TestCas
   @Test
   public void should_throw_error_if_JScrollBar_is_disabled() {
     disableScrollBar();
-    try {
-      driver.scrollUnitUp(scrollBar);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.scrollUnitUp(scrollBar);
   }
 
   @Test
   public void should_throw_error_if_JScrollBar_is_not_showing_on_the_screen() {
-    try {
-      driver.scrollUnitUp(scrollBar);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.scrollUnitUp(scrollBar);
   }
 }

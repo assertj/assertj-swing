@@ -16,7 +16,7 @@ package org.assertj.swing.data;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import javax.swing.JTable;
 
@@ -24,6 +24,8 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ActionFailedException;
+import org.assertj.swing.test.ExpectedException;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -33,6 +35,9 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class TableCellInSelectedRow_findCell_Test extends TableCellFinder_TestCase {
+  @Rule
+  public ExpectedException thrown = none();
+
   private TableCellInSelectedRow finder;
 
   @Override
@@ -66,11 +71,7 @@ public class TableCellInSelectedRow_findCell_Test extends TableCellFinder_TestCa
 
   @Test
   public void should_throw_error_if_JTable_does_not_have_selection() {
-    try {
-      finder.findCell(table, null);
-      failWhenExpectingException();
-    } catch (ActionFailedException e) {
-      assertThat(e.getMessage()).isEqualTo("The given JTable does not have any selection");
-    }
+    thrown.expect(ActionFailedException.class, "The given JTable does not have any selection");
+    finder.findCell(table, null);
   }
 }

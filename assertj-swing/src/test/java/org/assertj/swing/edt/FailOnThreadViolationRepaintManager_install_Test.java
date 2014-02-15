@@ -14,11 +14,13 @@
  */
 package org.assertj.swing.edt;
 
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import javax.swing.JTextField;
 
 import org.assertj.swing.exception.EdtViolationException;
+import org.assertj.swing.test.ExpectedException;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -27,14 +29,13 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class FailOnThreadViolationRepaintManager_install_Test {
+  @Rule
+  public ExpectedException thrown = none();
+
   @Test
   public void should_throw_error_in_case_of_EDT_access_violation() {
     FailOnThreadViolationRepaintManager.install();
-    try {
-      new JTextField();
-      failWhenExpectingException();
-    } catch (EdtViolationException e) {
-      e.printStackTrace();
-    }
+    thrown.expect(EdtViolationException.class);
+    new JTextField();
   }
 }

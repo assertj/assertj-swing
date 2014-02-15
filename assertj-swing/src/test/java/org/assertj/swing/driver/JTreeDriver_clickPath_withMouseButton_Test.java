@@ -55,32 +55,20 @@ public class JTreeDriver_clickPath_withMouseButton_Test extends JTreeDriver_clic
   @Test
   public void should_throw_error_if_path_not_found() {
     showWindow();
-    try {
-      driver.clickPath(tree, "another", RIGHT_BUTTON);
-      failWhenExpectingException();
-    } catch (LocationUnavailableException e) {
-      assertThat(e.getMessage()).isEqualTo("Unable to find path 'another'");
-    }
+    thrown.expect(LocationUnavailableException.class, "Unable to find path 'another'");
+    driver.clickPath(tree, "another", RIGHT_BUTTON);
   }
 
   @Test
   public void should_throw_error_if_JTree_is_disabled() {
     disableTree();
-    try {
-      driver.clickPath(tree, "root/branch1", RIGHT_BUTTON);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.clickPath(tree, "root/branch1", RIGHT_BUTTON);
   }
 
   @Test
   public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
-    try {
-      driver.clickPath(tree, "root/branch1", RIGHT_BUTTON);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.clickPath(tree, "root/branch1", RIGHT_BUTTON);
   }
 }

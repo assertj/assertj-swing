@@ -15,9 +15,6 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.swing.data.TableCell.row;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.junit.Test;
 
@@ -40,21 +37,13 @@ public class JTableDriver_selectCell_Test extends JTableDriver_TestCase {
   @Test
   public void should_throw_error_if_JTable_is_disabled() {
     disableTable();
-    try {
-      driver.selectCell(table, row(0).column(0));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectCell(table, row(0).column(0));
   }
 
   @Test
   public void should_throw_error_if_JTable_is_not_showing_on_the_screen() {
-    try {
-      driver.selectCell(table, row(0).column(0));
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectCell(table, row(0).column(0));
   }
 }

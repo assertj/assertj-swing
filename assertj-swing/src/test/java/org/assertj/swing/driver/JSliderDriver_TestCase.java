@@ -19,6 +19,7 @@ import static javax.swing.SwingConstants.VERTICAL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JSliderValueQuery.valueOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
 import java.awt.Dimension;
@@ -27,8 +28,10 @@ import javax.swing.JSlider;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -43,6 +46,9 @@ public abstract class JSliderDriver_TestCase extends RobotBasedTestCase {
   MyWindow window;
   JSlider slider;
   JSliderDriver driver;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   final int orientation;
 

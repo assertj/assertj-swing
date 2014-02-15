@@ -14,10 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -37,22 +33,14 @@ public class JTextComponentDriver_deleteText_Test extends JTextComponentDriver_T
   @Test
   public void should_throw_error_if_JTextComponent_is_disabled() {
     disableTextField();
-    try {
-      driver.deleteText(textField);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.deleteText(textField);
   }
 
   @Test
   public void should_throw_error_if_JTextComponent_is_not_showing_on_the_screen() {
-    try {
-      driver.deleteText(textField);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.deleteText(textField);
   }
 
   @Test

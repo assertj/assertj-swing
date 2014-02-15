@@ -14,11 +14,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.util.Collection;
 
@@ -43,44 +39,28 @@ public class JSliderDriver_slide_withInvalidInputAndState_Test extends JSliderDr
 
   @Test
   public void should_throw_error_if_value_is_less_than_minimum() {
-    try {
-      showWindow();
-      driver.slide(slider, -1);
-      failWhenExpectingException();
-    } catch (IllegalArgumentException expected) {
-      assertThat(expected.getMessage()).isEqualTo("Value <-1> is not within the JSlider bounds of <0> and <30>");
-    }
+    showWindow();
+    thrown.expectIllegalArgumentException("Value <-1> is not within the JSlider bounds of <0> and <30>");
+    driver.slide(slider, -1);
   }
 
   @Test
   public void should_throw_error_if_value_is_greater_than_maximum() {
-    try {
-      showWindow();
-      driver.slide(slider, 31);
-      failWhenExpectingException();
-    } catch (IllegalArgumentException expected) {
-      assertThat(expected.getMessage()).isEqualTo("Value <31> is not within the JSlider bounds of <0> and <30>");
-    }
+    showWindow();
+    thrown.expectIllegalArgumentException("Value <31> is not within the JSlider bounds of <0> and <30>");
+    driver.slide(slider, 31);
   }
 
   @Test
   public void should_throw_error_if_JSlider_is_disabled() {
     disableSlider();
-    try {
-      driver.slide(slider, 6);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.slide(slider, 6);
   }
 
   @Test
   public void should_throw_error_if_JSlider_is_not_showing_on_the_screen() {
-    try {
-      driver.slide(slider, 6);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.slide(slider, 6);
   }
 }

@@ -46,11 +46,7 @@ public class BasicComponentFinder_includeHierarchyIfComponentNotFound_Test exten
   public void should_throw_error_with_ComponentHierarchy_as_configured() {
     finder.includeHierarchyIfComponentNotFound(true);
     assertThat(finder.includeHierarchyIfComponentNotFound()).isTrue();
-    try {
-      finder.findByName(window, "button", JLabel.class);
-      failWhenExpectingException();
-    } catch (ComponentLookupException e) {
-      assertThat(e.getMessage().contains("Component hierarchy:")).isTrue();
-    }
+    thrown.expect(ComponentLookupException.class, "Component hierarchy:");
+    finder.findByName(window, "button", JLabel.class);
   }
 }

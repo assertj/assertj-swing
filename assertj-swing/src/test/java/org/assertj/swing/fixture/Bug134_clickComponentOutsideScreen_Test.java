@@ -14,6 +14,9 @@
  */
 package org.assertj.swing.fixture;
 
+import static org.assertj.swing.test.ExpectedException.none;
+import org.assertj.swing.test.ExpectedException;
+import org.junit.Rule;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
@@ -38,6 +41,8 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class Bug134_clickComponentOutsideScreen_Test extends RobotBasedTestCase {
+  @Rule
+  public ExpectedException thrown = none();
   private FrameFixture fixture;
   private MyWindow window;
 
@@ -51,12 +56,8 @@ public class Bug134_clickComponentOutsideScreen_Test extends RobotBasedTestCase 
   @Test
   public void should_throw_error_when_clicking_button_outside_screen() {
     moveWindowOutOfScreen();
-    try {
-      fixture.button().click();
-      failWhenExpectingException();
-    } catch (ActionFailedException e) {
-      assertThat(e.getMessage()).isEqualTo("The component to click is out of the boundaries of the screen");
-    }
+    thrown.expect(ActionFailedException.class, "The component to click is out of the boundaries of the screen");
+    fixture.button().click();
   }
 
   private void moveWindowOutOfScreen() {

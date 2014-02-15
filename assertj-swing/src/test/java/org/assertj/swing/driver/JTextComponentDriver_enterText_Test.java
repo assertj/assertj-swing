@@ -38,21 +38,13 @@ public class JTextComponentDriver_enterText_Test extends JTextComponentDriver_Te
   @Test
   public void should_throw_error_if_JTextComponent_is_disabled() {
     disableTextField();
-    try {
-      driver.enterText(textField, "Entering text");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.enterText(textField, "Entering text");
   }
 
   @Test
   public void should_throw_error_if_JTextComponent_is_not_showing_on_the_screen() {
-    try {
-      driver.enterText(textField, "Entering text");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.enterText(textField, "Entering text");
   }
 }

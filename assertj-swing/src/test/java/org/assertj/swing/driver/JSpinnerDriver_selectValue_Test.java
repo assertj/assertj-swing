@@ -14,11 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
-
 import org.junit.Test;
 
 /**
@@ -37,32 +32,20 @@ public class JSpinnerDriver_selectValue_Test extends JSpinnerDriver_TestCase {
   @Test
   public void should_throw_error_if_value_is_not_valid() {
     showWindow();
-    try {
-      driver.selectValue(spinner, "Yoda");
-      failWhenExpectingException();
-    } catch (IllegalArgumentException e) {
-      assertThat(e.getMessage()).contains("Value 'Yoda' is not valid");
-    }
+    thrown.expectIllegalArgumentException("Value 'Yoda' is not valid");
+    driver.selectValue(spinner, "Yoda");
   }
 
   @Test
   public void should_throw_error_if_JSpinner_is_disabled() {
     disableSpinner();
-    try {
-      driver.selectValue(spinner, "Gandalf");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectValue(spinner, "Gandalf");
   }
 
   @Test
   public void should_throw_error_if_JSpinner_is_not_showing_on_the_screen() {
-    try {
-      driver.selectValue(spinner, "Gandalf");
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectValue(spinner, "Gandalf");
   }
 }

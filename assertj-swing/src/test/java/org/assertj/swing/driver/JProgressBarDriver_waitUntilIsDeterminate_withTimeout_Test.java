@@ -53,11 +53,8 @@ public class JProgressBarDriver_waitUntilIsDeterminate_withTimeout_Test extends 
   @Test
   public void should_time_out_if_determinate_state_never_reached() {
     makeIndeterminate();
-    try {
-      driver.waitUntilIsDeterminate(progressBar, timeout(1, MILLISECONDS));
-      failWhenExpectingException();
-    } catch (WaitTimedOutError e) {
-      assertThat(e.getMessage()).contains("Timed out waiting for").contains("to be in determinate mode");
-    }
+    thrown.expect(WaitTimedOutError.class, "Timed out waiting for");
+    thrown.expectMessageToContain("to be in determinate mode");
+    driver.waitUntilIsDeterminate(progressBar, timeout(1, MILLISECONDS));
   }
 }

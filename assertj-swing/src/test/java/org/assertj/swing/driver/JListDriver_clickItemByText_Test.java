@@ -16,9 +16,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsDisabledComponent;
-import static org.assertj.swing.test.core.CommonAssertions.assertThatErrorCauseIsNotShowingComponent;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import java.awt.Point;
 
@@ -63,22 +60,14 @@ public class JListDriver_clickItemByText_Test extends JListDriver_TestCase {
   @Test
   public void should_throw_error_if_JList_is_disabled() {
     disableList();
-    try {
-      driver.clickItem(list, "two", RIGHT_BUTTON, 2);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.clickItem(list, "two", RIGHT_BUTTON, 2);
   }
 
   @Test
   public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
-    try {
-      driver.clickItem(list, "two", RIGHT_BUTTON, 2);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.clickItem(list, "two", RIGHT_BUTTON, 2);
   }
 
   @Test(expected = LocationUnavailableException.class)

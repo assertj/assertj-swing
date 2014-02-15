@@ -19,6 +19,7 @@ import static javax.swing.JFileChooser.FILES_AND_DIRECTORIES;
 import static javax.swing.JFileChooser.FILES_ONLY;
 import static javax.swing.JFileChooser.OPEN_DIALOG;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 import static org.fest.util.Files.temporaryFolder;
 
@@ -29,8 +30,10 @@ import javax.swing.JFileChooser;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 
 /**
  * Base test case for {@link JFileChooserDriver}.
@@ -42,6 +45,9 @@ public abstract class JFileChooserDriver_TestCase extends RobotBasedTestCase {
   JFileChooserDriver driver;
   MyWindow window;
   JFileChooser fileChooser;
+
+  @Rule
+  public ExpectedException thrown = none();
 
   @Override
   protected final void onSetUp() {

@@ -42,22 +42,14 @@ public class WindowDriver_resize_Test extends WindowDriver_TestCase {
   @Test
   public void should_throw_error_if_Window_is_disabled() {
     disableWindow();
-    try {
-      driver.resize(window, 10, 10);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.resize(window, 10, 10);
   }
 
   @Test
   public void should_throw_error_if_Window_is_not_showing_on_the_screen() {
-    try {
-      driver.resize(window, 10, 10);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.resize(window, 10, 10);
   }
 
   @Test(expected = IllegalStateException.class)

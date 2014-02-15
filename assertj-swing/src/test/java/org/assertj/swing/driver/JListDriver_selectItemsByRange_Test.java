@@ -47,21 +47,13 @@ public class JListDriver_selectItemsByRange_Test extends JListDriver_TestCase {
   @Test
   public void should_throw_error_if_JList_is_disabled() {
     disableList();
-    try {
-      driver.selectItems(list, 0, 1);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsDisabledComponent(e);
-    }
+    thrown.expectIllegalStateIsDisabledComponent();
+    driver.selectItems(list, 0, 1);
   }
 
   @Test
   public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
-    try {
-      driver.selectItems(list, 0, 1);
-      failWhenExpectingException();
-    } catch (IllegalStateException e) {
-      assertThatErrorCauseIsNotShowingComponent(e);
-    }
+    thrown.expectIllegalStateIsNotShowingComponent();
+    driver.selectItems(list, 0, 1);
   }
 }
