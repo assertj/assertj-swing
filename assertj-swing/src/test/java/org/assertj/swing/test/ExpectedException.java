@@ -132,6 +132,25 @@ public class ExpectedException implements TestRule {
     });
   }
 
+  public void expectMessageNotToContain(final String... strings) {
+    delegate.expectMessage(new TypeSafeMatcher<String>() {
+      @Override
+      public void describeTo(org.hamcrest.Description description) {
+        description.appendText("not containing: " + Arrays.toString(strings));
+      }
+
+      @Override
+      public boolean matchesSafely(String item) {
+        for (String s : strings) {
+          if (item.contains(s)) {
+            return false;
+          }
+        }
+        return true;
+      }
+    });
+  }
+
   public void expectIllegalStateIsNotShowingComponent() {
     expect(IllegalStateException.class, "Expecting component");
     expectMessageToContain("to be showing on the screen");
