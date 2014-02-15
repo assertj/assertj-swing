@@ -14,9 +14,8 @@
  */
 package org.assertj.swing.image;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.image.TestImageFileWriters.newImageFileWriterMock;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -24,8 +23,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import org.assertj.swing.internal.annotation.IORuntimeException;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.util.RobotFactory;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -35,6 +36,9 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class ScreenshotTaker_saveImage_Test {
+  @Rule
+  public ExpectedException thrown = none();
+
   private BufferedImage image;
   private String path;
   private ImageFileWriter writer;
@@ -53,11 +57,7 @@ public class ScreenshotTaker_saveImage_Test {
   @Test
   public void should_throw_wrapped_Exception_thrown_when_writing_image_to_file() throws IOException {
     when(writer.writeAsPng(image, path)).thenThrow(error);
-    try {
-      taker.saveImage(image, path);
-      failWhenExpectingException();
-    } catch (IORuntimeException e) {
-      assertThat(e.getCause()).isSameAs(error);
-    }
+    thrown.expectWrappingException(IORuntimeException.class, error);
+    taker.saveImage(image, path);
   }
 }

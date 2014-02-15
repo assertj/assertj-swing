@@ -15,13 +15,15 @@
 package org.assertj.swing.edt;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.assertj.swing.exception.UnexpectedException;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -30,6 +32,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class GuiActionRunner_execute_queryNotInEDT_Test extends SequentialEDTSafeTestCase {
+  @Rule
+  public ExpectedException thrown = none();
+
   private boolean executeInEDT;
 
   @Override
@@ -59,13 +64,9 @@ public class GuiActionRunner_execute_queryNotInEDT_Test extends SequentialEDTSaf
     TestGuiQuery query = mock(TestGuiQuery.class);
     RuntimeException error = expectedError();
     when(query.executeInEDT()).thenThrow(error);
-    try {
-      GuiActionRunner.executeInEDT(false);
-      GuiActionRunner.execute(query);
-      failWhenExpectingException();
-    } catch (UnexpectedException e) {
-      assertThat(e.getCause()).isSameAs(error);
-    }
+    GuiActionRunner.executeInEDT(false);
+    thrown.expectWrappingException(UnexpectedException.class, error);
+    GuiActionRunner.execute(query);
   }
 
   private RuntimeException expectedError() {

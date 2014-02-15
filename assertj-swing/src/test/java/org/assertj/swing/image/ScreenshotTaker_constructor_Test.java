@@ -14,16 +14,17 @@
  */
 package org.assertj.swing.image;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.image.TestImageFileWriters.singletonImageFileWriterMock;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.util.TestRobotFactories.newRobotFactoryMock;
 import static org.mockito.Mockito.when;
 
 import java.awt.AWTException;
 
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.util.RobotFactory;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -33,6 +34,9 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class ScreenshotTaker_constructor_Test {
+  @Rule
+  public ExpectedException thrown = none();
+
   private ImageFileWriter writer;
   private RobotFactory robotFactory;
   private AWTException toThrow;
@@ -47,11 +51,7 @@ public class ScreenshotTaker_constructor_Test {
   @Test
   public void should_throw_wrapped_Exception_thrown_when_creating_Robot() throws AWTException {
     when(robotFactory.newRobotInPrimaryScreen()).thenThrow(toThrow);
-    try {
-      new ScreenshotTaker(writer, robotFactory);
-      failWhenExpectingException();
-    } catch (ImageException e) {
-      assertThat(e.getCause()).isSameAs(toThrow);
-    }
+    thrown.expectWrappingException(ImageException.class, toThrow);
+    new ScreenshotTaker(writer, robotFactory);
   }
 }

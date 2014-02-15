@@ -151,6 +151,22 @@ public class ExpectedException implements TestRule {
     });
   }
 
+  public void expectWrappingException(Class<? extends Throwable> type, final Throwable wrapped) {
+    expect(type);
+    delegate.expect(new TypeSafeMatcher<Throwable>() {
+
+      @Override
+      public void describeTo(org.hamcrest.Description description) {
+        description.appendText("cause is: " + wrapped);
+      }
+
+      @Override
+      public boolean matchesSafely(Throwable item) {
+        return item.getCause() == wrapped;
+      }
+    });
+  }
+
   public void expectIllegalStateIsNotShowingComponent() {
     expect(IllegalStateException.class, "Expecting component");
     expectMessageToContain("to be showing on the screen");
