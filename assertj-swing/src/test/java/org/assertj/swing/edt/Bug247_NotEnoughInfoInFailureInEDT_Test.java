@@ -15,9 +15,9 @@
 package org.assertj.swing.edt;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 
 import org.junit.Test;
 
@@ -39,7 +39,7 @@ public class Bug247_NotEnoughInfoInFailureInEDT_Test {
           throw new RuntimeException("Thrown on purpose");
         }
       });
-      failWhenExpectingException();
+      fail("Expecting exception");
     } catch (RuntimeException e) {
       StackTraceElement[] stackTrace = e.getStackTrace();
       StackTraceElement first = stackTrace[0];

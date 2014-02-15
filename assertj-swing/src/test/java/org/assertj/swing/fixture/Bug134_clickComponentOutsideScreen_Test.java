@@ -14,12 +14,8 @@
  */
 package org.assertj.swing.fixture;
 
-import static org.assertj.swing.test.ExpectedException.none;
-import org.assertj.swing.test.ExpectedException;
-import org.junit.Rule;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -31,8 +27,10 @@ import javax.swing.JTextField;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ActionFailedException;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**

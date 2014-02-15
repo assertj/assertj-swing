@@ -19,7 +19,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JProgressBarIndeterminateQuery.isIndeterminate;
 import static org.assertj.swing.driver.JProgressBarMakeDeterminateAsyncTask.makeDeterminate;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
 import static org.assertj.swing.timing.Timeout.timeout;
 
 import org.assertj.swing.exception.WaitTimedOutError;

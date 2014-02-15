@@ -14,13 +14,9 @@
  */
 package org.assertj.swing.core;
 
-import static org.assertj.swing.test.ExpectedException.none;
-import org.assertj.swing.test.ExpectedException;
-import org.junit.Rule;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.swing.test.core.CommonAssertions.failWhenExpectingException;
+import static org.assertj.swing.test.ExpectedException.none;
 
 import java.util.logging.Logger;
 
@@ -29,9 +25,11 @@ import javax.swing.JFrame;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.WaitTimedOutError;
+import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
