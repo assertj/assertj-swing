@@ -57,6 +57,7 @@ public class JTableStopCellEditingTask_checkStateAndStopEditing_Test extends JTa
     assertCellEditingStopped();
   }
 
+  @Test
   public void shouldStopCellEditing() {
     int row = 0;
     int col = 1;
@@ -66,7 +67,9 @@ public class JTableStopCellEditingTask_checkStateAndStopEditing_Test extends JTa
     assertCellEditingStopped();
   }
 
-  public void shouldNotThrowErrorIfCellEditorIsNull() {
+  @Test
+  public void should_throw_Error_if_CellEditor_Is_null() {
+    thrown.expect(NullPointerException.class);
     JTableStopCellEditingTask.stopEditing(null);
   }
 }
