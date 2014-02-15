@@ -129,6 +129,7 @@ public class FrameDriver extends WindowDriver {
       throw actionFailure("Platform does not support maximizing frames");
     }
     updateFrameExtendedState(frame, MAXIMIZED_BOTH);
+    robot.waitForIdle();
   }
 
   @RunsInEDT
