@@ -27,7 +27,7 @@ import java.util.Map;
 import junit.framework.AssertionFailedError;
 
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
-import org.assertj.core.api.AutoAssert;
+import org.assertj.core.api.AssertDelegateTarget;
 import org.assertj.swing.junit.xml.XmlNode;
 import org.junit.Before;
 
@@ -133,7 +133,7 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     assertThat(errorNode.text()).startsWith("junit.framework.AssertionFailedError: " + ERROR_OR_FAILURE_MESSAGE);
   }
 
-  static class BasicXmlJUnitResultFormatter extends XmlJUnitResultFormatter implements AutoAssert {
+  static class BasicXmlJUnitResultFormatter extends XmlJUnitResultFormatter implements AssertDelegateTarget {
     final OnStartTestSuiteAssert onStartTestSuiteMethod = new OnStartTestSuiteAssert();
     final OnFailureOrErrorAssert onFailureOrErrorMethod = new OnFailureOrErrorAssert();
 
@@ -148,7 +148,7 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     }
   }
 
-  static class OnStartTestSuiteAssert implements AutoAssert {
+  static class OnStartTestSuiteAssert implements AssertDelegateTarget {
     private boolean called;
     private JUnitTest suite;
 
@@ -163,7 +163,7 @@ public abstract class XmlJUnitResultFormatter_TestCase {
     }
   }
 
-  static class OnFailureOrErrorAssert implements AutoAssert {
+  static class OnFailureOrErrorAssert implements AssertDelegateTarget {
     private boolean called;
     private junit.framework.Test test;
     private Throwable error;
