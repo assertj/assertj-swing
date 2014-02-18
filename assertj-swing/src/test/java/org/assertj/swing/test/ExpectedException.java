@@ -47,7 +47,11 @@ public class ExpectedException implements TestRule {
   }
 
   public void expectAssertionError(String property, String expected, String actual) {
-    expectAssertionErrorForProperty(property, expected, actual);
+    expectAssertionErrorForProperty(property, doubleQuote(expected), doubleQuote(actual));
+  }
+
+  private String doubleQuote(String string) {
+    return "\"" + string + "\"";
   }
 
   public void expectAssertionError(String property, String[] expected, String[] actual) {
