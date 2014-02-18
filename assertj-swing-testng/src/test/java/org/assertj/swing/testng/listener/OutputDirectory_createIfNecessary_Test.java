@@ -18,6 +18,7 @@ import static java.io.File.separator;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.classextension.EasyMock.createMock;
+import static org.fest.util.Files.newFolder;
 import static org.fest.util.Files.newTemporaryFolder;
 import static org.fest.util.Strings.concat;
 
@@ -39,18 +40,20 @@ public class OutputDirectory_createIfNecessary_Test {
 
   private ITestContext context;
   private String parentPath;
+  private String unwritablePath;
   private String path;
 
   @Before
   public void setUp() {
     context = createMock(ITestContext.class);
     parentPath = newTemporaryFolder().getAbsolutePath();
+    unwritablePath = concat(parentPath, separator, "notwritable");
     path = concat(parentPath, separator, "abc");
   }
 
   @After
   public void tearDown() {
-    deleteFiles(path, parentPath);
+    deleteFiles(path, unwritablePath, parentPath);
   }
 
   private void deleteFiles(String... paths) {
@@ -96,17 +99,23 @@ public class OutputDirectory_createIfNecessary_Test {
 
   @Test(expected = FilesException.class)
   public void should_throw_error_if_output_folder_cannot_be_created() {
-    new EasyMockTemplate(context) {
-      @Override
-      protected void expectations() {
-        expect(context.getOutputDirectory()).andReturn("zz:-//");
-      }
+    File folder = newFolder(unwritablePath);
+    assertThat(folder.setReadOnly()).isTrue();
+    try {
+      new EasyMockTemplate(context) {
+        @Override
+        protected void expectations() {
+          expect(context.getOutputDirectory()).andReturn(concat(unwritablePath, separator, "zz:-//"));
+        }
 
-      @Override
-      protected void codeToTest() {
-        OutputDirectory output = new OutputDirectory(context);
-        output.createIfNecessary();
-      }
-    }.run();
+        @Override
+        protected void codeToTest() {
+          OutputDirectory output = new OutputDirectory(context);
+          output.createIfNecessary();
+        }
+      }.run();
+    } finally {
+      assertThat(folder.setWritable(true)).isTrue();
+    }
   }
 }
