@@ -20,16 +20,14 @@ import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
 
 /**
- * Template for test cases that use FEST-Swing.
- * 
- * @since 1.1
+ * Template for test cases that use AssertJ-Swing.
  * 
  * @author Alex Ruiz
  */
-public abstract class FestSwingTestCaseTemplate {
+public abstract class AssertJSwingTestCaseTemplate {
   private Robot robot;
 
-  public FestSwingTestCaseTemplate() {
+  public AssertJSwingTestCaseTemplate() {
     robot = null; // Just to satisfy FindBugs
   }
 

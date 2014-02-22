@@ -23,11 +23,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Tests for {@link FestSwingTestCaseTemplate#setUpRobot()} and {@link FestSwingTestCaseTemplate#cleanUp()}.
+ * Tests for {@link AssertJSwingTestCaseTemplate#setUpRobot()} and {@link AssertJSwingTestCaseTemplate#cleanUp()}.
  * 
  * @author Alex Ruiz
  */
-public class FestSwingTestCaseTemplate_setUpRobot_cleanUp_Test {
+public class AssertJSwingTestCaseTemplate_setUpRobot_cleanUp_Test {
   private TestCase testCase;
 
   @Before
@@ -46,6 +46,6 @@ public class FestSwingTestCaseTemplate_setUpRobot_cleanUp_Test {
     assertThat(robot.isActive()).isFalse();
   }
 
-  private static class TestCase extends FestSwingTestCaseTemplate {
+  private static class TestCase extends AssertJSwingTestCaseTemplate {
   }
 }

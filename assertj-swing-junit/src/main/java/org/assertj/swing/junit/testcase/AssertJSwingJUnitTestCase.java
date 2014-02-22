@@ -12,31 +12,29 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.assertj.swing.testng.testcase;
+package org.assertj.swing.junit.testcase;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
-import org.assertj.swing.testing.FestSwingTestCaseTemplate;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.assertj.swing.testing.AssertJSwingTestCaseTemplate;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
 
 /**
- * Understands a template for test cases that use FEST-Swing and TestNG. This template installs a
+ * Understands a template for test cases that use AssertJ-Swing and JUnit. This template installs a
  * <code>{@link FailOnThreadViolationRepaintManager}</code> to catch violations of Swing thread rules and manages both
  * creation and clean up of a <code>{@link Robot}</code>.
  * 
- * @since 1.1
- * 
  * @author Alex Ruiz
  */
-public abstract class FestSwingTestngTestCase extends FestSwingTestCaseTemplate {
+public abstract class AssertJSwingJUnitTestCase extends AssertJSwingTestCaseTemplate {
 
   /**
    * Installs a <code>{@link FailOnThreadViolationRepaintManager}</code> to catch violations of Swing threading rules.
    */
   @BeforeClass
-  public final void setUpOnce() {
+  public static final void setUpOnce() {
     FailOnThreadViolationRepaintManager.install();
   }
 
@@ -46,7 +44,7 @@ public abstract class FestSwingTestngTestCase extends FestSwingTestCaseTemplate 
    * @see #setUpRobot()
    * @see #onSetUp()
    */
-  @BeforeMethod
+  @Before
   public final void setUp() {
     setUpRobot();
     onSetUp();
@@ -65,7 +63,7 @@ public abstract class FestSwingTestngTestCase extends FestSwingTestCaseTemplate 
    * @see #cleanUp()
    * @see #onTearDown()
    */
-  @AfterMethod
+  @After
   public final void tearDown() {
     try {
       onTearDown();
