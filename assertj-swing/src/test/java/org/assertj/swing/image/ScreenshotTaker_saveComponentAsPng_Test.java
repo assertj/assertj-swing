@@ -15,11 +15,11 @@
 package org.assertj.swing.image;
 
 import static org.assertj.core.util.Strings.concat;
+import static org.assertj.swing.assertions.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.image.RandomFileNameCreator.randomFileName;
 import static org.assertj.swing.query.ComponentSizeQuery.sizeOf;
-import static org.assertj.swing.test.assertion.ImageAssert.read;
-import static org.assertj.swing.test.assertion.TestAssertions.assertThat;
+import static org.assertj.swing.util.ImageReader.readImageFrom;
 import static org.fest.util.Files.temporaryFolderPath;
 
 import java.io.File;
@@ -67,13 +67,13 @@ public class ScreenshotTaker_saveComponentAsPng_Test extends SequentialEDTSafeTe
   @Test
   public void should_take_screenshot_of_Window_and_save_it_in_given_path() throws Exception {
     taker.saveComponentAsPng(window, imagePath);
-    assertThat(read(imagePath)).hasSize(sizeOf(window));
+    assertThat(readImageFrom(imagePath)).hasSize(sizeOf(window));
   }
 
   @Test
   public void should_take_screenshot_of_Component_and_save_it_in_given_path() throws Exception {
     taker.saveComponentAsPng(window.button, imagePath);
-    assertThat(read(imagePath)).hasSize(sizeOf(window.button));
+    assertThat(readImageFrom(imagePath)).hasSize(sizeOf(window.button));
   }
 
   private static class MyWindow extends TestWindow {

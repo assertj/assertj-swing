@@ -15,9 +15,9 @@
 package org.assertj.swing.image;
 
 import static org.assertj.core.util.Strings.concat;
+import static org.assertj.swing.assertions.Assertions.assertThat;
 import static org.assertj.swing.image.RandomFileNameCreator.randomFileName;
-import static org.assertj.swing.test.assertion.ImageAssert.read;
-import static org.assertj.swing.test.assertion.TestAssertions.assertThat;
+import static org.assertj.swing.util.ImageReader.readImageFrom;
 import static org.fest.util.Files.temporaryFolderPath;
 
 import java.awt.Toolkit;
@@ -54,6 +54,6 @@ public class ScreenshotTaker_saveDesktopAsPng_Test {
   @Test
   public void should_take_screenshot_of_desktop_and_save_it_in_given_path() throws Exception {
     taker.saveDesktopAsPng(imagePath);
-    assertThat(read(imagePath)).hasSize(Toolkit.getDefaultToolkit().getScreenSize());
+    assertThat(readImageFrom(imagePath)).hasSize(Toolkit.getDefaultToolkit().getScreenSize());
   }
 }

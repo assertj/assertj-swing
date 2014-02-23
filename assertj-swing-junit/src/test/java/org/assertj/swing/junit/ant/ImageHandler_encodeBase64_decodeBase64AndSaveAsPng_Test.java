@@ -16,7 +16,8 @@ package org.assertj.swing.junit.ant;
 
 import static java.io.File.separator;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.assertion.ImageAssert.read;
+import static org.assertj.swing.assertions.Assertions.assertThat;
+import static org.assertj.swing.util.ImageReader.readImageFrom;
 import static org.fest.util.Files.newTemporaryFolder;
 import static org.fest.util.Strings.concat;
 
@@ -39,7 +40,7 @@ public class ImageHandler_encodeBase64_decodeBase64AndSaveAsPng_Test extends Ima
     BufferedImage imageToEncode = screenshotTaker.takeDesktopScreenshot();
     String encoded = ImageHandler.encodeBase64(imageToEncode);
     assertThat(ImageHandler.decodeBase64AndSaveAsPng(encoded, path)).isEmpty();
-    BufferedImage savedImage = read(path);
+    BufferedImage savedImage = readImageFrom(path);
     assertThat(savedImage).isEqualTo(imageToEncode);
   }
 }

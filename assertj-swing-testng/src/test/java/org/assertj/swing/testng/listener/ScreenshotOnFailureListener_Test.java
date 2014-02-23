@@ -15,8 +15,8 @@
 package org.assertj.swing.testng.listener;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.assertion.ImageAssert.read;
-import static org.assertj.swing.test.assertion.TestAssertions.assertThat;
+import static org.assertj.swing.assertions.Assertions.assertThat;
+import static org.assertj.swing.util.ImageReader.readImageFrom;
 import static org.fest.util.Files.temporaryFolderPath;
 import static org.fest.util.Strings.concat;
 import static org.fest.util.Strings.join;
@@ -74,7 +74,7 @@ public class ScreenshotOnFailureListener_Test {
     listener.onTestFailure(testResult);
     String imageFileName = screenshotFileName();
     String screenshotPath = concat(testContext.getOutputDirectory(), imageFileName);
-    assertThat(read(screenshotPath)).hasSize(Toolkit.getDefaultToolkit().getScreenSize());
+    assertThat(readImageFrom(screenshotPath)).hasSize(Toolkit.getDefaultToolkit().getScreenSize());
     assertThatScreenshotHyperlinkWasAddedToReport(imageFileName);
   }
 
