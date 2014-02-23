@@ -16,6 +16,7 @@ package org.assertj.swing.keystroke;
 
 import static java.lang.Thread.currentThread;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Closeables.closeQuietly;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
@@ -25,7 +26,6 @@ import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.assertj.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
 import static org.fest.reflect.core.Reflection.field;
-import static org.fest.util.Closeables.closeQuietly;
 
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -41,9 +41,9 @@ import java.util.Map;
 
 import javax.annotation.Nonnull;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.exception.ParsingException;
 import org.fest.reflect.exception.ReflectionError;
-import org.fest.util.VisibleForTesting;
 
 /**
  * <p>

@@ -16,8 +16,8 @@ package org.assertj.swing.fixture;
 
 import static javax.swing.JTable.AUTO_RESIZE_OFF;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Arrays.array;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;

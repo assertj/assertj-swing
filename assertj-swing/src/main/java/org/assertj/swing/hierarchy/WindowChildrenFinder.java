@@ -14,9 +14,9 @@
  */
 package org.assertj.swing.hierarchy;
 
+import static org.assertj.core.util.Arrays.isNullOrEmpty;
 import static org.assertj.core.util.Lists.emptyList;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.fest.util.Arrays.isNullOrEmpty;
 
 import java.awt.Component;
 import java.awt.Container;

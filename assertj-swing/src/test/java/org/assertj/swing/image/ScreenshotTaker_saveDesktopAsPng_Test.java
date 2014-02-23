@@ -14,11 +14,11 @@
  */
 package org.assertj.swing.image;
 
+import static org.assertj.core.util.Files.temporaryFolderPath;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.assertions.Assertions.assertThat;
 import static org.assertj.swing.image.RandomFileNameCreator.randomFileName;
 import static org.assertj.swing.util.ImageReader.readImageFrom;
-import static org.fest.util.Files.temporaryFolderPath;
 
 import java.awt.Toolkit;
 import java.io.File;

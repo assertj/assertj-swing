@@ -21,7 +21,7 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 import javax.swing.JTabbedPane;
 
-import org.fest.util.Arrays;
+import org.assertj.swing.util.Arrays;
 
 /**
  * Formatter for {@code JTabbedPane}s.

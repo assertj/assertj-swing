@@ -25,6 +25,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JTable;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.cell.JTableCellReader;
 import org.assertj.swing.cell.JTableCellWriter;
 import org.assertj.swing.core.MouseButton;
@@ -33,7 +34,6 @@ import org.assertj.swing.data.TableCell;
 import org.assertj.swing.driver.JTableDriver;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.exception.ComponentLookupException;
-import org.fest.util.VisibleForTesting;
 
 /**
  * <p>

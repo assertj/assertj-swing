@@ -32,7 +32,7 @@ import static org.assertj.swing.driver.TextAssert.verifyThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
-import static org.fest.util.Arrays.format;
+import static org.assertj.swing.util.Arrays.format;
 
 import java.awt.Component;
 import java.util.regex.Pattern;
@@ -45,6 +45,7 @@ import javax.swing.JComponent;
 import javax.swing.JList;
 
 import org.assertj.core.description.Description;
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JComboBoxCellReader;
@@ -59,7 +60,6 @@ import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
 import org.assertj.swing.util.StringTextMatcher;
 import org.assertj.swing.util.TextMatcher;
-import org.fest.util.VisibleForTesting;
 
 /**
  * <p>

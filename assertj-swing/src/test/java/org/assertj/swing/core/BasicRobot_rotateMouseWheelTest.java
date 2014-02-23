@@ -15,9 +15,9 @@
 package org.assertj.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Arrays.array;
 
 import java.awt.Component;
 import java.awt.Dimension;

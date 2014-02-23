@@ -16,8 +16,8 @@ package org.assertj.swing.edt;
 
 import static javax.swing.SwingUtilities.invokeLater;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
+import static org.assertj.core.util.Throwables.appendStackTraceInCurentThreadToThrowable;
 import static org.assertj.swing.exception.UnexpectedException.unexpected;
-import static org.fest.util.Throwables.appendStackTraceInCurentThreadToThrowable;
 
 import java.util.concurrent.CountDownLatch;
 

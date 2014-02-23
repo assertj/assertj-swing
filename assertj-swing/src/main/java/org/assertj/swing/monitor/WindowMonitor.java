@@ -27,11 +27,11 @@ import java.util.Collection;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.ToolkitProvider;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Monitor that keeps track of all known root AWT or Swing {@code Window}s (showing, hidden, closed.)

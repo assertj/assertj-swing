@@ -14,9 +14,9 @@
  */
 package org.assertj.swing.test.builder;
 
+import static org.assertj.core.util.Arrays.isNullOrEmpty;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JTabbedPanes.Tab.tab;
-import static org.fest.util.Arrays.isNullOrEmpty;
 
 import java.awt.Component;
 

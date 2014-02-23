@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.fest.util.Arrays.format;
+import static org.assertj.swing.util.Arrays.format;
 
 import java.awt.Point;
 import java.awt.Rectangle;

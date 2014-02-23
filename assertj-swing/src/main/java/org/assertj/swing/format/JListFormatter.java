@@ -26,7 +26,7 @@ import javax.swing.JList;
 import javax.swing.ListModel;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.fest.util.Arrays;
+import org.assertj.swing.util.Arrays;
 
 /**
  * Formatter for {@code JList}s.

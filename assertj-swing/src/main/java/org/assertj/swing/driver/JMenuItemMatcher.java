@@ -14,11 +14,11 @@
  */
 package org.assertj.swing.driver;
 
+import static org.assertj.core.util.Objects.areEqual;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.join;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.driver.AbstractButtonTextQuery.textOf;
-import static org.fest.util.Objects.areEqual;
 
 import java.awt.Component;
 

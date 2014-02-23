@@ -14,8 +14,8 @@
  */
 package org.assertj.swing.driver;
 
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Arrays.array;
 import static org.mockito.Mockito.mock;
 
 import java.awt.Dimension;

@@ -26,8 +26,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Information collected by the monitors in this package.

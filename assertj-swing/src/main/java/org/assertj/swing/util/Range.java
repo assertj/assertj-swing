@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.util;
 
-import static org.fest.util.Objects.HASH_CODE_PRIME;
+import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
 
 import javax.annotation.Nonnull;
 

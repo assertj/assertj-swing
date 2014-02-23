@@ -16,8 +16,8 @@ package org.assertj.swing.timing;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
+import static org.assertj.swing.util.Arrays.format;
 import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
-import static org.fest.util.Arrays.format;
 
 import java.util.concurrent.TimeUnit;
 

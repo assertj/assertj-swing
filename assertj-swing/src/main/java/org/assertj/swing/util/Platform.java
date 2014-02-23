@@ -26,7 +26,7 @@ import java.awt.event.KeyEvent;
 
 import javax.annotation.Nonnull;
 
-import org.fest.util.VisibleForTesting;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * Platform-specific functionality.

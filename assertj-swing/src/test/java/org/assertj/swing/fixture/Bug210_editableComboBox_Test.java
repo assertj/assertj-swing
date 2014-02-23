@@ -15,10 +15,10 @@
 package org.assertj.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.query.JComboBoxSelectedItemQuery.selectedItemOf;
 import static org.assertj.swing.test.task.JComboBoxSetSelectedItemTask.setSelectedItem;
-import static org.fest.util.Arrays.array;
 
 import javax.swing.JComboBox;
 import javax.swing.JDialog;

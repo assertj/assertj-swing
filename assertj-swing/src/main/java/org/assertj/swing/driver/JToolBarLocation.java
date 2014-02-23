@@ -20,7 +20,7 @@ import static java.awt.BorderLayout.SOUTH;
 import static java.awt.BorderLayout.WEST;
 import static java.lang.Math.max;
 import static javax.swing.SwingConstants.HORIZONTAL;
-import static org.fest.util.Arrays.format;
+import static org.assertj.swing.util.Arrays.format;
 
 import java.awt.Container;
 import java.awt.Dimension;

@@ -46,6 +46,12 @@
       <groupId>org.easytesting</groupId>
       <artifactId>fest-reflect</artifactId>
       <version>1.4.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.easytesting</groupId>
+          <artifactId>fest-util</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.easytesting</groupId>

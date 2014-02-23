@@ -17,10 +17,10 @@ package org.assertj.swing.core;
 import static java.awt.event.KeyEvent.VK_A;
 import static java.awt.event.KeyEvent.VK_B;
 import static java.awt.event.KeyEvent.VK_Z;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.timing.Timeout.timeout;
-import static org.fest.util.Arrays.array;
 
 import javax.swing.JTextField;
 

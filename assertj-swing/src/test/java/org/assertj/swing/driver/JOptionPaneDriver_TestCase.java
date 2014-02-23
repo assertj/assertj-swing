@@ -21,12 +21,12 @@ import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import static javax.swing.JOptionPane.YES_NO_CANCEL_OPTION;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
+import static org.assertj.core.util.Objects.areEqual;
+import static org.assertj.core.util.Objects.hashCodeFor;
 import static org.assertj.swing.driver.AbstractButtonTextQuery.textOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.ExpectedException.none;
-import static org.fest.util.Objects.HASH_CODE_PRIME;
-import static org.fest.util.Objects.areEqual;
-import static org.fest.util.Objects.hashCodeFor;
 
 import javax.swing.Icon;
 import javax.swing.JButton;

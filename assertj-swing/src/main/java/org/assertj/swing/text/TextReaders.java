@@ -27,9 +27,9 @@ import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Registry of {@link TextReader}s.

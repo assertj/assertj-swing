@@ -14,8 +14,8 @@
  */
 package org.assertj.swing.security;
 
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.test.ExpectedException.none;
-import static org.fest.util.Arrays.array;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;

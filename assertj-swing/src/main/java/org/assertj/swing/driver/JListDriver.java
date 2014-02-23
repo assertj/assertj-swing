@@ -40,7 +40,7 @@ import static org.assertj.swing.driver.JListSelectionValuesQuery.selectionValues
 import static org.assertj.swing.driver.TextAssert.verifyThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
-import static org.fest.util.Arrays.format;
+import static org.assertj.swing.util.Arrays.format;
 
 import java.awt.Point;
 import java.util.List;

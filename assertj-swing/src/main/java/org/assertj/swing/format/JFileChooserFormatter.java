@@ -18,13 +18,13 @@ import static javax.swing.JFileChooser.CUSTOM_DIALOG;
 import static javax.swing.JFileChooser.OPEN_DIALOG;
 import static javax.swing.JFileChooser.SAVE_DIALOG;
 import static org.assertj.core.util.Strings.quote;
-import static org.fest.util.ToString.toStringOf;
 
 import java.awt.Component;
 
 import javax.annotation.Nonnull;
 import javax.swing.JFileChooser;
 
+import org.assertj.core.presentation.StandardRepresentation;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
@@ -52,8 +52,8 @@ public class JFileChooserFormatter extends ComponentFormatterTemplate {
     String format = "%s[name=%s, dialogTitle=%s, dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
     return String.format(format, fileChooser.getClass().getName(), quote(fileChooser.getName()),
         quote(fileChooser.getDialogTitle()), DIALOG_TYPES.get(fileChooser.getDialogType()),
-        toStringOf(fileChooser.getCurrentDirectory()), fileChooser.isEnabled(), fileChooser.isVisible(),
-        fileChooser.isShowing());
+        new StandardRepresentation().toStringOf(fileChooser.getCurrentDirectory()), fileChooser.isEnabled(),
+        fileChooser.isVisible(), fileChooser.isShowing());
   }
 
   /**

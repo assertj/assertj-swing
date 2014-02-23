@@ -15,9 +15,9 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.task.JTreeSelectRowTask.selectRow;
-import static org.fest.util.Arrays.array;
 
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;

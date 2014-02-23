@@ -24,7 +24,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.KeyStroke;
 
-import org.fest.util.VisibleForTesting;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * A collection of {@link KeyStrokeMapping}.

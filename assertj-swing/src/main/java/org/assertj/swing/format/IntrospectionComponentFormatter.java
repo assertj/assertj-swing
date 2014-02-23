@@ -20,7 +20,6 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
-import static org.fest.util.ToString.toStringOf;
 
 import java.awt.Component;
 import java.beans.BeanInfo;
@@ -32,8 +31,9 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.assertj.core.presentation.StandardRepresentation;
 import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.fest.util.Arrays;
+import org.assertj.swing.util.Arrays;
 
 /**
  * Formatter that uses <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html"
@@ -146,6 +146,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 
   @Override
   public String toString() {
-    return String.format("%s[propertyNames=%s", getClass().getName(), toStringOf(propertyNames));
+    return String.format("%s[propertyNames=%s", getClass().getName(),
+        new StandardRepresentation().toStringOf(propertyNames));
   }
 }

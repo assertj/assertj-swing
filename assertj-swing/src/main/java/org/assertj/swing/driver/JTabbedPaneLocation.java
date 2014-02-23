@@ -23,12 +23,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JTabbedPane;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.StringTextMatcher;
 import org.assertj.swing.util.TextMatcher;
-import org.fest.util.VisibleForTesting;
 
 /**
  * A location on a {@code JTabbedPane} (notably a tab).

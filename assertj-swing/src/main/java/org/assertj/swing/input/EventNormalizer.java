@@ -22,8 +22,8 @@ import java.awt.event.AWTEventListener;
 
 import javax.annotation.Nonnull;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.listener.WeakEventListener;
-import org.fest.util.VisibleForTesting;
 
 /**
  * AWT event listener which normalizes the event stream by sending a single {@code WINDOW_CLOSED}, instead of one every

@@ -21,9 +21,9 @@ import javax.annotation.Nullable;
 import javax.swing.JFileChooser;
 import javax.swing.plaf.FileChooserUI;
 
+import org.assertj.core.util.Strings;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
-import org.fest.util.Strings;
 
 /**
  * Returns the text used in the "approve button" of a {@code JFileChooser}. This action is executed in the event

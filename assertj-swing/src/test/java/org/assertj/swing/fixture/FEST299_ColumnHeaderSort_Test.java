@@ -14,8 +14,8 @@
  */
 package org.assertj.swing.fixture;
 
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.data.TableCell.row;
-import static org.fest.util.Arrays.array;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;

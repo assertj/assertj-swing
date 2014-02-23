@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 
 import javax.annotation.Nonnull;
 
-import org.fest.util.VisibleForTesting;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * AWT event listener which normalizes the event stream:

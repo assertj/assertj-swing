@@ -22,9 +22,9 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.swing.JComboBox;
 
+import org.assertj.core.util.Lists;
 import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.fest.util.Arrays;
-import org.fest.util.Lists;
+import org.assertj.swing.util.Arrays;
 
 /**
  * Formatter for {@code JComboBox}es.

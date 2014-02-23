@@ -15,11 +15,11 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.driver.JSpinnerValueQuery.valueOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
-import static org.fest.util.Arrays.array;
 
 import java.awt.Dimension;
 

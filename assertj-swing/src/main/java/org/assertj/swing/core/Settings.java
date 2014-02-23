@@ -23,7 +23,7 @@ import static org.assertj.swing.util.Platform.isX11;
 
 import javax.annotation.Nonnull;
 
-import org.fest.util.VisibleForTesting;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * FEST-Swing configuration settings.

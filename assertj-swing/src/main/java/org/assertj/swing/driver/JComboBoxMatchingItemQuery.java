@@ -20,11 +20,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
+import org.assertj.core.util.Preconditions;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JComboBoxCellReader;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.TextMatcher;
-import org.fest.util.Preconditions;
 
 /**
  * Looks up the first item in a {@code JComboBox} whose value matches a given one.

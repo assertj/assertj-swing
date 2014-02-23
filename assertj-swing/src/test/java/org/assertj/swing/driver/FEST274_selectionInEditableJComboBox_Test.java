@@ -15,8 +15,8 @@
 package org.assertj.swing.driver;
 
 import static java.awt.event.KeyEvent.VK_ENTER;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Arrays.array;
 
 import javax.swing.JComboBox;
 

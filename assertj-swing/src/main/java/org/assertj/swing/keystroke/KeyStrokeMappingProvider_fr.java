@@ -63,7 +63,7 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import org.fest.util.Lists;
+import org.assertj.core.util.Lists;
 
 /**
  * Mapping between characters and {@code KeyStroke}s for locale {@code Locale.FRENCH}.

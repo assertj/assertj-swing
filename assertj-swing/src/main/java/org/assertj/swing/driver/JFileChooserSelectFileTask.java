@@ -20,13 +20,13 @@ import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
-import static org.fest.util.ToString.toStringOf;
 
 import java.io.File;
 
 import javax.annotation.Nonnull;
 import javax.swing.JFileChooser;
 
+import org.assertj.core.presentation.StandardRepresentation;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiTask;
@@ -79,7 +79,7 @@ final class JFileChooserSelectFileTask {
   }
 
   private static IllegalArgumentException cannotSelectFile(File file, String reason) {
-    String msg = String.format("Unabled to select file %s: %s", toStringOf(file), reason);
+    String msg = String.format("Unabled to select file %s: %s", new StandardRepresentation().toStringOf(file), reason);
     return new IllegalArgumentException(msg);
   }
 

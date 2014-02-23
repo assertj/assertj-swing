@@ -21,7 +21,7 @@ import java.io.PrintStream;
 import java.util.List;
 import java.util.logging.Logger;
 
-import org.fest.util.Lists;
+import org.assertj.core.util.Lists;
 
 /**
  * @author Alex Ruiz

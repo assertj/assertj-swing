@@ -15,9 +15,9 @@
 package org.assertj.swing.driver;
 
 import static java.awt.BorderLayout.CENTER;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.swing.TreeNodeFactory.node;
-import static org.fest.util.Arrays.array;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

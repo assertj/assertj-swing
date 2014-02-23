@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.util;
 
-import static org.fest.util.Objects.areEqual;
+import static org.assertj.core.util.Objects.areEqual;
 
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -22,7 +22,7 @@ import java.util.regex.PatternSyntaxException;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.fest.util.Preconditions;
+import org.assertj.core.util.Preconditions;
 
 /**
  * Utility methods related to {@code String}s.

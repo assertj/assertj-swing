@@ -20,8 +20,6 @@ import java.util.regex.Pattern;
 
 import javax.annotation.Nonnull;
 
-import org.fest.util.Arrays;
-
 /**
  * Utility methods for regular expression patterns.
  * 

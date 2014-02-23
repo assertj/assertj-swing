@@ -15,8 +15,8 @@
 package org.assertj.swing.format;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.test.builder.JButtons.button;
-import static org.fest.util.Arrays.array;
 
 import javax.swing.JButton;
 

@@ -27,9 +27,9 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.util.ToolkitProvider;
-import org.fest.util.VisibleForTesting;
 
 /**
  * <p>

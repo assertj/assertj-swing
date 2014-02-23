@@ -14,15 +14,18 @@
  */
 package org.assertj.swing.util;
 
+import static org.assertj.core.util.Objects.areEqual;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
-import static org.fest.util.Objects.areEqual;
 
 import java.lang.reflect.Array;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import org.assertj.core.presentation.StandardRepresentation;
+import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * Utility methods for arrays.
@@ -66,6 +69,11 @@ public final class Arrays {
       }
     }
     return true;
+  }
+
+  @InternalApi
+  public static String format(Object object) {
+    return org.assertj.core.util.Arrays.format(new StandardRepresentation(), object);
   }
 
   /**

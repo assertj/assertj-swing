@@ -21,7 +21,7 @@ import java.lang.ref.WeakReference;
 
 import javax.annotation.Nonnull;
 
-import org.fest.util.VisibleForTesting;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * Event listener that wraps a given {@code AWTEventListener} and:

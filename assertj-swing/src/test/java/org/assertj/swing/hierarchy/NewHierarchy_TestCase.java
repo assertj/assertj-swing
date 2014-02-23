@@ -16,9 +16,9 @@ package org.assertj.swing.hierarchy;
 
 import static java.awt.AWTEvent.COMPONENT_EVENT_MASK;
 import static java.awt.AWTEvent.WINDOW_EVENT_MASK;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
-import static org.fest.util.Arrays.array;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;

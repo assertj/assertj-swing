@@ -36,13 +36,13 @@ import javax.annotation.Nullable;
 import javax.swing.text.Caret;
 import javax.swing.text.JTextComponent;
 
+import org.assertj.core.util.Preconditions;
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.internal.annotation.IORuntimeException;
 import org.assertj.swing.util.RobotFactory;
-import org.fest.util.Preconditions;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Takes screenshots of the desktop and AWT or Swing {@code Component}s.

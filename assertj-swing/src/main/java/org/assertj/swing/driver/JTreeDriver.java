@@ -47,6 +47,7 @@ import javax.swing.plaf.basic.BasicTreeUI;
 import javax.swing.tree.TreePath;
 
 import org.assertj.core.description.Description;
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTreeCellReader;
@@ -63,7 +64,6 @@ import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.ArrayPreconditions;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.Triple;
-import org.fest.util.VisibleForTesting;
 
 /**
  * <p>

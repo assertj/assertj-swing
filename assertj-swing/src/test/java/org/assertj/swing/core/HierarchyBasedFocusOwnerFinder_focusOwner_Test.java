@@ -15,9 +15,9 @@
 package org.assertj.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.test.awt.TestComponents.singletonComponentMock;
 import static org.assertj.swing.test.awt.TestContainers.singletonContainerMock;
-import static org.fest.util.Arrays.array;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

@@ -14,12 +14,12 @@
  */
 package org.assertj.swing.data;
 
+import static org.assertj.core.util.Objects.areEqual;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
-import static org.fest.util.Arrays.format;
-import static org.fest.util.Objects.areEqual;
+import static org.assertj.swing.util.Arrays.format;
 
 import javax.annotation.Nonnull;
 import javax.swing.JTable;

@@ -22,7 +22,7 @@ import java.util.Locale;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.util.OSFamily;
-import org.fest.util.VisibleForTesting;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * Chooses a {@link KeyStrokeMappingProvider} based on OS family and locale.

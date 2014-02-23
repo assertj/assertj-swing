@@ -15,9 +15,9 @@
 package org.assertj.swing.core.matcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.util.Objects.HASH_CODE_PRIME;
-import static org.fest.util.Objects.areEqual;
-import static org.fest.util.Objects.hashCodeFor;
+import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
+import static org.assertj.core.util.Objects.areEqual;
+import static org.assertj.core.util.Objects.hashCodeFor;
 
 import javax.swing.JLabel;
 

@@ -15,7 +15,7 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.util.Arrays.array;
+import static org.assertj.core.util.Arrays.array;
 
 import org.junit.Test;
 

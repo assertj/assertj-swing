@@ -17,11 +17,11 @@ package org.assertj.swing.fixture;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.exception.ComponentLookupException;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Supports functional testing of single nodes, referenced by their paths, in {@code JTree}s.

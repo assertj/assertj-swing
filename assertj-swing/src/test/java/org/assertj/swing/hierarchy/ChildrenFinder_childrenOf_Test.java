@@ -26,8 +26,8 @@ import java.awt.Container;
 import java.util.Collection;
 import java.util.List;
 
+import org.assertj.core.util.Arrays;
 import org.assertj.swing.test.core.EDTSafeTestCase;
-import org.fest.util.Arrays;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

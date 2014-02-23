@@ -14,10 +14,10 @@
  */
 package org.assertj.swing.core.matcher;
 
+import static org.assertj.core.util.Objects.areEqual;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.util.Strings.areEqualOrMatch;
 import static org.assertj.swing.util.Strings.match;
-import static org.fest.util.Objects.areEqual;
 
 import java.awt.Component;
 import java.util.regex.Pattern;

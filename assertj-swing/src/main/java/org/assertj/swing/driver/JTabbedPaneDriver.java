@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
 import javax.swing.JTabbedPane;
 
 import org.assertj.core.description.Description;
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.data.Index;
@@ -44,7 +45,6 @@ import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
 import org.assertj.swing.util.StringTextMatcher;
 import org.assertj.swing.util.TextMatcher;
-import org.fest.util.VisibleForTesting;
 
 /**
  * <p>

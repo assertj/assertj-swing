@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
 import javax.swing.JInternalFrame;
 import javax.swing.JInternalFrame.JDesktopIcon;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
@@ -50,7 +51,6 @@ import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.Triple;
-import org.fest.util.VisibleForTesting;
 
 /**
  * <p>

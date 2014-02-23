@@ -44,10 +44,10 @@ import javax.swing.JSpinner;
 import javax.swing.JToolBar;
 import javax.swing.text.JTextComponent;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Utility methods related to formatting.

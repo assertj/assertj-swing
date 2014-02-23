@@ -21,7 +21,7 @@ import static org.assertj.swing.test.builder.JTextFields.textField;
 import java.awt.Component;
 import java.util.List;
 
-import org.fest.util.Lists;
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 
 /**

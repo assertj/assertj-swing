@@ -15,9 +15,9 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Files.newTemporaryFile;
+import static org.assertj.core.util.Files.newTemporaryFolder;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Files.newTemporaryFile;
-import static org.fest.util.Files.newTemporaryFolder;
 
 import java.io.File;
 

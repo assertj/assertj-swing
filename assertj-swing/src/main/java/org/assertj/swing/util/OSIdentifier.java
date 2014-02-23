@@ -23,7 +23,7 @@ import static org.assertj.swing.util.OSFamily.WINDOWS;
 
 import javax.annotation.Nonnull;
 
-import org.fest.util.VisibleForTesting;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * Identifies the current Operating System.

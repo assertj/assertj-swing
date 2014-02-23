@@ -14,8 +14,8 @@
  */
 package org.assertj.swing.image;
 
+import static org.assertj.core.util.Files.newFile;
 import static org.assertj.swing.image.ImageFileExtensions.PNG;
-import static org.fest.util.Files.newFile;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

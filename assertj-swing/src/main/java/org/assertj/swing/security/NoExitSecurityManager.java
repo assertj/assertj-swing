@@ -18,7 +18,7 @@ import static org.assertj.core.util.Strings.concat;
 
 import java.security.Permission;
 
-import org.fest.util.VisibleForTesting;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * {@code SecurityManager} that does not allow an application under test to terminate the current JVM. Adapted from

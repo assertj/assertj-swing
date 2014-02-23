@@ -24,8 +24,8 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Find children {@code Component}s in an AWT or Swing {@code Container}.

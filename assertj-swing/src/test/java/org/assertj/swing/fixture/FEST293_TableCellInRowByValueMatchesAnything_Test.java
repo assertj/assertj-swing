@@ -15,8 +15,8 @@
 package org.assertj.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.data.TableCellInRowByValue.rowWithValue;
-import static org.fest.util.Arrays.array;
 
 import java.awt.Dimension;
 

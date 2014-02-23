@@ -20,7 +20,7 @@ import static org.fest.reflect.core.Reflection.field;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
-import org.fest.util.Preconditions;
+import org.assertj.core.util.Preconditions;
 
 /**
  * Prevents misbehaving {@code TimerTask}s from canceling the timer thread by throwing exceptions and/or errors.

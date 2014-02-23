@@ -18,7 +18,7 @@ import static org.fest.reflect.core.Reflection.constructor;
 
 import javax.annotation.Nonnull;
 
-import org.fest.util.VisibleForTesting;
+import org.assertj.core.util.VisibleForTesting;
 
 /**
  * <p>

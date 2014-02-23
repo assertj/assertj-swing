@@ -23,14 +23,14 @@ import static java.awt.event.KeyEvent.VK_ENTER;
 import static java.awt.event.KeyEvent.VK_ESCAPE;
 import static java.awt.event.KeyEvent.VK_TAB;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Closeables.closeQuietly;
+import static org.assertj.core.util.Files.newTemporaryFile;
 import static org.assertj.core.util.Flushables.flush;
 import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 import static org.assertj.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.assertj.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
 import static org.assertj.swing.test.ExpectedException.none;
 import static org.assertj.swing.util.Platform.isWindows;
-import static org.fest.util.Closeables.closeQuietly;
-import static org.fest.util.Files.newTemporaryFile;
 
 import java.io.BufferedWriter;
 import java.io.File;

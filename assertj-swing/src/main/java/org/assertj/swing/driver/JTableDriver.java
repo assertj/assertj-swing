@@ -34,7 +34,7 @@ import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
 import static org.assertj.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.util.Arrays.equal;
-import static org.fest.util.Arrays.format;
+import static org.assertj.swing.util.Arrays.format;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -50,6 +50,7 @@ import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
 
 import org.assertj.core.description.Description;
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
@@ -67,7 +68,6 @@ import org.assertj.swing.util.Arrays;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
 import org.assertj.swing.util.StringTextMatcher;
-import org.fest.util.VisibleForTesting;
 
 /**
  * <p>

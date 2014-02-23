@@ -26,9 +26,9 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.monitor.WindowMonitor;
-import org.fest.util.VisibleForTesting;
 
 /**
  * Provides access to the current AWT hierarchy.

@@ -27,7 +27,7 @@ import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
-import org.fest.util.Arrays;
+import org.assertj.swing.util.Arrays;
 
 /**
  * Formatter for {@code JTree}s.

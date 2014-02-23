@@ -7,8 +7,8 @@ package org.assertj.swing.driver;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.fest.util.Arrays.array;
 
 import java.awt.Dimension;
 
