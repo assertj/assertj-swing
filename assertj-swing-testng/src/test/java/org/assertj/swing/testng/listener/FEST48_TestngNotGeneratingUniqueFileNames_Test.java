@@ -15,8 +15,8 @@
 package org.assertj.swing.testng.listener;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.testng.listener.ScreenshotFileNameGenerator.screenshotFileNameFrom;
-import static org.fest.util.Arrays.array;
 
 import org.junit.Before;
 import org.junit.Test;

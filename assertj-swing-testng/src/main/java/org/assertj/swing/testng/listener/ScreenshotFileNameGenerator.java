@@ -14,8 +14,8 @@
  */
 package org.assertj.swing.testng.listener;
 
+import static org.assertj.core.util.Strings.join;
 import static org.assertj.swing.image.ImageFileExtensions.PNG;
-import static org.fest.util.Strings.join;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -16,18 +16,18 @@ package org.assertj.swing.testng.listener;
 
 import static java.io.File.separator;
 import static java.util.logging.Level.SEVERE;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.isEmpty;
+import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.testng.listener.ScreenshotFileNameGenerator.screenshotFileNameFrom;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.isEmpty;
-import static org.fest.util.Strings.quote;
 
 import java.lang.reflect.Method;
 import java.util.logging.Logger;
 
+import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.GUITestFinder;
 import org.assertj.swing.image.ImageException;
 import org.assertj.swing.image.ScreenshotTaker;
-import org.fest.util.VisibleForTesting;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;

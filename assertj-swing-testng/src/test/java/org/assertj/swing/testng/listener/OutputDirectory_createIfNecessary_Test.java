@@ -16,16 +16,16 @@ package org.assertj.swing.testng.listener;
 
 import static java.io.File.separator;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Files.newFolder;
+import static org.assertj.core.util.Files.newTemporaryFolder;
+import static org.assertj.core.util.Strings.concat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.util.Files.newFolder;
-import static org.fest.util.Files.newTemporaryFolder;
-import static org.fest.util.Strings.concat;
 
 import java.io.File;
 
+import org.assertj.core.util.FilesException;
 import org.fest.mocks.EasyMockTemplate;
-import org.fest.util.FilesException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

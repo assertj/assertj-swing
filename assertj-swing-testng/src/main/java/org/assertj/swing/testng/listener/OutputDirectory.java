@@ -14,12 +14,12 @@
  */
 package org.assertj.swing.testng.listener;
 
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.isEmpty;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.isEmpty;
 
 import java.io.File;
 
-import org.fest.util.FilesException;
+import org.assertj.core.util.FilesException;
 import org.testng.ITestContext;
 
 /**
