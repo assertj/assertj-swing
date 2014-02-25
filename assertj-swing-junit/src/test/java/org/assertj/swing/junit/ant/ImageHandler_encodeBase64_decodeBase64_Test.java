@@ -15,6 +15,7 @@
 package org.assertj.swing.junit.ant;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.assertions.Assertions.assertThat;
 
 import java.awt.image.BufferedImage;
 
@@ -36,5 +37,4 @@ public class ImageHandler_encodeBase64_decodeBase64_Test extends ImageHandler_Te
     BufferedImage decodedImage = ImageHandler.decodeBase64(encoded);
     assertThat(decodedImage).isNotNull().isEqualTo(imageToEncode);
   }
-
 }
