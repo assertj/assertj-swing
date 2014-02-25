@@ -14,11 +14,11 @@
  */
 package org.assertj.swing.junit.xml;
 
-import static org.fest.util.Collections.list;
-import static org.fest.util.Objects.HASH_CODE_PRIME;
-import static org.fest.util.Objects.areEqual;
-import static org.fest.util.Objects.hashCodeFor;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
+import static org.assertj.core.util.Objects.areEqual;
+import static org.assertj.core.util.Objects.hashCodeFor;
+import static org.assertj.core.util.Strings.concat;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -45,7 +45,7 @@ public class XmlAttributes implements Iterable<XmlAttribute> {
   }
 
   private XmlAttributes(XmlAttribute... attributes) {
-    this.attributes.addAll(list(attributes));
+    this.attributes.addAll(newArrayList(attributes));
   }
 
   /**

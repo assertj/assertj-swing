@@ -15,9 +15,9 @@
 package org.assertj.swing.junit.ant;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.util.Systems.LINE_SEPARATOR;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

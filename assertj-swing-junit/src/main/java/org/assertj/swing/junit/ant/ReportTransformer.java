@@ -14,7 +14,7 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Strings.concat;
 
 import java.io.File;
 import java.net.URL;

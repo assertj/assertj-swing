@@ -14,11 +14,11 @@
  */
 package org.assertj.swing.junit.runner;
 
-import static org.fest.util.Files.currentFolder;
+import static org.assertj.core.util.Files.currentFolder;
 
 import java.io.File;
 
-import org.fest.util.FilesException;
+import org.assertj.core.util.FilesException;
 
 /**
  * Understands creation of the folder where screenshots of failed GUI tests will be saved to.

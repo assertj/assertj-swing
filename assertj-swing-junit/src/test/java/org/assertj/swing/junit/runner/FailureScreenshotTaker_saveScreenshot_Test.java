@@ -15,10 +15,10 @@
 package org.assertj.swing.junit.runner;
 
 import static java.io.File.separator;
+import static org.assertj.core.util.Strings.concat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.util.Strings.concat;
 
 import java.io.File;
 import java.io.IOException;

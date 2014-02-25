@@ -16,15 +16,15 @@ package org.assertj.swing.junit.runner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
+import static org.assertj.core.util.Files.newTemporaryFolder;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.util.Files.newTemporaryFolder;
 
 import java.io.File;
 import java.io.IOException;
 
+import org.assertj.core.util.FilesException;
 import org.easymock.EasyMock;
 import org.fest.mocks.EasyMockTemplate;
-import org.fest.util.FilesException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

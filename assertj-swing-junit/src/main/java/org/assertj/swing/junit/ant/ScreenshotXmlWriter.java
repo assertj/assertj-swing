@@ -14,13 +14,13 @@
  */
 package org.assertj.swing.junit.ant;
 
+import static org.assertj.core.util.Strings.isEmpty;
+import static org.assertj.core.util.Strings.join;
 import static org.assertj.swing.image.ImageFileExtensions.PNG;
 import static org.assertj.swing.junit.ant.ImageHandler.encodeBase64;
 import static org.assertj.swing.junit.ant.Tests.testClassNameFrom;
 import static org.assertj.swing.junit.ant.Tests.testMethodNameFrom;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
-import static org.fest.util.Strings.isEmpty;
-import static org.fest.util.Strings.join;
 
 import java.awt.image.BufferedImage;
 

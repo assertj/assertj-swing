@@ -16,7 +16,7 @@ package org.assertj.swing.junit.ant;
 
 import static java.io.File.separator;
 import static java.util.logging.Level.SEVERE;
-import static org.fest.util.Strings.isEmpty;
+import static org.assertj.core.util.Strings.isEmpty;
 
 import java.awt.image.BufferedImage;
 import java.util.logging.Logger;

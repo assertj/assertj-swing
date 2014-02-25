@@ -14,9 +14,9 @@
  */
 package org.assertj.swing.junit.xml;
 
-import static org.fest.util.Objects.HASH_CODE_PRIME;
-import static org.fest.util.Objects.hashCodeFor;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
+import static org.assertj.core.util.Objects.hashCodeFor;
+import static org.assertj.core.util.Strings.concat;
 
 import org.w3c.dom.CDATASection;
 import org.w3c.dom.Document;

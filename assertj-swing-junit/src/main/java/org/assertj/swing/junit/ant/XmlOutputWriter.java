@@ -15,7 +15,7 @@
 package org.assertj.swing.junit.ant;
 
 import static org.apache.tools.ant.util.FileUtils.close;
-import static org.fest.util.Systems.LINE_SEPARATOR;
+import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

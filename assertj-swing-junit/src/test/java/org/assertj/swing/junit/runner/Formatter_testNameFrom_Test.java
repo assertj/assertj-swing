@@ -15,7 +15,7 @@
 package org.assertj.swing.junit.runner;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.util.Strings.concat;
+import static org.assertj.core.util.Strings.concat;
 
 import java.lang.reflect.Method;
 

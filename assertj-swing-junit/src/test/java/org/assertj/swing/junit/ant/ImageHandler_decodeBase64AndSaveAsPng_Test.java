@@ -15,10 +15,10 @@
 package org.assertj.swing.junit.ant;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 
-import org.fest.util.Collections;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -36,7 +36,7 @@ public class ImageHandler_decodeBase64AndSaveAsPng_Test extends ImageHandler_Tes
 
   @Parameters
   public static Collection<Object[]> emptyOrNull() {
-    return Collections.list(new Object[][] { { "" }, { null } });
+    return newArrayList(new Object[][] { { "" }, { null } });
   }
 
   public ImageHandler_decodeBase64AndSaveAsPng_Test(String val) {

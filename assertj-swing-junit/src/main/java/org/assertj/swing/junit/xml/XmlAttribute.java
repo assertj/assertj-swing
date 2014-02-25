@@ -15,11 +15,11 @@
 package org.assertj.swing.junit.xml;
 
 import static java.lang.String.valueOf;
-import static org.fest.util.Objects.HASH_CODE_PRIME;
-import static org.fest.util.Objects.areEqual;
-import static org.fest.util.Objects.hashCodeFor;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
+import static org.assertj.core.util.Objects.areEqual;
+import static org.assertj.core.util.Objects.hashCodeFor;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 /**
  * Understands an attribute of a <code>{@link XmlNode}</code>. This class is intended for internal use only. It only

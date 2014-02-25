@@ -15,11 +15,11 @@
 package org.assertj.swing.junit.xml;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 
 import java.util.Collection;
 
-import org.fest.util.Collections;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,7 +44,7 @@ public class XmlAttributes_equals_Test {
 
   @Parameters
   public static Collection<Object[]> notEqualAttributes() {
-    return Collections.list(new Object[][] {
+    return newArrayList(new Object[][] {
         { XmlAttributes.attributes(name("firstName").value("Han"), name("lastName").value("Solo")) },
         { XmlAttributes.attributes() }, { XmlAttributes.attributes(name("name").value("Yoda")) } });
   }

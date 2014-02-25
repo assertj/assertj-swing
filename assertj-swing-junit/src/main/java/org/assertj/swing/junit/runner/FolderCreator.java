@@ -15,13 +15,13 @@
 package org.assertj.swing.junit.runner;
 
 import static java.io.File.separator;
-import static org.fest.util.Files.delete;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Files.delete;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 import java.io.File;
 
-import org.fest.util.FilesException;
+import org.assertj.core.util.FilesException;
 
 /**
  * Understands creation of folders.

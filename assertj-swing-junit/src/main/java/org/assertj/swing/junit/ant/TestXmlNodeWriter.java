@@ -21,12 +21,12 @@ import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_NAM
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_TIME;
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.ATTR_TYPE;
 import static org.apache.tools.ant.taskdefs.optional.junit.XMLConstants.TESTCASE;
+import static org.assertj.core.util.Strings.isEmpty;
 import static org.assertj.swing.junit.ant.CommonConstants.UNKNOWN;
 import static org.assertj.swing.junit.ant.Tests.testClassNameFrom;
 import static org.assertj.swing.junit.ant.Tests.testMethodNameFrom;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.assertj.swing.junit.xml.XmlAttributes.attributes;
-import static org.fest.util.Strings.isEmpty;
 import junit.framework.Test;
 
 import org.assertj.swing.junit.xml.XmlNode;
