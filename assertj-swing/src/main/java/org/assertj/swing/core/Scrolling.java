@@ -34,8 +34,6 @@ import org.assertj.swing.edt.GuiTask;
  * Utility methods related to scrolling.
  * 
  * @author Juhos Csaba-Zsolt
- * 
- * @since 1.2
  */
 public final class Scrolling {
   /**

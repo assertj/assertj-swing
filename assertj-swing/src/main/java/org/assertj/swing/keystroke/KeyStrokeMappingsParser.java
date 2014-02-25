@@ -92,8 +92,6 @@ import org.fest.reflect.exception.ReflectionError;
  * 
  * @author Olivier DOREMIEUX
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public class KeyStrokeMappingsParser {
   private static final Map<String, Character> SPECIAL_MAPPINGS = newHashMap();

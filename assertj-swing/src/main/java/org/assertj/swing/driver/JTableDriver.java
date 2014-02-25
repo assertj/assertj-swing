@@ -186,7 +186,6 @@ public class JTableDriver extends JComponentDriver {
    * @return a cell from the given {@code JTable} whose value matches the given one.
    * @throws NullPointerException if the given regular expression is {@code null}.
    * @throws ActionFailedException if a cell with a matching value cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public @Nonnull
@@ -595,7 +594,6 @@ public class JTableDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the value of the given cell does not match the given regular expression pattern.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireCellValue(@Nonnull JTable table, @Nonnull TableCell cell, @Nonnull Pattern pattern) {
@@ -871,7 +869,6 @@ public class JTableDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the given indices is negative, or equal to or greater than the number
    *           of rows in the {@code JTable}.
-   * @since 1.2
    */
   @RunsInEDT
   public void selectRows(final @Nonnull JTable table, final @Nonnull int... rows) {
@@ -931,7 +928,6 @@ public class JTableDriver extends JComponentDriver {
    * @param rows the indices of the rows expected to be selected.
    * @throws AssertionError if the sets of selected rows in the given {@code JTable} (if any) do not contain the given
    *           row indices.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireSelectedRows(@Nonnull JTable table, @Nonnull int... rows) {

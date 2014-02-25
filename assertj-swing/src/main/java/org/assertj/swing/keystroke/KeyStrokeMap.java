@@ -41,8 +41,6 @@ public class KeyStrokeMap {
 
   /**
    * Reloads the key stroke mappings for the language using the current system settings.
-   * 
-   * @since 1.2
    */
   public static void reloadFromSystemSettings() {
     KeyStrokeMappingProviderPicker picker = new KeyStrokeMappingProviderPicker();

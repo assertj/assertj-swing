@@ -82,7 +82,6 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the text of the {@code AbstractBuffon} does not match the given regular expression
    *           pattern.
-   * @since 1.2
    */
   @Override
   public void requireText(@Nonnull AbstractButton button, @Nonnull Pattern pattern) {

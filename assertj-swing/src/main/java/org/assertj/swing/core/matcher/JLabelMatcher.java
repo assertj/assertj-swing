@@ -118,7 +118,6 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * 
    * @param textPattern the regular expression pattern to match.
    * @return the created matcher.
-   * @since 1.2
    */
   public static @Nonnull
   JLabelMatcher withText(@Nonnull Pattern textPattern) {
@@ -159,7 +158,6 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * 
    * @param textPattern the regular expression pattern to match.
    * @return this matcher.
-   * @since 1.2
    */
   public @Nonnull
   JLabelMatcher andText(@Nonnull Pattern textPattern) {

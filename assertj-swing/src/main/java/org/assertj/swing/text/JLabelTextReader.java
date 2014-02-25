@@ -23,8 +23,6 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * Reads the text displayed in a {@code JLabel}.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.3
  */
 public class JLabelTextReader extends TextReader<JLabel> {
   /**

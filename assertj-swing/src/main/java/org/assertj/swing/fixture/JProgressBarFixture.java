@@ -30,8 +30,6 @@ import org.assertj.swing.timing.Timeout;
  * Supports functional testing of {@code JProgressBar}s.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public class JProgressBarFixture extends
     AbstractJComponentFixture<JProgressBarFixture, JProgressBar, JProgressBarDriver> implements

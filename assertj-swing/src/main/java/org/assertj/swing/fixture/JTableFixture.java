@@ -156,7 +156,6 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    *         pattern.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws ActionFailedException if a cell with a matching value cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTableCellFixture cell(@Nonnull Pattern valuePattern) {
@@ -308,7 +307,6 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the given indices is out of bounds.
-   * @since 1.2
    */
   public @Nonnull
   JTableFixture selectRows(@Nonnull int... rows) {
@@ -437,7 +435,6 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @return this fixture.
    * @throws AssertionError if the set of selected rows in this fixture's {@code JTable} (if any) do not contain the
    *           given indices.
-   * @since 1.2
    */
   public @Nonnull
   JTableFixture requireSelectedRows(@Nonnull int... rows) {
@@ -526,7 +523,6 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws AssertionError if the value of the given cell does not match the given regular expression pattern.
-   * @since 1.2
    */
   public @Nonnull
   JTableFixture requireCellValue(@Nonnull TableCell cell, @Nonnull Pattern pattern) {

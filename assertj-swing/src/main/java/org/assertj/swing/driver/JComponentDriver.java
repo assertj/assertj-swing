@@ -171,7 +171,6 @@ public class JComponentDriver extends ContainerDriver {
    * @param c the given {@code JComponent}.
    * @param expected the expected toolTip. It can be a regular expression.
    * @throws AssertionError if the toolTip of the given {@code JComponent} does not match the given value.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireToolTip(@Nonnull JComponent c, @Nullable String expected) {
@@ -185,7 +184,6 @@ public class JComponentDriver extends ContainerDriver {
    * @param pattern the regular expression pattern to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the toolTip of the given {@code JComponent} does not match the given value.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireToolTip(@Nonnull JComponent c, @Nonnull Pattern pattern) {
@@ -199,7 +197,6 @@ public class JComponentDriver extends ContainerDriver {
    * @param key the key to use to retrieve the client property.
    * @return the value of the client property stored under the given key, or {@code null} if the property was not found.
    * @throws NullPointerException if the given key is {@code null}.
-   * @since 1.2
    */
   @RunsInEDT
   public @Nullable

@@ -30,8 +30,6 @@ import org.assertj.swing.edt.GuiQuery;
  * Returns the text of a node in a {@code JTree}.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 final class JTreeNodeTextQuery {
   @RunsInEDT

@@ -20,8 +20,6 @@ import javax.annotation.Nonnull;
  * Error thrown when an unexpected error occurs while parsing a file.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public class ParsingException extends RuntimeException {
   /**

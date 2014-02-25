@@ -21,8 +21,6 @@ import javax.annotation.Nullable;
  * Creates {@link KeyStrokeMappingProvider}s from class names.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 class KeyStrokeMappingProviderFactory {
   @Nullable

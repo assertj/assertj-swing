@@ -160,7 +160,6 @@ public final class JTextComponentMatcher extends NamedComponentMatcherTemplate<J
    * 
    * @param textPattern the regular expression pattern to match.
    * @return this matcher.
-   * @since 1.2
    */
   public @Nonnull
   JTextComponentMatcher andText(@Nonnull Pattern textPattern) {

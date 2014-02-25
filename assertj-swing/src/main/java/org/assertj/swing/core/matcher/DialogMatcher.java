@@ -118,7 +118,6 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * 
    * @param pattern the regular expression pattern to match.
    * @return the created matcher.
-   * @since 1.2
    */
   public static @Nonnull
   DialogMatcher withTitle(@Nonnull Pattern pattern) {
@@ -159,7 +158,6 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * 
    * @param titlePattern the regular expression pattern to match.
    * @return this matcher.
-   * @since 1.2
    */
   public DialogMatcher andTitle(@Nonnull Pattern titlePattern) {
     title = titlePattern;

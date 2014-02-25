@@ -140,7 +140,6 @@ public class JListDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws LocationUnavailableException if an element matching the any of the given regular expression patterns cannot
    *           be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void selectItems(@Nonnull JList list, @Nonnull Pattern[] patterns) {
@@ -190,7 +189,6 @@ public class JListDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @since 1.2
    */
   @RunsInEDT
   public void selectItem(@Nonnull JList list, @Nonnull Pattern pattern) {
@@ -235,7 +233,6 @@ public class JListDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if an element matching the given regular expression pattern cannot be found.
-   * @since 1.2
    */
   public void clickItem(@Nonnull JList list, @Nonnull Pattern pattern, @Nonnull MouseButton button, int times) {
     clickItem(list, new PatternTextMatcher(pattern), button, times);
@@ -281,7 +278,6 @@ public class JListDriver extends JComponentDriver {
    * verifies that the {@code JList} is enabled and showing.
    * 
    * @param list the target {@code JList}.
-   * @since 1.2
    */
   public void clearSelection(@Nonnull JList list) {
     clearSelectionOf(list);
@@ -409,7 +405,6 @@ public class JListDriver extends JComponentDriver {
    * @throws AssertionError if the selected item does not match the given regular expression pattern.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @see #replaceCellReader(JListCellReader)
-   * @since 1.2
    */
   @RunsInEDT
   public void requireSelection(@Nonnull JList list, @Nonnull Pattern pattern) {
@@ -432,7 +427,6 @@ public class JListDriver extends JComponentDriver {
    * @param list the target {@code JList}.
    * @param index the selection index to match.
    * @throws AssertionError if the selected index does not match the value.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireSelection(final @Nonnull JList list, int index) {
@@ -482,7 +476,6 @@ public class JListDriver extends JComponentDriver {
    * @throws NullPointerException if any of the patterns in the array is {@code null}.
    * @throws AssertionError if the selected items do not match the given values.
    * @see #replaceCellReader(JListCellReader)
-   * @since 1.2
    */
   @RunsInEDT
   public void requireSelectedItems(@Nonnull JList list, @Nonnull Pattern... patterns) {
@@ -558,7 +551,6 @@ public class JListDriver extends JComponentDriver {
    * @throws NullPointerException if the regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if an element matching the given regular expression pattern cannot be found.
    * @see #replaceCellReader(JListCellReader)
-   * @since 1.2
    */
   @RunsInEDT
   public void drag(@Nonnull JList list, @Nonnull Pattern pattern) {
@@ -597,7 +589,6 @@ public class JListDriver extends JComponentDriver {
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    * @throws ActionFailedException if there is no drag action in effect.
-   * @since 1.2
    */
   public void drop(@Nonnull JList list, @Nonnull Pattern pattern) {
     drop(list, new PatternTextMatcher(pattern));
@@ -693,7 +684,6 @@ public class JListDriver extends JComponentDriver {
    * @throws NullPointerException if the regular expression pattern is {@code null}.
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public JPopupMenu showPopupMenu(@Nonnull JList list, @Nonnull Pattern pattern) {
@@ -769,7 +759,6 @@ public class JListDriver extends JComponentDriver {
    * @return the index of the first item matching the given regular expression pattern.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @since 1.2
    */
   @RunsInEDT
   public int indexOf(@Nonnull JList list, @Nonnull Pattern pattern) {
@@ -839,7 +828,6 @@ public class JListDriver extends JComponentDriver {
    * @param list the target {@code JList}.
    * @param expected the expected number of items.
    * @throws AssertionError if the number of items in the given {@code JList} is not equal to the expected one.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireItemCount(@Nonnull JList list, int expected) {

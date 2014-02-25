@@ -138,7 +138,6 @@ public class JComboBoxDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JComboBox} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @see #replaceCellReader(JComboBoxCellReader)
-   * @since 1.2
    */
   @RunsInEDT
   public void selectItem(@Nonnull JComboBox comboBox, @Nonnull Pattern pattern) {
@@ -180,7 +179,6 @@ public class JComboBoxDriver extends JComponentDriver {
    * @throws AssertionError if the selected item does not match the given regular expression pattern.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @see #replaceCellReader(JComboBoxCellReader)
-   * @since 1.2
    */
   @RunsInEDT
   public void requireSelection(@Nonnull JComboBox comboBox, @Nonnull Pattern pattern) {
@@ -205,7 +203,6 @@ public class JComboBoxDriver extends JComponentDriver {
    * @param comboBox the target {@code JComboBox}.
    * @param index the expected selection index.
    * @throws AssertionError if the selection index is not equal to the given value.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireSelection(@Nonnull JComboBox comboBox, int index) {
@@ -276,7 +273,6 @@ public class JComboBoxDriver extends JComponentDriver {
    * verifies that the {@code JComboBox} is enabled and showing.
    * 
    * @param comboBox the target {@code JComboBox}.
-   * @since 1.2
    */
   public void clearSelection(@Nonnull JComboBox comboBox) {
     setSelectedIndex(comboBox, -1);
@@ -554,7 +550,6 @@ public class JComboBoxDriver extends JComponentDriver {
    * @param comboBox the target {@code JComboBox}.
    * @param expected the expected number of items.
    * @throws AssertionError if the number of items in the given {@code JComboBox} is not equal to the expected one.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireItemCount(@Nonnull JComboBox comboBox, int expected) {
@@ -569,7 +564,6 @@ public class JComboBoxDriver extends JComponentDriver {
    * @param comboBox the target {@code JComboBox}.
    * @return the selected value of the given {code JComboBox} as plain text, or {@code null} if the {code JComboBox}
    *         does not have any selection.
-   * @since 1.3
    */
   public @Nullable
   String selectedItemOf(@Nonnull JComboBox comboBox) {

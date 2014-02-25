@@ -90,7 +90,6 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @param pattern the regular expression pattern to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the {@code JOptionPane} does not have the given title.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireTitle(@Nonnull JOptionPane optionPane, @Nonnull Pattern pattern) {
@@ -102,7 +101,6 @@ public class JOptionPaneDriver extends JComponentDriver {
    * 
    * @param optionPane the target {@code JOptionPane}.
    * @return the title of the given {@code JOptionPane}.
-   * @since 1.2
    */
   @RunsInEDT
   public @Nullable
@@ -146,7 +144,6 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the message in the {@code JOptionPaneFixture} does not match the given regular expression
    *           pattern.
-   * @since 1.2
    */
   @RunsInEDT
   public void requireMessage(@Nonnull JOptionPane optionPane, @Nonnull Pattern pattern) {
@@ -251,7 +248,6 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @return a button containing the given text.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws ComponentLookupException if the a button with the given text cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public @Nonnull

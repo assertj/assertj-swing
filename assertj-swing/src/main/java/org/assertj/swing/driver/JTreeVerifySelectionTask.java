@@ -37,8 +37,6 @@ import org.assertj.swing.edt.GuiTask;
  * Verifies that a {@code JTree} has the expected selection.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 final class JTreeVerifySelectionTask {
   @RunsInEDT

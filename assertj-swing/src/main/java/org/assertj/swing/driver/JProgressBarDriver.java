@@ -50,8 +50,6 @@ import org.assertj.swing.util.Pair;
  * </p>
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 @InternalApi
 public class JProgressBarDriver extends JComponentDriver implements TextDisplayDriver<JProgressBar> {

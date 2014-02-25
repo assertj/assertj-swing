@@ -177,7 +177,6 @@ public interface ComponentContainerFixture {
    * @param timeout the amount of time to wait for a {@code Dialog} to be found.
    * @return a fixture that manages the {@code Dialog} found.
    * @throws WaitTimedOutError if a {@code Dialog} could not be found.
-   * @since 1.2
    */
   @RunsInEDT
   @Nonnull
@@ -203,7 +202,6 @@ public interface ComponentContainerFixture {
    * @param timeout the amount of time to wait for a {@code Dialog} to be found.
    * @return a fixture that manages the {@code Dialog} found.
    * @throws WaitTimedOutError if a {@code Dialog} that matches the given search criteria could not be found.
-   * @since 1.2
    */
   @RunsInEDT
   @Nonnull
@@ -229,7 +227,6 @@ public interface ComponentContainerFixture {
    * @param timeout the amount of time to wait for a {@code Dialog} to be found.
    * @return a fixture that manages the {@code Dialog} found.
    * @throws WaitTimedOutError if a {@code Dialog} that a matching name could not be found.
-   * @since 1.2
    */
   @RunsInEDT
   @Nonnull

@@ -190,7 +190,6 @@ public class JTextComponentFixture extends
    * @return this fixture.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the text of this fixture's {@code JTextComponent} is not eual to the given one.
-   * @since 1.2
    */
   @Override
   public @Nonnull

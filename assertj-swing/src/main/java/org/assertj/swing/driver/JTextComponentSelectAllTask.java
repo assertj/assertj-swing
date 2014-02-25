@@ -26,8 +26,6 @@ import org.assertj.swing.edt.GuiTask;
  * Selects all the text in a {@code JTextComponent}. This task is executed in the event dispatch thread (EDT.)
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 final class JTextComponentSelectAllTask {
   @RunsInEDT

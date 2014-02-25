@@ -18,8 +18,6 @@ package org.assertj.swing.core;
  * {@link ComponentMatcher} whose internal state can be reset.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public interface ResettableComponentMatcher extends ComponentMatcher {
   /**

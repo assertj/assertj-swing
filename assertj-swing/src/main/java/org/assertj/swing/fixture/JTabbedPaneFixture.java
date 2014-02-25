@@ -113,7 +113,6 @@ public class JTabbedPaneFixture extends
    * @throws IllegalStateException if this fixture's {@code JTabbedPane} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if a tab matching the given regular expression pattern could not be found.
-   * @since 1.2
    */
   public @Nonnull
   JTabbedPaneFixture selectTab(@Nonnull Pattern pattern) {

@@ -326,7 +326,6 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the value of this fixture's table cell does not match the expected the given regular
    *           expression pattern.
-   * @since 1.2
    */
   public @Nonnull
   JTableCellFixture requireValue(@Nonnull Pattern pattern) {

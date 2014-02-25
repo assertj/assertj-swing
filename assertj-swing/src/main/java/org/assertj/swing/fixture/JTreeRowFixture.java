@@ -27,8 +27,6 @@ import org.assertj.swing.exception.ComponentLookupException;
  * Supports functional testing of single nodes, referenced by their row indices, in {@code JTree}s.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
   private final int index;

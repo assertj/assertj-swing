@@ -47,8 +47,6 @@ import org.assertj.swing.internal.annotation.InternalApi;
  * 
  * @author Mel Llaguno
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 @InternalApi
 public class JAppletDriver extends ComponentDriver implements AppletStub {

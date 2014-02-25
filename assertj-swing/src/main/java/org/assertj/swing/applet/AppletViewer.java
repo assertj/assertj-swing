@@ -82,7 +82,6 @@ public class AppletViewer extends JFrame implements StatusDisplay {
    * @param applet the {@code Applet} to view.
    * @return the created {@code AppletViewer}.
    * @throws NullPointerException if {@code applet} is {@code null}.
-   * @since 1.2
    */
   @RunsInEDT
   public static @Nonnull
@@ -107,7 +106,6 @@ public class AppletViewer extends JFrame implements StatusDisplay {
    * @return the created {@code AppletViewer}.
    * @throws NullPointerException if {@code applet} is {@code null}.
    * @throws NullPointerException if {@code parameters} is {@code null}.
-   * @since 1.2
    */
   @RunsInEDT
   public static @Nonnull
@@ -128,7 +126,6 @@ public class AppletViewer extends JFrame implements StatusDisplay {
    * @return the created {@code AppletViewer}.
    * @throws NullPointerException if {@code applet} is {@code null}.
    * @throws NullPointerException if {@code stub} is {@code null}.
-   * @since 1.2
    */
   @RunsInEDT
   public static AppletViewer newViewer(@Nonnull Applet applet, @Nonnull AppletStub stub) {

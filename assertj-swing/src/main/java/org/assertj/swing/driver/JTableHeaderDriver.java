@@ -121,7 +121,6 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if a column with a matching name cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nonnull Pattern columnNamePattern) {
@@ -157,7 +156,6 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if a column with a matching name cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nonnull Pattern columnNamePattern,
@@ -230,7 +228,6 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws ComponentLookupException if a pop-up menu cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public @Nonnull

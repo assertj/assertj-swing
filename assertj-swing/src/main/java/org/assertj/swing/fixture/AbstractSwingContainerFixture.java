@@ -93,7 +93,6 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    * @param expected the given value. It can be a regular expression.
    * @return this fixture.
    * @throws AssertionError if the toolTip in this fixture's {@code JScrollPane} does not match the given value.
-   * @since 1.2
    */
   @Override
   public final @Nonnull
@@ -110,7 +109,6 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the toolTip in this fixture's {@code JScrollPane} does not match the given regular
    *           expression.
-   * @since 1.2
    */
   @Override
   public final @Nonnull
@@ -125,7 +123,6 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    * @param key the key to use to retrieve the client property.
    * @return the value of the client property stored under the given key, or {@code null} if the property was not found.
    * @throws NullPointerException if the given key is {@code null}.
-   * @since 1.2
    */
   @Override
   public final @Nullable

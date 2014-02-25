@@ -169,8 +169,6 @@ public class AppletLauncher {
    * @param applet the {@code Applet} to launch.
    * @return the created {@code AppletLauncher}.
    * @throws NullPointerException if the given {@code Applet} is {@code null}.
-   * 
-   * @since 2.0
    */
   public static @Nonnull
   AppletLauncher launcherFor(@Nonnull Applet applet) {

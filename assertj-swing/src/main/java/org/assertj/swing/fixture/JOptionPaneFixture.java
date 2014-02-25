@@ -70,7 +70,6 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
 
   /**
    * @return the title of this fixture's {@code JOptionPane}.
-   * @since 1.2
    */
   public @Nullable
   String title() {
@@ -144,7 +143,6 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * @return a fixture wrapping a button matching the given regular expression pattern.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws ComponentLookupException if the a button with the given text cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JButtonFixture buttonWithText(@Nonnull Pattern pattern) {
@@ -226,7 +224,6 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * @return this fixture.
    * @throws NullPointerException if the given regular expression is {@code null}.
    * @throws AssertionError if this fixture's {@code JOptionPaneFixture} does not have the given title.
-   * @since 1.2
    */
   public @Nonnull
   JOptionPaneFixture requireTitle(@Nonnull Pattern pattern) {
@@ -258,7 +255,6 @@ public class JOptionPaneFixture extends AbstractContainerFixture<JOptionPaneFixt
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the message in this fixture's {@code JOptionPaneFixture} does not match the given regular
    *           expression pattern.
-   * @since 1.2
    */
   public @Nonnull
   JOptionPaneFixture requireMessage(@Nonnull Pattern pattern) {

@@ -106,7 +106,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void clickRow(@Nonnull JTree tree, int row) {
@@ -126,7 +125,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void clickRow(@Nonnull JTree tree, int row, @Nonnull MouseButton button) {
@@ -146,7 +144,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void clickRow(@Nonnull JTree tree, int row, @Nonnull MouseClickInfo mouseClickInfo) {
@@ -170,7 +167,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void doubleClickRow(@Nonnull JTree tree, int row) {
@@ -188,7 +184,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void rightClickRow(@Nonnull JTree tree, int row) {
@@ -229,7 +224,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void clickPath(@Nonnull JTree tree, @Nonnull String path, @Nonnull MouseButton button) {
@@ -247,7 +241,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void clickPath(@Nonnull JTree tree, @Nonnull String path, @Nonnull MouseClickInfo mouseClickInfo) {
@@ -268,7 +261,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void doubleClickPath(@Nonnull JTree tree, @Nonnull String path) {
@@ -295,7 +287,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void rightClickPath(@Nonnull JTree tree, @Nonnull String path) {
@@ -322,7 +313,6 @@ public class JTreeDriver extends JComponentDriver {
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
    * @throws ActionFailedException if this method fails to expand the row.
-   * @since 1.2
    */
   @RunsInEDT
   public void expandRow(@Nonnull JTree tree, int row) {
@@ -349,7 +339,6 @@ public class JTreeDriver extends JComponentDriver {
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
    * @throws ActionFailedException if this method fails to collapse the row.
-   * @since 1.2
    */
   @RunsInEDT
   public void collapseRow(@Nonnull JTree tree, int row) {
@@ -415,7 +404,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
    * @throws ActionFailedException if this method fails to expand the path.
-   * @since 1.2
    */
   @RunsInEDT
   public void expandPath(@Nonnull JTree tree, @Nonnull String path) {
@@ -439,7 +427,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
    * @throws ActionFailedException if this method fails to collapse the path.
-   * @since 1.2
    */
   @RunsInEDT
   public void collapsePath(@Nonnull JTree tree, @Nonnull String path) {
@@ -943,7 +930,6 @@ public class JTreeDriver extends JComponentDriver {
    * @param row the given index.
    * @throws IndexOutOfBoundsException if the given index is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @since 1.2
    */
   @RunsInEDT
   public void checkRowInBounds(@Nonnull JTree tree, int row) {
@@ -956,7 +942,6 @@ public class JTreeDriver extends JComponentDriver {
    * @param tree the given {@code JTree}.
    * @param path the given path.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public void checkPathExists(@Nonnull JTree tree, @Nonnull String path) {
@@ -970,7 +955,6 @@ public class JTreeDriver extends JComponentDriver {
    * @param path the given path.
    * @return the {@code String} representation of the node at the given path.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   @RunsInEDT
   public @Nullable
@@ -987,7 +971,6 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   public @Nullable
   String nodeValue(@Nonnull JTree tree, int row) {

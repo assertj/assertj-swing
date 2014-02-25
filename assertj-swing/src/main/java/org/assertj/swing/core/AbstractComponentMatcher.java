@@ -89,7 +89,6 @@ public abstract class AbstractComponentMatcher implements ResettableComponentMat
    * Resets the internal state of this matcher.
    * 
    * @param matchFound indicates whether a match has been found before resetting.
-   * @since 1.2
    */
   @Override
   public void reset(boolean matchFound) {

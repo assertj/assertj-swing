@@ -90,7 +90,6 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * not verifies that this fixture's {@code JComboBox} is enabled and showing.
    * 
    * @return this fixture.
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -145,7 +144,6 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @see #replaceCellReader(JComboBoxCellReader)
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -195,7 +193,6 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the selected item does not match the given regular expression pattern.
    * @see #replaceCellReader(JComboBoxCellReader)
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -210,7 +207,6 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @param index the expected selection index.
    * @return this fixture.
    * @throws AssertionError if the selected index is not equal to the given one.
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -238,7 +234,6 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @param expected the expected number of items.
    * @return this fixture.
    * @throws AssertionError if the number of items in this fixture's {@code JComboBox} is not equal to the expected one.
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -253,7 +248,6 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * 
    * @return the selected value of this fixture's {code JComboBox} as plain text, or {@code null} if the {code
    *         JComboBox} does not have any selection.
-   * @since 1.3
    */
   public @Nullable
   String selectedItem() {

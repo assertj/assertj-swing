@@ -28,8 +28,6 @@ import org.assertj.swing.util.OSFamily;
  * A generated name for a {@link KeyStrokeMappingProvider} to use, based on operating system family and locale.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 class KeyStrokeMappingProviderNames implements Iterable<String> {
   private final String osFamily;

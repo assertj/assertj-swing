@@ -46,8 +46,6 @@ import org.assertj.swing.exception.ActionFailedException;
  * </p>
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public class TableCellInRowByValue implements TableCellFinder {
   /**

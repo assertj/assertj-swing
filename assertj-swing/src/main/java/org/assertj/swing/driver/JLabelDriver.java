@@ -71,7 +71,6 @@ public class JLabelDriver extends JComponentDriver implements TextDisplayDriver<
    * @param pattern the regular expression pattern to match.
    * @throws AssertionError if the text of the {@code JLabel} does not match the given regular expression pattern.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @since 1.2
    */
   @RunsInEDT
   @Override

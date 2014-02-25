@@ -20,8 +20,6 @@ import javax.annotation.Nonnull;
  * Operating System families.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public enum OSFamily {
   WINDOWS("win"), MAC("mac"), LINUX("linux"), UNIX("unix");

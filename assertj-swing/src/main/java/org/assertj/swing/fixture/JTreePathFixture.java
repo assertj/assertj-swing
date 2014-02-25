@@ -27,8 +27,6 @@ import org.assertj.swing.exception.ComponentLookupException;
  * Supports functional testing of single nodes, referenced by their paths, in {@code JTree}s.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
   private final JTreeFixture tree;
@@ -52,7 +50,6 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws ActionFailedException if this method fails to expand the path.
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -68,7 +65,6 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws ActionFailedException if this method fails to collapse the path.
-   * @since 1.2
    */
   @Override
   public @Nonnull

@@ -39,7 +39,6 @@ public interface ItemGroupFixture<S> {
    * Clears the selection in this fixture's {@code Component}.
    * 
    * @return this fixture.
-   * @since 1.2
    */
   @Nonnull
   S clearSelection();
@@ -69,7 +68,6 @@ public interface ItemGroupFixture<S> {
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @since 1.2
    */
   @Nonnull
   S selectItem(@Nonnull Pattern pattern);
@@ -102,7 +100,6 @@ public interface ItemGroupFixture<S> {
    * @return this fixture.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the selected item does not match the given regular expression pattern.
-   * @since 1.2
    */
   @Nonnull
   S requireSelection(@Nonnull Pattern pattern);
@@ -113,7 +110,6 @@ public interface ItemGroupFixture<S> {
    * @param index the expected selection index.
    * @return this fixture.
    * @throws AssertionError if the selection index is not equal to the given value.
-   * @since 1.2
    */
   @Nonnull
   S requireSelection(int index);
@@ -133,7 +129,6 @@ public interface ItemGroupFixture<S> {
    * @param expected the expected number of items.
    * @return this fixture.
    * @throws AssertionError if the number of items in this fixture's {@code Component} is not equal to the expected one.
-   * @since 1.2
    */
   @Nonnull
   S requireItemCount(int expected);

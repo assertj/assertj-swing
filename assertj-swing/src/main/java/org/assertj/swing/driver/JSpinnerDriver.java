@@ -216,7 +216,6 @@ public class JSpinnerDriver extends JComponentDriver {
    * 
    * @param spinner the target {@code JSpinner}.
    * @return the text displayed in the given {@code JSpinner}.
-   * @since 1.2
    */
   @RunsInEDT
   public @Nullable

@@ -187,7 +187,6 @@ public class JSpinnerFixture extends AbstractJPopupMenuInvokerFixture<JSpinnerFi
    * retrieved, it will return the {@code String} representation of the value in the {@code JSpinner}'s model.
    * 
    * @return the text displayed by this fixture's {@code JSpinner}.
-   * @since 1.2
    */
   public @Nullable
   String text() {

@@ -116,7 +116,6 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * 
    * @param pattern the regular expression pattern to match.
    * @return the created matcher.
-   * @since 1.2
    */
   public static @Nonnull
   JButtonMatcher withText(@Nonnull Pattern pattern) {
@@ -156,7 +155,6 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * 
    * @param textPattern the regular expression pattern to match.
    * @return this matcher.
-   * @since 1.2
    */
   public JButtonMatcher andText(@Nonnull Pattern textPattern) {
     text = textPattern;

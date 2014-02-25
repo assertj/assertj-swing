@@ -151,7 +151,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @return a fixture that manages the list item whose text matches the given regular expression pattern.
    * @throws LocationUnavailableException if an element matching the given text cannot be found.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @since 1.2
    */
   public @Nonnull
   JListItemFixture item(@Nonnull Pattern pattern) {
@@ -163,7 +162,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * verifies that this fixture's {@code JList} is enabled and showing.
    * 
    * @return this fixture.
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -223,7 +221,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @see #item(Pattern)
    * @see JListItemFixture#select()
    * @see #replaceCellReader(JListCellReader)
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -257,7 +254,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws AssertionError if the selected item does not match the given regular expression pattern.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @see #replaceCellReader(JListCellReader)
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -272,7 +268,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @param index the expected selection index.
    * @return this fixture.
    * @throws AssertionError if the selected index is not equal to the given one.
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -300,7 +295,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @param expected the expected number of items.
    * @return this fixture.
    * @throws AssertionError if the number of items in this fixture's {@code JList} is not equal to the expected one.
-   * @since 1.2
    */
   @Override
   public @Nonnull
@@ -377,7 +371,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws LocationUnavailableException if an element matching the any of the given regular expression patterns cannot
    *           be found.
    * @see #replaceCellReader(JListCellReader)
-   * @since 1.2
    */
   public @Nonnull
   JListFixture selectItems(@Nonnull Pattern... patterns) {
@@ -396,7 +389,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    *           {@code JList}.
    * @see #item(int)
    * @see JListItemFixture#click()
-   * @since 1.2
    */
   public @Nonnull
   JListFixture clickItem(int index) {
@@ -415,7 +407,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @see #item(String)
    * @see JListItemFixture#select()
    * @see #replaceCellReader(JListCellReader)
-   * @since 1.2
    */
   public JListFixture clickItem(@Nullable String text) {
     driver().clickItem(target(), text, LEFT_BUTTON, 1);
@@ -435,7 +426,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @see #item(Pattern)
    * @see JListItemFixture#select()
    * @see #replaceCellReader(JListCellReader)
-   * @since 1.2
    */
   public @Nonnull
   JListFixture clickItem(@Nonnull Pattern pattern) {
@@ -455,7 +445,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws NullPointerException if the given array is {@code null}.
    * @throws IllegalArgumentException if the given array is empty.
    * @throws AssertionError if the selection in this fixture's {@code JList} does not match the given one.
-   * @since 1.2
    */
   public @Nonnull
   JListFixture requireSelectedItems(@Nonnull int... indices) {
@@ -491,7 +480,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws NullPointerException if any of the patterns in the given array is {@code null}.
    * @throws AssertionError if the selected items do not match the given regular expression patterns.
    * @see #replaceCellReader(JListCellReader)
-   * @since 1.2
    */
   public @Nonnull
   JListFixture requireSelectedItems(@Nonnull Pattern[] patterns) {
@@ -574,7 +562,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern in {@code null}.
    * @throws LocationUnavailableException if an element matching the given regular expression pattern cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JListFixture drag(@Nonnull Pattern pattern) {
@@ -592,7 +579,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws NullPointerException if the given regular expression pattern in {@code null}.
    * @throws LocationUnavailableException if an element matching the given text cannot be found.
    * @throws ActionFailedException if there is no drag action in effect.
-   * @since 1.2
    */
   public @Nonnull
   JListFixture drop(@Nonnull Pattern pattern) {
@@ -642,7 +628,6 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JPopupMenuFixture showPopupMenuAt(@Nonnull Pattern pattern) {

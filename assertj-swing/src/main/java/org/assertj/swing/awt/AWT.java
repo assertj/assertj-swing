@@ -56,7 +56,6 @@ public class AWT {
    * @param c the given {@code JComponent}.
    * @param p the point to verify.
    * @return {@code true} if the point is inside the screen boundaries; {@code false} otherwise.
-   * @since 1.2
    */
   public static boolean isPointInScreenBoundaries(@Nonnull JComponent c, @Nonnull Point p) {
     Point where = translate(c, p.x, p.y);
@@ -69,7 +68,6 @@ public class AWT {
    * 
    * @param p the point to verify.
    * @return {@code true} if the point is inside the screen boundaries; {@code false} otherwise.
-   * @since 1.2
    */
   public static boolean isPointInScreenBoundaries(@Nonnull Point p) {
     Rectangle screen = new Rectangle(TOOLKIT_PROVIDER.defaultToolkit().getScreenSize());
@@ -90,7 +88,6 @@ public class AWT {
    * @param x X coordinate.
    * @param y Y coordinate.
    * @return the translated coordinates.
-   * @since 1.1
    */
   @RunsInCurrentThread
   public static @Nullable
@@ -247,7 +244,6 @@ public class AWT {
    * 
    * @param c the given {@code Component}.
    * @return {@code true} if the given {@code Component} is a heavy-weight pop-up; {@code false} otherwise.
-   * @since 1.2
    */
   @RunsInCurrentThread
   public static boolean isHeavyWeightPopup(@Nonnull Component c) {

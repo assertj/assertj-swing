@@ -27,8 +27,6 @@ import javax.annotation.Nullable;
  * 
  * @author Yvonne Wang
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public interface TextDisplayDriver<T extends Component> {
   /**
@@ -47,7 +45,6 @@ public interface TextDisplayDriver<T extends Component> {
    * @param pattern the regular expression pattern to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the text of the component does not match the given regular expression pattern.
-   * @since 1.2
    */
   void requireText(@Nonnull T component, @Nonnull Pattern pattern);
 

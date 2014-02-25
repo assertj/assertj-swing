@@ -29,8 +29,6 @@ import org.assertj.swing.timing.Condition;
  * {@link Condition} that is evaluated in the event dispatch thread (EDT.)
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public abstract class EdtSafeCondition extends Condition {
   /**

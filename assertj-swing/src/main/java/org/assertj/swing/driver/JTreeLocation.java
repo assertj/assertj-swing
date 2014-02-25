@@ -52,7 +52,6 @@ public final class JTreeLocation {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   @RunsInCurrentThread
   public @Nonnull
@@ -131,7 +130,6 @@ public final class JTreeLocation {
    * @param path the given path.
    * @return the bounds and visible coordinates of the given path.
    * @throws LocationUnavailableException if any part of the path is not visible.
-   * @since 1.2
    */
   @RunsInCurrentThread
   public @Nonnull

@@ -116,7 +116,6 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * 
    * @param pattern the title to match.
    * @return the created matcher.
-   * @since 1.2
    */
   public static @Nonnull
   FrameMatcher withTitle(@Nonnull Pattern pattern) {
@@ -157,7 +156,6 @@ public final class FrameMatcher extends NamedComponentMatcherTemplate<Frame> {
    * 
    * @param titlePattern the regular expression pattern to match.
    * @return this matcher.
-   * @since 1.2
    */
   public @Nonnull
   FrameMatcher andTitle(@Nonnull Pattern titlePattern) {

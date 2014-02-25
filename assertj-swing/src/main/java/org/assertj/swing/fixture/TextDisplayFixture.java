@@ -51,7 +51,6 @@ public interface TextDisplayFixture<S> {
    * @return this fixture.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the text of the target component does not match the given regular expression pattern.
-   * @since 1.2
    */
   @Nonnull
   S requireText(@Nonnull Pattern pattern);

@@ -183,7 +183,6 @@ public final class Platform {
 
   /**
    * @return the current operating system family.
-   * @since 1.2
    */
   public static @Nonnull
   OSFamily osFamily() {

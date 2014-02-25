@@ -377,7 +377,6 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
    * @param pattern the regular expression pattern to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws AssertionError if the text of the {@code JTextComponent} is not equal to the given one.
-   * @since 1.2
    */
   @Override
   @RunsInEDT
@@ -440,7 +439,6 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
    * 
    * @param textBox the given {@code JTextComponent}.
    * @return the text of the given {@code JTextComponent}.
-   * @since 1.2
    */
   @RunsInEDT
   @Override

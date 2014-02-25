@@ -25,8 +25,6 @@ import org.assertj.swing.exception.ActionFailedException;
  *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 public interface JTreeNodeFixture<S> extends ItemFixture<S> {
   /**

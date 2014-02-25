@@ -114,7 +114,6 @@ public final class ScreenLock {
    * 
    * @return {@code true} if the lock is already acquired; {@code false} otherwise.
    * @see #acquiredBy(Object)
-   * @since 1.2
    */
   public boolean acquired() {
     lock.lock();

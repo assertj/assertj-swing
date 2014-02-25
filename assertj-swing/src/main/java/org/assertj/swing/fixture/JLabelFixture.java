@@ -93,7 +93,6 @@ public class JLabelFixture extends AbstractJPopupMenuInvokerFixture<JLabelFixtur
    * @throws AssertionError if the text of this fixture's {@code JLabel} does not match the given regular expression
    *           pattern.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @since 1.2
    */
   @Override
   public @Nonnull

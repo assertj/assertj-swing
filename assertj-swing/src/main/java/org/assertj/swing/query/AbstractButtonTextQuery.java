@@ -30,8 +30,6 @@ import org.assertj.swing.edt.GuiQuery;
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
- * 
- * @since 1.3
  */
 public final class AbstractButtonTextQuery {
   /**

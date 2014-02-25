@@ -28,8 +28,6 @@ import javax.swing.KeyStroke;
  * {@link KeyStrokeMappingProvider} created by parsing a text file containing all the key mappings.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  * @see KeyStrokeMappingsParser
  */
 class ParsedKeyStrokeMappingProvider implements KeyStrokeMappingProvider {

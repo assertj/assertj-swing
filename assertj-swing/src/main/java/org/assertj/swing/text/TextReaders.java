@@ -35,8 +35,6 @@ import org.assertj.swing.edt.GuiQuery;
  * Registry of {@link TextReader}s.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.3
  */
 public class TextReaders {
   private static Logger logger = Logger.getLogger(TextReaders.class.getCanonicalName());

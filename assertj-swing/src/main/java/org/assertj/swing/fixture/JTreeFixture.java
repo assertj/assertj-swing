@@ -110,7 +110,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture clickRow(int row) {
@@ -130,7 +129,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture clickRow(int row, @Nonnull MouseButton button) {
@@ -150,7 +148,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture clickRow(int row, @Nonnull MouseClickInfo mouseClickInfo) {
@@ -183,7 +180,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture clickPath(@Nonnull String path, @Nonnull MouseButton button) {
@@ -201,7 +197,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture clickPath(@Nonnull String path, @Nonnull MouseClickInfo mouseClickInfo) {
@@ -219,7 +214,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture doubleClickRow(int row) {
@@ -235,7 +229,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture doubleClickPath(@Nonnull String path) {
@@ -253,7 +246,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture rightClickRow(int row) {
@@ -269,7 +261,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture rightClickPath(@Nonnull String path) {
@@ -441,7 +432,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
    * @throws ActionFailedException if this method fails to expand the row.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture expandRow(int row) {
@@ -460,7 +450,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
    * @throws ActionFailedException if this method fails to collapse the row.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture collapseRow(int row) {
@@ -477,7 +466,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
    * @throws ActionFailedException if this method fails to expand the path.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture expandPath(@Nonnull String path) {
@@ -494,7 +482,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
    * @throws ActionFailedException if this method fails to collapse the path.
-   * @since 1.2
    */
   public @Nonnull
   JTreeFixture collapsePath(@Nonnull String path) {
@@ -645,7 +632,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @return a fixture that manages the node specified by the given row.
    * @throws IndexOutOfBoundsException if the given index is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @since 1.2
    */
   public @Nonnull
   JTreeRowFixture node(int row) {
@@ -659,7 +645,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @param path the given path.
    * @return a fixture that manages the node specified by the given path.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTreePathFixture node(@Nonnull String path) {
@@ -675,7 +660,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @since 1.2
    */
   public @Nullable
   String valueAt(int row) {
@@ -688,7 +672,6 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @param path the given path.
    * @return the {@code String} representation of the node at the given path.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @since 1.2
    */
   public @Nullable
   String valueAt(@Nonnull String path) {

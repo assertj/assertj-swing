@@ -33,8 +33,6 @@ import javax.annotation.Nonnull;
  * Utility methods related to {@link KeyStrokeMapping}s.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.2
  */
 final class KeyStrokeMappings {
   static @Nonnull

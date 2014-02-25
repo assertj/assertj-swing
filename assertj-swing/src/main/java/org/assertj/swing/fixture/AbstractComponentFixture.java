@@ -416,7 +416,6 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Indicates whether this fixture's {@code Component} is enabled.
    * 
    * @return {@code true} if this fixture's {@code Component} is enabled; {@code false} otherwise.
-   * @since 1.3
    */
   public final boolean isEnabled() {
     return ComponentEnabledQuery.isEnabled(target());

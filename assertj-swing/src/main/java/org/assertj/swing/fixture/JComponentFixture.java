@@ -34,7 +34,6 @@ public interface JComponentFixture<S> {
    * @param key the key to use to retrieve the client property.
    * @return the value of the client property stored under the given key, or {@code null} if the property was not found.
    * @throws NullPointerException if the given key is {@code null}.
-   * @since 1.2
    */
   @Nullable
   Object clientProperty(@Nonnull Object key);

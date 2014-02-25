@@ -27,8 +27,6 @@ import org.assertj.swing.driver.BasicJListCellReader;
  * Reads the text displayed in a {@code JList}.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.3
  */
 public class JListTextReader extends TextReader<JList> {
   private final JListCellReader cellReader;

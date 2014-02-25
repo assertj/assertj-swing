@@ -26,8 +26,6 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * @param <T> the type of {@code Component} this reader supports.
  * 
  * @author Alex Ruiz
- * 
- * @since 1.3
  */
 public abstract class TextReader<T extends Component> {
   /**

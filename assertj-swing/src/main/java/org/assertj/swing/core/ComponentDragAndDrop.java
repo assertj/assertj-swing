@@ -35,7 +35,6 @@ import org.assertj.swing.util.TimeoutWatch;
 /**
  * Simulates a user performing drag-and-drop.
  * 
- * @since 1.1
  * @author Alex Ruiz
  */
 public class ComponentDragAndDrop {

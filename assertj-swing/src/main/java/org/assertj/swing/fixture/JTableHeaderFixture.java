@@ -95,7 +95,6 @@ public class JTableHeaderFixture extends
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression is {@code null}.
    * @throws LocationUnavailableException if a column with a matching name cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTableHeaderFixture clickColumn(@Nonnull Pattern columnNamePattern) {
@@ -153,7 +152,6 @@ public class JTableHeaderFixture extends
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if a column with a matching name cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JTableHeaderFixture clickColumn(@Nonnull Pattern columnNamePattern, @Nonnull MouseClickInfo mouseClickInfo) {
@@ -203,7 +201,6 @@ public class JTableHeaderFixture extends
    * @throws IllegalStateException if this fixture's {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws ComponentLookupException if a pop-up menu cannot be found.
-   * @since 1.2
    */
   public @Nonnull
   JPopupMenuFixture showPopupMenuAt(@Nonnull Pattern columnNamePattern) {

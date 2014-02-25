@@ -29,8 +29,6 @@ import org.assertj.swing.edt.GuiQuery;
 /**
  * Utility methods related to {@code Container}s.
  * 
- * @since 1.2
- * 
  * @author Alex Ruiz
  */
 public final class Containers {
