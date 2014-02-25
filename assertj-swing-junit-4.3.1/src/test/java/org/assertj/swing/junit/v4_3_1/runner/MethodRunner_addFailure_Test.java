@@ -14,10 +14,10 @@
  */
 package org.assertj.swing.junit.v4_3_1.runner;
 
+import static org.assertj.core.util.Objects.areEqual;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.reportMatcher;
 import static org.easymock.classextension.EasyMock.createMock;
-import static org.fest.util.Objects.areEqual;
 
 import java.lang.reflect.Method;
 
