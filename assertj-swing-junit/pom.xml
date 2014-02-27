@@ -21,6 +21,7 @@
       <artifactId>commons-codec</artifactId>
       <version>1.3</version>
       <scope>compile</scope>
+      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.apache.ant</groupId>
@@ -56,6 +57,39 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>jarjar-maven-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jarjar</goal>
+            </goals>
+            <configuration>
+              <includes>
+                <include>commons-codec:commons-codec</include>
+              </includes>
+              <rules>
+                <rule>
+                  <pattern>org.apache.commons.codec.**</pattern>
+                  <result>org.assertj.swing.junit.dependency.commons_codec.@1</result>
+                </rule>
+                <keep>
+                  <pattern>org.assertj.swing.junit.**</pattern>
+                </keep>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
   <reporting>
     <plugins>
       <plugin>
