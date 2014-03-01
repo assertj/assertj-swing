@@ -34,7 +34,7 @@ public class XmlNode_equals_hashCode_Test extends XmlNode_TestCase implements Eq
 
   @Override
   @Test
-  public void should_have_consistent_equals() {
+  public void equals_should_be_consistent() {
     XmlNode child1 = node.addNewNode("child", attributes(name("name1").value("value1"), name("name2").value("value2")));
     XmlNode child2 = node.addNewNode("child", attributes(name("name1").value("value1"), name("name2").value("value2")));
     assertThat(child1.equals(child2)).isTrue();
@@ -44,13 +44,13 @@ public class XmlNode_equals_hashCode_Test extends XmlNode_TestCase implements Eq
 
   @Override
   @Test
-  public void should_have_reflexive_equals() {
+  public void equals_should_be_reflexive() {
     assertEqualsIsReflexive(node);
   }
 
   @Override
   @Test
-  public void should_have_symmetric_equals() {
+  public void equals_should_be_symmetric() {
     XmlNode child1 = node.addNewNode("child", attributes(name("name1").value("value1"), name("name2").value("value2")));
     XmlNode child2 = node.addNewNode("child", attributes(name("name1").value("value1"), name("name2").value("value2")));
     assertEqualsIsSymmetric(child1, child2);
@@ -58,7 +58,7 @@ public class XmlNode_equals_hashCode_Test extends XmlNode_TestCase implements Eq
 
   @Override
   @Test
-  public void should_have_transitive_equals() {
+  public void equals_should_be_transitive() {
     XmlNode child1 = node.addNewNode("child", attributes(name("name1").value("value1"), name("name2").value("value2")));
     XmlNode child2 = node.addNewNode("child", attributes(name("name1").value("value1"), name("name2").value("value2")));
     XmlNode child3 = node.addNewNode("child", attributes(name("name1").value("value1"), name("name2").value("value2")));
@@ -81,7 +81,7 @@ public class XmlNode_equals_hashCode_Test extends XmlNode_TestCase implements Eq
 
   @Override
   @Test
-  public void should_not_be_equal_to_Object_not_being_of_same_type() {
+  public void should_not_be_equal_to_Object_of_different_type() {
     assertThat(node.equals("Hello")).isFalse();
   }
 }
