@@ -71,7 +71,8 @@ public class ComponentSizeQuery_sizeOf_Test extends SequentialEDTSafeTestCase {
 
     private MyWindow() {
       super(ComponentSizeQuery_sizeOf_Test.class);
-      setPreferredSize(new Dimension(SIZE));
+      setMinimumSize(new Dimension(SIZE));
+      setMaximumSize(new Dimension(SIZE));
     }
 
     @Override
