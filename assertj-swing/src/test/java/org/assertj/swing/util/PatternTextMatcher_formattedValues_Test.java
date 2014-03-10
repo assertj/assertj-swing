@@ -35,6 +35,6 @@ public class PatternTextMatcher_formattedValues_Test {
   @Test
   public void should_return_array_of_patterns_as_formatted_value_if_matcher_has_more_than_one_pattern() {
     PatternTextMatcher matcher = new PatternTextMatcher(Pattern.compile("one"), Pattern.compile("two"));
-    assertThat(matcher.formattedValues()).isEqualTo("['one', 'two']");
+    assertThat(matcher.formattedValues()).isEqualTo("[\"one\", \"two\"]");
   }
 }

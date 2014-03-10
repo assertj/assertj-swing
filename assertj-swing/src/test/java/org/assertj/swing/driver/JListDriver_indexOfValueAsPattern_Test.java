@@ -38,7 +38,7 @@ public class JListDriver_indexOfValueAsPattern_Test extends JListDriver_TestCase
   @Test
   public void should_throw_error_if_item_matching_given_value_was_not_found() {
     thrown.expect(LocationUnavailableException.class,
-        "Unable to find item matching the pattern 'fou.*' among the JList contents ['one', 'two', 'three']");
+        "Unable to find item matching the pattern 'fou.*' among the JList contents [\"one\", \"two\", \"three\"]");
     driver.indexOf(list, Pattern.compile("fou.*"));
   }
 }

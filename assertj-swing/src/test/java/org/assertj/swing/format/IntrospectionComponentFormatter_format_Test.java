@@ -63,7 +63,7 @@ public class IntrospectionComponentFormatter_format_Test extends EDTSafeTestCase
     MyButton myButton = MyButton.newButton(array("Luke", "Leia"));
     IntrospectionComponentFormatter formatter = new IntrospectionComponentFormatter(MyButton.class, "names", "text");
     String formatted = formatter.format(myButton);
-    assertThat(formatted).contains("names=['Luke', 'Leia']");
+    assertThat(formatted).contains("names=[\"Luke\", \"Leia\"]");
   }
 
   static class MyButton extends JButton {

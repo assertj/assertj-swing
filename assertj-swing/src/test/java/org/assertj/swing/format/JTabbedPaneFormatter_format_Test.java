@@ -43,7 +43,7 @@ public class JTabbedPaneFormatter_format_Test extends EDTSafeTestCase {
     String formatted = formatter.format(tabbedPane);
     assertThat(formatted).contains("javax.swing.JTabbedPane").contains("name='tabbedPane'")
         .contains("selectedTabIndex=1").contains("selectedTabTitle='Two'").contains("tabCount=2")
-        .contains("tabTitles=['One', 'Two']").contains("enabled=true").contains("visible=true")
+        .contains("tabTitles=[\"One\", \"Two\"]").contains("enabled=true").contains("visible=true")
         .contains("showing=false");
   }
 
@@ -53,7 +53,7 @@ public class JTabbedPaneFormatter_format_Test extends EDTSafeTestCase {
     String formatted = formatter.format(tabbedPane);
     assertThat(formatted).contains("javax.swing.JTabbedPane").contains("name='tabbedPane'")
         .contains("selectedTabIndex=-1").contains("selectedTabTitle=<No selection>").contains("tabCount=2")
-        .contains("tabTitles=['One', 'Two']").contains("enabled=true").contains("visible=true")
+        .contains("tabTitles=[\"One\", \"Two\"]").contains("enabled=true").contains("visible=true")
         .contains("showing=false");
   }
 

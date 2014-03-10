@@ -44,7 +44,7 @@ public class JComboBoxFormatter_format_Test extends EDTSafeTestCase {
   public void should_format_JComboBox() {
     String formatted = formatter.format(comboBox);
     assertThat(formatted).contains("javax.swing.JComboBox").contains("name='comboBox'").contains("selectedItem=2")
-        .contains("contents=['One', 2, 'Three', 4]").contains("editable=true").contains("enabled=true")
+        .contains("contents=[\"One\", 2, \"Three\", 4]").contains("editable=true").contains("enabled=true")
         .contains("visible=true").contains("showing=false");
   }
 }

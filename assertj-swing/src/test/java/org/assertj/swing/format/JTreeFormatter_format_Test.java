@@ -51,7 +51,7 @@ public class JTreeFormatter_format_Test extends EDTSafeTestCase {
     selectRow(tree, 1);
     String formatted = formatter.format(tree);
     assertThat(formatted).contains("javax.swing.JTree").contains("name='tree'").contains("selectionCount=1")
-        .contains("selectionPaths=['[root, Two]']").contains("selectionMode=CONTIGUOUS_TREE_SELECTION")
+        .contains("selectionPaths=[\"[root, Two]\"]").contains("selectionMode=CONTIGUOUS_TREE_SELECTION")
         .contains("enabled=true").contains("visible=true").contains("showing=false");
   }
 

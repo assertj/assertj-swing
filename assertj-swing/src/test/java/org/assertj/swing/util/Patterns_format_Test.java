@@ -42,6 +42,6 @@ public class Patterns_format_Test {
   public void should_format_pattern_array() {
     Pattern[] patterns = { Pattern.compile("hello"), Pattern.compile("world") };
     String formatted = Patterns.format(patterns);
-    assertThat(formatted).isEqualTo("['hello', 'world']");
+    assertThat(formatted).isEqualTo("[\"hello\", \"world\"]");
   }
 }

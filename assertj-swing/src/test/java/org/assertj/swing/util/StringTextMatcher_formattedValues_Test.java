@@ -33,6 +33,6 @@ public class StringTextMatcher_formattedValues_Test {
   @Test
   public void should_return_array_of_values_as_formatted_value_if_matcher_has_more_than_one_value() {
     StringTextMatcher matcher = new StringTextMatcher("one", "two");
-    assertThat(matcher.formattedValues()).isEqualTo("['one', 'two']");
+    assertThat(matcher.formattedValues()).isEqualTo("[\"one\", \"two\"]");
   }
 }
