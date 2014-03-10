@@ -20,6 +20,7 @@ import static org.assertj.swing.test.builder.JDialogs.dialog;
 import java.awt.Dialog;
 
 import org.assertj.swing.exception.ComponentLookupException;
+import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.After;
 import org.junit.Test;
@@ -37,6 +38,11 @@ public class DialogFixture_constructor_withName_Test extends EDTSafeTestCase {
   public void tearDown() {
     if (fixture != null) {
       fixture.cleanUp();
+    }
+
+    ScreenLock screenLock = ScreenLock.instance();
+    if (screenLock.acquired()) {
+      screenLock.release(screenLock.getOwner());
     }
   }
 
