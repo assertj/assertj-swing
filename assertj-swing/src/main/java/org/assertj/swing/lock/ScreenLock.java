@@ -19,6 +19,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
@@ -119,6 +120,21 @@ public final class ScreenLock {
     lock.lock();
     try {
       return acquired;
+    } finally {
+      lock.unlock();
+    }
+  }
+
+  /**
+   * @return the object currently owning the lock. Or <code>null</code> if no object is owning the lock. If
+   *         {@link #acquired()} is <code>true</code> calling {@link #acquiredBy(Object)} with {@link #getOwner()}
+   *         returns <code>true</code>.
+   */
+  public @Nullable
+  Object getOwner() {
+    lock.lock();
+    try {
+      return owner;
     } finally {
       lock.unlock();
     }

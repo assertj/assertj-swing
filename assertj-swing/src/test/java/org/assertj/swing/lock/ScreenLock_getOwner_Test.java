@@ -22,11 +22,11 @@ import org.junit.Test;
 import edu.umd.cs.mtc.MultithreadedTestCase;
 
 /**
- * Tests for {@link ScreenLock#acquire(Object)}.
+ * Tests for {@link ScreenLock#getOwner()}.
  * 
- * @author Alex Ruiz
+ * @author Christian Rösch
  */
-public class ScreenLock_acquire_Test extends MultithreadedTestCase {
+public class ScreenLock_getOwner_Test extends MultithreadedTestCase {
   private ScreenLock lock;
   private Object owner;
 
@@ -34,22 +34,26 @@ public class ScreenLock_acquire_Test extends MultithreadedTestCase {
   public void initialize() {
     lock = new ScreenLock();
     owner = new Object();
+    assertThat(lock.getOwner()).isNull();
   }
 
   public void thread1() {
     lock.acquire(owner);
-    assertThat(lock.acquiredBy(owner)).isTrue();
+    // correct owner is returned
+    assertThat(lock.getOwner()).isSameAs(owner);
+    assertThat(lock.acquiredBy(lock.getOwner())).isTrue();
   }
 
   @Override
   public void finish() {
     if (lock.acquiredBy(owner)) {
       lock.release(owner);
+      assertThat(lock.getOwner()).isNull();
     }
   }
 
   @Test
   public void should_not_block_if_current_owner_tries_to_acquire_lock_again() throws Throwable {
-    runOnce(new ScreenLock_acquire_Test());
+    runOnce(new ScreenLock_getOwner_Test());
   }
 }
