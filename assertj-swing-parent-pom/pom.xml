@@ -13,7 +13,7 @@
   <packaging>pom</packaging>
   <name>AssertJ Swing: Fluent assertions for java unit testing</name>
   <description>Parent POM for all AssertJ-Swing modules</description>
-  <inceptionYear>2007</inceptionYear>
+  <inceptionYear>2014</inceptionYear>
 
   <scm>
     <developerConnection>scm:git:git@github.com:joel-costigliola/assertj-swing.git</developerConnection>
