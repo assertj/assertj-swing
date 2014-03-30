@@ -35,16 +35,4 @@ public abstract class OSIdentifier_TestCase {
   final void returnOSName(String osName) {
     when(propertyReader.systemProperty("os.name")).thenReturn(osName);
   }
-
-  final void returnSomeMRJVersion() {
-    returnMRJVersion("6");
-  }
-
-  final void returnNoMRJVersion() {
-    returnMRJVersion(null);
-  }
-
-  final void returnMRJVersion(String mrjVersion) {
-    when(propertyReader.systemProperty("mrj.version")).thenReturn(mrjVersion);
-  }
 }

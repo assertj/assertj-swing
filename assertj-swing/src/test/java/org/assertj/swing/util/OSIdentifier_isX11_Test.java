@@ -27,7 +27,6 @@ public class OSIdentifier_isX11_Test extends OSIdentifier_TestCase {
   @Test
   public void should_return_X11_if_OS_not_OSX_or_Windows() {
     returnOSName("");
-    returnNoMRJVersion();
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isX11()).isTrue();
     assertThat(osIdentifier.isHPUX()).isFalse();

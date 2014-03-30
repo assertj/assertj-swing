@@ -34,7 +34,6 @@ class OSIdentifier {
   private final boolean isWindows;
   private final boolean isWindows9x;
   private final boolean isWindowsXP;
-  private final boolean isMacintosh;
   private final boolean isOSX;
   private final boolean isX11;
   private final boolean isSolaris;
@@ -49,12 +48,10 @@ class OSIdentifier {
   @VisibleForTesting
   OSIdentifier(@Nonnull SystemPropertyReader reader) {
     String osName = checkNotNull(reader.systemProperty("os.name")).toLowerCase(ENGLISH);
-    String mrjVersion = reader.systemProperty("mrj.version");
     isWindows = osName.startsWith("windows");
     isWindows9x = isWindows && containsAny(osName, "95", "98", "me");
     isWindowsXP = isWindows && osName.contains("xp");
-    isMacintosh = mrjVersion != null;
-    isOSX = isMacintosh && osName.contains("os x");
+    isOSX = osName.contains("os x");
     isX11 = !isOSX && !isWindows;
     isSolaris = osName.startsWith("sunos") || osName.startsWith("solaris");
     isHPUX = osName.equals("hp-ux");
@@ -98,7 +95,8 @@ class OSIdentifier {
   }
 
   boolean isMacintosh() {
-    return isMacintosh;
+    // currently we assume only Mac OS X is used
+    return isOSX();
   }
 
   boolean isOSX() {

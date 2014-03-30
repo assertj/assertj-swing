@@ -47,7 +47,6 @@ public class OSIdentifier_isSolaris_Test extends OSIdentifier_TestCase {
   @Test
   public void should_return_Solaris_if_OS_name_starts_with_SunOS_or_Solaris() {
     returnOSName(solaris);
-    returnNoMRJVersion();
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isSolaris()).isTrue();
     assertThat(osIdentifier.isX11()).isTrue();

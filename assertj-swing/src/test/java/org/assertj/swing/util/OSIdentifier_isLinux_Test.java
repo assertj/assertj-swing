@@ -46,7 +46,6 @@ public class OSIdentifier_isLinux_Test extends OSIdentifier_TestCase {
   @Test
   public void shouldReturnLinuxIfOSNameIsEqualToLinux() {
     returnOSName(linux);
-    returnNoMRJVersion();
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isLinux()).isTrue();
     assertThat(osIdentifier.isX11()).isTrue();

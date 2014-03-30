@@ -46,7 +46,6 @@ public class OSIdentifier_isWindowsXP_Test extends OSIdentifier_TestCase {
   @Test
   public void should_return_WindowsXP_if_OS_name_starts_with_Windows_and_contains_XP() {
     returnOSName(windowsXP);
-    returnNoMRJVersion();
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isWindows()).isTrue();
     assertThat(osIdentifier.isWindowsXP()).isTrue();

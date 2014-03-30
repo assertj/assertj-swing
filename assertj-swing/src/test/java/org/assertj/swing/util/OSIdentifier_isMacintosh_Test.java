@@ -15,30 +15,47 @@
 package org.assertj.swing.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.swing.util.OSFamily.MAC;
 
+import java.util.Collection;
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 /**
  * Tests for {@link OSIdentifier#isMacintosh()}.
  * 
  * @author Alex Ruiz
  */
+@RunWith(Parameterized.class)
 public class OSIdentifier_isMacintosh_Test extends OSIdentifier_TestCase {
+  private final String osX;
+
+  @Parameters
+  public static Collection<Object[]> osX() {
+    return newArrayList(new Object[][] { { "os x" }, { "OS X" } });
+  }
+
+  public OSIdentifier_isMacintosh_Test(String osX) {
+    this.osX = osX;
+  }
+
   @Test
-  public void should_return_Macintosh_if_MRJVersion_is_not_null() {
-    returnOSName("");
-    returnSomeMRJVersion();
+  public void should_return_OSX_if_OS_name_contains_OSX_even_if_mrj_version_is_Null() {
+    returnOSName(osX);
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isMacintosh()).isTrue();
-    assertThat(osIdentifier.isX11()).isTrue();
+    assertThat(osIdentifier.isOSX()).isTrue();
     assertThat(osIdentifier.isHPUX()).isFalse();
     assertThat(osIdentifier.isLinux()).isFalse();
-    assertThat(osIdentifier.isOSX()).isFalse();
     assertThat(osIdentifier.isSolaris()).isFalse();
     assertThat(osIdentifier.isWindows()).isFalse();
     assertThat(osIdentifier.isWindows9x()).isFalse();
     assertThat(osIdentifier.isWindowsXP()).isFalse();
+    assertThat(osIdentifier.isX11()).isFalse();
     assertThat(osIdentifier.osFamily()).isEqualTo(MAC);
   }
 }
