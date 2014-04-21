@@ -145,6 +145,9 @@ public final class Pause {
    */
   public static void pause(@Nonnull final Condition[] conditions, final long timeout) {
     checkNotNullOrEmpty(conditions);
+    for (Condition condition : conditions) {
+      checkNotNull(condition);
+    }
     try {
       Callable<Object> task = new Callable<Object>() {
         public Object call() {
@@ -164,7 +167,6 @@ public final class Pause {
 
   private static boolean areSatisfied(@Nonnull Condition[] conditions) {
     for (Condition condition : conditions) {
-      checkNotNull(condition);
       if (!condition.test()) {
         return false;
       }
