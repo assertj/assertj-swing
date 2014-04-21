@@ -84,18 +84,14 @@ public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends Seque
 
     @RunsInEDT
     static MyDialog createAndShow(final Frame owner) {
-      return execute(new GuiQuery<MyDialog>() {
+      MyDialog dialog = execute(new GuiQuery<MyDialog>() {
         @Override
         protected MyDialog executeInEDT() {
-          MyDialog dialog = new MyDialog(owner);
-          dialog.displayInCurrentThread();
-          return dialog;
+          return new MyDialog(owner);
         }
       });
-    }
-
-    private void displayInCurrentThread() {
-      TestDialog.display(this);
+      dialog.display();
+      return dialog;
     }
 
     private MyDialog(Frame owner) {

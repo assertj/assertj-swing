@@ -14,6 +14,7 @@
  */
 package org.assertj.swing.test.task;
 
+import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
 import static org.assertj.swing.timing.Pause.pause;
 
 import java.awt.Dialog;
@@ -22,6 +23,7 @@ import java.awt.Dimension;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
+import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.timing.Condition;
 
 /**
@@ -41,10 +43,14 @@ public final class DialogShowTask {
   public static void packAndShow(final @Nonnull Dialog dialog) {
     dialog.pack();
     dialog.setVisible(true);
+  }
+
+  @RunsInEDT
+  public static void waitForShowing(final @Nonnull Dialog dialog) {
     pause(new Condition("Dialog is showing") {
       @Override
       public boolean test() {
-        return dialog.isShowing();
+        return isShowing(dialog);
       }
     });
   }

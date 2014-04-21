@@ -17,6 +17,7 @@ package org.assertj.swing.test.swing;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.swing.TestWindow.DEFAULT_WINDOW_LOCATION;
 import static org.assertj.swing.test.task.DialogShowTask.packAndShow;
+import static org.assertj.swing.test.task.DialogShowTask.waitForShowing;
 import static org.assertj.swing.test.task.WindowDestroyTask.hideAndDispose;
 
 import java.awt.Component;
@@ -55,14 +56,14 @@ public class TestDialog extends JDialog {
    */
   @RunsInEDT
   public static TestDialog createAndShowNewDialog(final Frame owner) {
-    return execute(new GuiQuery<TestDialog>() {
+    TestDialog dialog = execute(new GuiQuery<TestDialog>() {
       @Override
       protected TestDialog executeInEDT() {
-        TestDialog dialog = createInCurrentThread(owner);
-        TestDialog.display(dialog, new Dimension(DEFAULT_PREFERRED_SIZE));
-        return dialog;
+        return createInCurrentThread(owner);
       }
     });
+    dialog.display();
+    return dialog;
   }
 
   /**
@@ -126,7 +127,7 @@ public class TestDialog extends JDialog {
    * 
    * @param dialog the dialog to display on the screen.
    */
-  @RunsInCurrentThread
+  @RunsInEDT
   protected static void display(TestDialog dialog) {
     display(dialog, DEFAULT_PREFERRED_SIZE);
   }
@@ -139,26 +140,27 @@ public class TestDialog extends JDialog {
    */
   @RunsInEDT
   public void display(final Dimension preferredSize) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        display(TestDialog.this, preferredSize);
-      }
-    });
+    display(TestDialog.this, preferredSize);
   }
 
   /**
    * Displays the given dialog on the screen using the given dimension as its preferred size. This method is executed in
-   * the current thread where it is called.
+   * the EDT.
    * 
    * @param dialog the dialog to display on the screen.
    * @param preferredSize the preferred size to set to the given dialog before displaying it on the screen.
    */
-  @RunsInCurrentThread
-  protected static void display(TestDialog dialog, Dimension preferredSize) {
-    showOwnerIfPossible(dialog.getOwner());
-    dialog.setLocation(DEFAULT_DIALOG_LOCATION);
-    packAndShow(dialog, preferredSize);
+  @RunsInEDT
+  protected static void display(final TestDialog dialog, final Dimension preferredSize) {
+    execute(new GuiTask() {
+      @Override
+      protected void executeInEDT() {
+        showOwnerIfPossible(dialog.getOwner());
+        dialog.setLocation(DEFAULT_DIALOG_LOCATION);
+        packAndShow(dialog, preferredSize);
+      }
+    });
+    waitForShowing(dialog);
   }
 
   @RunsInCurrentThread

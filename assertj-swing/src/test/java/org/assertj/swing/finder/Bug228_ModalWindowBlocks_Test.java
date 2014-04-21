@@ -14,8 +14,8 @@
  */
 package org.assertj.swing.finder;
 
-import static javax.swing.SwingUtilities.invokeLater;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.finder.WindowFinder.findDialog;
 
 import java.awt.Frame;
@@ -23,6 +23,7 @@ import java.awt.Frame;
 import javax.swing.JDialog;
 
 import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.fixture.DialogFixture;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestDialog;
@@ -48,12 +49,13 @@ public class Bug228_ModalWindowBlocks_Test extends RobotBasedTestCase {
   private static class MyDialog extends TestDialog {
     @RunsInEDT
     static void createAndShowNew(final Frame owner) {
-      invokeLater(new Runnable() {
+      MyDialog dialog = execute(new GuiQuery<MyDialog>() {
         @Override
-        public void run() {
-          TestDialog.display(new MyDialog(owner));
+        protected MyDialog executeInEDT() {
+          return new MyDialog(owner);
         }
       });
+      dialog.display();
     }
 
     MyDialog(Frame owner) {
