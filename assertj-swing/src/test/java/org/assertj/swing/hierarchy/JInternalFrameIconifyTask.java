@@ -1,6 +1,7 @@
 package org.assertj.swing.hierarchy;
 
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.test.query.JInternalFrameIconifiedQuery.isIconified;
 import static org.assertj.swing.timing.Pause.pause;
 
 import java.beans.PropertyVetoException;
@@ -25,12 +26,12 @@ final class JInternalFrameIconifyTask {
       @Override
       protected void executeInEDT() throws PropertyVetoException {
         internalFrame.setIcon(true);
-        pause(new Condition("JInternalFrame is iconified") {
-          @Override
-          public boolean test() {
-            return internalFrame.isIcon();
-          }
-        });
+      }
+    });
+    pause(new Condition("JInternalFrame is iconified") {
+      @Override
+      public boolean test() {
+        return isIconified(internalFrame);
       }
     });
   }
