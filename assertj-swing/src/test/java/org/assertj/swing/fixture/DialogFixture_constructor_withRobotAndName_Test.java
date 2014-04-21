@@ -20,7 +20,9 @@ import static org.assertj.swing.test.builder.JDialogs.dialog;
 import java.awt.Dialog;
 
 import org.assertj.swing.exception.ComponentLookupException;
+import org.assertj.swing.test.ScreenLockReleaser;
 import org.assertj.swing.test.core.RobotBasedTestCase;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -30,6 +32,9 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class DialogFixture_constructor_withRobotAndName_Test extends RobotBasedTestCase {
+  @Rule
+  public ScreenLockReleaser lockReleaser = new ScreenLockReleaser();
+
   @Test
   public void should_lookup_showing_dialog_by_name() {
     Dialog target = dialog().withName("dialog").withTitle(getClass().getSimpleName()).createAndShow();

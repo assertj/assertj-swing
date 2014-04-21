@@ -19,8 +19,10 @@ import static org.assertj.swing.test.builder.JDialogs.dialog;
 
 import java.awt.Dialog;
 
+import org.assertj.swing.test.ScreenLockReleaser;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.After;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -30,6 +32,9 @@ import org.junit.Test;
  * @author Yvonne Wang
  */
 public class DialogFixture_constructor_withDialog_Test extends EDTSafeTestCase {
+  @Rule
+  public ScreenLockReleaser lockReleaser = new ScreenLockReleaser();
+
   private DialogFixture fixture;
 
   @After
