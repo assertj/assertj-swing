@@ -15,6 +15,7 @@
 package org.assertj.swing.test.task;
 
 import static org.assertj.swing.query.ComponentShowingQuery.isShowing;
+import static org.assertj.swing.test.query.FrameActiveQuery.isActive;
 import static org.assertj.swing.timing.Pause.pause;
 
 import java.awt.Dimension;
@@ -23,6 +24,7 @@ import java.awt.Frame;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
+import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.timing.Condition;
 
 /**
@@ -44,12 +46,12 @@ public final class FrameShowTask {
     frame.setVisible(true);
   }
 
-  @RunsInCurrentThread
+  @RunsInEDT
   public static void waitForShowing(final @Nonnull Frame frame) {
     pause(new Condition("Frame is showing") {
       @Override
       public boolean test() {
-        return isShowing(frame) && frame.isActive();
+        return isShowing(frame) && isActive(frame);
       }
     }, 20000);
   }
