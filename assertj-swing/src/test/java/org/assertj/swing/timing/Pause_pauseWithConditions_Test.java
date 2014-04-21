@@ -55,6 +55,21 @@ public class Pause_pauseWithConditions_Test {
     Pause.pause(new Condition[0]);
   }
 
+  @Test(expected = WaitTimedOutError.class, timeout = 30100)
+  public void should_timeout_if_Conditions_together_run_longer_than_timeout() {
+    Pause.pause(new Condition[] { new SatisfiedCondition(15000), new SatisfiedCondition(20000) });
+  }
+
+  @Test(expected = WaitTimedOutError.class, timeout = 30100)
+  public void should_timeout_if_any_Condition_runs_longer_than_timeout() {
+    Pause.pause(new Condition[] { new SatisfiedCondition(40000) });
+  }
+
+  @Test(expected = NumberFormatException.class)
+  public void should_throw_error_if_any_Condition_throws_any() {
+    Pause.pause(new Condition[] { new RuntimeExceptionCondition(new NumberFormatException("expected")) });
+  }
+
   @Test(expected = NullPointerException.class)
   public void should_throw_error_if_any_Condition_is_null() {
     Pause.pause(new Condition[] { new NeverSatisfiedCondition(), null });

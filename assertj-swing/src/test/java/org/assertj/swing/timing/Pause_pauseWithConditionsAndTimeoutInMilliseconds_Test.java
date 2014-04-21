@@ -14,7 +14,11 @@
  */
 package org.assertj.swing.timing;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
+
 import org.assertj.swing.exception.WaitTimedOutError;
+import org.assertj.swing.test.util.StopWatch;
 import org.junit.Test;
 
 /**
@@ -41,6 +45,34 @@ public class Pause_pauseWithConditionsAndTimeoutInMilliseconds_Test {
   @Test(expected = IllegalArgumentException.class)
   public void should_throw_error_if_Condition_array_is_empty() {
     Pause.pause(new Condition[0], 1000);
+  }
+
+  @Test(expected = WaitTimedOutError.class, timeout = 1100)
+  public void should_timeout_if_Conditions_together_run_longer_than_timeout() {
+    Pause.pause(new Condition[] { new SatisfiedCondition(1000), new SatisfiedCondition(1000) }, 1000);
+  }
+
+  @Test(expected = WaitTimedOutError.class, timeout = 1100)
+  public void should_timeout_if_any_Condition_runs_longer_than_timeout() {
+    Pause.pause(new Condition[] { new SatisfiedCondition(10000) }, 1000);
+  }
+
+  @Test
+  public void should_wait_till_Conditions_are_satisfied() {
+    int timeToWaitTillSatisfied = 1000;
+    SatisfiedCondition one = new SatisfiedCondition(timeToWaitTillSatisfied);
+    SatisfiedCondition two = new SatisfiedCondition(timeToWaitTillSatisfied);
+    StopWatch watch = startNewStopWatch();
+    Pause.pause(new Condition[] { one, two }, 2 * timeToWaitTillSatisfied + 100);
+    watch.stop();
+    assertThat(watch.ellapsedTime() >= timeToWaitTillSatisfied).isTrue();
+    assertThat(one.satisfied).isTrue();
+    assertThat(two.satisfied).isTrue();
+  }
+
+  @Test(expected = NumberFormatException.class)
+  public void should_throw_error_if_any_Condition_throws_any() {
+    Pause.pause(new Condition[] { new RuntimeExceptionCondition(new NumberFormatException("expected")) }, 1000);
   }
 
   @Test(expected = NullPointerException.class)

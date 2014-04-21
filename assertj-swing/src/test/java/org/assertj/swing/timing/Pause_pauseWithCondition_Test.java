@@ -43,6 +43,17 @@ public class Pause_pauseWithCondition_Test {
     Pause.pause(new NeverSatisfiedCondition());
   }
 
+  @Test(expected = WaitTimedOutError.class, timeout = 30100)
+  public void should_timeout_if_Condition_runs_longer_than_timeout() {
+    // default delay is 30s -> condition takes 40s
+    Pause.pause(new SatisfiedCondition(40000));
+  }
+
+  @Test(expected = NumberFormatException.class)
+  public void should_throw_error_if_Condition_throws_any() {
+    Pause.pause(new RuntimeExceptionCondition(new NumberFormatException("expected")));
+  }
+
   @Test(expected = NullPointerException.class)
   public void should_throw_error_if_Condition_is_null() {
     Pause.pause((Condition) null);

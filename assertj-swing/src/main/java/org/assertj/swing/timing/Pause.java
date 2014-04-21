@@ -17,14 +17,17 @@ package org.assertj.swing.timing;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.util.Arrays.format;
-import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.exception.WaitTimedOutError;
-import org.assertj.swing.util.TimeoutWatch;
 
 /**
  * Waits for period of time or for a particular condition to be satisfied.
@@ -35,6 +38,7 @@ import org.assertj.swing.util.TimeoutWatch;
 public final class Pause {
   private static final int DEFAULT_DELAY = 30000;
   private static final int SLEEP_INTERVAL = 10;
+  private static final ExecutorService EXECUTOR_SERVICE = Executors.newCachedThreadPool();
 
   /**
    * Waits until the given condition is satisfied.
@@ -69,17 +73,36 @@ public final class Pause {
    * @throws NullPointerException if the given condition is {@code null}.
    * @throws WaitTimedOutError if the wait times out.
    */
-  public static void pause(@Nonnull Condition condition, long timeout) {
+  public static void pause(@Nonnull final Condition condition, long timeout) {
     checkNotNull(condition);
-    TimeoutWatch watch = startWatchWithTimeoutOf(timeout);
-    while (!condition.test()) {
-      if (watch.isTimeOut() && !condition.test()) {
-        condition.done();
-        throw new WaitTimedOutError(String.format("Timed out waiting for %s", condition.toString()));
-      }
-      pause(SLEEP_INTERVAL);
+    try {
+      Callable<Object> task = new Callable<Object>() {
+        public Object call() {
+          while (!condition.test()) {
+            pause();
+          }
+          return condition;
+        }
+      };
+      performPause(task, timeout, condition.toString());
+    } finally {
+      condition.done();
     }
-    condition.done();
+  }
+
+  private static void performPause(Callable<Object> task, long timeout, String description) {
+    try {
+      EXECUTOR_SERVICE.submit(task).get(timeout, TimeUnit.MILLISECONDS);
+    } catch (TimeoutException ex) {
+      throw new WaitTimedOutError(String.format("Timed out waiting for %s", description));
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    } catch (ExecutionException e) {
+      if (e.getCause() instanceof RuntimeException) {
+        throw (RuntimeException) e.getCause();
+      }
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -120,20 +143,22 @@ public final class Pause {
    * @throws NullPointerException if the array of conditions has one or more {@code null} values.
    * @throws WaitTimedOutError if the wait times out.
    */
-  public static void pause(@Nonnull Condition[] conditions, long timeout) {
+  public static void pause(@Nonnull final Condition[] conditions, final long timeout) {
     checkNotNullOrEmpty(conditions);
-    TimeoutWatch watch = startWatchWithTimeoutOf(timeout);
-    while (!areSatisfied(conditions)) {
-      if (watch.isTimeOut()) {
-        for (Condition condition : conditions) {
-          condition.done();
+    try {
+      Callable<Object> task = new Callable<Object>() {
+        public Object call() {
+          while (!areSatisfied(conditions)) {
+            pause();
+          }
+          return conditions;
         }
-        throw new WaitTimedOutError(String.format("Timed out waiting for %s", format(conditions)));
+      };
+      performPause(task, timeout, format(conditions));
+    } finally {
+      for (Condition condition : conditions) {
+        condition.done();
       }
-      pause(SLEEP_INTERVAL);
-    }
-    for (Condition condition : conditions) {
-      condition.done();
     }
   }
 
