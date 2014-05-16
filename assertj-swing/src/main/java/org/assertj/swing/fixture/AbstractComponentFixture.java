@@ -429,7 +429,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @throws AssertionError if this fixture's {@code Component} is not an instance of the given type.
    */
   public final @Nonnull
-  <T extends C> C targetCastedTo(@Nonnull Class<T> type) {
+  <T extends C> T targetCastedTo(@Nonnull Class<T> type) {
     assertThat(target).as(format(target)).isInstanceOf(type);
     return type.cast(target);
   }
