@@ -58,7 +58,7 @@ public class ComponentFoundCondition_descriptionAddendum_Test {
     thrown.expectMessageToContain("Timed out waiting for JButton to be found",
         "Unable to find component using matcher", "MyWindow[name='myWindow'",
         "javax.swing.JLabel[name=null, text='Hello'");
-    pause(condition, 10);
+    pause(condition, 1000);
   }
 
   @Test
@@ -69,7 +69,7 @@ public class ComponentFoundCondition_descriptionAddendum_Test {
         "Found more than one component using matcher", "javax.swing.JLabel[name=null, text='Hello'",
         "javax.swing.JLabel[name=null, text='World'");
     try {
-      pause(condition, 10);
+      pause(condition, 1000);
     } finally {
       assertThat(condition.duplicatesFound()).containsOnly(window.helloLabel, window.worldLabel);
     }
