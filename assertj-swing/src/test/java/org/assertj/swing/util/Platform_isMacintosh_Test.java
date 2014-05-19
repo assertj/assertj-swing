@@ -16,6 +16,7 @@ package org.assertj.swing.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.util.OSIdentifierStub.macintosh;
+import static org.assertj.swing.util.OSIdentifierStub.osX;
 import static org.assertj.swing.util.OSIdentifierStub.windowsXP;
 
 import org.junit.Test;
@@ -27,9 +28,15 @@ import org.junit.Test;
  */
 public class Platform_isMacintosh_Test extends Platform_TestCase {
   @Test
-  public void should_return_true_if_OS_is_Macintosh() {
-    Platform.initialize(macintosh(), toolkit);
+  public void should_return_true_if_OS_is_MacOS_X() {
+    Platform.initialize(osX(), toolkit);
     assertThat(Platform.isMacintosh()).isTrue();
+  }
+
+  @Test
+  public void should_return_false_if_OS_is_Macintosh() {
+    Platform.initialize(macintosh(), toolkit);
+    assertThat(Platform.isMacintosh()).isFalse();
   }
 
   @Test
