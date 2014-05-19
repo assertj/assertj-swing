@@ -16,7 +16,6 @@ package org.assertj.swing.timing;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
-import static org.assertj.swing.util.Arrays.format;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -27,6 +26,7 @@ import java.util.concurrent.TimeoutException;
 
 import javax.annotation.Nonnull;
 
+import org.assertj.core.presentation.StandardRepresentation;
 import org.assertj.swing.exception.WaitTimedOutError;
 
 /**
@@ -77,6 +77,7 @@ public final class Pause {
     checkNotNull(condition);
     try {
       Callable<Object> task = new Callable<Object>() {
+        @Override
         public Object call() {
           while (!condition.test()) {
             pause();
@@ -84,17 +85,18 @@ public final class Pause {
           return condition;
         }
       };
-      performPause(task, timeout, condition.toString());
+      performPause(task, timeout, condition);
     } finally {
       condition.done();
     }
   }
 
-  private static void performPause(Callable<Object> task, long timeout, String description) {
+  private static void performPause(Callable<Object> task, long timeout, Object value) {
     try {
       EXECUTOR_SERVICE.submit(task).get(timeout, TimeUnit.MILLISECONDS);
     } catch (TimeoutException ex) {
-      throw new WaitTimedOutError(String.format("Timed out waiting for %s", description));
+      throw new WaitTimedOutError(String.format("Timed out waiting for %s",
+          new StandardRepresentation().toStringOf(value)));
     } catch (InterruptedException e) {
       e.printStackTrace();
     } catch (ExecutionException e) {
@@ -150,6 +152,7 @@ public final class Pause {
     }
     try {
       Callable<Object> task = new Callable<Object>() {
+        @Override
         public Object call() {
           while (!areSatisfied(conditions)) {
             pause();
@@ -157,7 +160,7 @@ public final class Pause {
           return conditions;
         }
       };
-      performPause(task, timeout, format(conditions));
+      performPause(task, timeout, conditions);
     } finally {
       for (Condition condition : conditions) {
         condition.done();
