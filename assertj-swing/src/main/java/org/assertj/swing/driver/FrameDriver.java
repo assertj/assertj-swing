@@ -35,7 +35,6 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.annotation.ThreadSafeAction;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.ToolkitProvider;
 
@@ -129,7 +128,6 @@ public class FrameDriver extends WindowDriver {
       throw actionFailure("Platform does not support maximizing frames");
     }
     updateFrameExtendedState(frame, MAXIMIZED_BOTH);
-    robot.waitForIdle();
   }
 
   @RunsInEDT
@@ -149,6 +147,7 @@ public class FrameDriver extends WindowDriver {
   @ThreadSafeAction
   private void updateFrameExtendedState(@Nonnull Frame frame, int state) {
     frame.setExtendedState(state);
+    robot.waitForIdle();
   }
 
   private static boolean supportsMaximize(@Nonnull Toolkit toolkit) {
