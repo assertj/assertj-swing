@@ -472,13 +472,13 @@ public class BasicRobot implements Robot {
       eventGenerator.pressMouse(where, mask);
       for (int i = times; i > 1; i--) {
         eventGenerator.releaseMouse(mask);
-        eventGenerator.pressMouse(where, mask);
+        eventGenerator.pressMouse(mask);
       }
     } else {
       eventGenerator.pressMouse(c, where, mask);
       for (int i = times; i > 1; i--) {
         eventGenerator.releaseMouse(mask);
-        eventGenerator.pressMouse(c, where, mask);
+        eventGenerator.pressMouse(mask);
       }
     }
     settings.delayBetweenEvents(delayBetweenEvents);
