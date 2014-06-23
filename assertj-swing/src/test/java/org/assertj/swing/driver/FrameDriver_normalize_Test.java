@@ -30,6 +30,8 @@ public class FrameDriver_normalize_Test extends FrameDriver_TestCase {
   public void should_Normalize_Frame() {
     showWindow();
     window.setExtendedState(MAXIMIZED_BOTH);
+    robot.waitForIdle();
+    assertThat(frameState()).isEqualTo(MAXIMIZED_BOTH);
     driver.normalize(window);
     assertThat(frameState()).isEqualTo(NORMAL);
   }
