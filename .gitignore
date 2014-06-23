@@ -2,7 +2,7 @@
 target/
 # IntelliJ project files
 /.idea
-/*.iml
+*.iml
 # Eclipse project files
 .settings/
 .classpath
