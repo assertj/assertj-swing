@@ -16,31 +16,17 @@ package org.assertj.swing.timing;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
 
 /**
- * Tests for {@link Timeout#timeout(long)}, {@link Timeout#timeout(long, TimeUnit)} and {@link Timeout#duration()}.
+ * Tests for {@link Timeout#timeout()}.
  * 
- * @author Yvonne Wang
- * @author Alex Ruiz
+ * @author Christian Rösch
  */
-public class Timeout_timeout_duration_Test {
+public class Timeout_timeout_Test {
   @Test
-  public void shouldReturnDurationPassedWhenCreated() {
-    Timeout timeout = Timeout.timeout(2000);
-    assertThat(timeout.duration()).isEqualTo(2000);
-  }
-
-  @Test
-  public void shouldReturnDurationWhenCreatedWithTimeUnit() {
-    Timeout timeout = Timeout.timeout(3, TimeUnit.SECONDS);
-    assertThat(timeout.duration()).isEqualTo(3000);
-  }
-
-  @Test(expected = NullPointerException.class)
-  public void shouldThrowExceptionIfTimeUnitIsNull() {
-    Timeout.timeout(0, null);
+  public void shouldReturn30000AsDuration() {
+    Timeout timeout = Timeout.timeout();
+    assertThat(timeout.duration()).isEqualTo(30000);
   }
 }

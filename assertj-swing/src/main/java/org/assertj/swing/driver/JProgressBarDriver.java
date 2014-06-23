@@ -14,7 +14,6 @@
  */
 package org.assertj.swing.driver;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.driver.JProgressBarIndeterminateQuery.isIndeterminate;
@@ -34,7 +33,6 @@ import javax.swing.JProgressBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.timing.Timeout;
 import org.assertj.swing.util.Pair;
@@ -53,7 +51,7 @@ import org.assertj.swing.util.Pair;
  */
 @InternalApi
 public class JProgressBarDriver extends JComponentDriver implements TextDisplayDriver<JProgressBar> {
-  private static final Timeout DEFAULT_TIMEOUT = timeout(30, SECONDS);
+  private static final Timeout DEFAULT_TIMEOUT = timeout();
   private static final String TEXT_PROPERTY = "string";
 
   /**

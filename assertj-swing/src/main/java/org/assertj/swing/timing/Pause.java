@@ -16,6 +16,7 @@ package org.assertj.swing.timing;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
+import static org.assertj.swing.timing.Timeout.timeout;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -36,7 +37,7 @@ import org.assertj.swing.exception.WaitTimedOutError;
  * @author Yvonne Wang
  */
 public final class Pause {
-  private static final int DEFAULT_DELAY = 30000;
+  private static final Timeout DEFAULT_TIMEOUT = timeout();
   private static final int SLEEP_INTERVAL = 10;
   private static final ExecutorService EXECUTOR_SERVICE = Executors.newCachedThreadPool();
 
@@ -48,7 +49,7 @@ public final class Pause {
    * @throws WaitTimedOutError if the wait times out (more than 30 seconds).
    */
   public static void pause(@Nonnull Condition condition) {
-    pause(condition, DEFAULT_DELAY);
+    pause(condition, DEFAULT_TIMEOUT);
   }
 
   /**
@@ -117,7 +118,7 @@ public final class Pause {
    * @throws WaitTimedOutError if the wait times out (more than 30 seconds).
    */
   public static void pause(@Nonnull Condition[] conditions) {
-    pause(conditions, DEFAULT_DELAY);
+    pause(conditions, DEFAULT_TIMEOUT);
   }
 
   /**

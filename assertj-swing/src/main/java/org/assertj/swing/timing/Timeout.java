@@ -28,7 +28,19 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public final class Timeout {
+  private static final int DEFAULT_DELAY = 30000;
+
   private final long duration;
+
+  /**
+   * Creates a new {@link Timeout} with default duration.
+   * 
+   * @return the created {@code Timeout}.
+   */
+  public static @Nonnull
+  Timeout timeout() {
+    return timeout(DEFAULT_DELAY);
+  }
 
   /**
    * Creates a new {@link Timeout}.
