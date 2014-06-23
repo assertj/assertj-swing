@@ -36,7 +36,7 @@ public class AssertJSwingTestCaseTemplate_setUpRobot_cleanUp_Test {
   }
 
   @Test
-  public void should_create_Robot_on_setUp_and_inactivate_it_on_cleanUp() {
+  public void should_Create_Robot_On_SetUp_And_Inactivate_It_On_CleanUp() {
     testCase.setUpRobot();
     Robot robot = testCase.robot();
     assertThat(robot).isInstanceOf(BasicRobot.class);

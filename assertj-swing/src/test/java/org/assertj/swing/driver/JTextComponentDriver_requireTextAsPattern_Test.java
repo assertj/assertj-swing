@@ -26,13 +26,13 @@ import org.junit.Test;
  */
 public class JTextComponentDriver_requireTextAsPattern_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_pass_if_text_matches_pattern() {
+  public void should_Pass_If_Text_Matches_Pattern() {
     setTextFieldText("Hi");
     driver.requireText(textField, Pattern.compile("H.*"));
   }
 
   @Test
-  public void should_fail_if_text_does_not_match_pattern() {
+  public void should_Fail_If_Text_Does_Not_Match_Pattern() {
     setTextFieldText("Hi");
     thrown.expectAssertionError("text", "Hi", Pattern.compile("Bye"));
     driver.requireText(textField, Pattern.compile("Bye"));

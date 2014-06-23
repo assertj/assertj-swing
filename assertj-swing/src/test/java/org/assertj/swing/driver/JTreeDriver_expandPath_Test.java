@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JTreeDriver_expandPath_Test extends JTreeDriver_toggleCell_TestCase {
   @Test
-  public void should_expand_cell() {
+  public void should_Expand_Cell() {
     showWindow();
     requireRowCollapsed(5);
     driver.expandPath(tree, "root/branch5");
@@ -32,7 +32,7 @@ public class JTreeDriver_expandPath_Test extends JTreeDriver_toggleCell_TestCase
   }
 
   @Test
-  public void should_not_do_anything_if_cell_already_expanded() {
+  public void should_Not_Do_Anything_If_Cell_Already_Expanded() {
     showWindow();
     requireRowExpanded(0);
     driver.expandPath(tree, "root");
@@ -40,21 +40,21 @@ public class JTreeDriver_expandPath_Test extends JTreeDriver_toggleCell_TestCase
   }
 
   @Test
-  public void should_throw_error_if_path_does_not_exist() {
+  public void should_Throw_Error_If_Path_Does_Not_Exist() {
     showWindow();
     thrown.expect(LocationUnavailableException.class, "Unable to find path 'somePath'");
     driver.expandPath(tree, "somePath");
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.expandPath(tree, "root");
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.expandPath(tree, "root");
   }

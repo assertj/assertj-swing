@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class JToolBarDriver_unfloat_Test extends JToolBarDriver_TestCase {
   @Test
-  public void should_unfloat_JToolbar() {
+  public void should_Unfloat_JToolbar() {
     showWindow();
     Window oldAncestor = toolBarAncestor();
     Point where = whereToFloatTo();

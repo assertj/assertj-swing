@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_moveTo_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_move_JInternalFrame() {
+  public void should_Move_JInternalFrame() {
     showWindow();
     Point p = internalFrameLocation().addToX(10).addToY(10);
     driver.move(internalFrame, p);

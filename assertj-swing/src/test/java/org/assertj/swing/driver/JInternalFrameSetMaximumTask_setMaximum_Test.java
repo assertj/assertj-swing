@@ -42,7 +42,7 @@ public class JInternalFrameSetMaximumTask_setMaximum_Test extends RobotBasedTest
   }
 
   @Test
-  public void should_maximize_and_normalize_JInternalFrame() {
+  public void should_Maximize_And_Normalize_JInternalFrame() {
     assertThat(isMaximum(internalFrame)).isFalse();
     maximize();
     assertThat(isMaximum(internalFrame)).isTrue();

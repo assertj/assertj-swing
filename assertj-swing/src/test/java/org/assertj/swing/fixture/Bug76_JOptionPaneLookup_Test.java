@@ -42,7 +42,7 @@ public class Bug76_JOptionPaneLookup_Test extends RobotBasedTestCase {
   private DialogFixture starter;
 
   @Test
-  public void should_find_JOptionPane() {
+  public void should_Find_JOptionPane() {
     JOptionPaneStarter optionPaneStarter = JOptionPaneStarter.createNew("Message 1");
     starter = new DialogFixture(robot, optionPaneStarter);
     starter.show();
@@ -54,7 +54,7 @@ public class Bug76_JOptionPaneLookup_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_JOptionPane_again() {
+  public void should_Find_JOptionPane_Again() {
     JOptionPaneStarter optionPaneStarter = JOptionPaneStarter.createNew("Message 2");
     starter = new DialogFixture(robot, optionPaneStarter);
     starter.show();

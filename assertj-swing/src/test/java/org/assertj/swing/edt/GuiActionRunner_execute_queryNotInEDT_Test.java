@@ -49,7 +49,7 @@ public class GuiActionRunner_execute_queryNotInEDT_Test extends SequentialEDTSaf
   }
 
   @Test
-  public void should_execute_query() {
+  public void should_Execute_Query() {
     String valueToReturnWhenExecuted = "Hello";
     TestGuiQuery query = new TestGuiQuery(valueToReturnWhenExecuted);
     GuiActionRunner.executeInEDT(false);
@@ -60,7 +60,7 @@ public class GuiActionRunner_execute_queryNotInEDT_Test extends SequentialEDTSaf
   }
 
   @Test
-  public void should_wrap_any_thrown_Exception() {
+  public void should_Wrap_Any_Thrown_Exception() {
     TestGuiQuery query = mock(TestGuiQuery.class);
     RuntimeException error = expectedError();
     when(query.executeInEDT()).thenThrow(error);

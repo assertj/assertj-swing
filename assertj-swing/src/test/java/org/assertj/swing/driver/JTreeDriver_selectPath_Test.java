@@ -36,21 +36,21 @@ public class JTreeDriver_selectPath_Test extends JTreeDriver_selectCell_TestCase
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_throw_error_if_path_not_found() {
+  public void should_Throw_Error_If_Path_Not_Found() {
     showWindow();
     thrown.expect(LocationUnavailableException.class, "Unable to find path 'another'");
     driver.selectPath(tree, "another");
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectPath(tree, "root/branch1");
   }
 
   @Test
-  public void should_not_do_anything_if_cell_is_already_selected() {
+  public void should_Not_Do_Anything_If_Cell_Is_Already_Selected() {
     showWindow();
     clearTreeSelection();
     select(pathToBranch_1_1_1());
@@ -69,7 +69,7 @@ public class JTreeDriver_selectPath_Test extends JTreeDriver_selectCell_TestCase
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectPath(tree, "root/branch1");
   }

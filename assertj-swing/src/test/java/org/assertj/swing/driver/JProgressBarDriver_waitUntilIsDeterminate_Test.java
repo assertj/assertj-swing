@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class JProgressBarDriver_waitUntilIsDeterminate_Test extends JProgressBarDriver_TestCase {
   @Test
-  public void should_wait_until_is_determinate() {
+  public void should_Wait_Until_Is_Determinate() {
     makeIndeterminate();
     JProgressBarMakeDeterminateAsyncTask task = makeDeterminate(progressBar).after(1, SECONDS).createTask(robot);
     try {
@@ -42,7 +42,7 @@ public class JProgressBarDriver_waitUntilIsDeterminate_Test extends JProgressBar
   }
 
   @Test
-  public void should_time_out_if_determinate_state_never_reached() {
+  public void should_Time_Out_If_Determinate_State_Never_Reached() {
     makeIndeterminate();
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for");
     thrown.expectMessageToContain("to be in determinate mode");

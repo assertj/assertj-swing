@@ -28,12 +28,12 @@ import org.junit.Test;
  */
 public class AppletViewer_newViewerWithApplet_Test extends AppletViewer_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Applet_is_null() {
+  public void should_Throw_Error_If_Applet_Is_Null() {
     AppletViewer.newViewer(null);
   }
 
   @Test
-  public void should_load_applet_when_created() {
+  public void should_Load_Applet_When_Created() {
     assertThatAppletIsShowingAndViewerIsLoaded();
     Container ancestor = getAncestorOfClass(AppletViewer.class, applet);
     assertThat(ancestor).isSameAs(viewer);

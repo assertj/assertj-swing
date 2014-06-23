@@ -44,14 +44,14 @@ public class ComponentVisibleQuery_isVisible_Test extends SequentialEDTSafeTestC
   }
 
   @Test
-  public void should_return_false_if_Component_is_not_visible() {
+  public void should_Return_False_If_Component_Is_Not_Visible() {
     window.startRecording();
     assertThat(ComponentVisibleQuery.isVisible(window)).isFalse();
     window.requireInvoked("isVisible");
   }
 
   @Test
-  public void should_return_true_if_Component_is_visible() {
+  public void should_Return_True_If_Component_Is_Visible() {
     window.display();
     window.startRecording();
     assertThat(ComponentVisibleQuery.isVisible(window)).isTrue();

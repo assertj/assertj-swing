@@ -50,7 +50,7 @@ public class BasicRobot_closeWindow_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_close_window() {
+  public void should_Close_Window() {
     robot.close(w);
     pause(new Condition("Window closed") {
       @Override
@@ -62,7 +62,7 @@ public class BasicRobot_closeWindow_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_not_close_window_if_window_not_showing() {
+  public void should_Not_Close_Window_If_Window_Not_Showing() {
     hide(w);
     robot.waitForIdle();
     robot.close(w);

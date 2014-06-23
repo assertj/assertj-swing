@@ -42,7 +42,7 @@ public class JOptionPaneMessageQuery_messageOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_message_of_JOptionPane() {
+  public void should_Return_Message_Of_JOptionPane() {
     optionPane.startRecording();
     assertThat(JOptionPaneMessageQuery.messageOf(optionPane)).isEqualTo(MESSAGE);
     optionPane.requireInvoked("getMessage");

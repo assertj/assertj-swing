@@ -46,7 +46,7 @@ public class MenuElementComponentQuery_componentIn_Test extends RobotBasedTestCa
   }
 
   @Test
-  public void should_return_Component_of_MenuElement() {
+  public void should_Return_Component_Of_MenuElement() {
     menu.startRecording();
     assertThat(MenuElementComponentQuery.componentIn(menu)).isSameAs(menu);
     menu.requireInvoked("getComponent");

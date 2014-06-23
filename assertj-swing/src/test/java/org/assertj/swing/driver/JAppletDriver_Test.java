@@ -45,34 +45,34 @@ public class JAppletDriver_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_get_applet_context() {
+  public void should_Get_Applet_Context() {
     AppletContext context = mock(AppletContext.class);
     when(target.getAppletContext()).thenReturn(context);
     assertThat(driver.getAppletContext()).isSameAs(context);
   }
 
   @Test
-  public void should_applet_resize() {
+  public void should_Applet_Resize() {
     driver.appletResize(10, 10);
     verify(target).resize(10, 10);
   }
 
   @Test
-  public void should_get_code_base() throws MalformedURLException {
+  public void should_Get_Code_Base() throws MalformedURLException {
     URL url = new URL("http://localhost");
     when(target.getCodeBase()).thenReturn(url);
     assertThat(driver.getCodeBase()).isSameAs(url);
   }
 
   @Test
-  public void should_get_document_base() throws MalformedURLException {
+  public void should_Get_Document_Base() throws MalformedURLException {
     URL url = new URL("http://localhost");
     when(target.getDocumentBase()).thenReturn(url);
     assertThat(driver.getDocumentBase()).isSameAs(url);
   }
 
   @Test
-  public void should_get_parameter() {
+  public void should_Get_Parameter() {
     String parameter = "parameter";
     String name = "name";
     when(target.getParameter(name)).thenReturn(parameter);
@@ -87,7 +87,7 @@ public class JAppletDriver_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_get_applet() {
+  public void should_Get_Applet() {
     AppletContext context = mock(AppletContext.class);
     Applet applet = mock(Applet.class);
     String name = "applet";
@@ -98,7 +98,7 @@ public class JAppletDriver_Test extends EDTSafeTestCase {
 
   @Test
   @SuppressWarnings("unchecked")
-  public void should_get_applets() {
+  public void should_Get_Applets() {
     AppletContext context = mock(AppletContext.class);
     Enumeration<Applet> applets = mock(Enumeration.class);
     when(target.getAppletContext()).thenReturn(context);

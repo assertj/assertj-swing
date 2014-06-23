@@ -35,19 +35,19 @@ public class ImageReader_readImageFrom_Test {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_throw_error_if_path_is_null() throws IOException {
+  public void should_Throw_Error_If_Path_Is_Null() throws IOException {
     thrown.expectNullPointerException("The path of the image to read should not be null");
     ImageReader.readImageFrom(null);
   }
 
   @Test
-  public void should_throw_error_if_path_does_not_belong_to_file() throws IOException {
+  public void should_Throw_Error_If_Path_Does_Not_Belong_To_File() throws IOException {
     thrown.expectIllegalArgumentException("The path 'xyz' does not belong to a file");
     ImageReader.readImageFrom("xyz");
   }
 
   @Test
-  public void should_read_image_file() throws IOException {
+  public void should_Read_Image_File() throws IOException {
     BufferedImage image = ImageReader.readImageFrom("src/test/resources/red.png");
     assertNotNull(image);
     int w = image.getWidth();

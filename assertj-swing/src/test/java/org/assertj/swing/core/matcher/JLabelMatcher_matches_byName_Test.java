@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class JLabelMatcher_matches_byName_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_name_is_equal_to_expected() {
+  public void should_Return_True_If_Name_Is_Equal_To_Expected() {
     String name = "label";
     JLabelMatcher matcher = JLabelMatcher.withName(name);
     JLabel label = label().withName(name).createNew();
@@ -37,7 +37,7 @@ public class JLabelMatcher_matches_byName_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_false_if_name_is_not_equal_to_expected() {
+  public void should_Return_False_If_Name_Is_Not_Equal_To_Expected() {
     JLabelMatcher matcher = JLabelMatcher.withName("label");
     JLabel label = label().withName("button").createNew();
     assertThat(matcher.matches(label)).isFalse();

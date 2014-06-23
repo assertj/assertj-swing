@@ -32,7 +32,7 @@ import org.junit.Test;
 public class TestXmlNodeWriter_writeError_Test extends TestXmlNodeWriter_TestCase {
 
   @Test
-  public void should_write_error_type_and_message_as_attributes() {
+  public void should_Write_Error_Type_And_Message_As_Attributes() {
     final String errorMsg = "Thrown on purpose";
     final Exception e = new Exception(errorMsg);
     new EasyMockTemplate(targetNode) {
@@ -52,7 +52,7 @@ public class TestXmlNodeWriter_writeError_Test extends TestXmlNodeWriter_TestCas
   }
 
   @Test
-  public void should_write_only_error_type_as_attribute_when_error_message_is_empty() {
+  public void should_Write_Only_Error_Type_As_Attribute_When_Error_Message_Is_Empty() {
     final Exception e = new Exception("");
     new EasyMockTemplate(targetNode) {
       @Override

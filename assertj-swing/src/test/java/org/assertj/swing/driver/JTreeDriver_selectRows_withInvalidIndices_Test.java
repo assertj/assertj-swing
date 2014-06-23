@@ -42,7 +42,7 @@ public class JTreeDriver_selectRows_withInvalidIndices_Test extends JTreeDriver_
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_given_row_indices_is_out_of_bounds() {
+  public void should_Throw_Error_If_Given_Row_Indices_Is_Out_Of_Bounds() {
     showWindow();
     driver.selectRows(tree, new int[] { invalidRow });
   }

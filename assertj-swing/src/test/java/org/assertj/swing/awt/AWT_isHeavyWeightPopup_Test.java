@@ -34,19 +34,19 @@ import org.junit.Test;
  */
 public class AWT_isHeavyWeightPopup_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_false_if_Component_is_Window() {
+  public void should_Return_False_If_Component_Is_Window() {
     Window w = singletonWindowMock();
     assertThat(AWT.isHeavyWeightPopup(w)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_Component_is_Dialog() {
+  public void should_Return_False_If_Component_Is_Dialog() {
     JDialog d = dialog().createNew();
     assertThat(AWT.isHeavyWeightPopup(d)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_Component_is_Frame() {
+  public void should_Return_False_If_Component_Is_Frame() {
     JFrame f = frame().createNew();
     assertThat(AWT.isHeavyWeightPopup(f)).isFalse();
   }

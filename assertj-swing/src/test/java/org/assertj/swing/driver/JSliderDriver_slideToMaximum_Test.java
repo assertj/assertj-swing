@@ -43,7 +43,7 @@ public class JSliderDriver_slideToMaximum_Test extends JSliderDriver_TestCase {
   }
 
   @Test
-  public void should_slide_to_maximum() {
+  public void should_Slide_To_Maximum() {
     showWindow();
     driver.slideToMaximum(slider);
     assertThatSliderValueIs(maximumOf(slider));
@@ -60,14 +60,14 @@ public class JSliderDriver_slideToMaximum_Test extends JSliderDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JSlider_is_disabled() {
+  public void should_Throw_Error_If_JSlider_Is_Disabled() {
     disableSlider();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.slideToMaximum(slider);
   }
 
   @Test
-  public void should_throw_error_if_JSlider_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JSlider_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.slideToMaximum(slider);
   }

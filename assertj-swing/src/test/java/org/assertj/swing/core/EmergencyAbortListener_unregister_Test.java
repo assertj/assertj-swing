@@ -38,7 +38,7 @@ public class EmergencyAbortListener_unregister_Test {
   }
 
   @Test
-  public void should_unregister_from_toolkit() {
+  public void should_Unregister_From_Toolkit() {
     listener.unregister();
     verify(toolkit).removeAWTEventListener(listener);
   }

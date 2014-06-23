@@ -69,20 +69,20 @@ public class XmlAttribute_equals_hashCode_Test implements EqualsHashCodeContract
 
   @Override
   @Test
-  public void should_maintain_equals_and_hashCode_contract() {
+  public void should_Maintain_Equals_And_HashCode_Contract() {
     XmlAttribute other = XmlAttribute.name("firstName").value("Anakin");
     assertMaintainsEqualsAndHashCodeContract(attribute, other);
   }
 
   @Override
   @Test
-  public void should_not_be_equal_to_null() {
+  public void should_Not_Be_Equal_To_Null() {
     assertIsNotEqualToNull(attribute);
   }
 
   @Override
   @Test
-  public void should_not_be_equal_to_Object_of_different_type() {
+  public void should_Not_Be_Equal_To_Object_Of_Different_Type() {
     assertThat(attribute.equals("Hello")).isFalse();
   }
 }

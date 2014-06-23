@@ -44,7 +44,7 @@ public class OSIdentifier_isWindows9x_Test extends OSIdentifier_TestCase {
   }
 
   @Test
-  public void should_return_is_Windows9x_if_OS_name_starts_with_Windows_and_contains_any_9x_version() {
+  public void should_Return_Is_Windows9x_If_OS_Name_Starts_With_Windows_And_Contains_Any_9x_Version() {
     returnOSName(windows9x);
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isWindows()).isTrue();

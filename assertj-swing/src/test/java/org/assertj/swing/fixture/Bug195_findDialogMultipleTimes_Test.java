@@ -45,7 +45,7 @@ import org.junit.Test;
  */
 public class Bug195_findDialogMultipleTimes_Test extends RobotBasedTestCase {
   @Test
-  public void should_find_dialog_multiple_times() {
+  public void should_Find_Dialog_Multiple_Times() {
     JDialog dialog = TestDialog.createNew("title 1");
     robot.showWindow(dialog);
     DialogFixture fixtureOne = WindowFinder.findDialog(new DialogTitleStartsWithMatcher("title")).using(robot);

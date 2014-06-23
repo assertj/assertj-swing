@@ -55,7 +55,7 @@ public class FEST250_findJOptionPaneWithNullParent extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_find_JOptionPane() {
+  public void should_Find_JOptionPane() {
     JOptionPaneFixture optionPane = findOptionPane().using(robot);
     optionPane.requireMessage("Hello World!");
   }

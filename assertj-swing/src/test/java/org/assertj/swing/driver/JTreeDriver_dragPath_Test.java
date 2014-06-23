@@ -24,21 +24,21 @@ import org.junit.Test;
  */
 public class JTreeDriver_dragPath_Test extends JTreeDriver_dragAndDrop_TestCase {
   @Test
-  public void should_throw_error_if_path_does_not_exist() {
+  public void should_Throw_Error_If_Path_Does_Not_Exist() {
     showWindow();
     thrown.expect(LocationUnavailableException.class, "Unable to find path 'somePath'");
     driver.drag(tree, "somePath");
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.drag(tree, "root");
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.drag(tree, "root");
   }

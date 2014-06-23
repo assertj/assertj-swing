@@ -26,13 +26,13 @@ import org.junit.Test;
  */
 public class JTabbedPaneLocation_indexOf_Test extends JTabbedPaneLocation_TestCase {
   @Test
-  public void should_return_index_of_tab_with_matching_title() {
+  public void should_Return_Index_Of_Tab_With_Matching_Title() {
     int index = location.indexOf(tabbedPane, "two");
     assertThat(index).isEqualTo(1);
   }
 
   @Test
-  public void should_throw_error_if_a_matching_tab_cannot_be_found() {
+  public void should_Throw_Error_If_A_Matching_Tab_Cannot_Be_Found() {
     thrown.expect(LocationUnavailableException.class, "Unable to find a tab with title matching value 'three'");
     location.indexOf(tabbedPane, "three");
   }

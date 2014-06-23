@@ -48,7 +48,7 @@ public class JScrollPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_horizontal_JScrollBar_using_driver() {
+  public void should_Return_Horizontal_JScrollBar_Using_Driver() {
     JScrollBar scrollBar = mock(JScrollBar.class);
     when(driver.horizontalScrollBarIn(target)).thenReturn(scrollBar);
     JScrollBarFixture scrollBarFixture = fixture.horizontalScrollBar();
@@ -57,7 +57,7 @@ public class JScrollPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_vertical_JScrollBar_using_driver() {
+  public void should_Return_Vertical_JScrollBar_Using_Driver() {
     JScrollBar scrollBar = mock(JScrollBar.class);
     when(driver.verticalScrollBarIn(target)).thenReturn(scrollBar);
     JScrollBarFixture scrollBarFixture = fixture.verticalScrollBar();

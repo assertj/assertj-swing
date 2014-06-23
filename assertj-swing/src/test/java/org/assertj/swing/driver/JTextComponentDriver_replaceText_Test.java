@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JTextComponentDriver_replaceText_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_replace_Text() {
+  public void should_Replace_Text() {
     showWindow();
     setTextFieldText("Hi");
     driver.replaceText(textField, "Bye");
@@ -32,14 +32,14 @@ public class JTextComponentDriver_replaceText_Test extends JTextComponentDriver_
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_disabled() {
+  public void should_Throw_Error_If_JTextComponent_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.replaceText(textField, "Hello");
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTextComponent_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.replaceText(textField, "Hello");
   }

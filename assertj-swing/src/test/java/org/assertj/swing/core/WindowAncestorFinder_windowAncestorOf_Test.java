@@ -52,25 +52,25 @@ public class WindowAncestorFinder_windowAncestorOf_Test extends EDTSafeTestCase 
   }
 
   @Test
-  public void should_find_Window_ancestor() {
+  public void should_Find_Window_Ancestor() {
     Window ancestor = WindowAncestorFinder.windowAncestorOf(frame.button);
     assertThat(ancestor).isSameAs(frame);
   }
 
   @Test
-  public void should_return_null_if_Component_is_null() {
+  public void should_Return_Null_If_Component_Is_Null() {
     Window ancestor = WindowAncestorFinder.windowAncestorOf(null);
     assertThat(ancestor).isSameAs(null);
   }
 
   @Test
-  public void should_return_Window_as_its_own_ancestor() {
+  public void should_Return_Window_As_Its_Own_Ancestor() {
     Window ancestor = WindowAncestorFinder.windowAncestorOf(frame);
     assertThat(ancestor).isSameAs(frame);
   }
 
   @Test
-  public void should_return_invoker_as_ancestor_of_MenuElement() {
+  public void should_Return_Invoker_As_Ancestor_Of_MenuElement() {
     Robot robot = null;
     try {
       robot = BasicRobot.robotWithCurrentAwtHierarchy();
@@ -86,7 +86,7 @@ public class WindowAncestorFinder_windowAncestorOf_Test extends EDTSafeTestCase 
   }
 
   @Test
-  public void should_return_parent_as_ancestor_if_Component_is_MenuElement_and_invoker_is_null() {
+  public void should_Return_Parent_As_Ancestor_If_Component_Is_MenuElement_And_Invoker_Is_Null() {
     Window ancestor = WindowAncestorFinder.windowAncestorOf(frame.popupMenu);
     assertThat(ancestor).isSameAs(parentOf(frame.popupMenu));
   }

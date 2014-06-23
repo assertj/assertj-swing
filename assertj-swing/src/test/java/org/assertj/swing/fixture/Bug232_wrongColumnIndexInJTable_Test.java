@@ -42,7 +42,7 @@ public class Bug232_wrongColumnIndexInJTable_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_enter_value_after_removing_column() {
+  public void should_Enter_Value_After_Removing_Column() {
     removeFirstColumn(window.table);
     robot.waitForIdle();
     JTableFixture table = new JTableFixture(robot, window.table);

@@ -29,14 +29,14 @@ import org.junit.Test;
  */
 public class JOptionPaneDriver_requireTitleAsPattern_Test extends JOptionPaneDriver_TestCase {
   @Test
-  public void should_pass_if_title_matches_pattern() {
+  public void should_Pass_If_Title_Matches_Pattern() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
     driver.requireTitle(optionPane, Pattern.compile("JOptionP.*"));
   }
 
   @Test
-  public void should_fail_if_title_does_not_match_pattern() {
+  public void should_Fail_If_Title_Does_Not_Match_Pattern() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
     thrown.expectAssertionError("title", title(), Pattern.compile("Yoda"));

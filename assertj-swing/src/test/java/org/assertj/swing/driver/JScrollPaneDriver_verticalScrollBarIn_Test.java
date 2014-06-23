@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JScrollPaneDriver_verticalScrollBarIn_Test extends JScrollPaneDriver_TestCase {
   @Test
-  public void should_return_vertical_JScrollBar() {
+  public void should_Return_Vertical_JScrollBar() {
     JScrollBar scrollBar = driver.verticalScrollBarIn(window.scrollPane);
     assertThat(scrollBar).isSameAs(window.verticalScrollBar);
   }

@@ -27,7 +27,7 @@ import org.w3c.dom.Element;
 public class XmlNode_addNewNode_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_add_new_child_node() {
+  public void should_Add_New_Child_Node() {
     XmlNode newNode = node.addNewNode("new");
     Element child = newNode.target();
     assertThat(nameOf(child)).isEqualTo("new");

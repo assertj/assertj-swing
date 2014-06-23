@@ -49,7 +49,7 @@ public class BasicRobot_showWindowBySizeAndPacking_Test extends EDTSafeTestCase 
   }
 
   @Test
-  public void should_not_pack_window_as_specified() {
+  public void should_Not_Pack_Window_As_Specified() {
     // TODO split this test case in 2+
     Dimension size = new Dimension(100, 100);
     WindowToShow result = execute(new GuiQuery<WindowToShow>() {

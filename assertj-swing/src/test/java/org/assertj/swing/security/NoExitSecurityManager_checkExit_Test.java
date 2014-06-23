@@ -47,7 +47,7 @@ public class NoExitSecurityManager_checkExit_Test {
   }
 
   @Test
-  public void should_call_hook_and_throw_error_if_Runtime_exit_was_called() {
+  public void should_Call_Hook_And_Throw_Error_If_Runtime_Exit_Was_Called() {
     StackTraceElement[] stackTrace = array(methodInRuntime("exit"));
     when(stackTraces.stackTraceInCurrentThread()).thenReturn(stackTrace);
     thrown.expect(ExitException.class);
@@ -56,7 +56,7 @@ public class NoExitSecurityManager_checkExit_Test {
   }
 
   @Test
-  public void should_call_hook_and_throw_error_if_Runtime_halt_was_called() {
+  public void should_Call_Hook_And_Throw_Error_If_Runtime_Halt_Was_Called() {
     StackTraceElement[] stackTrace = array(methodInRuntime("halt"));
     when(stackTraces.stackTraceInCurrentThread()).thenReturn(stackTrace);
     thrown.expect(ExitException.class);
@@ -65,7 +65,7 @@ public class NoExitSecurityManager_checkExit_Test {
   }
 
   @Test
-  public void should_not_call_hook_and_throw_error_if_method_called_is_in_Runtime_but_is_not_exit_or_halt() {
+  public void should_Not_Call_Hook_And_Throw_Error_If_Method_Called_Is_In_Runtime_But_Is_Not_Exit_Or_Halt() {
     StackTraceElement[] stackTrace = array(methodInRuntime("availableProcessors"));
     when(stackTraces.stackTraceInCurrentThread()).thenReturn(stackTrace);
     securityManager.checkExit(0);
@@ -77,7 +77,7 @@ public class NoExitSecurityManager_checkExit_Test {
   }
 
   @Test
-  public void should_not_call_hook_and_throw_error_if_method_called_is_not_Runtime_exit_or_halt() {
+  public void should_Not_Call_Hook_And_Throw_Error_If_Method_Called_Is_Not_Runtime_Exit_Or_Halt() {
     StackTraceElement e = new StackTraceElement(String.class.getName(), "substring", "String.java", 0);
     StackTraceElement[] stackTrace = array(e);
     when(stackTraces.stackTraceInCurrentThread()).thenReturn(stackTrace);

@@ -49,14 +49,14 @@ public class JOptionPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_title_using_driver() {
+  public void should_Return_Title_Using_Driver() {
     when(driver.title(target)).thenReturn("Testing");
     assertThat(fixture.title()).isEqualTo("Testing");
     verify(driver).title(target);
   }
 
   @Test
-  public void should_return_ok_button_using_driver() {
+  public void should_Return_Ok_Button_Using_Driver() {
     JButton button = mock(JButton.class);
     when(driver.okButton(target)).thenReturn(button);
     JButtonFixture buttonFixture = fixture.okButton();
@@ -65,7 +65,7 @@ public class JOptionPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_cancel_button_using_driver() {
+  public void should_Return_Cancel_Button_Using_Driver() {
     JButton button = mock(JButton.class);
     when(driver.cancelButton(target)).thenReturn(button);
     JButtonFixture buttonFixture = fixture.cancelButton();
@@ -74,7 +74,7 @@ public class JOptionPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_yes_button_using_driver() {
+  public void should_Return_Yes_Button_Using_Driver() {
     JButton button = mock(JButton.class);
     when(driver.yesButton(target)).thenReturn(button);
     JButtonFixture buttonFixture = fixture.yesButton();
@@ -83,7 +83,7 @@ public class JOptionPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_no_button_using_driver() {
+  public void should_Return_No_Button_Using_Driver() {
     JButton button = mock(JButton.class);
     when(driver.noButton(target)).thenReturn(button);
     JButtonFixture buttonFixture = fixture.noButton();
@@ -92,7 +92,7 @@ public class JOptionPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_button_with_text_using_driver() {
+  public void should_Return_Button_With_Text_Using_Driver() {
     JButton button = mock(JButton.class);
     when(driver.buttonWithText(target, "Maybe")).thenReturn(button);
     JButtonFixture buttonFixture = fixture.buttonWithText("Maybe");
@@ -101,7 +101,7 @@ public class JOptionPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_button_matching_pattern_using_driver() {
+  public void should_Return_Button_Matching_Pattern_Using_Driver() {
     Pattern pattern = Pattern.compile("Maybe");
     JButton button = mock(JButton.class);
     when(driver.buttonWithText(target, pattern)).thenReturn(button);
@@ -111,63 +111,63 @@ public class JOptionPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_requireErrorMessage_in_driver_and_return_self() {
+  public void should_Call_RequireErrorMessage_In_Driver_And_Return_Self() {
     assertThat(fixture.requireErrorMessage()).isSameAs(fixture);
     verify(driver).requireErrorMessage(target);
   }
 
   @Test
-  public void should_call_requireInformationMessage_in_driver_and_return_self() {
+  public void should_Call_RequireInformationMessage_In_Driver_And_Return_Self() {
     assertThat(fixture.requireInformationMessage()).isSameAs(fixture);
     verify(driver).requireInformationMessage(target);
   }
 
   @Test
-  public void should_call_requireWarningMessage_in_driver_and_return_self() {
+  public void should_Call_RequireWarningMessage_In_Driver_And_Return_Self() {
     assertThat(fixture.requireWarningMessage()).isSameAs(fixture);
     verify(driver).requireWarningMessage(target);
   }
 
   @Test
-  public void should_call_requireQuestionMessage_in_driver_and_return_self() {
+  public void should_Call_RequireQuestionMessage_In_Driver_And_Return_Self() {
     assertThat(fixture.requireQuestionMessage()).isSameAs(fixture);
     verify(driver).requireQuestionMessage(target);
   }
 
   @Test
-  public void should_call_requirePlainMessage_in_driver_and_return_self() {
+  public void should_Call_RequirePlainMessage_In_Driver_And_Return_Self() {
     assertThat(fixture.requirePlainMessage()).isSameAs(fixture);
     verify(driver).requirePlainMessage(target);
   }
 
   @Test
-  public void should_call_requireTitle_with_text_in_driver_and_return_self() {
+  public void should_Call_RequireTitle_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.requireTitle("Hello")).isSameAs(fixture);
     verify(driver).requireTitle(target, "Hello");
   }
 
   @Test
-  public void should_call_requireTitle_with_pattern_in_driver_and_return_self() {
+  public void should_Call_RequireTitle_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Hello");
     assertThat(fixture.requireTitle(pattern)).isSameAs(fixture);
     verify(driver).requireTitle(target, pattern);
   }
 
   @Test
-  public void should_call_requireMessage_with_text_in_driver_and_return_self() {
+  public void should_Call_RequireMessage_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.requireMessage("Hello")).isSameAs(fixture);
     verify(driver).requireMessage(target, "Hello");
   }
 
   @Test
-  public void should_call_requireMessage_with_pattern_in_driver_and_return_self() {
+  public void should_Call_RequireMessage_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Hello");
     assertThat(fixture.requireMessage(pattern)).isSameAs(fixture);
     verify(driver).requireMessage(target, pattern);
   }
 
   @Test
-  public void should_call_requireOptions_in_driver_and_return_self() {
+  public void should_Call_RequireOptions_In_Driver_And_Return_Self() {
     Object[] options = { mock(JButton.class) };
     assertThat(fixture.requireOptions(options)).isSameAs(fixture);
     verify(driver).requireOptions(target, options);

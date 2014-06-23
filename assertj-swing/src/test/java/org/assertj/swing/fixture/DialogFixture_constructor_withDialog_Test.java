@@ -45,7 +45,7 @@ public class DialogFixture_constructor_withDialog_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_create_new_Robot_and_use_given_dialog_as_target() {
+  public void should_Create_New_Robot_And_Use_Given_Dialog_As_Target() {
     Dialog target = dialog().createNew();
     fixture = new DialogFixture(target);
     assertThat(fixture.robot()).isNotNull();
@@ -53,7 +53,7 @@ public class DialogFixture_constructor_withDialog_Test extends EDTSafeTestCase {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_dialog_is_null() {
+  public void should_Throw_Error_If_Dialog_Is_Null() {
     fixture = new DialogFixture((Dialog) null);
   }
 }

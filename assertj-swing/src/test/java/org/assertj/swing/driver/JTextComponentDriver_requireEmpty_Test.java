@@ -24,19 +24,19 @@ import org.junit.Test;
  */
 public class JTextComponentDriver_requireEmpty_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_pass_if_JTexComponent_is_empty() {
+  public void should_Pass_If_JTexComponent_Is_Empty() {
     clearTextField();
     driver.requireEmpty(textField);
   }
 
   @Test
-  public void should_pass_if_text_in_JTexComponent_is_null() {
+  public void should_Pass_If_Text_In_JTexComponent_Is_Null() {
     setTextFieldText(null);
     driver.requireEmpty(textField);
   }
 
   @Test
-  public void should_fail_if_JTexComponent_is_not_empty() {
+  public void should_Fail_If_JTexComponent_Is_Not_Empty() {
     setTextFieldText("Hi");
     thrown.expect(AssertionError.class);
     thrown.expectMessageToContain("property:'text'", "Expecting empty but was:<\"Hi\">");

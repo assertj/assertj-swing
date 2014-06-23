@@ -27,12 +27,12 @@ import org.junit.Test;
  */
 public class BasicComponentPrinter_printComponentsInRoot_Test extends BasicComponentPrinter_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_OutputStream_is_null() {
+  public void should_Throw_Error_If_OutputStream_Is_Null() {
     printer.printComponents(null, windowOne);
   }
 
   @Test
-  public void should_print_Components_in_given_root() {
+  public void should_Print_Components_In_Given_Root() {
     printer.printComponents(out, windowOne);
     assertThat(out.printed()).contains(format(windowOne), format(windowOne.button)).doesNotContain(format(windowTwo),
         format(windowTwo.button));

@@ -49,7 +49,7 @@ public class Bug213_HideCaretInTextFieldWhenTakingScreenshot_Test extends Sequen
   }
 
   @Test
-  public void should_hide_caret_in_JTextField_when_taking_screenshot() {
+  public void should_Hide_Caret_In_JTextField_When_Taking_Screenshot() {
     BufferedImage currentImage = screenshotTaker.takeScreenshotOf(window);
     for (int i = 0; i < 100; i++) {
       BufferedImage newImage = screenshotTaker.takeScreenshotOf(window);

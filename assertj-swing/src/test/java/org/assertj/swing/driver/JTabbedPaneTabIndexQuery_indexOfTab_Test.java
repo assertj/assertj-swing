@@ -44,19 +44,19 @@ public class JTabbedPaneTabIndexQuery_indexOfTab_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_return_index_of_tab() {
+  public void should_Return_Index_Of_Tab() {
     int index = indexOfTab(tabbedPane, "First");
     assertThat(index).isEqualTo(0);
   }
 
   @Test
-  public void should_return_negative_one_if_no_matching_title_found() {
+  public void should_Return_Negative_One_If_No_Matching_Title_Found() {
     int index = indexOfTab(tabbedPane, "Hello");
     assertThat(index).isEqualTo(-1);
   }
 
   @Test
-  public void should_return_negative_one_if_JTabbedPane_does_not_have_tabs() {
+  public void should_Return_Negative_One_If_JTabbedPane_Does_Not_Have_Tabs() {
     removeAllTabsIn(tabbedPane);
     robot.waitForIdle();
     int index = indexOfTab(tabbedPane, "First");

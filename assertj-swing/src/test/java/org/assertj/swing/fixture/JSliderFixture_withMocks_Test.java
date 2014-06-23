@@ -41,19 +41,19 @@ public class JSliderFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_slideTo_in_driver_and_return_self() {
+  public void should_Call_SlideTo_In_Driver_And_Return_Self() {
     assertThat(fixture.slideTo(6)).isSameAs(fixture);
     verify(fixture.driver()).slide(fixture.target(), 6);
   }
 
   @Test
-  public void should_call_slideToMaximum_in_driver_and_return_self() {
+  public void should_Call_SlideToMaximum_In_Driver_And_Return_Self() {
     assertThat(fixture.slideToMaximum()).isSameAs(fixture);
     verify(fixture.driver()).slideToMaximum(fixture.target());
   }
 
   @Test
-  public void should_call_slideToMinimum_in_driver_and_return_self() {
+  public void should_Call_SlideToMinimum_In_Driver_And_Return_Self() {
     assertThat(fixture.slideToMinimum()).isSameAs(fixture);
     verify(fixture.driver()).slideToMinimum(fixture.target());
   }

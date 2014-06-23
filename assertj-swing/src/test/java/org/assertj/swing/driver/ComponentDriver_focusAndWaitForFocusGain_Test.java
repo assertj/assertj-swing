@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class ComponentDriver_focusAndWaitForFocusGain_Test extends ComponentDriver_TestCase {
   @Test
-  public void should_give_focus_to_Component_and_wait_till_it_is_focused() {
+  public void should_Give_Focus_To_Component_And_Wait_Till_It_Is_Focused() {
     showWindow();
     assertThatButtonDoesNotHaveFocus();
     window.button.waitToRequestFocus();
@@ -53,14 +53,14 @@ public class ComponentDriver_focusAndWaitForFocusGain_Test extends ComponentDriv
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     disableButton();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.focusAndWaitForFocusGain(window.button);
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.focusAndWaitForFocusGain(window.button);
   }

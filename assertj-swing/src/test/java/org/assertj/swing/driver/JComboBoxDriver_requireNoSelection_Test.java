@@ -24,13 +24,13 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_requireNoSelection_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_pass_if_JComboBox_does_not_have_selection() {
+  public void should_Pass_If_JComboBox_Does_Not_Have_Selection() {
     clearSelection();
     driver.requireNoSelection(comboBox);
   }
 
   @Test
-  public void should_fail_if_JComboBox_has_selection() {
+  public void should_Fail_If_JComboBox_Has_Selection() {
     selectFirstItem();
     thrown.expectAssertionError("property:'selectedIndex'");
     thrown.expectMessageToContain("Expecting no selection, but found:<'first'>");

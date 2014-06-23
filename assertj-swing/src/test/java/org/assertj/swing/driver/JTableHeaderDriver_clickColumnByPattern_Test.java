@@ -32,13 +32,13 @@ public class JTableHeaderDriver_clickColumnByPattern_Test extends JTableHeaderDr
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_fail_if_matching_column_was_not_found() {
+  public void should_Fail_If_Matching_Column_Was_Not_Found() {
     thrown.expect(LocationUnavailableException.class, "Unable to find column with name matching pattern 'hello'");
     driver.clickColumn(tableHeader, Pattern.compile("hello"));
   }
 
   @Test
-  public void should_click_column() {
+  public void should_Click_Column() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.clickColumn(tableHeader, Pattern.compile("0.*"));

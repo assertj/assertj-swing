@@ -36,7 +36,7 @@ public class FEST48_TestngNotGeneratingUniqueFileNames_Test {
   }
 
   @Test
-  public void should_generate_different_file_names_using_parameter_values() {
+  public void should_Generate_Different_File_Names_Using_Parameter_Values() {
     testResult.getMethod().setMethodName("myMethod");
     testResult.getTestClass().setName("MyClass");
     assertThat(screenshotFileNameFrom(testResult)).isEqualTo("MyClass.myMethod.png");
@@ -45,7 +45,7 @@ public class FEST48_TestngNotGeneratingUniqueFileNames_Test {
   }
 
   @Test
-  public void should_generate_file_names_even_if_parameter_value_is_null() {
+  public void should_Generate_File_Names_Even_If_Parameter_Value_Is_Null() {
     testResult.getMethod().setMethodName("myMethod");
     testResult.getTestClass().setName("MyClass");
     testResult.setParameters(array("one", null));

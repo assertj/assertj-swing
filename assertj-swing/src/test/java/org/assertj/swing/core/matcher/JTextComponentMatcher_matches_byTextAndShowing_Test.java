@@ -34,28 +34,28 @@ import org.junit.Test;
  */
 public class JTextComponentMatcher_matches_byTextAndShowing_Test extends SequentialEDTSafeTestCase {
   @Test
-  public void should_return_true_if_JTextComponent_is_showing_and_text_is_equal_to_expected() {
+  public void should_Return_True_If_JTextComponent_Is_Showing_And_Text_Is_Equal_To_Expected() {
     MyWindow window = MyWindow.createAndShow();
     JTextComponentMatcher matcher = JTextComponentMatcher.withText("Hello").andShowing();
     assertThat(matcher.matches(window.textField)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_JTextComponent_is_not_showing_and_text_is_equal_to_expected() {
+  public void should_Return_False_If_JTextComponent_Is_Not_Showing_And_Text_Is_Equal_To_Expected() {
     JTextComponentMatcher matcher = JTextComponentMatcher.withText("Hello").andShowing();
     JTextField textField = textField().withText("Hello").createNew();
     assertThat(matcher.matches(textField)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_JTextComponent_is_showing_and_text_is_not_equal_to_expected() {
+  public void should_Return_False_If_JTextComponent_Is_Showing_And_Text_Is_Not_Equal_To_Expected() {
     MyWindow window = MyWindow.createAndShow();
     JTextComponentMatcher matcher = JTextComponentMatcher.withText("Bye").andShowing();
     assertThat(matcher.matches(window.textField)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_JTextComponent_is_not_showing_and_text_is_not_equal_to_expected() {
+  public void should_Return_False_If_JTextComponent_Is_Not_Showing_And_Text_Is_Not_Equal_To_Expected() {
     JTextComponentMatcher matcher = JTextComponentMatcher.withText("Hello").andShowing();
     JTextField textField = textField().withText("Bye").createNew();
     assertThat(matcher.matches(textField)).isFalse();

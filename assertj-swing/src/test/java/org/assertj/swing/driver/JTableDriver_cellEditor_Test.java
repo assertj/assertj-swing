@@ -41,7 +41,7 @@ public class JTableDriver_cellEditor_Test extends JTableDriver_withMockCellWrite
   }
 
   @Test
-  public void should_cell_editor() {
+  public void should_Cell_Editor() {
     when(cellWriter.editorForCell(table, 0, 0)).thenReturn(editor);
     Component result = driver.cellEditor(table, row(0).column(0));
     assertThat(result).isSameAs(editor);

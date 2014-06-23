@@ -24,20 +24,20 @@ import org.junit.Test;
  */
 public class JTableHeaderDriver_clickColumnByName_Test extends JTableHeaderDriver_TestCase {
   @Test
-  public void should_fail_if_matching_column_was_not_found() {
+  public void should_Fail_If_Matching_Column_Was_Not_Found() {
     thrown.expect(LocationUnavailableException.class, "Unable to find column with name matching value 'hello'");
     driver.clickColumn(tableHeader, "hello");
   }
 
   @Test
-  public void should_throw_error_if_JTableHeader_is_disabled() {
+  public void should_Throw_Error_If_JTableHeader_Is_Disabled() {
     disableTableHeader();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.clickColumn(tableHeader, "0");
   }
 
   @Test
-  public void should_throw_error_if_JTableHeader_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTableHeader_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.clickColumn(tableHeader, "0");
   }

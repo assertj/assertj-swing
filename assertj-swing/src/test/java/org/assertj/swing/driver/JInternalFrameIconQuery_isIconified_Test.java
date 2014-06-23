@@ -44,7 +44,7 @@ public class JInternalFrameIconQuery_isIconified_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_return_true_if_JInternalFrame_is_iconified() {
+  public void should_Return_True_If_JInternalFrame_Is_Iconified() {
     iconify();
     assertThat(isIconified(internalFrame)).isTrue();
   }
@@ -56,7 +56,7 @@ public class JInternalFrameIconQuery_isIconified_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_return_false_if_JInternalFrame_is_normalized() {
+  public void should_Return_False_If_JInternalFrame_Is_Normalized() {
     normalize();
     assertThat(isIconified(internalFrame)).isFalse();
   }
@@ -68,7 +68,7 @@ public class JInternalFrameIconQuery_isIconified_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_return_false_if_JInternalFrame_is_maximized() {
+  public void should_Return_False_If_JInternalFrame_Is_Maximized() {
     maximize();
     assertThat(isIconified(internalFrame)).isFalse();
   }

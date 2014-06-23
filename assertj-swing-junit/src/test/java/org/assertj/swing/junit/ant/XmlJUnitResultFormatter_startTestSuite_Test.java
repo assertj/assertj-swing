@@ -35,7 +35,7 @@ public class XmlJUnitResultFormatter_startTestSuite_Test extends XmlJUnitResultF
   }
 
   @Test
-  public void should_write_suite_and_environment_info() {
+  public void should_Write_Suite_And_Environment_Info() {
     formatter.startTestSuite(suite);
     XmlNode root = root();
     assertThat(root.attributeCount()).isEqualTo(3);
@@ -44,7 +44,7 @@ public class XmlJUnitResultFormatter_startTestSuite_Test extends XmlJUnitResultF
   }
 
   @Test
-  public void should_call_subclass_hook_when_starting_test_suite() {
+  public void should_Call_Subclass_Hook_When_Starting_Test_Suite() {
     formatter.startTestSuite(suite);
     assertThat(formatter.onStartTestSuiteMethod).wasCalledPassing(suite);
   }

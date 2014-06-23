@@ -28,17 +28,17 @@ import org.junit.Test;
  */
 public class Pause_pauseWithConditionAndTimeoutInMilliseconds_Test {
   @Test(expected = WaitTimedOutError.class)
-  public void should_timeout_if_Condition_is_never_satisfied() {
+  public void should_Timeout_If_Condition_Is_Never_Satisfied() {
     Pause.pause(new NeverSatisfiedCondition(), 1000);
   }
 
   @Test(expected = WaitTimedOutError.class, timeout = 1100)
-  public void should_timeout_if_Condition_runs_longer_than_timeout() {
+  public void should_Timeout_If_Condition_Runs_Longer_Than_Timeout() {
     Pause.pause(new SatisfiedCondition(10000), 1000);
   }
 
   @Test
-  public void should_wait_till_Condition_is_satisfied() {
+  public void should_Wait_Till_Condition_Is_Satisfied() {
     int timeToWaitTillSatisfied = 1000;
     SatisfiedCondition condition = new SatisfiedCondition(timeToWaitTillSatisfied);
 
@@ -51,12 +51,12 @@ public class Pause_pauseWithConditionAndTimeoutInMilliseconds_Test {
   }
 
   @Test(expected = NumberFormatException.class)
-  public void should_throw_error_if_Condition_throws_any() {
+  public void should_Throw_Error_If_Condition_Throws_Any() {
     Pause.pause(new RuntimeExceptionCondition(new NumberFormatException("expected")), 1000);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_condition_is_null() {
+  public void should_Throw_Error_If_Condition_Is_Null() {
     Pause.pause((Condition) null, 1000);
   }
 }

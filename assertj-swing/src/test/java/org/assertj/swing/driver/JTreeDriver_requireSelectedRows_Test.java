@@ -23,19 +23,19 @@ import org.junit.Test;
  */
 public class JTreeDriver_requireSelectedRows_Test extends JTreeDriver_selectCell_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_of_indices_is_null() {
+  public void should_Throw_Error_If_Array_Of_Indices_Is_Null() {
     driver.requireSelection(tree, (int[]) null);
   }
 
   @Test
-  public void should_pass_if_single_cell_is_selected() {
+  public void should_Pass_If_Single_Cell_Is_Selected() {
     selectFirstChildOfRoot();
     int[] rowsToSelect = new int[] { 1 };
     driver.requireSelection(tree, rowsToSelect);
   }
 
   @Test
-  public void should_fail_if_JTree_does_not_have_selection() {
+  public void should_Fail_If_JTree_Does_Not_Have_Selection() {
     clearTreeSelection();
     thrown.expectAssertionError("property:'selection'");
     thrown.expectMessageToContain("No selection");
@@ -43,7 +43,7 @@ public class JTreeDriver_requireSelectedRows_Test extends JTreeDriver_selectCell
   }
 
   @Test
-  public void should_fail_if_selection_is_not_equal_to_expected() {
+  public void should_Fail_If_Selection_Is_Not_Equal_To_Expected() {
     selectFirstChildOfRoot();
     thrown.expectAssertionError("property:'selection'");
     thrown.expectMessageToContain("expecting selection:<[5]> but was:<[1]>");

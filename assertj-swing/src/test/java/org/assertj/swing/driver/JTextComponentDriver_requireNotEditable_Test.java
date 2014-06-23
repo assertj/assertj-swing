@@ -24,13 +24,13 @@ import org.junit.Test;
  */
 public class JTextComponentDriver_requireNotEditable_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_pass_if_JTextComponent_is_not_editable() {
+  public void should_Pass_If_JTextComponent_Is_Not_Editable() {
     makeTextFieldNotEditable();
     driver.requireNotEditable(textField);
   }
 
   @Test
-  public void should_fail_if_JTextComponent_is_editable() {
+  public void should_Fail_If_JTextComponent_Is_Editable() {
     makeTextFieldEditable();
     thrown.expectAssertionError("property:'editable'");
     thrown.expectMessageToContain("expected:<[fals]e> but was:<[tru]e>");

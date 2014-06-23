@@ -46,7 +46,7 @@ public class Bug80_JDialogLookup_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_nested_Dialog_two_times() {
+  public void should_Find_Nested_Dialog_Two_Times() {
     starter.show();
     starter.requireVisible();
     starter.button("start").click();

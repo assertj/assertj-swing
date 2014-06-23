@@ -28,14 +28,14 @@ import org.junit.Test;
  */
 public class WindowFilter_isImplicitylIgnored_Test extends WindowFilter_TestCase {
   @Test
-  public void should_return_true_if_Component_is_implicit_filtered() {
+  public void should_Return_True_If_Component_Is_Implicit_Filtered() {
     Component c = button().createNew();
     addToImplicitlyIgnoredMap(c);
     assertThat(filter.isImplicitlyIgnored(c)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Component_is_not_implicit_filtered() {
+  public void should_Return_False_If_Component_Is_Not_Implicit_Filtered() {
     Component c = button().createNew();
     assertThat(filter.isImplicitlyIgnored(c)).isFalse();
   }

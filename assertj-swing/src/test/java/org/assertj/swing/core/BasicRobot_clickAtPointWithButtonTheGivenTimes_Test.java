@@ -53,7 +53,7 @@ public class BasicRobot_clickAtPointWithButtonTheGivenTimes_Test extends BasicRo
   }
 
   @Test
-  public void should_click_Component_with_given_mouse_button_and_given_number_of_times_at_given_point() {
+  public void should_Click_Component_With_Given_Mouse_Button_And_Given_Number_Of_Times_At_Given_Point() {
     JTextField textField = window().textField();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
     Point point = new Point(10, 10);

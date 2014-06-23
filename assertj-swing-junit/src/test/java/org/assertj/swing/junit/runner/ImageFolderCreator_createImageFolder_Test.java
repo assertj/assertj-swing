@@ -42,7 +42,7 @@ public class ImageFolderCreator_createImageFolder_Test {
   }
 
   @Test
-  public void should_create_image_folder() {
+  public void should_Create_Image_Folder() {
     final File createdFolder = new File("fake");
     new EasyMockTemplate(folderCreator) {
       @Override

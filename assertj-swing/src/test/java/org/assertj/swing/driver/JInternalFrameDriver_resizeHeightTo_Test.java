@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_resizeHeightTo_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_resize_height() {
+  public void should_Resize_Height() {
     showWindow();
     int newHeight = 600;
     assertThat(heightOf(internalFrame)).isNotEqualTo(newHeight);

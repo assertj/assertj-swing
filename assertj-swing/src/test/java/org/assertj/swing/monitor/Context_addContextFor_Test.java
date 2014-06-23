@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class Context_addContextFor_Test extends Context_TestCase {
   @Test
-  public void should_add_context() {
+  public void should_Add_Context() {
     context.addContextFor(window);
     verify(windowEventQueueMapping).addQueueFor(window);
     verify(eventQueueMapping).addQueueFor(window);

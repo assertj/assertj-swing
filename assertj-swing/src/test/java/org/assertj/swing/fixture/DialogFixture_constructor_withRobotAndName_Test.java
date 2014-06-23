@@ -36,7 +36,7 @@ public class DialogFixture_constructor_withRobotAndName_Test extends RobotBasedT
   public ScreenLockReleaser lockReleaser = new ScreenLockReleaser();
 
   @Test
-  public void should_lookup_showing_dialog_by_name() {
+  public void should_Lookup_Showing_Dialog_By_Name() {
     Dialog target = dialog().withName("dialog").withTitle(getClass().getSimpleName()).createAndShow();
     DialogFixture fixture = new DialogFixture(robot, "dialog");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -44,13 +44,13 @@ public class DialogFixture_constructor_withRobotAndName_Test extends RobotBasedT
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_dialog_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_Dialog_With_Matching_Name_Is_Not_Showing() {
     dialog().withName("dialog").createNew();
     new DialogFixture(robot, "dialog");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_dialog_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_Dialog_With_Matching_Name_Is_Not_Found() {
     dialog().withName("a dialog").createNew();
     new DialogFixture(robot, "dialog");
   }

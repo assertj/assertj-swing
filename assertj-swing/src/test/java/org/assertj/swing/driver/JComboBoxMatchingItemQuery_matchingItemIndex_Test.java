@@ -49,7 +49,7 @@ public class JComboBoxMatchingItemQuery_matchingItemIndex_Test extends RobotBase
   }
 
   @Test
-  public void should_return_matching_indices() {
+  public void should_Return_Matching_Indices() {
     when(matcher.isMatching("aaa")).thenReturn(false);
     when(matcher.isMatching("bbb")).thenReturn(true);
     int matchingIndex = JComboBoxMatchingItemQuery.matchingItemIndex(comboBox, matcher, cellReader);
@@ -57,7 +57,7 @@ public class JComboBoxMatchingItemQuery_matchingItemIndex_Test extends RobotBase
   }
 
   @Test
-  public void should_return_negative_one_if_no_matching_indices_found() {
+  public void should_Return_Negative_One_If_No_Matching_Indices_Found() {
     when(matcher.isMatching("aaa")).thenReturn(false);
     when(matcher.isMatching("bbb")).thenReturn(false);
     when(matcher.isMatching("ccc")).thenReturn(false);

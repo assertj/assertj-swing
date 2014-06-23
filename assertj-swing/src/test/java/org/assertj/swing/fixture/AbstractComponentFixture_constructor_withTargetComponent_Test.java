@@ -43,22 +43,22 @@ public class AbstractComponentFixture_constructor_withTargetComponent_Test {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_selfType_is_null() {
+  public void should_Throw_Error_If_SelfType_Is_Null() {
     new ComponentFixture(null, robot, frame);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_robot_is_null() {
+  public void should_Throw_Error_If_Robot_Is_Null() {
     new ComponentFixture(ComponentFixture.class, null, frame);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_tareget_is_null() {
+  public void should_Throw_Error_If_Tareget_Is_Null() {
     new ComponentFixture(ComponentFixture.class, robot, null);
   }
 
   @Test
-  public void should_lookup_Component_by_name_and_type() {
+  public void should_Lookup_Component_By_Name_And_Type() {
     ComponentFixture fixture = new ComponentFixture(ComponentFixture.class, robot, frame);
     assertThat(fixture.robot()).isSameAs(robot);
     assertThat(fixture.target()).isSameAs(frame);

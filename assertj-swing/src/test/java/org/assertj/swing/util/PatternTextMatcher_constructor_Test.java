@@ -25,13 +25,13 @@ import org.junit.Test;
  */
 public class PatternTextMatcher_constructor_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_pattern_array_is_null() {
+  public void should_Throw_Error_If_Pattern_Array_Is_Null() {
     Pattern[] patterns = null;
     new PatternTextMatcher(patterns);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_pattern_array_is_empty() {
+  public void should_Throw_Error_If_Pattern_Array_Is_Empty() {
     new PatternTextMatcher(new Pattern[0]);
   }
 }

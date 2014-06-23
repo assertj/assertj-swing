@@ -59,7 +59,7 @@ public class ComponentEnabledQuery_isEnabled_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_indicate_if_Component_is_enabled_or_not() {
+  public void should_Indicate_If_Component_Is_Enabled_Or_Not() {
     setEnabled(window, enabled);
     robot.waitForIdle();
     window.startRecording();

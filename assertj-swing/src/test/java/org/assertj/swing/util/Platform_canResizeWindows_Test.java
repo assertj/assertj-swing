@@ -28,19 +28,19 @@ import org.junit.Test;
  */
 public class Platform_canResizeWindows_Test extends Platform_TestCase {
   @Test
-  public void should_return_cannot_resize_windows_if_OS_is_Windows() {
+  public void should_Return_Cannot_Resize_Windows_If_OS_Is_Windows() {
     Platform.initialize(windows9x(), toolkit);
     assertThat(Platform.canResizeWindows()).isEqualTo(false);
   }
 
   @Test
-  public void should_return_cannot_resize_windows_if_OS_is_OSX() {
+  public void should_Return_Cannot_Resize_Windows_If_OS_Is_OSX() {
     Platform.initialize(osX(), toolkit);
     assertThat(Platform.canResizeWindows()).isEqualTo(false);
   }
 
   @Test
-  public void should_return_can_resize_windows_if_OS_is_not_Windows_or_OSX() {
+  public void should_Return_Can_Resize_Windows_If_OS_Is_Not_Windows_Or_OSX() {
     Platform.initialize(linux(), toolkit);
     assertThat(Platform.canResizeWindows()).isEqualTo(true);
   }

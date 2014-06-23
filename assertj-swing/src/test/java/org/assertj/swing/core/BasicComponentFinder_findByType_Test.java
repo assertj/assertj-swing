@@ -30,13 +30,13 @@ import org.junit.Test;
  */
 public class BasicComponentFinder_findByType_Test extends BasicComponentFinder_TestCase {
   @Test
-  public void should_find_Component() {
+  public void should_Find_Component() {
     JButton button = finder.findByType(JButton.class);
     assertThat(button).isSameAs(window.button);
   }
 
   @Test
-  public void should_throw_error_if_Component_not_found() {
+  public void should_Throw_Error_If_Component_Not_Found() {
     thrown.expect(ComponentLookupException.class, "type=javax.swing.JTree");
     finder.findByType(JTree.class);
   }

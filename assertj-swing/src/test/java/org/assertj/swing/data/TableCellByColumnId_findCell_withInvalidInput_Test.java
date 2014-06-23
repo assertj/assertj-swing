@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class TableCellByColumnId_findCell_withInvalidInput_Test extends TableCellFinder_TestCase {
   @Test(expected = ActionFailedException.class)
-  public void should_throw_error_if_a_matching_column_was_not_found() {
+  public void should_Throw_Error_If_A_Matching_Column_Was_Not_Found() {
     TableCellByColumnId finder = row(0).columnId("Hello");
     finder.findCell(table, null);
   }

@@ -65,7 +65,7 @@ public abstract class InputEventGenerator_TestCase extends SequentialEDTSafeTest
   }
 
   @Ignore
-  public void should_move_mouse() {
+  public void should_Move_Mouse() {
     eventGenerator.moveMouse(window, 10, 10);
     pause(DELAY);
     MouseMotionRecorder recorder = MouseMotionRecorder.attachTo(window);

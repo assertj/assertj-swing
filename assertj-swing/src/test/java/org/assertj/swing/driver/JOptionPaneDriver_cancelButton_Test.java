@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JOptionPaneDriver_cancelButton_Test extends JOptionPaneDriver_TestCase {
   @Test
-  public void should_find_Cancel_button() {
+  public void should_Find_Cancel_Button() {
     JOptionPane optionPane = inputMessage();
     launch(optionPane, title());
     JButton button = driver.cancelButton(optionPane);

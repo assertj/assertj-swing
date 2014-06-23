@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class IntrospectionComponentFormatter_toString_Test extends EDTSafeTestCase {
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     IntrospectionComponentFormatter formatter = new IntrospectionComponentFormatter(JButton.class, "name", "text");
     String s = formatter.toString();
     assertThat(s).contains("name").contains("text");

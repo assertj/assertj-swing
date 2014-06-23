@@ -30,29 +30,29 @@ public class TextAssert_isEqualOrMatches_Test {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_fail_if_actual_is_not_equal_to_expected() {
+  public void should_Fail_If_Actual_Is_Not_Equal_To_Expected() {
     thrown.expectAssertionError("Expecting:\n \"hello\"\nto match pattern:\n \"bye\"");
     new TextAssert("hello").isEqualOrMatches("bye");
   }
 
   @Test
-  public void should_fail_showing_description_if_actual_is_not_equal_to_expected() {
+  public void should_Fail_Showing_Description_If_Actual_Is_Not_Equal_To_Expected() {
     thrown.expectAssertionError("[A Test] \nExpecting:\n \"hello\"\nto match pattern:\n \"bye\"");
     new TextAssert("hello").as("A Test").isEqualOrMatches("bye");
   }
 
   @Test
-  public void should_pass_if_actual_is_equal_to_expected_but_no_valid_pattern() {
+  public void should_Pass_If_Actual_Is_Equal_To_Expected_But_No_Valid_Pattern() {
     new TextAssert("[He$$o").isEqualOrMatches("[He$$o");
   }
 
   @Test
-  public void should_pass_if_actual_is_equal_to_expected() {
+  public void should_Pass_If_Actual_Is_Equal_To_Expected() {
     new TextAssert("Hello").isEqualOrMatches("Hello");
   }
 
   @Test
-  public void should_pass_if_actual_matches_regex_pattern() {
+  public void should_Pass_If_Actual_Matches_Regex_Pattern() {
     new TextAssert("Hello").isEqualOrMatches("Hell.");
   }
 }

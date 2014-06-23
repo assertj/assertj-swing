@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class BasicAppletContext_getAppletByName_Test extends BasicAppletContext_TestCase {
   @Test
-  public void should_always_return_null_for_any_given_name() {
+  public void should_Always_Return_Null_For_Any_Given_Name() {
     assertThat(context.getApplet("aName")).isNull();
   }
 }

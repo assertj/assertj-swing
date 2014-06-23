@@ -23,13 +23,13 @@ import org.junit.Test;
  */
 public class JTreeDriver_selectRows_withInvalidInput_Test extends JTreeDriver_withMocks_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_is_null() {
+  public void should_Throw_Error_If_Array_Is_Null() {
     int[] rows = null;
     driver.selectRows(tree, rows);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_array_is_empty() {
+  public void should_Throw_Error_If_Array_Is_Empty() {
     int[] rows = new int[0];
     driver.selectRows(tree, rows);
   }

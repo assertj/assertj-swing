@@ -36,12 +36,12 @@ public class IntrospectionComponentFormatter_format_withInvalidInput_Test extend
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_Component_belongs_to_unsupported_type() {
+  public void should_Throw_Error_If_Component_Belongs_To_Unsupported_Type() {
     formatter.format(comboBox().createNew());
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Component_is_null() {
+  public void should_Throw_Error_If_Component_Is_Null() {
     formatter.format(null);
   }
 }

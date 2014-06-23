@@ -28,19 +28,19 @@ import org.junit.Test;
  */
 public class Platform_canMoveWindows_Test extends Platform_TestCase {
   @Test
-  public void should_return_cannot_move_windows_if_OS_is_Windows() {
+  public void should_Return_Cannot_Move_Windows_If_OS_Is_Windows() {
     Platform.initialize(windows9x(), toolkit);
     assertThat(Platform.canMoveWindows()).isEqualTo(false);
   }
 
   @Test
-  public void should_return_cannot_move_windows_if_OS_is_OSX() {
+  public void should_Return_Cannot_Move_Windows_If_OS_Is_OSX() {
     Platform.initialize(osX(), toolkit);
     assertThat(Platform.canMoveWindows()).isEqualTo(false);
   }
 
   @Test
-  public void should_return_can_move_windows_if_OS_is_not_Windows_or_OSX() {
+  public void should_Return_Can_Move_Windows_If_OS_Is_Not_Windows_Or_OSX() {
     Platform.initialize(linux(), toolkit);
     assertThat(Platform.canMoveWindows()).isEqualTo(true);
   }

@@ -31,14 +31,14 @@ public class BasicComponentFinder_findByLabelInRoot_Test extends BasicComponentF
   private MyWindow windowTwo;
 
   @Test
-  public void should_find_Component() {
+  public void should_Find_Component() {
     windowTwo = MyWindow.createNew(getClass());
     Component button = finder.findByLabel(window, "A Label");
     assertThat(button).isSameAs(window.button);
   }
 
   @Test
-  public void should_throw_error_if_Component_not_found() {
+  public void should_Throw_Error_If_Component_Not_Found() {
     thrown.expect(ComponentLookupException.class, "label='list'");
     finder.findByLabel(window, "list");
   }

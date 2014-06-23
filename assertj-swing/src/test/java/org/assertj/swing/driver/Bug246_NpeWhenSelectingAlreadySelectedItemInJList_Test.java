@@ -44,7 +44,7 @@ public class Bug246_NpeWhenSelectingAlreadySelectedItemInJList_Test extends Robo
   }
 
   @Test
-  public void should_not_select_item_if_already_selected() {
+  public void should_Not_Select_Item_If_Already_Selected() {
     driver.selectItem(list, "One");
     assertThat(list.getSelectedIndex()).isEqualTo(0);
   }

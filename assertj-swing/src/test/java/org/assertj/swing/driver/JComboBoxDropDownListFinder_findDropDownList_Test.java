@@ -52,7 +52,7 @@ public class JComboBoxDropDownListFinder_findDropDownList_Test extends RobotBase
   }
 
   @Test
-  public void should_find_drop_down_list() {
+  public void should_Find_Drop_Down_List() {
     showJComboBoxDropDownList();
     JList list = finder.findDropDownList();
     assertThat(list).isNotNull();
@@ -60,7 +60,7 @@ public class JComboBoxDropDownListFinder_findDropDownList_Test extends RobotBase
   }
 
   @Test
-  public void should_try_to_find_drop_down_list_until_it_is_found() {
+  public void should_Try_To_Find_Drop_Down_List_Until_It_Is_Found() {
     showDropDownListWithDelay();
     JList list = finder.findDropDownList();
     assertThat(list).isNotNull();
@@ -103,13 +103,13 @@ public class JComboBoxDropDownListFinder_findDropDownList_Test extends RobotBase
   }
 
   @Test
-  public void should_return_null_if_drop_down_was_not_found() {
+  public void should_Return_Null_If_Drop_Down_Was_Not_Found() {
     JList list = finder.findDropDownList();
     assertThat(list).isNull();
   }
 
   @Test
-  public void should_return_null_if_active_drop_down_does_not_belong_to_JComboBox() {
+  public void should_Return_Null_If_Active_Drop_Down_Does_Not_Belong_To_JComboBox() {
     robot.rightClick(window.textField);
     JList list = finder.findDropDownList();
     assertThat(list).isNull();

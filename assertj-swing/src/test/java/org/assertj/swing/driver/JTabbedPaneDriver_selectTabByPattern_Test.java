@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class JTabbedPaneDriver_selectTabByPattern_Test extends JTabbedPaneDriver_TestCase {
   @Test
-  public void should_select_matching_tab() {
+  public void should_Select_Matching_Tab() {
     showWindow();
     driver.selectTab(tabbedPane, Pattern.compile("Tw.*"));
     assertThatSelectedTabIndexIs(1);
@@ -33,14 +33,14 @@ public class JTabbedPaneDriver_selectTabByPattern_Test extends JTabbedPaneDriver
   }
 
   @Test
-  public void should_throw_error_if_JTabbedPane_is_disabled() {
+  public void should_Throw_Error_If_JTabbedPane_Is_Disabled() {
     disableTabbedPane();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectTab(tabbedPane, Pattern.compile("Tw.*"));
   }
 
   @Test
-  public void should_throw_error_if_JTabbedPane_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTabbedPane_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectTab(tabbedPane, Pattern.compile("Tw.*"));
   }

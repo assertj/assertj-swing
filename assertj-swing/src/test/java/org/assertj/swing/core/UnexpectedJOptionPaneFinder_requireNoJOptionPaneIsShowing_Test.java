@@ -48,14 +48,14 @@ public class UnexpectedJOptionPaneFinder_requireNoJOptionPaneIsShowing_Test exte
   }
 
   @Test
-  public void should_pass_if_there_are_not_any_JOptionPanes_showing() {
+  public void should_Pass_If_There_Are_Not_Any_JOptionPanes_Showing() {
     List<Component> components = newArrayList();
     when(delegate.findAll(OPTION_PANE_MATCHER)).thenReturn(components);
     finder.requireNoJOptionPaneIsShowing();
   }
 
   @Test
-  public void should_fail_if_there_is_a_JOptionPane_showing() {
+  public void should_Fail_If_There_Is_A_JOptionPane_Showing() {
     List<Component> found = newArrayList();
     found.add(optionPane().createNew());
     when(delegate.findAll(OPTION_PANE_MATCHER)).thenReturn(found);

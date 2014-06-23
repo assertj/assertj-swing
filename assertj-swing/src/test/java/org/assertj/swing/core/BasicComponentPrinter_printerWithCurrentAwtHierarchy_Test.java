@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class BasicComponentPrinter_printerWithCurrentAwtHierarchy_Test {
   @Test
-  public void should_create_ComponentPrinter_with_ExistingHierarchy() {
+  public void should_Create_ComponentPrinter_With_ExistingHierarchy() {
     BasicComponentPrinter printer = (BasicComponentPrinter) BasicComponentPrinter.printerWithCurrentAwtHierarchy();
     assertThat(printer.hierarchy()).isInstanceOf(ExistingHierarchy.class);
   }

@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class JToolBarDriver_floatTo_Test extends JToolBarDriver_TestCase {
   @Test
-  public void should_float_JToolBar() {
+  public void should_Float_JToolBar() {
     showWindow();
     Window oldAncestor = toolBarAncestor();
     Point where = whereToFloatTo();

@@ -32,21 +32,21 @@ public class BasicComponentFinder_findByLabelAndTypeInRoot_Test extends BasicCom
   private MyWindow windowTwo;
 
   @Test
-  public void should_find_Component() {
+  public void should_Find_Component() {
     windowTwo = MyWindow.createNew(getClass());
     JButton button = finder.findByLabel(window, "A Label", JButton.class);
     assertThat(button).isSameAs(window.button);
   }
 
   @Test
-  public void should_throw_error_if_Component_not_found() {
+  public void should_Throw_Error_If_Component_Not_Found() {
     thrown.expect(ComponentLookupException.class, "label='list'");
     thrown.expectMessageToContain("type=javax.swing.JLabel");
     finder.findByLabel(window, "list", JLabel.class);
   }
 
   @Test
-  public void should_throw_error_if_Component_found_by_label_Container_but_not_by_type() {
+  public void should_Throw_Error_If_Component_Found_By_Label_Container_But_Not_By_Type() {
     thrown.expect(ComponentLookupException.class, "label='button'");
     thrown.expectMessageToContain("type=javax.swing.JLabel");
     finder.findByLabel(window, "button", JLabel.class);

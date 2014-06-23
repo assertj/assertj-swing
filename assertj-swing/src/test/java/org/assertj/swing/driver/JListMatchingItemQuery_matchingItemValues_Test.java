@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class JListMatchingItemQuery_matchingItemValues_Test extends JListMatchingItemQuery_TestCase {
   @Test
-  public void should_return_values_of_matching_items() {
+  public void should_Return_Values_Of_Matching_Items() {
     TextMatcher matcher = mockTextMatcher();
     when(matcher.isMatching("Yoda")).thenReturn(false);
     when(matcher.isMatching("Luke")).thenReturn(true);
@@ -41,7 +41,7 @@ public class JListMatchingItemQuery_matchingItemValues_Test extends JListMatchin
   }
 
   @Test
-  public void should_return_empty_list_if_matching_values_not_found() {
+  public void should_Return_Empty_List_If_Matching_Values_Not_Found() {
     TextMatcher matcher = mockTextMatcher();
     when(matcher.isMatching("Yoda")).thenReturn(false);
     when(matcher.isMatching("Luke")).thenReturn(false);

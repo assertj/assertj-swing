@@ -33,7 +33,7 @@ import org.junit.Test;
  */
 public class WindowFilter_recognize_Test extends WindowFilter_TestCase {
   @Test
-  public void should_recognize_Component() {
+  public void should_Recognize_Component() {
     Component c = button().createNew();
     addToIgnoredMap(c);
     addToImplicitlyIgnoredMap(c);
@@ -43,7 +43,7 @@ public class WindowFilter_recognize_Test extends WindowFilter_TestCase {
   }
 
   @Test
-  public void should_recognize_children_of_shared_invisible_Frame() {
+  public void should_Recognize_Children_Of_Shared_Invisible_Frame() {
     JDialog dialog = dialog().createNew();
     addToIgnoredMap(dialog);
     addToImplicitlyIgnoredMap(dialog);

@@ -26,14 +26,14 @@ import org.junit.Test;
  */
 public class JTableDriver_requireRowCount_Test extends JTableDriver_TestCase {
   @Test
-  public void should_fail_if_row_count_is_not_equal_to_expected() {
+  public void should_Fail_If_Row_Count_Is_Not_Equal_To_Expected() {
     thrown.expectAssertionError("property:'rowCount'");
     thrown.expectMessageToContain("expected:<1[2]> but was:<1[0]>");
     driver.requireRowCount(table, 12);
   }
 
   @Test
-  public void should_pass_if_row_count_is_equal_to_expected() {
+  public void should_Pass_If_Row_Count_Is_Equal_To_Expected() {
     driver.requireRowCount(table, ROW_COUNT);
   }
 }

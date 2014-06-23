@@ -33,7 +33,7 @@ public class Windows_markAsShowing_Test extends Windows_TestCase {
   private static Logger logger = getAnonymousLogger();
 
   @Test
-  public void should_mark_Window_as_showing() {
+  public void should_Mark_Window_As_Showing() {
     windows.markAsShowing(window);
     assertThat(windows.isShowingButNotReady(window)).isTrue();
     int timeToPause = Windows.WINDOW_READY_DELAY * 2;

@@ -45,7 +45,7 @@ public class JTableColumnByIdentifierQuery_columnIndexByIdentifier_Test extends 
   }
 
   @Test
-  public void should_return_column_index_given_identifier() {
+  public void should_Return_Column_Index_Given_Identifier() {
     table.startRecording();
     int index = parseInt(identifier);
     assertThat(columnIndexByIdentifier(identifier)).isEqualTo(index);

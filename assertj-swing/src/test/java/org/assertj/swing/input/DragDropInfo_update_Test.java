@@ -35,7 +35,7 @@ import org.junit.Test;
 public class DragDropInfo_update_Test extends DragDropInfo_TestCase {
 
   @Test
-  public void should_update_source_and_x_y_coordinates_on_mouse_pressed() {
+  public void should_Update_Source_And_X_Y_Coordinates_On_Mouse_Pressed() {
     MouseEvent event = new MouseEvent(source, MOUSE_PRESSED, when, 0, origin.x, origin.y, 1, false, BUTTON1);
     info.update(event);
     assertThat(info.source()).isSameAs(source);
@@ -43,7 +43,7 @@ public class DragDropInfo_update_Test extends DragDropInfo_TestCase {
   }
 
   @Test
-  public void should_clear_source_on_mouse_released() {
+  public void should_Clear_Source_On_Mouse_Released() {
     info.source(source);
     info.origin(origin);
     JComboBox c = comboBox().createNew();
@@ -53,7 +53,7 @@ public class DragDropInfo_update_Test extends DragDropInfo_TestCase {
   }
 
   @Test
-  public void should_clear_source_on_mouse_moved() {
+  public void should_Clear_Source_On_Mouse_Moved() {
     info.source(source);
     info.origin(origin);
     JComboBox c = comboBox().createNew();

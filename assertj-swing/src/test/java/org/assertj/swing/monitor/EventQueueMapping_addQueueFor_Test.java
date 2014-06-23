@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class EventQueueMapping_addQueueFor_Test extends EventQueueMapping_TestCase {
   @Test
-  public void should_add_EventQueue() {
+  public void should_Add_EventQueue() {
     mapping.addQueueFor(component);
     EventQueue storedEventQueue = queueMap.get(component).get();
     assertThat(storedEventQueue).isSameAs(eventQueue);

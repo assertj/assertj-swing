@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_iconify_deiconify_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_iconify_and_deiconify_JInternalFrame() {
+  public void should_Iconify_And_Deiconify_JInternalFrame() {
     showWindow();
     driver.iconify(internalFrame);
     assertThat(isIconified(internalFrame)).isTrue();
@@ -39,7 +39,7 @@ public class JInternalFrameDriver_iconify_deiconify_Test extends JInternalFrameD
   }
 
   @Test
-  public void should_iconify_and_deiconify_disabled_JInternalFrame() {
+  public void should_Iconify_And_Deiconify_Disabled_JInternalFrame() {
     disableInternalFrame();
     driver.iconify(internalFrame);
     assertThat(isIconified(internalFrame)).isTrue();

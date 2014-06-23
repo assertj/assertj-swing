@@ -45,7 +45,7 @@ public class ExistingHierarchy_dispose_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_dispose_Window() {
+  public void should_Dispose_Window() {
     window.startRecording();
     hierarchy.dispose(window);
     window.requireInvoked("dispose");

@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class JTabbedPaneDriver_selectTabByIndex_withInvalidLocation_Test extends JTabbedPaneDriver_TestCase {
   @Test
-  public void should_select_tab_directly_if_tab_location_not_found() {
+  public void should_Select_Tab_Directly_If_Tab_Location_Not_Found() {
     showWindow();
     selectFirstTab();
     JTabbedPaneLocation location = mock(JTabbedPaneLocation.class);

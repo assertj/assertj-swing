@@ -30,14 +30,14 @@ import org.junit.Test;
  */
 public class JButtonMatcher_matches_byNameAndText_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_name_and_text_are_equal_to_expected() {
+  public void should_Return_True_If_Name_And_Text_Are_Equal_To_Expected() {
     JButtonMatcher matcher = JButtonMatcher.withName("button").andText("Hello");
     JButton button = button().withName("button").withText("Hello").createNew();
     assertThat(matcher.matches(button)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_name_is_equal_to_expected_and_text_matches_pattern() {
+  public void should_Return_True_If_Name_Is_Equal_To_Expected_And_Text_Matches_Pattern() {
     JButtonMatcher matcher = JButtonMatcher.withName("button").andText("Hel.*");
     JButton button = button().withName("button").withText("Hello").createNew();
     assertThat(matcher.matches(button)).isTrue();

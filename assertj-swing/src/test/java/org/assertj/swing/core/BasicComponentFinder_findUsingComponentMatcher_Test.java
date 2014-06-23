@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class BasicComponentFinder_findUsingComponentMatcher_Test extends BasicComponentFinder_TestCase {
   @Test
-  public void should_throw_error_if_more_than_one_Component_matched() {
+  public void should_Throw_Error_If_More_Than_One_Component_Matched() {
     thrown.expect(ComponentLookupException.class, "Found:");
     thrown.expectMessageToContain("text='TextField 1'", "text='TextField 2'");
     finder.find(new TypeMatcher(JTextField.class));

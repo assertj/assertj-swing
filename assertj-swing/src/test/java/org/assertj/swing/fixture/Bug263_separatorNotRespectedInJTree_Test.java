@@ -47,7 +47,7 @@ public class Bug263_separatorNotRespectedInJTree_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_use_specified_path_separator() {
+  public void should_Use_Specified_Path_Separator() {
     treeFixture.replaceSeparator("*");
     assertThat(treeFixture.separator()).isEqualTo("*");
     treeFixture.selectPath("root*node1*node11*node111");

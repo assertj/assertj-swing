@@ -38,7 +38,7 @@ public class TestInfo_constructor_Test {
   }
 
   @Test
-  public void should_create_TestInfo_for_GUI_test_method() throws Exception {
+  public void should_Create_TestInfo_For_GUI_Test_Method() throws Exception {
     Method method = type.getDeclaredMethod("successfulGUITest");
     TestInfo testInfo = new TestInfo(test, type, method);
     assertTestInfoCreatedCorrectly(testInfo, method);
@@ -48,7 +48,7 @@ public class TestInfo_constructor_Test {
   }
 
   @Test
-  public void should_create_TestInfo_for_non_GUI_test_method() throws Exception {
+  public void should_Create_TestInfo_For_Non_GUI_Test_Method() throws Exception {
     Method method = method("successfulNonGUITest");
     TestInfo testInfo = new TestInfo(test, type, method);
     assertTestInfoCreatedCorrectly(testInfo, method);

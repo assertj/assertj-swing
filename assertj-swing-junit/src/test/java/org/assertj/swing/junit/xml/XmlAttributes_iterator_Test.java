@@ -39,7 +39,7 @@ public class XmlAttributes_iterator_Test {
   }
 
   @Test
-  public void should_return_all_attributes_in_a_iterator() {
+  public void should_Return_All_Attributes_In_A_Iterator() {
     Iterator<XmlAttribute> iterator = attributes.iterator();
     List<XmlAttribute> attributeList = new ArrayList<XmlAttribute>();
     while (iterator.hasNext())

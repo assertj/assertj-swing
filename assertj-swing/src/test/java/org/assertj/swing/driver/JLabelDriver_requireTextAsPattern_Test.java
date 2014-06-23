@@ -27,12 +27,12 @@ import org.junit.Test;
  */
 public class JLabelDriver_requireTextAsPattern_Test extends JLabelDriver_TestCase {
   @Test
-  public void should_pass_if_text_matches_pattern() {
+  public void should_Pass_If_Text_Matches_Pattern() {
     driver.requireText(label, Pattern.compile("H.*"));
   }
 
   @Test
-  public void should_fail_if_text_does_not_match_pattern() {
+  public void should_Fail_If_Text_Does_Not_Match_Pattern() {
     thrown.expectAssertionError("text", "Hi", Pattern.compile("Bye"));
     driver.requireText(label, Pattern.compile("Bye"));
   }

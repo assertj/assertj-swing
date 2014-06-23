@@ -45,7 +45,7 @@ public class Bug108_findShowingContainerOnly_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_only_showing_Container() {
+  public void should_Find_Only_Showing_Container() {
     robot.waitForIdle();
     JInternalFrameFixture fixture = new JInternalFrameFixture(robot, "target");
     assertThat(fixture.target()).isSameAs(window.visibleFrame);

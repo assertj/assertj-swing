@@ -62,7 +62,7 @@ public class AWTEventPoster_postEvent_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_post_event_in_Component_EventQueue_if_Component_is_not_null() {
+  public void should_Post_Event_In_Component_EventQueue_If_Component_Is_Not_Null() {
     final Component c = TestComponents.newComponentMock();
     when(settings.delayBetweenEvents()).thenReturn(WAIT_DELAY);
     when(monitor.eventQueueFor(c)).thenReturn(eventQueue);
@@ -72,7 +72,7 @@ public class AWTEventPoster_postEvent_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_post_event_in_System_EventQueue_ff_Component_is_null() {
+  public void should_Post_Event_In_System_EventQueue_Ff_Component_Is_Null() {
     when(settings.delayBetweenEvents()).thenReturn(WAIT_DELAY);
     when(toolkit.getSystemEventQueue()).thenReturn(eventQueue);
     postEventAndAssertItWaited(null);

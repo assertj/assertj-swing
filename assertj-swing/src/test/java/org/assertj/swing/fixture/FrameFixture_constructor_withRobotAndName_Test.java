@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class FrameFixture_constructor_withRobotAndName_Test extends RobotBasedTestCase {
   @Test
-  public void should_lookup_showing_frame_by_name() {
+  public void should_Lookup_Showing_Frame_By_Name() {
     Frame target = frame().withName("frame").withTitle(getClass().getSimpleName()).createAndShow();
     FrameFixture fixture = new FrameFixture(robot, "frame");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -39,13 +39,13 @@ public class FrameFixture_constructor_withRobotAndName_Test extends RobotBasedTe
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_frame_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_Frame_With_Matching_Name_Is_Not_Showing() {
     frame().withName("frame").createNew();
     new FrameFixture(robot, "frame");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_frame_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_Frame_With_Matching_Name_Is_Not_Found() {
     frame().withName("a frame").createNew();
     new FrameFixture(robot, "frame");
   }

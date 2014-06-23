@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class WindowFilter_implicitlyIgnore_Test extends WindowFilter_TestCase {
   @Test
-  public void should_implicit_ignore() {
+  public void should_Implicit_Ignore() {
     Component c = button().createNew();
     filter.implicitlyIgnore(c);
     assertThat(allImplicityIgnored()).containsOnly(c);

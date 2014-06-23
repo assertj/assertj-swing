@@ -49,7 +49,7 @@ public class JTreeAddRootIfInvisibleTask_addRootIfInvisible_Test extends RobotBa
   }
 
   @Test
-  public void should_not_add_root_to_path_if_root_is_invisible_but_path_already_contains_root() {
+  public void should_Not_Add_Root_To_Path_If_Root_Is_Invisible_But_Path_Already_Contains_Root() {
     TreePath treePath = new TreePath(window.root);
     TreePath newTreePath = JTreeAddRootIfInvisibleTask.addRootIfInvisible(window.tree, treePath);
     assertThat(newTreePath).isEqualTo(treePath);

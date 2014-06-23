@@ -28,14 +28,14 @@ import org.junit.Test;
  */
 public class JFileChooserFinder_findFileChooser_byType_Test extends JFileChooserFinder_TestCase {
   @Test
-  public void should_find_JFileChooser() {
+  public void should_Find_JFileChooser() {
     clickBrowseButton();
     JFileChooserFixture found = JFileChooserFinder.findFileChooser().using(robot);
     assertThat(found.target()).isSameAs(window.fileChooser());
   }
 
   @Test
-  public void should_find_JFileChooser_before_given_timeout_expires() {
+  public void should_Find_JFileChooser_Before_Given_Timeout_Expires() {
     window.launchDelay(200);
     clickBrowseButton();
     JFileChooserFixture found = JFileChooserFinder.findFileChooser().withTimeout(500, MILLISECONDS).using(robot);
@@ -43,7 +43,7 @@ public class JFileChooserFinder_findFileChooser_byType_Test extends JFileChooser
   }
 
   @Test
-  public void should_find_JFileChooser_before_given_timeout_in_ms_expires() {
+  public void should_Find_JFileChooser_Before_Given_Timeout_In_Ms_Expires() {
     window.launchDelay(200);
     clickBrowseButton();
     JFileChooserFixture found = JFileChooserFinder.findFileChooser().withTimeout(500).using(robot);
@@ -51,7 +51,7 @@ public class JFileChooserFinder_findFileChooser_byType_Test extends JFileChooser
   }
 
   @Test(expected = WaitTimedOutError.class)
-  public void should_fail_if_JFileChooser_not_found() {
+  public void should_Fail_If_JFileChooser_Not_Found() {
     JFileChooserFinder.findFileChooser().using(robot);
   }
 }

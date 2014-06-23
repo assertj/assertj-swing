@@ -39,13 +39,13 @@ public class BasicCellRendererComponentReader_valueFrom_Test extends EDTSafeTest
   }
 
   @Test
-  public void should_return_value_from_JLabel() {
+  public void should_Return_Value_From_JLabel() {
     JLabel label = label().withText("Hello").createNew();
     assertThat(reader.valueFrom(label)).isEqualTo("Hello");
   }
 
   @Test
-  public void should_return_null_if_Component_is_not_JLabel() {
+  public void should_Return_Null_If_Component_Is_Not_JLabel() {
     JButton button = button().withText("Hello").createNew();
     assertThat(reader.valueFrom(button)).isNull();
   }

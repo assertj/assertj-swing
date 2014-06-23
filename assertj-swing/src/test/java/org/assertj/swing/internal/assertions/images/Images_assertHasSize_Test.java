@@ -45,24 +45,24 @@ public class Images_assertHasSize_Test extends ImagesBaseTest {
   }
 
   @Test
-  public void should_fail_if_actual_is_null() {
+  public void should_Fail_If_Actual_Is_Null() {
     thrown.expectAssertionError(actualIsNull());
     images.assertHasSize(someInfo(), null, new Dimension());
   }
 
   @Test
-  public void should_throw_error_if_size_is_null() {
+  public void should_Throw_Error_If_Size_Is_Null() {
     thrown.expectNullPointerException("The given size should not be null");
     images.assertHasSize(someInfo(), actual, null);
   }
 
   @Test
-  public void should_pass_if_actual_has_size() {
+  public void should_Pass_If_Actual_Has_Size() {
     images.assertHasSize(someInfo(), actual, new Dimension(6, 8));
   }
 
   @Test
-  public void should_fail_if_actual_has_different_width() {
+  public void should_Fail_If_Actual_Has_Different_Width() {
     AssertionInfo info = someInfo();
     Dimension size = new Dimension(10, 8);
     thrown.expect(AssertionError.class);
@@ -74,7 +74,7 @@ public class Images_assertHasSize_Test extends ImagesBaseTest {
   }
 
   @Test
-  public void should_fail_if_actual_has_different_height() {
+  public void should_Fail_If_Actual_Has_Different_Height() {
     AssertionInfo info = someInfo();
     Dimension size = new Dimension(6, 10);
     thrown.expect(AssertionError.class);

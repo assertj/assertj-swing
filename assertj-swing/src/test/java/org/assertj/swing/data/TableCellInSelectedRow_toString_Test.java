@@ -33,7 +33,7 @@ public class TableCellInSelectedRow_toString_Test {
   }
 
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     assertThat(finder.toString()).isEqualTo("org.assertj.swing.data.TableCellInSelectedRow[column=6]");
   }
 }

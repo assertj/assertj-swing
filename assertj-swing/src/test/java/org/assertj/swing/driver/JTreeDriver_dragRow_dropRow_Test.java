@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JTreeDriver_dragRow_dropRow_Test extends JTreeDriver_dragAndDrop_TestCase {
   @Test
-  public void should_drag_and_drop() {
+  public void should_Drag_And_Drop() {
     showWindow();
     driver.drag(tree, 2);
     driver.drop(dropTree, 0);

@@ -26,12 +26,12 @@ import org.junit.Test;
  */
 public class JTreeDriver_validatePath_Test extends JTreeDriver_TestCase {
   @Test
-  public void should_return_node_by_path() {
+  public void should_Return_Node_By_Path() {
     driver.checkPathExists(tree, "root/branch1/branch1.1");
   }
 
   @Test(expected = LocationUnavailableException.class)
-  public void should_throw_error_if_path_does_not_exist() {
+  public void should_Throw_Error_If_Path_Does_Not_Exist() {
     driver.checkPathExists(tree, "hello!");
   }
 }

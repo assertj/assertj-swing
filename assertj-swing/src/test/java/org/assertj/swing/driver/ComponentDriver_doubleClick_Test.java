@@ -32,7 +32,7 @@ public class ComponentDriver_doubleClick_Test extends ComponentDriver_TestCase {
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_double_click_Component() {
+  public void should_Double_Click_Component() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     driver.doubleClick(window.button);
@@ -40,7 +40,7 @@ public class ComponentDriver_doubleClick_Test extends ComponentDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     disableButton();
     thrown.expectIllegalStateIsDisabledComponent();
@@ -52,7 +52,7 @@ public class ComponentDriver_doubleClick_Test extends ComponentDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     thrown.expectIllegalStateIsNotShowingComponent();
     try {

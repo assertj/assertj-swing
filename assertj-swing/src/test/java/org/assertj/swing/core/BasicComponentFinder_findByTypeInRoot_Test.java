@@ -32,14 +32,14 @@ public class BasicComponentFinder_findByTypeInRoot_Test extends BasicComponentFi
   private MyWindow windowTwo;
 
   @Test
-  public void should_find_Component() {
+  public void should_Find_Component() {
     windowTwo = MyWindow.createNew(getClass());
     JButton button = finder.findByType(windowTwo, JButton.class);
     assertThat(button).isSameAs(windowTwo.button);
   }
 
   @Test
-  public void should_throw_error_if_Component_not_found() {
+  public void should_Throw_Error_If_Component_Not_Found() {
     thrown.expect(ComponentLookupException.class, "type=javax.swing.JList");
     finder.findByType(window, JList.class);
   }

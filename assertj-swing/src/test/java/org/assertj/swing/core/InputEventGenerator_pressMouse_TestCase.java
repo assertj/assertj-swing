@@ -59,7 +59,7 @@ public abstract class InputEventGenerator_pressMouse_TestCase extends InputEvent
   }
 
   @Test
-  public void should_press_mouse_button_at_given_point_and_release_mouse_button() {
+  public void should_Press_Mouse_Button_At_Given_Point_And_Release_Mouse_Button() {
     Point center = centerOf(window);
     eventGenerator.moveMouse(window, center.x, center.y); // indirectly testing mouseMove :)
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window);

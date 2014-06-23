@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class JTextComponentMatcher_matches_byText_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_text_is_equal_to_expected() {
+  public void should_Return_True_If_Text_Is_Equal_To_Expected() {
     String text = "Hello";
     JTextComponentMatcher matcher = JTextComponentMatcher.withText(text);
     JTextField textField = textField().withText(text).createNew();
@@ -38,14 +38,14 @@ public class JTextComponentMatcher_matches_byText_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_true_if_text_matches_pattern() {
+  public void should_Return_True_If_Text_Matches_Pattern() {
     JTextComponentMatcher matcher = JTextComponentMatcher.withText("Hello");
     JTextField textField = textField().withText("Bye").createNew();
     assertThat(matcher.matches(textField)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_text_is_not_equal_to_expected() {
+  public void should_Return_False_If_Text_Is_Not_Equal_To_Expected() {
     JTextComponentMatcher matcher = JTextComponentMatcher.withText("He.*");
     JTextField textField = textField().withText("Bye").createNew();
     assertThat(matcher.matches(textField)).isFalse();

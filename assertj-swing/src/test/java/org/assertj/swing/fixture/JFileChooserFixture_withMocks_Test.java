@@ -51,13 +51,13 @@ public class JFileChooserFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_approve_in_driver() {
+  public void should_Call_Approve_In_Driver() {
     fixture.approve();
     verify(driver).clickApproveButton(target);
   }
 
   @Test
-  public void should_return_approve_button_using_driver() {
+  public void should_Return_Approve_Button_Using_Driver() {
     JButton approveButton = mock(JButton.class);
     when(driver.approveButton(target)).thenReturn(approveButton);
     JButtonFixture buttonFixture = fixture.approveButton();
@@ -66,13 +66,13 @@ public class JFileChooserFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_cancel_in_driver() {
+  public void should_Call_Cancel_In_Driver() {
     fixture.cancel();
     verify(driver).clickCancelButton(target);
   }
 
   @Test
-  public void should_return_cancel_button_using_driver() {
+  public void should_Return_Cancel_Button_Using_Driver() {
     JButton cancelButton = mock(JButton.class);
     when(driver.cancelButton(target)).thenReturn(cancelButton);
     JButtonFixture buttonFixture = fixture.cancelButton();
@@ -81,7 +81,7 @@ public class JFileChooserFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_file_name_textBox_using_driver() {
+  public void should_Return_File_Name_TextBox_Using_Driver() {
     JTextField fileNameTextBox = mock(JTextField.class);
     when(driver.fileNameTextBox(target)).thenReturn(fileNameTextBox);
     JTextComponentFixture textComponentFixture = fixture.fileNameTextBox();
@@ -90,21 +90,21 @@ public class JFileChooserFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_selectFile_in_driver_and_return_self() {
+  public void should_Call_SelectFile_In_Driver_And_Return_Self() {
     File file = mock(File.class);
     assertThat(fixture.selectFile(file)).isSameAs(fixture);
     verify(driver).selectFile(target, file);
   }
 
   @Test
-  public void should_call_selectFiles_in_driver_and_return_self() {
+  public void should_Call_SelectFiles_In_Driver_And_Return_Self() {
     File[] files = { mock(File.class) };
     assertThat(fixture.selectFiles(files)).isSameAs(fixture);
     verify(driver).selectFiles(target, files);
   }
 
   @Test
-  public void should_call_setCurrentDirectory_in_driver_and_return_self() {
+  public void should_Call_SetCurrentDirectory_In_Driver_And_Return_Self() {
     File dir = mock(File.class);
     assertThat(fixture.setCurrentDirectory(dir)).isSameAs(fixture);
     verify(driver).setCurrentDirectory(target, dir);

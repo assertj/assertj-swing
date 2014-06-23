@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class FrameMatcher_matches_byTitleAndShowing_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_Frame_is_showing_and_title_is_equal_to_expected() {
+  public void should_Return_True_If_Frame_Is_Showing_And_Title_Is_Equal_To_Expected() {
     ScreenLock.instance().acquire(this);
     Class<FrameMatcher> testType = FrameMatcher.class;
     TestWindow frame = TestWindow.createAndShowNewWindow(testType);
@@ -49,7 +49,7 @@ public class FrameMatcher_matches_byTitleAndShowing_Test extends EDTSafeTestCase
   }
 
   @Test
-  public void should_return_false_if_Frame_is_not_showing_and_title_is_equal_to_expected() {
+  public void should_Return_False_If_Frame_Is_Not_Showing_And_Title_Is_Equal_To_Expected() {
     String title = "Hello";
     FrameMatcher matcher = FrameMatcher.withTitle(title).andShowing();
     JFrame frame = frame().withTitle(title).createNew();
@@ -57,7 +57,7 @@ public class FrameMatcher_matches_byTitleAndShowing_Test extends EDTSafeTestCase
   }
 
   @Test
-  public void should_return_false_if_Frame_is_showing_and_title_is_not_equal_to_expected() {
+  public void should_Return_False_If_Frame_Is_Showing_And_Title_Is_Not_Equal_To_Expected() {
     ScreenLock.instance().acquire(this);
     TestWindow frame = TestWindow.createAndShowNewWindow(FrameMatcher.class);
     try {
@@ -73,7 +73,7 @@ public class FrameMatcher_matches_byTitleAndShowing_Test extends EDTSafeTestCase
   }
 
   @Test
-  public void should_return_false_if_Frame_is_not_showing_and_title_is_not_equal_to_expected() {
+  public void should_Return_False_If_Frame_Is_Not_Showing_And_Title_Is_Not_Equal_To_Expected() {
     FrameMatcher matcher = FrameMatcher.withTitle("Hello").andShowing();
     JFrame frame = frame().withTitle("Bye").createNew();
     assertThat(matcher.matches(frame)).isFalse();

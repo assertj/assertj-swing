@@ -39,7 +39,7 @@ public class JToolBarDriver_makeFloat_Test extends JToolBarDriver_TestCase {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_throw_error_if_JToolBar_is_not_floatable() {
+  public void should_Throw_Error_If_JToolBar_Is_Not_Floatable() {
     makeNotFloatable();
     thrown.expect(IllegalStateException.class, "is not floatable");
     driver.makeFloat(toolBar);
@@ -63,7 +63,7 @@ public class JToolBarDriver_makeFloat_Test extends JToolBarDriver_TestCase {
   }
 
   @RunsInEDT
-  public void should_float_JToolbar() {
+  public void should_Float_JToolbar() {
     Window oldAncestor = toolBarAncestor();
     driver.makeFloat(toolBar);
     Window newAncestor = toolBarAncestor();

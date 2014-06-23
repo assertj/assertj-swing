@@ -32,24 +32,24 @@ import org.junit.Test;
  */
 public class BasicComponentPrinter_printComponentsByType_Test extends BasicComponentPrinter_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_OutputStream_is_null() {
+  public void should_Throw_Error_If_OutputStream_Is_Null() {
     printer.printComponents(null, JButton.class);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_type_to_match_is_null() {
+  public void should_Throw_Error_If_Type_To_Match_Is_Null() {
     Class<? extends Component> type = null;
     printer.printComponents(out, type);
   }
 
   @Test
-  public void should_print_all_Components_of_given_type() {
+  public void should_Print_All_Components_Of_Given_Type() {
     printer.printComponents(out, JButton.class);
     assertThat(out.printed()).containsOnly(format(windowOne.button), format(windowTwo.button));
   }
 
   @Test
-  public void should_not_print_Components_if_type_does_not_match() {
+  public void should_Not_Print_Components_If_Type_Does_Not_Match() {
     printer.printComponents(out, JComboBox.class);
     assertThat(out.printed()).isEmpty();
   }

@@ -43,7 +43,7 @@ public class ComponentLocationOnScreenQuery_locationOnScreen_Test extends RobotB
   }
 
   @Test
-  public void should_return_Component_location_on_screen() {
+  public void should_Return_Component_Location_On_Screen() {
     Point expected = new Point(100, 100);
     window.startRecording();
     assertThat(ComponentLocationOnScreenQuery.locationOnScreen(window)).isEqualTo(expected);

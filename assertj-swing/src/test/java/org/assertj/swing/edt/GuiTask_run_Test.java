@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class GuiTask_run_Test {
   @Test(expected = ActionFailedException.class)
-  public void should_throw_error_if_not_called_in_EDT() {
+  public void should_Throw_Error_If_Not_Called_In_EDT() {
     new GuiTask() {
       @Override
       protected void executeInEDT() {

@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class JScrollBarDriver_scrollToMaximum_Test extends JScrollBarDriver_TestCase {
   @Test
-  public void should_scroll_to_maximum() {
+  public void should_Scroll_To_Maximum() {
     showWindow();
     driver.scrollToMaximum(scrollBar);
     assertThatScrollBarValueIs(MAXIMUM - EXTENT); // JScrollBar value cannot go to maximum

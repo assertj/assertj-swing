@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class WindowMonitor_allEventQueues_Test extends WindowMonitor_TestCase {
   @Test
-  public void should_return_all_EventQueues() {
+  public void should_Return_All_EventQueues() {
     List<EventQueue> allQueues = newArrayList();
     when(context.allEventQueues()).thenReturn(allQueues);
     assertThat(monitor.allEventQueues()).isSameAs(allQueues);

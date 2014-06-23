@@ -25,12 +25,12 @@ import org.junit.Test;
  */
 public class AbstractButtonDriver_requireTextAsPattern_Test extends AbstractButtonDriver_TestCase {
   @Test
-  public void should_pass_if_text_matches_regex_pattern() {
+  public void should_Pass_If_Text_Matches_Regex_Pattern() {
     driver.requireText(checkBox, Pattern.compile("Hell."));
   }
 
   @Test
-  public void should_fail_if_text_does_not_match_regex_pattern() {
+  public void should_Fail_If_Text_Does_Not_Match_Regex_Pattern() {
     Pattern pattern = Pattern.compile("Bye.");
     thrown.expectAssertionError("text", "Hello", pattern);
     driver.requireText(checkBox, pattern);

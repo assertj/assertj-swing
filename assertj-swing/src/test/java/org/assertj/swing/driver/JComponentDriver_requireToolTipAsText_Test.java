@@ -27,17 +27,17 @@ import org.junit.Test;
  */
 public class JComponentDriver_requireToolTipAsText_Test extends JComponentDriver_TestCase {
   @Test
-  public void should_pass_if_toolTip_is_equal_to_given_text() {
+  public void should_Pass_If_ToolTip_Is_Equal_To_Given_Text() {
     driver.requireToolTip(button, "A ToolTip");
   }
 
   @Test
-  public void should_pass_if_toolTip_matches_pattern_in_given_text() {
+  public void should_Pass_If_ToolTip_Matches_Pattern_In_Given_Text() {
     driver.requireToolTip(button, "A Tool.*");
   }
 
   @Test
-  public void should_fail_if_toolTip_is_not_equal_to_given_text() {
+  public void should_Fail_If_ToolTip_Is_Not_Equal_To_Given_Text() {
     thrown.expectAssertionError("toolTipText", "A ToolTip", Pattern.compile("Hello"));
     driver.requireToolTip(button, "Hello");
   }

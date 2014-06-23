@@ -24,19 +24,19 @@ import org.junit.Test;
  */
 public class FontFixture_requireSize_Test extends FontFixture_TestCase {
   @Test
-  public void should_pass_if_size_is_equal_to_expected() {
+  public void should_Pass_If_Size_Is_Equal_To_Expected() {
     fixture().requireSize(8);
   }
 
   @Test
-  public void should_fail_if_size_is_not_equal_to_expected() {
+  public void should_Fail_If_Size_Is_Not_Equal_To_Expected() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("[size] expected:<[6]> but was:<[8]>");
     fixture().requireSize(6);
   }
 
   @Test
-  public void should_fail_showing_description_if_size_is_not_equal_to_expected() {
+  public void should_Fail_Showing_Description_If_Size_Is_Not_Equal_To_Expected() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("[test - size] expected:<[6]> but was:<[8]>");
     FontFixture fixture = new FontFixture(font(), "test");

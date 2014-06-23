@@ -43,7 +43,7 @@ public class Bug116_scrollToItemToSelectInJComboBox_Test extends RobotBasedTestC
   }
 
   @Test
-  public void should_scroll_to_item_before_selecting_it() {
+  public void should_Scroll_To_Item_Before_Selecting_It() {
     int toSelect = 99;
     comboBox.selectItem(toSelect);
     assertThat(selectedIndexOf(window.comboBox)).isEqualTo(toSelect);

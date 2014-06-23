@@ -33,17 +33,17 @@ public class Pause_pauseWithConditionAndTimeoutInTimeUnit_Test {
   private static final int TIMEOUT = 1000;
 
   @Test(expected = WaitTimedOutError.class)
-  public void should_timeout_if_Condition_is_never_satisfied() {
+  public void should_Timeout_If_Condition_Is_Never_Satisfied() {
     Pause.pause(new NeverSatisfiedCondition(), timeout(TIMEOUT));
   }
 
   @Test(expected = WaitTimedOutError.class, timeout = 1100)
-  public void should_timeout_if_Condition_runs_longer_than_timeout() {
+  public void should_Timeout_If_Condition_Runs_Longer_Than_Timeout() {
     Pause.pause(new SatisfiedCondition(10000), timeout(1, TimeUnit.SECONDS));
   }
 
   @Test
-  public void should_wait_till_Condition_is_satisfied() {
+  public void should_Wait_Till_Condition_Is_Satisfied() {
     int timeToWaitTillSatisfied = TIMEOUT - 50;
     SatisfiedCondition condition = new SatisfiedCondition(timeToWaitTillSatisfied);
 
@@ -56,17 +56,17 @@ public class Pause_pauseWithConditionAndTimeoutInTimeUnit_Test {
   }
 
   @Test(expected = NumberFormatException.class)
-  public void should_throw_error_if_Condition_throws_any() {
+  public void should_Throw_Error_If_Condition_Throws_Any() {
     Pause.pause(new RuntimeExceptionCondition(new NumberFormatException("expected")), timeout(TIMEOUT));
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Condition_is_null() {
+  public void should_Throw_Error_If_Condition_Is_Null() {
     Pause.pause((Condition) null, timeout(TIMEOUT));
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Timeout_is_null() {
+  public void should_Throw_Error_If_Timeout_Is_Null() {
     Pause.pause(new NeverSatisfiedCondition(), null);
   }
 }

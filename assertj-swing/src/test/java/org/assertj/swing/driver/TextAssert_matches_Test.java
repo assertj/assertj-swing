@@ -32,21 +32,21 @@ public class TextAssert_matches_Test {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_fail_if_actual_does_not_match_regex_pattern() {
+  public void should_Fail_If_Actual_Does_Not_Match_Regex_Pattern() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("Expecting:\n \"hello\"\nto match pattern:\n \"bye\"");
     new TextAssert("hello").matches(Pattern.compile("bye"));
   }
 
   @Test
-  public void should_fail_showing_description_if_actual_does_not_match_regex_pattern() {
+  public void should_Fail_Showing_Description_If_Actual_Does_Not_Match_Regex_Pattern() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("[A Test] \nExpecting:\n \"hello\"\nto match pattern:\n \"bye\"");
     new TextAssert("hello").as("A Test").matches(Pattern.compile("bye"));
   }
 
   @Test
-  public void should_pass_if_actual_matches_regex_pattern() {
+  public void should_Pass_If_Actual_Matches_Regex_Pattern() {
     new TextAssert("Hello").matches(Pattern.compile("Hel.*"));
   }
 }

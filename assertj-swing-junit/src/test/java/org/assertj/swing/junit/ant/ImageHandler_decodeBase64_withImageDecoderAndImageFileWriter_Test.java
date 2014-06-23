@@ -51,7 +51,7 @@ public class ImageHandler_decodeBase64_withImageDecoderAndImageFileWriter_Test e
   }
 
   @Test
-  public void should_not_rethrow_error() {
+  public void should_Not_Rethrow_Error() {
     new EasyMockTemplate(decoder, writer) {
       @Override
       protected void expectations() throws Throwable {

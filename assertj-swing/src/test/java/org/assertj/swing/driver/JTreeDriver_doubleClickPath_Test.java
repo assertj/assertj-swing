@@ -34,7 +34,7 @@ public class JTreeDriver_doubleClickPath_Test extends JTreeDriver_clickCell_Test
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_double_click_cell() {
+  public void should_Double_Click_Cell() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     driver.doubleClickPath(tree, "root");
@@ -43,14 +43,14 @@ public class JTreeDriver_doubleClickPath_Test extends JTreeDriver_clickCell_Test
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.doubleClickPath(tree, "root");
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.doubleClickPath(tree, "root");
   }

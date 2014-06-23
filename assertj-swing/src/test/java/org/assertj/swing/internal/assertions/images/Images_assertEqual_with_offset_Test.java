@@ -54,29 +54,29 @@ public class Images_assertEqual_with_offset_Test extends ImagesBaseTest {
   }
 
   @Test
-  public void should_throw_error_if_Offset_is_null() {
+  public void should_Throw_Error_If_Offset_Is_Null() {
     thrown.expectNullPointerException(offsetIsNull());
     images.assertEqual(someInfo(), actual, actual, null);
   }
 
   @Test
-  public void should_pass_if_images_are_equal() {
+  public void should_Pass_If_Images_Are_Equal() {
     Color similarBlue = new Color(0, 0, 250);
     images.assertEqual(someInfo(), actual, newImage(5, 5, similarBlue), offset);
   }
 
   @Test
-  public void should_pass_if_images_are_same() {
+  public void should_Pass_If_Images_Are_Same() {
     images.assertEqual(someInfo(), actual, actual, offset);
   }
 
   @Test
-  public void should_pass_if_both_images_are_null() {
+  public void should_Pass_If_Both_Images_Are_Null() {
     images.assertEqual(someInfo(), null, null, offset);
   }
 
   @Test
-  public void should_fail_if_actual_is_null_and_expected_is_not() {
+  public void should_Fail_If_Actual_Is_Null_And_Expected_Is_Not() {
     AssertionInfo info = someInfo();
     thrown.expect(AssertionError.class);
     try {
@@ -87,7 +87,7 @@ public class Images_assertEqual_with_offset_Test extends ImagesBaseTest {
   }
 
   @Test
-  public void should_fail_if_expected_is_null_and_actual_is_not() {
+  public void should_Fail_If_Expected_Is_Null_And_Actual_Is_Not() {
     AssertionInfo info = someInfo();
     thrown.expect(AssertionError.class);
     try {
@@ -102,7 +102,7 @@ public class Images_assertEqual_with_offset_Test extends ImagesBaseTest {
   }
 
   @Test
-  public void should_fail_if_images_have_different_size() {
+  public void should_Fail_If_Images_Have_Different_Size() {
     AssertionInfo info = someInfo();
     BufferedImage expected = newImage(6, 6, BLUE);
     thrown.expect(AssertionError.class);
@@ -114,7 +114,7 @@ public class Images_assertEqual_with_offset_Test extends ImagesBaseTest {
   }
 
   @Test
-  public void should_fail_if_images_have_same_size_but_different_color() {
+  public void should_Fail_If_Images_Have_Same_Size_But_Different_Color() {
     AssertionInfo info = someInfo();
     BufferedImage expected = fivePixelYellowImage();
     thrown.expect(AssertionError.class);

@@ -25,23 +25,23 @@ import org.junit.Test;
  */
 public class AbstractButtonDriver_requireTextAsString_Test extends AbstractButtonDriver_TestCase {
   @Test
-  public void should_pass_if_text_is_equal_to_given_String() {
+  public void should_Pass_If_Text_Is_Equal_To_Given_String() {
     driver.requireText(checkBox, "Hello");
   }
 
   @Test
-  public void should_pass_if_text_matches_regex_pattern_in_given_String() {
+  public void should_Pass_If_Text_Matches_Regex_Pattern_In_Given_String() {
     driver.requireText(checkBox, "Hell.");
   }
 
   @Test
-  public void should_fail_if_text_is_not_equal_to_given_String() {
+  public void should_Fail_If_Text_Is_Not_Equal_To_Given_String() {
     thrown.expectAssertionError("text", "Hello", Pattern.compile("Bye"));
     driver.requireText(checkBox, "Bye");
   }
 
   @Test
-  public void should_fail_if_text_does_not_match_regex_pattern_in_given_String() {
+  public void should_Fail_If_Text_Does_Not_Match_Regex_Pattern_In_Given_String() {
     thrown.expectAssertionError("text", "Hello", Pattern.compile("Bye."));
     driver.requireText(checkBox, "Bye.");
   }

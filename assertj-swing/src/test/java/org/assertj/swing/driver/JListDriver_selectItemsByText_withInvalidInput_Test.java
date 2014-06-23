@@ -24,13 +24,13 @@ import org.junit.Test;
  */
 public class JListDriver_selectItemsByText_withInvalidInput_Test extends JListDriver_withMocks_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_of_values_is_null() {
+  public void should_Throw_Error_If_Array_Of_Values_Is_Null() {
     String[] values = null;
     driver.selectItems(list, values);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_array_of_values_is_empty() {
+  public void should_Throw_Error_If_Array_Of_Values_Is_Empty() {
     String[] values = new String[0];
     driver.selectItems(list, values);
   }

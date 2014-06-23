@@ -47,7 +47,7 @@ public class FailureScreenshotTaker_saveScreenshot_Test {
   }
 
   @Test
-  public void should_save_screenshot_with_given_test_name_at_given_folder() {
+  public void should_Save_Screenshot_With_Given_Test_Name_At_Given_Folder() {
     new EasyMockTemplate(screenshotTaker, imageFolder) {
       @Override
       protected void expectations() throws Exception {
@@ -64,7 +64,7 @@ public class FailureScreenshotTaker_saveScreenshot_Test {
   }
 
   @Test
-  public void should_not_rethrow_Exceptions() {
+  public void should_Not_Rethrow_Exceptions() {
     new EasyMockTemplate(screenshotTaker, imageFolder) {
       @Override
       protected void expectations() throws Exception {

@@ -37,7 +37,7 @@ import org.junit.Test;
  */
 public class Bug235_findAllNotInSameOrder_Test extends RobotBasedTestCase {
   @Test
-  public void should_always_return_all_found_Components_in_same_order() {
+  public void should_Always_Return_All_Found_Components_In_Same_Order() {
     MyWindow window = MyWindow.createNew();
     TypeMatcher matcher = new TypeMatcher(JTextField.class);
     List<Component> foundFirst = findAll(window, matcher);

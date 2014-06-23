@@ -43,7 +43,7 @@ public class JTabbedPaneFixture_constructor_withRobotAndName_Test extends RobotB
   }
 
   @Test
-  public void should_lookup_showing_JTabbedPane_by_name() {
+  public void should_Lookup_Showing_JTabbedPane_By_Name() {
     robot.showWindow(window);
     JTabbedPaneFixture fixture = new JTabbedPaneFixture(robot, "tabbedPane");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -51,12 +51,12 @@ public class JTabbedPaneFixture_constructor_withRobotAndName_Test extends RobotB
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JTabbedPane_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JTabbedPane_With_Matching_Name_Is_Not_Showing() {
     new JTabbedPaneFixture(robot, "tabbedPane");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JTabbedPane_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JTabbedPane_With_Matching_Name_Is_Not_Found() {
     new JTabbedPaneFixture(robot, "other");
   }
 

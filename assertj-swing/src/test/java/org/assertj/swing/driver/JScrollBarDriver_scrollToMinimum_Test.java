@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class JScrollBarDriver_scrollToMinimum_Test extends JScrollBarDriver_TestCase {
   @Test
-  public void should_scroll_to_minimum() {
+  public void should_Scroll_To_Minimum() {
     showWindow();
     driver.scrollToMinimum(scrollBar);
     assertThatScrollBarValueIs(MINIMUM);

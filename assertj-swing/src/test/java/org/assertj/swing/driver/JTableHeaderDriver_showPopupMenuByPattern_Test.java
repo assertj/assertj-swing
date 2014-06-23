@@ -35,7 +35,7 @@ public class JTableHeaderDriver_showPopupMenuByPattern_Test extends JTableHeader
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_show_popup_menu() {
+  public void should_Show_Popup_Menu() {
     showWindow();
     driver.click(tableHeader);
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);

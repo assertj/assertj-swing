@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class SingleComponentHierarchy_contains_Test extends SingleComponentHierarchy_TestCase {
   @Test
-  public void should_return_true_if_delegate_contains_Component_and_root_contains_Component() {
+  public void should_Return_True_If_Delegate_Contains_Component_And_Root_Contains_Component() {
     JButton button = button().createNew();
     root.add(button);
     when(hierarchyDelegate.contains(button)).thenReturn(true);
@@ -38,14 +38,14 @@ public class SingleComponentHierarchy_contains_Test extends SingleComponentHiera
   }
 
   @Test
-  public void should_return_false_if_delegate_contains_Component_and_root_does_not_contain_Component() {
+  public void should_Return_False_If_Delegate_Contains_Component_And_Root_Does_Not_Contain_Component() {
     JButton button = button().createNew();
     when(hierarchyDelegate.contains(button)).thenReturn(true);
     assertThat(hierarchy.contains(button)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_delegate_does_not_contain_Component_but_root_does() {
+  public void should_Return_False_If_Delegate_Does_Not_Contain_Component_But_Root_Does() {
     JButton button = button().createNew();
     root.add(button);
     when(hierarchyDelegate.contains(button)).thenReturn(false);
@@ -53,7 +53,7 @@ public class SingleComponentHierarchy_contains_Test extends SingleComponentHiera
   }
 
   @Test
-  public void should_return_false_if_both_delegate_and_root_do_not_contain_Component() {
+  public void should_Return_False_If_Both_Delegate_And_Root_Do_Not_Contain_Component() {
     JButton button = button().createNew();
     when(hierarchyDelegate.contains(button)).thenReturn(false);
     assertThat(hierarchy.contains(button)).isFalse();

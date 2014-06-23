@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class ComponentLookupException_found_Test {
   @Test
-  public void should_return_copy_of_found_Components() {
+  public void should_Return_Copy_Of_Found_Components() {
     List<Component> found = Lists.newArrayList();
     found.add(label().createNew());
     found.add(textField().createNew());

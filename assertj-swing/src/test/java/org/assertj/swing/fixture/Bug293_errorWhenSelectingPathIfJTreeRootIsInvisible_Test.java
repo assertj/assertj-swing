@@ -37,7 +37,7 @@ import org.junit.Test;
  */
 public class Bug293_errorWhenSelectingPathIfJTreeRootIsInvisible_Test extends RobotBasedTestCase {
   @Test
-  public void should_select_path_if_root_is_invisible() {
+  public void should_Select_Path_If_Root_Is_Invisible() {
     MyWindow window = MyWindow.createNewWithTreeRootInvisible();
     robot.showWindow(window);
     JTreeFixture treeFixture = new JTreeFixture(robot, window.tree);
@@ -47,7 +47,7 @@ public class Bug293_errorWhenSelectingPathIfJTreeRootIsInvisible_Test extends Ro
   }
 
   @Test
-  public void should_select_path_if_root_is_visible() {
+  public void should_Select_Path_If_Root_Is_Visible() {
     MyWindow window = MyWindow.createNewWithTreeRootVisible();
     robot.showWindow(window);
     JTreeFixture treeFixture = new JTreeFixture(robot, window.tree);

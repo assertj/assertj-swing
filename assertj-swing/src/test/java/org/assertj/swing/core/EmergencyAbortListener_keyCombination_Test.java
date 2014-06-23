@@ -43,12 +43,12 @@ public class EmergencyAbortListener_keyCombination_Test {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_KeyPressInfo_is_null() {
+  public void should_Throw_Error_If_KeyPressInfo_Is_Null() {
     listener.keyCombination(null);
   }
 
   @Test
-  public void should_update_key_combination() {
+  public void should_Update_Key_Combination() {
     listener.keyCombination(keyCode(VK_C).modifiers(ALT_MASK, META_MASK));
     assertThat(listener.keyCode()).isEqualTo(VK_C);
     assertThatModifiersAreAltAndMeta(listener.modifiers());

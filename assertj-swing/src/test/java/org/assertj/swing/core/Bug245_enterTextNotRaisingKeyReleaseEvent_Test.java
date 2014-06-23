@@ -51,7 +51,7 @@ public class Bug245_enterTextNotRaisingKeyReleaseEvent_Test extends RobotBasedTe
   }
 
   @Test
-  public void should_raise_keyReleased_event() {
+  public void should_Raise_KeyReleased_Event() {
     KeyReleaseListener keyReleaseListener = new KeyReleaseListener();
     textField.addKeyListener(keyReleaseListener);
     robot.focusAndWaitForFocusGain(textField);

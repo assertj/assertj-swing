@@ -33,7 +33,7 @@ public class NamedComponentMatcherTemplate_constructor_withType_Test extends Nam
   }
 
   @Test
-  public void should_set_name_to_match_to_any() {
+  public void should_Set_Name_To_Match_To_Any() {
     assertThat(matcher.name()).isSameAs(NamedComponentMatcherTemplate.anyValue());
   }
 }

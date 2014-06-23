@@ -33,7 +33,7 @@ import org.junit.Test;
  */
 public class AWT_centerOfComponent_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_center_position() {
+  public void should_Return_Center_Position() {
     Component c = textField().withColumns(20).createNew();
     setComponentSize(c, 80, 60);
     Point center = AWT.centerOf(c);

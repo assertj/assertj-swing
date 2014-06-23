@@ -56,7 +56,7 @@ public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends Seque
   }
 
   @Test
-  public final void should_find_focus_owner() {
+  public final void should_Find_Focus_Owner() {
     giveFocusAndWaitTillIsFocused(textField);
     Component focusOwner = execute(new GuiQuery<Component>() {
       @Override
@@ -68,7 +68,7 @@ public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends Seque
   }
 
   @Test
-  public final void should_find_focus_in_owned_window() {
+  public final void should_Find_Focus_In_Owned_Window() {
     MyDialog dialog = MyDialog.createAndShow(window);
     giveFocusAndWaitTillIsFocused(dialog.button);
     try {

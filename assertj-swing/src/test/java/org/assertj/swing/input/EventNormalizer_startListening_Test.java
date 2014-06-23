@@ -36,7 +36,7 @@ public class EventNormalizer_startListening_Test extends EventNormalizer_TestCas
   }
 
   @Test
-  public void should_attach_to_Toolkit_when_start_listening() {
+  public void should_Attach_To_Toolkit_When_Start_Listening() {
     ToolkitStub toolkit = newToolkitStub();
     int mask = 8;
     eventNormalizer.startListening(toolkit, delegateEventListenerMock(), mask);

@@ -43,68 +43,68 @@ public class JInternalFrameFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_moveToFront_in_driver_and_return_self() {
+  public void should_Call_MoveToFront_In_Driver_And_Return_Self() {
     assertThat(fixture.moveToFront()).isSameAs(fixture);
     verify(fixture.driver()).moveToFront(fixture.target());
   }
 
   @Test
-  public void should_call_moveToBack_in_driver_and_return_self() {
+  public void should_Call_MoveToBack_In_Driver_And_Return_Self() {
     assertThat(fixture.moveToBack()).isSameAs(fixture);
     verify(fixture.driver()).moveToBack(fixture.target());
   }
 
   @Test
-  public void should_call_deiconify_in_driver_and_return_self() {
+  public void should_Call_Deiconify_In_Driver_And_Return_Self() {
     assertThat(fixture.deiconify()).isSameAs(fixture);
     verify(fixture.driver()).deiconify(fixture.target());
   }
 
   @Test
-  public void should_call_iconify_in_driver_and_return_self() {
+  public void should_Call_Iconify_In_Driver_And_Return_Self() {
     assertThat(fixture.iconify()).isSameAs(fixture);
     verify(fixture.driver()).iconify(fixture.target());
   }
 
   @Test
-  public void should_call_maximize_in_driver_and_return_self() {
+  public void should_Call_Maximize_In_Driver_And_Return_Self() {
     assertThat(fixture.maximize()).isSameAs(fixture);
     verify(fixture.driver()).maximize(fixture.target());
   }
 
   @Test
-  public void should_call_normalize_in_driver_and_return_self() {
+  public void should_Call_Normalize_In_Driver_And_Return_Self() {
     assertThat(fixture.normalize()).isSameAs(fixture);
     verify(fixture.driver()).normalize(fixture.target());
   }
 
   @Test
-  public void should_call_close_in_driver() {
+  public void should_Call_Close_In_Driver() {
     fixture.close();
     verify(fixture.driver()).close(fixture.target());
   }
 
   @Test
-  public void should_call_requireSize_in_driver_and_return_self() {
+  public void should_Call_RequireSize_In_Driver_And_Return_Self() {
     Dimension size = new Dimension(6, 8);
     assertThat(fixture.requireSize(size)).isSameAs(fixture);
     verify(fixture.driver()).requireSize(fixture.target(), size);
   }
 
   @Test
-  public void should_call_resizeWidthTo_in_driver_and_return_self() {
+  public void should_Call_ResizeWidthTo_In_Driver_And_Return_Self() {
     assertThat(fixture.resizeWidthTo(6)).isSameAs(fixture);
     verify(fixture.driver()).resizeWidth(fixture.target(), 6);
   }
 
   @Test
-  public void should_call_resizeHeightTo_in_driver_and_return_self() {
+  public void should_Call_ResizeHeightTo_In_Driver_And_Return_Self() {
     assertThat(fixture.resizeHeightTo(6)).isSameAs(fixture);
     verify(fixture.driver()).resizeHeight(fixture.target(), 6);
   }
 
   @Test
-  public void should_call_moveTo_in_driver_and_return_self() {
+  public void should_Call_MoveTo_In_Driver_And_Return_Self() {
     Point p = new Point(6, 8);
     assertThat(fixture.moveTo(p)).isSameAs(fixture);
     verify(fixture.driver()).move(fixture.target(), p);

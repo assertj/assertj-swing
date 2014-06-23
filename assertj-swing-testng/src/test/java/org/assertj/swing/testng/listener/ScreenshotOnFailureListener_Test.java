@@ -61,7 +61,7 @@ public class ScreenshotOnFailureListener_Test {
   }
 
   @Test
-  public void should_get_output_folder_on_start() {
+  public void should_Get_Output_Folder_On_Start() {
     String outputFolder = temporaryFolderPath();
     testContext.setOutputDirectory(outputFolder);
     listener.onStart(testContext);
@@ -69,7 +69,7 @@ public class ScreenshotOnFailureListener_Test {
   }
 
   @Test
-  public void should_take_screenshot_on_test_failure() throws Exception {
+  public void should_Take_Screenshot_On_Test_Failure() throws Exception {
     setUpStubsForScreenshot();
     listener.onTestFailure(testResult);
     String imageFileName = screenshotFileName();

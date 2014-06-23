@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JTextComponentMatcher_toString_Test {
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     JTextComponentMatcher matcher = JTextComponentMatcher.withName("textField").andText("Hello").andShowing();
     assertThat(matcher.toString()).isEqualTo(
         "org.assertj.swing.core.matcher.JTextComponentMatcher[name='textField', text='Hello', requireShowing=true]");

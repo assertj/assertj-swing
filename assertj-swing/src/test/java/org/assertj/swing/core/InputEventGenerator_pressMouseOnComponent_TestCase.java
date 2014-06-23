@@ -59,7 +59,7 @@ public abstract class InputEventGenerator_pressMouseOnComponent_TestCase extends
   }
 
   @Test
-  public void should_press_mouse_button_on_Component_and_release_mouse_button() {
+  public void should_Press_Mouse_Button_On_Component_And_Release_Mouse_Button() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.textBox);
     Point componentCenter = centerOf(window.textBox);
     eventGenerator.pressMouse(window.textBox, componentCenter, buttonMask);

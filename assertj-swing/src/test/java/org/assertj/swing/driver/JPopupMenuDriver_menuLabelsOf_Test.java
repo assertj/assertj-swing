@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JPopupMenuDriver_menuLabelsOf_Test extends JPopupMenuDriver_TestCase {
   @Test
-  public void should_returns_all_menu_labels() {
+  public void should_Returns_All_Menu_Labels() {
     String[] labels = driver.menuLabelsOf(popupMenu);
     assertThat(labels).isEqualTo(array("First", "Second"));
   }

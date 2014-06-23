@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JOptionPaneDriver_title_Test extends JOptionPaneDriver_TestCase {
   @Test
-  public void should_return_title() {
+  public void should_Return_Title() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
     assertThat(driver.title(optionPane)).isEqualTo(title());

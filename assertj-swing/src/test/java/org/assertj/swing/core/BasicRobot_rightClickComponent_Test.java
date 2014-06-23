@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class BasicRobot_rightClickComponent_Test extends BasicRobot_ClickTestCase {
   @Test
-  public void should_rightClick_Component() {
+  public void should_RightClick_Component() {
     JTextField textField = window().textField();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
     robot().rightClick(textField);

@@ -27,13 +27,13 @@ import org.junit.Test;
  */
 public class PatternTextMatcher_formattedValues_Test {
   @Test
-  public void should_return_single_pattern_as_formatted_value_if_matcher_has_only_one_pattern() {
+  public void should_Return_Single_Pattern_As_Formatted_Value_If_Matcher_Has_Only_One_Pattern() {
     PatternTextMatcher matcher = new PatternTextMatcher(Pattern.compile("one"));
     assertThat(matcher.formattedValues()).isEqualTo("'one'");
   }
 
   @Test
-  public void should_return_array_of_patterns_as_formatted_value_if_matcher_has_more_than_one_pattern() {
+  public void should_Return_Array_Of_Patterns_As_Formatted_Value_If_Matcher_Has_More_Than_One_Pattern() {
     PatternTextMatcher matcher = new PatternTextMatcher(Pattern.compile("one"), Pattern.compile("two"));
     assertThat(matcher.formattedValues()).isEqualTo("[\"one\", \"two\"]");
   }

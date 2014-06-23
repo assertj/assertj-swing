@@ -27,7 +27,7 @@ import org.junit.Test;
 public class XmlNode_valueOfAttribute_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_return_attribute_value() {
+  public void should_Return_Attribute_Value() {
     node.addAttribute(name("first").value("Leia"));
     assertThat(node.valueOfAttribute("first")).isEqualTo("Leia");
   }

@@ -47,7 +47,7 @@ public class JListContentQuery_contents_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_contents_of_JList_as_text() {
+  public void should_Return_Contents_Of_JList_As_Text() {
     String[] contents = JListContentQuery.contents(list, cellReader);
     assertThat(contents).containsOnly("Yoda", "Luke");
   }

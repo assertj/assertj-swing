@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class JTableDriver_stopCellEditing_Test extends JTableDriver_withMockCellWriter_TestCase {
   @Test
-  public void should_stop_cell_editing() {
+  public void should_Stop_Cell_Editing() {
     driver.stopCellEditing(table, row(0).column(0));
     verify(cellWriter).stopCellEditing(table, 0, 0);
   }

@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class AppletParameterBuilder_value_Test {
   @Test
-  public void should_create_AppletParameter() {
+  public void should_Create_AppletParameter() {
     AppletParameter parameter = AppletParameter.name("bgcolor").value("blue");
     assertThat(parameter.name).isEqualTo("bgcolor");
     assertThat(parameter.value).isEqualTo("blue");

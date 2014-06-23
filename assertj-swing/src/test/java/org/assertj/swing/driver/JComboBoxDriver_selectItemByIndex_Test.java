@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_selectItemByIndex_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_select_item() {
+  public void should_Select_Item() {
     clearSelection();
     showWindow();
     driver.selectItem(comboBox, 2);
@@ -32,7 +32,7 @@ public class JComboBoxDriver_selectItemByIndex_Test extends JComboBoxDriver_Test
   }
 
   @Test
-  public void should_not_do_anything_if_item_already_selected() {
+  public void should_Not_Do_Anything_If_Item_Already_Selected() {
     showWindow();
     select(2);
     driver.selectItem(comboBox, 2);
@@ -40,26 +40,26 @@ public class JComboBoxDriver_selectItemByIndex_Test extends JComboBoxDriver_Test
   }
 
   @Test
-  public void should_throw_error_if_JComboBox_is_disabled() {
+  public void should_Throw_Error_If_JComboBox_Is_Disabled() {
     disableComboBox();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectItem(comboBox, 0);
   }
 
   @Test
-  public void should_throw_error_if_JComboBox_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JComboBox_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectItem(comboBox, 0);
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_index_negative() {
+  public void should_Throw_Error_If_Index_Negative() {
     showWindow();
     driver.selectItem(comboBox, -1);
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Index_Is_Out_Of_Bounds() {
     showWindow();
     driver.selectItem(comboBox, 100);
   }

@@ -45,13 +45,13 @@ public class ComponentStateValidator_validateIsEnabledAndShowing_Test extends Ro
   }
 
   @Test
-  public void should_not_throw_error_if_Component_is_enabled_and_showing_on_the_screen() {
+  public void should_Not_Throw_Error_If_Component_Is_Enabled_And_Showing_On_The_Screen() {
     robot.showWindow(window);
     validateWindowIsEnabledAndShowing(window);
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     robot.showWindow(window);
     disable(window);
     robot.waitForIdle();
@@ -60,7 +60,7 @@ public class ComponentStateValidator_validateIsEnabledAndShowing_Test extends Ro
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     validateWindowIsEnabledAndShowing(window);
   }

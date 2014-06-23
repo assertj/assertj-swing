@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JListDriver_requireSelectedItemsByIndex_Test extends JListDriver_TestCase {
   @Test
-  public void should_fail_if_there_is_no_selection() {
+  public void should_Fail_If_There_Is_No_Selection() {
     clearSelection();
     thrown.expect(AssertionError.class);
     thrown.expectMessageToContain("property:'selectedIndices'", "expected:<[[0, 1]]> but was:<[[]]>");
@@ -32,7 +32,7 @@ public class JListDriver_requireSelectedItemsByIndex_Test extends JListDriver_Te
   }
 
   @Test
-  public void should_fail_if_selection_is_not_equal_to_expected() {
+  public void should_Fail_If_Selection_Is_Not_Equal_To_Expected() {
     select(2);
     thrown.expect(AssertionError.class);
     thrown.expectMessageToContain("property:'selectedIndices'", "expected:<[[0]]> but was:<[[2]]>");
@@ -40,7 +40,7 @@ public class JListDriver_requireSelectedItemsByIndex_Test extends JListDriver_Te
   }
 
   @Test
-  public void should_pass_if_selection_is_equal_to_expected() {
+  public void should_Pass_If_Selection_Is_Equal_To_Expected() {
     select(0, 1);
     driver.requireSelectedItems(list, 0, 1);
   }

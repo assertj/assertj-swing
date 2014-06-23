@@ -47,21 +47,21 @@ public class FocusMonitor_hasFocus_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_return_true_if_Component_gains_focus() {
+  public void should_Return_True_If_Component_Gains_Focus() {
     FocusMonitor monitor = FocusMonitor.attachTo(window.textBox);
     giveFocusAndWaitTillIsFocused(window.textBox);
     assertThat(monitor.hasFocus()).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Component_loses_focus() {
+  public void should_Return_False_If_Component_Loses_Focus() {
     FocusMonitor monitor = FocusMonitor.attachTo(window.button);
     giveFocusAndWaitTillIsFocused(window.textBox);
     assertThat(monitor.hasFocus()).isFalse();
   }
 
   @Test
-  public void should_return_false_if_Component_is_not_focus_owner() {
+  public void should_Return_False_If_Component_Is_Not_Focus_Owner() {
     giveFocusAndWaitTillIsFocused(window.textBox);
     FocusMonitor monitor = FocusMonitor.attachTo(window.button);
     assertThat(monitor.hasFocus()).isFalse();

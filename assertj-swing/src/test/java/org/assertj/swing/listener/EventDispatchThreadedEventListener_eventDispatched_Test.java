@@ -45,7 +45,7 @@ public class EventDispatchThreadedEventListener_eventDispatched_Test {
   }
 
   @Test
-  public void should_always_process_event_in_EDT() {
+  public void should_Always_Process_Event_In_EDT() {
     listener.eventDispatched(event);
     pause(new Condition("event to be processed in EDT") {
       @Override
@@ -56,7 +56,7 @@ public class EventDispatchThreadedEventListener_eventDispatched_Test {
   }
 
   @Test
-  public void should_process_event_directly_if_called_in_EDT() throws Exception {
+  public void should_Process_Event_Directly_If_Called_In_EDT() throws Exception {
     execute(new GuiTask() {
       @Override
       protected void executeInEDT() {

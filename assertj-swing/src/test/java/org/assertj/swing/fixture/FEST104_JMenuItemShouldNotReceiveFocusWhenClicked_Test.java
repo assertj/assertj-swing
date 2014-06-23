@@ -48,7 +48,7 @@ public class FEST104_JMenuItemShouldNotReceiveFocusWhenClicked_Test extends Robo
   }
 
   @Test
-  public void should_not_give_focus_to_JMenuItem_when_clicking_it() {
+  public void should_Not_Give_Focus_To_JMenuItem_When_Clicking_It() {
     FocusRecorder focusRecorder = FocusRecorder.attachTo(window.newMenu);
     frameFixture.menuItemWithPath("File", "New").click();
     assertThat(window.newMenu.hasFocus()).isFalse();

@@ -40,14 +40,14 @@ public class JOptionPaneFinder_findOptionPane_withMatcher_Test extends JOptionPa
   }
 
   @Test
-  public void should_find_JOptionPane() {
+  public void should_Find_JOptionPane() {
     clickMessageButton();
     JOptionPaneFixture found = JOptionPaneFinder.findOptionPane(matcher).using(robot);
     assertThat(found.target()).isNotNull();
   }
 
   @Test
-  public void should_find_JOptionPane_before_given_timeout_expires() {
+  public void should_Find_JOptionPane_Before_Given_Timeout_Expires() {
     window.launchDelay(200);
     clickMessageButton();
     JOptionPaneFixture found = JOptionPaneFinder.findOptionPane(matcher).withTimeout(500, MILLISECONDS).using(robot);
@@ -55,7 +55,7 @@ public class JOptionPaneFinder_findOptionPane_withMatcher_Test extends JOptionPa
   }
 
   @Test
-  public void should_find_JOptionPane_before_given_timeout_in_ms_expires() {
+  public void should_Find_JOptionPane_Before_Given_Timeout_In_Ms_Expires() {
     window.launchDelay(200);
     clickMessageButton();
     JOptionPaneFixture found = JOptionPaneFinder.findOptionPane(matcher).withTimeout(500).using(robot);
@@ -63,7 +63,7 @@ public class JOptionPaneFinder_findOptionPane_withMatcher_Test extends JOptionPa
   }
 
   @Test(expected = WaitTimedOutError.class)
-  public void should_fail_if_JOptionPane_not_found() {
+  public void should_Fail_If_JOptionPane_Not_Found() {
     JOptionPaneFinder.findOptionPane(matcher).using(robot);
   }
 

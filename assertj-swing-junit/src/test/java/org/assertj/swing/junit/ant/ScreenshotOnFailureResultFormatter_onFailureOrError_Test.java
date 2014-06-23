@@ -48,7 +48,7 @@ public class ScreenshotOnFailureResultFormatter_onFailureOrError_Test {
   }
 
   @Ignore("this test passes only when run individually")
-  public void should_write_error_in_XML_document_if_ScreenshotWriter_could_not_be_created() {
+  public void should_Write_Error_In_XML_Document_If_ScreenshotWriter_Could_Not_Be_Created() {
     headlessAWT(true); // force an ImageException to be thrown
     try {
       formatter.startTestSuite(new JUnitTest());
@@ -72,7 +72,7 @@ public class ScreenshotOnFailureResultFormatter_onFailureOrError_Test {
   }
 
   @Test
-  public void should_take_screenshot_when_test_fails() {
+  public void should_Take_Screenshot_When_Test_Fails() {
     final ScreenshotXmlWriter writer = createMock(ScreenshotXmlWriter.class);
     updateWriterInFormatter(writer);
     final junit.framework.Test test = failingTest();
@@ -92,7 +92,7 @@ public class ScreenshotOnFailureResultFormatter_onFailureOrError_Test {
   }
 
   @Test
-  public void should_not_take_screenshot_when_test_fails_if_ScreenshotWriter_is_null() {
+  public void should_Not_Take_Screenshot_When_Test_Fails_If_ScreenshotWriter_Is_Null() {
     updateWriterInFormatter(null);
     formatter.onFailureOrError(failingTest(), new Throwable(), createMock(XmlNode.class));
     // no assertions to be made...are we sure this test is meaningful?

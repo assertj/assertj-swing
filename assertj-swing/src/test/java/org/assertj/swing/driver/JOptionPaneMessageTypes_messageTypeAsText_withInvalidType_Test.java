@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JOptionPaneMessageTypes_messageTypeAsText_withInvalidType_Test {
   @Test(expected = ActionFailedException.class)
-  public void should_throw_error_if_message_type_value_is_invalid() {
+  public void should_Throw_Error_If_Message_Type_Value_Is_Invalid() {
     JOptionPaneMessageTypes.messageTypeAsText(Integer.MIN_VALUE);
   }
 }

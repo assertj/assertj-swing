@@ -80,7 +80,7 @@ public abstract class BaseTestTemplate<S extends AbstractAssert<S, A>, A> {
   }
 
   @Test
-  public void should_have_internal_effects() {
+  public void should_Have_Internal_Effects() {
     invoke_api_method();
     verify_internal_effects();
   }
@@ -90,7 +90,7 @@ public abstract class BaseTestTemplate<S extends AbstractAssert<S, A>, A> {
    * {@link AbstractAssert_isNull_Test#should_return_this()} for an example).
    */
   @Test
-  public void should_return_this() {
+  public void should_Return_This() {
     S returned = invoke_api_method();
     assertSame(assertions, returned);
   }

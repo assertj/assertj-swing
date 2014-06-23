@@ -41,7 +41,7 @@ public class Bug303_JSpinnerDoesNotSelectExistingTextBeforeEnteringNewText_Test 
   }
 
   @Test
-  public void should_select_existing_text_before_entering_new_ext() {
+  public void should_Select_Existing_Text_Before_Entering_New_Ext() {
     window.spinner("spinner1").focus();
     window.spinner("spinner2").enterTextAndCommit("Gandalf").requireValue("Gandalf");
   }

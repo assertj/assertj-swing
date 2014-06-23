@@ -24,12 +24,12 @@ import org.junit.Test;
  */
 public class ComponentDriver_requireNotVisible_Test extends ComponentDriver_TestCase {
   @Test
-  public void should_pass_if_Component_is_not_visible() {
+  public void should_Pass_If_Component_Is_Not_Visible() {
     driver.requireNotVisible(window);
   }
 
   @Test
-  public void should_fail_if_Component_is_visible() {
+  public void should_Fail_If_Component_Is_Visible() {
     showWindow();
     thrown.expectAssertionError("property:'visible'");
     thrown.expectMessageToContain("expected:<[fals]e> but was:<[tru]e>");

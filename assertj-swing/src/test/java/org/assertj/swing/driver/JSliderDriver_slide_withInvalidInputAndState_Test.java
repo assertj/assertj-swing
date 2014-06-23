@@ -38,28 +38,28 @@ public class JSliderDriver_slide_withInvalidInputAndState_Test extends JSliderDr
   }
 
   @Test
-  public void should_throw_error_if_value_is_less_than_minimum() {
+  public void should_Throw_Error_If_Value_Is_Less_Than_Minimum() {
     showWindow();
     thrown.expectIllegalArgumentException("Value <-1> is not within the JSlider bounds of <0> and <30>");
     driver.slide(slider, -1);
   }
 
   @Test
-  public void should_throw_error_if_value_is_greater_than_maximum() {
+  public void should_Throw_Error_If_Value_Is_Greater_Than_Maximum() {
     showWindow();
     thrown.expectIllegalArgumentException("Value <31> is not within the JSlider bounds of <0> and <30>");
     driver.slide(slider, 31);
   }
 
   @Test
-  public void should_throw_error_if_JSlider_is_disabled() {
+  public void should_Throw_Error_If_JSlider_Is_Disabled() {
     disableSlider();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.slide(slider, 6);
   }
 
   @Test
-  public void should_throw_error_if_JSlider_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JSlider_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.slide(slider, 6);
   }

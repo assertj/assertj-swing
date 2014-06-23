@@ -25,46 +25,46 @@ import org.junit.Test;
  */
 public class Arrays_equal_Test {
   @Test
-  public void should_return_equal_arrays_jf_both_arrays_are_null() {
+  public void should_Return_Equal_Arrays_Jf_Both_Arrays_Are_Null() {
     assertThat(Arrays.equal(null, null)).isTrue();
   }
 
   @Test
-  public void should_return_equal_arrays_If_both_arrays_are_empty() {
+  public void should_Return_Equal_Arrays_If_Both_Arrays_Are_Empty() {
     assertThat(Arrays.equal(new String[0][], new String[0][])).isTrue();
   }
 
   @Test
-  public void should_return_not_equal_arrays_if_only_first_array_is_null() {
+  public void should_Return_Not_Equal_Arrays_If_Only_First_Array_Is_Null() {
     assertThat(Arrays.equal(null, new String[0][])).isFalse();
   }
 
   @Test
-  public void should_return_not_equal_arrays_if_only_second_array_is_null() {
+  public void should_Return_Not_Equal_Arrays_If_Only_Second_Array_Is_Null() {
     assertThat(Arrays.equal(new String[0][], null)).isFalse();
   }
 
   @Test
-  public void should_return_not_equal_arrays_if_arrays_have_different_dimensions() {
+  public void should_Return_Not_Equal_Arrays_If_Arrays_Have_Different_Dimensions() {
     assertThat(Arrays.equal(new String[0][], new String[1][0])).isFalse();
   }
 
   @Test
-  public void should_return_not_equal_arrays_if_arrays_have_different_second_dimensions() {
+  public void should_Return_Not_Equal_Arrays_If_Arrays_Have_Different_Second_Dimensions() {
     String[][] one = { { "Hello" } };
     String[][] two = { { "Hello", "Bye" } };
     assertThat(Arrays.equal(one, two)).isFalse();
   }
 
   @Test
-  public void should_return_not_equal_arrays_if_Arrays_have_different_data() {
+  public void should_Return_Not_Equal_Arrays_If_Arrays_Have_Different_Data() {
     String[][] one = { { "Hello" } };
     String[][] two = { { "Bye" } };
     assertThat(Arrays.equal(one, two)).isFalse();
   }
 
   @Test
-  public void should_return_equal_arrays_If_arrays_are_equal() {
+  public void should_Return_Equal_Arrays_If_Arrays_Are_Equal() {
     String[][] one = { { "Hello" } };
     String[][] two = { { "Hello" } };
     assertThat(Arrays.equal(one, two)).isTrue();

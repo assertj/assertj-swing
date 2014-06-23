@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class EventQueueMapping_eventQueues_Test extends EventQueueMapping_TestCase {
   @Test
-  public void should_return_all_EventQueues() {
+  public void should_Return_All_EventQueues() {
     EventQueue anotherEventQueue = new EventQueue();
     ToolkitStub anotherToolkit = newToolkitStub(anotherEventQueue);
     ComponentWithCustomEventQueue anotherComponent = new ComponentWithCustomEventQueue(anotherToolkit);
@@ -42,7 +42,7 @@ public class EventQueueMapping_eventQueues_Test extends EventQueueMapping_TestCa
   }
 
   @Test
-  public void should_not_fail_if_mapping_has_null_reference() {
+  public void should_Not_Fail_If_Mapping_Has_Null_Reference() {
     mapping.addQueueFor(component);
     queueMap.put(textField().createNew(), null);
     Collection<EventQueue> allEventQueues = mapping.eventQueues();

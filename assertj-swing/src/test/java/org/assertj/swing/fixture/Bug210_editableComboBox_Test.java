@@ -52,7 +52,7 @@ public class Bug210_editableComboBox_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_add_String() {
+  public void should_Add_String() {
     JComboBoxFixture comboBox = dialog.comboBox("cb");
     comboBox.requireSelection("hat");
     comboBox.enterText(ADDED_STRING);

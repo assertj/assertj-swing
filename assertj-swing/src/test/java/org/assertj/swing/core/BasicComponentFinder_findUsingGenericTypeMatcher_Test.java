@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class BasicComponentFinder_findUsingGenericTypeMatcher_Test extends BasicComponentFinder_TestCase {
   @Test
-  public void should_find_Component() {
+  public void should_Find_Component() {
     JButton foundButton = finder.find(new GenericTypeMatcher<JButton>(JButton.class) {
       @Override
       protected boolean isMatching(@Nonnull JButton button) {
@@ -42,7 +42,7 @@ public class BasicComponentFinder_findUsingGenericTypeMatcher_Test extends Basic
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_GenericTypeMatcher_never_matches_Component() {
+  public void should_Throw_Error_If_GenericTypeMatcher_Never_Matches_Component() {
     finder.find(neverMatches(JButton.class));
   }
 }

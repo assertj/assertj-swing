@@ -37,7 +37,7 @@ public class JTableDriver_enterValueInCell_Test extends JTableDriver_withMockCel
   }
 
   @Test
-  public void should_enter_value_in_cell() {
+  public void should_Enter_Value_In_Cell() {
     driver.enterValueInCell(table, row(0).column(0), value);
     verify(cellWriter).enterValue(table, 0, 0, value);
   }

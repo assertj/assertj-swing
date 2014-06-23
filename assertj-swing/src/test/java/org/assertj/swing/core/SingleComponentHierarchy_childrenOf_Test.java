@@ -57,7 +57,7 @@ public class SingleComponentHierarchy_childrenOf_Test extends SingleComponentHie
   }
 
   @Test
-  public void should_return_children_of_Component() {
+  public void should_Return_Children_Of_Component() {
     List<Component> children = newArrayList((Component) parent.button);
     when(hierarchyDelegate.childrenOf(parent)).thenReturn(children);
     Collection<Component> foundChildren = hierarchy.childrenOf(parent);

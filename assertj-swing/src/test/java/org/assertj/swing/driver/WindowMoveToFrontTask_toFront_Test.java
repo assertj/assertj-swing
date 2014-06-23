@@ -47,7 +47,7 @@ public class WindowMoveToFrontTask_toFront_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_move_Window_to_front() {
+  public void should_Move_Window_To_Front() {
     assertThat(hasFocus(windowTwo)).isTrue();
     WindowMoveToFrontTask.toFront(windowOne);
     robot.waitForIdle();

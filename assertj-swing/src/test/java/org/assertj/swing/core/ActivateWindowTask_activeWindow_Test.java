@@ -60,7 +60,7 @@ public class ActivateWindowTask_activeWindow_Test extends SequentialEDTSafeTestC
   }
 
   @Test
-  public void should_activate_window() {
+  public void should_Activate_Window() {
     pause(new HasFocusCondition(frameTwo));
     ActivateWindowTask.activateWindow(frameOne);
     // verify that frameOne was given focus (i.e. was activated)

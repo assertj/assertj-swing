@@ -46,7 +46,7 @@ public class TableCellInSelectedRow_findCell_Test extends TableCellFinder_TestCa
   }
 
   @Test
-  public void should_find_cell_in_selected_row() {
+  public void should_Find_Cell_In_Selected_Row() {
     selectRow(1);
     TableCell cell = finder.findCell(table, null);
     assertThat(cell.row).isEqualTo(1);
@@ -70,7 +70,7 @@ public class TableCellInSelectedRow_findCell_Test extends TableCellFinder_TestCa
   }
 
   @Test
-  public void should_throw_error_if_JTable_does_not_have_selection() {
+  public void should_Throw_Error_If_JTable_Does_Not_Have_Selection() {
     thrown.expect(ActionFailedException.class, "The given JTable does not have any selection");
     finder.findCell(table, null);
   }

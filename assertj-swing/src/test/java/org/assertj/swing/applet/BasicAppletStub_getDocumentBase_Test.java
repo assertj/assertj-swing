@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class BasicAppletStub_getDocumentBase_Test extends BasicAppletStub_TestCase {
   @Test
-  public void should_return_nonNull_DocumentBase() {
+  public void should_Return_NonNull_DocumentBase() {
     assertThat(stub.getDocumentBase()).isNotNull();
   }
 }

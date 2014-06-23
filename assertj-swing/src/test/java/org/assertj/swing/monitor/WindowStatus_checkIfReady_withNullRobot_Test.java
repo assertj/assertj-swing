@@ -52,7 +52,7 @@ public class WindowStatus_checkIfReady_withNullRobot_Test extends SequentialEDTS
   }
 
   @Test
-  public void should_not_check_if_Frame_is_ready_if_Robot_is_Null() throws AWTException {
+  public void should_Not_Check_If_Frame_Is_Ready_If_Robot_Is_Null() throws AWTException {
     Point before = MouseInfo.getPointerInfo().getLocation();
     when(factory.newRobotInPrimaryScreen()).thenReturn(null);
     WindowStatus status = new WindowStatus(windows, factory);

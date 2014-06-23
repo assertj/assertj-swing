@@ -69,7 +69,7 @@ public class JSplitPaneDriver_moveDividerTo_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_move_divider_to_given_location() {
+  public void should_Move_Divider_To_Given_Location() {
     MyWindow window = createAndShowWindow();
     int newLocation = window.splitPane.getDividerLocation() + 100;
     driver.moveDividerTo(window.splitPane, newLocation);
@@ -77,7 +77,7 @@ public class JSplitPaneDriver_moveDividerTo_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_throw_error_if_JSplitPane_is_disabled() {
+  public void should_Throw_Error_If_JSplitPane_Is_Disabled() {
     MyWindow window = createWindow();
     disable(window.splitPane);
     robot.waitForIdle();
@@ -86,7 +86,7 @@ public class JSplitPaneDriver_moveDividerTo_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_throw_error_if_JSplitPane_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JSplitPane_Is_Not_Showing_On_The_Screen() {
     MyWindow window = createWindow();
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.moveDividerTo(window.splitPane, 100);

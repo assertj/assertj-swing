@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class DragAwareEventNormalizer_startListening_Test extends DragAwareEventNormalizer_TestCase {
   @Test
-  public void should_replace_EventQueue_when_starts_listening() {
+  public void should_Replace_EventQueue_When_Starts_Listening() {
     ToolkitStub toolkit = newToolkitStub();
     EventQueueStub eventQueue = new EventQueueStub();
     toolkit.eventQueue(eventQueue);

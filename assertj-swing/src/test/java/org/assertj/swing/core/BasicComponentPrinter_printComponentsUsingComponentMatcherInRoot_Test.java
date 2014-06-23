@@ -30,18 +30,18 @@ import org.junit.Test;
 public class BasicComponentPrinter_printComponentsUsingComponentMatcherInRoot_Test extends
     BasicComponentPrinter_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_OutputStream_is_null() {
+  public void should_Throw_Error_If_OutputStream_Is_Null() {
     printer.printComponents(null, new NameMatcher("button1"), windowOne);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_ComponentMatcher_is_null() {
+  public void should_Throw_Error_If_ComponentMatcher_Is_Null() {
     ComponentMatcher matcher = null;
     printer.printComponents(out, matcher, windowOne);
   }
 
   @Test
-  public void should_print_all_Components_of_given_type_under_given_root_only() {
+  public void should_Print_All_Components_Of_Given_Type_Under_Given_Root_Only() {
     printer.printComponents(out, new TypeMatcher(JButton.class), windowOne);
     assertThat(out.printed()).containsOnly(format(windowOne.button));
   }

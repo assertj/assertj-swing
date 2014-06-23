@@ -44,7 +44,7 @@ public class OSIdentifier_isOSX_Test extends OSIdentifier_TestCase {
   }
 
   @Test
-  public void should_return_OSX_if_MRJVersion_not_null_and_OS_name_contains_OSX() {
+  public void should_Return_OSX_If_MRJVersion_Not_Null_And_OS_Name_Contains_OSX() {
     returnOSName(osX);
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isMacintosh()).isTrue();

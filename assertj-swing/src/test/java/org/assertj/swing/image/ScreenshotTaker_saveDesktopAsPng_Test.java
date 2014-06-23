@@ -52,7 +52,7 @@ public class ScreenshotTaker_saveDesktopAsPng_Test {
   }
 
   @Test
-  public void should_take_screenshot_of_desktop_and_save_it_in_given_path() throws Exception {
+  public void should_Take_Screenshot_Of_Desktop_And_Save_It_In_Given_Path() throws Exception {
     taker.saveDesktopAsPng(imagePath);
     assertThat(readImageFrom(imagePath)).hasSize(Toolkit.getDefaultToolkit().getScreenSize());
   }

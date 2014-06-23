@@ -52,7 +52,7 @@ public class Colors_colorFromHexString_Test {
   }
 
   @Test
-  public void should_return_color_from_hex_String() {
+  public void should_Return_Color_From_Hex_String() {
     Color actual = Colors.colorFromHexString(hexString);
     assertThat(actual).isEqualTo(color);
   }

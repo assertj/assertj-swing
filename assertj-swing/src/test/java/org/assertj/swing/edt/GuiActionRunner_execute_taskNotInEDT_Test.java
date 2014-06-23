@@ -49,7 +49,7 @@ public class GuiActionRunner_execute_taskNotInEDT_Test extends SequentialEDTSafe
   }
 
   @Test
-  public void should_execute_task() {
+  public void should_Execute_Task() {
     TestGuiTask task = new TestGuiTask();
     GuiActionRunner.executeInEDT(false);
     GuiActionRunner.execute(task);
@@ -58,7 +58,7 @@ public class GuiActionRunner_execute_taskNotInEDT_Test extends SequentialEDTSafe
   }
 
   @Test
-  public void should_wrap_any_thrown_Exception() {
+  public void should_Wrap_Any_Thrown_Exception() {
     TestGuiTask task = mock(TestGuiTask.class);
     RuntimeException error = expectedError();
     doThrow(error).when(task).executeInEDT();

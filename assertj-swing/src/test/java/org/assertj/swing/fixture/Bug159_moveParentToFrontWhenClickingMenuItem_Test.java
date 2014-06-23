@@ -64,7 +64,7 @@ public class Bug159_moveParentToFrontWhenClickingMenuItem_Test extends RobotBase
   }
 
   @Test
-  public void should_select_menu_item_from_menu_bar() {
+  public void should_Select_Menu_Item_From_Menu_Bar() {
     JMenuItem menuItem = window.menuItemFromMenuBar;
     JMenuItemFixture fixture = fixtureFor(menuItem);
     pauseBeforeShowingMenu();
@@ -74,7 +74,7 @@ public class Bug159_moveParentToFrontWhenClickingMenuItem_Test extends RobotBase
   }
 
   @Test
-  public void should_select_menu_item_from_popup_menu() {
+  public void should_Select_Menu_Item_From_Popup_Menu() {
     JMenuItem menuItem = window.menuItemFromPopupMenu;
     JMenuItemFixture fixture = fixtureFor(menuItem);
     pauseBeforeShowingMenu();

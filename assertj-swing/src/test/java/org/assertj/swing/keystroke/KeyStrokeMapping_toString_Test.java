@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class KeyStrokeMapping_toString_Test {
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     KeyStrokeMapping mapping = KeyStrokeMapping.mapping('A', VK_A, SHIFT_MASK);
     assertThat(mapping.toString()).isEqualTo("KeyStrokeMapping[character='A', keyStroke=shift pressed A]");
   }

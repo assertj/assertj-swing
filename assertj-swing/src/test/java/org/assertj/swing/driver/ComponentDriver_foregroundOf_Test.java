@@ -47,7 +47,7 @@ public class ComponentDriver_foregroundOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_Component_foreground() {
+  public void should_Return_Component_Foreground() {
     window.startRecording();
     assertThat(driver.foregroundOf(window)).isEqualTo(FOREGROUND);
     window.requireInvoked("getForeground");

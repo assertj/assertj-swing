@@ -34,7 +34,7 @@ public class EventNormalizer_stopListening_Test extends EventNormalizer_TestCase
   }
 
   @Test
-  public void should_detach_from_Toolkit_when_stop_listening() {
+  public void should_Detach_From_Toolkit_When_Stop_Listening() {
     ToolkitStub toolkit = newToolkitStub();
     int mask = 8;
     eventNormalizer.startListening(toolkit, delegateEventListenerMock(), mask);

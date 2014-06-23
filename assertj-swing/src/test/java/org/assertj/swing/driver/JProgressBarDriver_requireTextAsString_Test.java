@@ -27,17 +27,17 @@ import org.junit.Test;
  */
 public class JProgressBarDriver_requireTextAsString_Test extends JProgressBarDriver_TestCase {
   @Test
-  public void should_pass_if_text_is_equal_to_expected() {
+  public void should_Pass_If_Text_Is_Equal_To_Expected() {
     driver.requireText(progressBar, "60%");
   }
 
   @Test
-  public void should_pass_if_text_matches_expected_pattern() {
+  public void should_Pass_If_Text_Matches_Expected_Pattern() {
     driver.requireText(progressBar, "60.*");
   }
 
   @Test
-  public void should_fail_if_text_is_not_equal_to_expected() {
+  public void should_Fail_If_Text_Is_Not_Equal_To_Expected() {
     thrown.expectAssertionError("string", "60%", Pattern.compile("50%"));
     driver.requireText(progressBar, "50%");
   }

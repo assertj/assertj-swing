@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCase {
   @Test
-  public void should_click_button() {
+  public void should_Click_Button() {
     showWindow();
     ActionPerformedRecorder recorder = ActionPerformedRecorder.attachTo(checkBox);
     driver.click(checkBox);
@@ -38,7 +38,7 @@ public class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCa
   }
 
   @Test
-  public void should_throw_error_if_AbstractButton_is_disabled() {
+  public void should_Throw_Error_If_AbstractButton_Is_Disabled() {
     disableCheckBox();
     ActionPerformedRecorder action = ActionPerformedRecorder.attachTo(checkBox);
     thrown.expectIllegalStateIsDisabledComponent();
@@ -50,7 +50,7 @@ public class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCa
   }
 
   @Test
-  public void should_throw_error_if_AbstractButton_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_AbstractButton_Is_Not_Showing_On_The_Screen() {
     ActionPerformedRecorder action = ActionPerformedRecorder.attachTo(checkBox);
     thrown.expectIllegalStateIsNotShowingComponent();
     try {

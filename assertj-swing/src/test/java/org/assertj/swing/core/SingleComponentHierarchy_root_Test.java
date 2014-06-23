@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class SingleComponentHierarchy_root_Test extends SingleComponentHierarchy_TestCase {
   @Test
-  public void should_return_hierarchy_root() {
+  public void should_Return_Hierarchy_Root() {
     assertThat(hierarchy.root()).isSameAs(root);
   }
 }

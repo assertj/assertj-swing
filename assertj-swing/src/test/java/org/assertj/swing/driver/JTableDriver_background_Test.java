@@ -41,7 +41,7 @@ public class JTableDriver_background_Test extends JTableDriver_withMockCellReade
   }
 
   @Test
-  public void should_return_cell_background_color() {
+  public void should_Return_Cell_Background_Color() {
     when(cellReader.backgroundAt(table, 0, 0)).thenReturn(background);
     Color result = driver.background(table, row(0).column(0));
     assertThat(result).isSameAs(background);

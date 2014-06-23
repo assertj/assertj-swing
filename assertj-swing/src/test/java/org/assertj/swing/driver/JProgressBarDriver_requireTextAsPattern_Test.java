@@ -27,12 +27,12 @@ import org.junit.Test;
  */
 public class JProgressBarDriver_requireTextAsPattern_Test extends JProgressBarDriver_TestCase {
   @Test
-  public void should_pass_if_text_matches_pattern() {
+  public void should_Pass_If_Text_Matches_Pattern() {
     driver.requireText(progressBar, Pattern.compile("60.*"));
   }
 
   @Test
-  public void should_fail_if_text_does_not_match_pattern() {
+  public void should_Fail_If_Text_Does_Not_Match_Pattern() {
     thrown.expectAssertionError("string", "60%", Pattern.compile("50%"));
     driver.requireText(progressBar, Pattern.compile("50%"));
   }

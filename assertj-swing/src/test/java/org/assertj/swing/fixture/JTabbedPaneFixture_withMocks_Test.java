@@ -45,7 +45,7 @@ public class JTabbedPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_tab_titles_using_driver() {
+  public void should_Return_Tab_Titles_Using_Driver() {
     String[] titles = { "One", "Two" };
     JTabbedPaneDriver driver = fixture.driver();
     JTabbedPane target = fixture.target();
@@ -55,39 +55,39 @@ public class JTabbedPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_selectTab_with_index_in_driver_and_return_self() {
+  public void should_Call_SelectTab_With_Index_In_Driver_And_Return_Self() {
     assertThat(fixture.selectTab(6)).isSameAs(fixture);
     verify(fixture.driver()).selectTab(fixture.target(), 6);
   }
 
   @Test
-  public void should_call_selectTab_with_text_in_driver_and_return_self() {
+  public void should_Call_SelectTab_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.selectTab("Six")).isSameAs(fixture);
     verify(fixture.driver()).selectTab(fixture.target(), "Six");
   }
 
   @Test
-  public void should_call_selectTab_with_Pattern_in_driver_and_return_self() {
+  public void should_Call_SelectTab_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Six");
     assertThat(fixture.selectTab(pattern)).isSameAs(fixture);
     verify(fixture.driver()).selectTab(fixture.target(), pattern);
   }
 
   @Test
-  public void should_call_requireTitle_with_text_in_driver_and_return_self() {
+  public void should_Call_RequireTitle_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.requireTitle("Hello", atIndex(6))).isSameAs(fixture);
     verify(fixture.driver()).requireTabTitle(fixture.target(), "Hello", atIndex(6));
   }
 
   @Test
-  public void should_call_requireTitle_with_pattern_in_driver_and_return_self() {
+  public void should_Call_RequireTitle_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Hello");
     assertThat(fixture.requireTitle(pattern, atIndex(6))).isSameAs(fixture);
     verify(fixture.driver()).requireTabTitle(fixture.target(), pattern, atIndex(6));
   }
 
   @Test
-  public void should_call_requireTabTitles_in_driver_and_return_self() {
+  public void should_Call_RequireTabTitles_In_Driver_And_Return_Self() {
     String[] titles = { "One", "Two" };
     assertThat(fixture.requireTabTitles(titles)).isSameAs(fixture);
     verify(fixture.driver()).requireTabTitles(fixture.target(), titles);

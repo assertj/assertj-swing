@@ -31,14 +31,14 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_maximize_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_maximize_JInternalFrame() {
+  public void should_Maximize_JInternalFrame() {
     showWindow();
     driver.maximize(internalFrame);
     assertThatIsMaximized();
   }
 
   @Test
-  public void should_maximize_iconified_JInternalFrame() {
+  public void should_Maximize_Iconified_JInternalFrame() {
     showWindow();
     iconify();
     driver.maximize(internalFrame);
@@ -46,20 +46,20 @@ public class JInternalFrameDriver_maximize_Test extends JInternalFrameDriver_Tes
   }
 
   @Test
-  public void should_maximize_disabled_JInternalFrame() {
+  public void should_Maximize_Disabled_JInternalFrame() {
     disableInternalFrame();
     driver.maximize(internalFrame);
     assertThatIsMaximized();
   }
 
   @Test
-  public void should_throw_error_if_JInternalFrame_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JInternalFrame_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.maximize(internalFrame);
   }
 
   @Test
-  public void should_throw_error_if_JInternalFrame_is_hidden() {
+  public void should_Throw_Error_If_JInternalFrame_Is_Hidden() {
     hideInternalJFrame();
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.maximize(internalFrame);
@@ -72,7 +72,7 @@ public class JInternalFrameDriver_maximize_Test extends JInternalFrameDriver_Tes
   }
 
   @Test
-  public void should_throw_error_if_JInternalFrame_is_not_maximizable() {
+  public void should_Throw_Error_If_JInternalFrame_Is_Not_Maximizable() {
     makeNotMaximizable();
     showWindow();
     thrown.expect(IllegalStateException.class, "The JInternalFrame <");

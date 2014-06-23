@@ -40,7 +40,7 @@ public class JFileChooserFixture_constructor_withRobot_Test extends RobotBasedTe
   }
 
   @Test
-  public void should_lookup_showing_JFileChooser_by_type() {
+  public void should_Lookup_Showing_JFileChooser_By_Type() {
     robot.showWindow(window);
     JFileChooserFixture fixture = new JFileChooserFixture(robot);
     assertThat(fixture.robot()).isSameAs(robot);
@@ -48,7 +48,7 @@ public class JFileChooserFixture_constructor_withRobot_Test extends RobotBasedTe
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JFileChooser_with_matching_type_is_not_showing() {
+  public void should_Throw_Error_If_JFileChooser_With_Matching_Type_Is_Not_Showing() {
     new JFileChooserFixture(robot);
   }
 

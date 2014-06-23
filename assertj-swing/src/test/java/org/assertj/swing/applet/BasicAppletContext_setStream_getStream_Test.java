@@ -33,7 +33,7 @@ import org.junit.Test;
  */
 public class BasicAppletContext_setStream_getStream_Test extends BasicAppletContext_TestCase {
   @Test
-  public void should_set_and_get_streams() {
+  public void should_Set_And_Get_Streams() {
     InputStream inputStream = mock(InputStream.class);
     context.setStream("key1", inputStream);
     assertThat(context.getStream("key1")).isSameAs(inputStream);

@@ -40,7 +40,7 @@ public class JToggleButtonFixture_constructor_withRobotAndName_Test extends Robo
   }
 
   @Test
-  public void should_lookup_showing_JToggleButton_by_name() {
+  public void should_Lookup_Showing_JToggleButton_By_Name() {
     robot.showWindow(window);
     JToggleButtonFixture fixture = new JToggleButtonFixture(robot, "toggleButton");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -48,12 +48,12 @@ public class JToggleButtonFixture_constructor_withRobotAndName_Test extends Robo
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JToggleButton_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JToggleButton_With_Matching_Name_Is_Not_Showing() {
     new JToggleButtonFixture(robot, "toggleButton");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JToggleButton_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JToggleButton_With_Matching_Name_Is_Not_Found() {
     new JToggleButtonFixture(robot, "other");
   }
 

@@ -48,7 +48,7 @@ public class ImageAssert_usingComparator_Test extends ImageAssertBaseTest {
 
   @Override
   @Test
-  public void should_have_internal_effects() {
+  public void should_Have_Internal_Effects() {
     thrown.expect(UnsupportedOperationException.class);
     // in that, we don't care of the comparator, the point to check is that we can't use a comparator
     assertions.usingComparator(comparator);
@@ -56,7 +56,7 @@ public class ImageAssert_usingComparator_Test extends ImageAssertBaseTest {
 
   @Override
   @Test
-  public void should_return_this() {
+  public void should_Return_This() {
     // Disabled since this method throws an exception
   }
 

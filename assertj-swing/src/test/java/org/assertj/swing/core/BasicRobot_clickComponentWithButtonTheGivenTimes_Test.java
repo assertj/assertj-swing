@@ -53,7 +53,7 @@ public class BasicRobot_clickComponentWithButtonTheGivenTimes_Test extends Basic
   }
 
   @Test
-  public void should_click_Component_with_given_mouse_button_and_given_number_of_times() {
+  public void should_Click_Component_With_Given_Mouse_Button_And_Given_Number_Of_Times() {
     JTextField textField = window().textField();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
     robot().click(textField, button, times);

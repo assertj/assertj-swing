@@ -34,7 +34,7 @@ public class JTreeDriver_clickRow_Test extends JTreeDriver_clickCell_TestCase {
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_click_cell() {
+  public void should_Click_Cell() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     int row = 5;
@@ -44,14 +44,14 @@ public class JTreeDriver_clickRow_Test extends JTreeDriver_clickCell_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.clickRow(tree, 0);
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.clickRow(tree, 0);
   }

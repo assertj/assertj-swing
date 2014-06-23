@@ -42,14 +42,14 @@ public class JTableHasSelectionQuery_hasSelection_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_return_false_if_JTable_does_not_have_selection() {
+  public void should_Return_False_If_JTable_Does_Not_Have_Selection() {
     clearSelectionOf(table);
     robot.waitForIdle();
     assertThat(hasSelection(table)).isFalse();
   }
 
   @Test
-  public void should_return_true_if_JTable_has_selection() {
+  public void should_Return_True_If_JTable_Has_Selection() {
     selectAllIn(table);
     robot.waitForIdle();
     assertThat(hasSelection(table)).isTrue();

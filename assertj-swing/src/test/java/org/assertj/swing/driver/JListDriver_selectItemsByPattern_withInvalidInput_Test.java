@@ -28,19 +28,19 @@ import org.junit.Test;
  */
 public class JListDriver_selectItemsByPattern_withInvalidInput_Test extends JListDriver_withMocks_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_of_patterns_is_null() {
+  public void should_Throw_Error_If_Array_Of_Patterns_Is_Null() {
     Pattern[] patterns = null;
     driver.selectItems(list, patterns);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_array_of_patterns_is_empty() {
+  public void should_Throw_Error_If_Array_Of_Patterns_Is_Empty() {
     Pattern[] patterns = new Pattern[0];
     driver.selectItems(list, patterns);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_any_pattern_in_array_is_null() {
+  public void should_Throw_Error_If_Any_Pattern_In_Array_Is_Null() {
     Pattern[] patterns = { Pattern.compile("hello"), null };
     driver.selectItems(list, patterns);
   }

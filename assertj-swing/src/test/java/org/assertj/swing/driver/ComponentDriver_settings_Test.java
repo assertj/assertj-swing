@@ -40,7 +40,7 @@ public class ComponentDriver_settings_Test {
   }
 
   @Test
-  public void should_return_settings_from_Robot() {
+  public void should_Return_Settings_From_Robot() {
     Settings settings = new Settings();
     when(robot.settings()).thenReturn(settings);
     assertThat(driver.settings()).isSameAs(settings);

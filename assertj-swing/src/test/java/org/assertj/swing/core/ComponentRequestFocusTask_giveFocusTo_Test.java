@@ -49,7 +49,7 @@ public class ComponentRequestFocusTask_giveFocusTo_Test extends SequentialEDTSaf
   }
 
   @Test
-  public void should_call_requestFocusInWindow() {
+  public void should_Call_RequestFocusInWindow() {
     final JButton toReceiveFocus = window.buttonTwo;
     assertThat(hasFocus(toReceiveFocus)).isFalse();
     ComponentRequestFocusTask.giveFocusTo(toReceiveFocus);

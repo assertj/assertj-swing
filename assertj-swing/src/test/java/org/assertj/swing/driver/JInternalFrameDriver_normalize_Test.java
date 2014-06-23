@@ -34,7 +34,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_normalize_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_normalize_JInternalFrame() {
+  public void should_Normalize_JInternalFrame() {
     showWindow();
     maximize();
     driver.normalize(internalFrame);
@@ -48,7 +48,7 @@ public class JInternalFrameDriver_normalize_Test extends JInternalFrameDriver_Te
   }
 
   @Test
-  public void should_normalize_iconified_JInternalFrame() {
+  public void should_Normalize_Iconified_JInternalFrame() {
     showWindow();
     iconify();
     driver.normalize(internalFrame);

@@ -58,7 +58,7 @@ public class WindowStatus_checkIfReady_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_move_mouse_to_center_of_Frame_if_width_is_greater_than_height() {
+  public void should_Move_Mouse_To_Center_Of_Frame_If_Width_Is_Greater_Than_Height() {
     window.display(new Dimension(300, 100));
     pause(500);
     Point center = absoluteCenterOf(window);
@@ -69,7 +69,7 @@ public class WindowStatus_checkIfReady_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_move_mouse_to_center_of_Frame_if_height_is_greater_than_width() {
+  public void should_Move_Mouse_To_Center_Of_Frame_If_Height_Is_Greater_Than_Width() {
     window.display(new Dimension(200, 400));
     pause(500);
     Point center = absoluteCenterOf(window);
@@ -80,7 +80,7 @@ public class WindowStatus_checkIfReady_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_resize_Window_to_receive_events() {
+  public void should_Resize_Window_To_Receive_Events() {
     // TODO: test in Windows
     window.display(new Dimension(2, 2));
     final Dimension original = sizeOf(window);
@@ -95,7 +95,7 @@ public class WindowStatus_checkIfReady_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_not_check_if_Frame_is_ready_if_Robot_is_Null() throws AWTException {
+  public void should_Not_Check_If_Frame_Is_Ready_If_Robot_Is_Null() throws AWTException {
     final RobotFactory factory = mock(RobotFactory.class);
     Point before = MouseInfo.getPointerInfo().getLocation();
     when(factory.newRobotInPrimaryScreen()).thenReturn(null);

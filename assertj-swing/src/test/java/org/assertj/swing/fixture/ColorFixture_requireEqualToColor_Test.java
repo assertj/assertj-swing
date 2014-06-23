@@ -33,19 +33,19 @@ public class ColorFixture_requireEqualToColor_Test {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_pass_if_Colors_are_equal() {
+  public void should_Pass_If_Colors_Are_Equal() {
     ColorFixture fixture = new ColorFixture(BLUE);
     fixture.requireEqualTo(BLUE);
   }
 
   @Test(expected = AssertionError.class)
-  public void should_fail_if_Colors_are_not_equal() {
+  public void should_Fail_If_Colors_Are_Not_Equal() {
     ColorFixture fixture = new ColorFixture(BLUE);
     fixture.requireEqualTo(RED);
   }
 
   @Test
-  public void should_fail_showing_description_if_Colors_are_not_equal() {
+  public void should_Fail_Showing_Description_If_Colors_Are_Not_Equal() {
     ColorFixture fixture = new ColorFixture(BLUE, "test");
     thrown.expectAssertionError("test");
     fixture.requireEqualTo(RED);

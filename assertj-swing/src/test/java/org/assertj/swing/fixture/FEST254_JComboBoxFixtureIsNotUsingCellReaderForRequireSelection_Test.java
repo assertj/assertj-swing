@@ -37,7 +37,7 @@ public class FEST254_JComboBoxFixtureIsNotUsingCellReaderForRequireSelection_Tes
   }
 
   @Test
-  public void should_return_text_of_selected_item_in_editable_JComboBox() {
+  public void should_Return_Text_Of_Selected_Item_In_Editable_JComboBox() {
     selectIndex(comboBox, 0);
     robot.waitForIdle();
     assertThat(fixture.requireSelection("first"));

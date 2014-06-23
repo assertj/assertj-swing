@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_resizeTo_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_resize_JInternalFrame() {
+  public void should_Resize_JInternalFrame() {
     showWindow();
     Dimension newSize = internalFrameSize().addToWidth(20).addToHeight(40);
     driver.resizeTo(internalFrame, newSize);

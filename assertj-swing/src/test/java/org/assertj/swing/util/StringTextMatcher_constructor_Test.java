@@ -23,13 +23,13 @@ import org.junit.Test;
  */
 public class StringTextMatcher_constructor_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_is_null() {
+  public void should_Throw_Error_If_Array_Is_Null() {
     String[] values = null;
     new StringTextMatcher(values);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_array_is_empty() {
+  public void should_Throw_Error_If_Array_Is_Empty() {
     new StringTextMatcher(new String[0]);
   }
 }

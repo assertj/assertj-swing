@@ -27,7 +27,7 @@ import org.junit.Test;
 public class InnerRunner_runUnprotected_Test extends InnerRunner_TestCase {
 
   @Test
-  public void should_call_delegate_when_running_unprotected() {
+  public void should_Call_Delegate_When_Running_Unprotected() {
     new EasyMockTemplate(delegate, notifier) {
       @Override
       protected void expectations() {

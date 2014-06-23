@@ -52,7 +52,7 @@ public class FEST309_scrollAndSelectTab_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_scroll_and_click_tab() {
+  public void should_Scroll_And_Click_Tab() {
     frame.tabbedPane().selectTab(90);
     Pause.pause(10000);
   }

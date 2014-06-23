@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class Windows_markAsHidden_Test extends Windows_TestCase {
   @Test
-  public void should_mark_Window_as_hidden() {
+  public void should_Mark_Window_As_Hidden() {
     windows.markAsHidden(window);
     windowState().isNotClosed().isHidden().isNotOpen().isNotPending();
   }

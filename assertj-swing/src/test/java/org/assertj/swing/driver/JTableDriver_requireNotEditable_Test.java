@@ -26,13 +26,13 @@ import org.junit.Test;
  */
 public class JTableDriver_requireNotEditable_Test extends JTableDriver_TestCase {
   @Test
-  public void should_pass_if_cell_is_not_editable() {
+  public void should_Pass_If_Cell_Is_Not_Editable() {
     makeFirstCellNotEditable();
     driver.requireNotEditable(table, row(0).column(0));
   }
 
   @Test
-  public void should_fail_if_cell_is_editable() {
+  public void should_Fail_If_Cell_Is_Editable() {
     makeFirstCellEditable();
     thrown.expectAssertionError("property:'editable [row=0, column=0]'");
     thrown.expectMessageToContain("expected:<[fals]e> but was:<[tru]e>");

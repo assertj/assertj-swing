@@ -48,14 +48,14 @@ public class JComboBoxSelectionValueQuery_selection_Test extends RobotBasedTestC
   }
 
   @Test
-  public void should_return_false_and_null_if_not_editable_JComboBox_does_not_have_selection() {
+  public void should_Return_False_And_Null_If_Not_Editable_JComboBox_Does_Not_Have_Selection() {
     Pair<Boolean, String> selection = JComboBoxSelectionValueQuery.selection(comboBox, cellReader);
     assertThat(selection.first).isFalse();
     assertThat(selection.second).isNull();
   }
 
   @Test
-  public void should_return_true_and_text_of_selected_item_in_not_editable_JComboBox() {
+  public void should_Return_True_And_Text_Of_Selected_Item_In_Not_Editable_JComboBox() {
     setSelectedIndex(comboBox, 0);
     robot.waitForIdle();
     Pair<Boolean, String> selection = JComboBoxSelectionValueQuery.selection(comboBox, cellReader);
@@ -63,7 +63,7 @@ public class JComboBoxSelectionValueQuery_selection_Test extends RobotBasedTestC
   }
 
   @Test
-  public void should_return_text_of_selected_item_in_editable_JComboBox() {
+  public void should_Return_Text_Of_Selected_Item_In_Editable_JComboBox() {
     makeEditableAndSelectIndex(comboBox, 0);
     robot.waitForIdle();
     Pair<Boolean, String> selection = JComboBoxSelectionValueQuery.selection(comboBox, cellReader);
@@ -71,7 +71,7 @@ public class JComboBoxSelectionValueQuery_selection_Test extends RobotBasedTestC
   }
 
   @Test
-  public void should_return_text_of_entered_item_in_editable_JComboBox() {
+  public void should_Return_Text_Of_Entered_Item_In_Editable_JComboBox() {
     makeEditableAndSelectItem(comboBox, "Hello");
     robot.waitForIdle();
     Pair<Boolean, String> selection = JComboBoxSelectionValueQuery.selection(comboBox, cellReader);

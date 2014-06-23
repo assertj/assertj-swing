@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class WindowDriver_show_Test extends WindowDriver_TestCase {
   @Test
-  public void should_show_Window() {
+  public void should_Show_Window() {
     Dimension newSize = new Dimension(600, 300);
     driver.show(window, newSize);
     assertThat(isVisible(window)).isTrue();

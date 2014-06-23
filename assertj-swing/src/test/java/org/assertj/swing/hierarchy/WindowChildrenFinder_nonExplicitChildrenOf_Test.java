@@ -50,25 +50,25 @@ public class WindowChildrenFinder_nonExplicitChildrenOf_Test extends EDTSafeTest
   }
 
   @Test
-  public void should_return_empty_Collection_if_Component_is_not_Window() {
+  public void should_Return_Empty_Collection_If_Component_Is_Not_Window() {
     Container container = textField().createNew();
     assertThat(finder.nonExplicitChildrenOf(container)).isEmpty();
   }
 
   @Test
-  public void should_return_empty_Collection_if_Component_is_null() {
+  public void should_Return_Empty_Collection_If_Component_Is_Null() {
     assertThat(finder.nonExplicitChildrenOf(null)).isEmpty();
   }
 
   @Test
-  public void should_return_empty_Collection_if_Window_does_not_have_owned_Windows() {
+  public void should_Return_Empty_Collection_If_Window_Does_Not_Have_Owned_Windows() {
     final JFrame frame = frame().createNew();
     Collection<Component> children = findChildren(finder, frame);
     assertThat(children).isEmpty();
   }
 
   @Test
-  public void should_return_owned_Windows() {
+  public void should_Return_Owned_Windows() {
     ScreenLock.instance().acquire(this);
     TestWindow window = TestWindow.createNewWindow(getClass());
     TestDialog dialog = TestDialog.createNewDialog(window);

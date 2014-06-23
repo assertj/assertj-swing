@@ -25,18 +25,18 @@ import org.junit.Test;
  */
 public class ModelValueToString_asText_Test {
   @Test
-  public void should_return_null_if_model_is_null() {
+  public void should_Return_Null_If_Model_Is_Null() {
     Object fromModel = null;
     assertThat(ModelValueToString.asText(fromModel)).isNull();
   }
 
   @Test
-  public void should_return_text_from_model() {
+  public void should_Return_Text_From_Model() {
     assertThat(ModelValueToString.asText("Hello")).isEqualTo("Hello");
   }
 
   @Test
-  public void should_return_null_if_model_does_not_implement_toString() {
+  public void should_Return_Null_If_Model_Does_Not_Implement_ToString() {
     class Person {
     }
     assertThat(ModelValueToString.asText(new Person())).isNull();

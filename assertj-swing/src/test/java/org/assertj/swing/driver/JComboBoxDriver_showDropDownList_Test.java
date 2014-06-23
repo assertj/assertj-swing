@@ -32,14 +32,14 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_showDropDownList_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_show_drop_down_list_in_not_editable_JComboBox() {
+  public void should_Show_Drop_Down_List_In_Not_Editable_JComboBox() {
     showWindow();
     driver.showDropDownList(comboBox);
     assertThatDropDownIsVisible();
   }
 
   @Test
-  public void should_show_drop_down_list_in_editable_JComboBox() {
+  public void should_Show_Drop_Down_List_In_Editable_JComboBox() {
     showWindow();
     makeEditable();
     driver.showDropDownList(comboBox);

@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class WindowMonitor_eventQueueFor_Test extends WindowMonitor_TestCase {
   @Test
-  public void should_return_EventQueue_for_Component() {
+  public void should_Return_EventQueue_For_Component() {
     EventQueue queue = new EventQueue();
     when(context.eventQueueFor(frame)).thenReturn(queue);
     assertThat(monitor.eventQueueFor(frame)).isSameAs(queue);

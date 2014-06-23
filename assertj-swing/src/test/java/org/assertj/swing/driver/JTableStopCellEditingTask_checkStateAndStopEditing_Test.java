@@ -30,25 +30,25 @@ public class JTableStopCellEditingTask_checkStateAndStopEditing_Test extends JTa
   public ExpectedException thrown = none();
 
   @Test
-  public void should_throw_error_if_row_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Row_Index_Is_Out_Of_Bounds() {
     thrown.expect(IndexOutOfBoundsException.class, "row <8> should be between <0> and <4>");
     JTableStopCellEditingTask.checkStateAndStopEditing(window.table, 8, 2);
   }
 
   @Test
-  public void should_throw_error_if_column_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Column_Index_Is_Out_Of_Bounds() {
     thrown.expect(IndexOutOfBoundsException.class, "column <8> should be between <0> and <1>");
     JTableStopCellEditingTask.checkStateAndStopEditing(window.table, 0, 8);
   }
 
   @Test
-  public void should_throw_error_if_cell_is_not_editable() {
+  public void should_Throw_Error_If_Cell_Is_Not_Editable() {
     thrown.expect(IllegalStateException.class, "Expecting cell [0, 0] to be editable");
     JTableStopCellEditingTask.checkStateAndStopEditing(window.table, 0, 0);
   }
 
   @Test
-  public void should_stop_cell_editing() {
+  public void should_Stop_Cell_Editing() {
     int row = 0;
     int col = 1;
     editTableCellAt(row, col);
@@ -68,7 +68,7 @@ public class JTableStopCellEditingTask_checkStateAndStopEditing_Test extends JTa
   }
 
   @Test
-  public void should_throw_Error_if_CellEditor_Is_null() {
+  public void should_Throw_Error_If_CellEditor_Is_Null() {
     thrown.expect(NullPointerException.class);
     JTableStopCellEditingTask.stopEditing(null);
   }

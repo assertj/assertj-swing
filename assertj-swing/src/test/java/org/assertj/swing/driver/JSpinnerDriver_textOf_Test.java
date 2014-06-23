@@ -25,13 +25,13 @@ import org.junit.Test;
  */
 public class JSpinnerDriver_textOf_Test extends JSpinnerDriver_TestCase {
   @Test
-  public void should_return_text() {
+  public void should_Return_Text() {
     updateValue("Frodo");
     assertThat(driver.textOf(spinner)).isEqualTo("Frodo");
   }
 
   @Test
-  public void should_return_text_representation_of_selected_value_even_if_editor_is_not_JTextComponent() {
+  public void should_Return_Text_Representation_Of_Selected_Value_Even_If_Editor_Is_Not_JTextComponent() {
     setJLabelAsEditor();
     updateValue("Frodo");
     assertThat(driver.textOf(spinner)).isEqualTo("Frodo");

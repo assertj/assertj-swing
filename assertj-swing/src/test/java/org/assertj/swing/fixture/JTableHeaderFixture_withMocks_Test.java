@@ -53,40 +53,40 @@ public class JTableHeaderFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_clickColumn_with_index_in_driver_and_return_self() {
+  public void should_Call_ClickColumn_With_Index_In_Driver_And_Return_Self() {
     assertThat(fixture.clickColumn(6)).isSameAs(fixture);
     verify(driver).clickColumn(target, 6);
   }
 
   @Test
-  public void should_call_clickColumn_with_name_in_driver_and_return_self() {
+  public void should_Call_ClickColumn_With_Name_In_Driver_And_Return_Self() {
     assertThat(fixture.clickColumn("Hello")).isSameAs(fixture);
     verify(driver).clickColumn(target, "Hello");
   }
 
   @Test
-  public void should_call_clickColumn_with_pattern_in_driver_and_return_self() {
+  public void should_Call_ClickColumn_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Hello");
     assertThat(fixture.clickColumn(pattern)).isSameAs(fixture);
     verify(driver).clickColumn(target, pattern);
   }
 
   @Test
-  public void should_call_clickColumn_with_index_and_MouseClickInfo_in_driver_and_return_self() {
+  public void should_Call_ClickColumn_With_Index_And_MouseClickInfo_In_Driver_And_Return_Self() {
     MouseClickInfo clickInfo = middleButton().times(2);
     assertThat(fixture.clickColumn(6, clickInfo)).isSameAs(fixture);
     verify(driver).clickColumn(target, 6, MIDDLE_BUTTON, 2);
   }
 
   @Test
-  public void should_call_clickColumn_with_name_and_MouseClickInfo_in_driver_and_return_self() {
+  public void should_Call_ClickColumn_With_Name_And_MouseClickInfo_In_Driver_And_Return_Self() {
     MouseClickInfo clickInfo = middleButton().times(2);
     assertThat(fixture.clickColumn("Hello", clickInfo)).isSameAs(fixture);
     verify(driver).clickColumn(target, "Hello", MIDDLE_BUTTON, 2);
   }
 
   @Test
-  public void should_call_clickColumn_with_pattern_and_MouseClickInfo_in_driver_and_return_self() {
+  public void should_Call_ClickColumn_With_Pattern_And_MouseClickInfo_In_Driver_And_Return_Self() {
     MouseClickInfo clickInfo = middleButton().times(2);
     Pattern pattern = Pattern.compile("Hello");
     assertThat(fixture.clickColumn(pattern, clickInfo)).isSameAs(fixture);
@@ -94,7 +94,7 @@ public class JTableHeaderFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_JPopupMenu_with_index_in_driver() {
+  public void should_Return_JPopupMenu_With_Index_In_Driver() {
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     when(driver.showPopupMenu(target, 6)).thenReturn(popupMenu);
     JPopupMenuFixture popupMenuFixture = fixture.showPopupMenuAt(6);
@@ -103,7 +103,7 @@ public class JTableHeaderFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_JPopupMenu_with_name_in_driver() {
+  public void should_Return_JPopupMenu_With_Name_In_Driver() {
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     when(driver.showPopupMenu(target, "Hello")).thenReturn(popupMenu);
     JPopupMenuFixture popupMenuFixture = fixture.showPopupMenuAt("Hello");
@@ -112,7 +112,7 @@ public class JTableHeaderFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_JPopupMenu_with_pattern_in_driver() {
+  public void should_Return_JPopupMenu_With_Pattern_In_Driver() {
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     Pattern pattern = Pattern.compile("Hello");
     when(driver.showPopupMenu(target, pattern)).thenReturn(popupMenu);

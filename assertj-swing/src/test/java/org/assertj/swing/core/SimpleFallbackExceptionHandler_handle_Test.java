@@ -34,7 +34,7 @@ public class SimpleFallbackExceptionHandler_handle_Test {
   }
 
   @Test
-  public void should_print_stack_trace_of_given_exception() {
+  public void should_Print_Stack_Trace_Of_Given_Exception() {
     Throwable t = mock(Throwable.class);
     handler.handle(t);
     verify(t).printStackTrace();

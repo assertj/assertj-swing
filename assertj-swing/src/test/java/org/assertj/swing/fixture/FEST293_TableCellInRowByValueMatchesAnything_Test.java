@@ -45,13 +45,13 @@ public class FEST293_TableCellInRowByValueMatchesAnything_Test extends RobotBase
   }
 
   @Test
-  public void should_return_matching_cell() {
+  public void should_Return_Matching_Cell() {
     JTableCellFixture cell = frame.table().cell(rowWithValue("billy", "willy", "alone").column(2));
     assertThat(cell.row()).isEqualTo(1);
   }
 
   @Test(expected = ActionFailedException.class)
-  public void should_throw_error_if_matching_cell_not_found() {
+  public void should_Throw_Error_If_Matching_Cell_Not_Found() {
     frame.table().cell(rowWithValue("billy", "billy", "billy").column(2));
   }
 

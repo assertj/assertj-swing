@@ -42,7 +42,7 @@ public class JTableCellValueQuery_cellValueOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_JTable_cell_value() {
+  public void should_Return_JTable_Cell_Value() {
     table.startRecording();
     assertThat(JTableCellValueQuery.cellValueOf(table, 0, 2)).isEqualTo("0-2");
     table.requireInvoked("getValueAt", args(0, 2));

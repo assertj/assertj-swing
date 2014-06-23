@@ -41,7 +41,7 @@ public class JTableDriver_font_Test extends JTableDriver_withMockCellReader_Test
   }
 
   @Test
-  public void should_return_cell_font() {
+  public void should_Return_Cell_Font() {
     when(cellReader.fontAt(table, 0, 0)).thenReturn(font);
     Font result = driver.font(table, row(0).column(0));
     assertThat(result).isSameAs(font);

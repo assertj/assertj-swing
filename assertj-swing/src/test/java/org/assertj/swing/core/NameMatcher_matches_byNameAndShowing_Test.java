@@ -29,20 +29,20 @@ import org.junit.Test;
  */
 public class NameMatcher_matches_byNameAndShowing_Test extends NameMatcher_TestCase {
   @Test
-  public void should_return_false_if_name_does_not_match_and_Component_is_showing() {
+  public void should_Return_False_If_Name_Does_Not_Match_And_Component_Is_Showing() {
     window.display();
     NameMatcher matcher = new NameMatcher("b", true);
     assertThat(matcher.matches(window.button)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_name_matches_but_Component_is_not_showing() {
+  public void should_Return_False_If_Name_Matches_But_Component_Is_Not_Showing() {
     NameMatcher matcher = new NameMatcher(LABEL_TEXT, true);
     assertThat(matcher.matches(window.button)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_nothing_matches() {
+  public void should_Return_False_If_Nothing_Matches() {
     NameMatcher matcher = new NameMatcher("b", true);
     assertThat(matcher.matches(window.button)).isFalse();
   }

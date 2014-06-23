@@ -41,7 +41,7 @@ public class JScrollBarFixture_constructor_withRobotAndName_Test extends RobotBa
   }
 
   @Test
-  public void should_lookup_showing_JScrollBar_by_name() {
+  public void should_Lookup_Showing_JScrollBar_By_Name() {
     robot.showWindow(window);
     JScrollBarFixture fixture = new JScrollBarFixture(robot, "scrollBar");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -49,12 +49,12 @@ public class JScrollBarFixture_constructor_withRobotAndName_Test extends RobotBa
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JScrollBar_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JScrollBar_With_Matching_Name_Is_Not_Showing() {
     new JScrollBarFixture(robot, "scrollBar");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JScrollBar_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JScrollBar_With_Matching_Name_Is_Not_Found() {
     new JScrollBarFixture(robot, "other");
   }
 

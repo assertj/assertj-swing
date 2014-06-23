@@ -24,14 +24,14 @@ import org.junit.Test;
  */
 public class ComponentDriver_requireFocused_Test extends ComponentDriver_TestCase {
   @Test
-  public void should_fail_if_Component_does_not_have_focus() {
+  public void should_Fail_If_Component_Does_Not_Have_Focus() {
     thrown.expectAssertionError("Expected component");
     thrown.expectMessageToContain("to have input focus");
     driver.requireFocused(window.button);
   }
 
   @Test
-  public void should_pass_if_Component_has_focus() {
+  public void should_Pass_If_Component_Has_Focus() {
     showWindow();
     driver.requireFocused(window.textField);
   }

@@ -52,7 +52,7 @@ public class DialogMatcher_matches_byNameAndTitlePattern_withNoMatch_Test extend
   }
 
   @Test
-  public void should_return_false_if_name_is_not_equal_to_expected_or_title_does_not_match_pattern() {
+  public void should_Return_False_If_Name_Is_Not_Equal_To_Expected_Or_Title_Does_Not_Match_Pattern() {
     DialogMatcher matcher = DialogMatcher.withName(name).andTitle(title);
     JDialog dialog = dialog().withName("someName").withTitle("someTitle").createNew();
     assertThat(matcher.matches(dialog)).isFalse();

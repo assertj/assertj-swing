@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class WindowDriver_moveToFront_Test extends WindowDriver_TestCase {
   @Test
-  public void should_move_Window_to_front() {
+  public void should_Move_Window_To_Front() {
     showWindow();
     TestWindow.createAndShowNewWindow(getClass());
     assertThat(isActive(window)).isFalse();

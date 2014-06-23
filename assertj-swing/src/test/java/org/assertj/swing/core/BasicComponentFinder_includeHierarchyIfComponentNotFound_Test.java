@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class BasicComponentFinder_includeHierarchyIfComponentNotFound_Test extends BasicComponentFinder_TestCase {
   @Test
-  public void should_throw_error_without_ComponentHierarchy_as_configured() {
+  public void should_Throw_Error_Without_ComponentHierarchy_As_Configured() {
     finder.includeHierarchyIfComponentNotFound(false);
     assertThat(finder.includeHierarchyIfComponentNotFound()).isFalse();
     thrown.expect(ComponentLookupException.class);
@@ -39,7 +39,7 @@ public class BasicComponentFinder_includeHierarchyIfComponentNotFound_Test exten
   }
 
   @Test
-  public void should_throw_error_with_ComponentHierarchy_as_configured() {
+  public void should_Throw_Error_With_ComponentHierarchy_As_Configured() {
     finder.includeHierarchyIfComponentNotFound(true);
     assertThat(finder.includeHierarchyIfComponentNotFound()).isTrue();
     thrown.expect(ComponentLookupException.class, "Component hierarchy:");

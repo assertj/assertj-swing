@@ -26,7 +26,7 @@ import org.junit.Test;
 public class XmlNode_name_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_return_node_name() {
+  public void should_Return_Node_Name() {
     assertThat(node.name()).isEqualTo("person");
   }
 }

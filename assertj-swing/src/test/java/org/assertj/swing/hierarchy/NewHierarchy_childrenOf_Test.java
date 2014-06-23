@@ -27,13 +27,13 @@ import org.junit.Test;
  */
 public class NewHierarchy_childrenOf_Test extends NewHierarchy_TestCase {
   @Test
-  public void should_return_empty_Collection_if_Component_is_ignored() {
+  public void should_Return_Empty_Collection_If_Component_Is_Ignored() {
     NewHierarchy hierarchy = new NewHierarchy(toolkit, filter, true);
     assertThat(hierarchy.childrenOf(window)).isEmpty();
   }
 
   @Test
-  public void should_return_children_of_Component() {
+  public void should_Return_Children_Of_Component() {
     NewHierarchy hierarchy = new NewHierarchy(toolkit, filter, false);
     filter.ignore(window.textField);
     assertThat(hierarchy.childrenOf(contentPaneOf(window))).containsOnly(window.comboBox);

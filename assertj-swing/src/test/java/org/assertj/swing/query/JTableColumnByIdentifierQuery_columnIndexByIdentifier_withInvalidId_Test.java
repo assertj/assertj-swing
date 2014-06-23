@@ -27,7 +27,7 @@ import org.junit.Test;
 public class JTableColumnByIdentifierQuery_columnIndexByIdentifier_withInvalidId_Test extends
     JTableColumnByIdentifierQuery_TestCase {
   @Test
-  public void should_return_negative_one_if_column_index_not_found() {
+  public void should_Return_Negative_One_If_Column_Index_Not_Found() {
     String invalid = "Hello World";
     table.startRecording();
     assertThat(columnIndexByIdentifier(invalid)).isEqualTo(-1);

@@ -44,7 +44,7 @@ public class JTableHeaderLocation_pointAtColumnByIndex_Test extends JTableHeader
   }
 
   @Test
-  public void should_return_point_at_column() {
+  public void should_Return_Point_At_Column() {
     showWindow();
     assertThat(pointAt(index)).isEqualTo(expectedPoint(index));
   }

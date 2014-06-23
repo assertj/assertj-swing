@@ -27,17 +27,17 @@ import org.junit.Test;
  */
 public class JLabelDriver_requireTextAsString_Test extends JLabelDriver_TestCase {
   @Test
-  public void should_pass_if_text_is_equal_to_expected() {
+  public void should_Pass_If_Text_Is_Equal_To_Expected() {
     driver.requireText(label, "Hi");
   }
 
   @Test
-  public void should_pass_if_text_matches_expected_pattern() {
+  public void should_Pass_If_Text_Matches_Expected_Pattern() {
     driver.requireText(label, "H.*");
   }
 
   @Test
-  public void should_fail_if_text_is_not_equal_to_expected() {
+  public void should_Fail_If_Text_Is_Not_Equal_To_Expected() {
     thrown.expectAssertionError("text", "Hi", Pattern.compile("Bye"));
     driver.requireText(label, "Bye");
   }

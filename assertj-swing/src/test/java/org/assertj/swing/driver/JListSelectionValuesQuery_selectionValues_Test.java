@@ -49,13 +49,13 @@ public class JListSelectionValuesQuery_selectionValues_Test extends RobotBasedTe
   }
 
   @Test
-  public void should_return_empty_array_if_JList_has_no_selection() {
+  public void should_Return_Empty_Array_If_JList_Has_No_Selection() {
     List<String> selection = JListSelectionValuesQuery.selectionValues(list, cellReader);
     assertThat(selection).isEmpty();
   }
 
   @Test
-  public void should_return_selection_of_JList_as_text() {
+  public void should_Return_Selection_Of_JList_As_Text() {
     setSelectedIndices(list, 0, 1, 2);
     robot.waitForIdle();
     List<String> selection = JListSelectionValuesQuery.selectionValues(list, cellReader);

@@ -28,7 +28,7 @@ import org.junit.Test;
 public class XmlJUnitResultFormatter_setSystemOutput_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  public void should_add_system_output() {
+  public void should_Add_System_Output() {
     formatter.startTestSuite(new JUnitTest("test"));
     formatter.setSystemOutput(CONSOLE_OUTPUT);
     XmlNode systemOutNode = root().child(1);

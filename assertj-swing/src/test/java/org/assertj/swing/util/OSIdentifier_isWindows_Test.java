@@ -44,7 +44,7 @@ public class OSIdentifier_isWindows_Test extends OSIdentifier_TestCase {
   }
 
   @Test
-  public void should_return_is_Windows_if_OS_name_starts_with_Windows() {
+  public void should_Return_Is_Windows_If_OS_Name_Starts_With_Windows() {
     returnOSName(windows);
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isWindows()).isTrue();

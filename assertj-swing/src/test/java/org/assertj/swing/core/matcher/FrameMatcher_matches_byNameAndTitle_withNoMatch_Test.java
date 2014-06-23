@@ -50,7 +50,7 @@ public class FrameMatcher_matches_byNameAndTitle_withNoMatch_Test extends EDTSaf
   }
 
   @Test
-  public void should_return_false_if_name_or_title_are_not_equal_to_expected() {
+  public void should_Return_False_If_Name_Or_Title_Are_Not_Equal_To_Expected() {
     FrameMatcher matcher = FrameMatcher.withName(name).andTitle(title);
     JFrame frame = frame().withName("someName").withTitle("someTitle").createNew();
     assertThat(matcher.matches(frame)).isFalse();

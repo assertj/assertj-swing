@@ -56,28 +56,28 @@ public class AbstractContainerFixture_menuItem_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JMenuItem_by_path() {
+  public void should_Find_Visible_JMenuItem_By_Path() {
     robot.showWindow(window);
     JMenuItemFixture menuItem = fixture.menuItemWithPath("File", "New");
     assertThat(menuItem.target()).isSameAs(window.menuNew);
   }
 
   @Test
-  public void should_fail_if_visible_JMenuItem_not_found_by_path() {
+  public void should_Fail_If_Visible_JMenuItem_Not_Found_By_Path() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher", "label='Edit'");
     fixture.menuItemWithPath("Edit");
   }
 
   @Test
-  public void should_find_visible_JMenuItem_by_name() {
+  public void should_Find_Visible_JMenuItem_By_Name() {
     robot.showWindow(window);
     JMenuItemFixture menuItem = fixture.menuItem("menuNew");
     assertThat(menuItem.target()).isSameAs(window.menuNew);
   }
 
   @Test
-  public void should_fail_if_visible_JMenuItem_not_found_by_name() {
+  public void should_Fail_If_Visible_JMenuItem_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myMenuNew', type=javax.swing.JMenuItem, requireShowing=false");
@@ -85,7 +85,7 @@ public class AbstractContainerFixture_menuItem_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JMenuItem_by_Matcher() {
+  public void should_Find_Visible_JMenuItem_By_Matcher() {
     robot.showWindow(window);
     JMenuItemFixture menuItem = fixture.menuItem(new GenericTypeMatcher<JMenuItem>(JMenuItem.class) {
       @Override
@@ -97,7 +97,7 @@ public class AbstractContainerFixture_menuItem_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_visible_JMenuItem_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JMenuItem_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class, "Unable to find component using matcher");
     fixture.menuItem(neverMatches(JMenuItem.class));
   }

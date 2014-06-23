@@ -48,7 +48,7 @@ public class ModalDialogLookupTest extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_show_modal_Dialog_and_not_block() {
+  public void should_Show_Modal_Dialog_And_Not_Block() {
     FrameFixture frameFixture = new FrameFixture(robot, frame);
     frameFixture.button("launch").click();
     DialogFixture dialogFixture = findDialog(TestDialog.class).using(robot);

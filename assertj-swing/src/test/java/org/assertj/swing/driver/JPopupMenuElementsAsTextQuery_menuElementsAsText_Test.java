@@ -56,7 +56,7 @@ public class JPopupMenuElementsAsTextQuery_menuElementsAsText_Test extends EDTSa
   }
 
   @Test
-  public void should_return_elements_as_text() {
+  public void should_Return_Elements_As_Text() {
     String[] elements = JPopupMenuElementsAsTextQuery.menuElementsAsText(popupMenu);
     assertThat(elements).isEqualTo(array("Anakin", "Luke", "Leia"));
   }

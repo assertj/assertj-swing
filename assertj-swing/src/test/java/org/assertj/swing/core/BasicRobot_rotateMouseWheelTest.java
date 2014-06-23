@@ -58,7 +58,7 @@ public class BasicRobot_rotateMouseWheelTest extends BasicRobot_TestCase {
   }
 
   @Test
-  public void should_rotate_mouse_wheel() {
+  public void should_Rotate_Mouse_Wheel() {
     assertThat(firstVisibleIndexOf(list)).isEqualTo(0);
     MouseWheelRecorder recorder = MouseWheelRecorder.attachTo(scrollPane);
     int amount = 50;

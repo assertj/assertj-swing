@@ -39,7 +39,7 @@ public class ShouldBeEqualImages_create_Test {
   }
 
   @Test
-  public void should_create_error_message() {
+  public void should_Create_Error_Message() {
     String message = factory.create(new TextDescription("Test"), new StandardRepresentation());
     assertEquals("[Test] expecting images to be equal within offset:<6>", message);
   }

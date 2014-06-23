@@ -31,7 +31,7 @@ public class BasicComponentFinder_findByNameInRoot_Test extends BasicComponentFi
   private MyWindow windowTwo;
 
   @Test
-  public void should_find_Component() {
+  public void should_Find_Component() {
     windowTwo = MyWindow.createNew(getClass());
     windowTwo.button.setName("anotherButton");
     Component button = finder.findByName(windowTwo, "anotherButton");
@@ -39,7 +39,7 @@ public class BasicComponentFinder_findByNameInRoot_Test extends BasicComponentFi
   }
 
   @Test
-  public void should_throw_errror_if_Component_not_found() {
+  public void should_Throw_Errror_If_Component_Not_Found() {
     thrown.expect(ComponentLookupException.class, "name='label'");
     finder.findByName(window, "label");
   }

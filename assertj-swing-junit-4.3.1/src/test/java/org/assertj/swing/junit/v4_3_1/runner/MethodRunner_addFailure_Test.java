@@ -53,7 +53,7 @@ public class MethodRunner_addFailure_Test {
   }
 
   @Test
-  public void should_take_screenshot_if_test_fails_and_is_GUI_test() throws Exception {
+  public void should_Take_Screenshot_If_Test_Fails_And_Is_GUI_Test() throws Exception {
     setUpUsing("failedGUITest");
     new EasyMockTemplate(notifier, screenshotTaker) {
       @Override
@@ -72,7 +72,7 @@ public class MethodRunner_addFailure_Test {
   }
 
   @Test
-  public void should_not_take_screenshot_if_test_fails_and_is_not_GUI_test() throws Exception {
+  public void should_Not_Take_Screenshot_If_Test_Fails_And_Is_Not_GUI_Test() throws Exception {
     setUpUsing("failedNonGUITest");
     new EasyMockTemplate(notifier, screenshotTaker) {
       @Override

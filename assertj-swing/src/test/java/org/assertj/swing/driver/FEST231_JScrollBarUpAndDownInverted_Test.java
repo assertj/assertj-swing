@@ -42,7 +42,7 @@ public class FEST231_JScrollBarUpAndDownInverted_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_scroll_one_unit_down_and_up() {
+  public void should_Scroll_One_Unit_Down_And_Up() {
     driver.requireValue(verticalScrollBar, 0);
     driver.scrollUnitDown(verticalScrollBar);
     driver.requireValue(verticalScrollBar, 1);
@@ -51,7 +51,7 @@ public class FEST231_JScrollBarUpAndDownInverted_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_scroll_one_unit_right_and_left() {
+  public void should_Scroll_One_Unit_Right_And_Left() {
     driver.requireValue(horizontalScrollBar, 0);
     driver.scrollUnitDown(horizontalScrollBar);
     driver.requireValue(horizontalScrollBar, 1);
@@ -60,7 +60,7 @@ public class FEST231_JScrollBarUpAndDownInverted_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_scroll_one_block_down_and_up() {
+  public void should_Scroll_One_Block_Down_And_Up() {
     // TODO(Alex): Test in Windows
     driver.requireValue(verticalScrollBar, 0);
     driver.scrollBlockDown(verticalScrollBar);
@@ -70,7 +70,7 @@ public class FEST231_JScrollBarUpAndDownInverted_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_scroll_one_block_right_and_left() {
+  public void should_Scroll_One_Block_Right_And_Left() {
     driver.requireValue(horizontalScrollBar, 0);
     driver.scrollBlockDown(horizontalScrollBar);
     driver.requireValue(horizontalScrollBar, 10);

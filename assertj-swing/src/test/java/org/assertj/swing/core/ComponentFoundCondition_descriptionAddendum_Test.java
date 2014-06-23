@@ -52,7 +52,7 @@ public class ComponentFoundCondition_descriptionAddendum_Test {
   }
 
   @Test
-  public void should_append_component_hierarchy_to_exception_message_if_component_was_not_found() {
+  public void should_Append_Component_Hierarchy_To_Exception_Message_If_Component_Was_Not_Found() {
     Condition condition = new ComponentFoundCondition("JButton to be found", finder, byType(JButton.class));
     thrown.expect(WaitTimedOutError.class);
     thrown.expectMessageToContain("Timed out waiting for JButton to be found",
@@ -62,7 +62,7 @@ public class ComponentFoundCondition_descriptionAddendum_Test {
   }
 
   @Test
-  public void should_append_found_components_to_exception_message_if_multiple_components_were_found() {
+  public void should_Append_Found_Components_To_Exception_Message_If_Multiple_Components_Were_Found() {
     ComponentFoundCondition condition = new ComponentFoundCondition("JLabel to be found", finder, byType(JLabel.class));
     thrown.expect(WaitTimedOutError.class);
     thrown.expectMessageToContain("Timed out waiting for JLabel to be found",

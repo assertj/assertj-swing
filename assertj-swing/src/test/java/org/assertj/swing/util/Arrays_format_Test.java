@@ -27,24 +27,24 @@ import org.junit.Test;
  */
 public class Arrays_format_Test {
   @Test
-  public void should_return_null_if_array_is_null() {
+  public void should_Return_Null_If_Array_Is_Null() {
     assertThat(Arrays.format(null)).isEqualTo("null");
   }
 
   @Test
-  public void should_return_empty_brackets_if_first_dimension_is_zero() {
+  public void should_Return_Empty_Brackets_If_First_Dimension_Is_Zero() {
     String[][] array = new String[0][];
     assertThat(Arrays.format(array)).isEqualTo("[]");
   }
 
   @Test
-  public void should_return_empty_brackets_if_second_dimension_is_zero() {
+  public void should_Return_Empty_Brackets_If_Second_Dimension_Is_Zero() {
     String[][] array = new String[1][0];
     assertThat(Arrays.format(array)).isEqualTo("[[]]");
   }
 
   @Test
-  public void should_format_array() {
+  public void should_Format_Array() {
     String[][] array = { { "0-0", "0-1", "0-2" }, { "1-0", "1-1", "1-2" }, { "2-0", "2-1", "2-2" },
         { "3-0", "3-1", "3-2" }, };
     String formatted = concat("[['0-0', '0-1', '0-2'],", LINE_SEPARATOR, " ['1-0', '1-1', '1-2'],", LINE_SEPARATOR,

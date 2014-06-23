@@ -23,21 +23,21 @@ import org.junit.Test;
  */
 public class JScrollBarDriver_scrollBlockDownWithTimes_Test extends JScrollBarDriver_TestCase {
   @Test
-  public void should_scroll_block_down() {
+  public void should_Scroll_Block_Down() {
     showWindow();
     driver.scrollBlockDown(scrollBar, 2);
     assertThatScrollBarValueIs(50);
   }
 
   @Test
-  public void should_throw_error_if_JScrollBar_is_disabled() {
+  public void should_Throw_Error_If_JScrollBar_Is_Disabled() {
     disableScrollBar();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.scrollBlockDown(scrollBar, 2);
   }
 
   @Test
-  public void should_throw_error_if_JScrollBar_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JScrollBar_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.scrollBlockDown(scrollBar, 2);
   }

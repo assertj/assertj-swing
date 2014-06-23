@@ -52,7 +52,7 @@ public class Bug134_clickComponentOutsideScreen_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_throw_error_when_clicking_button_outside_screen() {
+  public void should_Throw_Error_When_Clicking_Button_Outside_Screen() {
     moveWindowOutOfScreen();
     thrown.expect(ActionFailedException.class, "The component to click is out of the boundaries of the screen");
     fixture.button().click();

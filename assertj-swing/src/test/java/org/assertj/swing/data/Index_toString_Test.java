@@ -33,7 +33,7 @@ public class Index_toString_Test {
   }
 
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     assertThat(index.toString()).isEqualTo("org.assertj.swing.data.Index[value=8]");
   }
 }

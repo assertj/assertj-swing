@@ -52,7 +52,7 @@ public class JFileChooserSelectFileTask_validateAndSelectFile_Test extends Robot
   }
 
   @Test
-  public void should_select_file() {
+  public void should_Select_File() {
     JFileChooserSelectFileTask.setSelectedFile(fileChooser, fileToSelect);
     robot.waitForIdle();
     assertThat(selectedFile()).isEqualTo(fileToSelect);

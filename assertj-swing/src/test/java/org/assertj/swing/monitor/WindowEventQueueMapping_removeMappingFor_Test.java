@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class WindowEventQueueMapping_removeMappingFor_Test extends WindowEventQueueMapping_withWindow_TestCase {
   @Test
-  public void should_remove_Component_from_mapping() {
+  public void should_Remove_Component_From_Mapping() {
     mapping.addQueueFor(window);
     mapping.removeMappingFor(window);
     assertThat(queueMap).hasSize(1);
@@ -40,7 +40,7 @@ public class WindowEventQueueMapping_removeMappingFor_Test extends WindowEventQu
   }
 
   @Test
-  public void should_remove_Component_from_all_mappings() {
+  public void should_Remove_Component_From_All_Mappings() {
     EventQueue anotherEventQueue = new EventQueue();
     Map<Window, Boolean> windowMapping = newHashMap();
     windowMapping.put(window, true);

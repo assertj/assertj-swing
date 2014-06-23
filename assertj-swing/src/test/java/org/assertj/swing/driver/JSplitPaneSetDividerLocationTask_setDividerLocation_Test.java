@@ -47,7 +47,7 @@ public class JSplitPaneSetDividerLocationTask_setDividerLocation_Test extends Ro
   }
 
   @Test
-  public void should_move_divider_to_given_location() {
+  public void should_Move_Divider_To_Given_Location() {
     assertThat(dividerLocation()).isNotEqualTo(location);
     JSplitPaneSetDividerLocationTask.setDividerLocation(splitPane, location);
     robot.waitForIdle();

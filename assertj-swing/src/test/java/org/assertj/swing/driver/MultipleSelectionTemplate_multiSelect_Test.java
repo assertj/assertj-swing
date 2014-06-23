@@ -39,7 +39,7 @@ public class MultipleSelectionTemplate_multiSelect_Test {
   }
 
   @Test
-  public void should_select_once_if_element_count_is_one() {
+  public void should_Select_Once_If_Element_Count_Is_One() {
     template = new MultipleSelection(robot, 1);
     template.multiSelect();
     assertThat(template.timesSelected).isEqualTo(1);
@@ -47,7 +47,7 @@ public class MultipleSelectionTemplate_multiSelect_Test {
   }
 
   @Test
-  public void should_select_multiple_items() {
+  public void should_Select_Multiple_Items() {
     template = new MultipleSelection(robot, 2);
     int key = controlOrCommandKey();
     template.multiSelect();

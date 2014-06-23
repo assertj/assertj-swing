@@ -42,7 +42,7 @@ public class JTableColumnCountQuery_columnCountOf_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_return_column_count() {
+  public void should_Return_Column_Count() {
     table.startRecording();
     assertThat(JTableColumnCountQuery.columnCountOf(table)).isEqualTo(COLUMN_COUNT);
     table.requireInvoked("getColumnCount");

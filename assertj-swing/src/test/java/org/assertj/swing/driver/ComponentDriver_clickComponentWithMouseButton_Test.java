@@ -36,17 +36,17 @@ public class ComponentDriver_clickComponentWithMouseButton_Test extends Componen
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_click_Component_with_left_mouse_button_once() {
+  public void should_Click_Component_With_Left_Mouse_Button_Once() {
     shouldClickComponentWith(LEFT_BUTTON);
   }
 
   @Test
-  public void should_click_Component_with_middle_mouse_button_once() {
+  public void should_Click_Component_With_Middle_Mouse_Button_Once() {
     shouldClickComponentWith(MIDDLE_BUTTON);
   }
 
   @Test
-  public void should_click_Component_with_right_mouse_button_once() {
+  public void should_Click_Component_With_Right_Mouse_Button_Once() {
     shouldClickComponentWith(RIGHT_BUTTON);
   }
 
@@ -58,12 +58,12 @@ public class ComponentDriver_clickComponentWithMouseButton_Test extends Componen
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_MouseButton_is_null() {
+  public void should_Throw_Error_If_MouseButton_Is_Null() {
     driver.click(window.button, (MouseButton) null);
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     disableButton();
     thrown.expectIllegalStateIsDisabledComponent();
@@ -75,7 +75,7 @@ public class ComponentDriver_clickComponentWithMouseButton_Test extends Componen
   }
 
   @Test
-  public void should_throw_error_when_clicking_Component_not_showing() {
+  public void should_Throw_Error_When_Clicking_Component_Not_Showing() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     thrown.expectIllegalStateIsNotShowingComponent();
     try {

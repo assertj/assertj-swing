@@ -26,7 +26,7 @@ import org.junit.Test;
 public class XmlNode_parentNode_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_return_parent_node() {
+  public void should_Return_Parent_Node() {
     XmlNode newNode = node.addNewNode("new");
     XmlNode parent = newNode.parentNode();
     assertThat(parent).isEqualTo(node);

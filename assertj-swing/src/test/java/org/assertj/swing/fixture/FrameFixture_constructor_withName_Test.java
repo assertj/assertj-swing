@@ -39,7 +39,7 @@ public class FrameFixture_constructor_withName_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_lookup_showing_frame_by_name_using_new_Robot() {
+  public void should_Lookup_Showing_Frame_By_Name_Using_New_Robot() {
     Frame target = frame().withName("frame").withTitle(getClass().getSimpleName()).createAndShow();
     fixture = new FrameFixture("frame");
     assertThat(fixture.robot()).isNotNull();

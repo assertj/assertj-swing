@@ -42,7 +42,7 @@ import org.junit.Test;
  */
 public class BasicRobot_pressAndReleaseKeyWithModifiers_Test extends BasicRobot_TestCase {
   @Test
-  public void should_press_key_and_modifiers() {
+  public void should_Press_Key_And_Modifiers() {
     JTextField textField = window().textField();
     robot().focusAndWaitForFocusGain(textField);
     KeyPressRecorder recorder = KeyPressRecorder.attachTo(textField);

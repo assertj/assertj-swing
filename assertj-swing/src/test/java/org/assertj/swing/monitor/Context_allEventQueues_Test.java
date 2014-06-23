@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class Context_allEventQueues_Test extends Context_TestCase {
   @Test
-  public void should_return_all_EventQueues() {
+  public void should_Return_All_EventQueues() {
     when(windowEventQueueMapping.eventQueues()).thenReturn(newArrayList(eventQueue));
     when(eventQueueMapping.eventQueues()).thenReturn(newArrayList(eventQueue));
     Collection<EventQueue> allEventQueues = context.allEventQueues();

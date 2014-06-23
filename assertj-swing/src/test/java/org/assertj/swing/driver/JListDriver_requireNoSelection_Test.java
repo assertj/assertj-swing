@@ -24,13 +24,13 @@ import org.junit.Test;
  */
 public class JListDriver_requireNoSelection_Test extends JListDriver_TestCase {
   @Test
-  public void should_pass_if_JList_does_not_have_selection() {
+  public void should_Pass_If_JList_Does_Not_Have_Selection() {
     clearSelection();
     driver.requireNoSelection(list);
   }
 
   @Test
-  public void should_fail_if_JList_has_selection() {
+  public void should_Fail_If_JList_Has_Selection() {
     selectFirstItem();
     thrown.expectAssertionError("property:'selectedIndex'");
     thrown.expectMessageToContain("expected:<[-1]> but was:<[0]>");

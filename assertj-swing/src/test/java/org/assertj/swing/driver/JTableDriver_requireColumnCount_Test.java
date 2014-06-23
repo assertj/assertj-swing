@@ -26,14 +26,14 @@ import org.junit.Test;
  */
 public class JTableDriver_requireColumnCount_Test extends JTableDriver_TestCase {
   @Test
-  public void should_fail_if_column_count_is_not_equal_to_expected() {
+  public void should_Fail_If_Column_Count_Is_Not_Equal_To_Expected() {
     thrown.expectAssertionError("property:'columnCount'");
     thrown.expectMessageToContain("expected:<[12]> but was:<[6]>");
     driver.requireColumnCount(table, 12);
   }
 
   @Test
-  public void should_pass_if_column_count_is_equal_to_expected() {
+  public void should_Pass_If_Column_Count_Is_Equal_To_Expected() {
     driver.requireColumnCount(table, COLUMN_COUNT);
   }
 }

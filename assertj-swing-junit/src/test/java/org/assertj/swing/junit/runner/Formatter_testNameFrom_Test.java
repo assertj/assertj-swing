@@ -40,19 +40,19 @@ public class Formatter_testNameFrom_Test {
   }
 
   @Test
-  public void should_format_method_with_no_parameters() throws Exception {
+  public void should_Format_Method_With_No_Parameters() throws Exception {
     Method m = type.getDeclaredMethod("methodWithNoParameters");
     assertThat(Formatter.testNameFrom(type, m)).isEqualTo(concat(typeName, ".methodWithNoParameters"));
   }
 
   @Test
-  public void should_format_method_with_one_parameter() throws Exception {
+  public void should_Format_Method_With_One_Parameter() throws Exception {
     Method m = type.getDeclaredMethod("methodWithOneParameter", float.class);
     assertThat(Formatter.testNameFrom(type, m)).isEqualTo(concat(typeName, ".methodWithOneParameter(float)"));
   }
 
   @Test
-  public void should_format_method_with_parameters() throws Exception {
+  public void should_Format_Method_With_Parameters() throws Exception {
     Method m = type.getDeclaredMethod("methodWithParameters", String.class, int.class);
     assertThat(Formatter.testNameFrom(type, m)).isEqualTo(
         concat(typeName, ".methodWithParameters(java.lang.String, int)"));

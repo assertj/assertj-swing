@@ -52,7 +52,7 @@ public class FrameMatcher_matches_byNameAndTitlePattern_withNoMatch_Test extends
   }
 
   @Test
-  public void should_return_false_if_name_is_not_equal_to_expected_or_title_does_not_match_pattern() {
+  public void should_Return_False_If_Name_Is_Not_Equal_To_Expected_Or_Title_Does_Not_Match_Pattern() {
     FrameMatcher matcher = FrameMatcher.withName(name).andTitle(title);
     JFrame frame = frame().withName("someName").withTitle("someTitle").createNew();
     assertThat(matcher.matches(frame)).isFalse();

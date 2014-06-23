@@ -31,7 +31,7 @@ import org.junit.Test;
 public class TestXmlNodeWriter_writeTestExecutionTime_Test extends TestXmlNodeWriter_TestCase {
 
   @Test
-  public void should_add_test_execution_time_as_attribute() {
+  public void should_Add_Test_Execution_Time_As_Attribute() {
     XmlNode root = new XmlDocument().newRoot("root");
     assertThat(writer.writeTestExecutionTime(root, currentTimeMillis() - 3000)).isSameAs(writer);
     double time = parseDouble(root.valueOfAttribute(ATTR_TIME));

@@ -26,14 +26,14 @@ import org.junit.Test;
  */
 public class JTableDriver_drop_Test extends JTableDriver_TestCase {
   @Test
-  public void should_throw_error_if_JTable_is_disabled() {
+  public void should_Throw_Error_If_JTable_Is_Disabled() {
     disableTable();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.drop(table, row(0).column(0));
   }
 
   @Test
-  public void should_throw_error_if_JTable_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTable_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.drop(table, row(0).column(0));
   }

@@ -44,7 +44,7 @@ public class JTreeDriver_doubleClickRow_withInvalidIndex_Test extends JTreeDrive
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_given_row_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Given_Row_Index_Is_Out_Of_Bounds() {
     showWindow();
     driver.doubleClickRow(tree, invalidRow);
   }

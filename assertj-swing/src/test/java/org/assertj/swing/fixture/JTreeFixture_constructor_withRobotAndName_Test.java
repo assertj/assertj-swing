@@ -50,7 +50,7 @@ public class JTreeFixture_constructor_withRobotAndName_Test extends RobotBasedTe
   }
 
   @Test
-  public void should_lookup_showing_JTree_by_name() {
+  public void should_Lookup_Showing_JTree_By_Name() {
     robot.showWindow(window);
     JTreeFixture fixture = new JTreeFixture(robot, "tree");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -58,12 +58,12 @@ public class JTreeFixture_constructor_withRobotAndName_Test extends RobotBasedTe
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JTree_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JTree_With_Matching_Name_Is_Not_Showing() {
     new JTreeFixture(robot, "tree");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JTree_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JTree_With_Matching_Name_Is_Not_Found() {
     new JTreeFixture(robot, "other");
   }
 

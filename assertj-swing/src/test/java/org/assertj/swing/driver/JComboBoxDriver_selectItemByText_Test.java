@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_selectItemByText_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_select_item() {
+  public void should_Select_Item() {
     clearSelection();
     showWindow();
     driver.selectItem(comboBox, "third");
@@ -33,7 +33,7 @@ public class JComboBoxDriver_selectItemByText_Test extends JComboBoxDriver_TestC
   }
 
   @Test
-  public void should_select_matching_item() {
+  public void should_Select_Matching_Item() {
     clearSelection();
     showWindow();
     driver.selectItem(comboBox, "thi.*");
@@ -41,7 +41,7 @@ public class JComboBoxDriver_selectItemByText_Test extends JComboBoxDriver_TestC
   }
 
   @Test
-  public void should_not_do_anything_if_item_already_selected() {
+  public void should_Not_Do_Anything_If_Item_Already_Selected() {
     showWindow();
     select(2);
     driver.selectItem(comboBox, "third");
@@ -49,20 +49,20 @@ public class JComboBoxDriver_selectItemByText_Test extends JComboBoxDriver_TestC
   }
 
   @Test
-  public void should_throw_error_if_JComboBox_is_disabled() {
+  public void should_Throw_Error_If_JComboBox_Is_Disabled() {
     disableComboBox();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectItem(comboBox, "first");
   }
 
   @Test
-  public void should_throw_error_if_JComboBox_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JComboBox_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectItem(comboBox, "first");
   }
 
   @Test(expected = LocationUnavailableException.class)
-  public void should_throw_error_if_item_does_not_exist() {
+  public void should_Throw_Error_If_Item_Does_Not_Exist() {
     showWindow();
     driver.selectItem(comboBox, "hundred");
   }

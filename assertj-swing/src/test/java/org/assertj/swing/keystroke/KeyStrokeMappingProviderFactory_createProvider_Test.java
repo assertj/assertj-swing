@@ -35,7 +35,7 @@ public class KeyStrokeMappingProviderFactory_createProvider_Test {
   }
 
   @Test
-  public void should_create_provider_from_given_class_name() {
+  public void should_Create_Provider_From_Given_Class_Name() {
     Class<?> providerType = KeyStrokeMappingProvider_en.class;
     String className = providerType.getName();
     KeyStrokeMappingProvider provider = factory.createProvider(className);
@@ -43,14 +43,14 @@ public class KeyStrokeMappingProviderFactory_createProvider_Test {
   }
 
   @Test
-  public void should_return_null_if_class_is_not_KeyStrokeMappingProvider() {
+  public void should_Return_Null_If_Class_Is_Not_KeyStrokeMappingProvider() {
     String className = String.class.getName();
     KeyStrokeMappingProvider provider = factory.createProvider(className);
     assertThat(provider).isNull();
   }
 
   @Test
-  public void should_return_null_if_provider_cannot_be_instantiated() {
+  public void should_Return_Null_If_Provider_Cannot_Be_Instantiated() {
     String className = MyKeyStrokeMappingProvider.class.getName();
     KeyStrokeMappingProvider provider = factory.createProvider(className);
     assertThat(provider).isNull();

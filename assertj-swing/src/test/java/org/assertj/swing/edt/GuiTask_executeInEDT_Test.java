@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class GuiTask_executeInEDT_Test {
   @Test
-  public void should_execute_in_EDT_when_called_in_EDT() {
+  public void should_Execute_In_EDT_When_Called_In_EDT() {
     final GuiTaskInEDT task = new GuiTaskInEDT();
     execute(task);
     pause(new Condition("Task is executed") {

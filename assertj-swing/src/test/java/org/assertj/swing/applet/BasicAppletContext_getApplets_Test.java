@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class BasicAppletContext_getApplets_Test extends BasicAppletContext_TestCase {
   @Test
-  public void should_always_return_empty_enumeration() {
+  public void should_Always_Return_Empty_Enumeration() {
     Enumeration<Applet> applets = context.getApplets();
     assertThat(applets.hasMoreElements()).isFalse();
     assertThat(applets.nextElement()).isNull();

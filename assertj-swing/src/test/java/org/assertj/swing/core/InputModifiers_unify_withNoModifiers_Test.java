@@ -25,12 +25,12 @@ import org.junit.Test;
  */
 public class InputModifiers_unify_withNoModifiers_Test {
   @Test
-  public void should_return_zero_if_array_of_modifiers_is_empty() {
+  public void should_Return_Zero_If_Array_Of_Modifiers_Is_Empty() {
     assertThat(InputModifiers.unify(new int[0])).isZero();
   }
 
   @Test
-  public void should_return_zero_if_array_of_modifiers_is_null() {
+  public void should_Return_Zero_If_Array_Of_Modifiers_Is_Null() {
     int[] modifiers = null;
     assertThat(InputModifiers.unify(modifiers)).isZero();
   }

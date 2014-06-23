@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JPopupMenuDriver_menuItemUsingName_Test extends JPopupMenuDriver_TestCase {
   @Test
-  public void should_find_JMenuItems_by_name() {
+  public void should_Find_JMenuItems_By_Name() {
     JMenuItem found = driver.menuItem(popupMenu, "first");
     assertThat(found).isSameAs(window.menuItem1);
   }

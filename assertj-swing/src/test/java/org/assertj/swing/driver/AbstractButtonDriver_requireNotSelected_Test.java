@@ -23,13 +23,13 @@ import org.junit.Test;
  */
 public class AbstractButtonDriver_requireNotSelected_Test extends AbstractButtonDriver_TestCase {
   @Test
-  public void should_pass_if_button_is_not_selected() {
+  public void should_Pass_If_Button_Is_Not_Selected() {
     unselectCheckBox();
     driver.requireNotSelected(checkBox);
   }
 
   @Test
-  public void should_fail_if_button_is_selected() {
+  public void should_Fail_If_Button_Is_Selected() {
     selectCheckBox();
     thrown.expectAssertionError("property:'selected'");
     thrown.expectMessageToContain("expected:<[fals]e> but was:<[tru]e>");

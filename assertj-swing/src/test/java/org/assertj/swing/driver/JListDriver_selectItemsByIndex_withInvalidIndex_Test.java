@@ -45,7 +45,7 @@ public class JListDriver_selectItemsByIndex_withInvalidIndex_Test extends JListD
   }
 
   @Test
-  public void should_throw_error_if_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Index_Is_Out_Of_Bounds() {
     showWindow();
     thrown.expectIndexOutOfBoundsException(concat("Item index (", valueOf(index),
         ") should be between [0] and [2] (inclusive)"));

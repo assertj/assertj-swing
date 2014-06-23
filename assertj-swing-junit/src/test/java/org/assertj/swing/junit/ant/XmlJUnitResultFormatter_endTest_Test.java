@@ -24,7 +24,7 @@ import org.junit.Test;
 public class XmlJUnitResultFormatter_endTest_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  public void should_write_execution_time_for_successful_and_notS_started_test() {
+  public void should_Write_Execution_Time_For_Successful_And_NotS_Started_Test() {
     startSuite();
     junit.framework.Test test = mockTest();
     formatter.endTest(test);

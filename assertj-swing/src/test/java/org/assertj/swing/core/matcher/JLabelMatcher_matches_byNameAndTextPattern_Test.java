@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class JLabelMatcher_matches_byNameAndTextPattern_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_name_is_equal_to_expected_and_text_matches_pattern() {
+  public void should_Return_True_If_Name_Is_Equal_To_Expected_And_Text_Matches_Pattern() {
     JLabelMatcher matcher = JLabelMatcher.withName("label").andText(Pattern.compile("Hel.*"));
     JLabel label = label().withName("label").withText("Hello").createNew();
     assertThat(matcher.matches(label)).isTrue();

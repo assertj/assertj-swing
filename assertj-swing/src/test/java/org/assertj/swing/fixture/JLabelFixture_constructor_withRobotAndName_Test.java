@@ -40,7 +40,7 @@ public class JLabelFixture_constructor_withRobotAndName_Test extends RobotBasedT
   }
 
   @Test
-  public void should_lookup_showing_JLabel_by_name() {
+  public void should_Lookup_Showing_JLabel_By_Name() {
     robot.showWindow(window);
     JLabelFixture fixture = new JLabelFixture(robot, "label");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -48,12 +48,12 @@ public class JLabelFixture_constructor_withRobotAndName_Test extends RobotBasedT
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JLabel_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JLabel_With_Matching_Name_Is_Not_Showing() {
     new JLabelFixture(robot, "label");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JLabel_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JLabel_With_Matching_Name_Is_Not_Found() {
     new JLabelFixture(robot, "other");
   }
 

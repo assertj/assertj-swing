@@ -32,14 +32,14 @@ import org.junit.Test;
  */
 public class JButtonMatcher_matches_byTextPattern_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_text_matches_pattern() {
+  public void should_Return_True_If_Text_Matches_Pattern() {
     JButtonMatcher matcher = JButtonMatcher.withText(Pattern.compile("He.*"));
     JButton button = button().withText("Hello").createNew();
     assertThat(matcher.matches(button)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_text_does_not_match_pattern() {
+  public void should_Return_False_If_Text_Does_Not_Match_Pattern() {
     JButtonMatcher matcher = JButtonMatcher.withText(Pattern.compile("Hello"));
     JButton button = button().withText("Bye").createNew();
     assertThat(matcher.matches(button)).isFalse();

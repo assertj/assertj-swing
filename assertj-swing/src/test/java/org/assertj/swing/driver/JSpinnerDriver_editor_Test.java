@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JSpinnerDriver_editor_Test extends JSpinnerDriver_TestCase {
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JTextComponentEditor_not_found() {
+  public void should_Throw_Error_If_JTextComponentEditor_Not_Found() {
     setJLabelAsEditor();
     showWindow();
     driver.editor(spinner);

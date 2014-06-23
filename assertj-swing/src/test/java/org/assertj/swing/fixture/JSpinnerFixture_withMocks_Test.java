@@ -42,55 +42,55 @@ public class JSpinnerFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_increment_in_driver_and_return_self() {
+  public void should_Call_Increment_In_Driver_And_Return_Self() {
     assertThat(fixture.increment()).isSameAs(fixture);
     verify(fixture.driver()).increment(fixture.target());
   }
 
   @Test
-  public void should_call_increment_with_times_in_driver_and_return_self() {
+  public void should_Call_Increment_With_Times_In_Driver_And_Return_Self() {
     assertThat(fixture.increment(6)).isSameAs(fixture);
     verify(fixture.driver()).increment(fixture.target(), 6);
   }
 
   @Test
-  public void should_call_decrement_in_driver_and_return_self() {
+  public void should_Call_Decrement_In_Driver_And_Return_Self() {
     assertThat(fixture.decrement()).isSameAs(fixture);
     verify(fixture.driver()).decrement(fixture.target());
   }
 
   @Test
-  public void should_call_decrement_with_times_in_driver_and_return_self() {
+  public void should_Call_Decrement_With_Times_In_Driver_And_Return_Self() {
     assertThat(fixture.decrement(6)).isSameAs(fixture);
     verify(fixture.driver()).decrement(fixture.target(), 6);
   }
 
   @Test
-  public void should_call_enterText_in_driver_and_return_self() {
+  public void should_Call_EnterText_In_Driver_And_Return_Self() {
     assertThat(fixture.enterText("Hello")).isSameAs(fixture);
     verify(fixture.driver()).enterText(fixture.target(), "Hello");
   }
 
   @Test
-  public void should_call_enterTextAndCommit_in_driver_and_return_self() {
+  public void should_Call_EnterTextAndCommit_In_Driver_And_Return_Self() {
     assertThat(fixture.enterTextAndCommit("Hello")).isSameAs(fixture);
     verify(fixture.driver()).enterTextAndCommit(fixture.target(), "Hello");
   }
 
   @Test
-  public void should_call_select_in_driver_and_return_self() {
+  public void should_Call_Select_In_Driver_And_Return_Self() {
     assertThat(fixture.select("Six")).isSameAs(fixture);
     verify(fixture.driver()).selectValue(fixture.target(), "Six");
   }
 
   @Test
-  public void should_call_requireValue_in_driver_and_return_self() {
+  public void should_Call_RequireValue_In_Driver_And_Return_Self() {
     assertThat(fixture.requireValue("Six")).isSameAs(fixture);
     verify(fixture.driver()).requireValue(fixture.target(), "Six");
   }
 
   @Test
-  public void should_return_text_using_driver() {
+  public void should_Return_Text_Using_Driver() {
     JSpinnerDriver driver = fixture.driver();
     JSpinner target = fixture.target();
     when(driver.textOf(target)).thenReturn("Six");

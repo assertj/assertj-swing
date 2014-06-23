@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JTableDriver_cellWriter_Test extends JTableDriver_withMocks_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_cellWriter_is_null() {
+  public void should_Throw_Error_If_CellWriter_Is_Null() {
     driver.replaceCellWriter(null);
   }
 }

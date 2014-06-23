@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class WindowDriver_resize_Test extends WindowDriver_TestCase {
   @Test
-  public void should_resize_window() {
+  public void should_Resize_Window() {
     showWindow();
     Dimension newSize = new FluentDimension(sizeOf(window)).addToHeight(100).addToWidth(200);
     driver.resize(window, newSize.width, newSize.height);
@@ -37,20 +37,20 @@ public class WindowDriver_resize_Test extends WindowDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_Window_is_disabled() {
+  public void should_Throw_Error_If_Window_Is_Disabled() {
     disableWindow();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.resize(window, 10, 10);
   }
 
   @Test
-  public void should_throw_error_if_Window_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Window_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.resize(window, 10, 10);
   }
 
   @Test(expected = IllegalStateException.class)
-  public void should_throw_error_if_Window_is_not_resizable() {
+  public void should_Throw_Error_If_Window_Is_Not_Resizable() {
     makeWindowNotResizable();
     showWindow();
     driver.resize(window, 10, 10);

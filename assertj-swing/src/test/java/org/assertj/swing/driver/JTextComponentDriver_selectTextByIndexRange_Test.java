@@ -25,27 +25,27 @@ import org.junit.Test;
  */
 public class JTextComponentDriver_selectTextByIndexRange_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_select_text_range() {
+  public void should_Select_Text_Range() {
     showWindow();
     driver.selectText(textField, 8, 14);
     requireSelectedTextInTextField("a test");
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_disabled() {
+  public void should_Throw_Error_If_JTextComponent_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectText(textField, 8, 14);
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTextComponent_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectText(textField, 8, 14);
   }
 
   @Test
-  public void should_throw_error_if_indices_are_out_of_bounds() {
+  public void should_Throw_Error_If_Indices_Are_Out_Of_Bounds() {
     showWindow();
     thrown.expect(ActionFailedException.class, "Unable to get location for index <20> in javax.swing.JTextField");
     driver.selectText(textField, 20, 22);

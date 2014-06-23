@@ -30,17 +30,17 @@ import org.junit.Test;
  */
 public class JFileChooserDriver_selectFiles_withInvalidInput_Test extends JFileChooserDriver_withMocks_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_of_files_is_null() {
+  public void should_Throw_Error_If_Array_Of_Files_Is_Null() {
     driver.selectFiles(fileChooser, null);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_array_of_files_is_empty() {
+  public void should_Throw_Error_If_Array_Of_Files_Is_Empty() {
     driver.selectFiles(fileChooser, new File[0]);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_any_file_is_null() {
+  public void should_Throw_Error_If_Any_File_Is_Null() {
     driver.selectFiles(fileChooser, array(new File("fake"), null));
   }
 }

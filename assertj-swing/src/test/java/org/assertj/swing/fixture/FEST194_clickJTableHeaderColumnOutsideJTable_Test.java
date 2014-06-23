@@ -54,7 +54,7 @@ public class FEST194_clickJTableHeaderColumnOutsideJTable_Test extends RobotBase
   }
 
   @Test
-  public void should_scroll_to_header_column_to_click() {
+  public void should_Scroll_To_Header_Column_To_Click() {
     int columnCount = columnCountOf(table.target());
     for (int column = 0; column < columnCount; column++) {
       table.tableHeader().clickColumn(column);

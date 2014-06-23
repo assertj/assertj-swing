@@ -34,12 +34,12 @@ public class ComponentDriver_clickComponentWithMouseClickInfo_Test extends Compo
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_MouseClickInfo_is_null() {
+  public void should_Throw_Error_If_MouseClickInfo_Is_Null() {
     driver.click(window.button, (MouseClickInfo) null);
   }
 
   @Test
-  public void should_click_Component_with_given_MouseClickInfo() {
+  public void should_Click_Component_With_Given_MouseClickInfo() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     MouseClickInfo mouseClickInfo = leftButton().times(3);
@@ -49,7 +49,7 @@ public class ComponentDriver_clickComponentWithMouseClickInfo_Test extends Compo
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     disableButton();
     thrown.expectIllegalStateIsDisabledComponent();
@@ -61,7 +61,7 @@ public class ComponentDriver_clickComponentWithMouseClickInfo_Test extends Compo
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     thrown.expectIllegalStateIsNotShowingComponent();
     try {

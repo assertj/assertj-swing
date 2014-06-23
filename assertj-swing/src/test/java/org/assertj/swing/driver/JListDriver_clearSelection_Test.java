@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JListDriver_clearSelection_Test extends JListDriver_TestCase {
   @Test
-  public void should_return_contents_of_JList() {
+  public void should_Return_Contents_Of_JList() {
     select(1);
     driver.clearSelection(list);
     assertThat(selectedIndexOf(list)).isEqualTo(-1);

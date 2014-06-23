@@ -30,14 +30,14 @@ import org.junit.Test;
  */
 public class FrameMatcher_matches_byNameAndTitle_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_name_and_title_are_equal_to_expected() {
+  public void should_Return_True_If_Name_And_Title_Are_Equal_To_Expected() {
     FrameMatcher matcher = FrameMatcher.withName("frame").andTitle("Hello");
     JFrame frame = frame().withName("frame").withTitle("Hello").createNew();
     assertThat(matcher.matches(frame)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_name_is_equal_to_expected_and_title_matches_pattern() {
+  public void should_Return_True_If_Name_Is_Equal_To_Expected_And_Title_Matches_Pattern() {
     FrameMatcher matcher = FrameMatcher.withName("frame").andTitle("Hel.*");
     JFrame frame = frame().withName("frame").withTitle("Hello").createNew();
     assertThat(matcher.matches(frame)).isTrue();

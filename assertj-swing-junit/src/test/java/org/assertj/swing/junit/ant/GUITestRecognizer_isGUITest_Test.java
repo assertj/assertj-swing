@@ -36,19 +36,19 @@ public class GUITestRecognizer_isGUITest_Test {
   }
 
   @Test
-  public void should_return_true_if_method_has_annotation() {
+  public void should_Return_True_If_Method_Has_Annotation() {
     boolean isGuiTest = recognizer.isGUITest(TEST_CLASS_NAME, "guiTest");
     assertThat(isGuiTest).isTrue();
   }
 
   @Test
-  public void should_return_false_if_method_does_not_have_annotation() {
+  public void should_Return_False_If_Method_Does_Not_Have_Annotation() {
     boolean isGuiTest = recognizer.isGUITest(TEST_CLASS_NAME, "nonGuiTest");
     assertThat(isGuiTest).isFalse();
   }
 
   @Test
-  public void should_return_false_in_case_of_error() {
+  public void should_Return_False_In_Case_Of_Error() {
     boolean isGuiTest = recognizer.isGUITest(TEST_CLASS_NAME, "someMethod");
     assertThat(isGuiTest).isFalse();
   }

@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class WindowDriver_close_Test extends WindowDriver_TestCase {
   @Test
-  public void should_close_Window() {
+  public void should_Close_Window() {
     showWindow();
     driver.close(window);
     assertThat(isVisible(window)).isFalse();

@@ -54,7 +54,7 @@ public class BasicJTreeCellReader_valueAt_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_text_from_cellRenderer_if_renderer_is_JLabel() {
+  public void should_Return_Text_From_CellRenderer_If_Renderer_Is_JLabel() {
     JLabel label = label().withText("First").createNew();
     setCellRendererComponent(tree, label);
     robot.waitForIdle();
@@ -63,7 +63,7 @@ public class BasicJTreeCellReader_valueAt_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_text_from_JTree_if_cellRenderer_is_not_JLabel() {
+  public void should_Return_Text_From_JTree_If_CellRenderer_Is_Not_JLabel() {
     setCellRendererComponent(tree, unrecognizedRenderer());
     robot.waitForIdle();
     Object value = reader.valueAt(tree, root);
@@ -71,7 +71,7 @@ public class BasicJTreeCellReader_valueAt_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_null_if_model_does_not_implement_toString() {
+  public void should_Return_Null_If_Model_Does_Not_Implement_ToString() {
     class Person {
     }
     root = new DefaultMutableTreeNode(new Person());

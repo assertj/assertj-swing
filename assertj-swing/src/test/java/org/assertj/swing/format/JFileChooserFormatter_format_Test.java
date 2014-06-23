@@ -46,7 +46,7 @@ public class JFileChooserFormatter_format_Test extends SequentialEDTSafeTestCase
   }
 
   @Test
-  public void should_format_JFileChooser() {
+  public void should_Format_JFileChooser() {
     String formatted = formatter.format(fileChooser);
     assertThat(formatted).contains("javax.swing.JFileChooser").contains("name='fileChooser'")
         .contains("dialogTitle='A file chooser'").contains("dialogType=OPEN_DIALOG")

@@ -40,19 +40,19 @@ public class JLabelTextReader_checkContainsText_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_false_if_text_in_JLabel_is_null() {
+  public void should_Return_False_If_Text_In_JLabel_Is_Null() {
     when(label.getText()).thenReturn(null);
     assertThat(reader.checkContainsText(label, "Yoda")).isFalse();
   }
 
   @Test
-  public void should_return_false_if_text_in_JLabel_does_not_contain_given_String() {
+  public void should_Return_False_If_Text_In_JLabel_Does_Not_Contain_Given_String() {
     when(label.getText()).thenReturn("Leia");
     assertThat(reader.checkContainsText(label, "Yoda")).isFalse();
   }
 
   @Test
-  public void should_return_true_if_text_in_JLabel_contains_given_String() {
+  public void should_Return_True_If_Text_In_JLabel_Contains_Given_String() {
     when(label.getText()).thenReturn("Yoda");
     assertThat(reader.checkContainsText(label, "Yo")).isTrue();
   }

@@ -26,19 +26,19 @@ import org.junit.Test;
  */
 public class NewHierarchy_roots_Test extends NewHierarchy_TestCase {
   @Test
-  public void should_not_contain_ignored_Windows() {
+  public void should_Not_Contain_Ignored_Windows() {
     NewHierarchy hierarchy = new NewHierarchy(toolkit, filter, true);
     assertThat(hierarchy.roots()).doesNotContain(window);
   }
 
   @Test
-  public void should_contain_Windows_that_have_not_been_ignored() {
+  public void should_Contain_Windows_That_Have_Not_Been_Ignored() {
     NewHierarchy hierarchy = new NewHierarchy(toolkit, filter, false);
     assertThat(hierarchy.roots()).contains(window);
   }
 
   @Test
-  public void should_recognize_given_Component() {
+  public void should_Recognize_Given_Component() {
     NewHierarchy hierarchy = new NewHierarchy(toolkit, filter, true);
     assertThat(hierarchy.roots()).doesNotContain(window);
     hierarchy.recognize(window);

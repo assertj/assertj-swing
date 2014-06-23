@@ -41,7 +41,7 @@ public class WindowStatus_constructor_Test {
   }
 
   @Test
-  public void should_have_null_Robot_if_Robot_cannot_be_created() throws AWTException {
+  public void should_Have_Null_Robot_If_Robot_Cannot_Be_Created() throws AWTException {
     when(factory.newRobotInPrimaryScreen()).thenThrow(new AWTException("Thrown on purpose"));
     WindowStatus status = new WindowStatus(windows, factory);
     assertThat(status.robot).isNull();

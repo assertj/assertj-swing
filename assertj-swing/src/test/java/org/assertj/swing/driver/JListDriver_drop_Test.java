@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JListDriver_drop_Test extends JListDriver_dragAndDrop_TestCase {
   @Test
-  public void should_drop() {
+  public void should_Drop() {
     showWindow();
     driver.drag(list, "two");
     driver.drop(dropList);
@@ -36,14 +36,14 @@ public class JListDriver_drop_Test extends JListDriver_dragAndDrop_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JList_is_disabled() {
+  public void should_Throw_Error_If_JList_Is_Disabled() {
     disableList();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.drop(list);
   }
 
   @Test
-  public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JList_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.drop(dropList);
   }

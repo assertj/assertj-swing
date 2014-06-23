@@ -23,12 +23,12 @@ import org.junit.Test;
  */
 public class NameMatcher_constructorWithName_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_name_is_null() {
+  public void should_Throw_Error_If_Name_Is_Null() {
     new NameMatcher(null);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_name_is_empty() {
+  public void should_Throw_Error_If_Name_Is_Empty() {
     new NameMatcher("");
   }
 }

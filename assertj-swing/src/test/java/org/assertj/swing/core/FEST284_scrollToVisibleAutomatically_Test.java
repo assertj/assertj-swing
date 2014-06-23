@@ -54,7 +54,7 @@ public class FEST284_scrollToVisibleAutomatically_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_auto_scroll_when_clicking_JButton() {
+  public void should_Auto_Scroll_When_Clicking_JButton() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     robot.click(window.button);
     recorder.clicked(LEFT_BUTTON).timesClicked(1);

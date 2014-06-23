@@ -41,7 +41,7 @@ import org.junit.Test;
  */
 public class BasicJTableCellReader_valueAt_Test extends BasicJTableCellReader_TestCase {
   @Test
-  public void should_return_toString_from_model_if_cellRenderer_is_not_recognized() {
+  public void should_Return_ToString_From_Model_If_CellRenderer_Is_Not_Recognized() {
     setModelData(table, new Object[][] { array(new Jedi("Yoda")) }, array("Names"));
     setNotRecognizedCellRendererTo(table);
     robot.waitForIdle();
@@ -71,14 +71,14 @@ public class BasicJTableCellReader_valueAt_Test extends BasicJTableCellReader_Te
   }
 
   @Test
-  public void should_return_text_from_cellRenderer_if_it_is_JLabel() {
+  public void should_Return_Text_From_CellRenderer_If_It_Is_JLabel() {
     setJLabelAsCellRenderer();
     String value = valueAt(reader, table, 0, 0);
     assertThat(value).isEqualTo("Hello");
   }
 
   @Test
-  public void should_return_selection_from_cellRenderer_if_it_is_JComboBox() {
+  public void should_Return_Selection_From_CellRenderer_If_It_Is_JComboBox() {
     setJComboBoxAsCellRendererWithSelection(1);
     robot.waitForIdle();
     String value = valueAt(reader, table, 0, 0);
@@ -86,7 +86,7 @@ public class BasicJTableCellReader_valueAt_Test extends BasicJTableCellReader_Te
   }
 
   @Test
-  public void should_return_null_if_cellRenderer_is_JComboBox_without_selection() {
+  public void should_Return_Null_If_CellRenderer_Is_JComboBox_Without_Selection() {
     setJComboBoxAsCellRendererWithSelection(-1);
     robot.waitForIdle();
     String value = valueAt(reader, table, 0, 0);
@@ -112,7 +112,7 @@ public class BasicJTableCellReader_valueAt_Test extends BasicJTableCellReader_Te
   }
 
   @Test
-  public void should_return_selection_from_cellRenderer_if_it_is_JCheckBox() {
+  public void should_Return_Selection_From_CellRenderer_If_It_Is_JCheckBox() {
     setJCheckBoxAsCellRenderer(table, "Hello", true);
     robot.waitForIdle();
     String value = valueAt(reader, table, 0, 0);

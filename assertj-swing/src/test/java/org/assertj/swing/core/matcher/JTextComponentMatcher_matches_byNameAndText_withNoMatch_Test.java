@@ -50,7 +50,7 @@ public class JTextComponentMatcher_matches_byNameAndText_withNoMatch_Test extend
   }
 
   @Test
-  public void should_return_false_if_name_or_text_are_not_equal_to_expected() {
+  public void should_Return_False_If_Name_Or_Text_Are_Not_Equal_To_Expected() {
     JTextComponentMatcher matcher = JTextComponentMatcher.withName(name).andText(text);
     JTextField textField = textField().withName("someName").withText("someText").createNew();
     assertThat(matcher.matches(textField)).isFalse();

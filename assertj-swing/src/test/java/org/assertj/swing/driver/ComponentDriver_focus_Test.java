@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class ComponentDriver_focus_Test extends ComponentDriver_TestCase {
   @Test
-  public void should_give_focus_to_Component() {
+  public void should_Give_Focus_To_Component() {
     showWindow();
     driver.focus(window.button);
     pause(new Condition("Component has focus") {
@@ -40,7 +40,7 @@ public class ComponentDriver_focus_Test extends ComponentDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     disableButton();
     thrown.expectIllegalStateIsDisabledComponent();
     try {
@@ -51,7 +51,7 @@ public class ComponentDriver_focus_Test extends ComponentDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     try {
       driver.focus(window.button);

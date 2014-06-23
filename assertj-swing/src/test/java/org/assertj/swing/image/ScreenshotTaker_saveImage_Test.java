@@ -55,7 +55,7 @@ public class ScreenshotTaker_saveImage_Test {
   }
 
   @Test
-  public void should_throw_wrapped_Exception_thrown_when_writing_image_to_file() throws IOException {
+  public void should_Throw_Wrapped_Exception_Thrown_When_Writing_Image_To_File() throws IOException {
     when(writer.writeAsPng(image, path)).thenThrow(error);
     thrown.expectWrappingException(IORuntimeException.class, error);
     taker.saveImage(image, path);

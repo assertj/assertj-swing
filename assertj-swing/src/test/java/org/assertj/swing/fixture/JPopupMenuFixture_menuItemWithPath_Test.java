@@ -58,7 +58,7 @@ public class JPopupMenuFixture_menuItemWithPath_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_find_first_level_JMenuItem_by_path() {
+  public void should_Find_First_Level_JMenuItem_By_Path() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.fileMenu);
     JMenuItemFixture menuItem = fixture.menuItemWithPath("File");
     menuItem.click();
@@ -66,7 +66,7 @@ public class JPopupMenuFixture_menuItemWithPath_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_find_second_level_JMenuItem_by_path() {
+  public void should_Find_Second_Level_JMenuItem_By_Path() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.openMenu);
     if (isOSX()) {
       fixture.menuItemWithPath("File").click();

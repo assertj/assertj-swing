@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_failIfVetoed_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_throw_error_if_setProperty_is_vetoed() {
+  public void should_Throw_Error_If_SetProperty_Is_Vetoed() {
     final PropertyVetoException vetoed = new PropertyVetoException("Test", null);
     JInternalFrameAction action = MAXIMIZE;
     thrown.expect(ActionFailedException.class, action.name);
@@ -40,7 +40,7 @@ public class JInternalFrameDriver_failIfVetoed_Test extends JInternalFrameDriver
   }
 
   @Test
-  public void should_not_throw_error_if_setProperty_is_not_vetoed() {
+  public void should_Not_Throw_Error_If_SetProperty_Is_Not_Vetoed() {
     driver.failIfVetoed(internalFrame, MAXIMIZE, new UnexpectedException(new Exception()));
   }
 }

@@ -27,14 +27,14 @@ import org.junit.Test;
  */
 public class ComponentDriver_invokePopup_Test extends ComponentDriver_invokePopup_TestCase {
   @Test
-  public void should_show_JPopupMenu() {
+  public void should_Show_JPopupMenu() {
     showWindow();
     JPopupMenu p = driver.invokePopupMenu(window.textField);
     assertThat(p).isSameAs(popupMenu);
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     try {
@@ -45,7 +45,7 @@ public class ComponentDriver_invokePopup_Test extends ComponentDriver_invokePopu
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     try {
       driver.invokePopupMenu(window.textField);

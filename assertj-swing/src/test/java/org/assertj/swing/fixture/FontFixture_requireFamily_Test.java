@@ -24,18 +24,18 @@ import org.junit.Test;
  */
 public class FontFixture_requireFamily_Test extends FontFixture_TestCase {
   @Test
-  public void should_pass_if_family_is_equal_to_expected() {
+  public void should_Pass_If_Family_Is_Equal_To_Expected() {
     fixture().requireFamily("SansSerif");
   }
 
   @Test
-  public void should_fail_if_family_is_not_equal_to_expected() {
+  public void should_Fail_If_Family_Is_Not_Equal_To_Expected() {
     expectAssertionError("family", "[Monospace]", "[SansSerif]");
     fixture().requireFamily("Monospace");
   }
 
   @Test
-  public void should_fail_showing_description_if_family_is_not_equal_to_expected() {
+  public void should_Fail_Showing_Description_If_Family_Is_Not_Equal_To_Expected() {
     expectAssertionError("test - family", "[Monospace]", "[SansSerif]");
     FontFixture fixture = new FontFixture(font(), "test");
     fixture.requireFamily("Monospace");

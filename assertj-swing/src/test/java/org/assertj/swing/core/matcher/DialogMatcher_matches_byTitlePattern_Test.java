@@ -32,14 +32,14 @@ import org.junit.Test;
  */
 public class DialogMatcher_matches_byTitlePattern_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_title_matches_pattern() {
+  public void should_Return_True_If_Title_Matches_Pattern() {
     DialogMatcher matcher = DialogMatcher.withTitle(Pattern.compile("He.*"));
     JDialog dialog = dialog().withTitle("Hello").createNew();
     assertThat(matcher.matches(dialog)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_title_does_not_match_pattern() {
+  public void should_Return_False_If_Title_Does_Not_Match_Pattern() {
     DialogMatcher matcher = DialogMatcher.withTitle(Pattern.compile("Hello"));
     JDialog dialog = dialog().withTitle("Bye").createNew();
     assertThat(matcher.matches(dialog)).isFalse();

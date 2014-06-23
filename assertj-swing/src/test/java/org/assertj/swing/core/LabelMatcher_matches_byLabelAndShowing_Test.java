@@ -29,20 +29,20 @@ import org.junit.Test;
  */
 public class LabelMatcher_matches_byLabelAndShowing_Test extends LabelMatcher_TestCase {
   @Test
-  public void should_return_false_if_label_does_not_match() {
+  public void should_Return_False_If_Label_Does_Not_Match() {
     window.display();
     LabelMatcher matcher = new LabelMatcher("b", true);
     assertThat(matcher.matches(window.buttonLabel)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_label_matches_and_Component_is_not_showing() {
+  public void should_Return_False_If_Label_Matches_And_Component_Is_Not_Showing() {
     LabelMatcher matcher = new LabelMatcher(LABEL_TEXT, true);
     assertThat(matcher.matches(window.buttonLabel)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_nothing_matches() {
+  public void should_Return_False_If_Nothing_Matches() {
     LabelMatcher matcher = new LabelMatcher("b", true);
     assertThat(matcher.matches(window.buttonLabel)).isFalse();
   }

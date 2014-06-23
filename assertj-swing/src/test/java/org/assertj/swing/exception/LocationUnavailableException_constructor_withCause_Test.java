@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class LocationUnavailableException_constructor_withCause_Test {
   @Test
-  public void should_create_error_with_cause() {
+  public void should_Create_Error_With_Cause() {
     Throwable cause = new Throwable();
     LocationUnavailableException e = new LocationUnavailableException("A Failure", cause);
     assertThat(e.getCause()).isSameAs(cause);

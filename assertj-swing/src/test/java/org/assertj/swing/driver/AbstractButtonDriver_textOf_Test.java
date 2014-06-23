@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class AbstractButtonDriver_textOf_Test extends AbstractButtonDriver_TestCase {
   @Test
-  public void should_return_text_of_button() {
+  public void should_Return_Text_Of_Button() {
     assertThat(driver.textOf(checkBox)).isEqualTo("Hello");
   }
 }

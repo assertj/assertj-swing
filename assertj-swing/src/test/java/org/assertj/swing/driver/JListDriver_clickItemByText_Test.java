@@ -36,7 +36,7 @@ public class JListDriver_clickItemByText_Test extends JListDriver_TestCase {
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_click_item_with_text_equal_to_given_one() {
+  public void should_Click_Item_With_Text_Equal_To_Given_One() {
     clearSelection();
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(list);
@@ -47,7 +47,7 @@ public class JListDriver_clickItemByText_Test extends JListDriver_TestCase {
   }
 
   @Test
-  public void should_click_item_with_text_matching_given_pattern() {
+  public void should_Click_Item_With_Text_Matching_Given_Pattern() {
     clearSelection();
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(list);
@@ -58,20 +58,20 @@ public class JListDriver_clickItemByText_Test extends JListDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JList_is_disabled() {
+  public void should_Throw_Error_If_JList_Is_Disabled() {
     disableList();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.clickItem(list, "two", RIGHT_BUTTON, 2);
   }
 
   @Test
-  public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JList_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.clickItem(list, "two", RIGHT_BUTTON, 2);
   }
 
   @Test(expected = LocationUnavailableException.class)
-  public void should_throw_error_if_item_to_click_was_not_found() {
+  public void should_Throw_Error_If_Item_To_Click_Was_Not_Found() {
     showWindow();
     driver.clickItem(list, "hello", RIGHT_BUTTON, 2);
   }

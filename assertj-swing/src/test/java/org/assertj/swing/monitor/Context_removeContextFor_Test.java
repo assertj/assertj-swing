@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class Context_removeContextFor_Test extends Context_TestCase {
   @Test
-  public void should_remove_context() {
+  public void should_Remove_Context() {
     context.removeContextFor(window);
     verify(windowEventQueueMapping).removeMappingFor(window);
   }

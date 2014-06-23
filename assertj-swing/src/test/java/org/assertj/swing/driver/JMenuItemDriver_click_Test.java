@@ -53,7 +53,7 @@ public class JMenuItemDriver_click_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_click_menu() {
+  public void should_Click_Menu() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(menuItem);
     driver.click(menuItem);
     recorder.wasClicked();

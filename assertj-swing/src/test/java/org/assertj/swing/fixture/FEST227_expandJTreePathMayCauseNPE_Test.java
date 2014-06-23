@@ -51,7 +51,7 @@ public class FEST227_expandJTreePathMayCauseNPE_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_expanding_nodes_should_not_cause_NPE() {
+  public void should_Expanding_Nodes_Should_Not_Cause_NPE() {
     frameFixture.tree().expandPath("root");
     frameFixture.tree().expandPath("root/a");
     frameFixture.tree().expandPath("root/a/b");

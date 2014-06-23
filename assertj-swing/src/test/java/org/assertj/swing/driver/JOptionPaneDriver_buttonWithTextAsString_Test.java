@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class JOptionPaneDriver_buttonWithTextAsString_Test extends JOptionPaneDriver_TestCase {
   @Test
-  public void should_find_button_with_given_text() {
+  public void should_Find_Button_With_Given_Text() {
     JOptionPane optionPane = messageWithOptions("First", "Second");
     launch(optionPane, title());
     JButton button = driver.buttonWithText(optionPane, "Second");
@@ -38,7 +38,7 @@ public class JOptionPaneDriver_buttonWithTextAsString_Test extends JOptionPaneDr
   }
 
   @Test
-  public void should_find_button_with_text_matching_pattern() {
+  public void should_Find_Button_With_Text_Matching_Pattern() {
     JOptionPane optionPane = messageWithOptions("First", "Second");
     launch(optionPane, title());
     JButton button = driver.buttonWithText(optionPane, "Sec.*");

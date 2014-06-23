@@ -52,7 +52,7 @@ public class FEST249_shouldNotAllowExit extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_not_exit() {
+  public void should_Not_Exit() {
     frame.button().click();
     System.out.println("Test should reach this point");
   }

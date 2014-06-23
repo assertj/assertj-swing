@@ -41,7 +41,7 @@ public class ImageHandler_encodeBase64_withImageEncoder_Test extends ImageHandle
   }
 
   @Test
-  public void should_not_rethrow_error() {
+  public void should_Not_Rethrow_Error() {
     new EasyMockTemplate(encoder) {
       @Override
       protected void expectations() throws Throwable {

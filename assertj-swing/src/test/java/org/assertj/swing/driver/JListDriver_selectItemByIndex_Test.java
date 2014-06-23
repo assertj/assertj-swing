@@ -27,14 +27,14 @@ import org.junit.Test;
  */
 public class JListDriver_selectItemByIndex_Test extends JListDriver_TestCase {
   @Test
-  public void should_select_item() {
+  public void should_Select_Item() {
     showWindow();
     driver.selectItem(list, 2);
     assertThat(selectedValue()).isEqualTo("three");
   }
 
   @Test
-  public void should_not_select_item_if_already_selected() {
+  public void should_Not_Select_Item_If_Already_Selected() {
     select(1);
     showWindow();
     driver.selectItem(list, 1);
@@ -42,14 +42,14 @@ public class JListDriver_selectItemByIndex_Test extends JListDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JList_is_disabled() {
+  public void should_Throw_Error_If_JList_Is_Disabled() {
     disableList();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectItem(list, 2);
   }
 
   @Test
-  public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JList_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectItem(list, 2);
   }

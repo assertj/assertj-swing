@@ -50,14 +50,14 @@ public class Bug197_clickVisibleAreaInComponent_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_click_center_of_visible_area_of_Component_when_visible_area_is_on_the_left() {
+  public void should_Click_Center_Of_Visible_Area_Of_Component_When_Visible_Area_Is_On_The_Left() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     fixture.button("clickMe").click();
     recorder.wasClicked();
   }
 
   @Test
-  public void should_click_center_of_visible_area_of_Component_when_visible_area_is_on_the_right() {
+  public void should_Click_Center_Of_Visible_Area_Of_Component_When_Visible_Area_Is_On_The_Right() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     fixture.scrollPane().horizontalScrollBar().scrollToMaximum();
     fixture.button("clickMe").click();

@@ -44,7 +44,7 @@ public class JMenuPopupMenuQuery_popupMenuOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_JPopupMenu_in_JMenu() {
+  public void should_Return_JPopupMenu_In_JMenu() {
     JPopupMenu expected = popupMenuOf(menu);
     menu.startRecording();
     JPopupMenu actual = JMenuPopupMenuQuery.popupMenuOf(menu);

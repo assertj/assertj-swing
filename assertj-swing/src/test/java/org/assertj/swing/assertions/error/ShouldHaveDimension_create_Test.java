@@ -42,7 +42,7 @@ public class ShouldHaveDimension_create_Test {
   }
 
   @Test
-  public void should_create_error_message() {
+  public void should_Create_Error_Message() {
     String message = factory.create(new TextDescription("Test"), new StandardRepresentation());
     assertEquals("[Test] expected size:<42x15> but was:<12x20> in:<[\"Luke\", \"Yoda\"]>", message);
   }

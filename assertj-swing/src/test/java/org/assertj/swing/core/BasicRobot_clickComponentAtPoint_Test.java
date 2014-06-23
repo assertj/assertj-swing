@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class BasicRobot_clickComponentAtPoint_Test extends BasicRobot_ClickTestCase {
   @Test
-  public void should_click_Component_once_with_left_button_at_given_point() {
+  public void should_Click_Component_Once_With_Left_Button_At_Given_Point() {
     Point p = new Point(10, 10);
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window().textField());
     robot().click(window().textField(), p);

@@ -25,13 +25,13 @@ import org.junit.Test;
 public class JComboBoxDriver_requireSelectionByIndex_Test extends JComboBoxDriver_TestCase {
 
   @Test
-  public void should_pass_if_JComboBox_has_expected_selection() {
+  public void should_Pass_If_JComboBox_Has_Expected_Selection() {
     selectFirstItem();
     driver.requireSelection(comboBox, 0);
   }
 
   @Test
-  public void should_fail_if_JComboBox_does_not_have_expected_selection() {
+  public void should_Fail_If_JComboBox_Does_Not_Have_Expected_Selection() {
     selectFirstItem();
     thrown.expectAssertionError("property:'selectedIndex'");
     thrown.expectMessageToContain("expected:<[1]> but was:<[0]>");
@@ -39,7 +39,7 @@ public class JComboBoxDriver_requireSelectionByIndex_Test extends JComboBoxDrive
   }
 
   @Test
-  public void should_fail_if_JComboBox_does_not_have_any_selection() {
+  public void should_Fail_If_JComboBox_Does_Not_Have_Any_Selection() {
     clearSelection();
     thrown.expectAssertionError("property:'selectedIndex'");
     thrown.expectMessageToContain("No selection");

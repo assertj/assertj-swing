@@ -29,7 +29,7 @@ public class JTreeDriver_selectRow_Test extends JTreeDriver_selectCell_TestCase 
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_select_cell() {
+  public void should_Select_Cell() {
     showWindow();
     clearTreeSelection();
     driver.selectRow(tree, 0);
@@ -41,7 +41,7 @@ public class JTreeDriver_selectRow_Test extends JTreeDriver_selectCell_TestCase 
   }
 
   @Test
-  public void should_not_do_anything_if_cell_is_already_selected() {
+  public void should_Not_Do_Anything_If_Cell_Is_Already_Selected() {
     showWindow();
     clearTreeSelection();
     select(1);
@@ -52,14 +52,14 @@ public class JTreeDriver_selectRow_Test extends JTreeDriver_selectCell_TestCase 
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectRow(tree, 0);
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectRow(tree, 0);
   }

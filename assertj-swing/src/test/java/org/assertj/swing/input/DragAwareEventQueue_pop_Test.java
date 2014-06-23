@@ -26,12 +26,12 @@ import org.junit.Test;
  */
 public class DragAwareEventQueue_pop_Test extends DragAwareEventQueue_TestCase {
   @Test(expected = EmptyStackException.class)
-  public void should_pop_if_SystemEventQueue_is_same_as_queue_under_test() {
+  public void should_Pop_If_SystemEventQueue_Is_Same_As_Queue_Under_Test() {
     queue.pop();
   }
 
   @Test
-  public void should_not_pop_if_SystemEventQueue_is_not_same_as_queue_under_test() {
+  public void should_Not_Pop_If_SystemEventQueue_Is_Not_Same_As_Queue_Under_Test() {
     toolkit.eventQueue(new EventQueue());
     queue.pop(); // if really pops should throw an EmptyStackException
   }

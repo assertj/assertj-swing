@@ -67,7 +67,7 @@ public class XmlNode_equals_hashCode_Test extends XmlNode_TestCase implements Eq
 
   @Override
   @Test
-  public void should_maintain_equals_and_hashCode_contract() {
+  public void should_Maintain_Equals_And_HashCode_Contract() {
     XmlNode child1 = node.addNewNode("child", attributes(name("name1").value("value1"), name("name2").value("value2")));
     XmlNode child2 = node.addNewNode("child", attributes(name("name1").value("value1"), name("name2").value("value2")));
     assertMaintainsEqualsAndHashCodeContract(child1, child2);
@@ -75,13 +75,13 @@ public class XmlNode_equals_hashCode_Test extends XmlNode_TestCase implements Eq
 
   @Override
   @Test
-  public void should_not_be_equal_to_null() {
+  public void should_Not_Be_Equal_To_Null() {
     assertThat(node.equals(null)).isFalse();
   }
 
   @Override
   @Test
-  public void should_not_be_equal_to_Object_of_different_type() {
+  public void should_Not_Be_Equal_To_Object_Of_Different_Type() {
     assertThat(node.equals("Hello")).isFalse();
   }
 }

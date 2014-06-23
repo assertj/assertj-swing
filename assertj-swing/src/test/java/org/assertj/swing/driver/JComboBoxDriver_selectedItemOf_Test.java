@@ -28,14 +28,14 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_selectedItemOf_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_return_null_if_not_editable_JComboBox_does_not_have_selection() {
+  public void should_Return_Null_If_Not_Editable_JComboBox_Does_Not_Have_Selection() {
     clearSelection();
     String selection = driver.selectedItemOf(comboBox);
     assertThat(selection).isNull();
   }
 
   @Test
-  public void should_return_true_and_text_of_selected_item_in_not_editable_JComboBox() {
+  public void should_Return_True_And_Text_Of_Selected_Item_In_Not_Editable_JComboBox() {
     setSelectedIndex(comboBox, 0);
     robot.waitForIdle();
     String selection = driver.selectedItemOf(comboBox);
@@ -43,7 +43,7 @@ public class JComboBoxDriver_selectedItemOf_Test extends JComboBoxDriver_TestCas
   }
 
   @Test
-  public void should_return_text_of_selected_item_in_editable_JComboBox() {
+  public void should_Return_Text_Of_Selected_Item_In_Editable_JComboBox() {
     makeEditableAndSelectIndex(comboBox, 0);
     robot.waitForIdle();
     String selection = driver.selectedItemOf(comboBox);
@@ -51,7 +51,7 @@ public class JComboBoxDriver_selectedItemOf_Test extends JComboBoxDriver_TestCas
   }
 
   @Test
-  public void should_return_text_of_entered_item_in_editable_JComboBox() {
+  public void should_Return_Text_Of_Entered_Item_In_Editable_JComboBox() {
     makeEditableAndSelectItem(comboBox, "Hello");
     robot.waitForIdle();
     String selection = driver.selectedItemOf(comboBox);

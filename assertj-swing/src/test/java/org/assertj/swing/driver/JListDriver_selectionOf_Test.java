@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JListDriver_selectionOf_Test extends JListDriver_TestCase {
   @Test
-  public void should_return_selection() {
+  public void should_Return_Selection() {
     select(0, 2);
     String[] selection = driver.selectionOf(list);
     assertThat(selection).containsOnly("one", "three");
@@ -34,7 +34,7 @@ public class JListDriver_selectionOf_Test extends JListDriver_TestCase {
   }
 
   @Test
-  public void should_empty_array_if_JList_does_not_have_selection() {
+  public void should_Empty_Array_If_JList_Does_Not_Have_Selection() {
     assertThat(driver.selectionOf(list)).isEmpty();
   }
 }

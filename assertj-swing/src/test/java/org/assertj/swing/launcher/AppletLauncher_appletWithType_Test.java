@@ -26,13 +26,13 @@ import org.junit.Test;
  */
 public class AppletLauncher_appletWithType_Test extends AppletLauncher_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Applet_TypeIsNull() {
+  public void should_Throw_Error_If_Applet_TypeIsNull() {
     Class<? extends Applet> type = null;
     AppletLauncher.applet(type);
   }
 
   @Test
-  public void should_throw_error_if_Applet_cannot_be_instantiated() {
+  public void should_Throw_Error_If_Applet_Cannot_Be_Instantiated() {
     thrown.expect(UnexpectedException.class, "Unable to create a new instance");
     AppletLauncher.applet(AnApplet.class);
   }

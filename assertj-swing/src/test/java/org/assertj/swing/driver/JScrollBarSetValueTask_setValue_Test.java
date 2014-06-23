@@ -44,7 +44,7 @@ public class JScrollBarSetValueTask_setValue_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_set_value_to_JScrollBar() {
+  public void should_Set_Value_To_JScrollBar() {
     JScrollBarSetValueTask.setValue(scrollBar, value);
     robot.waitForIdle();
     assertThat(valueOf(scrollBar)).isEqualTo(value);

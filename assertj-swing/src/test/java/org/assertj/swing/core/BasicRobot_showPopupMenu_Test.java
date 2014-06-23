@@ -36,7 +36,7 @@ public class BasicRobot_showPopupMenu_Test extends BasicRobot_TestCase {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_show_popupMenu() {
+  public void should_Show_PopupMenu() {
     JPopupMenu popupMenu = addPopupMenuToTextField();
     JTextField textField = window().textField();
     robot().click(textField);
@@ -46,7 +46,7 @@ public class BasicRobot_showPopupMenu_Test extends BasicRobot_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_popupMenu_not_found() {
+  public void should_Throw_Error_If_PopupMenu_Not_Found() {
     thrown.expect(ComponentLookupException.class, "Unable to show popup");
     thrown.expectMessageToContain("on javax.swing.JTextField");
     robot().showPopupMenu(window().textField());

@@ -30,7 +30,7 @@ public class NoExitSecurityManager_constructor_withHook_Test {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_throw_error_if_hook_is_null() {
+  public void should_Throw_Error_If_Hook_Is_Null() {
     thrown.expect(NullPointerException.class);
     thrown.expectMessage("The given ExitCallHook should not be null");
     new NoExitSecurityManager(null);

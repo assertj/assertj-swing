@@ -36,7 +36,7 @@ import org.junit.Test;
  */
 public class Modifiers_updateModifierWithKeyCode_Test {
   @Test
-  public void should_update_modifier_if_keyCode_is_Alt() {
+  public void should_Update_Modifier_If_KeyCode_Is_Alt() {
     int modifierMask = 0;
     int updatedModifierMask = Modifiers.updateModifierWithKeyCode(VK_ALT, modifierMask);
     assertThat(updatedModifierMask).isNotEqualTo(modifierMask);
@@ -44,7 +44,7 @@ public class Modifiers_updateModifierWithKeyCode_Test {
   }
 
   @Test
-  public void should_update_modifier_if_keyCode_is_AltGraph() {
+  public void should_Update_Modifier_If_KeyCode_Is_AltGraph() {
     int modifierMask = 0;
     int updatedModifierMask = Modifiers.updateModifierWithKeyCode(VK_ALT_GRAPH, modifierMask);
     assertThat(updatedModifierMask).isNotEqualTo(modifierMask);
@@ -52,7 +52,7 @@ public class Modifiers_updateModifierWithKeyCode_Test {
   }
 
   @Test
-  public void should_update_modifier_if_keyCode_is_Ctrl() {
+  public void should_Update_Modifier_If_KeyCode_Is_Ctrl() {
     int modifierMask = 0;
     int updatedModifierMask = Modifiers.updateModifierWithKeyCode(VK_CONTROL, modifierMask);
     assertThat(updatedModifierMask).isNotEqualTo(modifierMask);
@@ -60,7 +60,7 @@ public class Modifiers_updateModifierWithKeyCode_Test {
   }
 
   @Test
-  public void should_update_modifier_if_keyCode_is_Meta() {
+  public void should_Update_Modifier_If_KeyCode_Is_Meta() {
     int modifierMask = 0;
     int updatedModifierMask = Modifiers.updateModifierWithKeyCode(VK_META, modifierMask);
     assertThat(updatedModifierMask).isNotEqualTo(modifierMask);
@@ -68,7 +68,7 @@ public class Modifiers_updateModifierWithKeyCode_Test {
   }
 
   @Test
-  public void should_update_modifier_if_keyCode_is_Shift() {
+  public void should_Update_Modifier_If_KeyCode_Is_Shift() {
     int modifierMask = 0;
     int updatedModifierMask = Modifiers.updateModifierWithKeyCode(VK_SHIFT, modifierMask);
     assertThat(updatedModifierMask).isNotEqualTo(modifierMask);
@@ -76,7 +76,7 @@ public class Modifiers_updateModifierWithKeyCode_Test {
   }
 
   @Test
-  public void should_not_update_modifier_if_keyCode_is_not_modifier() {
+  public void should_Not_Update_Modifier_If_KeyCode_Is_Not_Modifier() {
     int modifierMask = 0;
     int updatedModifierMask = Modifiers.updateModifierWithKeyCode(VK_A, modifierMask);
     assertThat(updatedModifierMask).isEqualTo(modifierMask);

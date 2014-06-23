@@ -45,7 +45,7 @@ public class FEST122_addSupportForEditableJComboBoxAsCellEditor_Test extends Rob
   }
 
   @Test
-  public void should_enter_value_in_JTable_cell_with_editable_JComboBox_as_editor() {
+  public void should_Enter_Value_In_JTable_Cell_With_Editable_JComboBox_As_Editor() {
     JTableCellFixture cell = frame.table("data").cell(row(0).column(0));
     cell.enterValue("Pink");
     cell.requireValue("Pink");

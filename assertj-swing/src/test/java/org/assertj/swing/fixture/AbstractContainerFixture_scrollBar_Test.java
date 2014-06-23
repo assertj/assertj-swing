@@ -52,14 +52,14 @@ public class AbstractContainerFixture_scrollBar_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_find_visible_JScrollBar_by_name() {
+  public void should_Find_Visible_JScrollBar_By_Name() {
     robot.showWindow(window);
     JScrollBarFixture scrollBar = fixture.scrollBar("scrollMeScrollBar");
     assertThat(scrollBar.target()).isSameAs(window.scrollBar);
   }
 
   @Test
-  public void should_fail_if_visible_JScrollBar_not_found_by_name() {
+  public void should_Fail_If_Visible_JScrollBar_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myScrollBar', type=javax.swing.JScrollBar, requireShowing=true");
@@ -67,14 +67,14 @@ public class AbstractContainerFixture_scrollBar_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_find_visible_JScrollBar_by_type() {
+  public void should_Find_Visible_JScrollBar_By_Type() {
     robot.showWindow(window);
     JScrollBarFixture scrollBar = fixture.scrollBar();
     assertThat(scrollBar.target()).isSameAs(window.scrollBar);
   }
 
   @Test
-  public void should_fail_if_visible_JScrollBar_not_found_by_type() {
+  public void should_Fail_If_Visible_JScrollBar_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JScrollBar, requireShowing=true");
@@ -82,7 +82,7 @@ public class AbstractContainerFixture_scrollBar_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_find_visible_JScrollBar_by_Matcher() {
+  public void should_Find_Visible_JScrollBar_By_Matcher() {
     robot.showWindow(window);
     JScrollBarFixture scrollBar = fixture.scrollBar(new GenericTypeMatcher<JScrollBar>(JScrollBar.class) {
       @Override
@@ -94,7 +94,7 @@ public class AbstractContainerFixture_scrollBar_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_fail_if_visible_JScrollBar_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JScrollBar_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher");
     fixture.scrollBar(neverMatches(JScrollBar.class));

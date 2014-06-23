@@ -30,18 +30,18 @@ import org.junit.Test;
  */
 public class JComponentDriver_clientProperty_Test extends JComponentDriver_TestCase {
   @Test
-  public void should_return_client_property_under_given_key() {
+  public void should_Return_Client_Property_Under_Given_Key() {
     putClientProperty(button, "name", "Leia");
     assertThat(driver.clientProperty(button, "name")).isEqualTo("Leia");
   }
 
   @Test
-  public void should_return_null_if_client_property_not_found() {
+  public void should_Return_Null_If_Client_Property_Not_Found() {
     assertThat(driver.clientProperty(button, "name")).isNull();
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_key_is_null() {
+  public void should_Throw_Error_If_Key_Is_Null() {
     driver.clientProperty(button, null);
   }
 

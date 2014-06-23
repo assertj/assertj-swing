@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class IntrospectionComponentFormatter_constructor_withInvalidInput_Test extends EDTSafeTestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Target_type_is_null() {
+  public void should_Throw_Error_If_Target_Type_Is_Null() {
     new IntrospectionComponentFormatter(null, "name", "text");
   }
 }

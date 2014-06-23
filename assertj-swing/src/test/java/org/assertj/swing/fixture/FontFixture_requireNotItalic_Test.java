@@ -24,12 +24,12 @@ import org.junit.Test;
  */
 public class FontFixture_requireNotItalic_Test extends FontFixture_TestCase {
   @Test
-  public void should_pass_if_font_is_not_italic() {
+  public void should_Pass_If_Font_Is_Not_Italic() {
     fixture().requireNotItalic();
   }
 
   @Test
-  public void should_fail_if_font_is_italic() {
+  public void should_Fail_If_Font_Is_Italic() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("[italic] expected:<[fals]e> but was:<[tru]e>");
     FontFixture fixture = new FontFixture(italicFont());
@@ -37,7 +37,7 @@ public class FontFixture_requireNotItalic_Test extends FontFixture_TestCase {
   }
 
   @Test
-  public void should_fail_showing_description_if_font_is_italic() {
+  public void should_Fail_Showing_Description_If_Font_Is_Italic() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("[test - italic] expected:<[fals]e> but was:<[tru]e>");
     FontFixture fixture = new FontFixture(italicFont(), "test");

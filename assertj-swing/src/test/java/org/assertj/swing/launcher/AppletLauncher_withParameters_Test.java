@@ -27,13 +27,13 @@ import org.junit.Test;
  */
 public class AppletLauncher_withParameters_Test extends AppletLauncher_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_parameter_array_is_null() {
+  public void should_Throw_Error_If_Parameter_Array_Is_Null() {
     AppletParameter[] parameters = null;
     AppletLauncher.launcherFor(TestApplet.createNew()).withParameters(parameters);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_parameter__in_array_is_null() {
+  public void should_Throw_Error_If_Parameter__In_Array_Is_Null() {
     AppletParameter[] parameters = new AppletParameter[2];
     parameters[0] = name("bgcolor").value("blue");
     parameters[1] = null;
@@ -41,7 +41,7 @@ public class AppletLauncher_withParameters_Test extends AppletLauncher_TestCase 
   }
 
   @Test
-  public void should_set_given_parameters() {
+  public void should_Set_Given_Parameters() {
     applet = TestApplet.createNew();
     viewer = AppletLauncher.launcherFor(applet)
         .withParameters(name("bgcolor").value("blue"), name("color").value("red")).start();

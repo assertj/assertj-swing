@@ -55,14 +55,14 @@ public class AbstractContainerFixture_splitPane_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_find_visible_JButton_by_name() {
+  public void should_Find_Visible_JButton_By_Name() {
     robot.showWindow(window);
     JSplitPaneFixture splitPane = fixture.splitPane("slideMeSplitPane");
     assertThat(splitPane.target()).isSameAs(window.splitPane);
   }
 
   @Test
-  public void should_fail_if_visible_JButton_not_found_by_name() {
+  public void should_Fail_If_Visible_JButton_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='mySplitPane', type=javax.swing.JSplitPane, requireShowing=true");
@@ -70,14 +70,14 @@ public class AbstractContainerFixture_splitPane_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_find_visible_JButton_by_type() {
+  public void should_Find_Visible_JButton_By_Type() {
     robot.showWindow(window);
     JSplitPaneFixture splitPane = fixture.splitPane();
     assertThat(splitPane.target()).isSameAs(window.splitPane);
   }
 
   @Test
-  public void should_fail_if_visible_JButton_not_found_by_type() {
+  public void should_Fail_If_Visible_JButton_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JSplitPane, requireShowing=true");
@@ -85,7 +85,7 @@ public class AbstractContainerFixture_splitPane_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_find_visible_JButton_by_Matcher() {
+  public void should_Find_Visible_JButton_By_Matcher() {
     robot.showWindow(window);
     JSplitPaneFixture splitPane = fixture.splitPane(new GenericTypeMatcher<JSplitPane>(JSplitPane.class) {
       @Override
@@ -97,7 +97,7 @@ public class AbstractContainerFixture_splitPane_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_fail_if_visible_JButton_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JButton_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher");
     fixture.splitPane(neverMatches(JSplitPane.class));

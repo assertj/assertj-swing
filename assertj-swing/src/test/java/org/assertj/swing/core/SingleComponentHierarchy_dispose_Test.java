@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class SingleComponentHierarchy_dispose_Test extends SingleComponentHierarchy_TestCase {
   @Test
-  public void should_dispose_Window() {
+  public void should_Dispose_Window() {
     final JFrame window = frame().createNew();
     hierarchy.dispose(window);
     verify(hierarchyDelegate).dispose(window);

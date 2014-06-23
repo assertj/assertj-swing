@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_contentsOf_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_return_contents_of_JComboBox() {
+  public void should_Return_Contents_Of_JComboBox() {
     Object[] contents = driver.contentsOf(comboBox);
     assertThat(contents).isEqualTo(array("first", "second", "third"));
     assertThatCellReaderWasCalled();

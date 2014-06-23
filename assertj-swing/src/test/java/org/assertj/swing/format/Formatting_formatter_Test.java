@@ -59,7 +59,7 @@ public class Formatting_formatter_Test {
   }
 
   @Test
-  public void should_replace_existing_formatter() {
+  public void should_Replace_Existing_Formatter() {
     Formatting.register(newFormatter);
     assertThat(Formatting.formatter(type)).isSameAs(newFormatter);
   }

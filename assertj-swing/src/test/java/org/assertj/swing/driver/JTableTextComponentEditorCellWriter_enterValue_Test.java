@@ -32,7 +32,7 @@ public class JTableTextComponentEditorCellWriter_enterValue_Test extends JTableC
   }
 
   @Test
-  public void should_enter_text_in_JTextComponent_editor() {
+  public void should_Enter_Text_In_JTextComponent_Editor() {
     writer.enterValue(table, 4, 3, "8");
     assertThat(valueAt(4, 3)).isEqualTo(8);
   }

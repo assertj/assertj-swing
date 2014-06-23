@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_resizeWidthTo_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_resize_width() {
+  public void should_Resize_Width() {
     int newWidth = 600;
     showWindow();
     driver.resizeWidth(internalFrame, newWidth);

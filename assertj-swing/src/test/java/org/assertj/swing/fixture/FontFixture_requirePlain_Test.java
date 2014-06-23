@@ -24,20 +24,20 @@ import org.junit.Test;
  */
 public class FontFixture_requirePlain_Test extends FontFixture_TestCase {
   @Test
-  public void should_pass_if_font_is_plain() {
+  public void should_Pass_If_Font_Is_Plain() {
     FontFixture fixture = new FontFixture(boldFont());
     fixture.requirePlain();
   }
 
   @Test
-  public void should_fail_if_font_is_not_plain() {
+  public void should_Fail_If_Font_Is_Not_Plain() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("[plain] expected:<[tru]e> but was:<[fals]e>");
     fixture().requirePlain();
   }
 
   @Test
-  public void should_fail_showing_description_if_font_is_not_plain() {
+  public void should_Fail_Showing_Description_If_Font_Is_Not_Plain() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("[test - plain] expected:<[tru]e> but was:<[fals]e>");
     FontFixture fixture = new FontFixture(font(), "test");

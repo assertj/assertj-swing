@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class Condition_toString_Test {
   @Test
-  public void should_return_description_text() {
+  public void should_Return_Description_Text() {
     Description description = new Description() {
       @Override
       public String value() {
@@ -40,20 +40,20 @@ public class Condition_toString_Test {
   }
 
   @Test
-  public void should_return_description_text_set_as_String() {
+  public void should_Return_Description_Text_Set_As_String() {
     MyCondition condition = new MyCondition("Hello World!");
     assertThat(condition.toString()).isEqualTo("Hello World!");
   }
 
   @Test
-  public void should_return_condition_type_if_description_is_null() {
+  public void should_Return_Condition_Type_If_Description_Is_Null() {
     Description noDescription = null;
     MyCondition condition = new MyCondition(noDescription);
     assertThat(condition.toString()).isEqualTo(concat("condition of type [", MyCondition.class.getName(), "]"));
   }
 
   @Test
-  public void should_append_addendum() {
+  public void should_Append_Addendum() {
     MyCondition condition = new MyCondition("Hello World!") {
       @Override
       protected String descriptionAddendum() {

@@ -52,7 +52,7 @@ public class Containers_Test {
   }
 
   @Test
-  public void should_show_container_in_JFrame() {
+  public void should_Show_Container_In_JFrame() {
     FrameFixture frameFixture = null;
     try {
       frameFixture = Containers.showInFrame(panel);
@@ -64,7 +64,7 @@ public class Containers_Test {
   }
 
   @Test
-  public void should_place_Container_in_JFrame_without_showing() {
+  public void should_Place_Container_In_JFrame_Without_Showing() {
     FrameFixture frameFixture = null;
     try {
       frameFixture = Containers.frameFixtureFor(panel);

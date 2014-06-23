@@ -61,7 +61,7 @@ public class JTreeEditableQuery_isEditable_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_indicate_if_JTree_is_editable() {
+  public void should_Indicate_If_JTree_Is_Editable() {
     setEditable(tree, editable);
     robot.waitForIdle();
     tree.startRecording();

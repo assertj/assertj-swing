@@ -60,7 +60,7 @@ public class ScreenLock_acquire_acquiredBy_release_Test extends MultithreadedTes
   }
 
   @Test
-  public void should_acquire_lock_and_queue_others_wanting_lock() throws Throwable {
+  public void should_Acquire_Lock_And_Queue_Others_Wanting_Lock() throws Throwable {
     runManyTimes(new ScreenLock_acquire_acquiredBy_release_Test(), 5);
   }
 

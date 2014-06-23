@@ -37,20 +37,20 @@ public class AbstractComponentMatcher_requireShowingMatches_Test {
   }
 
   @Test
-  public void should_always_match_if_requireShowing_is_false() {
+  public void should_Always_Match_If_RequireShowing_Is_False() {
     AbstractComponentMatcher matcher = new ConcreteComponentMatcher(false);
     assertThat(matcher.requireShowingMatches(component)).isTrue();
   }
 
   @Test
-  public void should_match_if_requireShowing_is_true_and_Component_is_showing() {
+  public void should_Match_If_RequireShowing_Is_True_And_Component_Is_Showing() {
     AbstractComponentMatcher matcher = new ConcreteComponentMatcher(true);
     when(component.isShowing()).thenReturn(true);
     assertThat(matcher.requireShowingMatches(component)).isTrue();
   }
 
   @Test
-  public void should_not_match_if_requireShowing_is_true_and_Component_is_not_showing() {
+  public void should_Not_Match_If_RequireShowing_Is_True_And_Component_Is_Not_Showing() {
     AbstractComponentMatcher matcher = new ConcreteComponentMatcher(true);
     when(component.isShowing()).thenReturn(false);
     assertThat(matcher.requireShowingMatches(component)).isFalse();

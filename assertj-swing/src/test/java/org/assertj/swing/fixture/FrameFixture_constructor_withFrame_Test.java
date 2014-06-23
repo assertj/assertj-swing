@@ -39,7 +39,7 @@ public class FrameFixture_constructor_withFrame_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_create_new_Robot_and_use_given_frame_as_target() {
+  public void should_Create_New_Robot_And_Use_Given_Frame_As_Target() {
     Frame target = frame().createNew();
     fixture = new FrameFixture(target);
     assertThat(fixture.robot()).isNotNull();
@@ -47,7 +47,7 @@ public class FrameFixture_constructor_withFrame_Test extends EDTSafeTestCase {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Frame_is_null() {
+  public void should_Throw_Error_If_Frame_Is_Null() {
     fixture = new FrameFixture((Frame) null);
   }
 }

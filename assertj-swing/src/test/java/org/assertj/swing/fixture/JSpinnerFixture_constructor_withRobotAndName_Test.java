@@ -40,7 +40,7 @@ public class JSpinnerFixture_constructor_withRobotAndName_Test extends RobotBase
   }
 
   @Test
-  public void should_lookup_showing_JSpinner_by_name() {
+  public void should_Lookup_Showing_JSpinner_By_Name() {
     robot.showWindow(window);
     JSpinnerFixture fixture = new JSpinnerFixture(robot, "spinner");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -48,12 +48,12 @@ public class JSpinnerFixture_constructor_withRobotAndName_Test extends RobotBase
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JSpinner_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JSpinner_With_Matching_Name_Is_Not_Showing() {
     new JSpinnerFixture(robot, "spinner");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JSpinner_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JSpinner_With_Matching_Name_Is_Not_Found() {
     new JSpinnerFixture(robot, "other");
   }
 

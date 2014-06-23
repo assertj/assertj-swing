@@ -49,18 +49,18 @@ public class JMenuChildrenFinder_nonExplicitChildrenOf_Test extends EDTSafeTestC
   }
 
   @Test
-  public void should_return_empty_Collection_if_Component_is_not_JMenu() {
+  public void should_Return_Empty_Collection_If_Component_Is_Not_JMenu() {
     Container container = textField().createNew();
     assertThat(finder.nonExplicitChildrenOf(container)).isEmpty();
   }
 
   @Test
-  public void should_return_empty_Collection_if_Component_is_null() {
+  public void should_Return_Empty_Collection_If_Component_Is_Null() {
     assertThat(finder.nonExplicitChildrenOf(null)).isEmpty();
   }
 
   @Test
-  public void should_return_JPopupMenu_if_Component_is_JMenu() {
+  public void should_Return_JPopupMenu_If_Component_Is_JMenu() {
     ScreenLock.instance().acquire(this);
     final MyWindow window = MyWindow.createNew();
     Collection<Component> children = execute(new GuiQuery<Collection<Component>>() {

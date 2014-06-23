@@ -26,31 +26,31 @@ import org.junit.Test;
  */
 public class JTableCellValidator_validateCellIndices_Test {
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_JTable_is_empty() {
+  public void should_Throw_Error_If_JTable_Is_Empty() {
     TableCell cell = TableCell.row(2).column(3);
     JTableCellPreconditions.checkCellIndicesInBounds(table().createNew(), cell);
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_row_is_negative() {
+  public void should_Throw_Error_If_Row_Is_Negative() {
     TableCell cell = TableCell.row(-2).column(3);
     JTableCellPreconditions.checkCellIndicesInBounds(table().withRowCount(4).withColumnCount(3).createNew(), cell);
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_column_is_negative() {
+  public void should_Throw_Error_If_Column_Is_Negative() {
     TableCell cell = TableCell.row(2).column(-3);
     JTableCellPreconditions.checkCellIndicesInBounds(table().withRowCount(4).withColumnCount(3).createNew(), cell);
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_row_is_out_of_bounds() {
+  public void should_Throw_Error_If_Row_Is_Out_Of_Bounds() {
     TableCell cell = TableCell.row(4).column(2);
     JTableCellPreconditions.checkCellIndicesInBounds(table().withRowCount(4).withColumnCount(3).createNew(), cell);
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_column_is_out_of_bounds() {
+  public void should_Throw_Error_If_Column_Is_Out_Of_Bounds() {
     TableCell cell = TableCell.row(0).column(3);
     JTableCellPreconditions.checkCellIndicesInBounds(table().withRowCount(4).withColumnCount(3).createNew(), cell);
   }

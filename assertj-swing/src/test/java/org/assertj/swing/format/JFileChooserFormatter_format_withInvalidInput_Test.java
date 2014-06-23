@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JFileChooserFormatter_format_withInvalidInput_Test extends EDTSafeTestCase {
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_Component_is_not_JFileChooser() {
+  public void should_Throw_Error_If_Component_Is_Not_JFileChooser() {
     new JFileChooserFormatter().format(textField().createNew());
   }
 }

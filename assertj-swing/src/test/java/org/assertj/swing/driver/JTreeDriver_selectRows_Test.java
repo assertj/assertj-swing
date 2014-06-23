@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class JTreeDriver_selectRows_Test extends JTreeDriver_selectCell_TestCase {
   @Test
-  public void should_select_cells() {
+  public void should_Select_Cells() {
     showWindow();
     clearTreeSelection();
     updateTreeWithDefaultSelectionModel();
@@ -34,7 +34,7 @@ public class JTreeDriver_selectRows_Test extends JTreeDriver_selectCell_TestCase
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     int[] rows = { 0, 1, 2 };
     thrown.expectIllegalStateIsDisabledComponent();
@@ -42,7 +42,7 @@ public class JTreeDriver_selectRows_Test extends JTreeDriver_selectCell_TestCase
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     int[] rows = { 0, 1, 2 };
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectRows(tree, rows);

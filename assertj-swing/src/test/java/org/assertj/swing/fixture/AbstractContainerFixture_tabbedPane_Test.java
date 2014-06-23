@@ -54,14 +54,14 @@ public class AbstractContainerFixture_tabbedPane_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_find_visible_JTabbedPane_by_name() {
+  public void should_Find_Visible_JTabbedPane_By_Name() {
     robot.showWindow(window);
     JTabbedPaneFixture tabbedPane = fixture.tabbedPane("selectMeTabbedPane");
     assertThat(tabbedPane.target()).isSameAs(window.tabbedPane);
   }
 
   @Test
-  public void should_fail_if_visible_JTabbedPane_not_found_by_name() {
+  public void should_Fail_If_Visible_JTabbedPane_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myTabbedPane', type=javax.swing.JTabbedPane, requireShowing=true");
@@ -69,14 +69,14 @@ public class AbstractContainerFixture_tabbedPane_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_find_visible_JTabbedPane_by_type() {
+  public void should_Find_Visible_JTabbedPane_By_Type() {
     robot.showWindow(window);
     JTabbedPaneFixture tabbedPane = fixture.tabbedPane();
     assertThat(tabbedPane.target()).isSameAs(window.tabbedPane);
   }
 
   @Test
-  public void should_fail_if_visible_JTabbedPane_not_found_by_type() {
+  public void should_Fail_If_Visible_JTabbedPane_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JTabbedPane, requireShowing=true");
@@ -84,7 +84,7 @@ public class AbstractContainerFixture_tabbedPane_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_find_visible_JTabbedPane_by_Matcher() {
+  public void should_Find_Visible_JTabbedPane_By_Matcher() {
     robot.showWindow(window);
     JTabbedPaneFixture tabbedPane = fixture.tabbedPane(new GenericTypeMatcher<JTabbedPane>(JTabbedPane.class) {
       @Override
@@ -96,7 +96,7 @@ public class AbstractContainerFixture_tabbedPane_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_fail_if_visible_JTabbedPane_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JTabbedPane_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher");
     fixture.tabbedPane(neverMatches(JTabbedPane.class));

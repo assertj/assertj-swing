@@ -38,7 +38,7 @@ import org.junit.Test;
  */
 public class BasicJTableCellReader_fontAt_Test extends BasicJTableCellReader_TestCase {
   @Test
-  public void should_return_font_from_cellRenderer() {
+  public void should_Return_Font_From_CellRenderer() {
     JLabel label = setJLabelAsCellRenderer();
     Font font = fontAt(reader, table, 0, 0);
     assertThat(font).isEqualTo(fontOf(label));

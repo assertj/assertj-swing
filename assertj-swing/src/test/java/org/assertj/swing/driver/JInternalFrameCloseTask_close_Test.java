@@ -39,7 +39,7 @@ public class JInternalFrameCloseTask_close_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_close_JInternalFrame() {
+  public void should_Close_JInternalFrame() {
     JInternalFrameCloseTask.close(internalFrame);
     robot.waitForIdle();
     assertThat(internalFrame.isVisible()).isFalse();

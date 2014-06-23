@@ -45,7 +45,7 @@ public class FEST303_JFileChooserNotFoundOnMacOS_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_find_JFileChooser() {
+  public void should_Find_JFileChooser() {
     frame.button().click();
     frame.fileChooser(timeout(5000));
   }

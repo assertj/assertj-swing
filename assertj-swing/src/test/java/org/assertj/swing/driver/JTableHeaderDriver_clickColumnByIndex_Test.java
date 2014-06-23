@@ -23,24 +23,24 @@ import org.junit.Test;
  */
 public class JTableHeaderDriver_clickColumnByIndex_Test extends JTableHeaderDriver_TestCase {
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_index_is_negative() {
+  public void should_Throw_Error_If_Index_Is_Negative() {
     driver.clickColumn(tableHeader, -1);
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Index_Is_Out_Of_Bounds() {
     driver.clickColumn(tableHeader, 2);
   }
 
   @Test
-  public void should_throw_error_if_JTableHeader_is_disabled() {
+  public void should_Throw_Error_If_JTableHeader_Is_Disabled() {
     disableTableHeader();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.clickColumn(tableHeader, 0);
   }
 
   @Test
-  public void should_throw_error_if_JTableHeader_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTableHeader_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.clickColumn(tableHeader, 0);
   }

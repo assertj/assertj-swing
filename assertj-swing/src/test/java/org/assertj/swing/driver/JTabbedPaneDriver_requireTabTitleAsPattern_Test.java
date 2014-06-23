@@ -29,13 +29,13 @@ import org.junit.Test;
  */
 public class JTabbedPaneDriver_requireTabTitleAsPattern_Test extends JTabbedPaneDriver_TestCase {
   @Test
-  public void should_fail_if_title_does_not_match_pattern() {
+  public void should_Fail_If_Title_Does_Not_Match_Pattern() {
     thrown.expectAssertionError("titleAt", "One", Pattern.compile("Hello"));
     driver.requireTabTitle(tabbedPane, Pattern.compile("Hello"), atIndex(0));
   }
 
   @Test
-  public void should_pass_if_title_matches_pattern() {
+  public void should_Pass_If_Title_Matches_Pattern() {
     driver.requireTabTitle(tabbedPane, Pattern.compile("O.*"), atIndex(0));
   }
 }

@@ -25,28 +25,28 @@ import org.junit.Test;
  */
 public class Windows_isReady_Test extends Windows_TestCase {
   @Test
-  public void should_return_true_if_Window_is_open_and_not_hidden() {
+  public void should_Return_True_If_Window_Is_Open_And_Not_Hidden() {
     windows.open.put(window, true);
     windows.hidden.remove(window);
     assertThat(windows.isReady(window)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Window_is_open_and_hidden() {
+  public void should_Return_False_If_Window_Is_Open_And_Hidden() {
     windows.hidden.put(window, true);
     windows.open.put(window, true);
     assertThat(windows.isReady(window)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_Window_is_not_open_and_hidden() {
+  public void should_Return_False_If_Window_Is_Not_Open_And_Hidden() {
     windows.hidden.put(window, true);
     windows.open.remove(window);
     assertThat(windows.isReady(window)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_Window_is_not_open_and_not_hidden() {
+  public void should_Return_False_If_Window_Is_Not_Open_And_Not_Hidden() {
     windows.hidden.remove(window);
     windows.open.remove(window);
     assertThat(windows.isReady(window)).isFalse();

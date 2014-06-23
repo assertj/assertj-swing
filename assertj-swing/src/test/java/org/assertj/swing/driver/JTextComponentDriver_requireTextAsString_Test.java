@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JTextComponentDriver_requireTextAsString_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_pass_if_has_expected_text() {
+  public void should_Pass_If_Has_Expected_Text() {
     setTextFieldText("Hi");
     driver.requireText(textField, "Hi");
   }
@@ -38,7 +38,7 @@ public class JTextComponentDriver_requireTextAsString_Test extends JTextComponen
   }
 
   @Test
-  public void should_fail_if_does_not_have_expected_text() {
+  public void should_Fail_If_Does_Not_Have_Expected_Text() {
     setTextFieldText("Hi");
     thrown.expectAssertionError("text", "Hi", Pattern.compile("Bye"));
     driver.requireText(textField, "Bye");

@@ -51,14 +51,14 @@ public class AbstractContainerFixture_tree_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JTree_by_name() {
+  public void should_Find_Visible_JTree_By_Name() {
     robot.showWindow(window);
     JTreeFixture tree = fixture.tree("expandMeTree");
     assertThat(tree.target()).isSameAs(window.tree);
   }
 
   @Test
-  public void should_fail_if_visible_JTree_not_found_by_name() {
+  public void should_Fail_If_Visible_JTree_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myTree', type=javax.swing.JTree, requireShowing=true");
@@ -66,14 +66,14 @@ public class AbstractContainerFixture_tree_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JTree_by_type() {
+  public void should_Find_Visible_JTree_By_Type() {
     robot.showWindow(window);
     JTreeFixture tree = fixture.tree();
     assertThat(tree.target()).isSameAs(window.tree);
   }
 
   @Test
-  public void should_fail_if_visible_JTree_not_found_by_type() {
+  public void should_Fail_If_Visible_JTree_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JTree, requireShowing=true");
@@ -81,7 +81,7 @@ public class AbstractContainerFixture_tree_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JTree_by_Matcher() {
+  public void should_Find_Visible_JTree_By_Matcher() {
     robot.showWindow(window);
     JTreeFixture tree = fixture.tree(new GenericTypeMatcher<JTree>(JTree.class) {
       @Override
@@ -93,7 +93,7 @@ public class AbstractContainerFixture_tree_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_visible_JTree_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JTree_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher");
     fixture.tree(neverMatches(JTree.class));

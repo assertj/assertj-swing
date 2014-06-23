@@ -23,12 +23,12 @@ import org.junit.Test;
  */
 public class LabelMatcher_constructorWithLabel_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_label_is_null() {
+  public void should_Throw_Error_If_Label_Is_Null() {
     new LabelMatcher(null);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_label_is_empty() {
+  public void should_Throw_Error_If_Label_Is_Empty() {
     new LabelMatcher("");
   }
 }

@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class FinderDelegate_findInHierarchyWithGenericTypeMatcher_Test extends FinderDelegate_TestCase {
   @Test
-  public void should_return_components_matching_GenericTypeMatcher() {
+  public void should_Return_Components_Matching_GenericTypeMatcher() {
     GenericTypeMatcher<JTextField> matcher = new GenericTypeMatcher<JTextField>(JTextField.class) {
       @Override
       protected boolean isMatching(@Nonnull JTextField textField) {
@@ -43,7 +43,7 @@ public class FinderDelegate_findInHierarchyWithGenericTypeMatcher_Test extends F
   }
 
   @Test
-  public void should_return_empty_collection_if_matching_Components_not_found() {
+  public void should_Return_Empty_Collection_If_Matching_Components_Not_Found() {
     Collection<JTextField> found = finder.find(hierarchy, neverMatches(JTextField.class));
     assertThat(found).isEmpty();
   }

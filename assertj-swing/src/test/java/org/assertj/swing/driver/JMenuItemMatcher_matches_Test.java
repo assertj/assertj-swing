@@ -55,7 +55,7 @@ public class JMenuItemMatcher_matches_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_find_second_Logout_menu() {
+  public void should_Find_Second_Logout_Menu() {
     Component found = finder.find(window, matcher);
     assertThat(found).isSameAs(window.logoutMenuItem);
   }

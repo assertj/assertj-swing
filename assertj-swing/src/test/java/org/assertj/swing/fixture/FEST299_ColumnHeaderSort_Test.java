@@ -42,7 +42,7 @@ public class FEST299_ColumnHeaderSort_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_sort_table_when_clicking_header_several_times() {
+  public void should_Sort_Table_When_Clicking_Header_Several_Times() {
     JTableFixture table = frame.table();
     JTableHeaderFixture header = table.tableHeader();
     header.clickColumn(0); // sort-up

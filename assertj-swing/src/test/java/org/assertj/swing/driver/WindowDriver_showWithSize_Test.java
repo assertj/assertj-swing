@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class WindowDriver_showWithSize_Test extends WindowDriver_TestCase {
   @Test
-  public void should_show_Window() {
+  public void should_Show_Window() {
     driver.show(window);
     assertThat(isVisible(window)).isTrue();
   }

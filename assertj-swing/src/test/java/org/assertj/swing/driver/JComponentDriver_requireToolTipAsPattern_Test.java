@@ -27,18 +27,18 @@ import org.junit.Test;
  */
 public class JComponentDriver_requireToolTipAsPattern_Test extends JComponentDriver_TestCase {
   @Test
-  public void should_pass_if_toolTip_matches_pattern() {
+  public void should_Pass_If_ToolTip_Matches_Pattern() {
     driver.requireToolTip(button, Pattern.compile("A Tool.*"));
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_pattern_is_null() {
+  public void should_Throw_Error_If_Pattern_Is_Null() {
     Pattern p = null;
     driver.requireToolTip(button, p);
   }
 
   @Test
-  public void should_fail_if_toolTip_does_not_match_pattern() {
+  public void should_Fail_If_ToolTip_Does_Not_Match_Pattern() {
     thrown.expectAssertionError("toolTipText", "A ToolTip", Pattern.compile("Hello"));
     driver.requireToolTip(button, Pattern.compile("Hello"));
   }

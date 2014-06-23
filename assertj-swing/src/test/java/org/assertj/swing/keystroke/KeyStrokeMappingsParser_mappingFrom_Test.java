@@ -64,7 +64,7 @@ public class KeyStrokeMappingsParser_mappingFrom_Test {
   }
 
   @Test
-  public void should_create_mapping_from_line() {
+  public void should_Create_Mapping_From_Line() {
     KeyStrokeMapping parsedMapping = parser.mappingFrom(lineToParse);
     assertThat(parsedMapping).isEqualTo(expectedMapping);
   }

@@ -47,13 +47,13 @@ public class BasicJListCellReader_valueAt_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_text_from_JLabel_as_cellRenderer() {
+  public void should_Return_Text_From_JLabel_As_CellRenderer() {
     Object value = firstItemValue(reader, list);
     assertThat(value).isEqualTo("One");
   }
 
   @Test
-  public void should_return_model_value_toString_if_cellRender_not_recognized() {
+  public void should_Return_Model_Value_ToString_If_CellRender_Not_Recognized() {
     list.setElements(new Jedi("Yoda"));
     setNotRecognizedRendererComponent(list);
     robot.waitForIdle();
@@ -62,7 +62,7 @@ public class BasicJListCellReader_valueAt_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_null_if_cellRenderer_not_recognized_and_model_value_is_null() {
+  public void should_Return_Null_If_CellRenderer_Not_Recognized_And_Model_Value_Is_Null() {
     list.setElements(new Object[] { null });
     setNotRecognizedRendererComponent(list);
     robot.waitForIdle();

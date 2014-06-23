@@ -35,7 +35,7 @@ public class ToolkitProvider_toolkit_Test {
   }
 
   @Test
-  public void should_return_default_Toolkit() {
+  public void should_Return_Default_Toolkit() {
     assertThat(provider.defaultToolkit()).isSameAs(Toolkit.getDefaultToolkit());
   }
 }

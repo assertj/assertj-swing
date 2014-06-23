@@ -28,32 +28,32 @@ import org.junit.Test;
  */
 public class LabelMatcher_matches_byLabel_Test extends LabelMatcher_TestCase {
   @Test
-  public void should_return_true_if_label_matches_and_Component_is_showing() {
+  public void should_Return_True_If_Label_Matches_And_Component_Is_Showing() {
     window.display();
     LabelMatcher matcher = new LabelMatcher(LABEL_TEXT);
     assertThat(matcher.matches(window.buttonLabel)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_label_matches_and_Component_is_not_showing() {
+  public void should_Return_True_If_Label_Matches_And_Component_Is_Not_Showing() {
     LabelMatcher matcher = new LabelMatcher(LABEL_TEXT);
     assertThat(matcher.matches(window.buttonLabel)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_label_matches_but_JLabel_is_not_attached_to_any_Component() {
+  public void should_Return_False_If_Label_Matches_But_JLabel_Is_Not_Attached_To_Any_Component() {
     LabelMatcher matcher = new LabelMatcher(LABEL_TEXT);
     assertThat(matcher.matches(window.label)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_label_does_not_match() {
+  public void should_Return_False_If_Label_Does_Not_Match() {
     LabelMatcher matcher = new LabelMatcher("Bye");
     assertThat(matcher.matches(window.buttonLabel)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_Component_is_not_JLabel() {
+  public void should_Return_False_If_Component_Is_Not_JLabel() {
     LabelMatcher matcher = new LabelMatcher("Hello");
     assertThat(matcher.matches(window.button)).isFalse();
   }

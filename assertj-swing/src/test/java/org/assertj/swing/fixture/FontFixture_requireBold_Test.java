@@ -24,20 +24,20 @@ import org.junit.Test;
  */
 public class FontFixture_requireBold_Test extends FontFixture_TestCase {
   @Test
-  public void should_pass_if_font_is_bold() {
+  public void should_Pass_If_Font_Is_Bold() {
     FontFixture fixture = new FontFixture(boldFont());
     fixture.requireBold();
   }
 
   @Test
-  public void should_fail_if_font_is_not_bold() {
+  public void should_Fail_If_Font_Is_Not_Bold() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("[bold] expected:<[tru]e> but was:<[fals]e>");
     fixture().requireBold();
   }
 
   @Test
-  public void should_fail_showing_description_if_font_is_not_bold() {
+  public void should_Fail_Showing_Description_If_Font_Is_Not_Bold() {
     thrown.expect(AssertionError.class);
     thrown.expectMessage("[test - bold] expected:<[tru]e> but was:<[fals]e>");
     FontFixture fixture = new FontFixture(font(), "test");

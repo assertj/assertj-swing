@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class BasicAppletStub_getCodeBase_Test extends BasicAppletStub_TestCase {
   @Test
-  public void should_return_nonNull_CodeBase() {
+  public void should_Return_NonNull_CodeBase() {
     assertThat(stub.getCodeBase()).isNotNull();
   }
 }

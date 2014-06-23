@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class WaitForComponentToShowCondition_untilIsShowing_Test extends EDTSafeTestCase {
   @Test(expected = NullPointerException.class)
-  public void shouldThrowError_if_Component_is_Null() {
+  public void shouldThrowError_If_Component_Is_Null() {
     WaitForComponentToShowCondition.untilIsShowing(null);
   }
 }

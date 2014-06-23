@@ -34,7 +34,7 @@ import org.junit.Test;
 public class EnvironmentXmlNodeWriter_writeHostName_Test extends EnvironmentXmlNodeWriter_TestCase {
 
   @Test
-  public void should_write_host_name_as_attribute() {
+  public void should_Write_Host_Name_As_Attribute() {
     final String hostName = "myHost";
     new EasyMockTemplate(timeStampFormatter, hostNameReader, targetNode) {
       @Override
@@ -52,7 +52,7 @@ public class EnvironmentXmlNodeWriter_writeHostName_Test extends EnvironmentXmlN
   }
 
   @Test
-  public void should_write_local_host_as_attribute_if_host_name_could_not_be_obtained() {
+  public void should_Write_Local_Host_As_Attribute_If_Host_Name_Could_Not_Be_Obtained() {
     final UnknownHostException e = new UnknownHostException();
     new EasyMockTemplate(timeStampFormatter, hostNameReader, targetNode) {
       @Override

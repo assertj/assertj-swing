@@ -44,7 +44,7 @@ public class JLabelTextQuery_textOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_text_of_JLabel() {
+  public void should_Return_Text_Of_JLabel() {
     label.startRecording();
     assertThat(JLabelTextQuery.textOf(label)).isEqualTo(TEXT);
     label.requireInvoked("getText");

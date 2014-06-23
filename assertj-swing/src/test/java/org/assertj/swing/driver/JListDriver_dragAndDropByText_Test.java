@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class JListDriver_dragAndDropByText_Test extends JListDriver_dragAndDrop_TestCase {
   @Test
-  public void should_drag_and_drop() {
+  public void should_Drag_And_Drop() {
     showWindow();
     driver.drag(list, "two");
     driver.drop(dropList, "six");
@@ -35,7 +35,7 @@ public class JListDriver_dragAndDropByText_Test extends JListDriver_dragAndDrop_
   }
 
   @Test
-  public void should_drag_and_drop_matching_given_patterns() {
+  public void should_Drag_And_Drop_Matching_Given_Patterns() {
     showWindow();
     driver.drag(list, "tw.*");
     driver.drop(dropList, "s.*");

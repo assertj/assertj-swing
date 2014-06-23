@@ -61,7 +61,7 @@ public class DialogModalQuery_isModal_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_indicate_if_Dialog_is_modal() {
+  public void should_Indicate_If_Dialog_Is_Modal() {
     makeModal(dialog, modal);
     robot.waitForIdle();
     dialog.startRecording();

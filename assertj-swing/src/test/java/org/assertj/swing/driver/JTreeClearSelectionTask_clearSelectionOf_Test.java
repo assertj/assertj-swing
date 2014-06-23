@@ -44,7 +44,7 @@ public class JTreeClearSelectionTask_clearSelectionOf_Test extends RobotBasedTes
   }
 
   @Test
-  public void should_clear_selection_in_JTree() {
+  public void should_Clear_Selection_In_JTree() {
     requireSelectionCount(1);
     tree.startRecording();
     JTreeClearSelectionTask.clearSelectionOf(tree);

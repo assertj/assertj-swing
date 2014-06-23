@@ -40,7 +40,7 @@ public class EmergencyAbortListener_constructor_Test {
   }
 
   @Test
-  public void should_have_CTRL_SHIFT_A_as_default_key_combination() {
+  public void should_Have_CTRL_SHIFT_A_As_Default_Key_Combination() {
     assertThat(listener.keyCode()).isEqualTo(VK_A);
     assertThatModifiersAreCtrlAndShift(listener.modifiers());
   }

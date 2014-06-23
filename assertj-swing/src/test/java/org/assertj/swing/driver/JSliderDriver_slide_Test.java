@@ -44,7 +44,7 @@ public class JSliderDriver_slide_Test extends JSliderDriver_TestCase {
   }
 
   @Test
-  public void should_slide_to_value() {
+  public void should_Slide_To_Value() {
     showWindow();
     driver.slide(slider, value);
     assertThatSliderValueIs(value);

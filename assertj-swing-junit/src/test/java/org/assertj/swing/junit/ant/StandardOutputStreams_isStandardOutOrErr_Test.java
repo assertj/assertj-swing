@@ -37,17 +37,17 @@ public class StandardOutputStreams_isStandardOutOrErr_Test {
   }
 
   @Test
-  public void should_return_true_if_Out_is_SystemOut() {
+  public void should_Return_True_If_Out_Is_SystemOut() {
     assertThat(streams.isStandardOutOrErr(System.out)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_Out_is_SystemErr() {
+  public void should_Return_True_If_Out_Is_SystemErr() {
     assertThat(streams.isStandardOutOrErr(System.err)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_out_is_not_standard() {
+  public void should_Return_False_If_Out_Is_Not_Standard() {
     OutputStream out = new ByteArrayOutputStream();
     assertThat(streams.isStandardOutOrErr(out)).isFalse();
   }

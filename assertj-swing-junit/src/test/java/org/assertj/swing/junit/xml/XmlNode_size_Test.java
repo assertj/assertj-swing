@@ -26,7 +26,7 @@ import org.junit.Test;
 public class XmlNode_size_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_return_child_count() {
+  public void should_Return_Child_Count() {
     node.addNewNode("one");
     node.addNewNode("two");
     assertThat(node.size()).isEqualTo(2);

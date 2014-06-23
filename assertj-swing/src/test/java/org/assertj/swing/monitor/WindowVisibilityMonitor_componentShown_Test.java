@@ -26,13 +26,13 @@ import org.junit.Test;
  */
 public class WindowVisibilityMonitor_componentShown_Test extends WindowVisibilityMonitor_TestCase {
   @Test
-  public void should_mark_Window_as_showing_when_Window_is_shown() {
+  public void should_Mark_Window_As_Showing_When_Window_Is_Shown() {
     monitor.componentShown(componentEventWithWindowAsSource());
     verify(windows).markAsShowing(window);
   }
 
   @Test
-  public void should_not_mark_Window_as_showing_if_Component_shown_is_not_Window() {
+  public void should_Not_Mark_Window_As_Showing_If_Component_Shown_Is_Not_Window() {
     monitor.componentShown(componentEventWithTextFieldAsSource());
     verifyZeroInteractions(windows);
   }

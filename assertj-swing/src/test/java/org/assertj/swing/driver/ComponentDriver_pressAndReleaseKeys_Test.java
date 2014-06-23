@@ -28,13 +28,13 @@ import org.junit.Test;
  */
 public class ComponentDriver_pressAndReleaseKeys_Test extends ComponentDriver_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_of_keys_is_null() {
+  public void should_Throw_Error_If_Array_Of_Keys_Is_Null() {
     int[] keyCodes = null;
     driver.pressAndReleaseKeys(window.button, keyCodes);
   }
 
   @Test
-  public void should_press_and_release_keys() {
+  public void should_Press_And_Release_Keys() {
     showWindow();
     assertThatTextFieldIsEmpty();
     int[] keyCodes = { VK_A, VK_C, VK_E };
@@ -43,7 +43,7 @@ public class ComponentDriver_pressAndReleaseKeys_Test extends ComponentDriver_Te
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     try {
@@ -54,7 +54,7 @@ public class ComponentDriver_pressAndReleaseKeys_Test extends ComponentDriver_Te
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     try {
       driver.pressAndReleaseKeys(window.textField, VK_A);

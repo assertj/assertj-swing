@@ -26,7 +26,7 @@ import org.junit.Test;
 public class XmlNode_toString_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     assertThat(node.toString()).isEqualTo("XmlNode[target=[person: null]]");
   }
 }

@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JProgressBarDriver_textOf_Test extends JProgressBarDriver_TestCase {
   @Test
-  public void should_return_text() {
+  public void should_Return_Text() {
     assertThat(driver.textOf(progressBar)).isEqualTo("60%");
   }
 }

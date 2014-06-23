@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class AppletViewer_reloadApplet_Test extends AppletViewer_TestCase {
   @Test
-  public void should_reload_Applet() {
+  public void should_Reload_Applet() {
     viewer.reloadApplet();
     assertThatAppletIsStoppedAndDestroyed();
     assertThatAppletIsShowingAndViewerIsLoaded();

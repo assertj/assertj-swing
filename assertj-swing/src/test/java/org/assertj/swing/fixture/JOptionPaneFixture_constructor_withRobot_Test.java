@@ -39,7 +39,7 @@ public class JOptionPaneFixture_constructor_withRobot_Test extends RobotBasedTes
   }
 
   @Test
-  public void should_lookup_showing_JOptionPane() {
+  public void should_Lookup_Showing_JOptionPane() {
     JOptionPaneFixture fixture = new JOptionPaneFixture(robot);
     assertThat(fixture.robot()).isSameAs(robot);
     assertThat(fixture.target()).isSameAs(target);

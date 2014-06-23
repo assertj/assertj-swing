@@ -42,7 +42,7 @@ public class Bug279_firstCharInJComboBoxMissing_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_enter_text_in_editable_JComboBox() {
+  public void should_Enter_Text_In_Editable_JComboBox() {
     window.comboBox("comboBox").doubleClick().enterText("hey");
     window.pressAndReleaseKeys(VK_ENTER);
     assertThat(window.comboBox("comboBox").requireSelection("hey"));

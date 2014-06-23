@@ -45,20 +45,20 @@ public class DisposedWindowMonitor_isDuplicateDispose_Test {
   }
 
   @Test
-  public void should_return_is_not_duplicate_if_event_is_not_WindowEvent() {
+  public void should_Return_Is_Not_Duplicate_If_Event_Is_Not_WindowEvent() {
     assertThat(monitor.isDuplicateDispose(singletonAWTEventMock())).isFalse();
     assertThat(monitor.disposedWindows).isEmpty();
   }
 
   @Test
-  public void should_return_is_not_duplicate_if_Window_is_closing() {
+  public void should_Return_Is_Not_Duplicate_If_Window_Is_Closing() {
     WindowEvent e = new WindowEvent(window, WINDOW_CLOSING);
     assertThat(monitor.isDuplicateDispose(e)).isFalse();
     assertThat(monitor.disposedWindows).isEmpty();
   }
 
   @Test
-  public void should_return_is_not_duplicate_if_Window_is_not_closing_and_it_is_not_closed() {
+  public void should_Return_Is_Not_Duplicate_If_Window_Is_Not_Closing_And_It_Is_Not_Closed() {
     monitor.disposedWindows.put(window, true);
     WindowEvent e = new WindowEvent(window, WINDOW_OPENED);
     assertThat(monitor.isDuplicateDispose(e)).isFalse();
@@ -66,7 +66,7 @@ public class DisposedWindowMonitor_isDuplicateDispose_Test {
   }
 
   @Test
-  public void should_return_is_duplicate_if_Window_is_closed_and_it_is_marked_as_disposed() {
+  public void should_Return_Is_Duplicate_If_Window_Is_Closed_And_It_Is_Marked_As_Disposed() {
     monitor.disposedWindows.put(window, true);
     WindowEvent e = new WindowEvent(window, WINDOW_CLOSED);
     assertThat(monitor.isDuplicateDispose(e)).isTrue();
@@ -75,7 +75,7 @@ public class DisposedWindowMonitor_isDuplicateDispose_Test {
   }
 
   @Test
-  public void should_return_is_not_duplicate_if_Window_is_closed_and_it_is_not_marked_as_disposed() {
+  public void should_Return_Is_Not_Duplicate_If_Window_Is_Closed_And_It_Is_Not_Marked_As_Disposed() {
     WindowEvent e = new WindowEvent(window, WINDOW_CLOSED);
     assertThat(monitor.isDuplicateDispose(e)).isFalse();
     assertThat(monitor.disposedWindows).hasSize(1).containsEntry(window, true);

@@ -32,7 +32,7 @@ public class JTableComboBoxEditorCellWriter_enterValue_Test extends JTableCellWr
   }
 
   @Test
-  public void should_select_item_in_JComboBox_editor() {
+  public void should_Select_Item_In_JComboBox_Editor() {
     writer.enterValue(table, 0, 2, "Pool");
     assertThat(valueAt(0, 2)).isEqualTo("Pool");
   }

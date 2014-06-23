@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class LabelMatcher_matches_byLabelAndType_Test extends LabelMatcher_TestCase {
   @Test
-  public void should_return_true_if_label_and_type_match() {
+  public void should_Return_True_If_Label_And_Type_Match() {
     window.display();
     LabelMatcher matcher = new LabelMatcher(LABEL_TEXT, JButton.class);
     assertThat(matcher.matches(window.buttonLabel)).isTrue();

@@ -38,7 +38,7 @@ public class JTabbedPaneFormatter_format_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_format_JTabbedPane_with_tabs_and_selection() {
+  public void should_Format_JTabbedPane_With_Tabs_And_Selection() {
     JTabbedPane tabbedPane = tabbedPane().withName("tabbedPane").withTabs("One", "Two").withSelection(1).createNew();
     String formatted = formatter.format(tabbedPane);
     assertThat(formatted).contains("javax.swing.JTabbedPane").contains("name='tabbedPane'")
@@ -48,7 +48,7 @@ public class JTabbedPaneFormatter_format_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_format_JTabbedPane_with_tabs_and_without_selection() {
+  public void should_Format_JTabbedPane_With_Tabs_And_Without_Selection() {
     JTabbedPane tabbedPane = tabbedPane().withName("tabbedPane").withTabs("One", "Two").createNew();
     String formatted = formatter.format(tabbedPane);
     assertThat(formatted).contains("javax.swing.JTabbedPane").contains("name='tabbedPane'")
@@ -58,7 +58,7 @@ public class JTabbedPaneFormatter_format_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_format_JTabbedPane_without_tabs() {
+  public void should_Format_JTabbedPane_Without_Tabs() {
     JTabbedPane tabbedPane = tabbedPane().withName("tabbedPane").createNew();
     String formatted = formatter.format(tabbedPane);
     assertThat(formatted).contains("javax.swing.JTabbedPane").contains("name='tabbedPane'")

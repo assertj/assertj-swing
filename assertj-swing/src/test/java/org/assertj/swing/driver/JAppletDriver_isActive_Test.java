@@ -46,7 +46,7 @@ public class JAppletDriver_isActive_Test extends JAppletDriver_TestCase {
   }
 
   @Test
-  public void should_return_is_active() {
+  public void should_Return_Is_Active() {
     applet().setActive(active);
     boolean result = driver().isActive(applet());
     assertThat(result).isEqualTo(active);

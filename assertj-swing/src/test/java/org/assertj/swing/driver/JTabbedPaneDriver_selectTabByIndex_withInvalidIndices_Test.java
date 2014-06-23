@@ -44,7 +44,7 @@ public class JTabbedPaneDriver_selectTabByIndex_withInvalidIndices_Test extends 
   }
 
   @Test
-  public void should_throw_error_if_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Index_Is_Out_Of_Bounds() {
     thrown.expectIndexOutOfBoundsException(concat("Index <", index,
         "> is not within the JTabbedPane bounds of <0> and <1> (inclusive)"));
     driver.selectTab(tabbedPane, index);

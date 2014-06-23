@@ -50,7 +50,7 @@ public class JButtonMatcher_matches_byNameAndText_withNotMatch_Test extends EDTS
   }
 
   @Test
-  public void should_return_false_if_name_or_text_are_not_equal_to_expected() {
+  public void should_Return_False_If_Name_Or_Text_Are_Not_Equal_To_Expected() {
     JButtonMatcher matcher = JButtonMatcher.withName(name).andText(text);
     JButton button = button().withName("someName").withText("someText").createNew();
     assertThat(matcher.matches(button)).isFalse();

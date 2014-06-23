@@ -40,7 +40,7 @@ public class JRadioButtonFixture_constructor_withRobotAndName_Test extends Robot
   }
 
   @Test
-  public void should_lookup_showing_JRadioButton_by_name() {
+  public void should_Lookup_Showing_JRadioButton_By_Name() {
     robot.showWindow(window);
     JRadioButtonFixture fixture = new JRadioButtonFixture(robot, "radioButton");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -48,12 +48,12 @@ public class JRadioButtonFixture_constructor_withRobotAndName_Test extends Robot
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JRadioButton_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JRadioButton_With_Matching_Name_Is_Not_Showing() {
     new JRadioButtonFixture(robot, "radioButton");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JRadioButton_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JRadioButton_With_Matching_Name_Is_Not_Found() {
     new JRadioButtonFixture(robot, "other");
   }
 

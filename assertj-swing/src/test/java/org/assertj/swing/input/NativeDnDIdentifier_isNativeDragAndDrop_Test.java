@@ -40,18 +40,18 @@ public class NativeDnDIdentifier_isNativeDragAndDrop_Test extends EDTSafeTestCas
   }
 
   @Test
-  public void should_return_true_if_event_is_mouse_event_and_its_class_name_is_SunDropTargetEvent() {
+  public void should_Return_True_If_Event_Is_Mouse_Event_And_Its_Class_Name_Is_SunDropTargetEvent() {
     assertThat(dnd.isNativeDragAndDrop(new SunDropTargetEvent())).isTrue();
   }
 
   @Test
-  public void should_return_false_if_event_is_not_mouse_event() {
+  public void should_Return_False_If_Event_Is_Not_Mouse_Event() {
     KeyEvent e = new KeyEvent(label().createNew(), 0, 0, 0, 0, 'a');
     assertThat(dnd.isNativeDragAndDrop(e)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_event_class_name_is_not_SunDropTargetEvent() {
+  public void should_Return_False_If_Event_Class_Name_Is_Not_SunDropTargetEvent() {
     MouseEvent e = new MouseEvent(label().createNew(), 0, 0, 0, 0, 0, 0, false);
     assertThat(dnd.isNativeDragAndDrop(e)).isFalse();
   }

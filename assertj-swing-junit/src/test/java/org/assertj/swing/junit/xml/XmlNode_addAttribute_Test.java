@@ -27,7 +27,7 @@ import org.junit.Test;
 public class XmlNode_addAttribute_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_add_attribute() {
+  public void should_Add_Attribute() {
     node.addAttribute(name("first").value("Leia"));
     assertThat(attributeCountOf(target)).isEqualTo(1);
     assertThat(target.getAttribute("first")).isEqualTo("Leia");

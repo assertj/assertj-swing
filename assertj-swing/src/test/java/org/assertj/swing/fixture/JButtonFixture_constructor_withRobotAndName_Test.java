@@ -40,7 +40,7 @@ public class JButtonFixture_constructor_withRobotAndName_Test extends RobotBased
   }
 
   @Test
-  public void should_lookup_showing_JButton_by_name() {
+  public void should_Lookup_Showing_JButton_By_Name() {
     robot.showWindow(window);
     JButtonFixture fixture = new JButtonFixture(robot, "button");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -48,12 +48,12 @@ public class JButtonFixture_constructor_withRobotAndName_Test extends RobotBased
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JButton_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JButton_With_Matching_Name_Is_Not_Showing() {
     new JButtonFixture(robot, "button");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JButton_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JButton_With_Matching_Name_Is_Not_Found() {
     new JButtonFixture(robot, "other");
   }
 

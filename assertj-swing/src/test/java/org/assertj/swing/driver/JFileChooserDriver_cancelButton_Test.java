@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class JFileChooserDriver_cancelButton_Test extends JFileChooserDriver_TestCase {
   @Test
-  public void should_find_Cancel_button() {
+  public void should_Find_Cancel_Button() {
     showWindow();
     JButton cancelButton = driver.cancelButton(fileChooser);
     assertThat(cancelButton).isNotNull();

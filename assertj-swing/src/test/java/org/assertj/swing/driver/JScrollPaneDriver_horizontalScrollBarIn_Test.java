@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JScrollPaneDriver_horizontalScrollBarIn_Test extends JScrollPaneDriver_TestCase {
   @Test
-  public void should_return_horizontal_JScrollBar() {
+  public void should_Return_Horizontal_JScrollBar() {
     JScrollBar scrollBar = driver.horizontalScrollBarIn(window.scrollPane);
     assertThat(scrollBar).isSameAs(window.horizontalScrollBar);
   }

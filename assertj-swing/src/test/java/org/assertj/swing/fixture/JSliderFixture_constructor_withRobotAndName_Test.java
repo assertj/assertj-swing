@@ -40,7 +40,7 @@ public class JSliderFixture_constructor_withRobotAndName_Test extends RobotBased
   }
 
   @Test
-  public void should_lookup_showing_JSlider_by_name() {
+  public void should_Lookup_Showing_JSlider_By_Name() {
     robot.showWindow(window);
     JSliderFixture fixture = new JSliderFixture(robot, "slider");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -48,12 +48,12 @@ public class JSliderFixture_constructor_withRobotAndName_Test extends RobotBased
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JSlider_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JSlider_With_Matching_Name_Is_Not_Showing() {
     new JSliderFixture(robot, "slider");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JSlider_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JSlider_With_Matching_Name_Is_Not_Found() {
     new JSliderFixture(robot, "other");
   }
 

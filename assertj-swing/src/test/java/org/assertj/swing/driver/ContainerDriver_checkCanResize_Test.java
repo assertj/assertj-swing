@@ -55,21 +55,21 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_pass_if_Frame_is_resizable() {
+  public void should_Pass_If_Frame_Is_Resizable() {
     JFrame f = frame().createNew();
     robot.showWindow(f);
     checkCanResize(f);
   }
 
   @Test
-  public void should_fail_if_Frame_is_not_resizable() {
+  public void should_Fail_If_Frame_Is_Not_Resizable() {
     JFrame f = frame().resizable(false).createNew();
     thrown.expectIllegalStateIsNotResizableComponent();
     checkCanResize(f);
   }
 
   @Test
-  public void should_fail_if_Frame_is_resizable_but_disabled() {
+  public void should_Fail_If_Frame_Is_Resizable_But_Disabled() {
     JFrame f = frame().createNew();
     disable(f);
     thrown.expectIllegalStateIsDisabledComponent();
@@ -77,28 +77,28 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_Frame_is_resizable_but_not_showing_on_the_screen() {
+  public void should_Fail_If_Frame_Is_Resizable_But_Not_Showing_On_The_Screen() {
     JFrame f = frame().createNew();
     thrown.expectIllegalStateIsNotShowingComponent();
     checkCanResize(f);
   }
 
   @Test
-  public void should_pass_if_Dialog_is_resizable() {
+  public void should_Pass_If_Dialog_Is_Resizable() {
     JDialog d = dialog().createNew();
     robot.showWindow(d);
     checkCanResize(d);
   }
 
   @Test
-  public void should_fail_if_Dialog_is_not_resizable() {
+  public void should_Fail_If_Dialog_Is_Not_Resizable() {
     JDialog d = dialog().resizable(false).createNew();
     thrown.expectIllegalStateIsNotResizableComponent();
     checkCanResize(d);
   }
 
   @Test
-  public void should_fail_if_Dialog_is_resizable_but_disabled() {
+  public void should_Fail_If_Dialog_Is_Resizable_But_Disabled() {
     JDialog d = dialog().createNew();
     disable(d);
     thrown.expectIllegalStateIsDisabledComponent();
@@ -112,21 +112,21 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_Dialog_is_resizable_but_not_showing_on_the_screen() {
+  public void should_Fail_If_Dialog_Is_Resizable_But_Not_Showing_On_The_Screen() {
     JDialog d = dialog().createNew();
     thrown.expectIllegalStateIsNotShowingComponent();
     checkCanResize(d);
   }
 
   @Test
-  public void should_pass_if_JInternalFrame_is_resizable() {
+  public void should_Pass_If_JInternalFrame_Is_Resizable() {
     TestMdiWindow w = TestMdiWindow.createNewWindow(getClass());
     robot.showWindow(w);
     checkCanResize(w.internalFrame());
   }
 
   @Test
-  public void should_pass_if_JInternalFrame_is_resizableAndDisabled() {
+  public void should_Pass_If_JInternalFrame_Is_ResizableAndDisabled() {
     TestMdiWindow w = TestMdiWindow.createNewWindow(getClass());
     robot.showWindow(w);
     disable(w.internalFrame());
@@ -134,7 +134,7 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_JInternalFrame_is_not_resizable() {
+  public void should_Fail_If_JInternalFrame_Is_Not_Resizable() {
     TestMdiWindow w = TestMdiWindow.createNewWindow(getClass());
     robot.showWindow(w);
     JInternalFrame i = w.internalFrame();
@@ -155,14 +155,14 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_JInternalFrame_is_resizable_but_not_showing_on_the_screen() {
+  public void should_Fail_If_JInternalFrame_Is_Resizable_But_Not_Showing_On_The_Screen() {
     TestMdiWindow w = TestMdiWindow.createNewWindow(getClass());
     thrown.expectIllegalStateIsNotShowingComponent();
     checkCanResize(w.internalFrame());
   }
 
   @Test
-  public void should_fail_if_Component_is_not_Window() {
+  public void should_Fail_If_Component_Is_Not_Window() {
     thrown.expectIllegalStateIsNotResizableComponent();
     checkCanResize(button().createNew());
   }

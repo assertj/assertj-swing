@@ -34,19 +34,19 @@ public class MainThreadIdentifier_mainThreadIn_Test {
   }
 
   @Test
-  public void should_return_thread_with_name_equal_to_main() {
+  public void should_Return_Thread_With_Name_Equal_To_Main() {
     Thread mainThread = new Thread("main");
     Thread[] allThreads = array(new Thread(), mainThread);
     assertThat(identifier.mainThreadIn(allThreads)).isSameAs(mainThread);
   }
 
   @Test
-  public void should_return_null_if_thread_array__is_empty() {
+  public void should_Return_Null_If_Thread_Array__Is_Empty() {
     assertThat(identifier.mainThreadIn(new Thread[0])).isNull();
   }
 
   @Test
-  public void should_return_null_if_thread_array__does_not_contain_main_thread() {
+  public void should_Return_Null_If_Thread_Array__Does_Not_Contain_Main_Thread() {
     Thread[] allThreads = array(new Thread(), new Thread());
     assertThat(identifier.mainThreadIn(allThreads)).isNull();
   }

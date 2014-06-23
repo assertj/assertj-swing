@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class AbstractButtonDriver_select_Test extends AbstractButtonDriver_TestCase {
   @Test
-  public void should_not_do_anything_if_button_is_already_selected() {
+  public void should_Not_Do_Anything_If_Button_Is_Already_Selected() {
     showWindow();
     selectCheckBox();
     driver.select(checkBox);
@@ -34,7 +34,7 @@ public class AbstractButtonDriver_select_Test extends AbstractButtonDriver_TestC
   }
 
   @Test
-  public void should_select_button() {
+  public void should_Select_Button() {
     showWindow();
     unselectCheckBox();
     driver.select(checkBox);
@@ -46,14 +46,14 @@ public class AbstractButtonDriver_select_Test extends AbstractButtonDriver_TestC
   }
 
   @Test
-  public void should_throw_error_if_AbstractButton_disabled() {
+  public void should_Throw_Error_If_AbstractButton_Disabled() {
     disableCheckBox();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.select(checkBox);
   }
 
   @Test
-  public void should_throw_error_if_AbstractButton_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_AbstractButton_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.select(checkBox);
   }

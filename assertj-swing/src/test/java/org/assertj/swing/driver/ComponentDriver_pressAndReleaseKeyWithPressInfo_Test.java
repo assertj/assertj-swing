@@ -28,12 +28,12 @@ import org.junit.Test;
  */
 public class ComponentDriver_pressAndReleaseKeyWithPressInfo_Test extends ComponentDriver_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_KeyPressInfo_is_null() {
+  public void should_Throw_Error_If_KeyPressInfo_Is_Null() {
     driver.pressAndReleaseKey(window.button, null);
   }
 
   @Test
-  public void should_press_and_release_key_in_given_KeyPressInfo() {
+  public void should_Press_And_Release_Key_In_Given_KeyPressInfo() {
     showWindow();
     assertThatTextFieldIsEmpty();
     driver.pressAndReleaseKey(window.textField, keyCode(VK_A).modifiers(SHIFT_MASK));
@@ -41,7 +41,7 @@ public class ComponentDriver_pressAndReleaseKeyWithPressInfo_Test extends Compon
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     try {
@@ -52,7 +52,7 @@ public class ComponentDriver_pressAndReleaseKeyWithPressInfo_Test extends Compon
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     try {
       driver.pressAndReleaseKey(window.textField, keyCode(VK_A).modifiers(SHIFT_MASK));

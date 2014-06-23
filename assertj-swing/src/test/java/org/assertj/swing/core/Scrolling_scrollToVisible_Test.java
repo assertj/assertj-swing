@@ -47,7 +47,7 @@ public class Scrolling_scrollToVisible_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_auto_scroll_to_JButton() {
+  public void should_Auto_Scroll_To_JButton() {
     JButton button = window.button;
     Scrolling.scrollToVisible(robot, button);
     new JButtonFixture(robot, button).click();

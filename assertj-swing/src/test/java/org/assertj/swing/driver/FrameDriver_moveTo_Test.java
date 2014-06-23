@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class FrameDriver_moveTo_Test extends FrameDriver_TestCase {
   @Test
-  public void should_move_Frame() {
+  public void should_Move_Frame() {
     showWindow();
     Point newLocation = windowLocationOnScreen().addToX(10).addToY(10);
     driver.moveTo(window, newLocation);
@@ -35,14 +35,14 @@ public class FrameDriver_moveTo_Test extends FrameDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_Frame_is_disabled() {
+  public void should_Throw_Error_If_Frame_Is_Disabled() {
     disableWindow();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.moveTo(window, new Point(10, 10));
   }
 
   @Test
-  public void should_throw_error_if_Frame_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Frame_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.moveTo(window, new Point(10, 10));
   }

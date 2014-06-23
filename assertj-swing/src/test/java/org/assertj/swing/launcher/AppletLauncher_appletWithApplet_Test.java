@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class AppletLauncher_appletWithApplet_Test extends AppletLauncher_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Applet_to_launch_is_null() {
+  public void should_Throw_Error_If_Applet_To_Launch_Is_Null() {
     AppletLauncher.launcherFor((Applet) null);
   }
 }

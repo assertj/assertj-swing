@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_deiconify_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_not_deiconify_already_iconified_JInternalFrame() {
+  public void should_Not_Deiconify_Already_Iconified_JInternalFrame() {
     showWindow();
     deiconify();
     driver.deiconify(internalFrame);
@@ -46,7 +46,7 @@ public class JInternalFrameDriver_deiconify_Test extends JInternalFrameDriver_Te
   }
 
   @Test
-  public void should_throw_error_if_JInternalFrame_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JInternalFrame_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.deiconify(internalFrame);
   }

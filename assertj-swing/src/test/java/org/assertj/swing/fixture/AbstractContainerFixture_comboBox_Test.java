@@ -51,14 +51,14 @@ public class AbstractContainerFixture_comboBox_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JComboBox_by_name() {
+  public void should_Find_Visible_JComboBox_By_Name() {
     robot.showWindow(window);
     JComboBoxFixture comboBox = fixture.comboBox("selectMeComboBox");
     assertThat(comboBox.target()).isSameAs(window.comboBox);
   }
 
   @Test
-  public void should_fail_if_visible_JComboBox_not_found_by_name() {
+  public void should_Fail_If_Visible_JComboBox_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myComboBox', type=javax.swing.JComboBox, requireShowing=true");
@@ -66,14 +66,14 @@ public class AbstractContainerFixture_comboBox_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JComboBox_by_type() {
+  public void should_Find_Visible_JComboBox_By_Type() {
     robot.showWindow(window);
     JComboBoxFixture comboBox = fixture.comboBox();
     assertThat(comboBox.target()).isSameAs(window.comboBox);
   }
 
   @Test
-  public void should_fail_if_visible_JComboBox_not_found_by_type() {
+  public void should_Fail_If_Visible_JComboBox_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JComboBox, requireShowing=true");
@@ -81,7 +81,7 @@ public class AbstractContainerFixture_comboBox_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JComboBox_by_Matcher() {
+  public void should_Find_Visible_JComboBox_By_Matcher() {
     robot.showWindow(window);
     JComboBoxFixture comboBox = fixture.comboBox(new GenericTypeMatcher<JComboBox>(JComboBox.class) {
       @Override
@@ -93,7 +93,7 @@ public class AbstractContainerFixture_comboBox_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_visible_JComboBox_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JComboBox_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class, "Unable to find component using matcher");
     fixture.comboBox(neverMatches(JComboBox.class));
   }

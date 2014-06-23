@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class RobotEventGenerator_mouseMove_Test extends RobotEventGenerator_TestCase {
   @Test
-  public void should_move_mouse_to_given_coordinates() {
+  public void should_Move_Mouse_To_Given_Coordinates() {
     int x = 6;
     int y = 8;
     eventGenerator.moveMouse(x, y);

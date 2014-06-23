@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_iconify_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_not_iconify_already_iconified_JInternalFrame() {
+  public void should_Not_Iconify_Already_Iconified_JInternalFrame() {
     showWindow();
     iconify();
     driver.iconify(internalFrame);
@@ -40,13 +40,13 @@ public class JInternalFrameDriver_iconify_Test extends JInternalFrameDriver_Test
   }
 
   @Test
-  public void should_throw_error_if_JInternalFrame_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JInternalFrame_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.iconify(internalFrame);
   }
 
   @Test
-  public void should_throw_error_when_iconifying_not_iconfiable_JInternalFrame() {
+  public void should_Throw_Error_When_Iconifying_Not_Iconfiable_JInternalFrame() {
     makeNotIconfiable();
     showWindow();
     thrown.expect(IllegalStateException.class, "The JInternalFrame <");

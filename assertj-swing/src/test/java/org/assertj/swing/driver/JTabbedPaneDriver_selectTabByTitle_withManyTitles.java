@@ -45,7 +45,7 @@ public class JTabbedPaneDriver_selectTabByTitle_withManyTitles extends JTabbedPa
   }
 
   @Test
-  public void should_select_tab_with_equal_title() {
+  public void should_Select_Tab_With_Equal_Title() {
     showWindow();
     driver.selectTab(tabbedPane, title);
     assertThatSelectedTabIndexIs(index);

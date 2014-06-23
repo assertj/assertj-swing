@@ -52,7 +52,7 @@ public class FEST148_selectTreeCell_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_select_path() {
+  public void should_Select_Path() {
     String pathToSelect = "root/node1/node11/node112/node1121/node11211/node112111/node1121111";
     driver.selectPath(tree, pathToSelect);
     driver.requireSelection(tree, array(pathToSelect));

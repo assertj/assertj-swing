@@ -28,7 +28,7 @@ import org.w3c.dom.Text;
 public class XmlNode_addText_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_add_text_node() {
+  public void should_Add_Text_Node() {
     node.addText("Hello World");
     assertThat(childNodeCountOf(target)).isEqualTo(1);
     Node child = target.getFirstChild();

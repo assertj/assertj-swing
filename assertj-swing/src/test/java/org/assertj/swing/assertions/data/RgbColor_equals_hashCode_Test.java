@@ -39,47 +39,47 @@ public class RgbColor_equals_hashCode_Test {
   }
 
   @Test
-  public void should_have_reflexive_equals() {
+  public void should_Have_Reflexive_Equals() {
     assertEqualsIsReflexive(color);
   }
 
   @Test
-  public void should_have_symmetric_equals() {
+  public void should_Have_Symmetric_Equals() {
     assertEqualsIsSymmetric(color, color(0xFFFFFF));
   }
 
   @Test
-  public void should_have_transitive_equals() {
+  public void should_Have_Transitive_Equals() {
     assertEqualsIsTransitive(color, color(0xFFFFFF), color(0xFFFFFF));
   }
 
   @Test
-  public void should_maintain_equals_and_hashCode_contract() {
+  public void should_Maintain_Equals_And_HashCode_Contract() {
     assertMaintainsEqualsAndHashCodeContract(color, color(0xFFFFFF));
   }
 
   @Test
-  public void should_not_be_equal_to_Object_of_different_type() {
+  public void should_Not_Be_Equal_To_Object_Of_Different_Type() {
     assertFalse(color.equals("WHITE"));
   }
 
   @Test
-  public void should_not_be_equal_to_null() {
+  public void should_Not_Be_Equal_To_Null() {
     assertFalse(color.equals(null));
   }
 
   @Test
-  public void should_not_be_equal_to_RgbColor_with_different_red_component() {
+  public void should_Not_Be_Equal_To_RgbColor_With_Different_Red_Component() {
     assertFalse(color.equals(color(0x00FFFF)));
   }
 
   @Test
-  public void should_not_be_equal_to_RgbColor_with_different_green_component() {
+  public void should_Not_Be_Equal_To_RgbColor_With_Different_Green_Component() {
     assertFalse(color.equals(color(0xFF00FF)));
   }
 
   @Test
-  public void should_not_be_equal_to_RgbColor_with_different_blue_component() {
+  public void should_Not_Be_Equal_To_RgbColor_With_Different_Blue_Component() {
     assertFalse(color.equals(color(0xFFFF00)));
   }
 }

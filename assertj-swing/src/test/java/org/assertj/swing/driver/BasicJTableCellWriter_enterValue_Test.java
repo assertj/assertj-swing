@@ -32,13 +32,13 @@ public class BasicJTableCellWriter_enterValue_Test extends JTableCellWriter_ente
   }
 
   @Test
-  public void should_select_item_in_JComboBox_editor() {
+  public void should_Select_Item_In_JComboBox_Editor() {
     writer.enterValue(table, 0, 2, "Pool");
     assertThat(valueAt(0, 2)).isEqualTo("Pool");
   }
 
   @Test
-  public void should_check_in_JCheckBox_editor() {
+  public void should_Check_In_JCheckBox_Editor() {
     int row = 0;
     int col = 4;
     writer.enterValue(table, row, col, "false");
@@ -50,7 +50,7 @@ public class BasicJTableCellWriter_enterValue_Test extends JTableCellWriter_ente
   }
 
   @Test
-  public void should_enter_text_in_JTextComponent_editor() {
+  public void should_Enter_Text_In_JTextComponent_Editor() {
     writer.enterValue(table, 4, 3, "8");
     assertThat(valueAt(4, 3)).isEqualTo(8);
   }

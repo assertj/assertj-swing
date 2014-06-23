@@ -37,13 +37,13 @@ import org.junit.Test;
  */
 public class JFileChooserDriver_selectFiles_Test extends JFileChooserDriver_TestCase {
   @Test
-  public void should_throw_error_if_JFileChooser_is_disabled() {
+  public void should_Throw_Error_If_JFileChooser_Is_Disabled() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectFiles(fileChooser, array(fakeFile()));
   }
 
   @Test
-  public void should_throw_error_when_selecting_files_and_JFileChooser_cannot_handle_multiple_selection() {
+  public void should_Throw_Error_When_Selecting_Files_And_JFileChooser_Cannot_Handle_Multiple_Selection() {
     disableMultipleSelection();
     showWindow();
     thrown.expect(IllegalStateException.class, "Expecting file chooser");
@@ -58,7 +58,7 @@ public class JFileChooserDriver_selectFiles_Test extends JFileChooserDriver_Test
   }
 
   @Test
-  public void should_throw_error_when_selecing_folders_while_JFileChooser_can_only_select_files() {
+  public void should_Throw_Error_When_Selecing_Folders_While_JFileChooser_Can_Only_Select_Files() {
     enableMultipleSelection();
     TemporaryFolderAndFile folderAndFile = new TemporaryFolderAndFile();
     makeFileChooserSelectDirectoriesOnly();
@@ -72,7 +72,7 @@ public class JFileChooserDriver_selectFiles_Test extends JFileChooserDriver_Test
   }
 
   @Test
-  public void should_throw_error_when_selecting_files_while_JFileChooser_can_only_select_folders() {
+  public void should_Throw_Error_When_Selecting_Files_While_JFileChooser_Can_Only_Select_Folders() {
     enableMultipleSelection();
     TemporaryFolderAndFile folderAndFile = new TemporaryFolderAndFile();
     makeFileChooserSelectFilesOnly();
@@ -86,7 +86,7 @@ public class JFileChooserDriver_selectFiles_Test extends JFileChooserDriver_Test
   }
 
   @Test
-  public void should_select_single_given_file_when_JFileChooser_cannot_handle_multiple_selection() {
+  public void should_Select_Single_Given_File_When_JFileChooser_Cannot_Handle_Multiple_Selection() {
     disableMultipleSelection();
     File temporaryFile = newTemporaryFile();
     showWindow();
@@ -100,7 +100,7 @@ public class JFileChooserDriver_selectFiles_Test extends JFileChooserDriver_Test
   }
 
   @Test
-  public void should_select_files() {
+  public void should_Select_Files() {
     // TODO(Alex): Test in Windows
     enableMultipleSelection();
     TemporaryFolderAndFile folderAndFile = new TemporaryFolderAndFile();

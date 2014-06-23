@@ -32,7 +32,7 @@ public class JTableCheckBoxEditorCellWriter_enterValue_Test extends JTableCellWr
   }
 
   @Test
-  public void should_check_in_JCheckBox_editor() {
+  public void should_Check_In_JCheckBox_Editor() {
     int row = 0;
     int col = 4;
     writer.enterValue(table, row, col, "false");

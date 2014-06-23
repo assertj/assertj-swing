@@ -23,21 +23,21 @@ import org.junit.Test;
  */
 public class JScrollBarDriver_scrollUnitDownWithTimes_Test extends JScrollBarDriver_TestCase {
   @Test
-  public void should_scroll_unit_down() {
+  public void should_Scroll_Unit_Down() {
     showWindow();
     driver.scrollUnitDown(scrollBar, 8);
     assertThatScrollBarValueIs(38);
   }
 
   @Test
-  public void should_throw_error_if_JScrollBar_is_disabled() {
+  public void should_Throw_Error_If_JScrollBar_Is_Disabled() {
     disableScrollBar();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.scrollUnitDown(scrollBar, 8);
   }
 
   @Test
-  public void should_throw_error_if_JScrollBar_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JScrollBar_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.scrollUnitDown(scrollBar, 8);
   }

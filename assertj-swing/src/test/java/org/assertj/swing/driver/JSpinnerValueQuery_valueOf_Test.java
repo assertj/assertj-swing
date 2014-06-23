@@ -43,7 +43,7 @@ public class JSpinnerValueQuery_valueOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_value_in_JSpinner() {
+  public void should_Return_Value_In_JSpinner() {
     spinner.startRecording();
     assertThat(JSpinnerValueQuery.valueOf(spinner)).isEqualTo("Two");
     spinner.requireInvoked("getValue");

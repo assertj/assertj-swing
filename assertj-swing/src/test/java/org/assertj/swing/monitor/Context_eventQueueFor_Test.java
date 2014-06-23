@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class Context_eventQueueFor_Test extends Context_TestCase {
   @Test
-  public void should_return_EventQueue_for_Component() {
+  public void should_Return_EventQueue_For_Component() {
     when(eventQueueMapping.queueFor(window)).thenReturn(eventQueue);
     EventQueue storedEventQueue = context.eventQueueFor(window);
     assertThat(storedEventQueue).isSameAs(eventQueue);

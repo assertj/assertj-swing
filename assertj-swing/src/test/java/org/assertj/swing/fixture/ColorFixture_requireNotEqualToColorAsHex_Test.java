@@ -34,19 +34,19 @@ public class ColorFixture_requireNotEqualToColorAsHex_Test {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_pass_if_Color_is_not_equal_to_hex_value() {
+  public void should_Pass_If_Color_Is_Not_Equal_To_Hex_Value() {
     ColorFixture fixture = new ColorFixture(BLUE);
     fixture.requireNotEqualTo(BLACK_HEX_CODE);
   }
 
   @Test(expected = AssertionError.class)
-  public void should_fail_if_Color_is_equal_to_hex_value() {
+  public void should_Fail_If_Color_Is_Equal_To_Hex_Value() {
     ColorFixture fixture = new ColorFixture(BLUE);
     fixture.requireNotEqualTo(BLUE_HEX_CODE);
   }
 
   @Test
-  public void should_fail_showing_description_if_Color_is_equal_to_hex_value() {
+  public void should_Fail_Showing_Description_If_Color_Is_Equal_To_Hex_Value() {
     ColorFixture fixture = new ColorFixture(BLUE, "test");
     thrown.expectAssertionError("test");
     fixture.requireNotEqualTo(BLUE_HEX_CODE);

@@ -46,7 +46,7 @@ public class JTreeFormatter_format_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_format_JTree() {
+  public void should_Format_JTree() {
     setContiguousSelectionMode();
     selectRow(tree, 1);
     String formatted = formatter.format(tree);
@@ -63,7 +63,7 @@ public class JTreeFormatter_format_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_format_JTree_without_TreeSelectionModel() {
+  public void should_Format_JTree_Without_TreeSelectionModel() {
     setSelectionModel(tree, null);
     String formatted = formatter.format(tree);
     assertThat(formatted).contains("javax.swing.JTree").contains("name='tree'").contains("selectionCount=0")

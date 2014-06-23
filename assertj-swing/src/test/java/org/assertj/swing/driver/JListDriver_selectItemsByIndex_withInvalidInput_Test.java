@@ -26,13 +26,13 @@ import org.junit.Test;
  */
 public class JListDriver_selectItemsByIndex_withInvalidInput_Test extends JListDriver_withMocks_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_of_indices_is_null() {
+  public void should_Throw_Error_If_Array_Of_Indices_Is_Null() {
     int[] indices = null;
     driver.selectItems(list, indices);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_array_of_indices_is_empty() {
+  public void should_Throw_Error_If_Array_Of_Indices_Is_Empty() {
     int[] indices = new int[0];
     driver.selectItems(list, indices);
   }

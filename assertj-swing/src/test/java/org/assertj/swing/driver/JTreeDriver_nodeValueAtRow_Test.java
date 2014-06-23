@@ -25,13 +25,13 @@ import org.junit.Test;
  */
 public class JTreeDriver_nodeValueAtRow_Test extends JTreeDriver_TestCase {
   @Test
-  public void should_return_node_text() {
+  public void should_Return_Node_Text() {
     String value = driver.nodeValue(tree, 1);
     assertThat(value).isEqualTo("branch1");
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_row_is_out_of_bounds() {
+  public void should_Throw_Error_If_Row_Is_Out_Of_Bounds() {
     driver.nodeValue(tree, 100);
   }
 }

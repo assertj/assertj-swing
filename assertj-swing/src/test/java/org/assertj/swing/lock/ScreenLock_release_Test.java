@@ -42,13 +42,13 @@ public class ScreenLock_release_Test {
   }
 
   @Test(expected = ScreenLockException.class)
-  public void should_throw_error_if_trying_to_release_with_different_owner() {
+  public void should_Throw_Error_If_Trying_To_Release_With_Different_Owner() {
     lock.acquire(owner);
     lock.release(new Object());
   }
 
   @Test(expected = ScreenLockException.class)
-  public void should_throw_error_if_trying_to_release_without_being_locked() {
+  public void should_Throw_Error_If_Trying_To_Release_Without_Being_Locked() {
     lock.release(owner);
   }
 }

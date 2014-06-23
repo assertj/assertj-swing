@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class JAppletDriver_appletResize_Test extends JAppletDriver_TestCase {
   @Test
-  public void should_resize_JApplet() {
+  public void should_Resize_JApplet() {
     int w = 10;
     int h = 20;
     driver().appletResize(applet(), w, h);

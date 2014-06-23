@@ -23,13 +23,13 @@ import org.junit.Test;
  */
 public class JSpinnerDriver_requireValue_Test extends JSpinnerDriver_TestCase {
   @Test
-  public void should_pass_if_value_is_equal_to_expected() {
+  public void should_Pass_If_Value_Is_Equal_To_Expected() {
     selectLastValue();
     driver.requireValue(spinner, "Gandalf");
   }
 
   @Test
-  public void should_fail_if_value_is_not_equal_to_expected() {
+  public void should_Fail_If_Value_Is_Not_Equal_To_Expected() {
     selectLastValue();
     thrown.expectAssertionError("value", "[Frodo]", "[Gandalf]");
     driver.requireValue(spinner, "Frodo");

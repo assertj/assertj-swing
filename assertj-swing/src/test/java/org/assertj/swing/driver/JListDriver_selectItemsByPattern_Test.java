@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class JListDriver_selectItemsByPattern_Test extends JListDriver_TestCase {
   @Test
-  public void should_throw_error_if_a_matching_item_was_not_found() {
+  public void should_Throw_Error_If_A_Matching_Item_Was_Not_Found() {
     showWindow();
     thrown.expect(LocationUnavailableException.class,
         "Unable to find item matching the pattern 'ten' among the JList contents [\"one\", \"two\", \"three\"]");
@@ -38,7 +38,7 @@ public class JListDriver_selectItemsByPattern_Test extends JListDriver_TestCase 
   }
 
   @Test
-  public void should_select_items_even_if_already_selected() {
+  public void should_Select_Items_Even_If_Already_Selected() {
     select(1, 2);
     showWindow();
     driver.selectItems(list, array(Pattern.compile("two"), Pattern.compile("three")));
@@ -46,7 +46,7 @@ public class JListDriver_selectItemsByPattern_Test extends JListDriver_TestCase 
   }
 
   @Test
-  public void should_select_items_matching_pattern() {
+  public void should_Select_Items_Matching_Pattern() {
     showWindow();
     driver.selectItems(list, array(Pattern.compile("t.*")));
     assertThat(selectedValues()).isEqualTo(array("two", "three"));
@@ -54,7 +54,7 @@ public class JListDriver_selectItemsByPattern_Test extends JListDriver_TestCase 
   }
 
   @Test
-  public void should_select_items_matching_patterns() {
+  public void should_Select_Items_Matching_Patterns() {
     showWindow();
     driver.selectItems(list, array(Pattern.compile("tw.*"), Pattern.compile("thr.*")));
     assertThat(selectedValues()).isEqualTo(array("two", "three"));
@@ -62,14 +62,14 @@ public class JListDriver_selectItemsByPattern_Test extends JListDriver_TestCase 
   }
 
   @Test
-  public void should_throw_error_if_JList_is_disabled() {
+  public void should_Throw_Error_If_JList_Is_Disabled() {
     disableList();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectItems(list, array(Pattern.compile("two"), Pattern.compile("three")));
   }
 
   @Test
-  public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JList_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectItems(list, array(Pattern.compile("two"), Pattern.compile("three")));
   }

@@ -57,7 +57,7 @@ public class FEST297_AutoScrollingDoesNotWork_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_scroll_and_click_JButton() {
+  public void should_Scroll_And_Click_JButton() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     frame.button("button").click();
     recorder.wasClicked();

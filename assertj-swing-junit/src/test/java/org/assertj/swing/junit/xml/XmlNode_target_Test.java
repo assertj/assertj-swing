@@ -26,7 +26,7 @@ import org.junit.Test;
 public class XmlNode_target_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_return_target() {
+  public void should_Return_Target() {
     assertThat(node.target()).isSameAs(target);
   }
 }

@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JLabelTextReader_supportedComponent_Test {
   @Test
-  public void should_return_JLabel_class() {
+  public void should_Return_JLabel_Class() {
     JLabelTextReader reader = new JLabelTextReader();
     assertThat(reader.supportedComponent()).isEqualTo(JLabel.class);
   }

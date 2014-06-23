@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class NameMatcher_matches_byNameAndType_Test extends NameMatcher_TestCase {
   @Test
-  public void should_return_true_if_name_and_type_match() {
+  public void should_Return_True_If_Name_And_Type_Match() {
     window.display();
     NameMatcher matcher = new NameMatcher(LABEL_TEXT, JButton.class);
     assertThat(matcher.matches(window.button)).isTrue();

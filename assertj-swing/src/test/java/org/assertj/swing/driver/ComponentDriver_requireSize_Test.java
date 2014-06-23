@@ -28,13 +28,13 @@ import org.junit.Test;
  */
 public class ComponentDriver_requireSize_Test extends ComponentDriver_TestCase {
   @Test
-  public void should_pass_if_actual_size_is_equal_to_expected() {
+  public void should_Pass_If_Actual_Size_Is_Equal_To_Expected() {
     Dimension expected = sizeOf(window.button);
     driver.requireSize(window.button, expected);
   }
 
   @Test
-  public void should_fail_if_actual_size_is_not_equal_to_expected() {
+  public void should_Fail_If_Actual_Size_Is_Not_Equal_To_Expected() {
     showWindow();
     thrown.expectAssertionError("property:'size'");
     thrown.expectMessageToContain("expected:<...awt.Dimension[width=[0,height=0]]>", "but was:<");

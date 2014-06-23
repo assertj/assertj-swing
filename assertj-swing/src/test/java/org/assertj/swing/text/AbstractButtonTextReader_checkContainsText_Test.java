@@ -40,19 +40,19 @@ public class AbstractButtonTextReader_checkContainsText_Test extends EDTSafeTest
   }
 
   @Test
-  public void should_return_false_if_text_in_AbstractButton_is_null() {
+  public void should_Return_False_If_Text_In_AbstractButton_Is_Null() {
     when(button.getText()).thenReturn(null);
     assertThat(reader.checkContainsText(button, "Yoda")).isFalse();
   }
 
   @Test
-  public void should_return_false_if_text_in_AbstractButton_does_not_contain_given_String() {
+  public void should_Return_False_If_Text_In_AbstractButton_Does_Not_Contain_Given_String() {
     when(button.getText()).thenReturn("Leia");
     assertThat(reader.checkContainsText(button, "Yoda")).isFalse();
   }
 
   @Test
-  public void should_return_true_if_text_in_AbstractButton_contains_given_String() {
+  public void should_Return_True_If_Text_In_AbstractButton_Contains_Given_String() {
     when(button.getText()).thenReturn("Yoda");
     assertThat(reader.checkContainsText(button, "Yo")).isTrue();
   }

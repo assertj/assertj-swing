@@ -25,13 +25,13 @@ import org.junit.Test;
  */
 public class StringTextMatcher_description_Test {
   @Test
-  public void should_return_value_word_as_description_if_matcher_has_only_one_value() {
+  public void should_Return_Value_Word_As_Description_If_Matcher_Has_Only_One_Value() {
     StringTextMatcher matcher = new StringTextMatcher("one");
     assertThat(matcher.description()).isEqualTo("value");
   }
 
   @Test
-  public void should_return_values_word_as_description_if_matcher_has_more_than_one_value() {
+  public void should_Return_Values_Word_As_Description_If_Matcher_Has_More_Than_One_Value() {
     StringTextMatcher matcher = new StringTextMatcher("one", "two");
     assertThat(matcher.description()).isEqualTo("values");
   }

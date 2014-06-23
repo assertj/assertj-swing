@@ -38,24 +38,24 @@ public class TableCell_equals_hashCode_Test implements EqualsHashCodeContractTes
   }
 
   @Test
-  public void should_have_consistent_equals() {
+  public void should_Have_Consistent_Equals() {
     TableCell other = TableCell.row(6).column(8);
     assertThat(cell.equals(other)).isTrue();
   }
 
   @Test
-  public void should_have_reflexive_equals() {
+  public void should_Have_Reflexive_Equals() {
     assertEqualsIsReflexive(cell);
   }
 
   @Test
-  public void should_have_symmetric_equals() {
+  public void should_Have_Symmetric_Equals() {
     TableCell other = TableCell.row(6).column(8);
     assertEqualsIsSymmetric(cell, other);
   }
 
   @Test
-  public void should_have_transitive_equals() {
+  public void should_Have_Transitive_Equals() {
     TableCell other1 = TableCell.row(6).column(8);
     TableCell other2 = TableCell.row(6).column(8);
     assertEqualsIsTransitive(cell, other1, other2);
@@ -63,36 +63,36 @@ public class TableCell_equals_hashCode_Test implements EqualsHashCodeContractTes
 
   @Override
   @Test
-  public void should_maintain_equals_and_hashCode_contract() {
+  public void should_Maintain_Equals_And_HashCode_Contract() {
     TableCell other = TableCell.row(6).column(8);
     assertMaintainsEqualsAndHashCodeContract(cell, other);
   }
 
   @Override
   @Test
-  public void should_not_be_equal_to_null() {
+  public void should_Not_Be_Equal_To_Null() {
     assertThat(cell.equals(null)).isFalse();
   }
 
   @Test
-  public void should_not_be_equal_to_Object_not_being_of_same_type() {
+  public void should_Not_Be_Equal_To_Object_Not_Being_Of_Same_Type() {
     assertThat(cell.equals("Hello")).isFalse();
   }
 
   @Test
-  public void should_return_not_equal_if_row_values_are_not_equal() {
+  public void should_Return_Not_Equal_If_Row_Values_Are_Not_Equal() {
     TableCell other = TableCell.row(8).column(8);
     assertThat(cell.equals(other)).isFalse();
   }
 
   @Test
-  public void should_return_not_equal_if_column_values_are_not_equal() {
+  public void should_Return_Not_Equal_If_Column_Values_Are_Not_Equal() {
     TableCell other = TableCell.row(6).column(6);
     assertThat(cell.equals(other)).isFalse();
   }
 
   @Override
-  public void should_not_be_equal_to_Object_of_different_type() {
+  public void should_Not_Be_Equal_To_Object_Of_Different_Type() {
     // TODO Auto-generated method stub
 
   }

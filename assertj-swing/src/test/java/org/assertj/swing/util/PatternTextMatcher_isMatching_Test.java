@@ -27,20 +27,20 @@ import org.junit.Test;
  */
 public class PatternTextMatcher_isMatching_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_any_pattern_in_array_is_null() {
+  public void should_Throw_Error_If_Any_Pattern_In_Array_Is_Null() {
     Pattern[] patterns = { null, Pattern.compile("hello"), null };
     PatternTextMatcher matcher = new PatternTextMatcher(patterns);
     matcher.isMatching("hello");
   }
 
   @Test
-  public void should_return_true_if_text_matches_any_pattern() {
+  public void should_Return_True_If_Text_Matches_Any_Pattern() {
     PatternTextMatcher matcher = new PatternTextMatcher(Pattern.compile("hello"));
     assertThat(matcher.isMatching("hello")).isTrue();
   }
 
   @Test
-  public void should_return_false_if_text_does_not_match_any_pattern() {
+  public void should_Return_False_If_Text_Does_Not_Match_Any_Pattern() {
     PatternTextMatcher matcher = new PatternTextMatcher(Pattern.compile("bye"), Pattern.compile("hello"));
     assertThat(matcher.isMatching("world")).isFalse();
   }

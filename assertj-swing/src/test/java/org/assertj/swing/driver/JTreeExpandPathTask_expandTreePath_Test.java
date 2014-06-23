@@ -49,7 +49,7 @@ public class JTreeExpandPathTask_expandTreePath_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_expand_path() {
+  public void should_Expand_Path() {
     TreePath rootPath = new TreePath(window.root);
     assertThat(isExpanded(tree, rootPath)).isFalse();
     JTreeExpandPathTask.expandTreePath(tree, rootPath);
@@ -58,7 +58,7 @@ public class JTreeExpandPathTask_expandTreePath_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_expand_path_if_root_is_invisible() {
+  public void should_Expand_Path_If_Root_Is_Invisible() {
     hideRoot();
     TreePath nodePath = new TreePath(array(window.root, window.node));
     assertThat(isExpanded(tree, nodePath)).isFalse();

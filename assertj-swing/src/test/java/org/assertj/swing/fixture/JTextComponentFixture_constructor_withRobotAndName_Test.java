@@ -41,7 +41,7 @@ public class JTextComponentFixture_constructor_withRobotAndName_Test extends Rob
   }
 
   @Test
-  public void should_lookup_showing_JTextComponent_by_name() {
+  public void should_Lookup_Showing_JTextComponent_By_Name() {
     robot.showWindow(window);
     JTextComponentFixture fixture = new JTextComponentFixture(robot, "textField");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -49,12 +49,12 @@ public class JTextComponentFixture_constructor_withRobotAndName_Test extends Rob
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JTextComponent_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JTextComponent_With_Matching_Name_Is_Not_Showing() {
     new JTextComponentFixture(robot, "textField");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JTextComponent_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JTextComponent_With_Matching_Name_Is_Not_Found() {
     new JTextComponentFixture(robot, "other");
   }
 

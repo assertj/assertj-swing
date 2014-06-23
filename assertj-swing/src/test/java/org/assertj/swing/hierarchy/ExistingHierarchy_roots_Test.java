@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class ExistingHierarchy_roots_Test extends ExistingHierarchy_TestCase {
   @Test
-  public void should_return_all_root_Windows() {
+  public void should_Return_All_Root_Windows() {
     Collection<Window> rootWindows = WindowMonitor.instance().rootWindows();
     assertThat(hierarchy.roots()).containsExactlyElementsOf(rootWindows);
   }

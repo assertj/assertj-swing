@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JOptionPaneDriver_okButton_Test extends JOptionPaneDriver_TestCase {
   @Test
-  public void should_find_OK_button() {
+  public void should_Find_OK_Button() {
     JOptionPane optionPane = informationMessage();
     launch(optionPane, title());
     JButton button = driver.okButton(optionPane);

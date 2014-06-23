@@ -44,7 +44,7 @@ public class OSIdentifier_isHPUX_Test extends OSIdentifier_TestCase {
   }
 
   @Test
-  public void should_return_HPUX_if_OS_name_is_equal_to_HPUX() {
+  public void should_Return_HPUX_If_OS_Name_Is_Equal_To_HPUX() {
     returnOSName(hpUX);
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isHPUX()).isTrue();

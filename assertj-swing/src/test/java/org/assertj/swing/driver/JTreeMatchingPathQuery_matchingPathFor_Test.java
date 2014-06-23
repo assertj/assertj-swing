@@ -60,7 +60,7 @@ public class JTreeMatchingPathQuery_matchingPathFor_Test extends RobotBasedTestC
   }
 
   @Test
-  public void should_find_matching_path_when_root_is_invisible() {
+  public void should_Find_Matching_Path_When_Root_Is_Invisible() {
     TreePath treePath = JTreeMatchingPathQuery.matchingPathFor(window.tree, "branch1/branch1.1", pathFinder);
     Object[] path = treePath.getPath();
     assertThat(path).hasSize(3);
@@ -70,7 +70,7 @@ public class JTreeMatchingPathQuery_matchingPathFor_Test extends RobotBasedTestC
   }
 
   @Test
-  public void should_find_matching_path_when_root_is_visible() {
+  public void should_Find_Matching_Path_When_Root_Is_Visible() {
     makeTreeRootVisible();
     TreePath treePath = JTreeMatchingPathQuery.matchingPathFor(window.tree, "root/branch1/branch1.1", pathFinder);
     Object[] path = treePath.getPath();
@@ -92,7 +92,7 @@ public class JTreeMatchingPathQuery_matchingPathFor_Test extends RobotBasedTestC
   }
 
   @Test
-  public void should_throw_error_if_path_not_found() {
+  public void should_Throw_Error_If_Path_Not_Found() {
     thrown.expect(LocationUnavailableException.class, "Unable to find path 'hello'");
     JTreeMatchingPathQuery.matchingPathFor(window.tree, "hello", pathFinder);
   }

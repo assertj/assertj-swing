@@ -63,12 +63,12 @@ public class BasicRobot_requireNoJOptionPaneIsShowing_Test extends BasicRobot_Te
   }
 
   @Test
-  public void should_pass_if_no_JOptionPane_is_showing() {
+  public void should_Pass_If_No_JOptionPane_Is_Showing() {
     robot().requireNoJOptionPaneIsShowing();
   }
 
   @Test
-  public void should_fail_if_a_JOptionPane_is_showing() {
+  public void should_Fail_If_A_JOptionPane_Is_Showing() {
     robot().click(button);
     pauseTillJOptionPaneIsShowing();
     thrown.expectAssertionError("Expecting no JOptionPane to be showing");

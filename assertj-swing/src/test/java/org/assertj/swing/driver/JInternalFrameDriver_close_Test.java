@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_close_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_close_JInternalFrame() {
+  public void should_Close_JInternalFrame() {
     showWindow();
     driver.close(internalFrame);
     assertThat(isClosed(internalFrame)).isTrue();
@@ -49,7 +49,7 @@ public class JInternalFrameDriver_close_Test extends JInternalFrameDriver_TestCa
   }
 
   @Test
-  public void should_throw_error_if_JInternalFrame_is_not_closable() {
+  public void should_Throw_Error_If_JInternalFrame_Is_Not_Closable() {
     makeNotCloseable();
     showWindow();
     thrown.expect(IllegalStateException.class, "The JInternalFrame <");

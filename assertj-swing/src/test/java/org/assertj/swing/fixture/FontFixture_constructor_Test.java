@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class FontFixture_constructor_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_font_is_null() {
+  public void should_Throw_Error_If_Font_Is_Null() {
     new FontFixture(null);
   }
 }

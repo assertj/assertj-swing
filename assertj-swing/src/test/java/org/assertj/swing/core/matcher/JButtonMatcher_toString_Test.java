@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JButtonMatcher_toString_Test {
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     JButtonMatcher matcher = JButtonMatcher.withName("button").andText("Hello").andShowing();
     assertThat(matcher.toString()).isEqualTo(
         "org.assertj.swing.core.matcher.JButtonMatcher[name='button', text='Hello', requireShowing=true]");

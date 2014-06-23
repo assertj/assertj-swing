@@ -33,12 +33,12 @@ public class NamedComponentMatcherTemplate_quotedName_Test extends NamedComponen
   }
 
   @Test
-  public void should_not_quote_name_if_it_is_any() {
+  public void should_Not_Quote_Name_If_It_Is_Any() {
     assertThat(matcher.quotedName()).isSameAs(NamedComponentMatcherTemplate.anyValue());
   }
 
   @Test
-  public void should_quote_name_if_it_is_not_any() {
+  public void should_Quote_Name_If_It_Is_Not_Any() {
     matcher = new Matcher(JLabel.class, "hello");
     assertThat(matcher.quotedName()).isEqualTo("'hello'");
   }

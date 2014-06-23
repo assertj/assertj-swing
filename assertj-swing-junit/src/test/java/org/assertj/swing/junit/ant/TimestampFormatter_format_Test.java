@@ -42,7 +42,7 @@ public class TimestampFormatter_format_Test {
   }
 
   @Test
-  public void should_format_date_using_ISO8601_pattern() {
+  public void should_Format_Date_Using_ISO8601_Pattern() {
     // make sure we have the right timezone so that the expected string matches the result
     TimeZone.setDefault(TimeZone.getTimeZone("Etc/GMT"));
 

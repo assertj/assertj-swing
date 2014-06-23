@@ -33,28 +33,28 @@ import org.junit.Test;
  */
 public class JLabelMatcher_matches_byTextAndShowing_Test extends SequentialEDTSafeTestCase {
   @Test
-  public void should_return_true_if_JLabel_is_showing_and_text_is_equal_to_expected() {
+  public void should_Return_True_If_JLabel_Is_Showing_And_Text_Is_Equal_To_Expected() {
     MyWindow window = MyWindow.createAndShow();
     JLabelMatcher matcher = JLabelMatcher.withText("Hello").andShowing();
     assertThat(matcher.matches(window.label)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_JLabel_is_not_showing_and_text_is_equal_to_expected() {
+  public void should_Return_False_If_JLabel_Is_Not_Showing_And_Text_Is_Equal_To_Expected() {
     JLabelMatcher matcher = JLabelMatcher.withText("Hello").andShowing();
     JLabel label = label().withText("Hello").createNew();
     assertThat(matcher.matches(label)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_JLabel_is_showing_and_text_is_not_equal_to_expected() {
+  public void should_Return_False_If_JLabel_Is_Showing_And_Text_Is_Not_Equal_To_Expected() {
     MyWindow window = MyWindow.createAndShow();
     JLabelMatcher matcher = JLabelMatcher.withText("Bye").andShowing();
     assertThat(matcher.matches(window.label)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_JLabel_is_not_showing_and_text_is_not_equal_to_expected() {
+  public void should_Return_False_If_JLabel_Is_Not_Showing_And_Text_Is_Not_Equal_To_Expected() {
     JLabelMatcher matcher = JLabelMatcher.withText("Hello").andShowing();
     JLabel label = label().withText("Bye").createNew();
     assertThat(matcher.matches(label)).isFalse();

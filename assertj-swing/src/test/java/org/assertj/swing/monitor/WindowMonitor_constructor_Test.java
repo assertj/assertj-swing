@@ -39,7 +39,7 @@ public class WindowMonitor_constructor_Test extends WindowMonitor_TestCase {
   private static final long CONTEXT_MONITOR_EVENT_MASK = WINDOW_EVENT_MASK | COMPONENT_EVENT_MASK;
 
   @Test
-  public void should_attach_monitors_and_populate_existing_Windows() {
+  public void should_Attach_Monitors_And_Populate_Existing_Windows() {
     assertThatListenerIsUnderMask(CONTEXT_MONITOR_EVENT_MASK, ContextMonitor.class);
     assertThatListenerIsUnderMask(WINDOWS_AVAILABILITY_MONITOR_EVENT_MASK, WindowAvailabilityMonitor.class);
   }

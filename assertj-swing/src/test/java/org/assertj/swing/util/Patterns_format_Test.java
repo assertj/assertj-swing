@@ -27,19 +27,19 @@ import org.junit.Test;
  */
 public class Patterns_format_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_pattern_array_is_null() {
+  public void should_Throw_Error_If_Pattern_Array_Is_Null() {
     Pattern[] patterns = null;
     Patterns.format(patterns);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_pattern_in_array_is_null() {
+  public void should_Throw_Error_If_Pattern_In_Array_Is_Null() {
     Pattern[] patterns = { Pattern.compile("hello"), null };
     Patterns.format(patterns);
   }
 
   @Test
-  public void should_format_pattern_array() {
+  public void should_Format_Pattern_Array() {
     Pattern[] patterns = { Pattern.compile("hello"), Pattern.compile("world") };
     String formatted = Patterns.format(patterns);
     assertThat(formatted).isEqualTo("[\"hello\", \"world\"]");

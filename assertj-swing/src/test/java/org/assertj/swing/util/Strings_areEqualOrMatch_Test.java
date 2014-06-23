@@ -26,43 +26,43 @@ import org.junit.Test;
  */
 public class Strings_areEqualOrMatch_Test {
   @Test
-  public void should_return_true_if_String_and_pattern_are_equal() {
+  public void should_Return_True_If_String_And_Pattern_Are_Equal() {
     assertThat(Strings.areEqualOrMatch("hello", "hello")).isTrue();
   }
 
   @Test
-  public void should_return_true_if_String_matches_pattern() {
+  public void should_Return_True_If_String_Matches_Pattern() {
     assertThat(Strings.areEqualOrMatch("hell.", "hello")).isTrue();
   }
 
   @Test
-  public void should_return_false_if_String_does_not_match_Pattern() {
+  public void should_Return_False_If_String_Does_Not_Match_Pattern() {
     assertThat(Strings.areEqualOrMatch("hi", "hello")).isFalse();
   }
 
   @Test
-  public void should_return_false_if_String_is_null() {
+  public void should_Return_False_If_String_Is_Null() {
     assertThat(Strings.areEqualOrMatch("hell.", null)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_pattern_is_null() {
+  public void should_Return_False_If_Pattern_Is_Null() {
     assertThat(Strings.areEqualOrMatch(null, "Hello")).isFalse();
   }
 
   @Test
-  public void should_return_true_if_String_and_pattern_are_null() {
+  public void should_Return_True_If_String_And_Pattern_Are_Null() {
     assertThat(Strings.areEqualOrMatch(null, null)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_pattern_is_invalid_regex_but_is_contained_in_string() {
+  public void should_Return_True_If_Pattern_Is_Invalid_Regex_But_Is_Contained_In_String() {
     assertThat(Strings.areEqualOrMatch("\\\\server\\share\\myfolder", "\\\\server\\share\\myfolder\\mysubfolder"))
         .isTrue();
   }
 
   @Test
-  public void should_return_true_if_pattern_is_invalid_regex_and_doesnt_match_string() {
+  public void should_Return_True_If_Pattern_Is_Invalid_Regex_And_Doesnt_Match_String() {
     assertThat(Strings.areEqualOrMatch("\\myfolder", "this does not match")).isFalse();
   }
 }

@@ -36,7 +36,7 @@ import org.junit.Test;
 public class TestXmlNodeWriter_addNewTestXmlNode_Test extends TestXmlNodeWriter_TestCase {
 
   @Test
-  public void should_add_test_node_as_child() {
+  public void should_Add_Test_Node_As_Child() {
     final TestStub test = new TestStub("hello");
     final XmlNode newNode = mockXmlNode();
     new EasyMockTemplate(targetNode) {
@@ -55,7 +55,7 @@ public class TestXmlNodeWriter_addNewTestXmlNode_Test extends TestXmlNodeWriter_
   }
 
   @Test
-  public void should_add_test_node_as_child_and_set_test_name_to_unknown_if_test_name_is_null() {
+  public void should_Add_Test_Node_As_Child_And_Set_Test_Name_To_Unknown_If_Test_Name_Is_Null() {
     final TestStub test = new TestStub(null);
     final XmlNode newNode = mockXmlNode();
     new EasyMockTemplate(targetNode) {

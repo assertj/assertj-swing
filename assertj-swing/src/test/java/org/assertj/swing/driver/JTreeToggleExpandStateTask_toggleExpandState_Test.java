@@ -51,7 +51,7 @@ public class JTreeToggleExpandStateTask_toggleExpandState_Test extends RobotBase
   }
 
   @Test
-  public void should_toggle_expand_state() {
+  public void should_Toggle_Expand_State() {
     assertThat(isRootExpanded()).isFalse();
     toggleExpandState(tree, rootPath);
     robot.waitForIdle();

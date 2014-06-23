@@ -49,7 +49,7 @@ public class ComponentSizeQuery_sizeOf_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_return_size_of_Component() {
+  public void should_Return_Size_Of_Component() {
     window.startRecording();
     assertThat(ComponentSizeQuery.sizeOf(window)).isEqualTo(SIZE);
     window.requireInvoked("getSize");

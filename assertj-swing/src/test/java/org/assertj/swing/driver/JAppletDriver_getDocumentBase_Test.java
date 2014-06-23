@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JAppletDriver_getDocumentBase_Test extends JAppletDriver_TestCase {
   @Test
-  public void should_return_document_base() throws Exception {
+  public void should_Return_Document_Base() throws Exception {
     URL url = singletonURL();
     applet().updateDocumentBase(url);
     URL result = driver().getDocumentBase(applet());

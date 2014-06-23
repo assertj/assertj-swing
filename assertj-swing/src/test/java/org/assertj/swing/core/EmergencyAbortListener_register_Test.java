@@ -43,7 +43,7 @@ public class EmergencyAbortListener_register_Test {
   }
 
   @Test
-  public void should_remove_previous_and_register_itself_in_toolkit() {
+  public void should_Remove_Previous_And_Register_Itself_In_Toolkit() {
     EmergencyAbortListener previous = mock(EmergencyAbortListener.class);
     AWTEventListener[] allPrevious = { previous, singletonAWTEventListenerMock() };
     when(toolkit.getAWTEventListeners(KEY_EVENT_MASK)).thenReturn(allPrevious);

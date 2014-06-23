@@ -45,7 +45,7 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
   }
 
   @Test
-  public void should_return_true_if_only_one_row_and_only_one_column_are_selected() {
+  public void should_Return_True_If_Only_One_Row_And_Only_One_Column_Are_Selected() {
     TableCell cell = row(0).column(2);
     selectCells(table, cell, cell);
     robot.waitForIdle();
@@ -53,12 +53,12 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
   }
 
   @Test
-  public void should_return_false_if_cell_is_not_selected() {
+  public void should_Return_False_If_Cell_Is_Not_Selected() {
     assertThat(isCellSelected(table, 0, 2)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_whole_row_is_selected() {
+  public void should_Return_False_If_Whole_Row_Is_Selected() {
     selectRow(table, 0);
     robot.waitForIdle();
     assertThat(isCellSelected(table, 0, 2)).isFalse();
@@ -75,7 +75,7 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
   }
 
   @Test
-  public void should_false_if_multiple_row_are_selected() {
+  public void should_False_If_Multiple_Row_Are_Selected() {
     selectCells(table, row(0).column(2), row(0).column(4));
     robot.waitForIdle();
     assertThat(isCellSelected(table, 0, 2)).isFalse();

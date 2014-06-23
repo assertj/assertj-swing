@@ -59,7 +59,7 @@ public class ScreenshotXmlWriter_writeScreenshot_Test {
   }
 
   @Test
-  public void should_add_screenshot_element_test_is_GUI_test() {
+  public void should_Add_Screenshot_Element_Test_Is_GUI_Test() {
     final BufferedImage image = new BufferedImage(10, 10, TYPE_BYTE_BINARY);
     new EasyMockTemplate(screenshotTaker, guiTestRecognizer) {
       @Override
@@ -81,7 +81,7 @@ public class ScreenshotXmlWriter_writeScreenshot_Test {
   }
 
   @Test
-  public void should_not_add_screenshot_element_test_is_not_GUI_test() {
+  public void should_Not_Add_Screenshot_Element_Test_Is_Not_GUI_Test() {
     new EasyMockTemplate(screenshotTaker, guiTestRecognizer) {
       @Override
       protected void expectations() {

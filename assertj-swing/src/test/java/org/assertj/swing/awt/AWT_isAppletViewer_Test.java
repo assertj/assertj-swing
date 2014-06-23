@@ -26,12 +26,12 @@ import org.junit.Test;
  */
 public class AWT_isAppletViewer_Test {
   @Test
-  public void should_return_false_if_Component_is_not_AppletViewer() {
+  public void should_Return_False_If_Component_Is_Not_AppletViewer() {
     assertThat(AWT.isAppletViewer(textField().createNew())).isFalse();
   }
 
   @Test
-  public void should_return_false_if_Component_is_null() {
+  public void should_Return_False_If_Component_Is_Null() {
     assertThat(AWT.isAppletViewer(null)).isFalse();
   }
 }

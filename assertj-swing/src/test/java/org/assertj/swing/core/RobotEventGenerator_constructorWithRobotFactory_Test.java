@@ -47,7 +47,7 @@ public class RobotEventGenerator_constructorWithRobotFactory_Test {
   }
 
   @Test
-  public void should_use_RobotFactory_to_create_AWTRobot() throws AWTException {
+  public void should_Use_RobotFactory_To_Create_AWTRobot() throws AWTException {
     Robot robot = mock(Robot.class);
     when(robotFactory.newRobotInPrimaryScreen()).thenReturn(robot);
     RobotEventGenerator eventGenerator = new RobotEventGenerator(robotFactory, new Settings());
@@ -55,7 +55,7 @@ public class RobotEventGenerator_constructorWithRobotFactory_Test {
   }
 
   @Test
-  public void should_rethrow_any_error_from_RobotFactory() throws AWTException {
+  public void should_Rethrow_Any_Error_From_RobotFactory() throws AWTException {
     AWTException toThrow = new AWTException("Thrown on purpose");
     when(robotFactory.newRobotInPrimaryScreen()).thenThrow(toThrow);
     thrown.expect(UnexpectedException.class);

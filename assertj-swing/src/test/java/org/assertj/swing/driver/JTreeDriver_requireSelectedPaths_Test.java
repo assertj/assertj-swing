@@ -30,13 +30,13 @@ import org.junit.Test;
  */
 public class JTreeDriver_requireSelectedPaths_Test extends JTreeDriver_selectCell_TestCase {
   @Test
-  public void should_pass_if_single_cell_is_selected() {
+  public void should_Pass_If_Single_Cell_Is_Selected() {
     selectFirstChildOfRoot();
     driver.requireSelection(tree, array("root/branch1"));
   }
 
   @Test
-  public void should_pass_if_cells_are_selected() {
+  public void should_Pass_If_Cells_Are_Selected() {
     selectBranch1AndBranch1_1();
     driver.requireSelection(tree, array("root/branch1", "root/branch1/branch1.1"));
   }
@@ -51,12 +51,12 @@ public class JTreeDriver_requireSelectedPaths_Test extends JTreeDriver_selectCel
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_expected_array_of_paths_is_null() {
+  public void should_Throw_Error_If_Expected_Array_Of_Paths_Is_Null() {
     driver.requireSelection(tree, (String[]) null);
   }
 
   @Test
-  public void should_fail_if_JTree_does_not_have_selection() {
+  public void should_Fail_If_JTree_Does_Not_Have_Selection() {
     clearTreeSelection();
     thrown.expectAssertionError("property:'selection'");
     thrown.expectMessageToContain("No selection");
@@ -64,7 +64,7 @@ public class JTreeDriver_requireSelectedPaths_Test extends JTreeDriver_selectCel
   }
 
   @Test
-  public void should_fail_if_selection_is_not_equal_to_expected() {
+  public void should_Fail_If_Selection_Is_Not_Equal_To_Expected() {
     selectFirstChildOfRoot();
     thrown.expectAssertionError("property:'selection'");
     thrown.expectMessageToContain("expecting selection:<[\"root/branch2\"]> but was:<[[root, branch1]]>");

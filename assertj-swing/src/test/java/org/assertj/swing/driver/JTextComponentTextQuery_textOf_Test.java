@@ -43,7 +43,7 @@ public class JTextComponentTextQuery_textOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_text_of_JTextComponent() {
+  public void should_Return_Text_Of_JTextComponent() {
     textField.startRecording();
     assertThat(JTextComponentTextQuery.textOf(textField)).isEqualTo(TEXT);
     textField.requireInvoked("getText");

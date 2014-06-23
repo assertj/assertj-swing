@@ -42,7 +42,7 @@ public class JMenuItemFixture_constructor_withRobotAndName_Test extends RobotBas
   }
 
   @Test
-  public void should_lookup_JMenuItem_by_name() {
+  public void should_Lookup_JMenuItem_By_Name() {
     robot.showWindow(window);
     JMenuItemFixture fixture = new JMenuItemFixture(robot, "saveMenuItem");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -50,7 +50,7 @@ public class JMenuItemFixture_constructor_withRobotAndName_Test extends RobotBas
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JMenuItem_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JMenuItem_With_Matching_Name_Is_Not_Found() {
     new JMenuItemFixture(robot, "other");
   }
 

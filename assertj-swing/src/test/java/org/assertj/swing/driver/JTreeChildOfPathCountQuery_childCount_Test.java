@@ -49,7 +49,7 @@ public class JTreeChildOfPathCountQuery_childCount_Test extends RobotBasedTestCa
   }
 
   @Test
-  public void should_return_child_count_of_TreePath() {
+  public void should_Return_Child_Count_Of_TreePath() {
     TreePath path = new TreePath(treeRoot);
     int childOfPathCount = JTreeChildOfPathCountQuery.childCount(tree, path);
     assertThat(childOfPathCount).isEqualTo(childCount);

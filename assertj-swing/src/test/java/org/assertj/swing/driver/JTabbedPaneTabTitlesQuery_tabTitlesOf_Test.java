@@ -42,7 +42,7 @@ public class JTabbedPaneTabTitlesQuery_tabTitlesOf_Test extends RobotBasedTestCa
   }
 
   @Test
-  public void should_return_tab_titles() {
+  public void should_Return_Tab_Titles() {
     assertThat(JTabbedPaneTabTitlesQuery.tabTitlesOf(tabbedPane)).containsOnly("One", "Two");
   }
 

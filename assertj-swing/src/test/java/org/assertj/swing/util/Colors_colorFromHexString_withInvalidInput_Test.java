@@ -23,17 +23,17 @@ import org.junit.Test;
  */
 public class Colors_colorFromHexString_withInvalidInput_Test {
   @Test(expected = NumberFormatException.class)
-  public void should_throw_error_if_hex_String_is_not_valid() {
+  public void should_Throw_Error_If_Hex_String_Is_Not_Valid() {
     Colors.colorFromHexString("zz");
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_hex_String_is_null() {
+  public void should_Throw_Error_If_Hex_String_Is_Null() {
     Colors.colorFromHexString(null);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_hex_String_is_empty() {
+  public void should_Throw_Error_If_Hex_String_Is_Empty() {
     Colors.colorFromHexString("");
   }
 }

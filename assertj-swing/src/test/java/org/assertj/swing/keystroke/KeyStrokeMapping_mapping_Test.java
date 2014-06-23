@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class KeyStrokeMapping_mapping_Test {
   @Test
-  public void should_create_mapping_from_char_keyCode_and_modifiers() {
+  public void should_Create_Mapping_From_Char_KeyCode_And_Modifiers() {
     KeyStrokeMapping mapping = KeyStrokeMapping.mapping('A', VK_A, SHIFT_MASK);
     assertThat(mapping.character()).isEqualTo('A');
     assertThat(mapping.keyStroke()).isEqualTo(getKeyStroke(VK_A, SHIFT_MASK));

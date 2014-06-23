@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JListDriver_dragAndDropByIndex_Test extends JListDriver_dragAndDrop_TestCase {
   @Test
-  public void should_drag_and_drop() {
+  public void should_Drag_And_Drop() {
     showWindow();
     driver.drag(list, 2);
     driver.drop(dropList, 2);

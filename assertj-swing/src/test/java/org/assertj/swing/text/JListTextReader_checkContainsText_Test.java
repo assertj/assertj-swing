@@ -45,13 +45,13 @@ public class JListTextReader_checkContainsText_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_false_if_text_in_JList_does_not_contain_given_String() {
+  public void should_Return_False_If_Text_In_JList_Does_Not_Contain_Given_String() {
     when(list.getModel()).thenReturn(listModel);
     assertThat(reader.checkContainsText(list, "Han")).isFalse();
   }
 
   @Test
-  public void should_return_true_if_text_in_JList_contains_given_String() {
+  public void should_Return_True_If_Text_In_JList_Contains_Given_String() {
     when(list.getModel()).thenReturn(listModel);
     assertThat(reader.checkContainsText(list, "Yo")).isTrue();
   }

@@ -26,7 +26,7 @@ import org.junit.Test;
 public class XmlNode_text_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_return_text() {
+  public void should_Return_Text() {
     node.addText("Hello");
     assertThat(node.text()).isEqualTo("Hello");
   }

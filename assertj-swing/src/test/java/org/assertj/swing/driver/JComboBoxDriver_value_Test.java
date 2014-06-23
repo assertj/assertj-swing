@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_value_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_return_value_as_text_of_item() {
+  public void should_Return_Value_As_Text_Of_Item() {
     String value = driver.value(comboBox, 2);
     assertThat(value).isEqualTo("third");
     assertThatCellReaderWasCalled();

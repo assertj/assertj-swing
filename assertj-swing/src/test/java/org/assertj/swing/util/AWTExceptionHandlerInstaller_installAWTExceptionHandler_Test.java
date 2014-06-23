@@ -40,14 +40,14 @@ public class AWTExceptionHandlerInstaller_installAWTExceptionHandler_Test {
   }
 
   @Test
-  public void should_install_AWT_event_handler() {
+  public void should_Install_AWT_Event_Handler() {
     Class<CorrectEventHandler> exceptionHandlerType = CorrectEventHandler.class;
     AWTExceptionHandlerInstaller.installAWTExceptionHandler(exceptionHandlerType, writer);
     verify(writer).updateSystemProperty("sun.awt.exception.handler", exceptionHandlerType.getName());
   }
 
   @Test
-  public void should_throw_error_if_AWT_event_handler_type_does_not_have_default_constructor() {
+  public void should_Throw_Error_If_AWT_Event_Handler_Type_Does_Not_Have_Default_Constructor() {
     thrown.expectIllegalArgumentException("The exception handler type should have a default constructor");
     AWTExceptionHandlerInstaller.installAWTExceptionHandler(WrongEventHandler.class, writer);
   }

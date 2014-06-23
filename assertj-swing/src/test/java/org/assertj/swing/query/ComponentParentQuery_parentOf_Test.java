@@ -45,7 +45,7 @@ public class ComponentParentQuery_parentOf_Test extends SequentialEDTSafeTestCas
   }
 
   @Test
-  public void should_return_parent_of_Component() {
+  public void should_Return_Parent_Of_Component() {
     button.startRecording();
     Container parent = ComponentParentQuery.parentOf(button);
     assertThat(parent).isInstanceOf(JPanel.class);

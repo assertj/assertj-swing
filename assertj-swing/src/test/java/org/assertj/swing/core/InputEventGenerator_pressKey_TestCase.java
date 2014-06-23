@@ -58,7 +58,7 @@ public abstract class InputEventGenerator_pressKey_TestCase extends InputEventGe
   }
 
   @Test
-  public void should_type_key() {
+  public void should_Type_Key() {
     giveFocusAndWaitTillIsFocused(window.textBox);
     eventGenerator.pressKey(keyToPress, CHAR_UNDEFINED);
     eventGenerator.releaseKey(keyToPress);

@@ -41,7 +41,7 @@ public class AbstractButtonTextQuery_textOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_text_of_AbstractButton() {
+  public void should_Return_Text_Of_AbstractButton() {
     button.startRecording();
     assertThat(AbstractButtonTextQuery.textOf(button)).isEqualTo("A Button");
     button.requireInvoked("getText");

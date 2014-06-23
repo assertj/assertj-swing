@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class DialogMatcher_toString_Test {
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     DialogMatcher matcher = DialogMatcher.withName("dialog").andTitle("Hello").andShowing();
     assertThat(matcher.toString()).isEqualTo(
         "org.assertj.swing.core.matcher.DialogMatcher[name='dialog', title='Hello', requireShowing=true]");

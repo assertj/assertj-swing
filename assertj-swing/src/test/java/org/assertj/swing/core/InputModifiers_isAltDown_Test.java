@@ -27,12 +27,12 @@ import org.junit.Test;
  */
 public class InputModifiers_isAltDown_Test {
   @Test
-  public void should_return_true_if_alt_mask_is_present() {
+  public void should_Return_True_If_Alt_Mask_Is_Present() {
     assertThat(InputModifiers.isAltDown(ALT_MASK | ALT_GRAPH_MASK)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_alt_mask_is_not_present() {
+  public void should_Return_False_If_Alt_Mask_Is_Not_Present() {
     assertThat(InputModifiers.isAltDown(ALT_GRAPH_MASK)).isFalse();
   }
 }

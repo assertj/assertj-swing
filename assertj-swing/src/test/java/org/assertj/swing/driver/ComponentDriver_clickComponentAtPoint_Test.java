@@ -34,7 +34,7 @@ public class ComponentDriver_clickComponentAtPoint_Test extends ComponentDriver_
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_click_Component_at_given_point() {
+  public void should_Click_Component_At_Given_Point() {
     showWindow();
     Point center = centerOf(window.button);
     Point where = new Point(center.x + 1, center.y + 1);
@@ -45,7 +45,7 @@ public class ComponentDriver_clickComponentAtPoint_Test extends ComponentDriver_
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     disableButton();
     thrown.expectIllegalStateIsDisabledComponent();
@@ -57,7 +57,7 @@ public class ComponentDriver_clickComponentAtPoint_Test extends ComponentDriver_
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     thrown.expectIllegalStateIsNotShowingComponent();
     try {

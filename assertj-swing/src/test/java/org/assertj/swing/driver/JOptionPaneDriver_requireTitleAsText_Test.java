@@ -29,21 +29,21 @@ import org.junit.Test;
  */
 public class JOptionPaneDriver_requireTitleAsText_Test extends JOptionPaneDriver_TestCase {
   @Test
-  public void should_pass_is_title_is_equal_to_expected() {
+  public void should_Pass_Is_Title_Is_Equal_To_Expected() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
     driver.requireTitle(optionPane, title());
   }
 
   @Test
-  public void should_pass_if_title_matches_pattern() {
+  public void should_Pass_If_Title_Matches_Pattern() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
     driver.requireTitle(optionPane, "JOptionP.*");
   }
 
   @Test
-  public void should_fail_if_title_is_not_equal_to_expected() {
+  public void should_Fail_If_Title_Is_Not_Equal_To_Expected() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
     thrown.expectAssertionError("title", title(), Pattern.compile("Yoda"));

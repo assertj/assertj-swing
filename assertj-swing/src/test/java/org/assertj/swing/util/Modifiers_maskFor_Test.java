@@ -36,32 +36,32 @@ import org.junit.Test;
  */
 public class Modifiers_maskFor_Test {
   @Test
-  public void should_return_mask_for_AltGraph_modifier() {
+  public void should_Return_Mask_For_AltGraph_Modifier() {
     assertThat(Modifiers.maskFor(VK_ALT_GRAPH)).isEqualTo(ALT_GRAPH_MASK);
   }
 
   @Test
-  public void should_return_mask_for_Alt_modifier() {
+  public void should_Return_Mask_For_Alt_Modifier() {
     assertThat(Modifiers.maskFor(VK_ALT)).isEqualTo(ALT_MASK);
   }
 
   @Test
-  public void should_return_mask_for_Shift_modifier() {
+  public void should_Return_Mask_For_Shift_Modifier() {
     assertThat(Modifiers.maskFor(VK_SHIFT)).isEqualTo(SHIFT_MASK);
   }
 
   @Test
-  public void should_return_mask_for_Control_modifier() {
+  public void should_Return_Mask_For_Control_Modifier() {
     assertThat(Modifiers.maskFor(VK_CONTROL)).isEqualTo(CTRL_MASK);
   }
 
   @Test
-  public void should_return_mask_for_Meta_modifier() {
+  public void should_Return_Mask_For_Meta_Modifier() {
     assertThat(Modifiers.maskFor(VK_META)).isEqualTo(META_MASK);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_key_is_not_modifier() {
+  public void should_Throw_Error_If_Key_Is_Not_Modifier() {
     Modifiers.maskFor(VK_A);
   }
 }

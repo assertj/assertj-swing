@@ -35,7 +35,7 @@ public class RobotEventGenerator_constructorWithSettings_Test {
   }
 
   @Test
-  public void should_attach_Robot_to_Settings() {
+  public void should_Attach_Robot_To_Settings() {
     assertThat(eventGenerator.robot()).isSameAs(settings.robot());
   }
 }

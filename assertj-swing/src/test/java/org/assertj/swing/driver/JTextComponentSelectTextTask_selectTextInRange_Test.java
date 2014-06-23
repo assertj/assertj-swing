@@ -68,7 +68,7 @@ public class JTextComponentSelectTextTask_selectTextInRange_Test extends RobotBa
   }
 
   @Test
-  public void should_select_text() {
+  public void should_Select_Text() {
     selectTextInRange(textBox, start, end);
     robot.waitForIdle();
     String selection = selectedTextOf(textBox);

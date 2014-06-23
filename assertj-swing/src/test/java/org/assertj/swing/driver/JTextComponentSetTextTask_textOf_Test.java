@@ -45,7 +45,7 @@ public class JTextComponentSetTextTask_textOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_set_text_in_JTextComponent() {
+  public void should_Set_Text_In_JTextComponent() {
     textField.startRecording();
     JTextComponentSetTextTask.setTextIn(textField, TEXTBOX_TEXT);
     robot.waitForIdle();

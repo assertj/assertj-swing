@@ -65,7 +65,7 @@ public class AbstractComponentFixture_requireShowing_Test {
   }
 
   @Test
-  public void should_check_settings() {
+  public void should_Check_Settings() {
     when(fixture.robot().settings()).thenReturn(settings);
     when(settings.componentLookupScope()).thenReturn(scope);
     assertThat(fixture.requireShowing()).isEqualTo(scope.requireShowing());

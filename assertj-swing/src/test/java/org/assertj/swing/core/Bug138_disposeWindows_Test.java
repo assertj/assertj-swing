@@ -58,7 +58,7 @@ public class Bug138_disposeWindows_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_dispose_windows() {
+  public void should_Dispose_Windows() {
     frame = frame().withTitle("Hello").createNew();
     List<Container> roots = newArrayList((Container) frame);
     when(hierarchy.roots()).thenReturn(roots);
@@ -67,7 +67,7 @@ public class Bug138_disposeWindows_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_not_dispose_windows() {
+  public void should_Not_Dispose_Windows() {
     robot.cleanUpWithoutDisposingWindows();
     verifyZeroInteractions(hierarchy);
   }

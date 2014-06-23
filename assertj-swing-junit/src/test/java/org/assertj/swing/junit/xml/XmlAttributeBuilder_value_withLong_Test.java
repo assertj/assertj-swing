@@ -27,7 +27,7 @@ import org.junit.Test;
 public class XmlAttributeBuilder_value_withLong_Test {
 
   @Test
-  public void should_create_attribute() {
+  public void should_Create_Attribute() {
     XmlAttribute other = XmlAttribute.name("distance").value(3l);
     assertThat(other.name()).isEqualTo("distance");
     assertThat(other.value()).isEqualTo("3");

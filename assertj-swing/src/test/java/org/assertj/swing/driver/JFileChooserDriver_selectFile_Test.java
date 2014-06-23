@@ -35,7 +35,7 @@ import org.junit.Test;
  */
 public class JFileChooserDriver_selectFile_Test extends JFileChooserDriver_TestCase {
   @Test
-  public void should_select_file() {
+  public void should_Select_File() {
     showWindow();
     File temporaryFile = newTemporaryFile();
     try {
@@ -58,20 +58,20 @@ public class JFileChooserDriver_selectFile_Test extends JFileChooserDriver_TestC
   }
 
   @Test
-  public void should_throw_error_if_JFileChooser_is_disabled() {
+  public void should_Throw_Error_If_JFileChooser_Is_Disabled() {
     disableFileChooser();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectFile(fileChooser, fakeFile());
   }
 
   @Test
-  public void should_throw_error_if_JFileChooser_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JFileChooser_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectFile(fileChooser, fakeFile());
   }
 
   @Test
-  public void should_throw_error_when_selecting_file_while_JFileChooser_can_only_select_folders() {
+  public void should_Throw_Error_When_Selecting_File_While_JFileChooser_Can_Only_Select_Folders() {
     makeFileChooserSelectDirectoriesOnly();
     showWindow();
     thrown.expectIllegalArgumentException("the file chooser can only open directories");
@@ -79,7 +79,7 @@ public class JFileChooserDriver_selectFile_Test extends JFileChooserDriver_TestC
   }
 
   @Test
-  public void should_throw_error_when_selecing_folder_while_JFileChooser_can_only_select_files() {
+  public void should_Throw_Error_When_Selecing_Folder_While_JFileChooser_Can_Only_Select_Files() {
     File temporaryFolder = newTemporaryFolder();
     makeFileChooserSelectFilesOnly();
     showWindow();

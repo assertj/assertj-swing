@@ -32,20 +32,20 @@ import org.junit.Test;
  */
 public class NameMatcher_matches_byNameTypeAndShowing_Test extends NameMatcher_TestCase {
   @Test
-  public void should_return_false_if_type_does_not_match() {
+  public void should_Return_False_If_Type_Does_Not_Match() {
     window.display();
     NameMatcher matcher = new NameMatcher("b", JTextField.class, true);
     assertThat(matcher.matches(window.button)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_name_and_type_match_but_Component_is_not_showing() {
+  public void should_Return_False_If_Name_And_Type_Match_But_Component_Is_Not_Showing() {
     NameMatcher matcher = new NameMatcher(LABEL_TEXT, JButton.class, true);
     assertThat(matcher.matches(window.button)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_nothing_matches() {
+  public void should_Return_False_If_Nothing_Matches() {
     NameMatcher matcher = new NameMatcher("b", JTextField.class, true);
     assertThat(matcher.matches(window.button)).isFalse();
   }

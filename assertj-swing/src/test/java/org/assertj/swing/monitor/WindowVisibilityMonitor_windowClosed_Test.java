@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class WindowVisibilityMonitor_windowClosed_Test extends WindowVisibilityMonitor_TestCase {
   @Test
-  public void should_remove_itself_when_Window_is_closed() {
+  public void should_Remove_Itself_When_Window_Is_Closed() {
     window.startRecording();
     monitor.windowClosed(new WindowEvent(window, 8));
     assertThat(window.requireInvoked("removeWindowListener", args(monitor)));

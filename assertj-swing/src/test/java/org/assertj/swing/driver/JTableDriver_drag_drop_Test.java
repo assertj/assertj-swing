@@ -63,7 +63,7 @@ public class JTableDriver_drag_drop_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  public void should_drag_and_drop() {
+  public void should_Drag_And_Drop() {
     showWindow();
     driver.drag(table, row(3).column(0));
     driver.drop(dropTable, row(1).column(0));

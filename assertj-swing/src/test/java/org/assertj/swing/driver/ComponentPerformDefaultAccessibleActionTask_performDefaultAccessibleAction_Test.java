@@ -62,7 +62,7 @@ public class ComponentPerformDefaultAccessibleActionTask_performDefaultAccessibl
   }
 
   @Test
-  public void should_execute_first_Action_in_AccessibleAction() {
+  public void should_Execute_First_Action_In_AccessibleAction() {
     when(accessibleAction.getAccessibleActionCount()).thenReturn(1);
     when(accessibleAction.doAccessibleAction(0)).thenReturn(true);
     ComponentPerformDefaultAccessibleActionTask.performDefaultAccessibleAction(component);
@@ -70,7 +70,7 @@ public class ComponentPerformDefaultAccessibleActionTask_performDefaultAccessibl
   }
 
   @Test
-  public void should_throw_error_if_AccessibleAction_is_null() {
+  public void should_Throw_Error_If_AccessibleAction_Is_Null() {
     accessibleContext.accessibleAction(null);
     assertActionFailedThrown();
     try {
@@ -82,7 +82,7 @@ public class ComponentPerformDefaultAccessibleActionTask_performDefaultAccessibl
   }
 
   @Test
-  public void should_throw_error_if_AccessibleAction_is_empty() {
+  public void should_Throw_Error_If_AccessibleAction_Is_Empty() {
     when(accessibleAction.getAccessibleActionCount()).thenReturn(0);
     assertActionFailedThrown();
     ComponentPerformDefaultAccessibleActionTask.performDefaultAccessibleAction(component);

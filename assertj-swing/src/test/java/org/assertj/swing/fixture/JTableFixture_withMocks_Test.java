@@ -65,7 +65,7 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_font_at_cell_using_driver() {
+  public void should_Return_Font_At_Cell_Using_Driver() {
     Font font = mock(Font.class);
     when(driver.font(target, cell)).thenReturn(font);
     FontFixture fontFixture = fixture.fontAt(cell);
@@ -74,7 +74,7 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_background_at_cell_using_driver() {
+  public void should_Return_Background_At_Cell_Using_Driver() {
     when(driver.background(target, cell)).thenReturn(BLUE);
     ColorFixture colorFixture = fixture.backgroundAt(cell);
     assertThat(colorFixture.target()).isSameAs(BLUE);
@@ -82,7 +82,7 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_foreground_at_cell_using_driver() {
+  public void should_Return_Foreground_At_Cell_Using_Driver() {
     when(driver.foreground(target, cell)).thenReturn(BLUE);
     ColorFixture colorFixture = fixture.foregroundAt(cell);
     assertThat(colorFixture.target()).isSameAs(BLUE);
@@ -90,7 +90,7 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_cell_with_value_using_driver() {
+  public void should_Return_Cell_With_Value_Using_Driver() {
     when(driver.cell(target, "Hello")).thenReturn(cell);
     JTableCellFixture cellFixture = fixture.cell("Hello");
     assertThat(cellFixture.cell()).isSameAs(cell);
@@ -99,7 +99,7 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_cell_with_pattern_using_driver() {
+  public void should_Return_Cell_With_Pattern_Using_Driver() {
     Pattern pattern = Pattern.compile("Hello");
     when(driver.cell(target, pattern)).thenReturn(cell);
     JTableCellFixture cellFixture = fixture.cell(pattern);
@@ -109,7 +109,7 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_cell_with_TableCellFinder_using_driver() {
+  public void should_Return_Cell_With_TableCellFinder_Using_Driver() {
     TableCellFinder cellFinder = mock(TableCellFinder.class);
     when(driver.cell(target, cellFinder)).thenReturn(cell);
     JTableCellFixture cellFixture = fixture.cell(cellFinder);
@@ -119,7 +119,7 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_cell_using_driver() {
+  public void should_Return_Cell_Using_Driver() {
     JTableCellFixture cellFixture = fixture.cell(cell);
     assertThat(cellFixture.cell()).isSameAs(cell);
     assertThat(cellFixture.tableFixture()).isSameAs(fixture);
@@ -127,7 +127,7 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_JTableHeader_using_driver() {
+  public void should_Return_JTableHeader_Using_Driver() {
     JTableHeader header = mock(JTableHeader.class);
     when(driver.tableHeaderOf(target)).thenReturn(header);
     JTableHeaderFixture headerFixture = fixture.tableHeader();
@@ -136,14 +136,14 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_selection_using_driver() {
+  public void should_Return_Selection_Using_Driver() {
     when(driver.selectionValue(target)).thenReturn("Hello");
     assertThat(fixture.selectionValue()).isEqualTo("Hello");
     verify(driver).selectionValue(target);
   }
 
   @Test
-  public void should_convert_cell_to_point_using_driver() {
+  public void should_Convert_Cell_To_Point_Using_Driver() {
     Point p = new Point(6, 8);
     when(driver.pointAt(target, cell)).thenReturn(p);
     assertThat(fixture.pointAt(cell)).isSameAs(p);
@@ -151,7 +151,7 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_contents_using_driver() {
+  public void should_Return_Contents_Using_Driver() {
     String[][] contents = { { "0", "1", "2" } };
     when(driver.contents(target)).thenReturn(contents);
     assertThat(fixture.contents()).isSameAs(contents);
@@ -159,150 +159,150 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_row_count_using_driver() {
+  public void should_Return_Row_Count_Using_Driver() {
     when(driver.rowCountOf(target)).thenReturn(6);
     assertThat(fixture.rowCount()).isEqualTo(6);
     verify(driver).rowCountOf(target);
   }
 
   @Test
-  public void should_return_value_at_cell_using_driver() {
+  public void should_Return_Value_At_Cell_Using_Driver() {
     when(driver.value(target, cell)).thenReturn("Hello");
     assertThat(fixture.valueAt(cell)).isEqualTo("Hello");
     verify(driver).value(target, cell);
   }
 
   @Test
-  public void should_call_selectCell_in_driver_and_return_self() {
+  public void should_Call_SelectCell_In_Driver_And_Return_Self() {
     assertThat(fixture.selectCell(cell)).isSameAs(fixture);
     verify(driver).selectCell(target, cell);
   }
 
   @Test
-  public void should_call_selectCells_in_driver_and_return_self() {
+  public void should_Call_SelectCells_In_Driver_And_Return_Self() {
     TableCell[] cells = { cell };
     assertThat(fixture.selectCells(cells)).isSameAs(fixture);
     verify(driver).selectCells(target, cells);
   }
 
   @Test
-  public void should_call_selectRows_in_driver_and_return_self() {
+  public void should_Call_SelectRows_In_Driver_And_Return_Self() {
     int rows[] = { 6, 8 };
     assertThat(fixture.selectRows(rows)).isSameAs(fixture);
     verify(driver).selectRows(target, rows);
   }
 
   @Test
-  public void should_call_drag_in_driver_and_return_self() {
+  public void should_Call_Drag_In_Driver_And_Return_Self() {
     assertThat(fixture.drag(cell)).isSameAs(fixture);
     verify(driver).drag(target, cell);
   }
 
   @Test
-  public void should_call_drop_in_driver_and_return_self() {
+  public void should_Call_Drop_In_Driver_And_Return_Self() {
     assertThat(fixture.drop(cell)).isSameAs(fixture);
     verify(driver).drop(target, cell);
   }
 
   @Test
-  public void should_call_click_with_MouseButton_in_driver_and_return_self() {
+  public void should_Call_Click_With_MouseButton_In_Driver_And_Return_Self() {
     assertThat(fixture.click(cell, LEFT_BUTTON)).isSameAs(fixture);
     verify(driver).click(target, cell, LEFT_BUTTON, 1);
   }
 
   @Test
-  public void should_call_click_with_MouseClickInfo_in_driver_and_return_self() {
+  public void should_Call_Click_With_MouseClickInfo_In_Driver_And_Return_Self() {
     MouseClickInfo info = middleButton().times(3);
     assertThat(fixture.click(cell, info)).isSameAs(fixture);
     verify(driver).click(target, cell, MIDDLE_BUTTON, 3);
   }
 
   @Test
-  public void should_call_enterValueInCell_in_driver_and_return_self() {
+  public void should_Call_EnterValueInCell_In_Driver_And_Return_Self() {
     assertThat(fixture.enterValue(cell, "Hello")).isSameAs(fixture);
     verify(driver).enterValueInCell(target, cell, "Hello");
   }
 
   @Test
-  public void should_call_replaceCellReader_in_driver() {
+  public void should_Call_ReplaceCellReader_In_Driver() {
     JTableCellReader cellReader = mock(JTableCellReader.class);
     fixture.replaceCellReader(cellReader);
     verify(driver).replaceCellReader(cellReader);
   }
 
   @Test
-  public void should_call_requireRowCount_in_driver_and_return_self() {
+  public void should_Call_RequireRowCount_In_Driver_And_Return_Self() {
     assertThat(fixture.requireRowCount(6)).isSameAs(fixture);
     verify(driver).requireRowCount(target, 6);
   }
 
   @Test
-  public void should_call_requireSelectedRows_in_driver_and_return_self() {
+  public void should_Call_RequireSelectedRows_In_Driver_And_Return_Self() {
     int[] rows = { 6, 8 };
     assertThat(fixture.requireSelectedRows(rows)).isSameAs(fixture);
     verify(driver).requireSelectedRows(target, rows);
   }
 
   @Test
-  public void should_call_requireColumnCount_in_driver_and_return_self() {
+  public void should_Call_RequireColumnCount_In_Driver_And_Return_Self() {
     assertThat(fixture.requireColumnCount(6)).isSameAs(fixture);
     verify(driver).requireColumnCount(target, 6);
   }
 
   @Test
-  public void should_call_requireEditable_in_driver_and_return_self() {
+  public void should_Call_RequireEditable_In_Driver_And_Return_Self() {
     assertThat(fixture.requireEditable(cell)).isSameAs(fixture);
     verify(driver).requireEditable(target, cell);
   }
 
   @Test
-  public void should_call_requireNotEditable_in_driver_and_return_self() {
+  public void should_Call_RequireNotEditable_In_Driver_And_Return_Self() {
     assertThat(fixture.requireNotEditable(cell)).isSameAs(fixture);
     verify(driver).requireNotEditable(target, cell);
   }
 
   @Test
-  public void should_call_requireNoSelection_in_driver_and_return_self() {
+  public void should_Call_RequireNoSelection_In_Driver_And_Return_Self() {
     assertThat(fixture.requireNoSelection()).isSameAs(fixture);
     verify(driver).requireNoSelection(target);
   }
 
   @Test
-  public void should_call_requireCellValue_with_text_in_driver_and_return_self() {
+  public void should_Call_RequireCellValue_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.requireCellValue(cell, "Hello")).isSameAs(fixture);
     verify(driver).requireCellValue(target, cell, "Hello");
   }
 
   @Test
-  public void should_call_requireCellValue_with_pattern_in_driver_and_return_self() {
+  public void should_Call_RequireCellValue_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Hello");
     assertThat(fixture.requireCellValue(cell, pattern)).isSameAs(fixture);
     verify(driver).requireCellValue(target, cell, pattern);
   }
 
   @Test
-  public void should_call_requireContents_in_driver_and_return_self() {
+  public void should_Call_RequireContents_In_Driver_And_Return_Self() {
     String[][] contents = { { "0", "1", "2" } };
     assertThat(fixture.requireContents(contents)).isSameAs(fixture);
     verify(driver).requireContents(target, contents);
   }
 
   @Test
-  public void should_call_replaceCellWriter_in_driver() {
+  public void should_Call_ReplaceCellWriter_In_Driver() {
     JTableCellWriter cellWriter = mock(JTableCellWriter.class);
     fixture.replaceCellWriter(cellWriter);
     verify(driver).replaceCellWriter(cellWriter);
   }
 
   @Test
-  public void should_return_column_index_using_driver() {
+  public void should_Return_Column_Index_Using_Driver() {
     when(driver.columnIndex(target, "Name")).thenReturn(2);
     assertThat(fixture.columnIndexFor("Name")).isEqualTo(2);
     verify(driver).columnIndex(target, "Name");
   }
 
   @Test
-  public void should_return_JPopupMenu_with_cell_using_driver() {
+  public void should_Return_JPopupMenu_With_Cell_Using_Driver() {
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     when(driver.showPopupMenuAt(target, cell)).thenReturn(popupMenu);
     JPopupMenuFixture popupMenuFixture = fixture.showPopupMenuAt(cell);

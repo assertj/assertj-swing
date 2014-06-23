@@ -42,7 +42,7 @@ public class Bug108_findFrameByNameAndType_Test extends RobotBasedTestCase {
   }
 
   @Test(expected = WaitTimedOutError.class)
-  public void should_not_find_frame_when_using_wrong_name() {
+  public void should_Not_Find_Frame_When_Using_Wrong_Name() {
     findFrame("yourFrame").using(robot);
   }
 

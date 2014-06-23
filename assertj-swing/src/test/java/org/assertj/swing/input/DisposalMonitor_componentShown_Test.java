@@ -46,7 +46,7 @@ public class DisposalMonitor_componentShown_Test {
   }
 
   @Test
-  public void should_remove_Component_when_shown() {
+  public void should_Remove_Component_When_Shown() {
     disposedWindows.put(frame, true);
     monitor.componentShown(new ComponentEvent(frame, 0));
     assertThat(disposedWindows).isEmpty();

@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class Pause_pauseWithTimeoutInTimeUnit_Test {
   @Test
-  public void should_pause_for_the_given_amount_of_time() {
+  public void should_Pause_For_The_Given_Amount_Of_Time() {
     StopWatch watch = startNewStopWatch();
     long delay = 2000;
     Pause.pause(2, TimeUnit.SECONDS);
@@ -38,7 +38,7 @@ public class Pause_pauseWithTimeoutInTimeUnit_Test {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_unit_is_null() {
+  public void should_Throw_Error_If_Unit_Is_Null() {
     Pause.pause(2, null);
   }
 }

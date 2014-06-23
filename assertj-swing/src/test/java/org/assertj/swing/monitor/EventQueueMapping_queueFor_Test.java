@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class EventQueueMapping_queueFor_Test extends EventQueueMapping_TestCase {
   @Test
-  public void should_return_EventQueue() {
+  public void should_Return_EventQueue() {
     EventQueue testQueue = new EventQueue();
     queueMap.put(component, new WeakReference<EventQueue>(testQueue));
     EventQueue storedEventQueue = mapping.queueFor(component);
@@ -37,7 +37,7 @@ public class EventQueueMapping_queueFor_Test extends EventQueueMapping_TestCase 
   }
 
   @Test
-  public void should_return_EventQueue_in_Component_if_no_mapping_found() {
+  public void should_Return_EventQueue_In_Component_If_No_Mapping_Found() {
     assertThat(queueMap.keySet()).doesNotContain(component);
     EventQueue storedEventQueue = mapping.queueFor(component);
     assertThat(storedEventQueue).isSameAs(eventQueue);

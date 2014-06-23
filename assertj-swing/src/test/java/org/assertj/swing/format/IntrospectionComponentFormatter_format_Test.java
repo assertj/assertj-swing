@@ -40,26 +40,26 @@ public class IntrospectionComponentFormatter_format_Test extends EDTSafeTestCase
   }
 
   @Test
-  public void should_format_Component() {
+  public void should_Format_Component() {
     IntrospectionComponentFormatter formatter = new IntrospectionComponentFormatter(JButton.class, "name", "text");
     assertThat(formatter.format(button)).isEqualTo("javax.swing.JButton[name='button', text='Click Me']");
   }
 
   @Test
-  public void should_format_even_with_invalid_property_names() {
+  public void should_Format_Even_With_Invalid_Property_Names() {
     IntrospectionComponentFormatter formatter = new IntrospectionComponentFormatter(JButton.class, "lastName", "text");
     String formatted = formatter.format(button);
     assertThat(formatted).contains("lastName=<Unable to read property").contains("text='Click Me'");
   }
 
   @Test
-  public void should_format_property_showing() {
+  public void should_Format_Property_Showing() {
     IntrospectionComponentFormatter formatter = new IntrospectionComponentFormatter(JButton.class, "showing");
     assertThat(formatter.format(button)).isEqualTo("javax.swing.JButton[showing=false]");
   }
 
   @Test
-  public void should_format_one_dimensional_array_properties() {
+  public void should_Format_One_Dimensional_Array_Properties() {
     MyButton myButton = MyButton.newButton(array("Luke", "Leia"));
     IntrospectionComponentFormatter formatter = new IntrospectionComponentFormatter(MyButton.class, "names", "text");
     String formatted = formatter.format(myButton);

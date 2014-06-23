@@ -23,21 +23,21 @@ import org.junit.Test;
  */
 public class JSpinnerDriver_enterTextAndCommit_Test extends JSpinnerDriver_TestCase {
   @Test
-  public void should_enter_text_and_commit() {
+  public void should_Enter_Text_And_Commit() {
     showWindow();
     driver.enterTextAndCommit(spinner, "Gandalf");
     assertThatLastValueIsSelected();
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_disabled() {
+  public void should_Throw_Error_If_JSpinner_Is_Disabled() {
     disableSpinner();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.enterTextAndCommit(spinner, "Gandalf");
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JSpinner_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.enterTextAndCommit(spinner, "Gandalf");
   }

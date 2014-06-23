@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_clearSelection_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_clear_selection() {
+  public void should_Clear_Selection() {
     selectFirstItem();
     driver.clearSelection(comboBox);
     assertThat(selectedIndexOf(comboBox)).isEqualTo(-1);

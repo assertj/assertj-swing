@@ -36,7 +36,7 @@ public class JListDriver_showPopupMenuAtItemAsPattern_Test extends JListDriver_s
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_show_popup_menu_at_item_matching_pattern() {
+  public void should_Show_Popup_Menu_At_Item_Matching_Pattern() {
     showWindow();
     ToolkitClickRecorder recorder = clickRecorder.attachToToolkitFor(list);
     driver.showPopupMenu(list, Pattern.compile("o.*"));
@@ -47,14 +47,14 @@ public class JListDriver_showPopupMenuAtItemAsPattern_Test extends JListDriver_s
   }
 
   @Test
-  public void should_throw_error_if_JList_is_disabled() {
+  public void should_Throw_Error_If_JList_Is_Disabled() {
     disableList();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.showPopupMenu(list, Pattern.compile("o.*"));
   }
 
   @Test
-  public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JList_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.showPopupMenu(list, Pattern.compile("o.*"));
   }

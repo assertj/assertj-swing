@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class JMenuItemMatcher_toString_Test {
   @Test
-  public void should_show_path_in_toString() {
+  public void should_Show_Path_In_ToString() {
     JMenuItemMatcher matcher = new JMenuItemMatcher("File", "New");
     assertThat(matcher.toString()).contains("label='File|New'");
   }

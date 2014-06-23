@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_moveToBack_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_move_JInternalFrame_to_back() {
+  public void should_Move_JInternalFrame_To_Back() {
     showWindow();
     driver.moveToBack(internalFrame);
     assertThat(zOrder()).isEqualTo(1);

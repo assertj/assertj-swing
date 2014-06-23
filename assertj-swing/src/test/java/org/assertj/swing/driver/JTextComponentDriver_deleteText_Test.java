@@ -24,27 +24,27 @@ import org.junit.Test;
  */
 public class JTextComponentDriver_deleteText_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_delete_text() {
+  public void should_Delete_Text() {
     showWindow();
     driver.deleteText(textField);
     requireEmptyTextField();
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_disabled() {
+  public void should_Throw_Error_If_JTextComponent_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.deleteText(textField);
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTextComponent_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.deleteText(textField);
   }
 
   @Test
-  public void should_delete_text_in_empty_JTextComponent() {
+  public void should_Delete_Text_In_Empty_JTextComponent() {
     showWindow();
     setTextFieldText("");
     driver.deleteText(textField);

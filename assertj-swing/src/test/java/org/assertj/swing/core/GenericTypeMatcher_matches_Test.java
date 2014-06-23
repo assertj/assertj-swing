@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class GenericTypeMatcher_matches_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_type_and_search_criteria_match() {
+  public void should_Return_True_If_Type_And_Search_Criteria_Match() {
     GenericTypeMatcher<JButton> matcher = new GenericTypeMatcher<JButton>(JButton.class) {
       @Override
       protected boolean isMatching(@Nonnull JButton component) {
@@ -43,7 +43,7 @@ public class GenericTypeMatcher_matches_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_false_if_type_matches_but_not_search_criteria() {
+  public void should_Return_False_If_Type_Matches_But_Not_Search_Criteria() {
     GenericTypeMatcher<JButton> matcher = new GenericTypeMatcher<JButton>(JButton.class) {
       @Override
       protected boolean isMatching(@Nonnull JButton component) {
@@ -54,7 +54,7 @@ public class GenericTypeMatcher_matches_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_false_if_search_criteria_matches_but_not_type() {
+  public void should_Return_False_If_Search_Criteria_Matches_But_Not_Type() {
     GenericTypeMatcher<JButton> matcher = new GenericTypeMatcher<JButton>(JButton.class) {
       @Override
       protected boolean isMatching(@Nonnull JButton component) {
@@ -65,7 +65,7 @@ public class GenericTypeMatcher_matches_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_false_if_search_criteria_and_type_do_not_match() {
+  public void should_Return_False_If_Search_Criteria_And_Type_Do_Not_Match() {
     GenericTypeMatcher<JButton> matcher = new GenericTypeMatcher<JButton>(JButton.class) {
       @Override
       protected boolean isMatching(@Nonnull JButton component) {
@@ -76,7 +76,7 @@ public class GenericTypeMatcher_matches_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_false_if_Component_is_null() {
+  public void should_Return_False_If_Component_Is_Null() {
     GenericTypeMatcher<JButton> matcher = new GenericTypeMatcher<JButton>(JButton.class) {
       @Override
       protected boolean isMatching(@Nonnull JButton component) {
@@ -87,7 +87,7 @@ public class GenericTypeMatcher_matches_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_false_if_Component_is_not_showing() {
+  public void should_Return_False_If_Component_Is_Not_Showing() {
     GenericTypeMatcher<JButton> matcher = new GenericTypeMatcher<JButton>(JButton.class, true) {
       @Override
       protected boolean isMatching(@Nonnull JButton component) {

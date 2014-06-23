@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JListDriver_pointAt_Test extends JListDriver_TestCase {
   @Test
-  public void should_return_location_for_value() {
+  public void should_Return_Location_For_Value() {
     showWindow();
     Point p = driver.pointAt(list, "two");
     int index = locationToIndex(p);

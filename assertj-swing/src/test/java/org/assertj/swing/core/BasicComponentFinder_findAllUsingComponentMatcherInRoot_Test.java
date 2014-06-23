@@ -34,7 +34,7 @@ public class BasicComponentFinder_findAllUsingComponentMatcherInRoot_Test extend
   private MyWindow windowTwo;
 
   @Test
-  public void should_return_all_matching_Components() {
+  public void should_Return_All_Matching_Components() {
     windowTwo = MyWindow.createNew(getClass());
     Collection<Component> found = finder.findAll(windowTwo, new ComponentMatcher() {
       @Override

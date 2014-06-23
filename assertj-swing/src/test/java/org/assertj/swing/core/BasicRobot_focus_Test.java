@@ -48,7 +48,7 @@ public class BasicRobot_focus_Test extends BasicRobot_TestCase {
   }
 
   @Test
-  public void should_give_focus() {
+  public void should_Give_Focus() {
     giveFocusAndVerifyThatHasFocus(button);
     giveFocusAndVerifyThatHasFocus(window().textField());
   }

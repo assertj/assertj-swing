@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class DragAwareEventQueue_dispatchEvent_Test extends DragAwareEventQueue_TestCase {
   @Test
-  public void should_dispatch_event_if_event_is_not_native_drag_and_drop() {
+  public void should_Dispatch_Event_If_Event_Is_Not_Native_Drag_And_Drop() {
     MyEvent event = new MyEvent();
     queue.dispatchEvent(event);
     assertThat(event.dispatched).isTrue();

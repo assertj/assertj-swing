@@ -34,7 +34,7 @@ public class XmlAttribute_name_Test {
   }
 
   @Test
-  public void should_return_name() {
+  public void should_Return_Name() {
     assertThat(attribute.name()).isEqualTo("firstName");
   }
 }

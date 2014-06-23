@@ -40,19 +40,19 @@ public class JTextComponentTextReader_checkContainsText_Test extends EDTSafeTest
   }
 
   @Test
-  public void should_return_false_if_text_in_JTextComponent_is_null() {
+  public void should_Return_False_If_Text_In_JTextComponent_Is_Null() {
     when(textComponent.getText()).thenReturn(null);
     assertThat(reader.checkContainsText(textComponent, "Yoda")).isFalse();
   }
 
   @Test
-  public void should_return_false_if_text_in_JTextComponent_does_not_contain_given_String() {
+  public void should_Return_False_If_Text_In_JTextComponent_Does_Not_Contain_Given_String() {
     when(textComponent.getText()).thenReturn("Leia");
     assertThat(reader.checkContainsText(textComponent, "Yoda")).isFalse();
   }
 
   @Test
-  public void should_return_true_if_text_in_JTextComponent_contains_given_String() {
+  public void should_Return_True_If_Text_In_JTextComponent_Contains_Given_String() {
     when(textComponent.getText()).thenReturn("Yoda");
     assertThat(reader.checkContainsText(textComponent, "Yo")).isTrue();
   }

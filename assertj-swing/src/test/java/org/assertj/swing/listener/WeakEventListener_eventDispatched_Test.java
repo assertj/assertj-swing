@@ -46,20 +46,20 @@ public class WeakEventListener_eventDispatched_Test {
   }
 
   @Test
-  public void should_wrap_given_EventListener_and_add_itself_to_Toolkit_with_given_mask() {
+  public void should_Wrap_Given_EventListener_And_Add_Itself_To_Toolkit_With_Given_Mask() {
     assertThat(listener.underlyingListener()).isSameAs(underlying);
     assertThat(toolkit.contains(listener, EVENT_MASK)).isTrue();
   }
 
   @Test
-  public void should_dispatch_events_to_wrapped_EventListener() {
+  public void should_Dispatch_Events_To_Wrapped_EventListener() {
     AWTEvent event = singletonAWTEventMock();
     listener.eventDispatched(event);
     assertThat(underlying.dispatchedEvent).isSameAs(event);
   }
 
   @Test
-  public void should_remove_itself_from_Toolkit_if_wrapped_EventListener_is_null() {
+  public void should_Remove_Itself_From_Toolkit_If_Wrapped_EventListener_Is_Null() {
     listener.simulateUnderlyingListenerIsGarbageCollected();
     listener.eventDispatched(singletonAWTEventMock());
     assertThat(toolkit.contains(listener, EVENT_MASK)).isFalse();

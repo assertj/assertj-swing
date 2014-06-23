@@ -43,7 +43,7 @@ public class JListFixture_constructor_withRobotAndName_Test extends RobotBasedTe
   }
 
   @Test
-  public void should_lookup_showing_JList_by_name() {
+  public void should_Lookup_Showing_JList_By_Name() {
     robot.showWindow(window);
     JListFixture fixture = new JListFixture(robot, "list");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -51,12 +51,12 @@ public class JListFixture_constructor_withRobotAndName_Test extends RobotBasedTe
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JList_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JList_With_Matching_Name_Is_Not_Showing() {
     new JListFixture(robot, "list");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JList_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JList_With_Matching_Name_Is_Not_Found() {
     new JListFixture(robot, "other");
   }
 

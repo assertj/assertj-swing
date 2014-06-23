@@ -28,17 +28,17 @@ import org.junit.Test;
  */
 public class JTableDriver_requireCellValueAsText_Test extends JTableDriver_TestCase {
   @Test
-  public void should_pass_if_cell_value_is_equal_to_expected() {
+  public void should_Pass_If_Cell_Value_Is_Equal_To_Expected() {
     driver.requireCellValue(table, row(0).column(0), "0-0");
   }
 
   @Test
-  public void should_pass_if_cell_value_matches_pattern() {
+  public void should_Pass_If_Cell_Value_Matches_Pattern() {
     driver.requireCellValue(table, row(0).column(0), "0.*");
   }
 
   @Test
-  public void should_fail_if_cell_value_is_not_equal_to_expected() {
+  public void should_Fail_If_Cell_Value_Is_Not_Equal_To_Expected() {
     thrown.expectAssertionError("value [row=0, column=0]", "0-0", Pattern.compile("0-1"));
     driver.requireCellValue(table, row(0).column(0), "0-1");
   }

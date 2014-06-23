@@ -35,7 +35,7 @@ public class RgbColor_toString_Test {
   }
 
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     assertEquals("color[r=255, g=135, b=171]", color.toString());
   }
 }

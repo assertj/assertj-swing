@@ -26,13 +26,13 @@ import org.junit.Test;
 public class XmlNode_child_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_return_child_at_given_position() {
+  public void should_Return_Child_At_Given_Position() {
     XmlNode newNode = node.addNewNode("one");
     assertThat(node.child(0)).isEqualTo(newNode);
   }
 
   @Test
-  public void should_return_null_if_child_is_not_a_XML_element() {
+  public void should_Return_Null_If_Child_Is_Not_A_XML_Element() {
     node.addText("Hello");
     assertThat(node.child(0)).isNull();
   }

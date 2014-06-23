@@ -46,7 +46,7 @@ public class Bug233_cannotSelectItemInSmallJList_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_select_item_with_super_long_text() {
+  public void should_Select_Item_With_Super_Long_Text() {
     driver.selectItem(list, superLongText());
     assertThat(list.getSelectedIndex()).isEqualTo(1);
   }

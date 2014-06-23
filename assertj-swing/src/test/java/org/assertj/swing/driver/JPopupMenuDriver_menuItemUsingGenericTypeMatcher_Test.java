@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class JPopupMenuDriver_menuItemUsingGenericTypeMatcher_Test extends JPopupMenuDriver_TestCase {
   @Test
-  public void should_find_JMenuItems_with_GenericTypeMatcher() {
+  public void should_Find_JMenuItems_With_GenericTypeMatcher() {
     JMenuItem found = driver.menuItem(popupMenu, new GenericTypeMatcher<JMenuItem>(JMenuItem.class) {
       @Override
       protected boolean isMatching(@Nonnull JMenuItem menuItem) {

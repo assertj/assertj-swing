@@ -23,14 +23,14 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_requireItemCount_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_fail_if_JList_does_not_have_expected_item_count() {
+  public void should_Fail_If_JList_Does_Not_Have_Expected_Item_Count() {
     thrown.expectAssertionError("property:'itemCount'");
     thrown.expectMessageToContain("expected:<[6]> but was:<[3]>");
     driver.requireItemCount(comboBox, 6);
   }
 
   @Test
-  public void should_pass_if_JList_has_expected_item_count() {
+  public void should_Pass_If_JList_Has_Expected_Item_Count() {
     driver.requireItemCount(comboBox, 3);
   }
 }

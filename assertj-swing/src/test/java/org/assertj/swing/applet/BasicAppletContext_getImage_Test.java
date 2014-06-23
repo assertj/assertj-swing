@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class BasicAppletContext_getImage_Test extends BasicAppletContext_TestCase {
   @Test
-  public void should_always_return_null() {
+  public void should_Always_Return_Null() {
     assertThat(context.getImage(null)).isNull();
   }
 }

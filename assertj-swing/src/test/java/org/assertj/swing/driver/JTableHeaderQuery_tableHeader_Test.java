@@ -42,7 +42,7 @@ public class JTableHeaderQuery_tableHeader_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_JTableHeader_in_JTable() {
+  public void should_Return_JTableHeader_In_JTable() {
     JTableHeader expected = table.getTableHeader();
     table.startRecording();
     assertThat(JTableHeaderQuery.tableHeader(table)).isSameAs(expected);

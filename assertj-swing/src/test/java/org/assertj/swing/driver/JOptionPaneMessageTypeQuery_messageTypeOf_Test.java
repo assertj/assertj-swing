@@ -41,7 +41,7 @@ public class JOptionPaneMessageTypeQuery_messageTypeOf_Test extends RobotBasedTe
   }
 
   @Test
-  public void should_return_message_type_of_JOptionPane() {
+  public void should_Return_Message_Type_Of_JOptionPane() {
     optionPane.startRecording();
     assertThat(JOptionPaneMessageTypeQuery.messageTypeOf(optionPane)).isEqualTo(INFORMATION_MESSAGE);
     optionPane.requireInvoked("getMessageType");

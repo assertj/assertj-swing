@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class JFileChooserDriver_approveButton_Test extends JFileChooserDriver_TestCase {
   @Test
-  public void should_find_Approve_button() {
+  public void should_Find_Approve_Button() {
     showWindow();
     JButton approveButton = driver.approveButton(fileChooser);
     assertThat(approveButton).isNotNull();

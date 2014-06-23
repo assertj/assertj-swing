@@ -35,7 +35,7 @@ public class XmlAttributes_toString_Test {
   }
 
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     String expected = "XmlAttributes[attributes=[XmlAttribute[name='firstName',value='Leia'], XmlAttribute[name='lastName',value='Organa']]]";
     assertThat(attributes.toString()).isEqualTo(expected);
   }

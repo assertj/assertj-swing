@@ -27,13 +27,13 @@ import org.junit.Test;
  */
 public class WindowMonitor_isWindowReady_Test extends WindowMonitor_TestCase {
   @Test
-  public void should_return_true_if_Windows_indicates_that_Window_is_ready() {
+  public void should_Return_True_If_Windows_Indicates_That_Window_Is_Ready() {
     when(windows.isReady(frame)).thenReturn(true);
     assertThat(monitor.isWindowReady(frame)).isTrue();
   }
 
   @Test
-  public void should_check_with_WindowStatus_if_Window_is_ready_when_Windows_indicates_it_is_not_ready() {
+  public void should_Check_With_WindowStatus_If_Window_Is_Ready_When_Windows_Indicates_It_Is_Not_Ready() {
     when(windows.isReady(frame)).thenReturn(false);
     assertThat(monitor.isWindowReady(frame)).isFalse();
     verify(windowStatus).checkIfReady(frame);

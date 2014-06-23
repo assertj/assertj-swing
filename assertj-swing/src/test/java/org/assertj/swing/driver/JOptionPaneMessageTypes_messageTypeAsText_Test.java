@@ -52,7 +52,7 @@ public class JOptionPaneMessageTypes_messageTypeAsText_Test {
   }
 
   @Test
-  public void should_return_text_for_given_message_type_value() {
+  public void should_Return_Text_For_Given_Message_Type_Value() {
     assertThat(JOptionPaneMessageTypes.messageTypeAsText(messageType)).isEqualTo(expected);
   }
 }

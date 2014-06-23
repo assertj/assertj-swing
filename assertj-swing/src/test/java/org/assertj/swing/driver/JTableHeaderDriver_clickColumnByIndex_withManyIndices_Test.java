@@ -48,7 +48,7 @@ public class JTableHeaderDriver_clickColumnByIndex_withManyIndices_Test extends 
   }
 
   @Test
-  public void should_click_column() {
+  public void should_Click_Column() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.clickColumn(tableHeader, index);

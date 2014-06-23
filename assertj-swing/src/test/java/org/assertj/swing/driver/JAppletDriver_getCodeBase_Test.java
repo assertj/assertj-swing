@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JAppletDriver_getCodeBase_Test extends JAppletDriver_TestCase {
   @Test
-  public void should_return_code_base() throws Exception {
+  public void should_Return_Code_Base() throws Exception {
     URL url = singletonURL();
     applet().updateCodeBase(url);
     URL result = driver().getCodeBase(applet());

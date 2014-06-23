@@ -42,7 +42,7 @@ public class JOptionPaneOptionsQuery_optionsOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_message_of_JOptionPane() {
+  public void should_Return_Message_Of_JOptionPane() {
     optionPane.startRecording();
     assertThat(JOptionPaneOptionsQuery.optionsOf(optionPane)).containsOnly(optionPane.option);
     optionPane.requireInvoked("getOptions");

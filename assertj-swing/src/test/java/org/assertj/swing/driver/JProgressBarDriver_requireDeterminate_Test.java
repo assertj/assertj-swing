@@ -27,14 +27,14 @@ import org.junit.Test;
  */
 public class JProgressBarDriver_requireDeterminate_Test extends JProgressBarDriver_TestCase {
   @Test
-  public void should_pass_if_JProgressBar_is_determinate() {
+  public void should_Pass_If_JProgressBar_Is_Determinate() {
     setIntedeterminate(progressBar, false);
     robot.waitForIdle();
     driver.requireDeterminate(progressBar);
   }
 
   @Test
-  public void should_fail_if_JProgressBar_is_not_determinate() {
+  public void should_Fail_If_JProgressBar_Is_Not_Determinate() {
     makeIndeterminate();
     thrown.expectAssertionError("property:'indeterminate'");
     thrown.expectMessageToContain("expected:<[fals]e> but was:<[tru]e>");

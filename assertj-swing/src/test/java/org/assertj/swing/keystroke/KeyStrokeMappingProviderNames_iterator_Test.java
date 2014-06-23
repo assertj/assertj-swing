@@ -51,14 +51,14 @@ public class KeyStrokeMappingProviderNames_iterator_Test {
   }
 
   @Test
-  public void should_return_iterate_through_all_names() {
+  public void should_Return_Iterate_Through_All_Names() {
     assertThat(iterator).containsOnly("org.assertj.swing.keystroke.KeyStrokeMappingProvider_win_en_US",
         "org.assertj.swing.keystroke.KeyStrokeMappingProvider_win_en",
         "org.assertj.swing.keystroke.KeyStrokeMappingProvider_en");
   }
 
   @Test
-  public void should_throw_error_if_iterator_does_not_have_more_elements() {
+  public void should_Throw_Error_If_Iterator_Does_Not_Have_More_Elements() {
     iterator.next(); // full name
     iterator.next(); // without country
     iterator.next(); // language only
@@ -67,7 +67,7 @@ public class KeyStrokeMappingProviderNames_iterator_Test {
   }
 
   @Test
-  public void should_throw_error_if_remove_is_called_on_iterator() {
+  public void should_Throw_Error_If_Remove_Is_Called_On_Iterator() {
     thrown.expectUnsupportedOperationException("This iterator does not support 'remove'");
     iterator.remove();
   }

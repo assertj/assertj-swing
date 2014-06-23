@@ -25,12 +25,12 @@ import org.junit.Test;
  */
 public class JTreeDriver_validateRow_Test extends JTreeDriver_TestCase {
   @Test
-  public void should_pass_if_index_is_valid() {
+  public void should_Pass_If_Index_Is_Valid() {
     driver.checkRowInBounds(tree, 1);
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Index_Is_Out_Of_Bounds() {
     driver.checkRowInBounds(tree, -1);
   }
 }

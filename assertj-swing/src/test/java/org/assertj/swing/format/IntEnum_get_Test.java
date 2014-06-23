@@ -34,12 +34,12 @@ public class IntEnum_get_Test {
   }
 
   @Test
-  public void should_return_value_for_existing_key() {
+  public void should_Return_Value_For_Existing_Key() {
     assertThat(intEnum.get(0)).isEqualTo("Zero");
   }
 
   @Test
-  public void should_return_key_if_key_not_found() {
+  public void should_Return_Key_If_Key_Not_Found() {
     assertThat(intEnum.get(1)).isEqualTo("1");
   }
 }

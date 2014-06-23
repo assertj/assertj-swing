@@ -45,18 +45,18 @@ public class JDesktopPaneChildrenFinder_nonExplicitChildrenOf_Test extends EDTSa
   }
 
   @Test
-  public void should_return_empty_Collection_if_Component_is_not_JDesktopPane() {
+  public void should_Return_Empty_Collection_If_Component_Is_Not_JDesktopPane() {
     Container container = textField().createNew();
     assertThat(finder.nonExplicitChildrenOf(container)).isEmpty();
   }
 
   @Test
-  public void should_return_empty_Collection_if_Component_is_null() {
+  public void should_Return_Empty_Collection_If_Component_Is_Null() {
     assertThat(finder.nonExplicitChildrenOf(null)).isEmpty();
   }
 
   @Test
-  public void should_return_iconified_JInternalFrames_if_Component_is_JDesktopPane() {
+  public void should_Return_Iconified_JInternalFrames_If_Component_Is_JDesktopPane() {
     ScreenLock.instance().acquire(this);
     final TestMdiWindow window = createAndShowNewWindow(getClass());
     iconify(window.internalFrame());

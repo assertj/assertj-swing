@@ -35,7 +35,7 @@ import org.junit.Test;
 public class XmlOutputWriter_write_Test extends XmlOutputWriter_TestCase {
 
   @Test
-  public void should_write_XML_to_OutputStream() throws Exception {
+  public void should_Write_XML_To_OutputStream() throws Exception {
     MyOutputStream out = new MyOutputStream();
     writer.write(xml(), out);
     String actual = new String(out.toByteArray());
@@ -44,7 +44,7 @@ public class XmlOutputWriter_write_Test extends XmlOutputWriter_TestCase {
   }
 
   @Test
-  public void should_not_close_OutputStream_when_using_SystemOut_or_SystemErr() {
+  public void should_Not_Close_OutputStream_When_Using_SystemOut_Or_SystemErr() {
     final StandardOutputStreams streams = createMock(StandardOutputStreams.class);
     writer = new XmlOutputWriter(streams);
     final MyOutputStream out = new MyOutputStream();

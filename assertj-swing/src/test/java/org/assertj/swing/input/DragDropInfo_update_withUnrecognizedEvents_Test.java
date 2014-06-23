@@ -54,7 +54,7 @@ public class DragDropInfo_update_withUnrecognizedEvents_Test extends DragDropInf
   }
 
   @Test
-  public void should_not_update_for_unrecognized_events() {
+  public void should_Not_Update_For_Unrecognized_Events() {
     info.source(source);
     info.origin(origin);
     JComboBox c = comboBox().createNew();

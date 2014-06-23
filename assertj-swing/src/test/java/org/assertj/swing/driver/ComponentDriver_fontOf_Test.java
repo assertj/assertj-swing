@@ -46,7 +46,7 @@ public class ComponentDriver_fontOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_Component_font() {
+  public void should_Return_Component_Font() {
     window.startRecording();
     assertThat(driver.fontOf(window)).isEqualTo(FONT);
     window.requireInvoked("getFont");

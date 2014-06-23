@@ -45,37 +45,37 @@ public class RgbColor_isEqualTo_Test {
   }
 
   @Test
-  public void should_return_true_if_both_RGBColor_are_exactly_equal() {
+  public void should_Return_True_If_Both_RGBColor_Are_Exactly_Equal() {
     assertTrue(color.isEqualTo(color(0x69FC62), offset(1)));
   }
 
   @Test
-  public void should_return_true_if_difference_in_components_is_less_or_equal_than_offset() {
+  public void should_Return_True_If_Difference_In_Components_Is_Less_Or_Equal_Than_Offset() {
     assertTrue(color.isEqualTo(color(0x68FB61), offset(1)));
   }
 
   @Test
-  public void should_return_false_if_difference_in_red_is_greater_than_offset() {
+  public void should_Return_False_If_Difference_In_Red_Is_Greater_Than_Offset() {
     assertFalse(color.isEqualTo(color(0x67FC62), offset(1)));
   }
 
   @Test
-  public void should_return_false_if_difference_in_green_greater_than_offset() {
+  public void should_Return_False_If_Difference_In_Green_Greater_Than_Offset() {
     assertFalse(color.isEqualTo(color(0x69FA62), offset(1)));
   }
 
   @Test
-  public void should_return_false_if_difference_in_blue_is_greater_than_offset() {
+  public void should_Return_False_If_Difference_In_Blue_Is_Greater_Than_Offset() {
     assertFalse(color.isEqualTo(color(0x69FC60), offset(1)));
   }
 
   @Test
-  public void should_return_false_if_other_RGBColor_is_null() {
+  public void should_Return_False_If_Other_RGBColor_Is_Null() {
     assertFalse(color.isEqualTo(null, offset(1)));
   }
 
   @Test
-  public void should_throw_error_if_offset_is_null() {
+  public void should_Throw_Error_If_Offset_Is_Null() {
     thrown.expectNullPointerException(offsetIsNull());
     color.isEqualTo(color, null);
   }

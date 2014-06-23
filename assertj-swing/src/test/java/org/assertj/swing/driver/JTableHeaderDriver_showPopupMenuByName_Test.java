@@ -33,7 +33,7 @@ public class JTableHeaderDriver_showPopupMenuByName_Test extends JTableHeaderDri
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_show_popup_menu() {
+  public void should_Show_Popup_Menu() {
     showWindow();
     driver.click(tableHeader);
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
@@ -44,7 +44,7 @@ public class JTableHeaderDriver_showPopupMenuByName_Test extends JTableHeaderDri
   }
 
   @Test
-  public void should_show_popup_menu_if_column_name_matches_pattern() {
+  public void should_Show_Popup_Menu_If_Column_Name_Matches_Pattern() {
     showWindow();
     driver.click(tableHeader);
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);

@@ -43,7 +43,7 @@ public class ComponentShownWaiter_waitTillShown_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_use_default_timeout() {
+  public void should_Use_Default_Timeout() {
     StopWatch stopWatch = startNewStopWatch();
     thrown.expect(WaitTimedOutError.class);
     try {

@@ -49,7 +49,7 @@ public class Bug186_readFilteredTable_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_read_first_table_cell_after_filtering_data() {
+  public void should_Read_First_Table_Cell_After_Filtering_Data() {
     frame.textBox("textBox").enterText("2");
     assertThat(frame.table("table").valueAt(row(0).column(0))).isEqualTo("2-0");
   }

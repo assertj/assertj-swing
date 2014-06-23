@@ -44,7 +44,7 @@ public class AbstractContainerFixture_optionPane_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_find_visible_JOptionPane_by_type() {
+  public void should_Find_Visible_JOptionPane_By_Type() {
     robot.showWindow(window);
     launchOptionPane(0);
     JOptionPaneFixture optionPane = launcher.optionPane();
@@ -52,7 +52,7 @@ public class AbstractContainerFixture_optionPane_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_find_visible_JOptionPane_by_type_with_timeout() {
+  public void should_Find_Visible_JOptionPane_By_Type_With_Timeout() {
     robot.showWindow(window);
     launchOptionPane(200);
     JOptionPaneFixture optionPane = launcher.optionPane(timeout(300));
@@ -60,7 +60,7 @@ public class AbstractContainerFixture_optionPane_Test extends RobotBasedTestCase
   }
 
   @Test
-  public void should_fail_if_visible_JOptionPane_not_found_by_type_with_timeout() {
+  public void should_Fail_If_Visible_JOptionPane_Not_Found_By_Type_With_Timeout() {
     thrown.expect(WaitTimedOutError.class);
     thrown.expectMessageToContain("Timed out waiting for option pane to be found");
     launcher.optionPane(timeout(100));

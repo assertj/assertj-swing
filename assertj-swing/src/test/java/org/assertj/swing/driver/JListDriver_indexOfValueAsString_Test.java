@@ -27,21 +27,21 @@ import org.junit.Test;
  */
 public class JListDriver_indexOfValueAsString_Test extends JListDriver_TestCase {
   @Test
-  public void should_return_index_of_item_with_given_value() {
+  public void should_Return_Index_Of_Item_With_Given_Value() {
     int index = driver.indexOf(list, "three");
     assertThat(index).isEqualTo(2);
     assertThatCellReaderWasCalled();
   }
 
   @Test
-  public void should_return_index_of_item_matching_pattern() {
+  public void should_Return_Index_Of_Item_Matching_Pattern() {
     int index = driver.indexOf(list, "thr.*");
     assertThat(index).isEqualTo(2);
     assertThatCellReaderWasCalled();
   }
 
   @Test
-  public void should_throw_error_if_item_matching_given_value_was_not_found() {
+  public void should_Throw_Error_If_Item_Matching_Given_Value_Was_Not_Found() {
     thrown.expect(LocationUnavailableException.class,
         "Unable to find item matching the value 'four' among the JList contents [\"one\", \"two\", \"three\"]");
     driver.indexOf(list, "four");

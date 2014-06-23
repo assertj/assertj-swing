@@ -42,7 +42,7 @@ public class JTableRowCountQuery_rowCountOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_JTable_column_count() {
+  public void should_Return_JTable_Column_Count() {
     table.startRecording();
     assertThat(JTableRowCountQuery.rowCountOf(table)).isEqualTo(ROW_COUNT);
     table.requireInvoked("getRowCount");

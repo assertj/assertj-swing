@@ -24,12 +24,12 @@ import org.junit.Test;
  */
 public class ComponentDriver_requireEnabled_Test extends ComponentDriver_TestCase {
   @Test
-  public void should_pass_if_Component_is_enabled() {
+  public void should_Pass_If_Component_Is_Enabled() {
     driver.requireEnabled(window.button);
   }
 
   @Test
-  public void should_fail_if_Component_is_not_enabled() {
+  public void should_Fail_If_Component_Is_Not_Enabled() {
     disableButton();
     thrown.expectAssertionError("property:'enabled'");
     thrown.expectMessageToContain("expected:<[tru]e> but was:<[fals]e>");

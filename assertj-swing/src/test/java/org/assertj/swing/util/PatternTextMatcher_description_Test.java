@@ -27,13 +27,13 @@ import org.junit.Test;
  */
 public class PatternTextMatcher_description_Test {
   @Test
-  public void should_erturn_pattern_word_as_description_if_matcher_has_only_one_pattern() {
+  public void should_Erturn_Pattern_Word_As_Description_If_Matcher_Has_Only_One_Pattern() {
     PatternTextMatcher matcher = new PatternTextMatcher(Pattern.compile("one"));
     assertThat(matcher.description()).isEqualTo("pattern");
   }
 
   @Test
-  public void should_return_patterns_word_as_description_if_matcher_has_more_than_one_pattern() {
+  public void should_Return_Patterns_Word_As_Description_If_Matcher_Has_More_Than_One_Pattern() {
     PatternTextMatcher matcher = new PatternTextMatcher(Pattern.compile("one"), Pattern.compile("two"));
     assertThat(matcher.description()).isEqualTo("patterns");
   }

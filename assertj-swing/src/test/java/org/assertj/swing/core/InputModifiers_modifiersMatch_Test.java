@@ -51,7 +51,7 @@ public class InputModifiers_modifiersMatch_Test {
   }
 
   @Test
-  public void should_return_true_if_modifiers_match() {
+  public void should_Return_True_If_Modifiers_Match() {
     KeyEvent e = keyEventWithModifiers(modifier);
     assertThat(InputModifiers.modifiersMatch(e, modifier)).isTrue();
   }

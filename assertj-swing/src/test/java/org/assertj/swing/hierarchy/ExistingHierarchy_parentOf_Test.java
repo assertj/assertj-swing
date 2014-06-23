@@ -51,7 +51,7 @@ public class ExistingHierarchy_parentOf_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_return_parent_of_Component() {
+  public void should_Return_Parent_Of_Component() {
     when(parentFinder.parentOf(textField)).thenReturn(window);
     assertThat(hierarchy.parentOf(textField)).isSameAs(window);
   }

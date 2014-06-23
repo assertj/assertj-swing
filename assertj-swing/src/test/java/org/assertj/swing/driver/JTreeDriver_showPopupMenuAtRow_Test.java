@@ -27,28 +27,28 @@ import org.junit.Test;
  */
 public class JTreeDriver_showPopupMenuAtRow_Test extends JTreeDriver_showPopupMenuAtCell_TestCase {
   @Test
-  public void should_show_popup_menu() {
+  public void should_Show_Popup_Menu() {
     showWindow();
     JPopupMenu popupMenu = driver.showPopupMenu(tree, 0);
     assertThat(popupMenu).isSameAs(popupMenu());
   }
 
   @Test
-  public void should_scroll_to_node_before_showing_popup_menu() {
+  public void should_Scroll_To_Node_Before_Showing_Popup_Menu() {
     showWindow();
     JPopupMenu popupMenu = driver.showPopupMenu(tree, 5);
     assertThat(popupMenu).isSameAs(popupMenu());
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.showPopupMenu(tree, 0);
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.showPopupMenu(tree, 0);
   }

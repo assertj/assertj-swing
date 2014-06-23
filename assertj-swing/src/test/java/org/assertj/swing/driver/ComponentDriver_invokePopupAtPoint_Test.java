@@ -35,7 +35,7 @@ public class ComponentDriver_invokePopupAtPoint_Test extends ComponentDriver_inv
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_show_JPopupMenu() {
+  public void should_Show_JPopupMenu() {
     showWindow();
     Point p = new Point(8, 6);
     ToolkitClickRecorder recorder = clickRecorder.attachToToolkitFor(window.textField);
@@ -45,12 +45,12 @@ public class ComponentDriver_invokePopupAtPoint_Test extends ComponentDriver_inv
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_point_is_null() {
+  public void should_Throw_Error_If_Point_Is_Null() {
     driver.invokePopupMenu(window.textField, null);
   }
 
   @Test
-  public void should_throw_error_if_Component_is_disabled() {
+  public void should_Throw_Error_If_Component_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     try {
@@ -61,7 +61,7 @@ public class ComponentDriver_invokePopupAtPoint_Test extends ComponentDriver_inv
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Component_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     try {
       driver.invokePopupMenu(window.textField, new Point(8, 6));

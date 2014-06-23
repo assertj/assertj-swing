@@ -57,7 +57,7 @@ public class Bug219_editTableCellWithEditorHavingCustomDocument_Test extends Rob
   }
 
   @Test
-  public void should_edit_cell_without_activating_error_message() {
+  public void should_Edit_Cell_Without_Activating_Error_Message() {
     cellWriter.enterValue(table, ROW, COLUMN, "Hello");
     assertThat(valueAt(ROW, COLUMN)).isEqualTo("Hello");
   }

@@ -34,7 +34,7 @@ import org.junit.Test;
  */
 public class SingleComponentHierarchy_parentOf_Test extends SingleComponentHierarchy_TestCase {
   @Test
-  public void should_return_parent_of_Component() {
+  public void should_Return_Parent_Of_Component() {
     JFrame p = frame().createNew();
     JLabel c = label().createNew();
     when(hierarchyDelegate.parentOf(c)).thenReturn(p);

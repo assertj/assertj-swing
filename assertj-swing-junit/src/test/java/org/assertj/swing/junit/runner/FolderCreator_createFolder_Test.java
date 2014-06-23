@@ -43,7 +43,7 @@ public class FolderCreator_createFolder_Test {
   }
 
   @Test
-  public void should_create_folder_in_given_parent() throws IOException {
+  public void should_Create_Folder_In_Given_Parent() throws IOException {
     File parent = null;
     File child = null;
     try {
@@ -69,7 +69,7 @@ public class FolderCreator_createFolder_Test {
   }
 
   @Test
-  public void should_throw_Exception_in_case_of_error() {
+  public void should_Throw_Exception_In_Case_Of_Error() {
     final File f = createMock(File.class);
     final RuntimeException error = new RuntimeException();
     new EasyMockTemplate(f) {

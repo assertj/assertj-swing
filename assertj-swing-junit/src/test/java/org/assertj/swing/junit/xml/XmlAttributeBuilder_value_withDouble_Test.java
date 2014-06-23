@@ -27,7 +27,7 @@ import org.junit.Test;
 public class XmlAttributeBuilder_value_withDouble_Test {
 
   @Test
-  public void should_create_attribute() {
+  public void should_Create_Attribute() {
     XmlAttribute other = XmlAttribute.name("capacity").value(0.2d);
     assertThat(other.name()).isEqualTo("capacity");
     assertThat(other.value()).isEqualTo("0.2");

@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class WindowMonitor_rootWindows_Test extends WindowMonitor_TestCase {
   @Test
-  public void should_return_root_Windows() {
+  public void should_Return_Root_Windows() {
     List<Window> rootWindows = newArrayList();
     when(context.rootWindows()).thenReturn(rootWindows);
     assertThat(monitor.rootWindows()).isSameAs(rootWindows);

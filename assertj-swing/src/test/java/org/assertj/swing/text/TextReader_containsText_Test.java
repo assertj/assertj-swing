@@ -46,21 +46,21 @@ public class TextReader_containsText_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_throw_error_if_Component_is_not_supported() {
+  public void should_Throw_Error_If_Component_Is_Not_Supported() {
     thrown.expect(IllegalArgumentException.class);
     thrown.expectMessage("Expecting component of type javax.swing.JButton but got javax.swing.JLabel");
     reader.containsText(label().createNew(), "Yoda");
   }
 
   @Test
-  public void should_return_true_if_Component_contains_text() {
+  public void should_Return_True_If_Component_Contains_Text() {
     JButton button = mock(JButton.class);
     when(button.getText()).thenReturn("Yoda");
     assertThat(reader.containsText(button, "Yoda")).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Component_doesn_not_contain_text() {
+  public void should_Return_False_If_Component_Doesn_Not_Contain_Text() {
     JButton button = mock(JButton.class);
     when(button.getText()).thenReturn("Yoda");
     assertThat(reader.containsText(button, "Leia")).isFalse();

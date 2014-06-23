@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class JFileChooserDriver_setCurrentDirectory_Test extends JFileChooserDriver_TestCase {
   @Test
-  public void should_set_current_directory() {
+  public void should_Set_Current_Directory() {
     File userHome = userHomeDirectory();
     showWindow();
     driver.setCurrentDirectory(fileChooser, userHome);
@@ -45,14 +45,14 @@ public class JFileChooserDriver_setCurrentDirectory_Test extends JFileChooserDri
   }
 
   @Test
-  public void should_throw_error_if_JFileChooser_is_disabled() {
+  public void should_Throw_Error_If_JFileChooser_Is_Disabled() {
     disableFileChooser();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.setCurrentDirectory(fileChooser, userHomeDirectory());
   }
 
   @Test
-  public void should_throw_error_if_JFileChooser_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JFileChooser_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.setCurrentDirectory(fileChooser, userHomeDirectory());
   }

@@ -24,13 +24,13 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_requireEditable_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_pass_if_JComboBox_is_editable() {
+  public void should_Pass_If_JComboBox_Is_Editable() {
     makeEditable();
     driver.requireEditable(comboBox);
   }
 
   @Test
-  public void should_fail_if_JComboBox_is_not_editable() {
+  public void should_Fail_If_JComboBox_Is_Not_Editable() {
     thrown.expectAssertionError("property:'editable'");
     thrown.expectMessageToContain("expected:<[tru]e> but was:<[fals]e>");
     driver.requireEditable(comboBox);

@@ -63,7 +63,7 @@ public class AbstractButtonSelectedQuery_isSelected_Test extends RobotBasedTestC
   }
 
   @Test
-  public void should_indicate_if_AbstractButton_is_selected() {
+  public void should_Indicate_If_AbstractButton_Is_Selected() {
     setSelected(checkBox, selected);
     robot.waitForIdle();
     checkBox.startRecording();

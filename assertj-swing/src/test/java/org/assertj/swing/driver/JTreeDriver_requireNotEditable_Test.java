@@ -25,14 +25,14 @@ import org.junit.Test;
  */
 public class JTreeDriver_requireNotEditable_Test extends JTreeDriver_TestCase {
   @Test
-  public void should_pass_if_JTree_is_not_editable() {
+  public void should_Pass_If_JTree_Is_Not_Editable() {
     setEditable(tree, false);
     robot.waitForIdle();
     driver.requireNotEditable(tree);
   }
 
   @Test
-  public void should_fail_if_JTree_is_editable() {
+  public void should_Fail_If_JTree_Is_Editable() {
     setEditable(tree, true);
     robot.waitForIdle();
     thrown.expectAssertionError("property:'editable'");

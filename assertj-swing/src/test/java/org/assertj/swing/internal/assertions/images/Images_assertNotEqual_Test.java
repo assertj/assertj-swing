@@ -37,27 +37,27 @@ import org.junit.Test;
 public class Images_assertNotEqual_Test extends ImagesBaseTest {
 
   @Test
-  public void should_pass_if_actual_is_null_and_expected_is_not() {
+  public void should_Pass_If_Actual_Is_Null_And_Expected_Is_Not() {
     images.assertNotEqual(someInfo(), null, fivePixelBlueImage());
   }
 
   @Test
-  public void should_pass_if_expected_is_null_and_actual_is_not() {
+  public void should_Pass_If_Expected_Is_Null_And_Actual_Is_Not() {
     images.assertNotEqual(someInfo(), actual, null);
   }
 
   @Test
-  public void should_pass_if_images_have_different_size() {
+  public void should_Pass_If_Images_Have_Different_Size() {
     images.assertNotEqual(someInfo(), actual, newImage(3, 3, BLUE));
   }
 
   @Test
-  public void should_pass_if_images_have_different_color() {
+  public void should_Pass_If_Images_Have_Different_Color() {
     images.assertNotEqual(someInfo(), actual, fivePixelYellowImage());
   }
 
   @Test
-  public void should_fail_if_images_are_equal() {
+  public void should_Fail_If_Images_Are_Equal() {
     AssertionInfo info = someInfo();
     BufferedImage other = newImage(5, 5, BLUE);
     thrown.expect(AssertionError.class);
@@ -69,7 +69,7 @@ public class Images_assertNotEqual_Test extends ImagesBaseTest {
   }
 
   @Test
-  public void should_fail_if_images_are_same() {
+  public void should_Fail_If_Images_Are_Same() {
     AssertionInfo info = someInfo();
     thrown.expect(AssertionError.class);
     try {

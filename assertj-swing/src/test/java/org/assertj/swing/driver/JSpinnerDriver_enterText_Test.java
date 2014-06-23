@@ -29,14 +29,14 @@ import org.junit.Test;
  */
 public class JSpinnerDriver_enterText_Test extends JSpinnerDriver_TestCase {
   @Test(expected = ActionFailedException.class)
-  public void should_throw_error_if_JTextComponentEditor_not_found() {
+  public void should_Throw_Error_If_JTextComponentEditor_Not_Found() {
     setJLabelAsEditor();
     showWindow();
     driver.enterText(spinner, "hello");
   }
 
   @Test
-  public void should_enter_text() {
+  public void should_Enter_Text() {
     showWindow();
     updateValue("Frodo");
     driver.enterText(spinner, "Gandalf");
@@ -46,14 +46,14 @@ public class JSpinnerDriver_enterText_Test extends JSpinnerDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_disabled() {
+  public void should_Throw_Error_If_JSpinner_Is_Disabled() {
     disableSpinner();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.enterText(spinner, "Gandalf");
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JSpinner_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.enterText(spinner, "Gandalf");
   }

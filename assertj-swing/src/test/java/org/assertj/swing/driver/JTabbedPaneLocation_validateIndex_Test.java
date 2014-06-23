@@ -23,19 +23,19 @@ import org.junit.Test;
  */
 public class JTabbedPaneLocation_validateIndex_Test extends JTabbedPaneLocation_TestCase {
   @Test
-  public void should_pass_if_index_if_valid() {
+  public void should_Pass_If_Index_If_Valid() {
     location.checkIndexInBounds(tabbedPane, 0);
   }
 
   @Test
-  public void should_fail_if_index_is_negative() {
+  public void should_Fail_If_Index_Is_Negative() {
     thrown
         .expectIndexOutOfBoundsException("Index <-1> is not within the JTabbedPane bounds of <0> and <1> (inclusive)");
     location.checkIndexInBounds(tabbedPane, -1);
   }
 
   @Test
-  public void should_fail_if_index_is_out_of_bounds() {
+  public void should_Fail_If_Index_Is_Out_Of_Bounds() {
     thrown.expectIndexOutOfBoundsException("Index <2> is not within the JTabbedPane bounds of <0> and <1> (inclusive)");
     location.checkIndexInBounds(tabbedPane, 2);
   }

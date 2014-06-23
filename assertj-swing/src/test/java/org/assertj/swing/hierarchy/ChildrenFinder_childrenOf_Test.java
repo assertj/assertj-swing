@@ -74,7 +74,7 @@ public class ChildrenFinder_childrenOf_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_children_in_Container_and_strategies() {
+  public void should_Return_Children_In_Container_And_Strategies() {
     when(container.getComponents()).thenReturn(Arrays.array(child1));
     when(strategy1.nonExplicitChildrenOf(container)).thenReturn(newArrayList(child2));
     when(strategy2.nonExplicitChildrenOf(container)).thenReturn(newArrayList(child3));
@@ -83,7 +83,7 @@ public class ChildrenFinder_childrenOf_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_empty_Collection_if_Component_is_not_Container() {
+  public void should_Return_Empty_Collection_If_Component_Is_Not_Container() {
     Collection<Component> children = finder.childrenOf(child1);
     assertThat(children).isEmpty();
   }

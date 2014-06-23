@@ -50,7 +50,7 @@ public class JTreeDriver_selectPath_withManyPaths_Test extends JTreeDriver_selec
   }
 
   @Test
-  public void should_select_cell() {
+  public void should_Select_Cell() {
     showWindow();
     clearTreeSelection();
     driver.selectPath(tree, treePath);

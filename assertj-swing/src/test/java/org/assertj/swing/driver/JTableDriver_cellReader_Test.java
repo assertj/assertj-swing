@@ -34,7 +34,7 @@ public class JTableDriver_cellReader_Test {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_cellReader_is_null() {
+  public void should_Throw_Error_If_CellReader_Is_Null() {
     driver.replaceCellReader(null);
   }
 }

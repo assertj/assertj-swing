@@ -38,7 +38,7 @@ public class JTableDriver_cellWithTableCellFinder_Test extends JTableDriver_Test
   }
 
   @Test
-  public void should_use_TableCellFinder_to_find_a_cell() {
+  public void should_Use_TableCellFinder_To_Find_A_Cell() {
     TableCell cell = row(0).column(0);
     when(cellFinder.findCell(table, driver.cellReader())).thenReturn(cell);
     TableCell found = driver.cell(table, cellFinder);
@@ -46,7 +46,7 @@ public class JTableDriver_cellWithTableCellFinder_Test extends JTableDriver_Test
   }
 
   @Test(expected = IndexOutOfBoundsException.class)
-  public void should_throw_error_if_indices_in_found_cell_are_out_of_bounds() {
+  public void should_Throw_Error_If_Indices_In_Found_Cell_Are_Out_Of_Bounds() {
     TableCell cell = row(-1).column(0);
     when(cellFinder.findCell(table, driver.cellReader())).thenReturn(cell);
     driver.cell(table, cellFinder);

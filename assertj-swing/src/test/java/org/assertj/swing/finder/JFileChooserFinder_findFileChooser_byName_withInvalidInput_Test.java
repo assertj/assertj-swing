@@ -23,23 +23,23 @@ import org.junit.Test;
  */
 public class JFileChooserFinder_findFileChooser_byName_withInvalidInput_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_name_is_null() {
+  public void should_Throw_Error_If_Name_Is_Null() {
     String name = null;
     JFileChooserFinder.findFileChooser(name);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_name_is_empty() {
+  public void should_Throw_Error_If_Name_Is_Empty() {
     JFileChooserFinder.findFileChooser("");
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_timeout_is_negative() {
+  public void should_Throw_Error_If_Timeout_Is_Negative() {
     JFileChooserFinder.findFileChooser("fileChooser").withTimeout(-20);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_time_unit_is_null() {
+  public void should_Throw_Error_If_Time_Unit_Is_Null() {
     JFileChooserFinder.findFileChooser("fileChooser").withTimeout(10, null);
   }
 }

@@ -48,7 +48,7 @@ public class JTableDriver_cellByText_withManyCells_Test extends JTableDriver_Tes
   }
 
   @Test
-  public void should_return_cell_with_given_text() {
+  public void should_Return_Cell_With_Given_Text() {
     String value = createCellValueFrom(row, column);
     TableCell cell = driver.cell(table, value);
     assertThat(cell.row).isEqualTo(row);

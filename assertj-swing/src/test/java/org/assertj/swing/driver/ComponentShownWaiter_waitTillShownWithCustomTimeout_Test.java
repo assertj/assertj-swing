@@ -44,7 +44,7 @@ public class ComponentShownWaiter_waitTillShownWithCustomTimeout_Test extends Ro
   }
 
   @Test
-  public void should_timeout_if_Component_never_shown() {
+  public void should_Timeout_If_Component_Never_Shown() {
     StopWatch stopWatch = startNewStopWatch();
     int timeout = 500;
     thrown.expect(WaitTimedOutError.class);
@@ -57,7 +57,7 @@ public class ComponentShownWaiter_waitTillShownWithCustomTimeout_Test extends Ro
   }
 
   @Test
-  public void should_wait_till_Component_is_shown() {
+  public void should_Wait_Till_Component_Is_Shown() {
     StopWatch stopWatch = startNewStopWatch();
     int timeout = 10000;
     new Thread() {
@@ -73,7 +73,7 @@ public class ComponentShownWaiter_waitTillShownWithCustomTimeout_Test extends Ro
   }
 
   @Test
-  public void should_not_wait_if_Component_is_already_shown() {
+  public void should_Not_Wait_If_Component_Is_Already_Shown() {
     robot.showWindow(window);
     StopWatch stopWatch = startNewStopWatch();
     ComponentShownWaiter.waitTillShown(window, 10000);

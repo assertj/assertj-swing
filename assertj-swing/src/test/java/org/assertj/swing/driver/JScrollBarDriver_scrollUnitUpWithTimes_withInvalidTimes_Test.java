@@ -44,7 +44,7 @@ public class JScrollBarDriver_scrollUnitUpWithTimes_withInvalidTimes_Test extend
   }
 
   @Test
-  public void should_throw_error_if_times_is_zero_or_negative() {
+  public void should_Throw_Error_If_Times_Is_Zero_Or_Negative() {
     thrown.expectIllegalArgumentException(concat(
         "The number of times to scroll up one unit should be greater than zero, but was <", times, ">"));
     driver.scrollUnitUp(scrollBar, times);

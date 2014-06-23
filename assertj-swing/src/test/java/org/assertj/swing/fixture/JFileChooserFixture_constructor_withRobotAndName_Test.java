@@ -40,7 +40,7 @@ public class JFileChooserFixture_constructor_withRobotAndName_Test extends Robot
   }
 
   @Test
-  public void should_lookup_showing_JFileChooser_by_name() {
+  public void should_Lookup_Showing_JFileChooser_By_Name() {
     robot.showWindow(window);
     JFileChooserFixture fixture = new JFileChooserFixture(robot, "fileChooser");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -48,12 +48,12 @@ public class JFileChooserFixture_constructor_withRobotAndName_Test extends Robot
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JFileChooser_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JFileChooser_With_Matching_Name_Is_Not_Showing() {
     new JFileChooserFixture(robot, "fileChooser");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JFileChooser_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JFileChooser_With_Matching_Name_Is_Not_Found() {
     new JFileChooserFixture(robot, "other");
   }
 

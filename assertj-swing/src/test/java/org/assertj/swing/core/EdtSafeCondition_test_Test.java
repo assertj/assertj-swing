@@ -65,7 +65,7 @@ public class EdtSafeCondition_test_Test {
   }
 
   @Test
-  public void should_test_condition_in_EDT() {
+  public void should_Test_Condition_In_EDT() {
     assertThat(condition.test()).isEqualTo(conditionSatisfied);
   }
 }

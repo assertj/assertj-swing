@@ -37,7 +37,7 @@ import org.junit.Test;
  */
 public class BasicRobot_pressAndReleaseKeys_Test extends BasicRobot_TestCase {
   @Test
-  public void should_press_and_release_given_keys() {
+  public void should_Press_And_Release_Given_Keys() {
     giveFocusToTextField();
     final JTextField textField = window().textField();
     final KeyRecorder recorder = KeyRecorder.attachTo(textField);

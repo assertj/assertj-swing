@@ -62,18 +62,18 @@ public class KeyStrokeMappingProvider_parse_Test {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_file_name_is_null() {
+  public void should_Throw_Error_If_File_Name_Is_Null() {
     String file = null;
     parser.parse(file);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_file_name_is_empty() {
+  public void should_Throw_Error_If_File_Name_Is_Empty() {
     parser.parse("");
   }
 
   @Test
-  public void should_parse_file_in_classpath() {
+  public void should_Parse_File_In_Classpath() {
     KeyStrokeMappingProvider mappingProvider = parser.parse("keyboard-mapping.txt");
     assertThatContainsDefaultMappings(mappingProvider);
     Collection<KeyStrokeMapping> mappings = mappingProvider.keyStrokeMappings();
@@ -82,24 +82,24 @@ public class KeyStrokeMappingProvider_parse_Test {
   }
 
   @Test
-  public void should_throw_error_if_file_not_found() {
+  public void should_Throw_Error_If_File_Not_Found() {
     thrown.expect(ParsingException.class, "Unable to open file abc.txt");
     parser.parse("abc.txt");
   }
 
   @Test(expected = AssertionError.class)
-  public void should_throw_error_if_file_is_null() {
+  public void should_Throw_Error_If_File_Is_Null() {
     File file = null;
     parser.parse(file);
   }
 
   @Test(expected = AssertionError.class)
-  public void should_throw_error_if_file_does_not_exist() {
+  public void should_Throw_Error_If_File_Does_Not_Exist() {
     parser.parse(new File("abc.xyz"));
   }
 
   @Test
-  public void should_parse_file() throws Exception {
+  public void should_Parse_File() throws Exception {
     File f = null;
     try {
       f = createMappingFile("a, A, NO_MASK");

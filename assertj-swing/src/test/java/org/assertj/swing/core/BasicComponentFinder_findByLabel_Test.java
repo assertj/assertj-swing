@@ -35,13 +35,13 @@ public class BasicComponentFinder_findByLabel_Test extends BasicComponentFinder_
   public ExpectedException thrown = none();
 
   @Test
-  public void should_find_Component() {
+  public void should_Find_Component() {
     Component button = finder.findByLabel("A Label");
     assertThat(button).isSameAs(window.button);
   }
 
   @Test
-  public void should_throw_error_if_Component_not_found() {
+  public void should_Throw_Error_If_Component_Not_Found() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("label='list'");
     finder.findByLabel("list");

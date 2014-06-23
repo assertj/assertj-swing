@@ -44,7 +44,7 @@ public class FEST331_ShowPopupForNonFocusableComponents_Test extends RobotBasedT
   }
 
   @Test
-  public void should_show_JPopupMenu_for_nonFocusable_Component() {
+  public void should_Show_JPopupMenu_For_NonFocusable_Component() {
     JPopupMenu popupMenu = robot.showPopupMenu(window.nonFocusableTextField);
     assertThat(popupMenu).isEqualTo(window.popupMenu);
   }

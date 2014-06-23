@@ -31,7 +31,7 @@ import org.junit.Test;
 public class NamedComponentMatcherTemplate_arePropertyValuesMatching_Test extends
     NamedComponentMatcherTemplate_TestCase {
   @Test
-  public void should_match_values_using_equality_if_values_are_POJOs() {
+  public void should_Match_Values_Using_Equality_If_Values_Are_POJOs() {
     matcher = new Matcher(JLabel.class, "hello");
     assertThat(matcher.arePropertyValuesMatching(new Dog("Bob"), new Dog("Bob"))).isTrue();
   }

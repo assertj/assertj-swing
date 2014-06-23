@@ -28,7 +28,7 @@ import org.junit.Test;
 public class XmlJUnitResultFormatter_addError_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  public void should_write_test_execution_when_error_is_thrown() {
+  public void should_Write_Test_Execution_When_Error_Is_Thrown() {
     startSuite();
     junit.framework.Test test = mockTest();
     AssertionFailedError error = errorOrFailure();

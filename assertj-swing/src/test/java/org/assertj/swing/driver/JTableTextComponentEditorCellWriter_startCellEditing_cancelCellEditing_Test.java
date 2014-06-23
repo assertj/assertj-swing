@@ -34,7 +34,7 @@ public class JTableTextComponentEditorCellWriter_startCellEditing_cancelCellEdit
   }
 
   @Test
-  public void should_start_and_cancel_cell_editing() {
+  public void should_Start_And_Cancel_Cell_Editing() {
     int row = 0;
     int column = 3;
     assertThat(valueAt(row, column)).isEqualTo(5);

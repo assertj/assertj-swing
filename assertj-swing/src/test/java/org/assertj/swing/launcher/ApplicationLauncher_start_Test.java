@@ -43,25 +43,25 @@ public class ApplicationLauncher_start_Test extends RobotBasedTestCase {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_throw_error_if_application_class_name_is_invalid() {
+  public void should_Throw_Error_If_Application_Class_Name_Is_Invalid() {
     thrown.expect(UnexpectedException.class, "Unable to load class 'Hello'");
     ApplicationLauncher.application("Hello").start();
   }
 
   @Test
-  public void should_launch_application_without_arguments() {
+  public void should_Launch_Application_Without_Arguments() {
     ApplicationLauncher.application(JavaApp.class).start();
     assertFrameIsShowing();
   }
 
   @Test
-  public void should_launch_application_without_arguments_using_FQCN() {
+  public void should_Launch_Application_Without_Arguments_Using_FQCN() {
     ApplicationLauncher.application(JavaApp.class.getName()).start();
     assertFrameIsShowing();
   }
 
   @Test
-  public void should_launch_application_using_arguments() {
+  public void should_Launch_Application_Using_Arguments() {
     final List<String> arguments = newArrayList();
     ArgumentObserver observer = new ArgumentObserver() {
       @Override
@@ -76,7 +76,7 @@ public class ApplicationLauncher_start_Test extends RobotBasedTestCase {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_argument_array_is_null() {
+  public void should_Throw_Error_If_Argument_Array_Is_Null() {
     String[] args = null;
     ApplicationLauncher.application(JavaApp.class).withArgs(args).start();
   }

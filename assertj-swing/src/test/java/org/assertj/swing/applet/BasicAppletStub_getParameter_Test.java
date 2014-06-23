@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class BasicAppletStub_getParameter_Test extends BasicAppletStub_TestCase {
   @Test
-  public void should_return_parameter() {
+  public void should_Return_Parameter() {
     Map<String, String> parameters = newHashMap();
     parameters.put("key1", "value1");
     stub = new BasicAppletStub(viewer, context, parameters);

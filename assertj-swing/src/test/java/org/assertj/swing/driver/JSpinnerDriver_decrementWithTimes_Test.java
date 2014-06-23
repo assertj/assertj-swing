@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class JSpinnerDriver_decrementWithTimes_Test extends JSpinnerDriver_TestCase {
   @Test
-  public void should_decrement_value() {
+  public void should_Decrement_Value() {
     showWindow();
     selectLastValue();
     driver.decrement(spinner, 2);
@@ -31,14 +31,14 @@ public class JSpinnerDriver_decrementWithTimes_Test extends JSpinnerDriver_TestC
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_disabled() {
+  public void should_Throw_Error_If_JSpinner_Is_Disabled() {
     disableSpinner();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.decrement(spinner, 2);
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JSpinner_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.decrement(spinner, 2);
   }

@@ -43,7 +43,7 @@ public class JOptionPaneFormatter_format_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_format_JOptionPane() {
+  public void should_Format_JOptionPane() {
     String formatted = formatter.format(optionPane);
     assertThat(formatted).contains("javax.swing.JOptionPane").contains("message='A message'")
         .contains("messageType=ERROR_MESSAGE").contains("optionType=DEFAULT_OPTION").contains("enabled=true")

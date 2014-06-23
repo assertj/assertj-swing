@@ -34,25 +34,25 @@ public class JComboBoxItemIndexPreconditions_validateIndex_Test extends EDTSafeT
   public ExpectedException thrown = none();
 
   @Test
-  public void should_not_throw_error_if_index_is_in_bounds() {
+  public void should_Not_Throw_Error_If_Index_Is_In_Bounds() {
     JComboBox comboBox = comboBox().withItems("One", "Two", "Three").createNew();
     JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox, 0);
   }
 
   @Test
-  public void should_throw_error_if_index_is_negative() {
+  public void should_Throw_Error_If_Index_Is_Negative() {
     thrown.expectIndexOutOfBoundsException("Item index (-1) should not be less than zero");
     JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox().createNew(), -1);
   }
 
   @Test
-  public void should_throw_error_if_JComboBox_is_empty() {
+  public void should_Throw_Error_If_JComboBox_Is_Empty() {
     thrown.expectIndexOutOfBoundsException("JComboBox is empty");
     JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox().createNew(), 0);
   }
 
   @Test
-  public void should_throw_error_if_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Index_Is_Out_Of_Bounds() {
     thrown.expectIndexOutOfBoundsException("Item index (6) should be between [0] and [2] (inclusive)");
     JComboBox comboBox = comboBox().withItems("One", "Two", "Three").createNew();
     JComboBoxItemIndexPreconditions.checkItemIndexInBounds(comboBox, 6);

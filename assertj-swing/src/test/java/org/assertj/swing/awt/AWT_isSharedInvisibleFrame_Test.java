@@ -30,18 +30,18 @@ import org.junit.Test;
  */
 public class AWT_isSharedInvisibleFrame_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_Component_is_shared_invisible_Frame() {
+  public void should_Return_True_If_Component_Is_Shared_Invisible_Frame() {
     JDialog dialog = dialog().createNew();
     assertThat(AWT.isSharedInvisibleFrame(dialog.getOwner())).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Component_is_not_shared_invisible_frame() {
+  public void should_Return_False_If_Component_Is_Not_Shared_Invisible_Frame() {
     assertThat(AWT.isSharedInvisibleFrame(textField().createNew())).isFalse();
   }
 
   @Test
-  public void should_return_false_if_Component_is_Null() {
+  public void should_Return_False_If_Component_Is_Null() {
     assertThat(AWT.isSharedInvisibleFrame(null)).isFalse();
   }
 }

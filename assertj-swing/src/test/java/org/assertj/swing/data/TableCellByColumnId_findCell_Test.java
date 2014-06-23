@@ -48,7 +48,7 @@ public class TableCellByColumnId_findCell_Test extends TableCellFinder_TestCase 
   }
 
   @Test
-  public void should_find_cell_by_column_id() {
+  public void should_Find_Cell_By_Column_Id() {
     TableCellByColumnId finder = row(0).columnId(columnId);
     TableCell cell = finder.findCell(table, null);
     assertThat(cell.row).isEqualTo(0);

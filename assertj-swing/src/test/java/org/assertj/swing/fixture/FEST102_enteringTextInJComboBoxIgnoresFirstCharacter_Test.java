@@ -37,14 +37,14 @@ import org.junit.Test;
  */
 public class FEST102_enteringTextInJComboBoxIgnoresFirstCharacter_Test extends RobotBasedTestCase {
   @Test
-  public void should_enter_text_in_JComboBox_with__integer_values() {
+  public void should_Enter_Text_In_JComboBox_With__Integer_Values() {
     JComboBoxFixture comboBox = fixture(newArrayList(1999, 2000, 2001, 2002));
     comboBox.enterText("20");
     assertThatEditorHasValue(comboBox, "20");
   }
 
   @Test
-  public void should_enter_text_in_JComboBox_with_String_values() {
+  public void should_Enter_Text_In_JComboBox_With_String_Values() {
     JComboBoxFixture comboBox = fixture(newArrayList("1999", "2000", "2001", "2002"));
     comboBox.enterText("78");
     assertThatEditorHasValue(comboBox, "78");

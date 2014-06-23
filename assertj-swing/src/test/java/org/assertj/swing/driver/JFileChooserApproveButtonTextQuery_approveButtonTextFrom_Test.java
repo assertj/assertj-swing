@@ -42,7 +42,7 @@ public class JFileChooserApproveButtonTextQuery_approveButtonTextFrom_Test exten
   }
 
   @Test
-  public void should_return_text_for_approve_button_from_JFileChooser() {
+  public void should_Return_Text_For_Approve_Button_From_JFileChooser() {
     fileChooser.startRecording();
     String approveButtonText = JFileChooserApproveButtonTextQuery.approveButtonTextFrom(fileChooser);
     assertThat(approveButtonText).isNotEmpty();
@@ -50,7 +50,7 @@ public class JFileChooserApproveButtonTextQuery_approveButtonTextFrom_Test exten
   }
 
   @Test
-  public void should_return_text_for_approve_button_from_UI_if_JFileChooser_does_not_have_it() {
+  public void should_Return_Text_For_Approve_Button_From_UI_If_JFileChooser_Does_Not_Have_It() {
     fileChooser.shouldReturnNullAsApproveButtonText(true);
     fileChooser.startRecording();
     String approveButtonText = JFileChooserApproveButtonTextQuery.approveButtonTextFrom(fileChooser);

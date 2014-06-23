@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class WindowEventQueueMapping_addQueueForToolkit_Test extends WindowEventQueueMapping_TestCase {
   @Test
-  public void should_add_queue_for_Toolkit() {
+  public void should_Add_Queue_For_Toolkit() {
     mapping.addQueueFor(toolkit);
     assertThat(queueMap).hasSize(1);
     assertThat(queueMap.keySet()).contains(eventQueue);

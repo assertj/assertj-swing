@@ -50,7 +50,7 @@ public class Platform_controlOrCommandKey_Test extends Platform_TestCase {
   }
 
   @Test
-  public void should_return_control_or_command_key() {
+  public void should_Return_Control_Or_Command_Key() {
     when(toolkit.getMenuShortcutKeyMask()).thenReturn(mask);
     assertThat(Platform.controlOrCommandKey()).isEqualTo(keyCode);
   }

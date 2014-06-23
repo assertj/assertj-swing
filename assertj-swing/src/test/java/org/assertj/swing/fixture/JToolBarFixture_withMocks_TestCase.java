@@ -44,19 +44,19 @@ public class JToolBarFixture_withMocks_TestCase {
   }
 
   @Test
-  public void should_call_floatTo_in_driver_and_return_self() {
+  public void should_Call_FloatTo_In_Driver_And_Return_Self() {
     assertThat(fixture.floatTo(new Point(6, 8))).isSameAs(fixture);
     verify(fixture.driver()).floatTo(fixture.target(), 6, 8);
   }
 
   @Test
-  public void should_call_unfloat_in_driver_and_return_self() {
+  public void should_Call_Unfloat_In_Driver_And_Return_Self() {
     assertThat(fixture.unfloat()).isSameAs(fixture);
     verify(fixture.driver()).unfloat(fixture.target());
   }
 
   @Test
-  public void should_call_unfloat_with_constraing_in_driver_and_return_self() {
+  public void should_Call_Unfloat_With_Constraing_In_Driver_And_Return_Self() {
     assertThat(fixture.unfloat(WEST)).isSameAs(fixture);
     verify(fixture.driver()).unfloat(fixture.target(), WEST.value());
   }

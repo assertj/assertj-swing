@@ -28,14 +28,14 @@ import org.junit.Test;
  */
 public class Windows_markExisting_Test extends Windows_TestCase {
   @Test
-  public void should_mark_visible_Window_as_ready_and_not_hidden() {
+  public void should_Mark_Visible_Window_As_Ready_And_Not_Hidden() {
     window.display();
     markExisting(windows, window);
     windowState().isReady();
   }
 
   @Test
-  public void should_mark_not_visible_Window_as_ready_and_hidden() {
+  public void should_Mark_Not_Visible_Window_As_Ready_And_Hidden() {
     pack(window);
     markExisting(windows, window);
     windowState().isOpen().isNotClosed().isHidden().isNotPending();

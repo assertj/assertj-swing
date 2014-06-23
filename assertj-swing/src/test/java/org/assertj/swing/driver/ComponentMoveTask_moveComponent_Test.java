@@ -41,7 +41,7 @@ public class ComponentMoveTask_moveComponent_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_move_Component_to_given_location() {
+  public void should_Move_Component_To_Given_Location() {
     ComponentMoveTask.moveComponent(window, location);
     robot.waitForIdle();
     assertThat(location).isEqualTo(window.getLocationOnScreen());

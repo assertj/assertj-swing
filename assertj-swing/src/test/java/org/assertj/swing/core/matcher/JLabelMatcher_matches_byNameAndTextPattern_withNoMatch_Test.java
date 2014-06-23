@@ -51,7 +51,7 @@ public class JLabelMatcher_matches_byNameAndTextPattern_withNoMatch_Test extends
   }
 
   @Test
-  public void should_return_false_if_name_is_not_equal_to_expected_or_text_does_not_match_pattern() {
+  public void should_Return_False_If_Name_Is_Not_Equal_To_Expected_Or_Text_Does_Not_Match_Pattern() {
     JLabelMatcher matcher = JLabelMatcher.withName(name).andText(text);
     JLabel label = label().withName("someName").withText("someText").createNew();
     assertThat(matcher.matches(label)).isFalse();

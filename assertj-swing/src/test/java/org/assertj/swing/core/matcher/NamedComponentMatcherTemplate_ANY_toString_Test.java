@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class NamedComponentMatcherTemplate_ANY_toString_Test extends NamedComponentMatcherTemplate_TestCase {
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     assertThat(NamedComponentMatcherTemplate.anyValue().toString()).isEqualTo("<Any>");
   }
 }

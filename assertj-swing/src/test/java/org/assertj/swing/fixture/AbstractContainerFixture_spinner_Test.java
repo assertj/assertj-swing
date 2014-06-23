@@ -52,14 +52,14 @@ public class AbstractContainerFixture_spinner_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JSpinner_by_name() {
+  public void should_Find_Visible_JSpinner_By_Name() {
     robot.showWindow(window);
     JSpinnerFixture spinner = fixture.spinner("spinMeSpinner");
     assertThat(spinner.target()).isSameAs(window.spinner);
   }
 
   @Test
-  public void should_fail_if_visible_JSpinner_not_found_by_name() {
+  public void should_Fail_If_Visible_JSpinner_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='mySpinner', type=javax.swing.JSpinner, requireShowing=true");
@@ -67,14 +67,14 @@ public class AbstractContainerFixture_spinner_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JSpinner_by_type() {
+  public void should_Find_Visible_JSpinner_By_Type() {
     robot.showWindow(window);
     JSpinnerFixture spinner = fixture.spinner();
     assertThat(spinner.target()).isSameAs(window.spinner);
   }
 
   @Test
-  public void should_fail_if_visible_JSpinner_not_found_by_type() {
+  public void should_Fail_If_Visible_JSpinner_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JSpinner, requireShowing=true");
@@ -82,7 +82,7 @@ public class AbstractContainerFixture_spinner_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JSpinner_by_Matcher() {
+  public void should_Find_Visible_JSpinner_By_Matcher() {
     robot.showWindow(window);
     JSpinnerFixture spinner = fixture.spinner(new GenericTypeMatcher<JSpinner>(JSpinner.class) {
       @Override
@@ -94,7 +94,7 @@ public class AbstractContainerFixture_spinner_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_visible_JSpinner_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JSpinner_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher");
     fixture.spinner(neverMatches(JSpinner.class));

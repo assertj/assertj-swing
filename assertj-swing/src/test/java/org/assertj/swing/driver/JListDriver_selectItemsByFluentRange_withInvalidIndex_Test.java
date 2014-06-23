@@ -49,7 +49,7 @@ public class JListDriver_selectItemsByFluentRange_withInvalidIndex_Test extends 
   }
 
   @Test
-  public void should_throw_error_if_starting_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Starting_Index_Is_Out_Of_Bounds() {
     showWindow();
     thrown.expectIndexOutOfBoundsException(concat("Item index (", valueOf(index),
         ") should be between [0] and [2] (inclusive)"));
@@ -57,7 +57,7 @@ public class JListDriver_selectItemsByFluentRange_withInvalidIndex_Test extends 
   }
 
   @Test
-  public void should_throw_error_if_ending_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Ending_Index_Is_Out_Of_Bounds() {
     showWindow();
     thrown.expectIndexOutOfBoundsException(concat("Item index (", valueOf(index),
         ") should be between [0] and [2] (inclusive)"));

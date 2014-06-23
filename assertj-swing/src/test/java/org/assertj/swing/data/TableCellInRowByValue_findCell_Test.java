@@ -34,7 +34,7 @@ import org.junit.Test;
  */
 public class TableCellInRowByValue_findCell_Test extends TableCellFinder_TestCase {
   @Test
-  public void should_find_cell_in_selected_row() {
+  public void should_Find_Cell_In_Selected_Row() {
     TableCellInRowByValue finder = TableCellInRowByValue.rowWithValue("1-0", "1-1", "1-2", "1-3", "1-4", "1-5").column(
         2);
     TableCell cell = finder.findCell(table, new JTableCellReaderStub());
@@ -43,13 +43,13 @@ public class TableCellInRowByValue_findCell_Test extends TableCellFinder_TestCas
   }
 
   @Test(expected = IllegalStateException.class)
-  public void should_throw_error_if_size_of_value_array_is_not_equal_to_number_of_columns_in_JTable() {
+  public void should_Throw_Error_If_Size_Of_Value_Array_Is_Not_Equal_To_Number_Of_Columns_In_JTable() {
     TableCellInRowByValue finder = TableCellInRowByValue.rowWithValue("1-0", "1-1", "1-2").column(2);
     finder.findCell(table, new JTableCellReaderStub());
   }
 
   @Test(expected = ActionFailedException.class)
-  public void should_throw_error_if_cell_not_found() {
+  public void should_Throw_Error_If_Cell_Not_Found() {
     TableCellInRowByValue finder = TableCellInRowByValue.rowWithValue("0", "1", "2", "3", "4", "5").column(2);
     finder.findCell(table, new JTableCellReaderStub());
   }

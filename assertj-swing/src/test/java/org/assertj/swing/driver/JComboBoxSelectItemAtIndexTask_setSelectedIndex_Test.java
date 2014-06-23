@@ -44,7 +44,7 @@ public class JComboBoxSelectItemAtIndexTask_setSelectedIndex_Test extends RobotB
   }
 
   @Test
-  public void should_set_selected_index() {
+  public void should_Set_Selected_Index() {
     assertThat(selectedIndexOf(comboBox)).isNotEqualTo(index);
     JComboBoxSetSelectedIndexTask.setSelectedIndex(comboBox, index);
     robot.waitForIdle();

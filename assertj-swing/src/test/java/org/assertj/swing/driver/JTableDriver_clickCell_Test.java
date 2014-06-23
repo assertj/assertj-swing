@@ -36,7 +36,7 @@ public class JTableDriver_clickCell_Test extends JTableDriver_TestCase {
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_click_cell() {
+  public void should_Click_Cell() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(table);
     TableCell cell = row(0).column(1);
@@ -46,14 +46,14 @@ public class JTableDriver_clickCell_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JTable_is_disabled() {
+  public void should_Throw_Error_If_JTable_Is_Disabled() {
     disableTable();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectCell(table, row(0).column(0));
   }
 
   @Test
-  public void should_throw_error_if_JTable_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTable_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectCell(table, row(0).column(0));
   }

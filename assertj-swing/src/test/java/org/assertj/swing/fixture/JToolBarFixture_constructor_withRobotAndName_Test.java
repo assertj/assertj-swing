@@ -45,7 +45,7 @@ public class JToolBarFixture_constructor_withRobotAndName_Test extends RobotBase
   }
 
   @Test
-  public void should_lookup_showing_JToolBar_by_name() {
+  public void should_Lookup_Showing_JToolBar_By_Name() {
     robot.showWindow(window);
     JToolBarFixture fixture = new JToolBarFixture(robot, "toolBar");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -53,12 +53,12 @@ public class JToolBarFixture_constructor_withRobotAndName_Test extends RobotBase
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JToolBar_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JToolBar_With_Matching_Name_Is_Not_Showing() {
     new JToolBarFixture(robot, "toolBar");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JToolBar_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JToolBar_With_Matching_Name_Is_Not_Found() {
     new JToolBarFixture(robot, "other");
   }
 

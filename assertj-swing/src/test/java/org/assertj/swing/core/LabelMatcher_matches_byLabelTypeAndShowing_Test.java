@@ -32,20 +32,20 @@ import org.junit.Test;
  */
 public class LabelMatcher_matches_byLabelTypeAndShowing_Test extends LabelMatcher_TestCase {
   @Test
-  public void should_return_false_if_type_does_not_match() {
+  public void should_Return_False_If_Type_Does_Not_Match() {
     window.display();
     LabelMatcher matcher = new LabelMatcher("b", JTextField.class, true);
     assertThat(matcher.matches(window.buttonLabel)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_Label_and_type_match_but_Component_is_not_showing() {
+  public void should_Return_False_If_Label_And_Type_Match_But_Component_Is_Not_Showing() {
     LabelMatcher matcher = new LabelMatcher(LABEL_TEXT, JButton.class, true);
     assertThat(matcher.matches(window.buttonLabel)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_nothing_matches() {
+  public void should_Return_False_If_Nothing_Matches() {
     LabelMatcher matcher = new LabelMatcher("b", JTextField.class, true);
     assertThat(matcher.matches(window.buttonLabel)).isFalse();
   }

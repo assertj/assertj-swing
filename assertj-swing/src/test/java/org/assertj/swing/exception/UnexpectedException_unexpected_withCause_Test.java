@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class UnexpectedException_unexpected_withCause_Test {
   @Test
-  public void should_create_error_with_cause() {
+  public void should_Create_Error_With_Cause() {
     Exception cause = new Exception();
     UnexpectedException unexpected = UnexpectedException.unexpected(cause);
     assertThat(unexpected.getCause()).isSameAs(cause);

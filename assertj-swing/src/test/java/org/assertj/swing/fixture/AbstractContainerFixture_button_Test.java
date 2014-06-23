@@ -50,14 +50,14 @@ public class AbstractContainerFixture_button_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JButton_by_name() {
+  public void should_Find_Visible_JButton_By_Name() {
     robot.showWindow(window);
     JButtonFixture button = fixture.button("clickMeButton");
     assertThat(button.target()).isSameAs(window.button);
   }
 
   @Test
-  public void should_fail_if_visible_JButton_not_found_by_name() {
+  public void should_Fail_If_Visible_JButton_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myButton', type=javax.swing.JButton, requireShowing=true");
@@ -65,14 +65,14 @@ public class AbstractContainerFixture_button_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JButton_by_type() {
+  public void should_Find_Visible_JButton_By_Type() {
     robot.showWindow(window);
     JButtonFixture button = fixture.button();
     assertThat(button.target()).isSameAs(window.button);
   }
 
   @Test
-  public void should_fail_if_visible_JButton_not_found_by_type() {
+  public void should_Fail_If_Visible_JButton_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JButton, requireShowing=true");
@@ -80,7 +80,7 @@ public class AbstractContainerFixture_button_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JButton_by_Matcher() {
+  public void should_Find_Visible_JButton_By_Matcher() {
     robot.showWindow(window);
     JButtonFixture button = fixture.button(new GenericTypeMatcher<JButton>(JButton.class) {
       @Override
@@ -92,7 +92,7 @@ public class AbstractContainerFixture_button_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_visible_JButton_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JButton_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class, "Unable to find component using matcher");
     fixture.button(neverMatches(JButton.class));
   }

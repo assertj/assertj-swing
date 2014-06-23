@@ -50,14 +50,14 @@ public class TransientWindowListener_eventDispatched_withWindowOpenedAndShownEve
   }
 
   @Test
-  public void should_recognize_Window_if_it_is_implicitly_ignored() {
+  public void should_Recognize_Window_If_It_Is_Implicitly_Ignored() {
     when(windowFilter.isImplicitlyIgnored(eventSource)).thenReturn(true);
     listener.eventDispatched(event());
     verify(windowFilter).recognize(eventSource);
   }
 
   @Test
-  public void should_ignore_Window_if_parent_is_ignored() {
+  public void should_Ignore_Window_If_Parent_Is_Ignored() {
     when(windowFilter.isImplicitlyIgnored(eventSource)).thenReturn(false);
     when(windowFilter.isIgnored(parent)).thenReturn(true);
     listener.eventDispatched(event());

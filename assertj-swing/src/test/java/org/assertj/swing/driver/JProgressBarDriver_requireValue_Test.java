@@ -25,12 +25,12 @@ import org.junit.Test;
  */
 public class JProgressBarDriver_requireValue_Test extends JProgressBarDriver_TestCase {
   @Test
-  public void should_pass_if_value_is_equal_to_expected() {
+  public void should_Pass_If_Value_Is_Equal_To_Expected() {
     driver.requireValue(progressBar, 60);
   }
 
   @Test
-  public void should_fail_if_value_is_not_equal_to_expected() {
+  public void should_Fail_If_Value_Is_Not_Equal_To_Expected() {
     thrown.expectAssertionError("property:'value'");
     thrown.expectMessageToContain("expected:<[5]0> but was:<[6]0>");
     driver.requireValue(progressBar, 50);

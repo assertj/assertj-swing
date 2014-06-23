@@ -41,25 +41,25 @@ public class FrameFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_iconify_in_driver_and_return_self() {
+  public void should_Call_Iconify_In_Driver_And_Return_Self() {
     assertThat(fixture.iconify()).isSameAs(fixture);
     verify(fixture.driver()).iconify(fixture.target());
   }
 
   @Test
-  public void should_call_deiconify_in_driver_and_return_self() {
+  public void should_Call_Deiconify_In_Driver_And_Return_Self() {
     assertThat(fixture.deiconify()).isSameAs(fixture);
     verify(fixture.driver()).deiconify(fixture.target());
   }
 
   @Test
-  public void should_call_maximize_in_driver_and_return_self() {
+  public void should_Call_Maximize_In_Driver_And_Return_Self() {
     assertThat(fixture.maximize()).isSameAs(fixture);
     verify(fixture.driver()).maximize(fixture.target());
   }
 
   @Test
-  public void should_call_normalize_in_driver_and_return_self() {
+  public void should_Call_Normalize_In_Driver_And_Return_Self() {
     assertThat(fixture.normalize()).isSameAs(fixture);
     verify(fixture.driver()).normalize(fixture.target());
   }

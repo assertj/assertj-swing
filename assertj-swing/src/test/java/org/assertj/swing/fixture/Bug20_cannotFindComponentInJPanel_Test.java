@@ -42,7 +42,7 @@ public class Bug20_cannotFindComponentInJPanel_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_list() {
+  public void should_Find_List() {
     frame.list("list"); // should find list
   }
 

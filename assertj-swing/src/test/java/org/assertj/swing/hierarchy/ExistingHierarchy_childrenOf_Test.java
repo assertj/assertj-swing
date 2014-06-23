@@ -48,7 +48,7 @@ public class ExistingHierarchy_childrenOf_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_return_children_of_Component() {
+  public void should_Return_Children_Of_Component() {
     when(childrenFinder.childrenOf(c)).thenReturn(children);
     assertThat(hierarchy.childrenOf(c)).isSameAs(children);
   }

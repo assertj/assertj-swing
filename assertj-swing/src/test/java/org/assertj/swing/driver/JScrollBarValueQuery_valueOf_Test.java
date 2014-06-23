@@ -44,7 +44,7 @@ public class JScrollBarValueQuery_valueOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_value_of_JScrollBar() {
+  public void should_Return_Value_Of_JScrollBar() {
     scrollBar.startRecording();
     assertThat(JScrollBarValueQuery.valueOf(scrollBar)).isEqualTo(VALUE);
     scrollBar.requireInvoked("getValue");

@@ -66,7 +66,7 @@ public class JListItemValueQuery_itemValue_Test extends RobotBasedTestCase {
   }
 
   @Test()
-  public void should_return_item_value_as_text() {
+  public void should_Return_Item_Value_As_Text() {
     String actualValue = itemValue(list, index, cellReader);
     assertThat(actualValue).isEqualTo(expectedValue);
   }

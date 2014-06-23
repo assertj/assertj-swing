@@ -39,7 +39,7 @@ public class XmlJUnitResultFormatter_endTestSuite_Test extends XmlJUnitResultFor
   }
 
   @Test
-  public void should_write_suite_statisticsAndWriteXmlToOutputStream() {
+  public void should_Write_Suite_StatisticsAndWriteXmlToOutputStream() {
     formatter.endTestSuite(suite);
     assertThatStatisticsWereAddedToXml();
     XmlNode root = root();
@@ -48,13 +48,13 @@ public class XmlJUnitResultFormatter_endTestSuite_Test extends XmlJUnitResultFor
   }
 
   @Test
-  public void should_write_XML_to_OutputStream() {
+  public void should_Write_XML_To_OutputStream() {
     formatter.endTestSuite(suite);
     assertThat(textIn(output)).isEqualTo(textOf(root()));
   }
 
   @Test
-  public void should_not_throw_error_if_output_is_null() {
+  public void should_Not_Throw_Error_If_Output_Is_Null() {
     formatter.setOutput(null);
     formatter.endTestSuite(suite);
     assertThatThereAreNoPropertiesIn(root());

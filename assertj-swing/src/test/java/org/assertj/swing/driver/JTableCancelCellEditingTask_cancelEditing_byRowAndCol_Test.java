@@ -31,25 +31,25 @@ public class JTableCancelCellEditingTask_cancelEditing_byRowAndCol_Test extends 
   public ExpectedException thrown = none();
 
   @Test
-  public void should_throw_error_if_row_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Row_Index_Is_Out_Of_Bounds() {
     thrown.expect(IndexOutOfBoundsException.class, "row <8> should be between <0> and <4>");
     JTableCancelCellEditingTask.cancelEditing(window.table, 8, 2);
   }
 
   @Test
-  public void should_throw_error_if_column_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Column_Index_Is_Out_Of_Bounds() {
     thrown.expect(IndexOutOfBoundsException.class, "column <8> should be between <0> and <1>");
     JTableCancelCellEditingTask.cancelEditing(window.table, 0, 8);
   }
 
   @Test
-  public void should_throw_error_if_cell_is_not_editable() {
+  public void should_Throw_Error_If_Cell_Is_Not_Editable() {
     thrown.expect(IllegalStateException.class, "Expecting cell [0, 0] to be editable");
     JTableCancelCellEditingTask.cancelEditing(window.table, 0, 0);
   }
 
   @Test
-  public void should_cancel_cell_editing() {
+  public void should_Cancel_Cell_Editing() {
     editTableCellAt(0, 1);
     JTableCancelCellEditingTask.cancelEditing(window.table, 0, 1);
     robot.waitForIdle();

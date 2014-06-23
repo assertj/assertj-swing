@@ -35,18 +35,18 @@ public class NamedComponentMatcherTemplate_quoted_Test extends NamedComponentMat
   }
 
   @Test
-  public void should_not_quote_any() {
+  public void should_Not_Quote_Any() {
     Object anyValue = NamedComponentMatcherTemplate.anyValue();
     assertThat(matcher.quoted(anyValue)).isSameAs(anyValue);
   }
 
   @Test
-  public void should_quote_pattern_as_String() {
+  public void should_Quote_Pattern_As_String() {
     assertThat(matcher.quoted(Pattern.compile("hello"))).isEqualTo("'hello'");
   }
 
   @Test
-  public void should_quote_if_not_any() {
+  public void should_Quote_If_Not_Any() {
     assertThat(matcher.quoted("hello")).isEqualTo("'hello'");
   }
 }

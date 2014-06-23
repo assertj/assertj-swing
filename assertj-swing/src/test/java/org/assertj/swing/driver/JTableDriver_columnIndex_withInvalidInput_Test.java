@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class JTableDriver_columnIndex_withInvalidInput_Test extends JTableDriver_TestCase {
   @Test
-  public void should_throw_error_if_column_with_given_id_was_not_found() {
+  public void should_Throw_Error_If_Column_With_Given_Id_Was_Not_Found() {
     thrown.expect(ActionFailedException.class, "Unable to find a column with id 'Hello World");
     driver.columnIndex(table, "Hello World");
   }

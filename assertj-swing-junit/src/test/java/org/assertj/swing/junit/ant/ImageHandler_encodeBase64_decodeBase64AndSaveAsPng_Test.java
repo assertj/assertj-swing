@@ -35,7 +35,7 @@ import org.junit.Test;
 public class ImageHandler_encodeBase64_decodeBase64AndSaveAsPng_Test extends ImageHandler_TestCase {
 
   @Test
-  public void should_encode_image_and_save_it_decoded_as_file() throws IOException {
+  public void should_Encode_Image_And_Save_It_Decoded_As_File() throws IOException {
     String path = concat(newTemporaryFolder(), separator, "image.png");
     BufferedImage imageToEncode = screenshotTaker.takeDesktopScreenshot();
     String encoded = ImageHandler.encodeBase64(imageToEncode);

@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class BasicRobot_pressKeyAndReleaseKey_Test extends BasicRobot_TestCase {
   @Test
-  public void should_press_given_key() {
+  public void should_Press_Given_Key() {
     giveFocusToTextField();
     final KeyRecorder recorder = KeyRecorder.attachTo(window().textField());
     robot().pressKey(VK_A);
@@ -43,7 +43,7 @@ public class BasicRobot_pressKeyAndReleaseKey_Test extends BasicRobot_TestCase {
   }
 
   @Test
-  public void should_release_given_key() {
+  public void should_Release_Given_Key() {
     giveFocusToTextField();
     final KeyRecorder recorder = KeyRecorder.attachTo(window().textField());
     robot().pressKey(VK_A);

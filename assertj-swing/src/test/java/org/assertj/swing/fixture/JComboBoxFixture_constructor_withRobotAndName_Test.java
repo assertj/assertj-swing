@@ -41,7 +41,7 @@ public class JComboBoxFixture_constructor_withRobotAndName_Test extends RobotBas
   }
 
   @Test
-  public void should_lookup_showing_JComboBox_by_name() {
+  public void should_Lookup_Showing_JComboBox_By_Name() {
     robot.showWindow(window);
     JComboBoxFixture fixture = new JComboBoxFixture(robot, "comboBox");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -49,12 +49,12 @@ public class JComboBoxFixture_constructor_withRobotAndName_Test extends RobotBas
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JComboBox_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JComboBox_With_Matching_Name_Is_Not_Showing() {
     new JComboBoxFixture(robot, "comboBox");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JComboBox_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JComboBox_With_Matching_Name_Is_Not_Found() {
     new JComboBoxFixture(robot, "other");
   }
 

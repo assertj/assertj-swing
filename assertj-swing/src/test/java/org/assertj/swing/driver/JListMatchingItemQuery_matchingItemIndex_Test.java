@@ -33,7 +33,7 @@ import org.junit.Test;
  */
 public class JListMatchingItemQuery_matchingItemIndex_Test extends JListMatchingItemQuery_TestCase {
   @Test
-  public void should_return_index_of_matching_item() {
+  public void should_Return_Index_Of_Matching_Item() {
     TextMatcher matcher = mockTextMatcher();
     when(matcher.isMatching("Yoda")).thenReturn(false);
     when(matcher.isMatching("Luke")).thenReturn(true);
@@ -41,7 +41,7 @@ public class JListMatchingItemQuery_matchingItemIndex_Test extends JListMatching
   }
 
   @Test
-  public void should_return_negative_one_if_matching_item_not_found() {
+  public void should_Return_Negative_One_If_Matching_Item_Not_Found() {
     TextMatcher matcher = mockTextMatcher();
     when(matcher.isMatching("Yoda")).thenReturn(false);
     when(matcher.isMatching("Luke")).thenReturn(false);

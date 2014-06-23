@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JTableDriver_selectionValue_Test extends JTableDriver_TestCase {
   @Test
-  public void should_return_null_if_JTable_does_not_have_selection() {
+  public void should_Return_Null_If_JTable_Does_Not_Have_Selection() {
     assertThat(selectedRowCountOf(table)).isZero();
     assertThat(driver.selectionValue(table)).isNull();
   }

@@ -44,7 +44,7 @@ public class JTextComponentFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_text_using_driver() {
+  public void should_Return_Text_Using_Driver() {
     JTextComponentDriver driver = fixture.driver();
     JTextComponent target = fixture.target();
     when(driver.textOf(target)).thenReturn("Hello");
@@ -53,68 +53,68 @@ public class JTextComponentFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_selectText_in_driver_and_return_self() {
+  public void should_Call_SelectText_In_Driver_And_Return_Self() {
     assertThat(fixture.select("Hello")).isSameAs(fixture);
     verify(fixture.driver()).selectText(fixture.target(), "Hello");
   }
 
   @Test
-  public void should_call_selectText_with_range_in_driver_and_return_self() {
+  public void should_Call_SelectText_With_Range_In_Driver_And_Return_Self() {
     assertThat(fixture.selectText(6, 8)).isSameAs(fixture);
     verify(fixture.driver()).selectText(fixture.target(), 6, 8);
   }
 
   @Test
-  public void should_call_selectAll_in_driver_and_return_self() {
+  public void should_Call_SelectAll_In_Driver_And_Return_Self() {
     assertThat(fixture.selectAll()).isSameAs(fixture);
     verify(fixture.driver()).selectAll(fixture.target());
   }
 
   @Test
-  public void should_call_deleteText_in_driver_and_return_self() {
+  public void should_Call_DeleteText_In_Driver_And_Return_Self() {
     assertThat(fixture.deleteText()).isSameAs(fixture);
     verify(fixture.driver()).deleteText(fixture.target());
   }
 
   @Test
-  public void should_call_enterText_in_driver_and_return_self() {
+  public void should_Call_EnterText_In_Driver_And_Return_Self() {
     assertThat(fixture.enterText("Hello")).isSameAs(fixture);
     verify(fixture.driver()).enterText(fixture.target(), "Hello");
   }
 
   @Test
-  public void should_call_setText_in_driver_and_return_self() {
+  public void should_Call_SetText_In_Driver_And_Return_Self() {
     assertThat(fixture.setText("Hello")).isSameAs(fixture);
     verify(fixture.driver()).setText(fixture.target(), "Hello");
   }
 
   @Test
-  public void should_call_requireText_in_driver_and_return_self() {
+  public void should_Call_RequireText_In_Driver_And_Return_Self() {
     assertThat(fixture.requireText("Hello")).isSameAs(fixture);
     verify(fixture.driver()).requireText(fixture.target(), "Hello");
   }
 
   @Test
-  public void should_call_requireText_with_driver_in_driver_and_return_self() {
+  public void should_Call_RequireText_With_Driver_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Hello");
     assertThat(fixture.requireText(pattern)).isSameAs(fixture);
     verify(fixture.driver()).requireText(fixture.target(), pattern);
   }
 
   @Test
-  public void should_call_requireEditable_in_driver_and_return_self() {
+  public void should_Call_RequireEditable_In_Driver_And_Return_Self() {
     assertThat(fixture.requireEditable()).isSameAs(fixture);
     verify(fixture.driver()).requireEditable(fixture.target());
   }
 
   @Test
-  public void should_call_requireNotEditable_in_driver_and_return_self() {
+  public void should_Call_RequireNotEditable_In_Driver_And_Return_Self() {
     assertThat(fixture.requireNotEditable()).isSameAs(fixture);
     verify(fixture.driver()).requireNotEditable(fixture.target());
   }
 
   @Test
-  public void should_call_requireEmpty_in_driver_and_return_self() {
+  public void should_Call_RequireEmpty_In_Driver_And_Return_Self() {
     assertThat(fixture.requireEmpty()).isSameAs(fixture);
     verify(fixture.driver()).requireEmpty(fixture.target());
   }

@@ -41,7 +41,7 @@ public class DialogFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_requireModal_in_driver_and_return_self() {
+  public void should_Call_RequireModal_In_Driver_And_Return_Self() {
     assertThat(fixture.requireModal()).isSameAs(fixture);
     verify(fixture.driver()).requireModal(fixture.target());
   }

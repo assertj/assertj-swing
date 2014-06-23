@@ -42,7 +42,7 @@ public class JSplitPaneFixture_constructor_withRobotAndName_Test extends RobotBa
   }
 
   @Test
-  public void should_lookup_showing_JSplitPane_by_name() {
+  public void should_Lookup_Showing_JSplitPane_By_Name() {
     robot.showWindow(window);
     JSplitPaneFixture fixture = new JSplitPaneFixture(robot, "splitPane");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -50,12 +50,12 @@ public class JSplitPaneFixture_constructor_withRobotAndName_Test extends RobotBa
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JSplitPane_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JSplitPane_With_Matching_Name_Is_Not_Showing() {
     new JSplitPaneFixture(robot, "splitPane");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JSplitPane_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JSplitPane_With_Matching_Name_Is_Not_Found() {
     new JSplitPaneFixture(robot, "other");
   }
 

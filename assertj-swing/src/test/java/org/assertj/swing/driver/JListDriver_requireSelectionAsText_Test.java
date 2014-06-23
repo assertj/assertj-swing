@@ -26,21 +26,21 @@ import org.junit.Test;
  */
 public class JListDriver_requireSelectionAsText_Test extends JListDriver_TestCase {
   @Test
-  public void should_pass_if_selection_is_equal_to_expected() {
+  public void should_Pass_If_Selection_Is_Equal_To_Expected() {
     selectFirstItem();
     driver.requireSelection(list, "one");
     assertThatCellReaderWasCalled();
   }
 
   @Test
-  public void should_pass_if_selection_matches_pattern() {
+  public void should_Pass_If_Selection_Matches_Pattern() {
     selectFirstItem();
     driver.requireSelection(list, "on.*");
     assertThatCellReaderWasCalled();
   }
 
   @Test
-  public void should_fail_if_there_is_no_selection() {
+  public void should_Fail_If_There_Is_No_Selection() {
     clearSelection();
     thrown.expectAssertionError("property:'selectedIndex'");
     thrown.expectMessageToContain("No selection");
@@ -48,7 +48,7 @@ public class JListDriver_requireSelectionAsText_Test extends JListDriver_TestCas
   }
 
   @Test
-  public void should_fail_if_selection_is_not_equal_to_expected() {
+  public void should_Fail_If_Selection_Is_Not_Equal_To_Expected() {
     select(1);
     thrown.expectAssertionError("selectedIndex", "two", Pattern.compile("one"));
     driver.requireSelection(list, "one");

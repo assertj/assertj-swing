@@ -33,13 +33,13 @@ public class JTreeDriver_clickRow_withMouseButton_Test extends JTreeDriver_click
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_MouseButton_is_null() {
+  public void should_Throw_Error_If_MouseButton_Is_Null() {
     MouseButton button = null;
     driver.clickRow(tree, 1, button);
   }
 
   @Test
-  public void should_click_row() {
+  public void should_Click_Row() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     driver.clickRow(tree, 1, RIGHT_BUTTON);
@@ -48,21 +48,21 @@ public class JTreeDriver_clickRow_withMouseButton_Test extends JTreeDriver_click
   }
 
   @Test
-  public void should_throw_error_if_row_is_out_of_bounds() {
+  public void should_Throw_Error_If_Row_Is_Out_Of_Bounds() {
     showWindow();
     thrown.expectIndexOutOfBoundsException("The given row <1000> should be between <0> and <6>");
     driver.clickRow(tree, 1000, RIGHT_BUTTON);
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.clickRow(tree, 1, RIGHT_BUTTON);
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.clickRow(tree, 1, RIGHT_BUTTON);
   }

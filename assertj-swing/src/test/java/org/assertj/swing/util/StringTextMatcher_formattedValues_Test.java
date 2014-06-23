@@ -25,13 +25,13 @@ import org.junit.Test;
  */
 public class StringTextMatcher_formattedValues_Test {
   @Test
-  public void should_return_single_value_as_formatted_value_if_matcher_has_only_one_value() {
+  public void should_Return_Single_Value_As_Formatted_Value_If_Matcher_Has_Only_One_Value() {
     StringTextMatcher matcher = new StringTextMatcher("one");
     assertThat(matcher.formattedValues()).isEqualTo("'one'");
   }
 
   @Test
-  public void should_return_array_of_values_as_formatted_value_if_matcher_has_more_than_one_value() {
+  public void should_Return_Array_Of_Values_As_Formatted_Value_If_Matcher_Has_More_Than_One_Value() {
     StringTextMatcher matcher = new StringTextMatcher("one", "two");
     assertThat(matcher.formattedValues()).isEqualTo("[\"one\", \"two\"]");
   }

@@ -29,12 +29,12 @@ import org.junit.Test;
  */
 public class ComponentDriver_requireEnabledWithTimout_Test extends ComponentDriver_TestCase {
   @Test
-  public void should_pass_if_Component_is_enabled_before_timeout() {
+  public void should_Pass_If_Component_Is_Enabled_Before_Timeout() {
     driver.requireEnabled(window.button, timeout(100));
   }
 
   @Test
-  public void should_fail_if_Component_is_not_enabled_before_timeout() {
+  public void should_Fail_If_Component_Is_Not_Enabled_Before_Timeout() {
     disableButton();
     int timeout = 1000;
     StopWatch stopWatch = startNewStopWatch();

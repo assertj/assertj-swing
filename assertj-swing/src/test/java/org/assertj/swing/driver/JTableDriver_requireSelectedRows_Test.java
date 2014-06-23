@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class JTableDriver_requireSelectedRows_Test extends JTableDriver_TestCase {
   @Test
-  public void should_fail_if_JTable_does_not_have_the_expected_selected_rows() {
+  public void should_Fail_If_JTable_Does_Not_Have_The_Expected_Selected_Rows() {
     selectRows(6, 8);
     thrown.expect(AssertionError.class);
     thrown.expectMessage("property:'selectedRows'");
@@ -39,19 +39,19 @@ public class JTableDriver_requireSelectedRows_Test extends JTableDriver_TestCase
   }
 
   @Test
-  public void should_pass_if_JTable_has_expected_selected_rows() {
+  public void should_Pass_If_JTable_Has_Expected_Selected_Rows() {
     selectRows(6, 8);
     driver.requireSelectedRows(table, 6, 7, 8);
   }
 
   @Test
-  public void should_pass_if_JTable_has_expected_selected_rows_in_different_order() {
+  public void should_Pass_If_JTable_Has_Expected_Selected_Rows_In_Different_Order() {
     selectRows(6, 8);
     driver.requireSelectedRows(table, 8, 7, 6);
   }
 
   @Test
-  public void should_pass_if_expected_selected_rows_are_subset_of_all_selected_rows() {
+  public void should_Pass_If_Expected_Selected_Rows_Are_Subset_Of_All_Selected_Rows() {
     selectRows(6, 8);
     driver.requireSelectedRows(table, 6, 7);
   }

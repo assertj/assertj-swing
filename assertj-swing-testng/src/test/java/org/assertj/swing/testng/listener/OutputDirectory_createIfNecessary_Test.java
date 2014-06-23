@@ -62,7 +62,7 @@ public class OutputDirectory_createIfNecessary_Test {
   }
 
   @Test
-  public void should_not_create_output_folder_if_it_already_exists() {
+  public void should_Not_Create_Output_Folder_If_It_Already_Exists() {
     assertThat(new File(parentPath)).exists();
     new EasyMockTemplate(context) {
       @Override
@@ -80,7 +80,7 @@ public class OutputDirectory_createIfNecessary_Test {
   }
 
   @Test
-  public void should_create_output_folder_if_it_does_not_exist() {
+  public void should_Create_Output_Folder_If_It_Does_Not_Exist() {
     assertThat(new File(path)).doesNotExist();
     new EasyMockTemplate(context) {
       @Override
@@ -98,7 +98,7 @@ public class OutputDirectory_createIfNecessary_Test {
   }
 
   @Test(expected = FilesException.class)
-  public void should_throw_error_if_output_folder_cannot_be_created() {
+  public void should_Throw_Error_If_Output_Folder_Cannot_Be_Created() {
     File folder = newFolder(unwritablePath);
     assertThat(folder.setReadOnly()).isTrue();
     try {

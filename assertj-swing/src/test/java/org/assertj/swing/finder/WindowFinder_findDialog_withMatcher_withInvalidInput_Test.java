@@ -29,18 +29,18 @@ import org.junit.Test;
  */
 public class WindowFinder_findDialog_withMatcher_withInvalidInput_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_matcher_is_null() {
+  public void should_Throw_Error_If_Matcher_Is_Null() {
     GenericTypeMatcher<JDialog> matcher = null;
     WindowFinder.findDialog(matcher);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_timeout_is_negative() {
+  public void should_Throw_Error_If_Timeout_Is_Negative() {
     WindowFinder.findDialog(neverMatches(JDialog.class)).withTimeout(-20);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_time_unit_is_null() {
+  public void should_Throw_Error_If_Time_Unit_Is_Null() {
     WindowFinder.findDialog(neverMatches(JDialog.class)).withTimeout(10, null);
   }
 }

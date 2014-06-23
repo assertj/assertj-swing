@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class FinderDelegate_findInHierarchyWithComponentMatcher_Test extends FinderDelegate_TestCase {
   @Test
-  public void should_return_components_matching_ComponentMatcher() {
+  public void should_Return_Components_Matching_ComponentMatcher() {
     ComponentMatcher matcher = new ComponentMatcher() {
       @Override
       public boolean matches(@Nullable Component c) {
@@ -44,7 +44,7 @@ public class FinderDelegate_findInHierarchyWithComponentMatcher_Test extends Fin
   }
 
   @Test
-  public void should_return_empty_collection_if_matching_Components_not_found() {
+  public void should_Return_Empty_Collection_If_Matching_Components_Not_Found() {
     ComponentMatcher matcher = new ComponentMatcher() {
       @Override
       public boolean matches(@Nullable Component c) {

@@ -38,7 +38,7 @@ import org.w3c.dom.Element;
 public class XmlOutputWriter_writeWithDOMElementWriter_Test extends XmlOutputWriter_TestCase {
 
   @Test
-  public void should_throw_BuildException_if_something_goes_wrong() {
+  public void should_Throw_BuildException_If_Something_Goes_Wrong() {
     XmlNode xmlNode = createMock(XmlNode.class);
     MyDOMElementWriter xmlWriter = new MyDOMElementWriter();
     try {

@@ -28,7 +28,7 @@ import org.w3c.dom.Node;
 public class XmlNode_addCdata_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_add_CDATA_node() {
+  public void should_Add_CDATA_Node() {
     node.addCdata("My CDATA");
     assertThat(childNodeCountOf(target)).isEqualTo(1);
     Node child = target.getFirstChild();

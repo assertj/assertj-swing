@@ -47,22 +47,22 @@ public class AbstractComponentFixture_constructor_withLookupByType_Test {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_selfType_is_null() {
+  public void should_Throw_Error_If_SelfType_Is_Null() {
     new ComponentFixture(null, robot, type);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_robot_is_null() {
+  public void should_Throw_Error_If_Robot_Is_Null() {
     new ComponentFixture(ComponentFixture.class, null, type);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_class_is_null() {
+  public void should_Throw_Error_If_Class_Is_Null() {
     new ComponentFixture(ComponentFixture.class, robot, null);
   }
 
   @Test
-  public void should_lookup_Component_by_name_and_type() {
+  public void should_Lookup_Component_By_Name_And_Type() {
     Frame frame = mock(type);
     Settings settings = mock(Settings.class);
     when(robot.settings()).thenReturn(settings);

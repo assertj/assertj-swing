@@ -39,42 +39,42 @@ public class Point_equals_hashCode_Test {
   }
 
   @Test
-  public void should_have_reflexive_equals() {
+  public void should_Have_Reflexive_Equals() {
     assertEqualsIsReflexive(point);
   }
 
   @Test
-  public void should_have_symmetric_equals() {
+  public void should_Have_Symmetric_Equals() {
     assertEqualsIsSymmetric(point, atPoint(6, 8));
   }
 
   @Test
-  public void should_have_transitive_equals() {
+  public void should_Have_Transitive_Equals() {
     assertEqualsIsTransitive(point, atPoint(6, 8), atPoint(6, 8));
   }
 
   @Test
-  public void should_maintain_equals_and_hashCode_contract() {
+  public void should_Maintain_Equals_And_HashCode_Contract() {
     assertMaintainsEqualsAndHashCodeContract(point, atPoint(6, 8));
   }
 
   @Test
-  public void should_not_be_equal_to_Object_of_different_type() {
+  public void should_Not_Be_Equal_To_Object_Of_Different_Type() {
     assertFalse(point.equals("6, 8"));
   }
 
   @Test
-  public void should_not_be_equal_to_null() {
+  public void should_Not_Be_Equal_To_Null() {
     assertFalse(point.equals(null));
   }
 
   @Test
-  public void should_not_be_equal_to_Index_with_different_x() {
+  public void should_Not_Be_Equal_To_Index_With_Different_X() {
     assertFalse(point.equals(atPoint(8, 8)));
   }
 
   @Test
-  public void should_not_be_equal_to_Index_with_different_y() {
+  public void should_Not_Be_Equal_To_Index_With_Different_Y() {
     assertFalse(point.equals(atPoint(6, 6)));
   }
 }

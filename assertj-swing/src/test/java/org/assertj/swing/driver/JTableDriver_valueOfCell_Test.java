@@ -48,7 +48,7 @@ public class JTableDriver_valueOfCell_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  public void should_return_cell_value() {
+  public void should_Return_Cell_Value() {
     String value = driver.value(table, row(row).column(column));
     assertThat(value).isEqualTo(createCellValueFrom(row, column));
     assertThatCellReaderWasCalled();

@@ -33,7 +33,7 @@ public class JTableHeaderDriver_clickColumnByPatternUsingButtonAndTimes_Test ext
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_click_column() {
+  public void should_Click_Column() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.clickColumn(tableHeader, Pattern.compile("0.*"), LEFT_BUTTON, 3);

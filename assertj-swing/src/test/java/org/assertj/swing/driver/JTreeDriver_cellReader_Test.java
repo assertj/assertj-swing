@@ -36,12 +36,12 @@ public class JTreeDriver_cellReader_Test {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_cellReader_is_null() {
+  public void should_Throw_Error_If_CellReader_Is_Null() {
     driver.replaceCellReader(null);
   }
 
   @Test
-  public void should_set_cellReader() {
+  public void should_Set_CellReader() {
     JTreeCellReader cellReader = mock(JTreeCellReader.class);
     driver.replaceCellReader(cellReader);
     assertThat(driver.cellReader()).isSameAs(cellReader);

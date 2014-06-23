@@ -45,43 +45,43 @@ public class JListItemFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_selectItem_in_JListFixture_and_return_self() {
+  public void should_Call_SelectItem_In_JListFixture_And_Return_Self() {
     assertThat(fixture.select()).isSameAs(fixture);
     verify(list).selectItem(index);
   }
 
   @Test
-  public void should_call_clickItem_in_JListFixture_and_return_self() {
+  public void should_Call_ClickItem_In_JListFixture_And_Return_Self() {
     assertThat(fixture.click()).isSameAs(fixture);
     verify(list).clickItem(index);
   }
 
   @Test
-  public void should_call_clickItem_with_MouseButton_in_JListFixture_and_return_self() {
+  public void should_Call_ClickItem_With_MouseButton_In_JListFixture_And_Return_Self() {
     assertThat(fixture.click(MIDDLE_BUTTON)).isSameAs(fixture);
     verify(list).clickItem(index, MIDDLE_BUTTON, 1);
   }
 
   @Test
-  public void should_call_clickItem_with_MouseClickInfo_in_JListFixture_and_return_self() {
+  public void should_Call_ClickItem_With_MouseClickInfo_In_JListFixture_And_Return_Self() {
     assertThat(fixture.click(middleButton().times(2))).isSameAs(fixture);
     verify(list).clickItem(index, MIDDLE_BUTTON, 2);
   }
 
   @Test
-  public void should_call_clickItem_with_left_button_two_times_in_JListFixture_and_return_self() {
+  public void should_Call_ClickItem_With_Left_Button_Two_Times_In_JListFixture_And_Return_Self() {
     assertThat(fixture.doubleClick()).isSameAs(fixture);
     verify(list).clickItem(index, LEFT_BUTTON, 2);
   }
 
   @Test
-  public void should_call_clickItem_with_right_button_one_time_in_JListFixture_and_return_self() {
+  public void should_Call_ClickItem_With_Right_Button_One_Time_In_JListFixture_And_Return_Self() {
     assertThat(fixture.rightClick()).isSameAs(fixture);
     verify(list).clickItem(index, RIGHT_BUTTON, 1);
   }
 
   @Test
-  public void should_call_showPopupMenuAt_in_JListFixture_and_return_self() {
+  public void should_Call_ShowPopupMenuAt_In_JListFixture_And_Return_Self() {
     JPopupMenuFixture popupMenu = mock(JPopupMenuFixture.class);
     when(list.showPopupMenuAt(index)).thenReturn(popupMenu);
     assertThat(fixture.showPopupMenu()).isSameAs(popupMenu);
@@ -89,20 +89,20 @@ public class JListItemFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_value_using_JListFixture() {
+  public void should_Return_Value_Using_JListFixture() {
     when(list.valueAt(index)).thenReturn("One");
     assertThat(fixture.value()).isEqualTo("One");
     verify(list).valueAt(index);
   }
 
   @Test
-  public void should_call_drag_in_JListFixture_and_return_self() {
+  public void should_Call_Drag_In_JListFixture_And_Return_Self() {
     assertThat(fixture.drag()).isSameAs(fixture);
     verify(list).drag(index);
   }
 
   @Test
-  public void should_call_drop_in_JListFixture_and_return_self() {
+  public void should_Call_Drop_In_JListFixture_And_Return_Self() {
     assertThat(fixture.drop()).isSameAs(fixture);
     verify(list).drop(index);
   }

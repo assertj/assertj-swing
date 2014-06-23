@@ -26,13 +26,13 @@ import org.junit.Test;
  */
 public class WindowVisibilityMonitor_componentHidden_Test extends WindowVisibilityMonitor_TestCase {
   @Test
-  public void should_mark_Window_as_hidden_when_Window_is_hidden() {
+  public void should_Mark_Window_As_Hidden_When_Window_Is_Hidden() {
     monitor.componentHidden(componentEventWithWindowAsSource());
     verify(windows).markAsHidden(window);
   }
 
   @Test
-  public void should_not_mark_Window_as_hidden_if_Component_hidden_is_not_Window() {
+  public void should_Not_Mark_Window_As_Hidden_If_Component_Hidden_Is_Not_Window() {
     monitor.componentHidden(componentEventWithTextFieldAsSource());
     verifyZeroInteractions(windows);
   }

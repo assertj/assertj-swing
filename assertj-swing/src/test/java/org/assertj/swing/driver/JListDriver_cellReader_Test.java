@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JListDriver_cellReader_Test extends JListDriver_withMocks_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_cellReader_is_null() {
+  public void should_Throw_Error_If_CellReader_Is_Null() {
     driver.replaceCellReader(null);
   }
 }

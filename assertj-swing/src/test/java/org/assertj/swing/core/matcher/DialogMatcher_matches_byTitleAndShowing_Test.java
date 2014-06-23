@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class DialogMatcher_matches_byTitleAndShowing_Test extends SequentialEDTSafeTestCase {
   @Test
-  public void should_return_true_if_Dialog_is_showing_and_title_is_equal_to_expected() {
+  public void should_Return_True_If_Dialog_Is_Showing_And_Title_Is_Equal_To_Expected() {
     String title = "Hello";
     JDialog dialog = dialog().withTitle(title).createAndShow();
     DialogMatcher matcher = DialogMatcher.withTitle(title).andShowing();
@@ -40,7 +40,7 @@ public class DialogMatcher_matches_byTitleAndShowing_Test extends SequentialEDTS
   }
 
   @Test
-  public void should_return_false_if_Dialog_is_not_showing_and_title_is_equal_to_expected() {
+  public void should_Return_False_If_Dialog_Is_Not_Showing_And_Title_Is_Equal_To_Expected() {
     String title = "Hello";
     DialogMatcher matcher = DialogMatcher.withTitle(title).andShowing();
     JDialog dialog = dialog().withTitle(title).createNew();
@@ -48,7 +48,7 @@ public class DialogMatcher_matches_byTitleAndShowing_Test extends SequentialEDTS
   }
 
   @Test
-  public void should_return_false_if_Dialog_is_showing_and_title_is_not_equal_to_expected() {
+  public void should_Return_False_If_Dialog_Is_Showing_And_Title_Is_Not_Equal_To_Expected() {
     TestWindow window = TestWindow.createAndShowNewWindow(DialogMatcher.class);
     TestDialog dialog = TestDialog.createAndShowNewDialog(window);
     DialogMatcher matcher = DialogMatcher.withTitle("Hello").andShowing();
@@ -56,7 +56,7 @@ public class DialogMatcher_matches_byTitleAndShowing_Test extends SequentialEDTS
   }
 
   @Test
-  public void should_return_false_if_Dialog_is_not_showing_and_title_is_not_equal_to_expected() {
+  public void should_Return_False_If_Dialog_Is_Not_Showing_And_Title_Is_Not_Equal_To_Expected() {
     DialogMatcher matcher = DialogMatcher.withTitle("Hello").andShowing();
     JDialog dialog = dialog().withTitle("Bye").createNew();
     assertThat(matcher.matches(dialog)).isFalse();

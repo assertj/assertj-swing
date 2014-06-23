@@ -51,14 +51,14 @@ public class AbstractContainerFixture_list_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JList_by_name() {
+  public void should_Find_Visible_JList_By_Name() {
     robot.showWindow(window);
     JListFixture list = fixture.list("selectMeList");
     assertThat(list.target()).isSameAs(window.list);
   }
 
   @Test
-  public void should_fail_if_visible_JList_not_found_by_name() {
+  public void should_Fail_If_Visible_JList_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myList', type=javax.swing.JList, requireShowing=true");
@@ -66,14 +66,14 @@ public class AbstractContainerFixture_list_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JList_by_type() {
+  public void should_Find_Visible_JList_By_Type() {
     robot.showWindow(window);
     JListFixture list = fixture.list();
     assertThat(list.target()).isSameAs(window.list);
   }
 
   @Test
-  public void should_fail_if_visible_JList_not_found_by_type() {
+  public void should_Fail_If_Visible_JList_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JList, requireShowing=true");
@@ -81,7 +81,7 @@ public class AbstractContainerFixture_list_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JList_by_Matcher() {
+  public void should_Find_Visible_JList_By_Matcher() {
     robot.showWindow(window);
     JListFixture list = fixture.list(new GenericTypeMatcher<JList>(JList.class) {
       @Override
@@ -93,7 +93,7 @@ public class AbstractContainerFixture_list_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_visible_JList_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JList_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class, "Unable to find component using matcher");
     fixture.list(neverMatches(JList.class));
   }

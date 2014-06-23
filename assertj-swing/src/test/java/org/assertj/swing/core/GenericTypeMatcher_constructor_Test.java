@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class GenericTypeMatcher_constructor_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_supported_type_is_null() {
+  public void should_Throw_Error_If_Supported_Type_Is_Null() {
     new GenericTypeMatcher<JButton>(null) {
       @Override
       protected boolean isMatching(@Nonnull JButton component) {

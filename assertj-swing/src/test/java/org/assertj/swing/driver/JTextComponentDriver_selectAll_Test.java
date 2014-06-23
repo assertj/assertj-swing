@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JTextComponentDriver_selectAll_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_select_all_text() {
+  public void should_Select_All_Text() {
     showWindow();
     setTextFieldText("Hello");
     driver.selectAll(textField);
@@ -32,14 +32,14 @@ public class JTextComponentDriver_selectAll_Test extends JTextComponentDriver_Te
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_disabled() {
+  public void should_Throw_Error_If_JTextComponent_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectAll(textField);
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTextComponent_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectAll(textField);
   }

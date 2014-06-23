@@ -25,13 +25,13 @@ import org.junit.Test;
  */
 public class TimeoutWatch_startWithTimeout_isTimeOut_Test {
   @Test
-  public void should_not_timeout() {
+  public void should_Not_Timeout() {
     TimeoutWatch watch = TimeoutWatch.startWatchWithTimeoutOf(5000);
     assertThat(watch.isTimeOut()).isFalse();
   }
 
   @Test
-  public void should_timeout() throws Exception {
+  public void should_Timeout() throws Exception {
     TimeoutWatch watch = TimeoutWatch.startWatchWithTimeoutOf(10);
     Thread.sleep(100);
     assertThat(watch.isTimeOut()).isTrue();

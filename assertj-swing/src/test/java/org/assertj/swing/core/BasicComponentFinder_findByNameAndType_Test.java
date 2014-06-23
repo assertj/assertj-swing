@@ -30,20 +30,20 @@ import org.junit.Test;
  */
 public class BasicComponentFinder_findByNameAndType_Test extends BasicComponentFinder_TestCase {
   @Test
-  public void should_find_Component() {
+  public void should_Find_Component() {
     JButton button = finder.findByName("button", JButton.class);
     assertThat(button).isSameAs(window.button);
   }
 
   @Test
-  public void should_throw_error_if_Component_not_found() {
+  public void should_Throw_Error_If_Component_Not_Found() {
     thrown.expect(ComponentLookupException.class, "name='list'");
     thrown.expectMessageToContain("type=javax.swing.JLabel");
     finder.findByName("list", JLabel.class);
   }
 
   @Test
-  public void should_throw_error_if_Component_found_by_name_but_not_by_type() {
+  public void should_Throw_Error_If_Component_Found_By_Name_But_Not_By_Type() {
     thrown.expect(ComponentLookupException.class, "name='button'");
     thrown.expectMessageToContain("type=javax.swing.JLabel");
     finder.findByName("button", JLabel.class);

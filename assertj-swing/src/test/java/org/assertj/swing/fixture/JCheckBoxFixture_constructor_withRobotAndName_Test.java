@@ -40,7 +40,7 @@ public class JCheckBoxFixture_constructor_withRobotAndName_Test extends RobotBas
   }
 
   @Test
-  public void should_lookup_showing_JCheckBox_by_name() {
+  public void should_Lookup_Showing_JCheckBox_By_Name() {
     robot.showWindow(window);
     JCheckBoxFixture fixture = new JCheckBoxFixture(robot, "checkBox");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -48,12 +48,12 @@ public class JCheckBoxFixture_constructor_withRobotAndName_Test extends RobotBas
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JCheckBox_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JCheckBox_With_Matching_Name_Is_Not_Showing() {
     new JCheckBoxFixture(robot, "checkBox");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JCheckBox_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JCheckBox_With_Matching_Name_Is_Not_Found() {
     new JCheckBoxFixture(robot, "other");
   }
 

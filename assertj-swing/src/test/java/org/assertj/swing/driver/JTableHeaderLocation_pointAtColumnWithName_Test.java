@@ -51,7 +51,7 @@ public class JTableHeaderLocation_pointAtColumnWithName_Test extends JTableHeade
   }
 
   @Test
-  public void should_return_point_at_column() {
+  public void should_Return_Point_At_Column() {
     when(matcher.isMatching("0")).thenReturn(false);
     when(matcher.isMatching("1")).thenReturn(true);
     Pair<Integer, Point> pair = matchingIndexAndPoint();
@@ -62,7 +62,7 @@ public class JTableHeaderLocation_pointAtColumnWithName_Test extends JTableHeade
   }
 
   @Test
-  public void should_throw_error_if_matching_column_was_not_found() {
+  public void should_Throw_Error_If_Matching_Column_Was_Not_Found() {
     when(matcher.isMatching("0")).thenReturn(false);
     when(matcher.isMatching("1")).thenReturn(false);
     when(matcher.description()).thenReturn("text");

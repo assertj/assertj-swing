@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class OSIdentifier_isX11_Test extends OSIdentifier_TestCase {
   @Test
-  public void should_return_X11_if_OS_not_OSX_or_Windows() {
+  public void should_Return_X11_If_OS_Not_OSX_Or_Windows() {
     returnOSName("");
     OSIdentifier osIdentifier = new OSIdentifier(propertyReader);
     assertThat(osIdentifier.isX11()).isTrue();

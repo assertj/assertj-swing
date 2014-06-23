@@ -27,21 +27,21 @@ import org.junit.Test;
  */
 public class EventQueueMapping_storedQueueFor_Test extends EventQueueMapping_TestCase {
   @Test
-  public void should_return_stored_EventQueue() {
+  public void should_Return_Stored_EventQueue() {
     mapping.addQueueFor(component);
     EventQueue storedEventQueue = mapping.storedQueueFor(component);
     assertThat(storedEventQueue).isSameAs(eventQueue);
   }
 
   @Test
-  public void should_return_null_if_EventQueue_not_stored() {
+  public void should_Return_Null_If_EventQueue_Not_Stored() {
     assertThat(queueMap.keySet()).doesNotContain(component);
     EventQueue storedEventQueue = mapping.storedQueueFor(component);
     assertThat(storedEventQueue).isNull();
   }
 
   @Test
-  public void should_return_null_if_EventQueue_reference_is_null() {
+  public void should_Return_Null_If_EventQueue_Reference_Is_Null() {
     queueMap.put(component, null);
     EventQueue storedEventQueue = mapping.storedQueueFor(component);
     assertThat(storedEventQueue).isNull();

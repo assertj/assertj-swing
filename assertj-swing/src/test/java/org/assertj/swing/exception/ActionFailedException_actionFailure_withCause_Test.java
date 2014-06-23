@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class ActionFailedException_actionFailure_withCause_Test {
   @Test
-  public void should_create_error_with_cause() {
+  public void should_Create_Error_With_Cause() {
     Throwable cause = new Throwable();
     ActionFailedException actionFailure = ActionFailedException.actionFailure("A Failure", cause);
     assertThat(actionFailure.getCause()).isSameAs(cause);

@@ -51,27 +51,27 @@ public class JPanelFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_requireToolTip_with_text_in_driver_and_return_self() {
+  public void should_Call_RequireToolTip_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.requireToolTip("Hello")).isSameAs(fixture);
     verify(driver).requireToolTip(target, "Hello");
   }
 
   @Test
-  public void should_call_requireToolTip_with_pattern_in_driver_and_return_self() {
+  public void should_Call_RequireToolTip_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Hello");
     assertThat(fixture.requireToolTip(pattern)).isSameAs(fixture);
     verify(driver).requireToolTip(target, pattern);
   }
 
   @Test
-  public void should_return_client_property_using_driver() {
+  public void should_Return_Client_Property_Using_Driver() {
     when(driver.clientProperty(target, "name")).thenReturn("Yoda");
     assertThat(fixture.clientProperty("name")).isEqualTo("Yoda");
     verify(driver).clientProperty(target, "name");
   }
 
   @Test
-  public void should_show_JPopupMenu_using_driver() {
+  public void should_Show_JPopupMenu_Using_Driver() {
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     when(driver.invokePopupMenu(target)).thenReturn(popupMenu);
     JPopupMenuFixture popupMenuFixture = fixture.showPopupMenu();
@@ -80,7 +80,7 @@ public class JPanelFixture_withMocks_Test {
   }
 
   @Test
-  public void should_show_JPopupMenu_at_location_using_driver() {
+  public void should_Show_JPopupMenu_At_Location_Using_Driver() {
     Point p = new Point(6, 8);
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     when(driver.invokePopupMenu(target, p)).thenReturn(popupMenu);

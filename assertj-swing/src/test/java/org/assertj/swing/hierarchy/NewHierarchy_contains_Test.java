@@ -26,13 +26,13 @@ import org.junit.Test;
  */
 public class NewHierarchy_contains_Test extends NewHierarchy_TestCase {
   @Test
-  public void should_not_contain_ignored_Components() {
+  public void should_Not_Contain_Ignored_Components() {
     NewHierarchy hierarchy = new NewHierarchy(toolkit, filter, true);
     assertThat(hierarchy.contains(window)).isFalse();
   }
 
   @Test
-  public void should_contain_Components_that_have_not_been_ignored() {
+  public void should_Contain_Components_That_Have_Not_Been_Ignored() {
     NewHierarchy hierarchy = new NewHierarchy(toolkit, filter, false);
     assertThat(hierarchy.contains(window)).isTrue();
   }

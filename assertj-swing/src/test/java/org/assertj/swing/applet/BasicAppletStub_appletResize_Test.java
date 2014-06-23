@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class BasicAppletStub_appletResize_Test extends BasicAppletStub_TestCase {
   @Test
-  public void should_resize_viewer_when_applet_is_resized() {
+  public void should_Resize_Viewer_When_Applet_Is_Resized() {
     int w = 800;
     int h = 600;
     stub.appletResize(w, h);

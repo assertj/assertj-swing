@@ -47,7 +47,7 @@ public class ParentFinder_parentOf_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_return_parent_of_Component() {
+  public void should_Return_Parent_Of_Component() {
     final MyWindow window = MyWindow.createNew();
     try {
       Container parent = findParent(finder, window.textField);
@@ -77,7 +77,7 @@ public class ParentFinder_parentOf_Test extends SequentialEDTSafeTestCase {
   }
 
   @Test
-  public void should_return_parent_of_JInternalFrame() {
+  public void should_Return_Parent_Of_JInternalFrame() {
     TestMdiWindow window = TestMdiWindow.createNewWindow(getClass());
     JInternalFrame internalFrame = window.internalFrame();
     try {

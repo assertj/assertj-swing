@@ -34,7 +34,7 @@ public class XmlAttribute_toString_Test {
   }
 
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     assertThat(attribute.toString()).isEqualTo("XmlAttribute[name='firstName',value='Anakin']");
   }
 }

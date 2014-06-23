@@ -23,28 +23,28 @@ import org.junit.Test;
  */
 public class JSpinnerDriver_selectValue_Test extends JSpinnerDriver_TestCase {
   @Test
-  public void should_select_value() {
+  public void should_Select_Value() {
     showWindow();
     driver.selectValue(spinner, "Gandalf");
     assertThatLastValueIsSelected();
   }
 
   @Test
-  public void should_throw_error_if_value_is_not_valid() {
+  public void should_Throw_Error_If_Value_Is_Not_Valid() {
     showWindow();
     thrown.expectIllegalArgumentException("Value 'Yoda' is not valid");
     driver.selectValue(spinner, "Yoda");
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_disabled() {
+  public void should_Throw_Error_If_JSpinner_Is_Disabled() {
     disableSpinner();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectValue(spinner, "Gandalf");
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JSpinner_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectValue(spinner, "Gandalf");
   }

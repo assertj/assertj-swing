@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JTableDriver_selectCell_Test extends JTableDriver_TestCase {
   @Test
-  public void should_not_select_cell_if_it_is_already_selected() {
+  public void should_Not_Select_Cell_If_It_Is_Already_Selected() {
     showWindow();
     driver.selectCell(table, row(0).column(0));
     requireCellSelected(0, 0);
@@ -35,14 +35,14 @@ public class JTableDriver_selectCell_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JTable_is_disabled() {
+  public void should_Throw_Error_If_JTable_Is_Disabled() {
     disableTable();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectCell(table, row(0).column(0));
   }
 
   @Test
-  public void should_throw_error_if_JTable_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTable_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectCell(table, row(0).column(0));
   }

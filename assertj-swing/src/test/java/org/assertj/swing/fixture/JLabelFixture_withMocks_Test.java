@@ -44,7 +44,7 @@ public class JLabelFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_text_using_driver() {
+  public void should_Return_Text_Using_Driver() {
     JLabelDriver driver = fixture.driver();
     JLabel target = fixture.target();
     when(driver.textOf(target)).thenReturn("Six");
@@ -53,13 +53,13 @@ public class JLabelFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_requireText_with_text_and_return_self() {
+  public void should_Call_RequireText_With_Text_And_Return_Self() {
     assertThat(fixture.requireText("Six")).isSameAs(fixture);
     verify(fixture.driver()).requireText(fixture.target(), "Six");
   }
 
   @Test
-  public void should_call_requireText_with_pattern_and_return_self() {
+  public void should_Call_RequireText_With_Pattern_And_Return_Self() {
     Pattern pattern = Pattern.compile("Six");
     assertThat(fixture.requireText(pattern)).isSameAs(fixture);
     verify(fixture.driver()).requireText(fixture.target(), pattern);

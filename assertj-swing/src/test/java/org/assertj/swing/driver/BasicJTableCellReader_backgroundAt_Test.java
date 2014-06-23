@@ -38,7 +38,7 @@ import org.junit.Test;
  */
 public class BasicJTableCellReader_backgroundAt_Test extends BasicJTableCellReader_TestCase {
   @Test
-  public void should_return_background_from_cellRenderer() {
+  public void should_Return_Background_From_CellRenderer() {
     JLabel label = setJLabelAsCellRenderer();
     Color background = backgroundAt(reader, table, 0, 0);
     assertThat(background).isEqualTo(backgroundOf(label));

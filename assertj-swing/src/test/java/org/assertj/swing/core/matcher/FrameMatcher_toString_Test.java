@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class FrameMatcher_toString_Test extends EDTSafeTestCase {
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     FrameMatcher matcher = FrameMatcher.withName("frame").andTitle("Hello").andShowing();
     assertThat(matcher.toString()).isEqualTo(
         "org.assertj.swing.core.matcher.FrameMatcher[name='frame', title='Hello', requireShowing=true]");

@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
   @Test
-  public void should_return_active_popupMenu() {
+  public void should_Return_Active_PopupMenu() {
     JPopupMenu popupMenu = addPopupMenuToTextField();
     robot().showPopupMenu(window().textField());
     JPopupMenu found = robot().findActivePopupMenu();
@@ -36,7 +36,7 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
   }
 
   @Test
-  public void should_return_null_if_active_popupMenu_not_found() {
+  public void should_Return_Null_If_Active_PopupMenu_Not_Found() {
     JPopupMenu found = robot().findActivePopupMenu();
     assertThat(found).isNull();
   }

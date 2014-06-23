@@ -34,28 +34,28 @@ import org.junit.Test;
  */
 public class JButtonMatcher_matches_byTextAndShowing_Test extends SequentialEDTSafeTestCase {
   @Test
-  public void should_return_true_if_JButton_is_showing_and_text_is_equal_to_expected() {
+  public void should_Return_True_If_JButton_Is_Showing_And_Text_Is_Equal_To_Expected() {
     MyWindow window = MyWindow.createAndShow();
     JButtonMatcher matcher = JButtonMatcher.withText("Hello").andShowing();
     assertThat(matcher.matches(window.button)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_JButton_is_not_showing_and_text_is_equal_to_expected() {
+  public void should_Return_False_If_JButton_Is_Not_Showing_And_Text_Is_Equal_To_Expected() {
     JButtonMatcher matcher = JButtonMatcher.withText("Hello").andShowing();
     JButton button = button().withText("Hello").createNew();
     assertThat(matcher.matches(button)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_JButton_is_showing_and_text_is_not_equal_to_expected() {
+  public void should_Return_False_If_JButton_Is_Showing_And_Text_Is_Not_Equal_To_Expected() {
     MyWindow window = MyWindow.createAndShow();
     JButtonMatcher matcher = JButtonMatcher.withText("Bye").andShowing();
     assertThat(matcher.matches(window.button)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_JButton_is_not_showing_and_text_is_not_equal_to_expected() {
+  public void should_Return_False_If_JButton_Is_Not_Showing_And_Text_Is_Not_Equal_To_Expected() {
     JButtonMatcher matcher = JButtonMatcher.withText("Hello").andShowing();
     JButton button = button().withText("Bye").createNew();
     assertThat(matcher.matches(button)).isFalse();

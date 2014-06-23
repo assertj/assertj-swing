@@ -29,28 +29,28 @@ import org.junit.Test;
  */
 public class WindowFinder_findFrame_byType_Test extends WindowFinder_TestCase {
   @Test
-  public void should_find_Frame() {
+  public void should_Find_Frame() {
     clickLaunchFrameButton();
     FrameFixture found = WindowFinder.findFrame(WindowToLaunch.class).using(robot);
     assertThat(found.target()).isInstanceOf(WindowToLaunch.class);
   }
 
   @Test
-  public void should_find_Frame_before_given_timeout_expires() {
+  public void should_Find_Frame_Before_Given_Timeout_Expires() {
     clickLaunchFrameButton();
     FrameFixture found = WindowFinder.findFrame(WindowToLaunch.class).withTimeout(500, MILLISECONDS).using(robot);
     assertThat(found.target()).isInstanceOf(WindowToLaunch.class);
   }
 
   @Test
-  public void should_find_Frame_before_given_timeout_in_ms_expires() {
+  public void should_Find_Frame_Before_Given_Timeout_In_Ms_Expires() {
     clickLaunchFrameButton();
     FrameFixture found = WindowFinder.findFrame(WindowToLaunch.class).withTimeout(500).using(robot);
     assertThat(found.target()).isInstanceOf(WindowToLaunch.class);
   }
 
   @Test(expected = WaitTimedOutError.class)
-  public void should_fail_if_Frame_not_found() {
+  public void should_Fail_If_Frame_Not_Found() {
     WindowFinder.findFrame(WindowToLaunch.class).using(robot);
   }
 }

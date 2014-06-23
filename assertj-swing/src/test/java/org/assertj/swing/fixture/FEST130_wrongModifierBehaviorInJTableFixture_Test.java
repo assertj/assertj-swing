@@ -48,7 +48,7 @@ public class FEST130_wrongModifierBehaviorInJTableFixture_Test extends RobotBase
   }
 
   @Test
-  public void should_use_control_modifier() {
+  public void should_Use_Control_Modifier() {
     table.cell(row(1).column(0)).click();
     assertThatSelectedRowsAre(1);
     robot.pressModifiers(CTRL_MASK);
@@ -59,7 +59,7 @@ public class FEST130_wrongModifierBehaviorInJTableFixture_Test extends RobotBase
   }
 
   @Test
-  public void should_use_shift_modifier() {
+  public void should_Use_Shift_Modifier() {
     table.cell(row(1).column(0)).click();
     assertThatSelectedRowsAre(1);
     robot.pressModifiers(SHIFT_MASK);

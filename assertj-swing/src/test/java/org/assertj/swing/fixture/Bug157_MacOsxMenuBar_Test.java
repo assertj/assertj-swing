@@ -50,7 +50,7 @@ public class Bug157_MacOsxMenuBar_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_select_menu() {
+  public void should_Select_Menu() {
     final boolean[] selected = new boolean[1];
     JMenuItem menu = menuItemFixture.target();
     menu.addActionListener(new ActionListener() {

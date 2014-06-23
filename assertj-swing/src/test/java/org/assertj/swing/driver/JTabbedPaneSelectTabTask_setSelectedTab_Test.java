@@ -46,7 +46,7 @@ public class JTabbedPaneSelectTabTask_setSelectedTab_Test extends RobotBasedTest
   }
 
   @Test
-  public void should_select_tab_under_given_index() {
+  public void should_Select_Tab_Under_Given_Index() {
     assertThat(selectedTabIndex()).isNotEqualTo(index);
     JTabbedPaneSelectTabTask.setSelectedTab(tabbedPane, index);
     robot.waitForIdle();

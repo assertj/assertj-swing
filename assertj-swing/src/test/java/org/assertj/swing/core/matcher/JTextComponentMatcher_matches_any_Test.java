@@ -29,13 +29,13 @@ import org.junit.Test;
  */
 public class JTextComponentMatcher_matches_any_Test extends EDTSafeTestCase {
   @Test
-  public void should_always_return_true_when_matching_any_JTextComponent() {
+  public void should_Always_Return_True_When_Matching_Any_JTextComponent() {
     JTextComponentMatcher matcher = JTextComponentMatcher.any();
     assertThat(matcher.matches(textField().createNew())).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Component_is_not_JTextComponent() {
+  public void should_Return_False_If_Component_Is_Not_JTextComponent() {
     JTextComponentMatcher matcher = JTextComponentMatcher.any();
     assertThat(matcher.matches(dialog().createNew())).isFalse();
   }

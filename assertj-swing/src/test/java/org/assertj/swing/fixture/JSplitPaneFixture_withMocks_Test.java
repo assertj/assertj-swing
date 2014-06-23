@@ -41,7 +41,7 @@ public class JSplitPaneFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_moveDividerTo_in_driver_and_return_self() {
+  public void should_Call_MoveDividerTo_In_Driver_And_Return_Self() {
     assertThat(fixture.moveDividerTo(6)).isSameAs(fixture);
     verify(fixture.driver()).moveDividerTo(fixture.target(), 6);
   }

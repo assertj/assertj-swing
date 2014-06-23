@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class Platform_osFamily_Test extends Platform_TestCase {
   @Test
-  public void should_return_osFamily() {
+  public void should_Return_OsFamily() {
     Platform.osFamily();
     verify(osIdentifier).osFamily();
   }

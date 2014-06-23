@@ -46,7 +46,7 @@ public class DialogFixture_constructor_withName_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_lookup_showing_dialog_by_name_using_new_Robot() {
+  public void should_Lookup_Showing_Dialog_By_Name_Using_New_Robot() {
     Dialog target = dialog().withName("dialog").withTitle(getClass().getSimpleName()).createAndShow();
     fixture = new DialogFixture("dialog");
     assertThat(fixture.robot()).isNotNull();
@@ -54,7 +54,7 @@ public class DialogFixture_constructor_withName_Test extends EDTSafeTestCase {
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_dialog_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_Dialog_With_Matching_Name_Is_Not_Found() {
     fixture = new DialogFixture("dialog");
   }
 }

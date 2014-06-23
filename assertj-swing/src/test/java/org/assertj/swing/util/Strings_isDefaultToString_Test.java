@@ -25,27 +25,27 @@ import org.junit.Test;
  */
 public class Strings_isDefaultToString_Test {
   @Test
-  public void should_return_false_if_String_is_null() {
+  public void should_Return_False_If_String_Is_Null() {
     assertThat(Strings.isDefaultToString(null)).isFalse();
   }
 
   @Test
-  public void should_return_false_if_String_is_empty() {
+  public void should_Return_False_If_String_Is_Empty() {
     assertThat(Strings.isDefaultToString("")).isFalse();
   }
 
   @Test
-  public void should_return_false_if_at_symbol_is_not_followed_by_hash() {
+  public void should_Return_False_If_At_Symbol_Is_Not_Followed_By_Hash() {
     assertThat(Strings.isDefaultToString("abc@xyz"));
   }
 
   @Test
-  public void should_return_false_if_there_is_no_at_symbol() {
+  public void should_Return_False_If_There_Is_No_At_Symbol() {
     assertThat(Strings.isDefaultToString("abc"));
   }
 
   @Test
-  public void should_return_true_if_default_toString() {
+  public void should_Return_True_If_Default_ToString() {
     class Person {
     }
     assertThat(Strings.isDefaultToString(new Person().toString())).isTrue();

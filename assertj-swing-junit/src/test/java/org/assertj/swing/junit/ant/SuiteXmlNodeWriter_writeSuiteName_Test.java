@@ -31,7 +31,7 @@ import org.junit.Test;
 public class SuiteXmlNodeWriter_writeSuiteName_Test extends SuiteXmlNodeWriter_TestCase {
 
   @Test
-  public void should_write_suite_name_as_attribute() {
+  public void should_Write_Suite_Name_As_Attribute() {
     final JUnitTest suite = new JUnitTest("Hello");
     new EasyMockTemplate(targetNode) {
       @Override
@@ -48,7 +48,7 @@ public class SuiteXmlNodeWriter_writeSuiteName_Test extends SuiteXmlNodeWriter_T
   }
 
   @Test
-  public void should_write_word_unknown_as_attribute_if_suite_does_not_have_name() {
+  public void should_Write_Word_Unknown_As_Attribute_If_Suite_Does_Not_Have_Name() {
     final JUnitTest suite = new JUnitTest(null);
     new EasyMockTemplate(targetNode) {
       @Override

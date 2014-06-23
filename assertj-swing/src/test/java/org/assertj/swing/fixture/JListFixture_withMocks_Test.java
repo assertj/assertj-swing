@@ -55,14 +55,14 @@ public class JListFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_value_at_index_using_driver() {
+  public void should_Return_Value_At_Index_Using_Driver() {
     when(driver.value(target, 6)).thenReturn("Six");
     assertThat(fixture.valueAt(6)).isEqualTo("Six");
     verify(driver).value(target, 6);
   }
 
   @Test
-  public void should_return_contents_using_driver() {
+  public void should_Return_Contents_Using_Driver() {
     String[] contents = { "One", "Two" };
     when(driver.contentsOf(target)).thenReturn(contents);
     assertThat(fixture.contents()).isSameAs(contents);
@@ -70,7 +70,7 @@ public class JListFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_selection_using_driver() {
+  public void should_Return_Selection_Using_Driver() {
     String[] selection = { "One" };
     when(driver.selectionOf(target)).thenReturn(selection);
     assertThat(fixture.selection()).isSameAs(selection);
@@ -78,14 +78,14 @@ public class JListFixture_withMocks_Test {
   }
 
   @Test
-  public void should_create_JListItemFixture_with_index() {
+  public void should_Create_JListItemFixture_With_Index() {
     JListItemFixture itemFixture = fixture.item(6);
     assertThat(itemFixture.listFixture()).isSameAs(fixture);
     assertThat(itemFixture.index()).isEqualTo(6);
   }
 
   @Test
-  public void should_create_JListItemFixture_with_text() {
+  public void should_Create_JListItemFixture_With_Text() {
     when(driver.indexOf(target, "Six")).thenReturn(6);
     JListItemFixture itemFixture = fixture.item("Six");
     assertThat(itemFixture.listFixture()).isSameAs(fixture);
@@ -94,7 +94,7 @@ public class JListFixture_withMocks_Test {
   }
 
   @Test
-  public void should_create_JListItemFixture_with_pattern() {
+  public void should_Create_JListItemFixture_With_Pattern() {
     Pattern pattern = Pattern.compile("Six");
     when(driver.indexOf(target, pattern)).thenReturn(6);
     JListItemFixture itemFixture = fixture.item(pattern);
@@ -104,161 +104,161 @@ public class JListFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_clearSelection_in_driver_and_return_self() {
+  public void should_Call_ClearSelection_In_Driver_And_Return_Self() {
     assertThat(fixture.clearSelection()).isSameAs(fixture);
     verify(driver).clearSelection(target);
   }
 
   @Test
-  public void should_call_selectItem_with_index_in_driver_and_return_self() {
+  public void should_Call_SelectItem_With_Index_In_Driver_And_Return_Self() {
     assertThat(fixture.selectItem(6)).isSameAs(fixture);
     verify(driver).selectItem(target, 6);
   }
 
   @Test
-  public void should_call_selectItem_with_text_in_driver_and_return_self() {
+  public void should_Call_SelectItem_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.selectItem("Six")).isSameAs(fixture);
     verify(driver).selectItem(target, "Six");
   }
 
   @Test
-  public void should_call_selectItem_with_pattern_in_driver_and_return_self() {
+  public void should_Call_SelectItem_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Six");
     assertThat(fixture.selectItem(pattern)).isSameAs(fixture);
     verify(driver).selectItem(target, pattern);
   }
 
   @Test
-  public void should_call_requireSelection_in_driver_and_return_self() {
+  public void should_Call_RequireSelection_In_Driver_And_Return_Self() {
     assertThat(fixture.requireSelection(6)).isSameAs(fixture);
     verify(driver).requireSelection(target, 6);
   }
 
   @Test
-  public void should_call_requireNoSelection_in_driver_and_return_self() {
+  public void should_Call_RequireNoSelection_In_Driver_And_Return_Self() {
     assertThat(fixture.requireNoSelection()).isSameAs(fixture);
     verify(driver).requireNoSelection(target);
   }
 
   @Test
-  public void should_call_requireItemCount_in_driver_and_return_self() {
+  public void should_Call_RequireItemCount_In_Driver_And_Return_Self() {
     assertThat(fixture.requireItemCount(8)).isSameAs(fixture);
     verify(driver).requireItemCount(target, 8);
   }
 
   @Test
-  public void should_call_selectItems_with_Range_in_driver_and_return_self() {
+  public void should_Call_SelectItems_With_Range_In_Driver_And_Return_Self() {
     assertThat(fixture.selectItems(from(6), to(8))).isSameAs(fixture);
     verify(driver).selectItems(target, from(6), to(8));
   }
 
   @Test
-  public void should_call_selectItems_with_indices_in_driver_and_return_self() {
+  public void should_Call_SelectItems_With_Indices_In_Driver_And_Return_Self() {
     int[] indices = { 6, 7, 8 };
     assertThat(fixture.selectItems(indices)).isSameAs(fixture);
     verify(driver).selectItems(target, indices);
   }
 
   @Test
-  public void should_call_selectItems_with_text_in_driver_and_return_self() {
+  public void should_Call_SelectItems_With_Text_In_Driver_And_Return_Self() {
     String[] items = { "Six", "Seven", "Eight" };
     assertThat(fixture.selectItems(items)).isSameAs(fixture);
     verify(driver).selectItems(target, items);
   }
 
   @Test
-  public void should_call_selectItems_with_Patterns_in_driver_and_return_self() {
+  public void should_Call_SelectItems_With_Patterns_In_Driver_And_Return_Self() {
     Pattern[] patterns = { Pattern.compile("six") };
     assertThat(fixture.selectItems(patterns)).isSameAs(fixture);
     verify(driver).selectItems(target, patterns);
   }
 
   @Test
-  public void should_call_clickItem_with_index_in_driver_and_return_self() {
+  public void should_Call_ClickItem_With_Index_In_Driver_And_Return_Self() {
     assertThat(fixture.clickItem(6)).isSameAs(fixture);
     verify(driver).clickItem(target, 6, LEFT_BUTTON, 1);
   }
 
   @Test
-  public void should_call_clickItem_with_text_in_driver_and_return_self() {
+  public void should_Call_ClickItem_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.clickItem("Six")).isSameAs(fixture);
     verify(driver).clickItem(target, "Six", LEFT_BUTTON, 1);
   }
 
   @Test
-  public void should_call_clickItem_with_pattern_in_driver_and_return_self() {
+  public void should_Call_ClickItem_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Six");
     assertThat(fixture.clickItem(pattern)).isSameAs(fixture);
     verify(driver).clickItem(target, pattern, LEFT_BUTTON, 1);
   }
 
   @Test
-  public void should_call_clickItem_with_index_MouseButton_and_times_in_driver() {
+  public void should_Call_ClickItem_With_Index_MouseButton_And_Times_In_Driver() {
     fixture.clickItem(6, MIDDLE_BUTTON, 2);
     verify(driver).clickItem(target, 6, MIDDLE_BUTTON, 2);
   }
 
   @Test
-  public void should_call_requireSelectedItems_with_indices_in_driver_and_return_self() {
+  public void should_Call_RequireSelectedItems_With_Indices_In_Driver_And_Return_Self() {
     int[] indices = { 6, 7, 8 };
     assertThat(fixture.requireSelectedItems(indices)).isSameAs(fixture);
     verify(driver).requireSelectedItems(target, indices);
   }
 
   @Test
-  public void should_call_requireSelectedItems_with_text_in_driver_and_return_self() {
+  public void should_Call_RequireSelectedItems_With_Text_In_Driver_And_Return_Self() {
     String[] items = { "Six", "Seven", "Eight" };
     assertThat(fixture.requireSelectedItems(items)).isSameAs(fixture);
     verify(driver).requireSelectedItems(target, items);
   }
 
   @Test
-  public void should_call_requireSelectedItems_with_Patterns_in_driver_and_return_self() {
+  public void should_Call_RequireSelectedItems_With_Patterns_In_Driver_And_Return_Self() {
     Pattern[] patterns = { Pattern.compile("six") };
     assertThat(fixture.requireSelectedItems(patterns)).isSameAs(fixture);
     verify(driver).requireSelectedItems(target, patterns);
   }
 
   @Test
-  public void should_call_drag_with_index_in_driver_and_return_self() {
+  public void should_Call_Drag_With_Index_In_Driver_And_Return_Self() {
     assertThat(fixture.drag(6)).isSameAs(fixture);
     verify(driver).drag(target, 6);
   }
 
   @Test
-  public void should_call_drag_with_text_in_driver_and_return_self() {
+  public void should_Call_Drag_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.drag("Six")).isSameAs(fixture);
     verify(driver).drag(target, "Six");
   }
 
   @Test
-  public void should_call_drag_with_pattern_in_driver_and_return_self() {
+  public void should_Call_Drag_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Six");
     assertThat(fixture.drag(pattern)).isSameAs(fixture);
     verify(driver).drag(target, pattern);
   }
 
   @Test
-  public void should_call_drop_with_index_in_driver_and_return_self() {
+  public void should_Call_Drop_With_Index_In_Driver_And_Return_Self() {
     assertThat(fixture.drop(6)).isSameAs(fixture);
     verify(driver).drop(target, 6);
   }
 
   @Test
-  public void should_call_drop_with_text_in_driver_and_return_self() {
+  public void should_Call_Drop_With_Text_In_Driver_And_Return_Self() {
     assertThat(fixture.drop("Six")).isSameAs(fixture);
     verify(driver).drop(target, "Six");
   }
 
   @Test
-  public void should_call_drop_with_pattern_in_driver_and_return_self() {
+  public void should_Call_Drop_With_Pattern_In_Driver_And_Return_Self() {
     Pattern pattern = Pattern.compile("Six");
     assertThat(fixture.drop(pattern)).isSameAs(fixture);
     verify(driver).drop(target, pattern);
   }
 
   @Test
-  public void should_show_JPopupMenu_with_index_using_driver() {
+  public void should_Show_JPopupMenu_With_Index_Using_Driver() {
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     when(driver.showPopupMenu(target, 6)).thenReturn(popupMenu);
     JPopupMenuFixture popupMenuFixture = fixture.showPopupMenuAt(6);
@@ -267,7 +267,7 @@ public class JListFixture_withMocks_Test {
   }
 
   @Test
-  public void should_show_JPopupMenu_with_text_using_driver() {
+  public void should_Show_JPopupMenu_With_Text_Using_Driver() {
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     when(driver.showPopupMenu(target, "Six")).thenReturn(popupMenu);
     JPopupMenuFixture popupMenuFixture = fixture.showPopupMenuAt("Six");
@@ -276,7 +276,7 @@ public class JListFixture_withMocks_Test {
   }
 
   @Test
-  public void should_show_JPopupMenu_with_pattern_using_driver() {
+  public void should_Show_JPopupMenu_With_Pattern_Using_Driver() {
     Pattern pattern = Pattern.compile("Six");
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     when(driver.showPopupMenu(target, pattern)).thenReturn(popupMenu);
@@ -286,7 +286,7 @@ public class JListFixture_withMocks_Test {
   }
 
   @Test
-  public void should_call_replaceCellReader_in_driver() {
+  public void should_Call_ReplaceCellReader_In_Driver() {
     JListCellReader cellReader = mock(JListCellReader.class);
     fixture.replaceCellReader(cellReader);
     verify(fixture.driver()).replaceCellReader(cellReader);

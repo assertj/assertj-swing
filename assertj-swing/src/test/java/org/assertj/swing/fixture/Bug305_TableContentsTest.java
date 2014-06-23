@@ -52,7 +52,7 @@ public class Bug305_TableContentsTest extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_table_contents() {
+  public void should_Return_Table_Contents() {
     String[][] contents = fixture.contents();
     assertThat(contents.length).isEqualTo(5);
     assertThat(contents[0].length).isEqualTo(5);
@@ -84,7 +84,7 @@ public class Bug305_TableContentsTest extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_pass_if_content_is_equal_to_expected() {
+  public void should_Pass_If_Content_Is_Equal_To_Expected() {
     String[][] contents = new String[][] { { "Mary", "Campione", "Snowboarding", "5", "false" },
         { "Alison", "Huml", "Rowing", "3", "true" }, { "Kathy", "Walrath", "Knitting", "2", "false" },
         { "Sharon", "Zakhour", "Speed reading", "20", "true" }, { "Philip", "Milne", "Pool", "10", "false" } };
@@ -92,7 +92,7 @@ public class Bug305_TableContentsTest extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_content_not_equal_to_expected() {
+  public void should_Fail_If_Content_Not_Equal_To_Expected() {
     thrown.expectAssertionError("property:'contents'");
     thrown.expectMessageToContain("expected:<[['hello']]>", concat("but was<", format(fixture.contents()), ">"));
     fixture.requireContents(new String[][] { { "hello" } });

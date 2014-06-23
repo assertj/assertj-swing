@@ -58,7 +58,7 @@ public class FEST103_modifierNotBeingPressed_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_press_key_and_modifier() {
+  public void should_Press_Key_And_Modifier() {
     frameFixture.moveToFront(); // ensure the window is active
     robot.pressAndReleaseKey(VK_M, CTRL_MASK);
     JOptionPaneFixture optionPane = findOptionPane().using(robot);
@@ -66,7 +66,7 @@ public class FEST103_modifierNotBeingPressed_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_press_shift_as_modifier() {
+  public void should_Press_Shift_As_Modifier() {
     frameFixture.moveToFront();
     robot.focus(window.textField);
     robot.pressAndReleaseKey(VK_A, SHIFT_MASK);

@@ -48,20 +48,20 @@ public class Actions_findActionKey_Test {
   }
 
   @Test
-  public void should_return_given_name_if_equal_to_key() {
+  public void should_Return_Given_Name_If_Equal_To_Key() {
     Object found = Actions.findActionKey("key", map);
     assertThat(found).isEqualTo("key");
   }
 
   @Test
-  public void should_return_key_if_action_name_is_equal_to_given_name() {
+  public void should_Return_Key_If_Action_Name_Is_Equal_To_Given_Name() {
     when(action.getValue(NAME)).thenReturn("name");
     Object found = Actions.findActionKey("name", map);
     assertThat(found).isEqualTo("key");
   }
 
   @Test
-  public void should_throw_error_if_key_not_found() {
+  public void should_Throw_Error_If_Key_Not_Found() {
     when(action.getValue(NAME)).thenReturn("name");
     thrown.expect(ActionFailedException.class, "The action 'someName' is not available, available actions:['key']");
     Object found = Actions.findActionKey("someName", map);

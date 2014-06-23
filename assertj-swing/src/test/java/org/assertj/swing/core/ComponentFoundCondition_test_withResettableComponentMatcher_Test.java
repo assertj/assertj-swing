@@ -54,14 +54,14 @@ public class ComponentFoundCondition_test_withResettableComponentMatcher_Test ex
   }
 
   @Test
-  public void should_reset_matcher_when_match_not_found() {
+  public void should_Reset_Matcher_When_Match_Not_Found() {
     when(finder.find(root, matcher)).thenThrow(new ComponentLookupException("Thrown on purpose"));
     condition.test();
     verify(matcher).reset(false);
   }
 
   @Test
-  public void should_reset_matcher_when_match_found() {
+  public void should_Reset_Matcher_When_Match_Found() {
     when(finder.find(root, matcher)).thenReturn(singletonComponentMock());
     condition.test();
     verify(matcher).reset(true);

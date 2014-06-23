@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class RobotEventGenerator_rotateWheel_Test extends RobotEventGenerator_TestCase {
   @Test
-  public void should_rotate_mouse_wheel() {
+  public void should_Rotate_Mouse_Wheel() {
     int amount = 8;
     eventGenerator.rotateMouseWheel(amount);
     verify(robot).mouseWheel(amount);

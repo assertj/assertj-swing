@@ -40,7 +40,7 @@ public class Bug225_pressF2ToStartEditingTableCell_Test extends RobotBasedTestCa
   }
 
   @Test
-  public void should_edit_cell() {
+  public void should_Edit_Cell() {
     int row = 4;
     int col = 3;
     writer.enterValue(window.table, row, col, "8");

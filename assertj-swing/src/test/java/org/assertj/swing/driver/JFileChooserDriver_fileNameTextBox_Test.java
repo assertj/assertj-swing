@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class JFileChooserDriver_fileNameTextBox_Test extends JFileChooserDriver_TestCase {
   @Test
-  public void should_find_fileName_TextBox() {
+  public void should_Find_FileName_TextBox() {
     // TODO(Alex): Test in Windows
     showWindow();
     JTextField fileNameTextBox = driver.fileNameTextBox(fileChooser);

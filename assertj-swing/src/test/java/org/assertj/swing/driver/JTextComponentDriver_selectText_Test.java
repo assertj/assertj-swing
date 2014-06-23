@@ -58,7 +58,7 @@ public class JTextComponentDriver_selectText_Test extends JTextComponentDriver_T
   }
 
   @Test
-  public void should_select_given_text() {
+  public void should_Select_Given_Text() {
     showWindow();
     setTextFieldText("Hello World");
     driver.selectText(textField, "llo W");
@@ -66,7 +66,7 @@ public class JTextComponentDriver_selectText_Test extends JTextComponentDriver_T
   }
 
   @Test
-  public void should_scroll_to_text_to_select() {
+  public void should_Scroll_To_Text_To_Select() {
     showWindow();
     updateTextTo(scrollToViewTextField, "one two three four five six seven eight nine ten");
     driver.selectText(scrollToViewTextField, "ten");
@@ -80,14 +80,14 @@ public class JTextComponentDriver_selectText_Test extends JTextComponentDriver_T
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_disabled() {
+  public void should_Throw_Error_If_JTextComponent_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectText(textField, "llo W");
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTextComponent_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectText(textField, "llo W");
   }

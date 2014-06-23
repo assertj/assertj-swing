@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JTabbedPaneDriver_tabTitles_Test extends JTabbedPaneDriver_TestCase {
   @Test
-  public void should_return_tab_titles() {
+  public void should_Return_Tab_Titles() {
     assertThat(driver.tabTitles(tabbedPane)).isEqualTo(array("One", "Two"));
   }
 }

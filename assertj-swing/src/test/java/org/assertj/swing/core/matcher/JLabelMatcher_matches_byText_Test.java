@@ -29,21 +29,21 @@ import org.junit.Test;
  */
 public class JLabelMatcher_matches_byText_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_text_is_equal_to_expected() {
+  public void should_Return_True_If_Text_Is_Equal_To_Expected() {
     JLabelMatcher matcher = JLabelMatcher.withText("Hello");
     JLabel label = label().withText("Hello").createNew();
     assertThat(matcher.matches(label)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_text_matches_pattern() {
+  public void should_Return_True_If_Text_Matches_Pattern() {
     JLabelMatcher matcher = JLabelMatcher.withText("He.*");
     JLabel label = label().withText("Hello").createNew();
     assertThat(matcher.matches(label)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_text_is_not_equal_to_expected() {
+  public void should_Return_False_If_Text_Is_Not_Equal_To_Expected() {
     JLabelMatcher matcher = JLabelMatcher.withText("Hello");
     JLabel label = label().withText("Bye").createNew();
     assertThat(matcher.matches(label)).isFalse();

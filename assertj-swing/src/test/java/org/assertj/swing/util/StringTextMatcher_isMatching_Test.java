@@ -25,19 +25,19 @@ import org.junit.Test;
  */
 public class StringTextMatcher_isMatching_Test {
   @Test
-  public void should_return_true_if_text_is_equal_to_any_value() {
+  public void should_Return_True_If_Text_Is_Equal_To_Any_Value() {
     StringTextMatcher matcher = new StringTextMatcher("hello", "world");
     assertThat(matcher.isMatching("world")).isTrue();
   }
 
   @Test
-  public void should_return_true_if_text_matches_any_value_as_pattern() {
+  public void should_Return_True_If_Text_Matches_Any_Value_As_Pattern() {
     StringTextMatcher matcher = new StringTextMatcher("hell.*", "world");
     assertThat(matcher.isMatching("hello")).isTrue();
   }
 
   @Test
-  public void should_return_false_if_text_does_not_match_any_value() {
+  public void should_Return_False_If_Text_Does_Not_Match_Any_Value() {
     StringTextMatcher matcher = new StringTextMatcher("hell.*", "world");
     assertThat(matcher.isMatching("bye")).isFalse();
   }

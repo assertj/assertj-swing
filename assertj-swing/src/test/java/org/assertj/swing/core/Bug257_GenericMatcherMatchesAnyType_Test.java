@@ -34,7 +34,7 @@ import org.junit.Test;
  */
 public class Bug257_GenericMatcherMatchesAnyType_Test extends EDTSafeTestCase {
   @Test
-  public void should_not_match_Components_other_than_specified() {
+  public void should_Not_Match_Components_Other_Than_Specified() {
     Class<JDialog> typeToMatch = JDialog.class;
     GenericTypeMatcher<JDialog> matcher = new ExtendedGenericTypeMatcher<JDialog>(typeToMatch);
     assertThat(matcher.matches(textField().createNew())).isFalse();

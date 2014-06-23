@@ -65,13 +65,13 @@ public class ScreenshotTaker_saveComponentAsPng_Test extends SequentialEDTSafeTe
   }
 
   @Test
-  public void should_take_screenshot_of_Window_and_save_it_in_given_path() throws Exception {
+  public void should_Take_Screenshot_Of_Window_And_Save_It_In_Given_Path() throws Exception {
     taker.saveComponentAsPng(window, imagePath);
     assertThat(readImageFrom(imagePath)).hasSize(sizeOf(window));
   }
 
   @Test
-  public void should_take_screenshot_of_Component_and_save_it_in_given_path() throws Exception {
+  public void should_Take_Screenshot_Of_Component_And_Save_It_In_Given_Path() throws Exception {
     taker.saveComponentAsPng(window.button, imagePath);
     assertThat(readImageFrom(imagePath)).hasSize(sizeOf(window.button));
   }

@@ -29,12 +29,12 @@ import org.junit.Test;
  */
 public class JTableHeaderFixture_constructor_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Robot_is_null() {
+  public void should_Throw_Error_If_Robot_Is_Null() {
     new JTableHeaderFixture(null, mock(JTableHeader.class));
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_target_is_null() {
+  public void should_Throw_Error_If_Target_Is_Null() {
     new JTableHeaderFixture(singletonRobotMock(), null);
   }
 }

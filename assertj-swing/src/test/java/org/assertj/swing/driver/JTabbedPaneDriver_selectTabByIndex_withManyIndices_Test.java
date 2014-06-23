@@ -43,7 +43,7 @@ public class JTabbedPaneDriver_selectTabByIndex_withManyIndices_Test extends JTa
   }
 
   @Test
-  public void should_select_tab() {
+  public void should_Select_Tab() {
     showWindow();
     driver.selectTab(tabbedPane, index);
     assertThatSelectedTabIndexIs(index);

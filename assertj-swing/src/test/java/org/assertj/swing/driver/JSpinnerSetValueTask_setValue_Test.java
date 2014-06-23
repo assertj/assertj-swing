@@ -53,7 +53,7 @@ public class JSpinnerSetValueTask_setValue_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_set_value() {
+  public void should_Set_Value() {
     robot.showWindow(window);
     String value = "Three";
     spinner.startRecording();
@@ -64,7 +64,7 @@ public class JSpinnerSetValueTask_setValue_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_disabled() {
+  public void should_Throw_Error_If_JSpinner_Is_Disabled() {
     disable(spinner);
     robot.waitForIdle();
     thrown.expectIllegalStateIsDisabledComponent();
@@ -72,7 +72,7 @@ public class JSpinnerSetValueTask_setValue_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_throw_error_if_JSpinner_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JSpinner_Is_Not_Showing_On_The_Screen() {
     hide(window);
     robot.waitForIdle();
     thrown.expectIllegalStateIsNotShowingComponent();

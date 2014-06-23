@@ -29,7 +29,7 @@ import org.w3c.dom.Element;
 public class XmlNode_addNewNodeWithAttributes_Test extends XmlNode_TestCase {
 
   @Test
-  public void should_add_new_child_node() {
+  public void should_Add_New_Child_Node() {
     XmlNode newNode = node.addNewNode("new", attributes(name("name1").value("value1"), name("name2").value("value2")));
     Element child = newNode.target();
     assertThat(nameOf(child)).isEqualTo("new");

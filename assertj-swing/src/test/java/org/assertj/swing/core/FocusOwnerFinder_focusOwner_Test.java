@@ -52,7 +52,7 @@ public class FocusOwnerFinder_focusOwner_Test {
   }
 
   @Test
-  public void should_try_next_strategy_if_focus_owner_not_found() {
+  public void should_Try_Next_Strategy_If_Focus_Owner_Not_Found() {
     Component focusOwner = JLabels.label().createNew();
     when(strategy1.focusOwner()).thenThrow(new RuntimeException());
     when(strategy2.focusOwner()).thenReturn(focusOwner);
@@ -60,7 +60,7 @@ public class FocusOwnerFinder_focusOwner_Test {
   }
 
   @Test
-  public void should_return_null_if_strategies_do_not_find_focus_owner() {
+  public void should_Return_Null_If_Strategies_Do_Not_Find_Focus_Owner() {
     when(strategy1.focusOwner()).thenThrow(new RuntimeException());
     when(strategy2.focusOwner()).thenThrow(new RuntimeException());
     assertThat(FocusOwnerFinder.focusOwner()).isNull();

@@ -50,7 +50,7 @@ public class FEST119_cannotSelectCellInJTreeIfRootIsInvisible_Test extends Robot
   }
 
   @Test
-  public void should_select_cell_when_root_in_JTree_is_invisible() {
+  public void should_Select_Cell_When_Root_In_JTree_Is_Invisible() {
     JTreeFixture treeFixture = frameFixture.tree();
     treeFixture.selectPath("branch1");
     treeFixture.requireSelection(0);

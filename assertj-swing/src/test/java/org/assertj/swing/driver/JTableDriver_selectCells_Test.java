@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JTableDriver_selectCells_Test extends JTableDriver_TestCase {
   @Test
-  public void should_select_cells() {
+  public void should_Select_Cells() {
     enableMultipleSelection();
     showWindow();
     driver.selectCells(table, array(row(0).column(0), row(2).column(0)));
@@ -36,7 +36,7 @@ public class JTableDriver_selectCells_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  public void should_select_cell() {
+  public void should_Select_Cell() {
     enableMultipleSelection();
     showWindow();
     driver.selectCells(table, array(row(0).column(0)));
@@ -44,14 +44,14 @@ public class JTableDriver_selectCells_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JTable_is_disabled() {
+  public void should_Throw_Error_If_JTable_Is_Disabled() {
     disableTable();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectCells(table, array(row(0).column(0), row(2).column(0)));
   }
 
   @Test
-  public void should_throw_error_if_JTable_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTable_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectCells(table, array(row(0).column(0), row(2).column(0)));
   }

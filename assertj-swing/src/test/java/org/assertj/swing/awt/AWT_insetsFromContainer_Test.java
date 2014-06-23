@@ -38,7 +38,7 @@ public class AWT_insetsFromContainer_Test {
   private static final Insets EMPTY_INSETS = new Insets(0, 0, 0, 0);
 
   @Test
-  public void should_return_insets_from_container() {
+  public void should_Return_Insets_From_Container() {
     Robot robot = robotWithNewAwtHierarchy();
     TestWindow window = TestWindow.createNewWindow(getClass());
     try {
@@ -51,13 +51,13 @@ public class AWT_insetsFromContainer_Test {
   }
 
   @Test
-  public void should_return_empty_insets_if_exception_thrown() {
+  public void should_Return_Empty_Insets_If_Exception_Thrown() {
     Insets insets = insetsFrom(null);
     assertThat(insets).isEqualTo(EMPTY_INSETS);
   }
 
   @Test
-  public void should_return_empty_insets_if_container_insets_is_null() {
+  public void should_Return_Empty_Insets_If_Container_Insets_Is_Null() {
     TestWindow window = WindowWithNullInsets.createNew();
     Insets insets = insetsFrom(window);
     assertThat(insets).isEqualTo(EMPTY_INSETS);

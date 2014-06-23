@@ -29,21 +29,21 @@ import org.junit.Test;
  */
 public class JOptionPaneDriver_requireMessageByPattern_Test extends JOptionPaneDriver_TestCase {
   @Test
-  public void should_pass_if_message_matches_pattern() {
+  public void should_Pass_If_Message_Matches_Pattern() {
     JOptionPane optionPane = messageWithValue("Leia");
     pack(optionPane, title());
     driver.requireMessage(optionPane, Pattern.compile("Le.*"));
   }
 
   @Test
-  public void should_pass_if_non_String_message_is_equal_to_expected() {
+  public void should_Pass_If_Non_String_Message_Is_Equal_To_Expected() {
     JOptionPane optionPane = messageWithValue(new Person("Leia"));
     pack(optionPane, title());
     driver.requireMessage(optionPane, Pattern.compile("Le.*"));
   }
 
   @Test
-  public void should_fail_is_message_does_match_pattern() {
+  public void should_Fail_Is_Message_Does_Match_Pattern() {
     JOptionPane optionPane = messageWithValue("Palpatine");
     pack(optionPane, title());
     thrown.expectAssertionError("message", "Palpatine", Pattern.compile("Anakin"));

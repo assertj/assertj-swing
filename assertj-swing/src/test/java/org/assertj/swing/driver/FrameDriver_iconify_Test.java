@@ -23,14 +23,14 @@ import org.junit.Test;
  */
 public class FrameDriver_iconify_Test extends FrameDriver_TestCase {
   @Test
-  public void should_throw_error_if_Frame_is_disabled() {
+  public void should_Throw_Error_If_Frame_Is_Disabled() {
     disableWindow();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.iconify(window);
   }
 
   @Test
-  public void should_throw_error_if_Frame_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Frame_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.iconify(window);
   }

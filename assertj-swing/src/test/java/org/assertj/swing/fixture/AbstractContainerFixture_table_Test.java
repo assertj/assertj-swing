@@ -51,14 +51,14 @@ public class AbstractContainerFixture_table_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JTable_by_name() {
+  public void should_Find_Visible_JTable_By_Name() {
     robot.showWindow(window);
     JTableFixture table = fixture.table("myTable");
     assertThat(table.target()).isSameAs(window.table);
   }
 
   @Test
-  public void should_fail_if_visible_JTable_not_found_by_name() {
+  public void should_Fail_If_Visible_JTable_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='someTable', type=javax.swing.JTable, requireShowing=true");
@@ -66,14 +66,14 @@ public class AbstractContainerFixture_table_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JTable_by_type() {
+  public void should_Find_Visible_JTable_By_Type() {
     robot.showWindow(window);
     JTableFixture table = fixture.table();
     assertThat(table.target()).isSameAs(window.table);
   }
 
   @Test
-  public void should_fail_if_visible_JTable_not_found_by_type() {
+  public void should_Fail_If_Visible_JTable_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JTable, requireShowing=true");
@@ -81,7 +81,7 @@ public class AbstractContainerFixture_table_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JTable_by_Matcher() {
+  public void should_Find_Visible_JTable_By_Matcher() {
     robot.showWindow(window);
     JTableFixture table = fixture.table(new GenericTypeMatcher<JTable>(JTable.class) {
       @Override
@@ -93,7 +93,7 @@ public class AbstractContainerFixture_table_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_visible_JTable_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JTable_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher");
     fixture.table(neverMatches(JTable.class));

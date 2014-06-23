@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class JTableCancelCellEditingTask_cancelEditing_withEditor_Test {
   @Test
-  public void should_not_throw_error_if_cell_editor_is_null() {
+  public void should_Not_Throw_Error_If_Cell_Editor_Is_Null() {
     JTableCancelCellEditingTask.cancelEditing(null);
   }
 }

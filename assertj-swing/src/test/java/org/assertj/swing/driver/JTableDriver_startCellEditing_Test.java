@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class JTableDriver_startCellEditing_Test extends JTableDriver_withMockCellWriter_TestCase {
   @Test
-  public void should_start_cell_editing() {
+  public void should_Start_Cell_Editing() {
     driver.startCellEditing(table, row(0).column(0));
     verify(cellWriter).startCellEditing(table, 0, 0);
   }

@@ -29,37 +29,37 @@ import org.junit.Test;
  */
 public class Pause_pauseWithConditionsAndTimeoutInTimeUnit_Test {
   @Test(expected = WaitTimedOutError.class)
-  public void should_timeout_if_Conditions_are_never_satisfied() {
+  public void should_Timeout_If_Conditions_Are_Never_Satisfied() {
     Pause.pause(new Condition[] { new NeverSatisfiedCondition(), new NeverSatisfiedCondition() }, timeout(1000));
   }
 
   @Test(expected = WaitTimedOutError.class)
-  public void should_timeout_if_one_Condition_is_never_satisfied() {
+  public void should_Timeout_If_One_Condition_Is_Never_Satisfied() {
     Pause.pause(new Condition[] { new SatisfiedCondition(10), new NeverSatisfiedCondition() }, timeout(1000));
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Condition_array_is_null() {
+  public void should_Throw_Error_If_Condition_Array_Is_Null() {
     Pause.pause((Condition) null, timeout(1000));
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_Condition_array_is_empty() {
+  public void should_Throw_Error_If_Condition_Array_Is_Empty() {
     Pause.pause(new Condition[0], timeout(1000));
   }
 
   @Test(expected = WaitTimedOutError.class, timeout = 1100)
-  public void should_timeout_if_Conditions_together_run_longer_than_timeout() {
+  public void should_Timeout_If_Conditions_Together_Run_Longer_Than_Timeout() {
     Pause.pause(new Condition[] { new SatisfiedCondition(1000), new SatisfiedCondition(1000) }, timeout(1000));
   }
 
   @Test(expected = WaitTimedOutError.class, timeout = 1100)
-  public void should_timeout_if_any_Condition_runs_longer_than_timeout() {
+  public void should_Timeout_If_Any_Condition_Runs_Longer_Than_Timeout() {
     Pause.pause(new Condition[] { new SatisfiedCondition(10000) }, timeout(1000));
   }
 
   @Test
-  public void should_wait_till_Conditions_are_satisfied() {
+  public void should_Wait_Till_Conditions_Are_Satisfied() {
     int timeToWaitTillSatisfied = 1000;
     SatisfiedCondition one = new SatisfiedCondition(timeToWaitTillSatisfied);
     SatisfiedCondition two = new SatisfiedCondition(timeToWaitTillSatisfied);
@@ -72,18 +72,18 @@ public class Pause_pauseWithConditionsAndTimeoutInTimeUnit_Test {
   }
 
   @Test(expected = NumberFormatException.class)
-  public void should_throw_error_if_any_Condition_throws_any() {
+  public void should_Throw_Error_If_Any_Condition_Throws_Any() {
     NumberFormatException thrownException = new NumberFormatException("expected");
     Pause.pause(new Condition[] { new RuntimeExceptionCondition(thrownException) }, timeout(1000));
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_any_Condition_in_array_is_null() {
+  public void should_Throw_Error_If_Any_Condition_In_Array_Is_Null() {
     Pause.pause(new Condition[] { new NeverSatisfiedCondition(), null }, timeout(1000));
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_timeout_is_null() {
+  public void should_Throw_Error_If_Timeout_Is_Null() {
     Pause.pause(new Condition[] { new NeverSatisfiedCondition() }, null);
   }
 }

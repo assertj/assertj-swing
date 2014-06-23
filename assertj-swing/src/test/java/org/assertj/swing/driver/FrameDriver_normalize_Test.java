@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class FrameDriver_normalize_Test extends FrameDriver_TestCase {
   @Test
-  public void should_normalize_Frame() {
+  public void should_Normalize_Frame() {
     showWindow();
     window.setExtendedState(MAXIMIZED_BOTH);
     driver.normalize(window);
@@ -35,14 +35,14 @@ public class FrameDriver_normalize_Test extends FrameDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_Frame_is_disabled() {
+  public void should_Throw_Error_If_Frame_Is_Disabled() {
     disableWindow();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.normalize(window);
   }
 
   @Test
-  public void should_throw_error_if_Frame_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Frame_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.normalize(window);
   }

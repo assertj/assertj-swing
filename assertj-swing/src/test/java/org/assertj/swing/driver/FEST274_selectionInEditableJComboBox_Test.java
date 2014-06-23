@@ -44,7 +44,7 @@ public class FEST274_selectionInEditableJComboBox_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_return_selected_item_in_editable_JComboBox_if_selected_index_is_negative_one() {
+  public void should_Return_Selected_Item_In_Editable_JComboBox_If_Selected_Index_Is_Negative_One() {
     driver.enterText(comboBox, "Four");
     driver.pressAndReleaseKeys(comboBox, VK_ENTER);
     driver.requireSelection(comboBox, "Four");

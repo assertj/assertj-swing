@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class FEST137_SelectAllOnDoubleClickInJTextComponent_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_select_all_text_on_double_click() {
+  public void should_Select_All_Text_On_Double_Click() {
     setTextFieldText("Hello");
     showWindow();
     driver.doubleClick(textField);

@@ -32,7 +32,7 @@ public class RgbColor_color_with_single_RGB_Test {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_decompose_single_value_into_individual_RGB_values() {
+  public void should_Decompose_Single_Value_Into_Individual_RGB_Values() {
     RgbColor color = RgbColor.color(0x69FC62);
     assertEquals(105, color.r);
     assertEquals(252, color.g);

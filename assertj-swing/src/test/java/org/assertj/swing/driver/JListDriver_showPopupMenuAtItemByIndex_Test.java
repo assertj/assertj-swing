@@ -34,7 +34,7 @@ public class JListDriver_showPopupMenuAtItemByIndex_Test extends JListDriver_sho
   public ClickRecorderManager clickRecorder = new ClickRecorderManager();
 
   @Test
-  public void should_show_popup_menu_at_item_with_given_index() {
+  public void should_Show_Popup_Menu_At_Item_With_Given_Index() {
     showWindow();
     driver.click(list);
     ToolkitClickRecorder recorder = clickRecorder.attachToToolkitFor(list);
@@ -45,14 +45,14 @@ public class JListDriver_showPopupMenuAtItemByIndex_Test extends JListDriver_sho
   }
 
   @Test
-  public void should_throw_error_if_JList_is_disabled() {
+  public void should_Throw_Error_If_JList_Is_Disabled() {
     disableList();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.showPopupMenu(list, 0);
   }
 
   @Test
-  public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JList_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.showPopupMenu(list, "o.*");
   }

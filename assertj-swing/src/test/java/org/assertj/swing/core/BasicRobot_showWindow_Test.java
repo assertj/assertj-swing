@@ -57,7 +57,7 @@ public class BasicRobot_showWindow_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_throw_error_if_window_never_shown() {
+  public void should_Throw_Error_If_Window_Never_Shown() {
     AlwaysInvisibleFrame window = AlwaysInvisibleFrame.createNew();
     LOGGER.info(concat("Waiting for ", AlwaysInvisibleFrame.class.getSimpleName(), " to show up"));
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for Window to open");

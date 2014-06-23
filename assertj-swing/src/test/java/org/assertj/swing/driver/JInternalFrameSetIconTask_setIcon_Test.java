@@ -42,7 +42,7 @@ public class JInternalFrameSetIconTask_setIcon_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_iconify_and_deiconify_JInternalFrame() {
+  public void should_Iconify_And_Deiconify_JInternalFrame() {
     assertThat(isIcon(internalFrame)).isFalse();
     iconify();
     robot.waitForIdle();

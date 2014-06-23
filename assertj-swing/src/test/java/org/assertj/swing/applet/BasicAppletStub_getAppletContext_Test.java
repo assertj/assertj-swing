@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class BasicAppletStub_getAppletContext_Test extends BasicAppletStub_TestCase {
   @Test
-  public void should_return_context() {
+  public void should_Return_Context() {
     assertThat(stub.getAppletContext()).isSameAs(context);
   }
 }

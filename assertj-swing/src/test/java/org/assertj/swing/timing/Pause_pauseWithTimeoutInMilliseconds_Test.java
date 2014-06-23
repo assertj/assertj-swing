@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class Pause_pauseWithTimeoutInMilliseconds_Test {
   @Test
-  public void should_pause_for_the_given_amount_of_time() {
+  public void should_Pause_For_The_Given_Amount_Of_Time() {
     StopWatch watch = startNewStopWatch();
     long delay = 2000;
     Pause.pause(delay);

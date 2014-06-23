@@ -51,7 +51,7 @@ public class BasicRobot_clickComponentWithButton_Test extends BasicRobot_ClickTe
   }
 
   @Test
-  public void should_click_Component_Once_with_given_button() {
+  public void should_Click_Component_Once_With_Given_Button() {
     JTextField textField = window().textField();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
     robot().click(textField, button);

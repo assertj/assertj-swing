@@ -60,7 +60,7 @@ public class JTextComponentEditableQuery_isEditable_Test extends RobotBasedTestC
   }
 
   @Test
-  public void should_indicate_if_JTextComponent_is_editable() {
+  public void should_Indicate_If_JTextComponent_Is_Editable() {
     setTextFieldEditable(textField, editable);
     robot.waitForIdle();
     textField.startRecording();

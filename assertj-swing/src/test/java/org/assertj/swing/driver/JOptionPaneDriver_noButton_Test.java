@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JOptionPaneDriver_noButton_Test extends JOptionPaneDriver_TestCase {
   @Test
-  public void should_find_No_button() {
+  public void should_Find_No_Button() {
     JOptionPane optionPane = confirmMessage();
     launch(optionPane, title());
     JButton button = driver.noButton(optionPane);

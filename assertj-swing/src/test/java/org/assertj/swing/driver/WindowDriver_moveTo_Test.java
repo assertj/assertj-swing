@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class WindowDriver_moveTo_Test extends WindowDriver_TestCase {
   @Test
-  public void should_move_Window() {
+  public void should_Move_Window() {
     showWindow();
     Point newPosition = new Point(200, 200);
     driver.moveTo(window, newPosition);
@@ -36,14 +36,14 @@ public class WindowDriver_moveTo_Test extends WindowDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_Window_is_disabled() {
+  public void should_Throw_Error_If_Window_Is_Disabled() {
     disableWindow();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.moveTo(window, new Point(100, 100));
   }
 
   @Test
-  public void should_throw_error_if_Window_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Window_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.moveTo(window, new Point(100, 100));
   }

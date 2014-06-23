@@ -66,7 +66,7 @@ public class JTableCellEditorQuery_cellEditorIn_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_return_editor_component_from_JTable_cell() {
+  public void should_Return_Editor_Component_From_JTable_Cell() {
     int row = 0;
     Component editor = cellEditorIn(table, row, column);
     assertThat(editor).isInstanceOf(editorType);

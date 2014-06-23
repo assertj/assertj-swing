@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JTextComponentTextReader_supportedComponent_Test {
   @Test
-  public void should_return_JTextComponent_class() {
+  public void should_Return_JTextComponent_Class() {
     JTextComponentTextReader reader = new JTextComponentTextReader();
     assertThat(reader.supportedComponent()).isEqualTo(JTextComponent.class);
   }

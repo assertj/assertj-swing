@@ -55,14 +55,14 @@ public class AbstractContainerFixture_toolBar_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JToolBar_by_name() {
+  public void should_Find_Visible_JToolBar_By_Name() {
     robot.showWindow(window);
     JToolBarFixture toolBar = fixture.toolBar("myToolBar");
     assertThat(toolBar.target()).isSameAs(window.toolBar);
   }
 
   @Test
-  public void should_fail_if_visible_JToolBar_not_found_by_name() {
+  public void should_Fail_If_Visible_JToolBar_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myButton', type=javax.swing.JToolBar, requireShowing=true");
@@ -70,14 +70,14 @@ public class AbstractContainerFixture_toolBar_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JToolBar_by_type() {
+  public void should_Find_Visible_JToolBar_By_Type() {
     robot.showWindow(window);
     JToolBarFixture toolBar = fixture.toolBar();
     assertThat(toolBar.target()).isSameAs(window.toolBar);
   }
 
   @Test
-  public void should_fail_if_visible_JToolBar_not_found_by_type() {
+  public void should_Fail_If_Visible_JToolBar_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JToolBar, requireShowing=true");
@@ -85,7 +85,7 @@ public class AbstractContainerFixture_toolBar_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_JToolBar_by_Matcher() {
+  public void should_Find_Visible_JToolBar_By_Matcher() {
     robot.showWindow(window);
     JToolBarFixture toolBar = fixture.toolBar(new GenericTypeMatcher<JToolBar>(JToolBar.class) {
       @Override
@@ -97,7 +97,7 @@ public class AbstractContainerFixture_toolBar_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_fail_if_visible_JToolBar_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JToolBar_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher");
     fixture.toolBar(neverMatches(JToolBar.class));

@@ -51,7 +51,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_find_visible_JFileChooser_by_name() {
+  public void should_Find_Visible_JFileChooser_By_Name() {
     robot.showWindow(window);
     launchFileChooserNow();
     JFileChooserFixture fileChooser = fixture.fileChooser("fileChooser");
@@ -59,7 +59,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_fail_if_visible_JFileChooser_not_found_by_name() {
+  public void should_Fail_If_Visible_JFileChooser_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myFileChooser', type=javax.swing.JFileChooser, requireShowing=true");
@@ -67,7 +67,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_find_visible_JFileChooser_by_name_with_timeout() {
+  public void should_Find_Visible_JFileChooser_By_Name_With_Timeout() {
     robot.showWindow(window);
     launchFileChooser(200);
     JFileChooserFixture fileChooser = fixture.fileChooser("fileChooser", timeout(300));
@@ -75,13 +75,13 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_fail_if_visible_JFileChooser_not_found_by_name_with_timeout() {
+  public void should_Fail_If_Visible_JFileChooser_Not_Found_By_Name_With_Timeout() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for file chooser to be found");
     fixture.fileChooser("fileChooser", timeout(300));
   }
 
   @Test
-  public void should_find_visible_JFileChooser_by_type() {
+  public void should_Find_Visible_JFileChooser_By_Type() {
     robot.showWindow(window);
     launchFileChooserNow();
     JFileChooserFixture fileChooser = fixture.fileChooser();
@@ -89,7 +89,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_fail_if_visible_JFileChooser_not_found_by_type() {
+  public void should_Fail_If_Visible_JFileChooser_Not_Found_By_Type() {
     thrown.expect(WaitTimedOutError.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JFileChooser, requireShowing=true");
@@ -97,7 +97,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_find_visible_JFileChooser_by_type_with_timeout() {
+  public void should_Find_Visible_JFileChooser_By_Type_With_Timeout() {
     robot.showWindow(window);
     launchFileChooser(200);
     JFileChooserFixture fileChooser = fixture.fileChooser(timeout(300));
@@ -105,13 +105,13 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_fail_if_visible_JFileChooser_not_found_by_type_with_timeout() {
+  public void should_Fail_If_Visible_JFileChooser_Not_Found_By_Type_With_Timeout() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for file chooser to be found");
     fixture.fileChooser(timeout(100));
   }
 
   @Test
-  public void should_find_visible_JFileChooser_by_Matcher() {
+  public void should_Find_Visible_JFileChooser_By_Matcher() {
     robot.showWindow(window);
     launchFileChooserNow();
     JFileChooserFixture fileChooser = fixture.fileChooser(new JFileChooserByTitleMatcher());
@@ -119,13 +119,13 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_fail_if_visible_JFileChooser_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JFileChooser_Not_Found_By_Matcher() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for file chooser to be found");
     fixture.fileChooser(new JFileChooserByTitleMatcher());
   }
 
   @Test
-  public void should_find_visible_JFileChooser_by_Matcher_with_timeout() {
+  public void should_Find_Visible_JFileChooser_By_Matcher_With_Timeout() {
     robot.showWindow(window);
     launchFileChooser(200);
     JFileChooserFixture fileChooser = fixture.fileChooser(new JFileChooserByTitleMatcher(), timeout(300));
@@ -133,7 +133,7 @@ public class AbstractContainerFixture_fileChooser_Test extends RobotBasedTestCas
   }
 
   @Test
-  public void should_fail_if_visible_JFileChooser_not_found_by_Matcher_with_timeout() {
+  public void should_Fail_If_Visible_JFileChooser_Not_Found_By_Matcher_With_Timeout() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for file chooser to be found");
     fixture.fileChooser(new JFileChooserByTitleMatcher(), timeout(300));
   }

@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class JTableStopCellEditingTask_stopEditing_byRowAndCol_Test extends JTableCellEditingTask_TestCase {
   @Test
-  public void should_stop_cell_editing() {
+  public void should_Stop_Cell_Editing() {
     int row = 0;
     int col = 1;
     editTableCellAt(row, col);

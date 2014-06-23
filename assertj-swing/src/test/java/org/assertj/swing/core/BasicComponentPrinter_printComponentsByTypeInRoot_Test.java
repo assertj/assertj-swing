@@ -31,18 +31,18 @@ import org.junit.Test;
  */
 public class BasicComponentPrinter_printComponentsByTypeInRoot_Test extends BasicComponentPrinter_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_OutputStream_is_null() {
+  public void should_Throw_Error_If_OutputStream_Is_Null() {
     printer.printComponents(null, JButton.class, windowOne);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_type_to_match_is_null() {
+  public void should_Throw_Error_If_Type_To_Match_Is_Null() {
     Class<? extends Component> type = null;
     printer.printComponents(out, type, windowOne);
   }
 
   @Test
-  public void should_print_all_Components_of_given_type_in_given_root() {
+  public void should_Print_All_Components_Of_Given_Type_In_Given_Root() {
     printer.printComponents(out, JButton.class, windowOne);
     assertThat(out.printed()).containsOnly(format(windowOne.button));
   }

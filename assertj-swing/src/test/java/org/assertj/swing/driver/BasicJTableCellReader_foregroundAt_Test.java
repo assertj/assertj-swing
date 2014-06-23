@@ -38,7 +38,7 @@ import org.junit.Test;
  */
 public class BasicJTableCellReader_foregroundAt_Test extends BasicJTableCellReader_TestCase {
   @Test
-  public void should_return_foreground_from_cellRenderer() {
+  public void should_Return_Foreground_From_CellRenderer() {
     JLabel label = setJLabelAsCellRenderer();
     robot.waitForIdle();
     Color foreground = foregroundAt(reader, table, 0, 0);

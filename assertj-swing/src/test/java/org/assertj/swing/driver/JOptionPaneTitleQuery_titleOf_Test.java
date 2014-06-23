@@ -43,7 +43,7 @@ public class JOptionPaneTitleQuery_titleOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_title_of_JOptionPane() {
+  public void should_Return_Title_Of_JOptionPane() {
     String title = JOptionPaneTitleQuery.titleOf(optionPane);
     assertThat(title).isEqualTo(TITLE);
   }

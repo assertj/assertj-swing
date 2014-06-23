@@ -34,7 +34,7 @@ public class XmlAttribute_value_Test {
   }
 
   @Test
-  public void should_return_value() {
+  public void should_Return_Value() {
     assertThat(attribute.value()).isEqualTo("Anakin");
   }
 }

@@ -26,14 +26,14 @@ import org.junit.Test;
  */
 public class JListDriver_value_Test extends JListDriver_TestCase {
   @Test
-  public void should_return_text_of_item() {
+  public void should_Return_Text_Of_Item() {
     Object text = driver.value(list, 0);
     assertThat(text).isEqualTo("one");
     assertThatCellReaderWasCalled();
   }
 
   @Test
-  public void should_throw_error_if_index_is_out_of_bounds() {
+  public void should_Throw_Error_If_Index_Is_Out_Of_Bounds() {
     thrown.expectIndexOutOfBoundsException("Item index (6) should be between [0] and [2] (inclusive)");
     driver.value(list, 6);
   }

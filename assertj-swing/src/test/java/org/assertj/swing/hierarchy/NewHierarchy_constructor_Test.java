@@ -29,14 +29,14 @@ import org.junit.Test;
  */
 public class NewHierarchy_constructor_Test extends NewHierarchy_TestCase {
   @Test
-  public void should_ignore_existing_Components_and_addTransientWindowListener_to_Toolkit() {
+  public void should_Ignore_Existing_Components_And_AddTransientWindowListener_To_Toolkit() {
     new NewHierarchy(toolkit, filter, true);
     assertThat(filter.isIgnored(window)).isTrue();
     assertThatTransientWindowListenerWasAddedToToolkit();
   }
 
   @Test
-  public void should_not_ignore_existing_Components_and_addTransientWindowListener_to_Toolkit() {
+  public void should_Not_Ignore_Existing_Components_And_AddTransientWindowListener_To_Toolkit() {
     new NewHierarchy(toolkit, filter, false);
     assertThat(filter.isIgnored(window)).isFalse();
     assertThatTransientWindowListenerWasAddedToToolkit();

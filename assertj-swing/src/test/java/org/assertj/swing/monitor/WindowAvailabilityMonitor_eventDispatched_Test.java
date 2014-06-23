@@ -62,20 +62,20 @@ public class WindowAvailabilityMonitor_eventDispatched_Test extends WindowAvaila
   }
 
   @Test
-  public void should_mark_source_Window_as_ready_if_event_is_MouseEvent() {
+  public void should_Mark_Source_Window_As_Ready_If_Event_Is_MouseEvent() {
     monitor.eventDispatched(mouseEvent(window));
     verify(windows).markAsReady(window);
   }
 
   @Test
-  public void should_mark_source_Window_ancestor_as_ready_if_event_is_MouseEvent() {
+  public void should_Mark_Source_Window_Ancestor_As_Ready_If_Event_Is_MouseEvent() {
     JTextField source = window.textField;
     monitor.eventDispatched(mouseEvent(source));
     verify(windows).markAsReady(window);
   }
 
   @Test
-  public void should_not_mark_source_Window_as_ready_if_event_is_not_MouseEvent() {
+  public void should_Not_Mark_Source_Window_As_Ready_If_Event_Is_Not_MouseEvent() {
     monitor.eventDispatched(new KeyEvent(window, 8, 9238, 0, 0, 'a'));
     verifyZeroInteractions(windows);
   }

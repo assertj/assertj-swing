@@ -30,7 +30,7 @@ import org.junit.Test;
 public class ImageHandler_encodeBase64_decodeBase64_Test extends ImageHandler_TestCase {
 
   @Test
-  public void should_encode_and_decode_image() {
+  public void should_Encode_And_Decode_Image() {
     BufferedImage imageToEncode = screenshotTaker.takeDesktopScreenshot();
     String encoded = ImageHandler.encodeBase64(imageToEncode);
     assertThat(encoded).isNotEmpty();

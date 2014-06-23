@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class ExistingHierarchy_contains_Test extends ExistingHierarchy_TestCase {
   @Test
-  public void should_always_return_true() {
+  public void should_Always_Return_True() {
     Component component = textField().createNew();
     assertThat(hierarchy.contains(component)).isTrue();
   }

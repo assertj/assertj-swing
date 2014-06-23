@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class WindowAvailabilityMonitor_attachTo_Test extends WindowAvailabilityMonitor_TestCase {
   @Test
-  public void should_attach_itself_to_toolkit() {
+  public void should_Attach_Itself_To_Toolkit() {
     monitor.attachTo(toolkit);
     List<WeakEventListener> eventListeners = toolkit.eventListenersUnderEventMask(EVENT_MASK, WeakEventListener.class);
     assertThat(eventListeners).hasSize(1);

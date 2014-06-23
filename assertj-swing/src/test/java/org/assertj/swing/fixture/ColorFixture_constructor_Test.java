@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class ColorFixture_constructor_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Color_is_null() {
+  public void should_Throw_Error_If_Color_Is_Null() {
     new ColorFixture(null);
   }
 }

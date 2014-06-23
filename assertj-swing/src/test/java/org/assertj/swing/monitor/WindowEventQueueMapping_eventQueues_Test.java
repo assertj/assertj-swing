@@ -30,7 +30,7 @@ import org.junit.Test;
  */
 public class WindowEventQueueMapping_eventQueues_Test extends WindowEventQueueMapping_withWindow_TestCase {
   @Test
-  public void should_return_EventQueues() {
+  public void should_Return_EventQueues() {
     EventQueue anotherEventQueue = new EventQueue();
     ToolkitStub anotherToolkit = newToolkitStub(anotherEventQueue);
     MyWindow anotherWindow = MyWindow.createNew(anotherToolkit, getClass());

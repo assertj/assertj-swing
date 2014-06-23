@@ -62,7 +62,7 @@ public class JComboBoxEditableQuery_isEditable_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_indicate_if_JComboBox_is_editable() {
+  public void should_Indicate_If_JComboBox_Is_Editable() {
     setEditable(comboBox, editable);
     robot.waitForIdle();
     comboBox.startRecording();

@@ -23,21 +23,21 @@ import org.junit.Test;
  */
 public class JScrollBarDriver_scrollBlockUp_Test extends JScrollBarDriver_TestCase {
   @Test
-  public void should_scroll_block_up() {
+  public void should_Scroll_Block_Up() {
     showWindow();
     driver.scrollBlockUp(scrollBar);
     assertThatScrollBarValueIs(20);
   }
 
   @Test
-  public void should_throw_error_if_JScrollBar_is_disabled() {
+  public void should_Throw_Error_If_JScrollBar_Is_Disabled() {
     disableScrollBar();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.scrollBlockUp(scrollBar);
   }
 
   @Test
-  public void should_throw_error_if_JScrollBar_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JScrollBar_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.scrollBlockUp(scrollBar);
   }

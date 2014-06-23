@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class Windows_markAsClosed_Test extends Windows_TestCase {
   @Test
-  public void should_mark_Window_as_closed() {
+  public void should_Mark_Window_As_Closed() {
     windows.markAsClosed(window);
     windowState().isClosed().isNotHidden().isNotOpen().isNotPending();
   }

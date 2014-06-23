@@ -41,12 +41,12 @@ public class BasicAppletStub_constructor_withViewerContextAndMap_Test {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_viewer_is_null() {
+  public void should_Throw_Error_If_Viewer_Is_Null() {
     new BasicAppletStub(null, context, emptyMap());
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_context_is_null() {
+  public void should_Throw_Error_If_Context_Is_Null() {
     new BasicAppletStub(viewer, null, emptyMap());
   }
 
@@ -55,7 +55,7 @@ public class BasicAppletStub_constructor_withViewerContextAndMap_Test {
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_parameterMap_is_null() {
+  public void should_Throw_Error_If_ParameterMap_Is_Null() {
     new BasicAppletStub(viewer, context, null);
   }
 }

@@ -46,7 +46,7 @@ public class TestTerminator_terminateTests_Test {
   }
 
   @Test
-  public void should_terminate_GUI_tests() {
+  public void should_Terminate_GUI_Tests() {
     Thread mainThread = mock(Thread.class);
     Thread[] allThreads = { mainThread };
     when(threadsSource.allThreads()).thenReturn(allThreads);
@@ -57,7 +57,7 @@ public class TestTerminator_terminateTests_Test {
   }
 
   @Test
-  public void should_not_throw_error_if_main_thread_not_found() {
+  public void should_Not_Throw_Error_If_Main_Thread_Not_Found() {
     Thread[] allThreads = new Thread[0];
     when(threadsSource.allThreads()).thenReturn(allThreads);
     when(mainThreadIdentifier.mainThreadIn(allThreads)).thenReturn(null);

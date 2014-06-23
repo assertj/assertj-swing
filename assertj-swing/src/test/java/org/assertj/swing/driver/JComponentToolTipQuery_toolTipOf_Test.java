@@ -38,7 +38,7 @@ public class JComponentToolTipQuery_toolTipOf_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_return_toolTip_from_Component() {
+  public void should_Return_ToolTip_From_Component() {
     assertThat(JComponentToolTipQuery.toolTipOf(window.button)).isEqualTo("A ToolTip");
   }
 

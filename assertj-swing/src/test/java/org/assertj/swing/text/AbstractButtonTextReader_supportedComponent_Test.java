@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class AbstractButtonTextReader_supportedComponent_Test {
   @Test
-  public void should_return_AbstractButton_class() {
+  public void should_Return_AbstractButton_Class() {
     AbstractButtonTextReader reader = new AbstractButtonTextReader();
     assertThat(reader.supportedComponent()).isEqualTo(AbstractButton.class);
   }

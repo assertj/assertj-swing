@@ -27,18 +27,18 @@ import org.junit.Test;
  */
 public class JTabbedPaneDriver_requireTabTitleAsText_Test extends JTabbedPaneDriver_TestCase {
   @Test
-  public void should_fail_if_title_is_not_equal_to_expected() {
+  public void should_Fail_If_Title_Is_Not_Equal_To_Expected() {
     thrown.expectAssertionError("titleAt", "One", Pattern.compile("Hello"));
     driver.requireTabTitle(tabbedPane, "Hello", atIndex(0));
   }
 
   @Test
-  public void should_pass_if_title_is_equal_to_expected() {
+  public void should_Pass_If_Title_Is_Equal_To_Expected() {
     driver.requireTabTitle(tabbedPane, "One", atIndex(0));
   }
 
   @Test
-  public void should_pass_if_title_matches_pattern() {
+  public void should_Pass_If_Title_Matches_Pattern() {
     driver.requireTabTitle(tabbedPane, "O.*", atIndex(0));
   }
 }

@@ -33,7 +33,7 @@ import org.junit.Test;
  */
 public class JTreeDriver_dragPath_dropPath_Test extends JTreeDriver_dragAndDrop_TestCase {
   @Test
-  public void should_drag_and_drop() {
+  public void should_Drag_And_Drop() {
     showWindow();
     driver.drag(tree, "root/branch1/branch1.1");
     driver.drop(dropTree, "root");
@@ -48,7 +48,7 @@ public class JTreeDriver_dragPath_dropPath_Test extends JTreeDriver_dragAndDrop_
   }
 
   @Test
-  public void should_drag_and_drop_when_root_is_invisible() {
+  public void should_Drag_And_Drop_When_Root_Is_Invisible() {
     // FEST-246
     addNodeToRootAndHideRoot(dropTree);
     robot.waitForIdle();

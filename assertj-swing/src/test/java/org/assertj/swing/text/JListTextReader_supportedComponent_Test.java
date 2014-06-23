@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JListTextReader_supportedComponent_Test {
   @Test
-  public void should_return_JList_class() {
+  public void should_Return_JList_Class() {
     JListTextReader reader = new JListTextReader();
     assertThat(reader.supportedComponent()).isEqualTo(JList.class);
   }

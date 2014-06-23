@@ -49,7 +49,7 @@ public class JPopupMenuFixture_withMocks_Test {
   }
 
   @Test
-  public void should_find_JMenuItem_with_name_using_driver() {
+  public void should_Find_JMenuItem_With_Name_Using_Driver() {
     JMenuItem menuItem = mock(JMenuItem.class);
     when(driver.menuItem(target, "File")).thenReturn(menuItem);
     JMenuItemFixture menuItemFixture = fixture.menuItem("File");
@@ -58,7 +58,7 @@ public class JPopupMenuFixture_withMocks_Test {
   }
 
   @Test
-  public void should_find_JMenuItem_with_matcher_using_driver() {
+  public void should_Find_JMenuItem_With_Matcher_Using_Driver() {
     GenericTypeMatcher<JMenuItem> matcher = neverMatches(JMenuItem.class);
     JMenuItem menuItem = mock(JMenuItem.class);
     when(driver.menuItem(target, matcher)).thenReturn(menuItem);
@@ -68,7 +68,7 @@ public class JPopupMenuFixture_withMocks_Test {
   }
 
   @Test
-  public void should_return_menu_labels_using_driver() {
+  public void should_Return_Menu_Labels_Using_Driver() {
     String[] labels = { "One", "Two" };
     when(driver.menuLabelsOf(target)).thenReturn(labels);
     assertThat(fixture.menuLabels()).isSameAs(labels);

@@ -51,14 +51,14 @@ public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_Dialog_by_name() {
+  public void should_Find_Visible_Dialog_By_Name() {
     launchDialogNow();
     DialogFixture dialog = fixture.dialog("dialog");
     assertThat(dialog.target()).isInstanceOf(DialogToLaunch.class);
   }
 
   @Test
-  public void should_fail_if_visible_Dialog_not_found_by_name() {
+  public void should_Fail_If_Visible_Dialog_Not_Found_By_Name() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog("dialog");
   }
@@ -71,66 +71,66 @@ public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
   }
 
   @Test
-  public void should_find_visible_Dialog_by_name_with_timeout() {
+  public void should_Find_Visible_Dialog_By_Name_With_Timeout() {
     launchDialogAfterWaitingFor(200);
     DialogFixture dialog = fixture.dialog("dialog", timeout(300));
     assertThat(dialog.target()).isInstanceOf(DialogToLaunch.class);
   }
 
   @Test
-  public void should_fail_if_visible_Dialog_not_found_by_name_with_timeout() {
+  public void should_Fail_If_Visible_Dialog_Not_Found_By_Name_With_Timeout() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog("dialog", timeout(100));
   }
 
   @Test
-  public void should_find_visible_Dialog_by_type() {
+  public void should_Find_Visible_Dialog_By_Type() {
     launchDialogNow();
     DialogFixture dialog = fixture.dialog();
     assertThat(dialog.target()).isInstanceOf(DialogToLaunch.class);
   }
 
   @Test
-  public void should_fail_if_visible_Dialog_not_found_by_type() {
+  public void should_Fail_If_Visible_Dialog_Not_Found_By_Type() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog();
   }
 
   @Test
-  public void should_find_visible_Dialog_by_type_with_timeout() {
+  public void should_Find_Visible_Dialog_By_Type_With_Timeout() {
     launchDialogAfterWaitingFor(200);
     DialogFixture dialog = fixture.dialog(timeout(300));
     assertThat(dialog.target()).isInstanceOf(DialogToLaunch.class);
   }
 
   @Test
-  public void should_fail_if_visible_Dialog_not_found_by_type_with_timeout() {
+  public void should_Fail_If_Visible_Dialog_Not_Found_By_Type_With_Timeout() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog(timeout(100));
   }
 
   @Test
-  public void should_find_visible_Dialog_by_Matcher() {
+  public void should_Find_Visible_Dialog_By_Matcher() {
     launchDialogNow();
     DialogFixture dialog = fixture.dialog(new DialogByTitleMatcher());
     assertThat(dialog.target()).isInstanceOf(DialogToLaunch.class);
   }
 
   @Test
-  public void should_fail_if_visible_Dialog_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_Dialog_Not_Found_By_Matcher() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog(new DialogByTitleMatcher());
   }
 
   @Test
-  public void should_find_visible_Dialog_by_Matcher_with_timeout() {
+  public void should_Find_Visible_Dialog_By_Matcher_With_Timeout() {
     launchDialogAfterWaitingFor(200);
     DialogFixture dialog = fixture.dialog(new DialogByTitleMatcher(), timeout(300));
     assertThat(dialog.target()).isInstanceOf(DialogToLaunch.class);
   }
 
   @Test
-  public void should_fail_if_visible_Dialog_not_found_by_Matcher_with_timeout() {
+  public void should_Fail_If_Visible_Dialog_Not_Found_By_Matcher_With_Timeout() {
     thrown.expect(WaitTimedOutError.class, "Timed out waiting for dialog to be found");
     fixture.dialog(new DialogByTitleMatcher(), timeout(100));
   }

@@ -51,14 +51,14 @@ public class AbstractContainerFixture_toggleButton_Test extends RobotBasedTestCa
   }
 
   @Test
-  public void should_find_visible_JToggleButton_by_name() {
+  public void should_Find_Visible_JToggleButton_By_Name() {
     robot.showWindow(window);
     JToggleButtonFixture button = fixture.toggleButton("clickMeButton");
     assertThat(button.target()).isSameAs(window.toggleButton);
   }
 
   @Test
-  public void should_fail_if_visible_JToggleButton_not_found_by_name() {
+  public void should_Fail_If_Visible_JToggleButton_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "name='myButton', type=javax.swing.JToggleButton, requireShowing=true");
@@ -66,14 +66,14 @@ public class AbstractContainerFixture_toggleButton_Test extends RobotBasedTestCa
   }
 
   @Test
-  public void should_find_visible_JToggleButton_by_type() {
+  public void should_Find_Visible_JToggleButton_By_Type() {
     robot.showWindow(window);
     JToggleButtonFixture button = fixture.toggleButton();
     assertThat(button.target()).isSameAs(window.toggleButton);
   }
 
   @Test
-  public void should_fail_if_visible_JToggleButton_not_found_by_type() {
+  public void should_Fail_If_Visible_JToggleButton_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
         "type=javax.swing.JToggleButton, requireShowing=true");
@@ -93,7 +93,7 @@ public class AbstractContainerFixture_toggleButton_Test extends RobotBasedTestCa
   }
 
   @Test
-  public void should_fail_if_visible_JToggleButton_not_found_by_Matcher() {
+  public void should_Fail_If_Visible_JToggleButton_Not_Found_By_Matcher() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher");
     fixture.toggleButton(neverMatches(JToggleButton.class));

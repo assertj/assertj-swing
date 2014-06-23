@@ -30,7 +30,7 @@ public class Bug247_NotEnoughInfoInFailureInEDT_Test {
   private static String TEST_NAME = Bug247_NotEnoughInfoInFailureInEDT_Test.class.getName();
 
   @Test
-  public void should_show_method_call_in_current_thread_when_failing_in_EDT() {
+  public void should_Show_Method_Call_In_Current_Thread_When_Failing_In_EDT() {
     boolean testClassInStackTrace = false;
     try {
       execute(new GuiTask() {

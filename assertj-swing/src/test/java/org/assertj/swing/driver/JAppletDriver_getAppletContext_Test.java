@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class JAppletDriver_getAppletContext_Test extends JAppletDriver_TestCase {
   @Test
-  public void should_return_AppletContext() {
+  public void should_Return_AppletContext() {
     AppletContext context = singletonAppletContextMock();
     applet().updateAppletContext(context);
     AppletContext result = driver().getAppletContext(applet());

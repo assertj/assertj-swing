@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public abstract class JTableCellWriter_startCellEditing_TestCase extends JTableCellWriter_TestCase {
   @Test
-  public void should_throw_error_if_editor_Component_cannot_be_handled() {
+  public void should_Throw_Error_If_Editor_Component_Cannot_Be_Handled() {
     assertActionFailedExceptionWithMessageIndicatingWriterWasUnableToActivateEditor();
     writer.startCellEditing(window.table, 0, 1);
   }

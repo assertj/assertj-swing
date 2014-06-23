@@ -26,12 +26,12 @@ import org.junit.Test;
  */
 public class JTableCellFixture_constructor_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_JTableFixture_is_null() {
+  public void should_Throw_Error_If_JTableFixture_Is_Null() {
     new JTableCellFixture(null, row(6).column(8));
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_TableCell_is_null() {
+  public void should_Throw_Error_If_TableCell_Is_Null() {
     new JTableCellFixture(mock(JTableFixture.class), null);
   }
 }

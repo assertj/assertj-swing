@@ -33,7 +33,7 @@ public class TableCellByColumnId_toString_Test {
   }
 
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     assertThat(finder.toString()).isEqualTo("org.assertj.swing.data.TableCellByColumnId[row=6, columnId='id']");
   }
 }

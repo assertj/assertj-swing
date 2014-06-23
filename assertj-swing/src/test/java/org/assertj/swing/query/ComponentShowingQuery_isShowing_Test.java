@@ -44,14 +44,14 @@ public class ComponentShowingQuery_isShowing_Test extends SequentialEDTSafeTestC
   }
 
   @Test
-  public void should_return_false_Component_is_not_showing() {
+  public void should_Return_False_Component_Is_Not_Showing() {
     window.startRecording();
     assertThat(ComponentShowingQuery.isShowing(window)).isFalse();
     window.requireInvoked("isShowing");
   }
 
   @Test
-  public void should_return_true_if_Component_is_showing() {
+  public void should_Return_True_If_Component_Is_Showing() {
     window.display();
     window.startRecording();
     assertThat(ComponentShowingQuery.isShowing(window)).isTrue();

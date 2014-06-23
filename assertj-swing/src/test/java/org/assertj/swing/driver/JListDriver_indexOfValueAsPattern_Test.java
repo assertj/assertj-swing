@@ -29,14 +29,14 @@ import org.junit.Test;
  */
 public class JListDriver_indexOfValueAsPattern_Test extends JListDriver_TestCase {
   @Test
-  public void should_return_index_of_item_matching_pattern() {
+  public void should_Return_Index_Of_Item_Matching_Pattern() {
     int index = driver.indexOf(list, Pattern.compile("thr.*"));
     assertThat(index).isEqualTo(2);
     assertThatCellReaderWasCalled();
   }
 
   @Test
-  public void should_throw_error_if_item_matching_given_value_was_not_found() {
+  public void should_Throw_Error_If_Item_Matching_Given_Value_Was_Not_Found() {
     thrown.expect(LocationUnavailableException.class,
         "Unable to find item matching the pattern 'fou.*' among the JList contents [\"one\", \"two\", \"three\"]");
     driver.indexOf(list, Pattern.compile("fou.*"));

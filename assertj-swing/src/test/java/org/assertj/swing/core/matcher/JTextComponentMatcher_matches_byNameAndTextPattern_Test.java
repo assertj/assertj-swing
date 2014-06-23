@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class JTextComponentMatcher_matches_byNameAndTextPattern_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_name_is_equal_to_expected_and_text_matches_pattern() {
+  public void should_Return_True_If_Name_Is_Equal_To_Expected_And_Text_Matches_Pattern() {
     JTextComponentMatcher matcher = JTextComponentMatcher.withName("textField").andText(Pattern.compile("He.*"));
     JTextField textField = textField().withName("textField").withText("Hello").createNew();
     assertThat(matcher.matches(textField)).isTrue();

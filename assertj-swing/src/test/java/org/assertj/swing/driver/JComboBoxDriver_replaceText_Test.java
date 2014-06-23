@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_replaceText_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_replace_text() {
+  public void should_Replace_Text() {
     showWindow();
     makeEditableAndSelectFirstItem();
     driver.replaceText(comboBox, "Hello");
@@ -34,20 +34,20 @@ public class JComboBoxDriver_replaceText_Test extends JComboBoxDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JComboBox_is_disabled() {
+  public void should_Throw_Error_If_JComboBox_Is_Disabled() {
     disableComboBox();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.replaceText(comboBox, "Hello");
   }
 
   @Test
-  public void should_throw_error_if_JComboBox_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JComboBox_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.replaceText(comboBox, "Hello");
   }
 
   @Test
-  public void should_throw_error_if_JComboBox_is_not_editable() {
+  public void should_Throw_Error_If_JComboBox_Is_Not_Editable() {
     showWindow();
     assertThatIllegalStateExceptionCauseIsNotEditableComboBox();
     driver.replaceText(comboBox, "Hello");

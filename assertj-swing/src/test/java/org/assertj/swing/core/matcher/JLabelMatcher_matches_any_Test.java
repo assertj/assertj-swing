@@ -28,13 +28,13 @@ import org.junit.Test;
  */
 public class JLabelMatcher_matches_any_Test extends EDTSafeTestCase {
   @Test
-  public void should_always_return_true_when_matching_any_JLabel() {
+  public void should_Always_Return_True_When_Matching_Any_JLabel() {
     JLabelMatcher matcher = JLabelMatcher.any();
     assertThat(matcher.matches(label().createNew())).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Component_is_not_JLabel() {
+  public void should_Return_False_If_Component_Is_Not_JLabel() {
     JLabelMatcher matcher = JLabelMatcher.any();
     assertThat(matcher.matches(textField().createNew())).isFalse();
   }

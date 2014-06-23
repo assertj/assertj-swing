@@ -24,13 +24,13 @@ import org.junit.Test;
  */
 public class JTableDriver_requireNoSelection_Test extends JTableDriver_TestCase {
   @Test
-  public void should_pass_if_JTable_does_not_have_selection() {
+  public void should_Pass_If_JTable_Does_Not_Have_Selection() {
     clearSelection();
     driver.requireNoSelection(table);
   }
 
   @Test
-  public void should_fail_if_JTable_has_have_selection() {
+  public void should_Fail_If_JTable_Has_Have_Selection() {
     selectCell(0, 0);
     thrown.expectAssertionError("property:'selection'");
     thrown.expectMessageToContain("expected no selection but was:<rows=[0], columns=[0]>");

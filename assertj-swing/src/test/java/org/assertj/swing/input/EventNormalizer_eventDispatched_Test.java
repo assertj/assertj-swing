@@ -48,14 +48,14 @@ public class EventNormalizer_eventDispatched_Test extends EventNormalizer_TestCa
   }
 
   @Test
-  public void should_delegate_event_if_it_is_not_a_duplicate_dispose() {
+  public void should_Delegate_Event_If_It_Is_Not_A_Duplicate_Dispose() {
     when(disposedWindowMonitor.isDuplicateDispose(event)).thenReturn(false);
     eventNormalizer.eventDispatched(event);
     verify(delegateEventListener).eventDispatched(event);
   }
 
   @Test
-  public void should_not_delegate_event_if_it_is_a_duplicate_dispose() {
+  public void should_Not_Delegate_Event_If_It_Is_A_Duplicate_Dispose() {
     when(disposedWindowMonitor.isDuplicateDispose(event)).thenReturn(true);
     eventNormalizer.eventDispatched(event);
     verifyZeroInteractions(delegateEventListener);

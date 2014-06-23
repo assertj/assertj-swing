@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class Platform_controlOrCommandMask_Test extends Platform_TestCase {
   @Test
-  public void should_return_control_or_command_mask() {
+  public void should_Return_Control_Or_Command_Mask() {
     when(toolkit.getMenuShortcutKeyMask()).thenReturn(CTRL_MASK);
     assertThat(Platform.controlOrCommandMask()).isEqualTo(CTRL_MASK);
   }

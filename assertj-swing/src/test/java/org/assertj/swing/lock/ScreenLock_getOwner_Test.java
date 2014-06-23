@@ -53,7 +53,7 @@ public class ScreenLock_getOwner_Test extends MultithreadedTestCase {
   }
 
   @Test
-  public void should_not_block_if_current_owner_tries_to_acquire_lock_again() throws Throwable {
+  public void should_Not_Block_If_Current_Owner_Tries_To_Acquire_Lock_Again() throws Throwable {
     runOnce(new ScreenLock_getOwner_Test());
   }
 }

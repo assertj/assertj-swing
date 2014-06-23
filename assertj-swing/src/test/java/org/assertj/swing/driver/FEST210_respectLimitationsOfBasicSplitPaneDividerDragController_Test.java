@@ -57,7 +57,7 @@ public class FEST210_respectLimitationsOfBasicSplitPaneDividerDragController_Tes
   }
 
   @Test
-  public void should_respect_minimum_size_when_moving_divider() {
+  public void should_Respect_Minimum_Size_When_Moving_Divider() {
     driver.moveDividerTo(window.splitPane, 30);
     driver.moveDividerTo(window.splitPane, 10);
     assertThatIsGreaterOrLessThanMinimumSize(sizeOf(window.leftPanel));

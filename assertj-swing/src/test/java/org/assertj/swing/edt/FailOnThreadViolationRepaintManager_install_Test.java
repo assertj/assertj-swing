@@ -33,7 +33,7 @@ public class FailOnThreadViolationRepaintManager_install_Test {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_throw_error_in_case_of_EDT_access_violation() {
+  public void should_Throw_Error_In_Case_Of_EDT_Access_Violation() {
     FailOnThreadViolationRepaintManager.install();
     thrown.expect(EdtViolationException.class);
     new JTextField();

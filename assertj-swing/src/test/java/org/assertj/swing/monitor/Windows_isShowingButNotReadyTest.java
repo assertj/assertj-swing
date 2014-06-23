@@ -25,13 +25,13 @@ import org.junit.Test;
  */
 public class Windows_isShowingButNotReadyTest extends Windows_TestCase {
   @Test
-  public void should_return_true_if_Window_is_pending() {
+  public void should_Return_True_If_Window_Is_Pending() {
     windows.pending.put(window, null);
     assertThat(windows.isShowingButNotReady(window)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Window_is_not_pending() {
+  public void should_Return_False_If_Window_Is_Not_Pending() {
     windows.pending.remove(window);
     assertThat(windows.isShowingButNotReady(window)).isFalse();
   }

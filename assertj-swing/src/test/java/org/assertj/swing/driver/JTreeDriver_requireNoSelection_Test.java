@@ -23,13 +23,13 @@ import org.junit.Test;
  */
 public class JTreeDriver_requireNoSelection_Test extends JTreeDriver_selectCell_TestCase {
   @Test
-  public void should_pass_if_JTree_does_not_have_selection() {
+  public void should_Pass_If_JTree_Does_Not_Have_Selection() {
     clearTreeSelection();
     driver.requireNoSelection(tree);
   }
 
   @Test
-  public void should_fail_if_JTree_has_selection() {
+  public void should_Fail_If_JTree_Has_Selection() {
     selectFirstChildOfRoot();
     thrown.expectAssertionError("property:'selection'");
     thrown.expectMessageToContain("expected no selection but was:<[[root, branch1]]>");

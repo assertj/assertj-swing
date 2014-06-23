@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JListDriver_contentsOf_Test extends JListDriver_TestCase {
   @Test
-  public void should_return_contents_of_JList() {
+  public void should_Return_Contents_Of_JList() {
     Object[] contents = driver.contentsOf(list);
     assertThat(contents).isEqualTo(array("one", "two", "three"));
     assertThatCellReaderWasCalled();

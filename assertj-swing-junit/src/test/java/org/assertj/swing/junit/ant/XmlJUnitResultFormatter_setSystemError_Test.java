@@ -28,7 +28,7 @@ import org.junit.Test;
 public class XmlJUnitResultFormatter_setSystemError_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  public void should_add_system_error() {
+  public void should_Add_System_Error() {
     formatter.startTestSuite(new JUnitTest("test"));
     formatter.setSystemError(CONSOLE_OUTPUT);
     XmlNode systemErrNode = root().child(1);

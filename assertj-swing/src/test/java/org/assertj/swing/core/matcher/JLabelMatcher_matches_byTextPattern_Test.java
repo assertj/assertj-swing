@@ -31,14 +31,14 @@ import org.junit.Test;
  */
 public class JLabelMatcher_matches_byTextPattern_Test extends EDTSafeTestCase {
   @Test
-  public void should_return_true_if_text_matches_pattern() {
+  public void should_Return_True_If_Text_Matches_Pattern() {
     JLabelMatcher matcher = JLabelMatcher.withText(Pattern.compile("He.*"));
     JLabel label = label().withText("Hello").createNew();
     assertThat(matcher.matches(label)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_text_does_not_match_pattern() {
+  public void should_Return_False_If_Text_Does_Not_Match_Pattern() {
     JLabelMatcher matcher = JLabelMatcher.withText(Pattern.compile("Hello"));
     JLabel label = label().withText("Bye").createNew();
     assertThat(matcher.matches(label)).isFalse();

@@ -32,7 +32,7 @@ import org.junit.Test;
  */
 public class BasicComponentFinder_findAllUsingComponentMatcher_Test extends BasicComponentFinder_TestCase {
   @Test
-  public void should_return_all_matching_Components() {
+  public void should_Return_All_Matching_Components() {
     Collection<Component> found = finder.findAll(new ComponentMatcher() {
       @Override
       public boolean matches(@Nullable Component c) {

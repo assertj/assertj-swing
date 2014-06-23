@@ -23,32 +23,32 @@ import org.junit.Test;
  */
 public interface ItemFixture_TestCase {
   @Test
-  public void should_select_item();
+  public void should_Select_Item();
 
   @Test
-  public void should_click_item();
+  public void should_Click_Item();
 
   @Test
-  public void should_click_item_with_MouseButton();
+  public void should_Click_Item_With_MouseButton();
 
   @Test
-  public void should_click_item_using_MouseClickInfo();
+  public void should_Click_Item_Using_MouseClickInfo();
 
   @Test
-  public void should_double_click_item();
+  public void should_Double_Click_Item();
 
   @Test
-  public void should_right_click_item();
+  public void should_Right_Click_Item();
 
   @Test
-  public void should_show_popup_menu_at_item();
+  public void should_Show_Popup_Menu_At_Item();
 
   @Test
-  public void should_return_item_contents();
+  public void should_Return_Item_Contents();
 
   @Test
-  public void should_drag_item();
+  public void should_Drag_Item();
 
   @Test
-  public void should_drop_item();
+  public void should_Drop_Item();
 }

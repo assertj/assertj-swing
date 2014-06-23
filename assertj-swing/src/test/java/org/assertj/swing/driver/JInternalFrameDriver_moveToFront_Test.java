@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JInternalFrameDriver_moveToFront_Test extends JInternalFrameDriver_TestCase {
   @Test
-  public void should_move_JInternalFrame_to_front() {
+  public void should_Move_JInternalFrame_To_Front() {
     showWindow();
     driver.moveToFront(internalFrame);
     assertThat(zOrder()).isEqualTo(0);

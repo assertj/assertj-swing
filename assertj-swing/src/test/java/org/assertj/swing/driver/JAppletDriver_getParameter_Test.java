@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class JAppletDriver_getParameter_Test extends JAppletDriver_TestCase {
   @Test
-  public void should_retrieve_parameter_value() {
+  public void should_Retrieve_Parameter_Value() {
     applet().addParameter("firstName", "Luke");
     String value = driver().getParameter(applet(), "firstName");
     assertThat(value).isEqualTo("Luke");

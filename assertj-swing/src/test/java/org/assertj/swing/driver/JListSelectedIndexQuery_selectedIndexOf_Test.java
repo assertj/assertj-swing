@@ -62,7 +62,7 @@ public class JListSelectedIndexQuery_selectedIndexOf_Test extends RobotBasedTest
   }
 
   @Test
-  public void should_return_selected_index_of_JList() {
+  public void should_Return_Selected_Index_Of_JList() {
     setSelectedIndex(list, selectedIndex);
     robot.waitForIdle();
     list.startRecording();

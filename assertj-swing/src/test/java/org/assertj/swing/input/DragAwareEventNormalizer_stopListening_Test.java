@@ -46,7 +46,7 @@ public class DragAwareEventNormalizer_stopListening_Test extends DragAwareEventN
   }
 
   @Test
-  public void should_dispose_EventQueue_when_stops_listening() {
+  public void should_Dispose_EventQueue_When_Stops_Listening() {
     final DragAwareEventQueue dragAwareEventQueue = mock(DragAwareEventQueue.class);
     eventNormalizer = new DragAwareEventNormalizer() {
       @Override
@@ -61,7 +61,7 @@ public class DragAwareEventNormalizer_stopListening_Test extends DragAwareEventN
   }
 
   @Test
-  public void should_gracefully_stop_listening_if_DragAwareQueue_is_null() {
+  public void should_Gracefully_Stop_Listening_If_DragAwareQueue_Is_Null() {
     eventNormalizer = new DragAwareEventNormalizer() {
       @Override
       DragAwareEventQueue createEventQueue(@Nonnull Toolkit t, long m) {

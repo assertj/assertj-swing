@@ -37,13 +37,13 @@ public class JTreeDriver_clickPath_withMouseClickInfo_Test extends JTreeDriver_c
   private static MouseClickInfo mouseClickInfo = rightButton().times(2);
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_MouseClickInfo_is_null() {
+  public void should_Throw_Error_If_MouseClickInfo_Is_Null() {
     MouseClickInfo info = null;
     driver.clickPath(tree, "root", info);
   }
 
   @Test
-  public void should_click_path() {
+  public void should_Click_Path() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tree);
     driver.clickPath(tree, "root/branch1/branch1.1/branch1.1.1", mouseClickInfo);
@@ -53,21 +53,21 @@ public class JTreeDriver_clickPath_withMouseClickInfo_Test extends JTreeDriver_c
   }
 
   @Test
-  public void should_throw_error_if_path_not_found() {
+  public void should_Throw_Error_If_Path_Not_Found() {
     showWindow();
     thrown.expect(LocationUnavailableException.class, "Unable to find path 'another'");
     driver.clickPath(tree, "another", mouseClickInfo);
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_disabled() {
+  public void should_Throw_Error_If_JTree_Is_Disabled() {
     disableTree();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.clickPath(tree, "root/branch1", mouseClickInfo);
   }
 
   @Test
-  public void should_throw_error_if_JTree_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTree_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.clickPath(tree, "root/branch1", mouseClickInfo);
   }

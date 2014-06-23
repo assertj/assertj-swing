@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class BasicAppletContext_showStatus_Test extends BasicAppletContext_TestCase {
   @Test
-  public void should_show_status() {
+  public void should_Show_Status() {
     String status = "Hi";
     context.showStatus(status);
     verify(statusDisplay).showStatus(status);

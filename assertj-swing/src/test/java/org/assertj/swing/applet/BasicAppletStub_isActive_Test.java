@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class BasicAppletStub_isActive_Test extends BasicAppletStub_TestCase {
   @Test
-  public void should_always_be_active() {
+  public void should_Always_Be_Active() {
     assertThat(stub.isActive()).isTrue();
   }
 }

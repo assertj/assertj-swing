@@ -23,12 +23,12 @@ import org.junit.Test;
  */
 public class JFileChooserFinder_findFileChooser_byType_withInvalidInput_Test {
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_timeout_is_negative() {
+  public void should_Throw_Error_If_Timeout_Is_Negative() {
     JFileChooserFinder.findFileChooser().withTimeout(-20);
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_time_unit_is_null() {
+  public void should_Throw_Error_If_Time_Unit_Is_Null() {
     JFileChooserFinder.findFileChooser().withTimeout(10, null);
   }
 }

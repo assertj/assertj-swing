@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class Pause_pauseWithConditions_Test {
   @Test
-  public void should_wait_till_Conditions_are_satisfied() {
+  public void should_Wait_Till_Conditions_Are_Satisfied() {
     int timeToWaitTillSatisfied = 1000;
     SatisfiedCondition one = new SatisfiedCondition(timeToWaitTillSatisfied);
     SatisfiedCondition two = new SatisfiedCondition(timeToWaitTillSatisfied);
@@ -41,37 +41,37 @@ public class Pause_pauseWithConditions_Test {
   }
 
   @Test(expected = WaitTimedOutError.class)
-  public void should_timeout_if_Conditions_are_never_satisfied() {
+  public void should_Timeout_If_Conditions_Are_Never_Satisfied() {
     Pause.pause(new Condition[] { new NeverSatisfiedCondition(), new NeverSatisfiedCondition() });
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Condition_array_is_null() {
+  public void should_Throw_Error_If_Condition_Array_Is_Null() {
     Pause.pause((Condition[]) null);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_Condition_array_is_empty() {
+  public void should_Throw_Error_If_Condition_Array_Is_Empty() {
     Pause.pause(new Condition[0]);
   }
 
   @Test(expected = WaitTimedOutError.class, timeout = 30100)
-  public void should_timeout_if_Conditions_together_run_longer_than_timeout() {
+  public void should_Timeout_If_Conditions_Together_Run_Longer_Than_Timeout() {
     Pause.pause(new Condition[] { new SatisfiedCondition(15000), new SatisfiedCondition(20000) });
   }
 
   @Test(expected = WaitTimedOutError.class, timeout = 30100)
-  public void should_timeout_if_any_Condition_runs_longer_than_timeout() {
+  public void should_Timeout_If_Any_Condition_Runs_Longer_Than_Timeout() {
     Pause.pause(new Condition[] { new SatisfiedCondition(40000) });
   }
 
   @Test(expected = NumberFormatException.class)
-  public void should_throw_error_if_any_Condition_throws_any() {
+  public void should_Throw_Error_If_Any_Condition_Throws_Any() {
     Pause.pause(new Condition[] { new RuntimeExceptionCondition(new NumberFormatException("expected")) });
   }
 
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_any_Condition_is_null() {
+  public void should_Throw_Error_If_Any_Condition_Is_Null() {
     Pause.pause(new Condition[] { new NeverSatisfiedCondition(), null });
   }
 }

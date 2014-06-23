@@ -27,13 +27,13 @@ import org.junit.Test;
  */
 public class NamedComponentMatcherTemplate_isNameMatching_Test extends NamedComponentMatcherTemplate_TestCase {
   @Test
-  public void should_always_match_if_name_is_any() {
+  public void should_Always_Match_If_Name_Is_Any() {
     matcher = new Matcher(JLabel.class, NamedComponentMatcherTemplate.anyValue());
     assertThat(matcher.isNameMatching("hello")).isTrue();
   }
 
   @Test
-  public void should_match_if_name_is_equal_to_expected() {
+  public void should_Match_If_Name_Is_Equal_To_Expected() {
     matcher = new Matcher(JLabel.class, "hello");
     assertThat(matcher.isNameMatching("hello")).isTrue();
   }

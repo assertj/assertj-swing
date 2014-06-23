@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 public class WindowEventQueueMapping_addQueueForComponent_Test extends WindowEventQueueMapping_withWindow_TestCase {
   @Test
-  public void shouldA_add_queue_for_Window() {
+  public void shouldA_Add_Queue_For_Window() {
     mapping.addQueueFor(window);
     assertThat(queueMap).hasSize(1);
     assertThat(queueMap.keySet()).contains(eventQueue);
@@ -38,7 +38,7 @@ public class WindowEventQueueMapping_addQueueForComponent_Test extends WindowEve
   }
 
   @Test
-  public void should_not_add_queue_for_Component_that_is_not_Window() {
+  public void should_Not_Add_Queue_For_Component_That_Is_Not_Window() {
     ComponentWithCustomEventQueue c = new ComponentWithCustomEventQueue(toolkit);
     mapping.addQueueFor(c);
     assertThat(queueMap).hasSize(1);

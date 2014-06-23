@@ -31,32 +31,32 @@ import org.junit.Test;
  */
 public class Modifiers_isModifier_Test {
   @Test
-  public void should_return_true_if_key_is_AltGraph_modifier() {
+  public void should_Return_True_If_Key_Is_AltGraph_Modifier() {
     assertThat(Modifiers.isModifier(VK_ALT_GRAPH)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_key_is_Alt_modifier() {
+  public void should_Return_True_If_Key_Is_Alt_Modifier() {
     assertThat(Modifiers.isModifier(VK_ALT)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_key_is_Shift_modifier() {
+  public void should_Return_True_If_Key_Is_Shift_Modifier() {
     assertThat(Modifiers.isModifier(VK_SHIFT)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_key_is_Control_modifier() {
+  public void should_Return_True_If_Key_Is_Control_Modifier() {
     assertThat(Modifiers.isModifier(VK_CONTROL)).isTrue();
   }
 
   @Test
-  public void should_return_true_if_key_is_Meta_modifier() {
+  public void should_Return_True_If_Key_Is_Meta_Modifier() {
     assertThat(Modifiers.isModifier(VK_META)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_given_key_is_not_modifier() {
+  public void should_Return_False_If_Given_Key_Is_Not_Modifier() {
     assertThat(Modifiers.isModifier(VK_A)).isFalse();
   }
 }

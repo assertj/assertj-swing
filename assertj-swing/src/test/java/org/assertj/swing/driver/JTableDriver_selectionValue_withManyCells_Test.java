@@ -47,7 +47,7 @@ public class JTableDriver_selectionValue_withManyCells_Test extends JTableDriver
   }
 
   @Test
-  public void should_return_cell_value() {
+  public void should_Return_Cell_Value() {
     selectCell(row, column);
     String value = driver.selectionValue(table);
     assertThat(value).isEqualTo(createCellValueFrom(row, column));

@@ -30,21 +30,21 @@ public class JTableDriver_selectRows_Test extends JTableDriver_TestCase {
   public ExpectedException thrown = none();
 
   @Test
-  public void should_throw_error_if_index_is_negative() {
+  public void should_Throw_Error_If_Index_Is_Negative() {
     showWindow();
     thrown.expect(IndexOutOfBoundsException.class, "row <-1> should be between <0> and <9>");
     driver.selectRows(table, -1);
   }
 
   @Test
-  public void should_throw_error_if_index_is_equal_to_the_number_of_rows() {
+  public void should_Throw_Error_If_Index_Is_Equal_To_The_Number_Of_Rows() {
     showWindow();
     thrown.expect(IndexOutOfBoundsException.class, "row <10> should be between <0> and <9>");
     driver.selectRows(table, 10);
   }
 
   @Test
-  public void should_select_rows() {
+  public void should_Select_Rows() {
     enableMultipleSelection();
     showWindow();
     driver.selectRows(table, 0, 2);
@@ -53,7 +53,7 @@ public class JTableDriver_selectRows_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  public void should_select_row() {
+  public void should_Select_Row() {
     enableMultipleSelection();
     showWindow();
     driver.selectRows(table, 0);
@@ -61,14 +61,14 @@ public class JTableDriver_selectRows_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JTable_is_disabled() {
+  public void should_Throw_Error_If_JTable_Is_Disabled() {
     disableTable();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectRows(table, 0, 2);
   }
 
   @Test
-  public void should_throw_error_if_JTable_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTable_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectRows(table, 0, 2);
   }

@@ -25,18 +25,18 @@ import org.junit.Test;
  */
 public class Arrays_copyOfIntArray_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_to_copy_is_null() {
+  public void should_Throw_Error_If_Array_To_Copy_Is_Null() {
     int[] original = null;
     Arrays.copyOf(original);
   }
 
   @Test
-  public void should_return_empty_array_if_array_to_copy_is_emtpy() {
+  public void should_Return_Empty_Array_If_Array_To_Copy_Is_Emtpy() {
     assertThat(Arrays.copyOf(new int[0])).isEmpty();
   }
 
   @Test
-  public void should_return_copy_of_array() {
+  public void should_Return_Copy_Of_Array() {
     int[] original = { 1, 2, 3 };
     int[] copy = Arrays.copyOf(original);
     assertThat(copy).isEqualTo(original).isNotSameAs(original);

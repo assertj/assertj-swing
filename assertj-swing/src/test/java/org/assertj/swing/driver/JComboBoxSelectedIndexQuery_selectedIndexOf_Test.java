@@ -61,7 +61,7 @@ public class JComboBoxSelectedIndexQuery_selectedIndexOf_Test extends RobotBased
   }
 
   @Test
-  public void should_return_selected_index_of_JComboBox() {
+  public void should_Return_Selected_Index_Of_JComboBox() {
     comboBox.startRecording();
     setSelectedIndex(comboBox, selectedIndex);
     robot.waitForIdle();

@@ -39,7 +39,7 @@ public class JProgressBarFixture_constructor_withRobotAndName_Test extends Robot
   }
 
   @Test
-  public void should_lookup_showing_JProgressBar_by_name() {
+  public void should_Lookup_Showing_JProgressBar_By_Name() {
     robot.showWindow(window);
     JProgressBarFixture fixture = new JProgressBarFixture(robot, "progressBar");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -47,12 +47,12 @@ public class JProgressBarFixture_constructor_withRobotAndName_Test extends Robot
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JProgressBar_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JProgressBar_With_Matching_Name_Is_Not_Showing() {
     new JProgressBarFixture(robot, "progressBar");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JProgressBar_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JProgressBar_With_Matching_Name_Is_Not_Found() {
     new JProgressBarFixture(robot, "other");
   }
 

@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class FrameDriver_resizeWidthTo_Test extends FrameDriver_TestCase {
   @Test
-  public void should_resize_Frame() {
+  public void should_Resize_Frame() {
     showWindow();
     Dimension newSize = windowSize().addToWidth(20);
     driver.resizeWidthTo(window, newSize.width);
@@ -35,20 +35,20 @@ public class FrameDriver_resizeWidthTo_Test extends FrameDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_Frame_is_disabled() {
+  public void should_Throw_Error_If_Frame_Is_Disabled() {
     disableWindow();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.resizeWidthTo(window, 100);
   }
 
   @Test
-  public void should_throw_error_if_Frame_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_Frame_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.resizeWidthTo(window, 100);
   }
 
   @Test
-  public void should_throw_error_if_Frame_is_not_resizable() {
+  public void should_Throw_Error_If_Frame_Is_Not_Resizable() {
     makeWindowNotResizable();
     thrown.expectIllegalStateIsNotResizableComponent();
     driver.resizeWidthTo(window, 100);

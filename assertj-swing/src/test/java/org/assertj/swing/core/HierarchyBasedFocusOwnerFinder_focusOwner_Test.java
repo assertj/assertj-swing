@@ -53,7 +53,7 @@ public class HierarchyBasedFocusOwnerFinder_focusOwner_Test {
   }
 
   @Test
-  public void should_return_focus_owner_from_delegate() {
+  public void should_Return_Focus_Owner_From_Delegate() {
     Component focusOwner = singletonComponentMock();
     when(rootsSource.existingHierarchyRoots()).thenReturn(array(container));
     when(delegate.focusOwnerOf(container)).thenReturn(focusOwner);
@@ -61,14 +61,14 @@ public class HierarchyBasedFocusOwnerFinder_focusOwner_Test {
   }
 
   @Test
-  public void should_return_null_if_delegate_did_not_find_focus_owner() {
+  public void should_Return_Null_If_Delegate_Did_Not_Find_Focus_Owner() {
     when(rootsSource.existingHierarchyRoots()).thenReturn(array(container));
     when(delegate.focusOwnerOf(container)).thenReturn(null);
     assertThat(finder.focusOwner()).isNull();
   }
 
   @Test
-  public void should_return_null_if_there_are_not_any_root_Containers() {
+  public void should_Return_Null_If_There_Are_Not_Any_Root_Containers() {
     when(rootsSource.existingHierarchyRoots()).thenReturn(new Container[0]);
     assertThat(finder.focusOwner()).isNull();
   }

@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class FocusOwnerFinder_initializeStrategies_Test {
   @Test
-  public void should_initialize_correct_strategies() {
+  public void should_Initialize_Correct_Strategies() {
     assertThatFocusOwnerFinderHasStrategiesOfType(ReflectionBasedFocusOwnerFinder.class,
         HierarchyBasedFocusOwnerFinder.class);
   }

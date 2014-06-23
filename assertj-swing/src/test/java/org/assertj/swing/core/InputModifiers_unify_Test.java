@@ -52,7 +52,7 @@ public class InputModifiers_unify_Test {
   }
 
   @Test
-  public void should_unify_modifiers() {
+  public void should_Unify_Modifiers() {
     int unified = InputModifiers.unify(modifiers);
     // asserts that contains only the passed modifiers
     for (int modifier : modifiers) {

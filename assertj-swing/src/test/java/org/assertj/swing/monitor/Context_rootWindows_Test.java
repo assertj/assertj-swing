@@ -31,7 +31,7 @@ import org.junit.Test;
  */
 public class Context_rootWindows_Test extends Context_TestCase {
   @Test
-  public void should_return_root_windows() {
+  public void should_Return_Root_Windows() {
     TestWindow anotherFrame = TestWindow.createNewWindow(getClass());
     when(windowEventQueueMapping.windows()).thenReturn(newArrayList((Window) window));
     Collection<Window> rootWindows = context.rootWindows();

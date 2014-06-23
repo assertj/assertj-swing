@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JListDriver_requireSelectedItemsAsText_Test extends JListDriver_TestCase {
   @Test
-  public void should_fail_if_there_is_no_selection() {
+  public void should_Fail_If_There_Is_No_Selection() {
     clearSelection();
     thrown.expect(AssertionError.class);
     thrown.expectMessageToContain("property:'selectedIndices'", "expected:<[[\"one\", \"two\"]]> but was:<[[]]>");
@@ -32,7 +32,7 @@ public class JListDriver_requireSelectedItemsAsText_Test extends JListDriver_Tes
   }
 
   @Test
-  public void should_fail_if_selection_is_not_equal_to_expected() {
+  public void should_Fail_If_Selection_Is_Not_Equal_To_Expected() {
     select(2);
     thrown.expect(AssertionError.class);
     thrown.expectMessageToContain("property:'selectedIndices'", "expected:<[\"[on]e\"]> but was:<[\"[thre]e\"]>");
@@ -40,21 +40,21 @@ public class JListDriver_requireSelectedItemsAsText_Test extends JListDriver_Tes
   }
 
   @Test
-  public void should_pass_if_selection_is_equal_to_expected() {
+  public void should_Pass_If_Selection_Is_Equal_To_Expected() {
     select(0, 1);
     driver.requireSelectedItems(list, "two", "one");
     assertThatCellReaderWasCalled();
   }
 
   @Test
-  public void should_pass_if_selection_matches_pattern() {
+  public void should_Pass_If_Selection_Matches_Pattern() {
     select(1, 2);
     driver.requireSelectedItems(list, "t.*");
     assertThatCellReaderWasCalled();
   }
 
   @Test
-  public void should_pass_if_selection_matches_patterns() {
+  public void should_Pass_If_Selection_Matches_Patterns() {
     select(0, 1);
     driver.requireSelectedItems(list, "tw.*", "o.*");
     assertThatCellReaderWasCalled();

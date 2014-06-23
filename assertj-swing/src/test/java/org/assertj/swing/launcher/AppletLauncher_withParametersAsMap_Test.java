@@ -29,13 +29,13 @@ import org.junit.Test;
  */
 public class AppletLauncher_withParametersAsMap_Test extends AppletLauncher_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_parameter_map_is_null() {
+  public void should_Throw_Error_If_Parameter_Map_Is_Null() {
     Map<String, String> parameters = null;
     AppletLauncher.launcherFor(TestApplet.createNew()).withParameters(parameters);
   }
 
   @Test
-  public void should_set_parameters_in_given_map() {
+  public void should_Set_Parameters_In_Given_Map() {
     Map<String, String> parameters = newHashMap();
     parameters.put("bgcolor", "blue");
     parameters.put("color", "red");

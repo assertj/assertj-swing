@@ -56,19 +56,19 @@ public class Bug133_scrollToItemToSelectInJTree_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_scroll_to_cell_when_selecting_by_path() {
+  public void should_Scroll_To_Cell_When_Selecting_By_Path() {
     frame.tree("drag").selectPath("root/100/100.1");
     assertThat(selectionOf(window.dragTree)).isEqualTo("100.1");
   }
 
   @Test
-  public void should_scroll_to_cell_when_selecting_by_row_index() {
+  public void should_Scroll_To_Cell_When_Selecting_By_Row_Index() {
     frame.tree("drag").selectRow(99);
     assertThat(selectionOf(window.dragTree)).isEqualTo("99");
   }
 
   @Test
-  public void should_scroll_to_cells_when_dragging_and_dropping_by_path() {
+  public void should_Scroll_To_Cells_When_Dragging_And_Dropping_By_Path() {
     frame.tree("drag").drag("root/99");
     frame.tree("drop").drop("root/90");
     assertPathNotFoundInDragTree("root/99");
@@ -77,7 +77,7 @@ public class Bug133_scrollToItemToSelectInJTree_Test extends RobotBasedTestCase 
   }
 
   @Test
-  public void should_scroll_to_cells_when_dragging_and_dropping_by_row_index() {
+  public void should_Scroll_To_Cells_When_Dragging_And_Dropping_By_Row_Index() {
     frame.tree("drag").drag(99);
     frame.tree("drop").drop(90);
     assertPathNotFoundInDragTree("root/99");

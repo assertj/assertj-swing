@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class BasicJComboBoxCellReader_constructor_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_CellRendererReader_is_null() {
+  public void should_Throw_Error_If_CellRendererReader_Is_Null() {
     new BasicJComboBoxCellReader(null);
   }
 }

@@ -29,7 +29,7 @@ import org.junit.Test;
  */
 public class WindowEventQueueMapping_windows_Test extends WindowEventQueueMapping_withWindow_TestCase {
   @Test
-  public void should_return_windows() {
+  public void should_Return_Windows() {
     TestWindow anotherWindow = MyWindow.createNew(toolkit, getClass());
     mapping.addQueueFor(window);
     mapping.addQueueFor(anotherWindow);

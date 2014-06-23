@@ -33,7 +33,7 @@ import org.junit.Test;
  */
 public class JComboBoxDriver_dropDownList_Test extends JComboBoxDriver_TestCase {
   @Test
-  public void should_return_drop_down_list() {
+  public void should_Return_Drop_Down_List() {
     showWindow();
     driver.click(comboBox);
     JList dropDownList = driver.dropDownList();

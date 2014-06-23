@@ -25,13 +25,13 @@ import org.junit.Test;
  */
 public class Windows_isClosed_Test extends Windows_TestCase {
   @Test
-  public void should_return_true_if_Window_is_closed() {
+  public void should_Return_True_If_Window_Is_Closed() {
     windows.closed.put(window, true);
     assertThat(windows.isClosed(window)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Window_is_not_closed() {
+  public void should_Return_False_If_Window_Is_Not_Closed() {
     windows.closed.remove(window);
     assertThat(windows.isClosed(window)).isFalse();
   }

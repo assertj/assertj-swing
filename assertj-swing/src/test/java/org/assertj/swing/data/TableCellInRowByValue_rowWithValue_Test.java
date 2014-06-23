@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class TableCellInRowByValue_rowWithValue_Test {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_array_of_values_is_null() {
+  public void should_Throw_Error_If_Array_Of_Values_Is_Null() {
     String[] values = null;
     TableCellInRowByValue.rowWithValue(values);
   }

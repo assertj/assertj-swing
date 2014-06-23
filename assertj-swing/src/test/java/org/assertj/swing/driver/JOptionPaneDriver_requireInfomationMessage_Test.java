@@ -27,14 +27,14 @@ import org.junit.Test;
  */
 public class JOptionPaneDriver_requireInfomationMessage_Test extends JOptionPaneDriver_TestCase {
   @Test
-  public void should_pass_if_error_type_is_equal_to_expected() {
+  public void should_Pass_If_Error_Type_Is_Equal_To_Expected() {
     JOptionPane optionPane = informationMessage();
     pack(optionPane, title());
     driver.requireInformationMessage(optionPane);
   }
 
   @Test
-  public void should_fail_if_error_type_is_not_equal_to_expected() {
+  public void should_Fail_If_Error_Type_Is_Not_Equal_To_Expected() {
     JOptionPane optionPane = errorMessage();
     pack(optionPane, title());
     thrown.expectAssertionError("messageType", "[Information] Message", "[Error] Message");

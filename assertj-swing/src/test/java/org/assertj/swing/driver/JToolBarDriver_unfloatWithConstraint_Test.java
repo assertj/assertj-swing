@@ -50,7 +50,7 @@ public class JToolBarDriver_unfloatWithConstraint_Test extends JToolBarDriver_Te
   }
 
   @Test
-  public void should_unfloat_JToolbar() {
+  public void should_Unfloat_JToolbar() {
     showWindow();
     Window originalAncestor = toolBarAncestor();
     Point where = whereToFloatTo();

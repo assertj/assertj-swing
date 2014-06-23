@@ -81,7 +81,7 @@ public abstract class KeyStrokeMappingProvider_TestCase extends RobotBasedTestCa
   }
 
   @Test
-  public void should_provide_key_strokes_for_keyboard() {
+  public void should_Provide_Key_Strokes_For_Keyboard() {
     if (basicCharacterVerified()) {
       return;
     }

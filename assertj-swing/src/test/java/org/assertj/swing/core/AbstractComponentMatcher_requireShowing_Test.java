@@ -48,7 +48,7 @@ public class AbstractComponentMatcher_requireShowing_Test {
   }
 
   @Test
-  public void should_require_showing_as_specified_in_setter() {
+  public void should_Require_Showing_As_Specified_In_Setter() {
     AbstractComponentMatcher matcher = new ConcreteComponentMatcher();
     matcher.requireShowing(requireShowing);
     assertThat(matcher.requireShowing()).isEqualTo(requireShowing);

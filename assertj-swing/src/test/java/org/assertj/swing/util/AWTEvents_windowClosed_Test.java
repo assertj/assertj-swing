@@ -44,13 +44,13 @@ public abstract class AWTEvents_windowClosed_Test extends SequentialEDTSafeTestC
   }
 
   @Test
-  public void should_return_true_if_Window_closed() {
+  public void should_Return_True_If_Window_Closed() {
     AWTEvent event = new WindowEvent(source, WINDOW_CLOSED);
     assertThat(AWTEvents.wasWindowClosed(event)).isTrue();
   }
 
   @Test
-  public void should_return_false_if_Window_not_closed() {
+  public void should_Return_False_If_Window_Not_Closed() {
     AWTEvent event = new WindowEvent(source, WINDOW_CLOSING);
     assertThat(AWTEvents.wasWindowClosed(event)).isFalse();
   }

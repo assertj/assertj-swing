@@ -26,29 +26,29 @@ import org.junit.Test;
  */
 public class AppletLauncher_appletWithTypeName_Test extends AppletLauncher_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_Applet_type_name_is_null() {
+  public void should_Throw_Error_If_Applet_Type_Name_Is_Null() {
     String type = null;
     AppletLauncher.applet(type);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_Applet_type_name_is_empty() {
+  public void should_Throw_Error_If_Applet_Type_Name_Is_Empty() {
     AppletLauncher.applet("");
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void should_throw_error_if_type_name_is_does_not_belong_to_an_Applet() {
+  public void should_Throw_Error_If_Type_Name_Is_Does_Not_Belong_To_An_Applet() {
     AppletLauncher.applet(JButton.class.getName());
   }
 
   @Test
-  public void should_throw_error_if_Applet_type_does_not_exist() {
+  public void should_Throw_Error_If_Applet_Type_Does_Not_Exist() {
     thrown.expect(UnexpectedException.class, "Unable to load class Hello");
     AppletLauncher.applet("Hello");
   }
 
   @Test
-  public void should_throw_error_if_Applet_cannot_be_instantiated_from_type_name() {
+  public void should_Throw_Error_If_Applet_Cannot_Be_Instantiated_From_Type_Name() {
     thrown.expect(UnexpectedException.class, "Unable to create a new instance");
     AppletLauncher.applet(AnApplet.class.getName());
   }

@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class AppletLauncher_start_Test extends AppletLauncher_TestCase {
   @Test
-  public void should_launch_given_Applet() {
+  public void should_Launch_Given_Applet() {
     applet = TestApplet.createNew();
     viewer = AppletLauncher.launcherFor(applet).start();
     assertThatAppletWasLaunched();
@@ -34,13 +34,13 @@ public class AppletLauncher_start_Test extends AppletLauncher_TestCase {
   }
 
   @Test
-  public void should_instantiate_Applet_and_launch_it() {
+  public void should_Instantiate_Applet_And_Launch_It() {
     viewer = AppletLauncher.applet(TestApplet.class).start();
     assertThatAppletWasLaunched();
   }
 
   @Test
-  public void should_load_Applet_type_and_launch_Applet() {
+  public void should_Load_Applet_Type_And_Launch_Applet() {
     viewer = AppletLauncher.applet(TestApplet.class.getName()).start();
     assertThatAppletWasLaunched();
   }

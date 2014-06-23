@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class JTextComponentDriver_enterText_Test extends JTextComponentDriver_TestCase {
   @Test
-  public void should_enter_text() {
+  public void should_Enter_Text() {
     showWindow();
     clearTextField();
     driver.enterText(textField, "Entering text");
@@ -32,14 +32,14 @@ public class JTextComponentDriver_enterText_Test extends JTextComponentDriver_Te
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_disabled() {
+  public void should_Throw_Error_If_JTextComponent_Is_Disabled() {
     disableTextField();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.enterText(textField, "Entering text");
   }
 
   @Test
-  public void should_throw_error_if_JTextComponent_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JTextComponent_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.enterText(textField, "Entering text");
   }

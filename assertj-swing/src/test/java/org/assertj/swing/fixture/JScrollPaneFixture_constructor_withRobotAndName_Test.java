@@ -44,7 +44,7 @@ public class JScrollPaneFixture_constructor_withRobotAndName_Test extends RobotB
   }
 
   @Test
-  public void should_lookup_showing_JScrollPane_by_name() {
+  public void should_Lookup_Showing_JScrollPane_By_Name() {
     robot.showWindow(window);
     JScrollPaneFixture fixture = new JScrollPaneFixture(robot, "scrollPane");
     assertThat(fixture.robot()).isSameAs(robot);
@@ -52,12 +52,12 @@ public class JScrollPaneFixture_constructor_withRobotAndName_Test extends RobotB
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_JScrollPane_with_matching_name_is_not_showing() {
+  public void should_Throw_Error_If_JScrollPane_With_Matching_Name_Is_Not_Showing() {
     new JScrollPaneFixture(robot, "scrollPane");
   }
 
   @Test(expected = ComponentLookupException.class)
-  public void should_throw_error_if_a_JScrollPane_with_matching_name_is_not_found() {
+  public void should_Throw_Error_If_A_JScrollPane_With_Matching_Name_Is_Not_Found() {
     new JScrollPaneFixture(robot, "other");
   }
 

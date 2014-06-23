@@ -56,7 +56,7 @@ public class WindowMetrics_absoluteCenterOf_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_calculate_center() {
+  public void should_Calculate_Center() {
     when(window.getInsets()).thenReturn(new Insets(top, left, bottom, right));
     when(window.getX()).thenReturn(x);
     when(window.getY()).thenReturn(y);

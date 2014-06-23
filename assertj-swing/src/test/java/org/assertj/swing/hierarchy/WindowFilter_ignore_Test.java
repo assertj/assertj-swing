@@ -36,7 +36,7 @@ import org.junit.Test;
  */
 public class WindowFilter_ignore_Test extends WindowFilter_TestCase {
   @Test
-  public void should_ignore_Component() {
+  public void should_Ignore_Component() {
     Component c = button().createNew();
     addToImplicitlyIgnoredMap(c);
     ignore(filter, c);
@@ -45,7 +45,7 @@ public class WindowFilter_ignore_Test extends WindowFilter_TestCase {
   }
 
   @Test
-  public void should_ignore_owned_Windows() {
+  public void should_Ignore_Owned_Windows() {
     TestWindow window = TestWindow.createNewWindow(getClass());
     TestDialog dialog = TestDialog.createNewDialog(window);
     addToImplicitlyIgnoredMap(window, dialog);
@@ -55,7 +55,7 @@ public class WindowFilter_ignore_Test extends WindowFilter_TestCase {
   }
 
   @Test
-  public void should_ignore_children_of_shared_invisible_Frame() {
+  public void should_Ignore_Children_Of_Shared_Invisible_Frame() {
     JDialog dialog = dialog().createNew();
     addToImplicitlyIgnoredMap(dialog);
     ignore(filter, dialog.getOwner());

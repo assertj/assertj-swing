@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class JFileChooserDriver_selectFile_withInvalidInput_Test extends JFileChooserDriver_withMocks_TestCase {
   @Test(expected = NullPointerException.class)
-  public void should_throw_error_if_file_is_null() {
+  public void should_Throw_Error_If_File_Is_Null() {
     driver.selectFile(fileChooser, null);
   }
 }

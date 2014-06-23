@@ -38,24 +38,24 @@ public class Index_equals_hashCode_Test implements EqualsHashCodeContractTestCas
   }
 
   @Test
-  public void should_have_consistent_equals() {
+  public void should_Have_Consistent_Equals() {
     Index other = Index.atIndex(8);
     assertThat(index.equals(other)).isTrue();
   }
 
   @Test
-  public void should_have_reflexive_equals() {
+  public void should_Have_Reflexive_Equals() {
     assertEqualsIsReflexive(index);
   }
 
   @Test
-  public void should_have_symmetric_equals() {
+  public void should_Have_Symmetric_Equals() {
     Index other = Index.atIndex(8);
     assertEqualsIsSymmetric(index, other);
   }
 
   @Test
-  public void should_have_transitive_equals() {
+  public void should_Have_Transitive_Equals() {
     Index other1 = Index.atIndex(8);
     Index other2 = Index.atIndex(8);
     assertEqualsIsTransitive(index, other1, other2);
@@ -63,30 +63,30 @@ public class Index_equals_hashCode_Test implements EqualsHashCodeContractTestCas
 
   @Override
   @Test
-  public void should_maintain_equals_and_hashCode_contract() {
+  public void should_Maintain_Equals_And_HashCode_Contract() {
     Index other = Index.atIndex(8);
     assertMaintainsEqualsAndHashCodeContract(index, other);
   }
 
   @Override
   @Test
-  public void should_not_be_equal_to_null() {
+  public void should_Not_Be_Equal_To_Null() {
     assertThat(index.equals(null)).isFalse();
   }
 
   @Test
-  public void should_not_be_equal_to_Object_not_being_of_same_type() {
+  public void should_Not_Be_Equal_To_Object_Not_Being_Of_Same_Type() {
     assertThat(index.equals("Hello")).isFalse();
   }
 
   @Test
-  public void should_return_not_equal_if_index_values_are_not_equal() {
+  public void should_Return_Not_Equal_If_Index_Values_Are_Not_Equal() {
     Index other = Index.atIndex(6);
     assertThat(index.equals(other)).isFalse();
   }
 
   @Override
-  public void should_not_be_equal_to_Object_of_different_type() {
+  public void should_Not_Be_Equal_To_Object_Of_Different_Type() {
     // TODO Auto-generated method stub
 
   }

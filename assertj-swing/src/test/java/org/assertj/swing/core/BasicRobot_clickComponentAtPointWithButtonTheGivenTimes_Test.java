@@ -53,7 +53,7 @@ public class BasicRobot_clickComponentAtPointWithButtonTheGivenTimes_Test extend
   }
 
   @Test
-  public void should_click_at_given_point_with_given_mouse_button_and_given_number_of_times() {
+  public void should_Click_At_Given_Point_With_Given_Mouse_Button_And_Given_Number_Of_Times() {
     JTextField textField = window().textField();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(textField);
     Point screenLocation = checkNotNull(locationOnScreenOf(textField));

@@ -33,7 +33,7 @@ public class TableCell_toString_Test {
   }
 
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     assertThat(cell.toString()).isEqualTo("[row=6, column=8]");
   }
 }

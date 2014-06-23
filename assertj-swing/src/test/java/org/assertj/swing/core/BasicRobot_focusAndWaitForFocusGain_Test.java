@@ -48,7 +48,7 @@ public class BasicRobot_focusAndWaitForFocusGain_Test extends BasicRobot_TestCas
   }
 
   @Test
-  public void should_give_focus_and_wait_until_Component_has_focus() {
+  public void should_Give_Focus_And_Wait_Until_Component_Has_Focus() {
     giveFocusAndVerifyThatHasFocus(button);
     giveFocusAndVerifyThatHasFocus(window().textField());
   }

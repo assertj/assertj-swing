@@ -37,7 +37,7 @@ public class JTableComboBoxEditorCellWriter_startCellEditing_cancelCellEditing_T
   }
 
   @Test
-  public void should_start_and_cancel_cell_editing() {
+  public void should_Start_And_Cancel_Cell_Editing() {
     int row = 0;
     int col = 2;
     JComboBox editor = (JComboBox) writer.editorForCell(table, row, col);

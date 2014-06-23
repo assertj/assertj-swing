@@ -24,7 +24,7 @@ import org.junit.Test;
 public class XmlJUnitResultFormatter_startTest_Test extends XmlJUnitResultFormatter_TestCase {
 
   @Test
-  public void should_add_test_when_test_started() {
+  public void should_Add_Test_When_Test_Started() {
     junit.framework.Test test = mockTest();
     formatter.startTest(test);
     assertThatTestWasStarted(test);

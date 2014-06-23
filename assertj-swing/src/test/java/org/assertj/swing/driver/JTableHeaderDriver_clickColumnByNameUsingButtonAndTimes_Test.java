@@ -51,7 +51,7 @@ public class JTableHeaderDriver_clickColumnByNameUsingButtonAndTimes_Test extend
   }
 
   @Test
-  public void should_click_column() {
+  public void should_Click_Column() {
     showWindow();
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(tableHeader);
     driver.clickColumn(tableHeader, name, LEFT_BUTTON, 3);

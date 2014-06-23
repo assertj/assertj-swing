@@ -25,7 +25,7 @@ import org.junit.Test;
  */
 public class LabelMatcher_toString_Test {
   @Test
-  public void should_implement_toString() {
+  public void should_Implement_ToString() {
     LabelMatcher matcher = new LabelMatcher("Hello");
     assertThat(matcher.toString()).contains("label='Hello'").contains("type=java.awt.Component")
         .contains("requireShowing=false");

@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class JListDriver_selectItemByText_Test extends JListDriver_TestCase {
   @Test
-  public void should_throw_error_if_a_matching_item_was_not_found() {
+  public void should_Throw_Error_If_A_Matching_Item_Was_Not_Found() {
     showWindow();
     thrown.expect(LocationUnavailableException.class,
         "Unable to find item matching the value 'ten' among the JList contents [\"one\", \"two\", \"three\"]");
@@ -35,7 +35,7 @@ public class JListDriver_selectItemByText_Test extends JListDriver_TestCase {
   }
 
   @Test
-  public void should_select_item() {
+  public void should_Select_Item() {
     showWindow();
     driver.selectItem(list, "two");
     assertThat(selectedValue()).isEqualTo("two");
@@ -43,7 +43,7 @@ public class JListDriver_selectItemByText_Test extends JListDriver_TestCase {
   }
 
   @Test
-  public void should_not_select_item_if_already_selected() {
+  public void should_Not_Select_Item_If_Already_Selected() {
     select(1);
     showWindow();
     driver.selectItem(list, "two");
@@ -51,7 +51,7 @@ public class JListDriver_selectItemByText_Test extends JListDriver_TestCase {
   }
 
   @Test
-  public void should_select_item_matching_pattern() {
+  public void should_Select_Item_Matching_Pattern() {
     showWindow();
     driver.selectItem(list, "tw.*");
     assertThat(selectedValue()).isEqualTo("two");
@@ -59,14 +59,14 @@ public class JListDriver_selectItemByText_Test extends JListDriver_TestCase {
   }
 
   @Test
-  public void should_throw_error_if_JList_is_disabled() {
+  public void should_Throw_Error_If_JList_Is_Disabled() {
     disableList();
     thrown.expectIllegalStateIsDisabledComponent();
     driver.selectItem(list, "two");
   }
 
   @Test
-  public void should_throw_error_if_JList_is_not_showing_on_the_screen() {
+  public void should_Throw_Error_If_JList_Is_Not_Showing_On_The_Screen() {
     thrown.expectIllegalStateIsNotShowingComponent();
     driver.selectItem(list, "two");
   }

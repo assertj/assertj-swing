@@ -44,7 +44,7 @@ public class JTableDriver_columnIndex_Test extends JTableDriver_TestCase {
   }
 
   @Test
-  public void should_return_column_index() {
+  public void should_Return_Column_Index() {
     assertThat(driver.columnIndex(table, columnId)).isEqualTo(columnIndexFrom(columnId));
   }
 }

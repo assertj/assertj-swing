@@ -32,13 +32,13 @@ import org.junit.Test;
 public class Assertions_assertThat_with_BufferedImage_Test {
 
   @Test
-  public void should_create_Assert() {
+  public void should_Create_Assert() {
     ImageAssert assertions = assertThat(fivePixelBlueImage());
     assertNotNull(assertions);
   }
 
   @Test
-  public void should_pass_actual() {
+  public void should_Pass_Actual() {
     BufferedImage actual = fivePixelBlueImage();
     ImageAssert assertions = assertThat(actual);
     assertSame(actual, getActual(assertions));

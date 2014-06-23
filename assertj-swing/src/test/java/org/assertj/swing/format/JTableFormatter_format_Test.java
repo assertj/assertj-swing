@@ -42,7 +42,7 @@ public class JTableFormatter_format_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void should_format_JTable() {
+  public void should_Format_JTable() {
     String formatted = formatter.format(table);
     assertThat(formatted).contains("javax.swing.JTable").contains("name='table'").contains("rowCount=8")
         .contains("columnCount=6").contains("enabled=true").contains("visible=true").contains("showing=false");

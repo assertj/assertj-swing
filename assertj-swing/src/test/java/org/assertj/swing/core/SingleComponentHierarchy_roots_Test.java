@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class SingleComponentHierarchy_roots_Test extends SingleComponentHierarchy_TestCase {
   @Test
-  public void should_return_collection_of_roots_that_contains_single_hierarchy_root() {
+  public void should_Return_Collection_Of_Roots_That_Contains_Single_Hierarchy_Root() {
     assertThat(hierarchy.roots()).containsOnly(root);
   }
 }

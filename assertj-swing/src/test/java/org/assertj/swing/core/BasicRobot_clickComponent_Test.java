@@ -27,7 +27,7 @@ import org.junit.Test;
  */
 public class BasicRobot_clickComponent_Test extends BasicRobot_ClickTestCase {
   @Test
-  public void should_click_Component() {
+  public void should_Click_Component() {
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window().textField());
     robot().click(window().textField());
     recorder.clicked(LEFT_BUTTON).timesClicked(1);
