@@ -63,14 +63,14 @@ public class Index_equals_hashCode_Test implements EqualsHashCodeContractTestCas
 
   @Override
   @Test
-  public void should_Maintain_Equals_And_HashCode_Contract() {
+  public void should_maintain_equals_and_hashCode_contract() {
     Index other = Index.atIndex(8);
     assertMaintainsEqualsAndHashCodeContract(index, other);
   }
 
   @Override
   @Test
-  public void should_Not_Be_Equal_To_Null() {
+  public void should_not_be_equal_to_null() {
     assertThat(index.equals(null)).isFalse();
   }
 
@@ -86,7 +86,7 @@ public class Index_equals_hashCode_Test implements EqualsHashCodeContractTestCas
   }
 
   @Override
-  public void should_Not_Be_Equal_To_Object_Of_Different_Type() {
+  public void should_not_be_equal_to_Object_of_different_type() {
     // TODO Auto-generated method stub
 
   }
