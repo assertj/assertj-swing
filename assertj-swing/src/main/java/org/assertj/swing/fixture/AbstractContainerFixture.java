@@ -57,7 +57,6 @@ import org.assertj.swing.core.NameMatcher;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.TypeMatcher;
 import org.assertj.swing.driver.ComponentDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.timing.Timeout;
 
 /**
@@ -73,7 +72,7 @@ import org.assertj.swing.timing.Timeout;
  */
 public abstract class AbstractContainerFixture<S, C extends Container, D extends ComponentDriver> extends
     AbstractComponentFixture<S, C, D> implements ComponentContainerFixture {
-  private static final Timeout DEFAULT_DIALOG_LOOKUP_TIMEOUT = timeout(100);
+  private static final Timeout DEFAULT_DIALOG_LOOKUP_TIMEOUT = timeout();
 
   private final JMenuItemFinder menuItemFinder;
 

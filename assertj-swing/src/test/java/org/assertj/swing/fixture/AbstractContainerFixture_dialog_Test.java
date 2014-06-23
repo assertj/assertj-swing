@@ -64,6 +64,13 @@ public class AbstractContainerFixture_dialog_Test extends RobotBasedTestCase {
   }
 
   @Test
+  public void should_Find_Visible_Dialog_By_Name_That_Needs_A_Couple_Of_Seconds_To_Appear() {
+    launchDialogAfterWaitingFor(20000);
+    DialogFixture dialog = fixture.dialog("dialog");
+    assertThat(dialog.target()).isInstanceOf(DialogToLaunch.class);
+  }
+
+  @Test
   public void should_find_visible_Dialog_by_name_with_timeout() {
     launchDialogAfterWaitingFor(200);
     DialogFixture dialog = fixture.dialog("dialog", timeout(300));
