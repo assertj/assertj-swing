@@ -19,8 +19,10 @@ import static org.assertj.swing.test.builder.JFrames.frame;
 
 import java.awt.Frame;
 
+import org.assertj.swing.test.ScreenLockReleaser;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.After;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -29,6 +31,9 @@ import org.junit.Test;
  * @author Alex Ruiz
  */
 public class FrameFixture_constructor_withFrame_Test extends EDTSafeTestCase {
+  @Rule
+  public ScreenLockReleaser lockReleaser = new ScreenLockReleaser();
+
   private FrameFixture fixture;
 
   @After
