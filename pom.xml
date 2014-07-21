@@ -22,6 +22,18 @@
     <module>assertj-swing-testng</module>
   </modules>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <arguments>-DskipTests -Psonatype-oss-release</arguments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
   <scm>
     <developerConnection>scm:git:git@github.com:joel-costigliola/assertj-swing.git</developerConnection>
     <connection>git://github.com/joel-costigliola/assertj-swing.git</connection>
