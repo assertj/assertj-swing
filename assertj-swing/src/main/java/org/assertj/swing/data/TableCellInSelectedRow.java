@@ -61,8 +61,7 @@ public class TableCellInSelectedRow implements TableCellFinder {
    * 
    * @return the created builder.
    */
-  public static @Nonnull
-  TableCellBuilder selectedRow() {
+  public static @Nonnull TableCellBuilder selectedRow() {
     return new TableCellBuilder();
   }
 
@@ -78,8 +77,7 @@ public class TableCellInSelectedRow implements TableCellFinder {
      * @param column the column index of the cell to find.
      * @return the created finder.
      */
-    public @Nonnull
-    TableCellInSelectedRow column(int column) {
+    public @Nonnull TableCellInSelectedRow column(int column) {
       return new TableCellInSelectedRow(column);
     }
   }
@@ -99,8 +97,7 @@ public class TableCellInSelectedRow implements TableCellFinder {
    * @throws ActionFailedException if a matching cell could not be found.
    */
   @Override
-  public @Nonnull
-  TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
+  public @Nonnull TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
     int selectedRow = selectedRowOf(table);
     if (selectedRow == -1) {
       throw actionFailure("The given JTable does not have any selection");

@@ -37,8 +37,8 @@ import org.assertj.swing.timing.Condition;
 final class NewAppletViewerQuery {
   // TODO test
   @RunsInEDT
-  static @Nonnull
-  AppletViewer showAppletViewerWith(final @Nonnull Applet applet, final @Nonnull Map<String, String> parameters) {
+  static @Nonnull AppletViewer showAppletViewerWith(final @Nonnull Applet applet,
+      final @Nonnull Map<String, String> parameters) {
     final AppletViewer viewer = newViewer(applet, parameters);
     execute(new GuiTask() {
       @Override

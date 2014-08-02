@@ -131,12 +131,10 @@ public class FrameDriver extends WindowDriver {
   }
 
   @RunsInEDT
-  private @Nonnull
-  static Point maximizeInfo(final @Nonnull Frame frame) {
+  private @Nonnull static Point maximizeInfo(final @Nonnull Frame frame) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
-      protected @Nullable
-      Point executeInEDT() {
+      protected @Nullable Point executeInEDT() {
         checkEnabledAndShowing(frame);
         return maximizeButtonLocation(frame);
       }

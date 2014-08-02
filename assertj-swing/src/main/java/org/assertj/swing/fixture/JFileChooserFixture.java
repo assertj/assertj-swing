@@ -70,8 +70,7 @@ public class JFileChooserFixture extends
   }
 
   @Override
-  protected @Nonnull
-  JFileChooserDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull JFileChooserDriver createDriver(@Nonnull Robot robot) {
     return new JFileChooserDriver(robot);
   }
 
@@ -92,8 +91,7 @@ public class JFileChooserFixture extends
    * @return the found "Approve" button.
    * @throws ComponentLookupException if the "Approve" button cannot be found.
    */
-  public @Nonnull
-  JButtonFixture approveButton() {
+  public @Nonnull JButtonFixture approveButton() {
     return new JButtonFixture(robot(), driver().approveButton(target()));
   }
 
@@ -114,8 +112,7 @@ public class JFileChooserFixture extends
    * @return the found "Cancel" button.
    * @throws ComponentLookupException if the "Cancel" button cannot be found.
    */
-  public @Nonnull
-  JButtonFixture cancelButton() {
+  public @Nonnull JButtonFixture cancelButton() {
     return new JButtonFixture(robot(), driver().cancelButton(target()));
   }
 
@@ -126,8 +123,7 @@ public class JFileChooserFixture extends
    * @return the created fixture.
    * @throws ComponentLookupException if a matching textToMatch field could not be found.
    */
-  public @Nonnull
-  JTextComponentFixture fileNameTextBox() {
+  public @Nonnull JTextComponentFixture fileNameTextBox() {
     return new JTextComponentFixture(robot(), driver().fileNameTextBox(target()));
   }
 
@@ -144,8 +140,7 @@ public class JFileChooserFixture extends
    * @throws IllegalArgumentException if this fixture's {@code JFileChooser} cannot select directories and the file to
    *           select is a directory.
    */
-  public @Nonnull
-  JFileChooserFixture selectFile(@Nonnull File file) {
+  public @Nonnull JFileChooserFixture selectFile(@Nonnull File file) {
     driver().selectFile(target(), file);
     return this;
   }
@@ -166,8 +161,7 @@ public class JFileChooserFixture extends
    * @throws IllegalArgumentException if this fixture's {@code JFileChooser} cannot select directories and any of the
    *           files to select is a directory.
    */
-  public @Nonnull
-  JFileChooserFixture selectFiles(@Nonnull File... files) {
+  public @Nonnull JFileChooserFixture selectFiles(@Nonnull File... files) {
     driver().selectFiles(target(), files);
     return this;
   }
@@ -180,8 +174,7 @@ public class JFileChooserFixture extends
    * @throws IllegalStateException if this fixture's {@code JFileChooser} is not showing on the screen.
    * @return this fixture.
    */
-  public @Nonnull
-  JFileChooserFixture setCurrentDirectory(@Nonnull File dir) {
+  public @Nonnull JFileChooserFixture setCurrentDirectory(@Nonnull File dir) {
     driver().setCurrentDirectory(target(), dir);
     return this;
   }

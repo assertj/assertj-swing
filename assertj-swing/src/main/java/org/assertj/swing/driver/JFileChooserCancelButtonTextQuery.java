@@ -26,8 +26,7 @@ import javax.swing.UIManager;
 final class JFileChooserCancelButtonTextQuery {
   private static final String CANCEL_BUTTON_TEXT_KEY = "FileChooser.cancelButtonText";
 
-  static @Nullable
-  String cancelButtonText() {
+  static @Nullable String cancelButtonText() {
     return UIManager.getString(CANCEL_BUTTON_TEXT_KEY);
   }
 

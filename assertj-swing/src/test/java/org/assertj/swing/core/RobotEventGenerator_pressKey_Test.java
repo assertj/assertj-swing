@@ -14,7 +14,6 @@
  */
 package org.assertj.swing.core;
 
-
 /**
  * Tests for {@link RobotEventGenerator#pressKey(int, char)} and {@link RobotEventGenerator#releaseKey(int)}.
  * 

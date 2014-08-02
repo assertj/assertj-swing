@@ -64,8 +64,7 @@ public abstract class Condition {
    * @return the description of this condition.
    */
   @Override
-  public final @Nonnull
-  String toString() {
+  public final @Nonnull String toString() {
     String descriptionText = description != null ? description.value() : defaultDescription();
     String addendum = descriptionAddendum();
     return concat(descriptionText, addendum);
@@ -80,8 +79,7 @@ public abstract class Condition {
    * 
    * @return by default, an empty {@code String}.
    */
-  protected @Nonnull
-  String descriptionAddendum() {
+  protected @Nonnull String descriptionAddendum() {
     return EMPTY_TEXT;
   }
 

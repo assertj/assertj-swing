@@ -52,8 +52,7 @@ class ParsedKeyStrokeMappingProvider implements KeyStrokeMappingProvider {
    * @return the mapping of characters and {@code KeyStroke}s.
    */
   @Override
-  public @Nonnull
-  Collection<KeyStrokeMapping> keyStrokeMappings() {
+  public @Nonnull Collection<KeyStrokeMapping> keyStrokeMappings() {
     return unmodifiableList(mappings);
   }
 }

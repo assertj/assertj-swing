@@ -110,18 +110,15 @@ public class TableCellByColumnId implements TableCellFinder {
    */
   @RunsInEDT
   @Override
-  public @Nonnull
-  TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
+  public @Nonnull TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
     return findCell(table, row, columnId);
   }
 
   @RunsInEDT
-  private static @Nonnull
-  TableCell findCell(final @Nonnull JTable table, final int row, final @Nonnull Object columnId) {
+  private static @Nonnull TableCell findCell(final @Nonnull JTable table, final int row, final @Nonnull Object columnId) {
     TableCell result = execute(new GuiQuery<TableCell>() {
       @Override
-      protected @Nullable
-      TableCell executeInEDT() {
+      protected @Nullable TableCell executeInEDT() {
         int column = columnIndexByIdentifier(table, columnId);
         if (column == -1) {
           failColumnIndexNotFound(columnId);

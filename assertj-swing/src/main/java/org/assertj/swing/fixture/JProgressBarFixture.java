@@ -60,8 +60,7 @@ public class JProgressBarFixture extends
   }
 
   @Override
-  protected @Nonnull
-  JProgressBarDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull JProgressBarDriver createDriver(@Nonnull Robot robot) {
     return new JProgressBarDriver(robot);
   }
 
@@ -72,8 +71,7 @@ public class JProgressBarFixture extends
    * @return this fixture.
    * @throws AssertionError if the value of this fixture's {@code JProgressBar} is not equal to the given one.
    */
-  public @Nonnull
-  JProgressBarFixture requireValue(int value) {
+  public @Nonnull JProgressBarFixture requireValue(int value) {
     driver().requireValue(target(), value);
     return this;
   }
@@ -84,8 +82,7 @@ public class JProgressBarFixture extends
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code JProgressBar} is not in determinate mode.
    */
-  public @Nonnull
-  JProgressBarFixture requireDeterminate() {
+  public @Nonnull JProgressBarFixture requireDeterminate() {
     driver().requireDeterminate(target());
     return this;
   }
@@ -96,8 +93,7 @@ public class JProgressBarFixture extends
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code JProgressBar} is not in indeterminate mode.
    */
-  public @Nonnull
-  JProgressBarFixture requireIndeterminate() {
+  public @Nonnull JProgressBarFixture requireIndeterminate() {
     driver().requireIndeterminate(target());
     return this;
   }
@@ -118,8 +114,7 @@ public class JProgressBarFixture extends
    * @throws AssertionError if the text of this fixture's {@code JProgressBar} is not equal to the given one.
    */
   @Override
-  public @Nonnull
-  JProgressBarFixture requireText(@Nullable String expected) {
+  public @Nonnull JProgressBarFixture requireText(@Nullable String expected) {
     driver().requireText(target(), expected);
     return this;
   }
@@ -134,8 +129,7 @@ public class JProgressBarFixture extends
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    */
   @Override
-  public @Nonnull
-  JProgressBarFixture requireText(@Nonnull Pattern pattern) {
+  public @Nonnull JProgressBarFixture requireText(@Nonnull Pattern pattern) {
     driver().requireText(target(), pattern);
     return this;
   }
@@ -150,8 +144,7 @@ public class JProgressBarFixture extends
    * @throws WaitTimedOutError if the value of the {@code JProgressBar} does not reach the expected value within 30
    *           seconds.
    */
-  public @Nonnull
-  JProgressBarFixture waitUntilValueIs(int value) {
+  public @Nonnull JProgressBarFixture waitUntilValueIs(int value) {
     driver().waitUntilValueIs(target(), value);
     return this;
   }
@@ -168,8 +161,7 @@ public class JProgressBarFixture extends
    * @throws WaitTimedOutError if the value of the {@code JProgressBar} does not reach the expected value within the
    *           specified timeout.
    */
-  public @Nonnull
-  JProgressBarFixture waitUntilValueIs(int value, @Nonnull Timeout timeout) {
+  public @Nonnull JProgressBarFixture waitUntilValueIs(int value, @Nonnull Timeout timeout) {
     driver().waitUntilValueIs(target(), value, timeout);
     return this;
   }
@@ -180,8 +172,7 @@ public class JProgressBarFixture extends
    * @return this fixture.
    * @throws WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode within 30 seconds.
    */
-  public @Nonnull
-  JProgressBarFixture waitUntilIsDeterminate() {
+  public @Nonnull JProgressBarFixture waitUntilIsDeterminate() {
     driver().waitUntilIsDeterminate(target());
     return this;
   }
@@ -194,8 +185,7 @@ public class JProgressBarFixture extends
    * @throws NullPointerException if the given timeout is {@code null}.
    * @throws WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode within the specified timeout.
    */
-  public @Nonnull
-  JProgressBarFixture waitUntilIsDeterminate(@Nonnull Timeout timeout) {
+  public @Nonnull JProgressBarFixture waitUntilIsDeterminate(@Nonnull Timeout timeout) {
     driver().waitUntilIsDeterminate(target(), timeout);
     return this;
   }

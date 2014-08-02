@@ -50,8 +50,7 @@ public class AppletParameter {
    * @param name the name of the {@code Applet} parameter.
    * @return a builder of {@code AppletParameter}s.
    */
-  public static @Nonnull
-  AppletParameterBuilder name(String name) {
+  public static @Nonnull AppletParameterBuilder name(String name) {
     return new AppletParameterBuilder(name);
   }
 

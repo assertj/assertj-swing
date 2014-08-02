@@ -68,8 +68,7 @@ class OSIdentifier {
     return false;
   }
 
-  private @Nonnull
-  OSFamily findOSFamily() {
+  private @Nonnull OSFamily findOSFamily() {
     if (isWindows()) {
       return WINDOWS;
     }

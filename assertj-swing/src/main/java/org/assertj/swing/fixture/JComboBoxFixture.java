@@ -69,8 +69,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
   }
 
   @Override
-  protected @Nonnull
-  JComboBoxDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull JComboBoxDriver createDriver(@Nonnull Robot robot) {
     return new JComboBoxDriver(robot);
   }
 
@@ -80,8 +79,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @see #replaceCellReader(JComboBoxCellReader)
    */
   @Override
-  public @Nonnull
-  String[] contents() {
+  public @Nonnull String[] contents() {
     return driver().contentsOf(target());
   }
 
@@ -92,8 +90,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @return this fixture.
    */
   @Override
-  public @Nonnull
-  JComboBoxFixture clearSelection() {
+  public @Nonnull JComboBoxFixture clearSelection() {
     driver().clearSelection(target());
     return this;
   }
@@ -109,8 +106,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    *           {@code JComboBox}.
    */
   @Override
-  public @Nonnull
-  JComboBoxFixture selectItem(int index) {
+  public @Nonnull JComboBoxFixture selectItem(int index) {
     driver().selectItem(target(), index);
     return this;
   }
@@ -127,8 +123,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @see #replaceCellReader(JComboBoxCellReader)
    */
   @Override
-  public @Nonnull
-  JComboBoxFixture selectItem(@Nullable String text) {
+  public @Nonnull JComboBoxFixture selectItem(@Nullable String text) {
     driver().selectItem(target(), text);
     return this;
   }
@@ -146,8 +141,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @see #replaceCellReader(JComboBoxCellReader)
    */
   @Override
-  public @Nonnull
-  JComboBoxFixture selectItem(@Nonnull Pattern pattern) {
+  public @Nonnull JComboBoxFixture selectItem(@Nonnull Pattern pattern) {
     driver().selectItem(target(), pattern);
     return this;
   }
@@ -163,8 +157,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @see #replaceCellReader(JComboBoxCellReader)
    */
   @Override
-  public @Nullable
-  String valueAt(int index) {
+  public @Nullable String valueAt(int index) {
     return driver().value(target(), index);
   }
 
@@ -178,8 +171,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @see #replaceCellReader(JComboBoxCellReader)
    */
   @Override
-  public @Nonnull
-  JComboBoxFixture requireSelection(@Nullable String value) {
+  public @Nonnull JComboBoxFixture requireSelection(@Nullable String value) {
     driver().requireSelection(target(), value);
     return this;
   }
@@ -195,8 +187,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @see #replaceCellReader(JComboBoxCellReader)
    */
   @Override
-  public @Nonnull
-  JComboBoxFixture requireSelection(@Nonnull Pattern pattern) {
+  public @Nonnull JComboBoxFixture requireSelection(@Nonnull Pattern pattern) {
     driver().requireSelection(target(), pattern);
     return this;
   }
@@ -209,8 +200,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @throws AssertionError if the selected index is not equal to the given one.
    */
   @Override
-  public @Nonnull
-  JComboBoxFixture requireSelection(int index) {
+  public @Nonnull JComboBoxFixture requireSelection(int index) {
     driver().requireSelection(target(), index);
     return this;
   }
@@ -222,8 +212,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @throws AssertionError if this fixture's {@code JComboBox} has a selection.
    */
   @Override
-  public @Nonnull
-  JComboBoxFixture requireNoSelection() {
+  public @Nonnull JComboBoxFixture requireNoSelection() {
     driver().requireNoSelection(target());
     return this;
   }
@@ -236,8 +225,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @throws AssertionError if the number of items in this fixture's {@code JComboBox} is not equal to the expected one.
    */
   @Override
-  public @Nonnull
-  JComboBoxFixture requireItemCount(int expected) {
+  public @Nonnull JComboBoxFixture requireItemCount(int expected) {
     driver().requireItemCount(target(), expected);
     return this;
   }
@@ -249,8 +237,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @return the selected value of this fixture's {code JComboBox} as plain text, or {@code null} if the {code
    *         JComboBox} does not have any selection.
    */
-  public @Nullable
-  String selectedItem() {
+  public @Nullable String selectedItem() {
     return driver().selectedItemOf(target());
   }
 
@@ -290,8 +277,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not showing on the screen.
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not editable.
    */
-  public @Nonnull
-  JComboBoxFixture replaceText(@Nonnull String text) {
+  public @Nonnull JComboBoxFixture replaceText(@Nonnull String text) {
     driver().replaceText(target(), text);
     return this;
   }
@@ -305,8 +291,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not showing on the screen.
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not editable.
    */
-  public @Nonnull
-  JComboBoxFixture selectAllText() {
+  public @Nonnull JComboBoxFixture selectAllText() {
     driver().selectAllText(target());
     return this;
   }
@@ -322,8 +307,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @throws IllegalStateException if this fixture's {@code JComboBox} is not editable.
    * @throws ActionFailedException if this fixture's {@code JComboBox} does not have an editor.
    */
-  public @Nonnull
-  JComboBoxFixture enterText(@Nonnull String text) {
+  public @Nonnull JComboBoxFixture enterText(@Nonnull String text) {
     driver().enterText(target(), text);
     return this;
   }
@@ -334,8 +318,7 @@ public class JComboBoxFixture extends AbstractJPopupMenuInvokerFixture<JComboBox
    * @return the {@code JList} in the pop-up raised by this fixture's {@code JComboBox}.
    * @throws ComponentLookupException if the {@code JList} in the pop-up could not be found.
    */
-  public @Nonnull
-  JList list() {
+  public @Nonnull JList list() {
     return driver().dropDownList();
   }
 

@@ -35,8 +35,8 @@ public class NeverMatchingComponentMatcher<T extends Component> extends GenericT
    * @return the created matcher.
    * @throws NullPointerException if the given type is {@code null}.
    */
-  public static @Nonnull
-  <T extends Component> NeverMatchingComponentMatcher<T> neverMatches(@Nonnull Class<T> supportedType) {
+  public static @Nonnull <T extends Component> NeverMatchingComponentMatcher<T> neverMatches(
+      @Nonnull Class<T> supportedType) {
     return new NeverMatchingComponentMatcher<T>(supportedType);
   }
 

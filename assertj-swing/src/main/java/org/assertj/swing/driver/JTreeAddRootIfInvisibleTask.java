@@ -42,8 +42,7 @@ final class JTreeAddRootIfInvisibleTask {
    * root node cannot be expanded (issue 293.)
    */
   @RunsInCurrentThread
-  static @Nonnull
-  TreePath addRootIfInvisible(@Nonnull JTree tree, @Nonnull TreePath path) {
+  static @Nonnull TreePath addRootIfInvisible(@Nonnull JTree tree, @Nonnull TreePath path) {
     Object root = tree.getModel().getRoot();
     if (tree.isRootVisible() || root == null) {
       return path;

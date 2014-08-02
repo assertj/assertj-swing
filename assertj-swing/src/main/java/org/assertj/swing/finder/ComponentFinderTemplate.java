@@ -104,8 +104,7 @@ public abstract class ComponentFinderTemplate<T extends Component> {
    * @return this finder.
    * @throws IllegalArgumentException if the timeout is a negative number.
    */
-  protected @Nonnull
-  ComponentFinderTemplate<T> withTimeout(@Nonnegative long newTimeout) {
+  protected @Nonnull ComponentFinderTemplate<T> withTimeout(@Nonnegative long newTimeout) {
     if (newTimeout < 0) {
       throw new IllegalArgumentException("Timeout cannot be a negative number");
     }
@@ -120,8 +119,7 @@ public abstract class ComponentFinderTemplate<T extends Component> {
    * @return a fixture capable of managing the found component.
    * @throws WaitTimedOutError if a component with the given name or of the given type could not be found.
    */
-  public abstract @Nonnull
-  AbstractComponentFixture<?, T, ?> using(@Nonnull Robot robot);
+  public abstract @Nonnull AbstractComponentFixture<?, T, ?> using(@Nonnull Robot robot);
 
   /**
    * Finds the component using either by name or type.
@@ -130,8 +128,7 @@ public abstract class ComponentFinderTemplate<T extends Component> {
    * @return the found component.
    * @throws WaitTimedOutError if a component with the given name or of the given type could not be found.
    */
-  protected final @Nonnull
-  T findComponentWith(@Nonnull Robot robot) {
+  protected final @Nonnull T findComponentWith(@Nonnull Robot robot) {
     ComponentFoundCondition condition = new ComponentFoundCondition(searchDescription, robot.finder(), matcher);
     pause(condition, timeout);
     return checkNotNull(cast(condition.found()));
@@ -143,6 +140,5 @@ public abstract class ComponentFinderTemplate<T extends Component> {
    * @param c the given {@code Component}.
    * @return the given {@code Component} casted to the type supported by this finder.
    */
-  protected abstract @Nullable
-  T cast(@Nullable Component c);
+  protected abstract @Nullable T cast(@Nullable Component c);
 }

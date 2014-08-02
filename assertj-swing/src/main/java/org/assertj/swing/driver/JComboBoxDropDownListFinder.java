@@ -70,8 +70,7 @@ final class JComboBoxDropDownListFinder {
     return findListIn(popup);
   }
 
-  private @Nullable
-  JList findListIn(@Nonnull Container parent) {
+  private @Nullable JList findListIn(@Nonnull Container parent) {
     List<Component> found = newArrayList(robot.finder().findAll(parent, LIST_MATCHER));
     if (found.size() != 1) {
       return null;

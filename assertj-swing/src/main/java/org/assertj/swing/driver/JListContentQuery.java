@@ -32,8 +32,7 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JListContentQuery {
   @RunsInEDT
-  static @Nonnull
-  String[] contents(final @Nonnull JList list, final @Nonnull JListCellReader cellReader) {
+  static @Nonnull String[] contents(final @Nonnull JList list, final @Nonnull JListCellReader cellReader) {
     String[] result = execute(new GuiQuery<String[]>() {
       @Override
       protected String[] executeInEDT() {

@@ -29,13 +29,11 @@ import org.assertj.core.internal.Failures;
  * @author Alex Ruiz
  */
 class TextAssert extends AbstractCharSequenceAssert<TextAssert, String> {
-  static @Nonnull
-  TextAssert assertThat(@Nullable String s) {
+  static @Nonnull TextAssert assertThat(@Nullable String s) {
     return new TextAssert(s);
   }
 
-  static @Nonnull
-  TextAssert verifyThat(@Nullable String s) {
+  static @Nonnull TextAssert verifyThat(@Nullable String s) {
     return new TextAssert(s);
   }
 

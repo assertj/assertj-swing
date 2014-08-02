@@ -35,12 +35,10 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class MenuElementComponentQuery {
   @RunsInEDT
-  static @Nonnull
-  Component componentIn(final @Nonnull MenuElement menuElement) {
+  static @Nonnull Component componentIn(final @Nonnull MenuElement menuElement) {
     Component result = execute(new GuiQuery<Component>() {
       @Override
-      protected @Nullable
-      Component executeInEDT() {
+      protected @Nullable Component executeInEDT() {
         return menuElement.getComponent();
       }
     });

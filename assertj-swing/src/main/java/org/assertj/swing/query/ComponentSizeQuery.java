@@ -44,12 +44,10 @@ public final class ComponentSizeQuery {
    * @see Component#getSize()
    */
   @RunsInEDT
-  public static @Nonnull
-  Dimension sizeOf(final @Nonnull Component component) {
+  public static @Nonnull Dimension sizeOf(final @Nonnull Component component) {
     Dimension result = execute(new GuiQuery<Dimension>() {
       @Override
-      protected @Nullable
-      Dimension executeInEDT() {
+      protected @Nullable Dimension executeInEDT() {
         return component.getSize();
       }
     });

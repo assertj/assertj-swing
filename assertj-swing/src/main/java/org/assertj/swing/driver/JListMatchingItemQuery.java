@@ -46,8 +46,7 @@ import org.assertj.swing.util.TextMatcher;
  */
 final class JListMatchingItemQuery {
   @RunsInEDT
-  static @Nonnull
-  Point centerOfMatchingItemCell(final @Nonnull JList list, final @Nullable String value,
+  static @Nonnull Point centerOfMatchingItemCell(final @Nonnull JList list, final @Nullable String value,
       final @Nonnull JListCellReader cellReader) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
@@ -72,8 +71,7 @@ final class JListMatchingItemQuery {
   }
 
   @RunsInEDT
-  static @Nonnull
-  List<Integer> matchingItemIndices(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
+  static @Nonnull List<Integer> matchingItemIndices(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
       final @Nonnull JListCellReader cellReader) {
     List<Integer> result = execute(new GuiQuery<List<Integer>>() {
       @Override
@@ -94,8 +92,7 @@ final class JListMatchingItemQuery {
   }
 
   @RunsInEDT
-  static @Nonnull
-  List<String> matchingItemValues(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
+  static @Nonnull List<String> matchingItemValues(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
       final @Nonnull JListCellReader cellReader) {
     List<String> result = execute(new GuiQuery<List<String>>() {
       @Override

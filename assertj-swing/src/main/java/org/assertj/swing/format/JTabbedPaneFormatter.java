@@ -38,8 +38,7 @@ public class JTabbedPaneFormatter extends ComponentFormatterTemplate {
    * @return the {@code String} representation of the given {@code JTabbedPane}.
    */
   @Override
-  protected @Nonnull
-  String doFormat(@Nonnull Component c) {
+  protected @Nonnull String doFormat(@Nonnull Component c) {
     JTabbedPane tabbedPane = (JTabbedPane) c;
     String format = "%s[name=%s, selectedTabIndex=%d, selectedTabTitle=%s, tabCount=%d, tabTitles=%s, enabled=%b, visible=%s, showing=%s";
     return String.format(format, tabbedPane.getClass().getName(), quote(tabbedPane.getName()),
@@ -74,8 +73,7 @@ public class JTabbedPaneFormatter extends ComponentFormatterTemplate {
    * @return {@code JTabbedPane.class}.
    */
   @Override
-  public @Nonnull
-  Class<? extends Component> targetType() {
+  public @Nonnull Class<? extends Component> targetType() {
     return JTabbedPane.class;
   }
 }

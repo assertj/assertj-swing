@@ -46,8 +46,7 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
       this.value = value;
     }
 
-    public @Nonnull
-    String value() {
+    public @Nonnull String value() {
       return value;
     }
   }
@@ -78,8 +77,7 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
   }
 
   @Override
-  protected @Nonnull
-  JToolBarDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull JToolBarDriver createDriver(@Nonnull Robot robot) {
     return new JToolBarDriver(robot);
   }
 
@@ -91,8 +89,7 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
    * @throws ActionFailedException if the {@code JToolBar} is not floatable.
    * @throws ActionFailedException if the {@code JToolBar} cannot be dragged.
    */
-  public @Nonnull
-  JToolBarFixture floatTo(@Nonnull Point point) {
+  public @Nonnull JToolBarFixture floatTo(@Nonnull Point point) {
     driver().floatTo(target(), point.x, point.y);
     return this;
   }
@@ -103,8 +100,7 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
    * @return this fixture.
    * @throws ActionFailedException if the dock container cannot be found.
    */
-  public @Nonnull
-  JToolBarFixture unfloat() {
+  public @Nonnull JToolBarFixture unfloat() {
     driver().unfloat(target());
     return this;
   }
@@ -116,8 +112,7 @@ public class JToolBarFixture extends AbstractSwingContainerFixture<JToolBarFixtu
    * @return this fixture.
    * @throws ActionFailedException if the dock container cannot be found.
    */
-  public @Nonnull
-  JToolBarFixture unfloat(@Nonnull UnfloatConstraint constraint) {
+  public @Nonnull JToolBarFixture unfloat(@Nonnull UnfloatConstraint constraint) {
     driver().unfloat(target(), constraint.value());
     return this;
   }

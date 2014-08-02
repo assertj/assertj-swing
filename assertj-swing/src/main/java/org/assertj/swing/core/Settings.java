@@ -223,8 +223,7 @@ public class Settings {
    * @return the scope of AWT or Swing {@code Component} lookups. This setting only affects the classes in the package
    *         {@code org.assertj.swing.fixture}. The default value is {@link ComponentLookupScope#DEFAULT}.
    */
-  public @Nonnull
-  ComponentLookupScope componentLookupScope() {
+  public @Nonnull ComponentLookupScope componentLookupScope() {
     return componentLookupScope;
   }
 

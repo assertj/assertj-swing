@@ -32,8 +32,7 @@ import org.assertj.swing.util.Pair;
  */
 final class JProgressBarMinimumAndMaximumQuery {
   @RunsInEDT
-  static @Nonnull
-  Pair<Integer, Integer> minimumAndMaximumOf(final @Nonnull JProgressBar progressBar) {
+  static @Nonnull Pair<Integer, Integer> minimumAndMaximumOf(final @Nonnull JProgressBar progressBar) {
     Pair<Integer, Integer> result = execute(new GuiQuery<Pair<Integer, Integer>>() {
       @Override
       protected Pair<Integer, Integer> executeInEDT() {

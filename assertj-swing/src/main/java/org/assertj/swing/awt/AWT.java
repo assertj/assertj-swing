@@ -90,8 +90,7 @@ public class AWT {
    * @return the translated coordinates.
    */
   @RunsInCurrentThread
-  public static @Nullable
-  Point translate(@Nonnull Component c, int x, int y) {
+  public static @Nullable Point translate(@Nonnull Component c, int x, int y) {
     Point p = locationOnScreenOf(c);
     if (p == null) {
       return null;
@@ -107,8 +106,7 @@ public class AWT {
    * @return a point at the center of the visible area of the given {@code Component}.
    */
   @RunsInEDT
-  public static @Nonnull
-  Point visibleCenterOf(@Nonnull final Component c) {
+  public static @Nonnull Point visibleCenterOf(@Nonnull final Component c) {
     Point center = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -135,8 +133,7 @@ public class AWT {
    * @return a point at the center of the given {@code Component}.
    */
   @RunsInCurrentThread
-  public static @Nonnull
-  Point centerOf(@Nonnull Component c) {
+  public static @Nonnull Point centerOf(@Nonnull Component c) {
     Dimension size = c.getSize();
     return new Point(size.width / 2, size.height / 2);
   }
@@ -155,8 +152,7 @@ public class AWT {
    * @return a point at the center of the visible rectangle of the given {@code JComponent}.
    */
   @RunsInCurrentThread
-  public static @Nonnull
-  Point centerOfVisibleRect(@Nonnull JComponent c) {
+  public static @Nonnull Point centerOfVisibleRect(@Nonnull JComponent c) {
     Rectangle r = c.getVisibleRect();
     return centerOf(checkNotNull(r));
   }
@@ -175,8 +171,7 @@ public class AWT {
    * @return a point at the center of the given {@code Rectangle}.
    */
   @RunsInCurrentThread
-  public static @Nonnull
-  Point centerOf(@Nonnull Rectangle r) {
+  public static @Nonnull Point centerOf(@Nonnull Rectangle r) {
     return new Point((r.x + (r.width / 2)), (r.y + (r.height / 2)));
   }
 
@@ -194,8 +189,7 @@ public class AWT {
    * @return the insets of the given {@code Container}, or an empty one if no insets can be found.
    */
   @RunsInCurrentThread
-  public static @Nonnull
-  Insets insetsFrom(@Nonnull Container c) {
+  public static @Nonnull Insets insetsFrom(@Nonnull Container c) {
     try {
       Insets insets = c.getInsets();
       if (insets != null) {
@@ -259,8 +253,7 @@ public class AWT {
   }
 
   @RunsInCurrentThread
-  private static @Nullable
-  String obtainNameSafely(@Nonnull Component c) {
+  private static @Nullable String obtainNameSafely(@Nonnull Component c) {
     // Work around some components throwing exceptions if getName is called prematurely
     try {
       return c.getName();
@@ -285,8 +278,7 @@ public class AWT {
    *         pop-up of any sort.
    */
   @RunsInCurrentThread
-  public static @Nullable
-  Component invokerOf(final @Nonnull Component c) {
+  public static @Nullable Component invokerOf(final @Nonnull Component c) {
     if (c instanceof JPopupMenu) {
       return ((JPopupMenu) c).getInvoker();
     }
@@ -310,8 +302,7 @@ public class AWT {
    *         {@code null}, if the {@code Component} is not showing on the screen.
    */
   @RunsInCurrentThread
-  public static @Nullable
-  Point locationOnScreenOf(@Nonnull Component c) {
+  public static @Nullable Point locationOnScreenOf(@Nonnull Component c) {
     if (!isAWTTreeLockHeld()) {
       return new Point(c.getLocationOnScreen());
     }

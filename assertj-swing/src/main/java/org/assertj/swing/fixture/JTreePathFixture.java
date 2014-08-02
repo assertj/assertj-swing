@@ -52,8 +52,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws ActionFailedException if this method fails to expand the path.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture expand() {
+  public @Nonnull JTreePathFixture expand() {
     tree.expandPath(path());
     return this;
   }
@@ -67,8 +66,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws ActionFailedException if this method fails to collapse the path.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture collapse() {
+  public @Nonnull JTreePathFixture collapse() {
     tree.collapsePath(path());
     return this;
   }
@@ -82,8 +80,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture select() {
+  public @Nonnull JTreePathFixture select() {
     tree.selectPath(path());
     return this;
   }
@@ -96,8 +93,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture click() {
+  public @Nonnull JTreePathFixture click() {
     tree.clickPath(path());
     return this;
   }
@@ -112,8 +108,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture click(@Nonnull MouseButton button) {
+  public @Nonnull JTreePathFixture click(@Nonnull MouseButton button) {
     tree.clickPath(path(), button);
     return this;
   }
@@ -128,8 +123,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
+  public @Nonnull JTreePathFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
     tree.clickPath(path(), mouseClickInfo);
     return this;
   }
@@ -142,8 +136,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture doubleClick() {
+  public @Nonnull JTreePathFixture doubleClick() {
     tree.doubleClickPath(path());
     return this;
   }
@@ -156,8 +149,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture rightClick() {
+  public @Nonnull JTreePathFixture rightClick() {
     tree.rightClickPath(path());
     return this;
   }
@@ -170,8 +162,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture drag() {
+  public @Nonnull JTreePathFixture drag() {
     tree.drag(path());
     return this;
   }
@@ -185,8 +176,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws ActionFailedException if there is no drag action in effect.
    */
   @Override
-  public @Nonnull
-  JTreePathFixture drop() {
+  public @Nonnull JTreePathFixture drop() {
     tree.drop(path());
     return this;
   }
@@ -200,8 +190,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull
-  JPopupMenuFixture showPopupMenu() {
+  public @Nonnull JPopupMenuFixture showPopupMenu() {
     return tree.showPopupMenuAt(path());
   }
 
@@ -209,16 +198,14 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @return the {@code String} representation of this fixture's tree node.
    */
   @Override
-  public @Nullable
-  String value() {
+  public @Nullable String value() {
     return tree.valueAt(path());
   }
 
   /**
    * @return the path of this fixture's node.
    */
-  public @Nonnull
-  String path() {
+  public @Nonnull String path() {
     return path;
   }
 

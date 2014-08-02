@@ -36,12 +36,10 @@ public abstract class GuiLazyLoadingDescription extends Description {
    * @return the text loaded in the event dispatch thread (EDT.)
    */
   @Override
-  public final @Nonnull
-  String value() {
+  public final @Nonnull String value() {
     String result = execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable
-      String executeInEDT() {
+      protected @Nullable String executeInEDT() {
         return loadDescription();
       }
     });
@@ -61,6 +59,5 @@ public abstract class GuiLazyLoadingDescription extends Description {
    * @return the lazy-loaded text of this description.
    */
   @RunsInCurrentThread
-  protected abstract @Nonnull
-  String loadDescription();
+  protected abstract @Nonnull String loadDescription();
 }

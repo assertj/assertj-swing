@@ -76,8 +76,7 @@ public class KeyStrokeMappingProvider_fr implements KeyStrokeMappingProvider {
    * @return the mapping between characters and {@code KeyStroke}s for locale {@code Locale.FRENCH}.
    */
   @Override
-  public @Nonnull
-  Collection<KeyStrokeMapping> keyStrokeMappings() {
+  public @Nonnull Collection<KeyStrokeMapping> keyStrokeMappings() {
     return SingletonHolder.instance;
   }
 
@@ -86,8 +85,7 @@ public class KeyStrokeMappingProvider_fr implements KeyStrokeMappingProvider {
     static List<KeyStrokeMapping> instance = createMappings();
   }
 
-  private static @Nonnull
-  List<KeyStrokeMapping> createMappings() {
+  private static @Nonnull List<KeyStrokeMapping> createMappings() {
     List<KeyStrokeMapping> mappings = Lists.newArrayList();
     mappings.add(mapping('\b', VK_BACK_SPACE, NO_MASK));
     mappings.add(mapping('', VK_DELETE, NO_MASK));

@@ -120,16 +120,14 @@ public class ScreenshotTaker {
    * @return a screenshot of the given {@code Component}.
    * @throws SecurityException if {@code readDisplayPixels} permission is not granted.
    */
-  public @Nonnull
-  BufferedImage takeScreenshotOf(@Nonnull Component c) {
+  public @Nonnull BufferedImage takeScreenshotOf(@Nonnull Component c) {
     Point locationOnScreen = locationOnScreen(c);
     Dimension size = sizeOf(c);
     Rectangle r = new Rectangle(locationOnScreen.x, locationOnScreen.y, size.width, size.height);
     return takeScreenshot(r);
   }
 
-  private @Nonnull
-  BufferedImage takeScreenshot(Rectangle r) {
+  private @Nonnull BufferedImage takeScreenshot(Rectangle r) {
     JTextComponent textComponent = findFocusOwnerAndHideItsCaret();
     robot.waitForIdle();
     try {
@@ -160,12 +158,10 @@ public class ScreenshotTaker {
   }
 
   // TODO(Alex): Verify that this method really needs to be executed in the EDT.
-  private static @Nonnull
-  BufferedImage takeScreenshot(final @Nonnull Robot robot, final @Nonnull Rectangle r) {
+  private static @Nonnull BufferedImage takeScreenshot(final @Nonnull Robot robot, final @Nonnull Rectangle r) {
     BufferedImage result = execute(new GuiQuery<BufferedImage>() {
       @Override
-      protected @Nullable
-      BufferedImage executeInEDT() {
+      protected @Nullable BufferedImage executeInEDT() {
         return robot.createScreenCapture(r);
       }
     });

@@ -36,8 +36,7 @@ public class ClickRecorder extends AbstractClickRecorder {
     // hide the constructor from the outside
   }
 
-  static @Nonnull
-  ClickRecorder attachTo(@Nonnull Component target) {
+  static @Nonnull ClickRecorder attachTo(@Nonnull Component target) {
     ClickRecorder recorder = new ClickRecorder();
     attach(new ClickListener(recorder), target);
     return recorder;

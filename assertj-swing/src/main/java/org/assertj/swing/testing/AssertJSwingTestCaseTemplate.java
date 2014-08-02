@@ -48,8 +48,7 @@ public abstract class AssertJSwingTestCaseTemplate {
   /**
    * @return this test's {@link Robot}
    */
-  protected final @Nonnull
-  Robot robot() {
+  protected final @Nonnull Robot robot() {
     return robot;
   }
 }

@@ -102,8 +102,7 @@ public class AbstractContainerFixture_table_Test extends RobotBasedTestCase {
   private static class MyWindow extends TestWindow {
     final JTable table = new JTable(8, 6);
 
-    static @Nonnull
-    MyWindow createNew(final @Nonnull Class<?> testClass) {
+    static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
       MyWindow result = execute(new GuiQuery<MyWindow>() {
         @Override
         protected MyWindow executeInEDT() {

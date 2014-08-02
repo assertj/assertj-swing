@@ -57,8 +57,8 @@ final class FinderDelegate {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Collection<Component> childrenOfComponent(final @Nonnull Component c, final @Nonnull ComponentHierarchy h) {
+  private static @Nonnull Collection<Component> childrenOfComponent(final @Nonnull Component c,
+      final @Nonnull ComponentHierarchy h) {
     Collection<Component> children = execute(new GuiQuery<Collection<Component>>() {
       @Override
       protected Collection<Component> executeInEDT() {
@@ -90,8 +90,7 @@ final class FinderDelegate {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Collection<? extends Component> rootsOf(final @Nonnull ComponentHierarchy h) {
+  private static @Nonnull Collection<? extends Component> rootsOf(final @Nonnull ComponentHierarchy h) {
     Collection<? extends Component> roots = execute(new GuiQuery<Collection<? extends Component>>() {
       @Override
       protected Collection<? extends Component> executeInEDT() {

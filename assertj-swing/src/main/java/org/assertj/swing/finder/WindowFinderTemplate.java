@@ -70,8 +70,7 @@ public abstract class WindowFinderTemplate<T extends Window> extends ComponentFi
    * @throws IllegalArgumentException if the timeout is a negative number.
    */
   @Override
-  protected @Nonnull
-  WindowFinderTemplate<T> withTimeout(@Nonnegative long timeout) {
+  protected @Nonnull WindowFinderTemplate<T> withTimeout(@Nonnegative long timeout) {
     super.withTimeout(timeout);
     return this;
   }
@@ -100,6 +99,5 @@ public abstract class WindowFinderTemplate<T extends Window> extends ComponentFi
    *           could not be found.
    */
   @Override
-  public abstract @Nonnull
-  AbstractWindowFixture<?, T, ?> using(@Nonnull Robot robot);
+  public abstract @Nonnull AbstractWindowFixture<?, T, ?> using(@Nonnull Robot robot);
 }

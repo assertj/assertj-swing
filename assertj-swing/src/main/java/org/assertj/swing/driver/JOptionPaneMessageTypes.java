@@ -43,8 +43,7 @@ final class JOptionPaneMessageTypes {
     messageMap.put(PLAIN_MESSAGE, "Plain Message");
   }
 
-  static @Nonnull
-  String messageTypeAsText(int messageType) {
+  static @Nonnull String messageTypeAsText(int messageType) {
     if (messageMap.containsKey(messageType)) {
       return checkNotNullOrEmpty(messageMap.get(messageType));
     }

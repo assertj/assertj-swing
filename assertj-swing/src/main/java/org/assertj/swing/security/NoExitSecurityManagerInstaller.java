@@ -27,8 +27,7 @@ public class NoExitSecurityManagerInstaller {
    * 
    * @return this installer.
    */
-  public static @Nonnull
-  NoExitSecurityManagerInstaller installNoExitSecurityManager() {
+  public static @Nonnull NoExitSecurityManagerInstaller installNoExitSecurityManager() {
     return new NoExitSecurityManagerInstaller(new NoExitSecurityManager());
   }
 
@@ -39,8 +38,7 @@ public class NoExitSecurityManagerInstaller {
    * @return this installer.
    * @throws NullPointerException if the given hook is {@code null}.
    */
-  public static @Nonnull
-  NoExitSecurityManagerInstaller installNoExitSecurityManager(@Nonnull ExitCallHook hook) {
+  public static @Nonnull NoExitSecurityManagerInstaller installNoExitSecurityManager(@Nonnull ExitCallHook hook) {
     return new NoExitSecurityManagerInstaller(new NoExitSecurityManager(hook));
   }
 

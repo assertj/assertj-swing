@@ -37,8 +37,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  */
 final class JInternalFrameDesktopPaneQuery {
   @RunsInCurrentThread
-  static @Nullable
-  JDesktopPane desktopPaneOf(@Nonnull JInternalFrame internalFrame) {
+  static @Nullable JDesktopPane desktopPaneOf(@Nonnull JInternalFrame internalFrame) {
     JDesktopIcon icon = internalFrame.getDesktopIcon();
     if (icon != null) {
       return icon.getDesktopPane();

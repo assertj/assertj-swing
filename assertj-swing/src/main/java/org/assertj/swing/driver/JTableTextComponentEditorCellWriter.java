@@ -59,8 +59,7 @@ public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWrite
   }
 
   @RunsInEDT
-  private @Nonnull
-  JTextComponent doStartCellEditing(@Nonnull JTable table, int row, int column) {
+  private @Nonnull JTextComponent doStartCellEditing(@Nonnull JTable table, int row, int column) {
     Point cellLocation = cellLocation(table, row, column, location());
     JTextComponent textComponent = null;
     try {
@@ -73,23 +72,22 @@ public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWrite
   }
 
   @RunsInEDT
-  private @Nullable
-  JTextComponent activateEditorWithF2Key(@Nonnull JTable table, int row, int column, @Nonnull Point cellLocation) {
+  private @Nullable JTextComponent activateEditorWithF2Key(@Nonnull JTable table, int row, int column,
+      @Nonnull Point cellLocation) {
     robot.click(table, cellLocation);
     robot.pressAndReleaseKeys(VK_F2);
     return waitForEditorActivation(table, row, column);
   }
 
   @RunsInEDT
-  private @Nullable
-  JTextComponent activateEditorWithDoubleClick(@Nonnull JTable table, int row, int column, @Nonnull Point cellLocation) {
+  private @Nullable JTextComponent activateEditorWithDoubleClick(@Nonnull JTable table, int row, int column,
+      @Nonnull Point cellLocation) {
     robot.click(table, cellLocation, LEFT_BUTTON, 2);
     return waitForEditorActivation(table, row, column);
   }
 
   @RunsInEDT
-  private @Nullable
-  JTextComponent waitForEditorActivation(@Nonnull JTable table, int row, int column) {
+  private @Nullable JTextComponent waitForEditorActivation(@Nonnull JTable table, int row, int column) {
     return waitForEditorActivation(table, row, column, JTextComponent.class);
   }
 }

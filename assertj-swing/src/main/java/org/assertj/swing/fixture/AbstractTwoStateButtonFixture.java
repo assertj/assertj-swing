@@ -68,8 +68,7 @@ public abstract class AbstractTwoStateButtonFixture<S, T extends AbstractButton>
    * @throws IllegalStateException if this fixture's {@code AbstractButton} is disabled.
    * @throws IllegalStateException if this fixture's {@code AbstractButton} is not showing on the screen.
    */
-  public final @Nonnull
-  S check() {
+  public final @Nonnull S check() {
     driver().select(target());
     return myself();
   }
@@ -81,8 +80,7 @@ public abstract class AbstractTwoStateButtonFixture<S, T extends AbstractButton>
    * @throws IllegalStateException if this fixture's {@code AbstractButton} is disabled.
    * @throws IllegalStateException if this fixture's {@code AbstractButton} is not showing on the screen.
    */
-  public final @Nonnull
-  S uncheck() {
+  public final @Nonnull S uncheck() {
     driver().deselect(target());
     return myself();
   }
@@ -93,8 +91,7 @@ public abstract class AbstractTwoStateButtonFixture<S, T extends AbstractButton>
    * @return this fixture.
    * @throws AssertionError if the {@code AbstractButton} managed by this fixture is not selected.
    */
-  public final @Nonnull
-  S requireSelected() {
+  public final @Nonnull S requireSelected() {
     driver().requireSelected(target());
     return myself();
   }
@@ -105,8 +102,7 @@ public abstract class AbstractTwoStateButtonFixture<S, T extends AbstractButton>
    * @return this fixture.
    * @throws AssertionError if the {@code AbstractButton} managed by this fixture is selected.
    */
-  public final @Nonnull
-  S requireNotSelected() {
+  public final @Nonnull S requireNotSelected() {
     driver().requireNotSelected(target());
     return myself();
   }

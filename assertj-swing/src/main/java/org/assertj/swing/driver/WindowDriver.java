@@ -124,8 +124,7 @@ public class WindowDriver extends ContainerDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Point closeInfo(final @Nonnull Window w) {
+  private static @Nonnull Point closeInfo(final @Nonnull Window w) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {

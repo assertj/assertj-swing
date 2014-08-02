@@ -41,8 +41,7 @@ public final class Range {
    * @param value the starting value of the range.
    * @return the created {@code From}.
    */
-  public static final @Nonnull
-  From from(int value) {
+  public static final @Nonnull From from(int value) {
     return new From(value);
   }
 
@@ -52,8 +51,7 @@ public final class Range {
    * @param value the ending value of the range.
    * @return the created {@code To}.
    */
-  public static final @Nonnull
-  To to(int value) {
+  public static final @Nonnull To to(int value) {
     return new To(value);
   }
 

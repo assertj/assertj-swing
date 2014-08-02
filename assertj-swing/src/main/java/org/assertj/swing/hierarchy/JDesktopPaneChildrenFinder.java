@@ -36,8 +36,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 final class JDesktopPaneChildrenFinder implements ChildrenFinderStrategy {
   @Override
   @RunsInCurrentThread
-  public @Nonnull
-  Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
+  public @Nonnull Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
     if (!(c instanceof JDesktopPane)) {
       return emptyList();
     }
@@ -47,8 +46,7 @@ final class JDesktopPaneChildrenFinder implements ChildrenFinderStrategy {
   // From Abbot: add iconified frames, which are otherwise unreachable. For consistency, they are still considered
   // children of the desktop pane.
   @RunsInCurrentThread
-  private @Nonnull
-  Collection<Component> internalFramesFromIcons(@Nonnull Container c) {
+  private @Nonnull Collection<Component> internalFramesFromIcons(@Nonnull Container c) {
     Collection<Component> frames = newArrayList();
     for (Component child : c.getComponents()) {
       if (child instanceof JDesktopIcon) {

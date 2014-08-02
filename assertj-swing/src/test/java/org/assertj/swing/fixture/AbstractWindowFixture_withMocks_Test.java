@@ -137,8 +137,7 @@ public class AbstractWindowFixture_withMocks_Test {
     }
 
     @Override
-    protected @Nonnull
-    WindowDriver createDriver(@Nonnull Robot robot) {
+    protected @Nonnull WindowDriver createDriver(@Nonnull Robot robot) {
       return mock(WindowDriver.class);
     }
   }

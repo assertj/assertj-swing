@@ -67,8 +67,7 @@ public abstract class AbstractButtonFixture<S, T extends AbstractButton> extends
   }
 
   @Override
-  protected @Nonnull
-  AbstractButtonDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull AbstractButtonDriver createDriver(@Nonnull Robot robot) {
     return new AbstractButtonDriver(robot);
   }
 
@@ -88,8 +87,7 @@ public abstract class AbstractButtonFixture<S, T extends AbstractButton> extends
    * @throws AssertionError if the text of the target {@code AbstractButton} does not match the given one.
    */
   @Override
-  public final @Nonnull
-  S requireText(@Nullable String expected) {
+  public final @Nonnull S requireText(@Nullable String expected) {
     driver().requireText(target(), expected);
     return myself();
   }
@@ -104,8 +102,7 @@ public abstract class AbstractButtonFixture<S, T extends AbstractButton> extends
    *           pattern.
    */
   @Override
-  public final @Nonnull
-  S requireText(@Nonnull Pattern pattern) {
+  public final @Nonnull S requireText(@Nonnull Pattern pattern) {
     driver().requireText(target(), pattern);
     return myself();
   }

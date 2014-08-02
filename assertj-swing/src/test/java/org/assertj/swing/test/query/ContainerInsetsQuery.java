@@ -40,8 +40,7 @@ public final class ContainerInsetsQuery {
    * @see Container#getInsets()
    */
   @RunsInEDT
-  public static @Nonnull
-  Insets insetsOf(final @Nonnull Container container) {
+  public static @Nonnull Insets insetsOf(final @Nonnull Container container) {
     Insets result = execute(new GuiQuery<Insets>() {
       @Override
       protected Insets executeInEDT() {

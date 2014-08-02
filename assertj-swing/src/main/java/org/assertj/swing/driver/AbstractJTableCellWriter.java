@@ -118,12 +118,10 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    * @return the editor for the given {@code JTable} cell.
    */
   @RunsInEDT
-  protected static @Nullable
-  TableCellEditor cellEditor(final @Nonnull JTable table, final int row, final int column) {
+  protected static @Nullable TableCellEditor cellEditor(final @Nonnull JTable table, final int row, final int column) {
     return execute(new GuiQuery<TableCellEditor>() {
       @Override
-      protected @Nullable
-      TableCellEditor executeInEDT() throws Throwable {
+      protected @Nullable TableCellEditor executeInEDT() throws Throwable {
         return table.getCellEditor(row, column);
       }
     });
@@ -151,18 +149,15 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
 
   @RunsInEDT
   @Override
-  public @Nullable
-  Component editorForCell(@Nonnull JTable table, int row, int column) {
+  public @Nullable Component editorForCell(@Nonnull JTable table, int row, int column) {
     return cellEditorComponent(table, row, column);
   }
 
   @RunsInEDT
-  private static @Nullable
-  Component cellEditorComponent(final @Nonnull JTable table, final int row, final int column) {
+  private static @Nullable Component cellEditorComponent(final @Nonnull JTable table, final int row, final int column) {
     return execute(new GuiQuery<Component>() {
       @Override
-      protected @Nullable
-      Component executeInEDT() {
+      protected @Nullable Component executeInEDT() {
         checkCellIndicesInBounds(table, row, column);
         return cellEditorIn(table, row, column);
       }
@@ -194,8 +189,8 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    * @throws ActionFailedException if an editor for the given cell cannot be found or cannot be activated.
    */
   @RunsInCurrentThread
-  protected static @Nonnull
-  <T extends Component> T editor(@Nonnull JTable table, int row, int column, @Nonnull Class<T> supportedType) {
+  protected static @Nonnull <T extends Component> T editor(@Nonnull JTable table, int row, int column,
+      @Nonnull Class<T> supportedType) {
     validate(table, row, column);
     Component editor = cellEditorIn(table, row, column);
     if (supportedType.isInstance(editor)) {
@@ -219,13 +214,11 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    * @throws IllegalStateException if the table cell in the given coordinates is not editable.
    */
   @RunsInEDT
-  protected static @Nonnull
-  Point cellLocation(final @Nonnull JTable table, final int row, final int column,
+  protected static @Nonnull Point cellLocation(final @Nonnull JTable table, final int row, final int column,
       final @Nonnull JTableLocation location) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
-      protected @Nullable
-      Point executeInEDT() {
+      protected @Nullable Point executeInEDT() {
         validate(table, row, column);
         scrollToCell(table, row, column, location);
         return location.pointAt(table, row, column);
@@ -276,8 +269,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    * @throws ActionFailedException if an editor for the given cell cannot be found or cannot be activated.
    */
   @RunsInEDT
-  protected final @Nullable
-  <T extends Component> T waitForEditorActivation(@Nonnull JTable table, int row, int column,
+  protected final @Nullable <T extends Component> T waitForEditorActivation(@Nonnull JTable table, int row, int column,
       @Nonnull Class<T> supportedType) {
     return waitForEditorActivation(new TypeMatcher(supportedType, true), table, row, column, supportedType);
   }
@@ -294,9 +286,8 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    * @throws ActionFailedException if an editor for the given cell cannot be found or cannot be activated.
    */
   @RunsInEDT
-  protected final @Nullable
-  <T extends Component> T waitForEditorActivation(@Nonnull ComponentMatcher matcher, @Nonnull JTable table, int row,
-      int column, @Nonnull Class<T> supportedType) {
+  protected final @Nullable <T extends Component> T waitForEditorActivation(@Nonnull ComponentMatcher matcher,
+      @Nonnull JTable table, int row, int column, @Nonnull Class<T> supportedType) {
     ComponentFoundCondition condition = new ComponentFoundCondition("", robot.finder(), matcher, table);
     try {
       pause(condition, EDITOR_LOOKUP_TIMEOUT);
@@ -314,8 +305,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    * @param column the column index of the cell.
    * @return the thrown exception.
    */
-  protected static @Nonnull
-  ActionFailedException cannotFindOrActivateEditor(int row, int column) {
+  protected static @Nonnull ActionFailedException cannotFindOrActivateEditor(int row, int column) {
     String msg = concat("Unable to find or activate editor for cell [", valueOf(row), ",", valueOf(column), "]");
     throw actionFailure(msg);
   }
@@ -323,8 +313,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
   /**
    * @return the cell editor being currently used, or {@code null} if no table cell is being currently edited.
    */
-  protected final @Nullable
-  TableCellEditor cellEditor() {
+  protected final @Nullable TableCellEditor cellEditor() {
     return cellEditor;
   }
 
@@ -337,8 +326,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
     cellEditor = newCellEditor;
   }
 
-  protected final @Nonnull
-  JTableLocation location() {
+  protected final @Nonnull JTableLocation location() {
     return location;
   }
 }

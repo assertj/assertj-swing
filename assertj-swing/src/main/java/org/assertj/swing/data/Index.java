@@ -30,8 +30,7 @@ public final class Index {
    * @param value the value of the index to create.
    * @return the created index.
    */
-  public static @Nonnull
-  Index atIndex(int value) {
+  public static @Nonnull Index atIndex(int value) {
     return new Index(value);
   }
 

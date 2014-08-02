@@ -34,8 +34,7 @@ public final class FrameActiveQuery {
    * @return <code>true</code> if the given {@link Frame} is currently active.
    */
   @RunsInEDT
-  public static @Nonnull
-  Boolean isActive(final @Nonnull Frame frame) {
+  public static @Nonnull Boolean isActive(final @Nonnull Frame frame) {
     return execute(new GuiQuery<Boolean>() {
       @Override
       protected Boolean executeInEDT() {

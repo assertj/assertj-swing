@@ -52,16 +52,14 @@ public class JTreeFormatter extends ComponentFormatterTemplate {
    * @return the {@code String} representation of the given {@code JTree}.
    */
   @Override
-  protected @Nonnull
-  String doFormat(@Nonnull Component c) {
+  protected @Nonnull String doFormat(@Nonnull Component c) {
     JTree tree = (JTree) c;
     String format = "%s[name=%s, selectionCount=%d, selectionPaths=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b";
     return String.format(format, tree.getClass().getName(), quote(tree.getName()), tree.getSelectionCount(),
         Arrays.format(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(), tree.isShowing());
   }
 
-  private @Nonnull
-  String[] selectionPaths(@Nonnull JTree tree) {
+  private @Nonnull String[] selectionPaths(@Nonnull JTree tree) {
     TreePath[] paths = tree.getSelectionPaths();
     if (paths == null) {
       return EMPTY;
@@ -78,8 +76,7 @@ public class JTreeFormatter extends ComponentFormatterTemplate {
     return pathArray;
   }
 
-  private @Nullable
-  String selectionMode(JTree tree) {
+  private @Nullable String selectionMode(JTree tree) {
     TreeSelectionModel model = tree.getSelectionModel();
     return SELECTION_MODES.get(model.getSelectionMode());
   }
@@ -88,8 +85,7 @@ public class JTreeFormatter extends ComponentFormatterTemplate {
    * @return {@code JTree.class}.
    */
   @Override
-  public @Nonnull
-  Class<? extends Component> targetType() {
+  public @Nonnull Class<? extends Component> targetType() {
     return JTree.class;
   }
 }

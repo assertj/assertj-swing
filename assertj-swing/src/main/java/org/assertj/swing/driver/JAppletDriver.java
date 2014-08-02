@@ -83,20 +83,17 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
   }
 
   @RunsInEDT
-  private static @Nullable
-  URL codeBase(final @Nonnull JApplet applet) {
+  private static @Nullable URL codeBase(final @Nonnull JApplet applet) {
     return execute(new GuiQuery<URL>() {
       @Override
-      protected @Nullable
-      URL executeInEDT() {
+      protected @Nullable URL executeInEDT() {
         return applet.getCodeBase();
       }
     });
   }
 
   @RunsInEDT
-  private static @Nullable
-  URL documentBase(final @Nonnull JApplet applet) {
+  private static @Nullable URL documentBase(final @Nonnull JApplet applet) {
     return execute(new GuiQuery<URL>() {
       @Override
       protected URL executeInEDT() {
@@ -106,12 +103,10 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
   }
 
   @RunsInEDT
-  private static @Nullable
-  String parameter(final @Nonnull JApplet applet, final @Nullable String parameterName) {
+  private static @Nullable String parameter(final @Nonnull JApplet applet, final @Nullable String parameterName) {
     return execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable
-      String executeInEDT() {
+      protected @Nullable String executeInEDT() {
         return applet.getParameter(parameterName);
       }
     });
@@ -121,8 +116,7 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
   private static boolean active(final @Nonnull JApplet applet) {
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable
-      Boolean executeInEDT() {
+      protected @Nullable Boolean executeInEDT() {
         return applet.isActive();
       }
     });
@@ -174,12 +168,10 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
   }
 
   @RunsInEDT
-  private static @Nullable
-  AppletContext appletContext(final @Nonnull JApplet applet) {
+  private static @Nullable AppletContext appletContext(final @Nonnull JApplet applet) {
     return execute(new GuiQuery<AppletContext>() {
       @Override
-      protected @Nullable
-      AppletContext executeInEDT() {
+      protected @Nullable AppletContext executeInEDT() {
         return applet.getAppletContext();
       }
     });
@@ -190,8 +182,7 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
    */
   @RunsInEDT
   @Override
-  public @Nullable
-  URL getCodeBase() {
+  public @Nullable URL getCodeBase() {
     return getCodeBase(applet);
   }
 
@@ -202,8 +193,7 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
    * @return the URL of the directory that contains the given {@code JApplet}.
    */
   @RunsInEDT
-  public @Nullable
-  URL getCodeBase(@Nonnull JApplet applet) {
+  public @Nullable URL getCodeBase(@Nonnull JApplet applet) {
     return codeBase(applet);
   }
 
@@ -214,8 +204,7 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
    */
   @RunsInEDT
   @Override
-  public @Nullable
-  URL getDocumentBase() {
+  public @Nullable URL getDocumentBase() {
     return getDocumentBase(applet);
   }
 
@@ -226,8 +215,7 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
    * @return the URL of the document the given {@code JApplet} is embedded.
    */
   @RunsInEDT
-  public @Nullable
-  URL getDocumentBase(@Nonnull JApplet applet) {
+  public @Nullable URL getDocumentBase(@Nonnull JApplet applet) {
     return documentBase(applet);
   }
 
@@ -240,8 +228,7 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
    */
   @RunsInEDT
   @Override
-  public @Nullable
-  String getParameter(@Nullable String name) {
+  public @Nullable String getParameter(@Nullable String name) {
     return getParameter(applet, name);
   }
 
@@ -294,8 +281,7 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
    * @return the collection of {@code Applet}s within the {@code AppletContext}.
    */
   @RunsInEDT
-  public @Nonnull
-  Enumeration<Applet> getApplets() {
+  public @Nonnull Enumeration<Applet> getApplets() {
     Enumeration<Applet> applets = applet.getAppletContext().getApplets();
     return applets != null ? applets : enumeration(Collections.<Applet> emptyList());
   }

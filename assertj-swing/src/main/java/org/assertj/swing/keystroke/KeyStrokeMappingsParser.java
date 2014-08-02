@@ -117,8 +117,7 @@ public class KeyStrokeMappingsParser {
    * @throws ParsingException if any error occurs during parsing.
    * @see #parse(File)
    */
-  public @Nonnull
-  KeyStrokeMappingProvider parse(@Nonnull String fileName) {
+  public @Nonnull KeyStrokeMappingProvider parse(@Nonnull String fileName) {
     checkNotNullOrEmpty(fileName);
     try {
       return parse(fileAsStream(fileName));
@@ -127,8 +126,7 @@ public class KeyStrokeMappingsParser {
     }
   }
 
-  private @Nonnull
-  InputStream fileAsStream(String file) {
+  private @Nonnull InputStream fileAsStream(String file) {
     InputStream stream = currentThread().getContextClassLoader().getResourceAsStream(file);
     if (stream == null) {
       throw new ParsingException(String.format("Unable to open file %s", file));
@@ -146,8 +144,7 @@ public class KeyStrokeMappingsParser {
    * @throws AssertionError if the given file does not represent an existing file.
    * @throws ParsingException if any error occurs during parsing.
    */
-  public @Nonnull
-  KeyStrokeMappingProvider parse(@Nonnull File file) {
+  public @Nonnull KeyStrokeMappingProvider parse(@Nonnull File file) {
     assertThat(file).isFile();
     try {
       return parse(fileAsStream(file));
@@ -156,8 +153,7 @@ public class KeyStrokeMappingsParser {
     }
   }
 
-  private @Nonnull
-  InputStream fileAsStream(@Nonnull File file) {
+  private @Nonnull InputStream fileAsStream(@Nonnull File file) {
     try {
       return new FileInputStream(file);
     } catch (FileNotFoundException e) {
@@ -166,8 +162,7 @@ public class KeyStrokeMappingsParser {
     }
   }
 
-  private @Nonnull
-  KeyStrokeMappingProvider parse(@Nonnull InputStream input) throws IOException {
+  private @Nonnull KeyStrokeMappingProvider parse(@Nonnull InputStream input) throws IOException {
     List<KeyStrokeMapping> mappings = newArrayList();
     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
     try {

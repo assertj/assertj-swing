@@ -33,8 +33,7 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JTreeNodeTextQuery {
   @RunsInEDT
-  static @Nullable
-  String nodeText(final @Nonnull JTree tree, final int row, final @Nonnull JTreeLocation location,
+  static @Nullable String nodeText(final @Nonnull JTree tree, final int row, final @Nonnull JTreeLocation location,
       final @Nonnull JTreePathFinder pathFinder) {
     return execute(new GuiQuery<String>() {
       @Override
@@ -46,8 +45,8 @@ final class JTreeNodeTextQuery {
   }
 
   @RunsInEDT
-  static @Nullable
-  String nodeText(final @Nonnull JTree tree, final @Nonnull String path, final @Nonnull JTreePathFinder pathFinder) {
+  static @Nullable String nodeText(final @Nonnull JTree tree, final @Nonnull String path,
+      final @Nonnull JTreePathFinder pathFinder) {
     return execute(new GuiQuery<String>() {
       @Override
       protected String executeInEDT() {

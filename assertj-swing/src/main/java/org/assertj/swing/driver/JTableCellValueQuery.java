@@ -31,12 +31,10 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JTableCellValueQuery {
   @RunsInEDT
-  static @Nullable
-  Object cellValueOf(final @Nonnull JTable table, final int row, final int column) {
+  static @Nullable Object cellValueOf(final @Nonnull JTable table, final int row, final int column) {
     return execute(new GuiQuery<Object>() {
       @Override
-      protected @Nullable
-      Object executeInEDT() {
+      protected @Nullable Object executeInEDT() {
         return table.getValueAt(row, column);
       }
     });

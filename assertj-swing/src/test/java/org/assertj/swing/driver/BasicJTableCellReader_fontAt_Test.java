@@ -55,12 +55,10 @@ public class BasicJTableCellReader_fontAt_Test extends BasicJTableCellReader_Tes
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Font fontOf(final @Nonnull Component component) {
+  private static @Nonnull Font fontOf(final @Nonnull Component component) {
     Font result = execute(new GuiQuery<Font>() {
       @Override
-      protected @Nullable
-      Font executeInEDT() {
+      protected @Nullable Font executeInEDT() {
         return component.getFont();
       }
     });

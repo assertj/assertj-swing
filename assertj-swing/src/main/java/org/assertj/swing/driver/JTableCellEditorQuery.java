@@ -41,8 +41,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  */
 final class JTableCellEditorQuery {
   @RunsInCurrentThread
-  static @Nullable
-  Component cellEditorIn(final @Nonnull JTable table, final int row, final int column) {
+  static @Nullable Component cellEditorIn(final @Nonnull JTable table, final int row, final int column) {
     TableCellEditor cellEditor = table.getCellEditor(row, column);
     return cellEditor.getTableCellEditorComponent(table, table.getValueAt(row, column), false, row, column);
   }

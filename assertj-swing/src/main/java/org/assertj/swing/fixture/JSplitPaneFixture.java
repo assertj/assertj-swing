@@ -55,8 +55,7 @@ public class JSplitPaneFixture extends
   }
 
   @Override
-  protected @Nonnull
-  JSplitPaneDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull JSplitPaneDriver createDriver(@Nonnull Robot robot) {
     return new JSplitPaneDriver(robot);
   }
 
@@ -74,8 +73,7 @@ public class JSplitPaneFixture extends
    * @throws IllegalStateException if this fixture's {@code JSplitPane} is disabled.
    * @throws IllegalStateException if this fixture's {@code JSplitPane} is not showing on the screen.
    */
-  public @Nonnull
-  JSplitPaneFixture moveDividerTo(int location) {
+  public @Nonnull JSplitPaneFixture moveDividerTo(int location) {
     driver().moveDividerTo(target(), location);
     return this;
   }

@@ -39,8 +39,8 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  */
 final class KeyStrokes {
   @RunsInCurrentThread
-  static @Nonnull
-  KeyStroke[] findKeyStrokesForAction(@Nonnull String actionName, @Nonnull Object actionKey, @Nonnull InputMap inputMap) {
+  static @Nonnull KeyStroke[] findKeyStrokesForAction(@Nonnull String actionName, @Nonnull Object actionKey,
+      @Nonnull InputMap inputMap) {
     List<KeyStroke> keyStrokes = newArrayList();
     for (KeyStroke keyStroke : inputMap.allKeys()) {
       if (actionKey.equals(inputMap.get(keyStroke))) {

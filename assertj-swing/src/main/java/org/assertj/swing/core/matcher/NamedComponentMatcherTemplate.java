@@ -79,8 +79,7 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
    * @return the component name to match surrounded by double quotes, or {@link #anyValue()} if the name to match has
    *         not been set.
    */
-  protected final @Nullable
-  Object quotedName() {
+  protected final @Nullable Object quotedName() {
     return quoted(name);
   }
 
@@ -92,8 +91,7 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
    * @return the given property value to match surrounded by double quotes, or {@link #anyValue()} if the property value
    *         has not been set.
    */
-  protected final @Nullable
-  Object quoted(@Nullable Object propertyValue) {
+  protected final @Nullable Object quoted(@Nullable Object propertyValue) {
     if (ANY.equals(propertyValue)) {
       return ANY;
     }
@@ -147,13 +145,11 @@ public abstract class NamedComponentMatcherTemplate<T extends Component> extends
     return areEqual(expected, actual);
   }
 
-  protected final @Nullable
-  Object name() {
+  protected final @Nullable Object name() {
     return name;
   }
 
-  protected static final @Nonnull
-  Object anyValue() {
+  protected static final @Nonnull Object anyValue() {
     return ANY;
   }
 }

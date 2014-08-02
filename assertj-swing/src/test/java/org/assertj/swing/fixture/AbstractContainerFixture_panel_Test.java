@@ -103,8 +103,7 @@ public class AbstractContainerFixture_panel_Test extends RobotBasedTestCase {
   private static class MyWindow extends TestWindow {
     final JPanel panel = new JPanel();
 
-    static @Nonnull
-    MyWindow createNew(final @Nonnull Class<?> testClass) {
+    static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
       MyWindow result = execute(new GuiQuery<MyWindow>() {
         @Override
         protected MyWindow executeInEDT() {

@@ -35,8 +35,7 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JListSelectionValuesQuery {
   @RunsInEDT
-  static @Nonnull
-  List<String> selectionValues(final @Nonnull JList list, final @Nonnull JListCellReader cellReader) {
+  static @Nonnull List<String> selectionValues(final @Nonnull JList list, final @Nonnull JListCellReader cellReader) {
     List<String> result = execute(new GuiQuery<List<String>>() {
       @Override
       protected List<String> executeInEDT() {

@@ -51,10 +51,10 @@
  * </p>
  * 
  * <p>
- * The &quot;<{@link org.assertj.swing.finder.WindowFinder#findFrame(String) findFrame}&quot; method (imported statically
- * from {@link org.assertj.swing.finder.WindowFinder}) can lookup a {@code Frame} (having &quot;main&quot; as its name)
- * with a default timeout of 5 seconds. That means that if in 5 seconds the frame we are looking for is not found, the
- * test will fail.
+ * The &quot;<{@link org.assertj.swing.finder.WindowFinder#findFrame(String) findFrame}&quot; method (imported
+ * statically from {@link org.assertj.swing.finder.WindowFinder}) can lookup a {@code Frame} (having &quot;main&quot; as
+ * its name) with a default timeout of 5 seconds. That means that if in 5 seconds the frame we are looking for is not
+ * found, the test will fail.
  * </p>
  * 
  * <p>
@@ -79,9 +79,9 @@
  * 
  * <p>
  * Something that you may find weird in the code examples is &quot;{@code using(loginDialog.robot)}.&quot; This is
- * necessary because, in a given test, only one instance of {@link org.assertj.swing.core.Robot Robot} can be running, to
- * prevent GUI tests from blocking each other on the screen. In another words, in a test class you can only use one and
- * only one instance of {@code Robot}.
+ * necessary because, in a given test, only one instance of {@link org.assertj.swing.core.Robot Robot} can be running,
+ * to prevent GUI tests from blocking each other on the screen. In another words, in a test class you can only use one
+ * and only one instance of {@code Robot}.
  * </p>
  * 
  * @author Alex Ruiz

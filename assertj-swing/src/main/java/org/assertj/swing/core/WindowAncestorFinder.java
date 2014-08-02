@@ -51,14 +51,12 @@ public final class WindowAncestorFinder {
    *         {@code Window}, or the invoker's {@code Window} if on a pop-up.
    */
   @RunsInCurrentThread
-  public static @Nullable
-  Window windowAncestorOf(@Nonnull Component c) {
+  public static @Nullable Window windowAncestorOf(@Nonnull Component c) {
     return findWindowAncestor(c);
   }
 
   @RunsInCurrentThread
-  private static @Nullable
-  Window findWindowAncestor(@Nullable Component c) {
+  private static @Nullable Window findWindowAncestor(@Nullable Component c) {
     if (c == null) {
       return null;
     }

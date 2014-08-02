@@ -14,7 +14,6 @@
  */
 package org.assertj.swing.timing;
 
-
 /**
  * A {@link Condition} that is satisfied after a given period of time.
  * 

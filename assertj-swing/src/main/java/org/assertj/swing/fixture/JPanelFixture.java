@@ -59,8 +59,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
   }
 
   @Override
-  protected @Nonnull
-  JComponentDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull JComponentDriver createDriver(@Nonnull Robot robot) {
     return new JComponentDriver(robot);
   }
 
@@ -72,8 +71,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws AssertionError if the toolTip in this fixture's {@code JPanel} does not match the given value.
    */
   @Override
-  public @Nonnull
-  JPanelFixture requireToolTip(@Nullable String expected) {
+  public @Nonnull JPanelFixture requireToolTip(@Nullable String expected) {
     driver().requireToolTip(target(), expected);
     return this;
   }
@@ -87,8 +85,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws AssertionError if the toolTip in this fixture's {@code JPanel} does not match the given regular expression.
    */
   @Override
-  public @Nonnull
-  JPanelFixture requireToolTip(@Nonnull Pattern pattern) {
+  public @Nonnull JPanelFixture requireToolTip(@Nonnull Pattern pattern) {
     driver().requireToolTip(target(), pattern);
     return this;
   }
@@ -101,8 +98,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws NullPointerException if the given key is {@code null}.
    */
   @Override
-  public @Nullable
-  Object clientProperty(@Nonnull Object key) {
+  public @Nullable Object clientProperty(@Nonnull Object key) {
     return driver().clientProperty(target(), key);
   }
 
@@ -115,8 +111,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull
-  JPopupMenuFixture showPopupMenu() {
+  public @Nonnull JPopupMenuFixture showPopupMenu() {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target()));
   }
 
@@ -130,8 +125,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull
-  JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
+  public @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target(), p));
   }
 }

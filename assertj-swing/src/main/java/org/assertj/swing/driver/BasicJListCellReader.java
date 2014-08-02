@@ -70,8 +70,7 @@ public class BasicJListCellReader implements JListCellReader {
    */
   @Override
   @RunsInCurrentThread
-  public @Nullable
-  String valueAt(@Nonnull JList list, int index) {
+  public @Nullable String valueAt(@Nonnull JList list, int index) {
     Object element = list.getModel().getElementAt(index);
     Component c = list.getCellRenderer().getListCellRendererComponent(list, element, index, true, true);
     String value = (c != null) ? rendererReader.valueFrom(c) : null;

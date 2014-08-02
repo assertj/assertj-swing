@@ -95,8 +95,7 @@ public class ComponentDragAndDrop {
     return coordinate + DRAG_THRESHOLD < dimension ? DRAG_THRESHOLD : 0;
   }
 
-  private @Nonnull
-  Point point(int x, int y) {
+  private @Nonnull Point point(int x, int y) {
     return new Point(x, y);
   }
 
@@ -136,8 +135,7 @@ public class ComponentDragAndDrop {
     return settings().delayBetweenEvents();
   }
 
-  private @Nonnull
-  Settings settings() {
+  private @Nonnull Settings settings() {
     return robot.settings();
   }
 

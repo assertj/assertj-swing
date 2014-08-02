@@ -103,8 +103,7 @@ public class AbstractContainerFixture_slider_Test extends RobotBasedTestCase {
   private static class MyWindow extends TestWindow {
     final JSlider slider = new JSlider(HORIZONTAL, 6, 10, 8);
 
-    static @Nonnull
-    MyWindow createNew(final @Nonnull Class<?> testClass) {
+    static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
       MyWindow result = execute(new GuiQuery<MyWindow>() {
         @Override
         protected MyWindow executeInEDT() {

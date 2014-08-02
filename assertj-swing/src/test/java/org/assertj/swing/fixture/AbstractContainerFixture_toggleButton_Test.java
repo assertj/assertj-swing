@@ -102,8 +102,7 @@ public class AbstractContainerFixture_toggleButton_Test extends RobotBasedTestCa
   private static class MyWindow extends TestWindow {
     final JToggleButton toggleButton = new JToggleButton("Click Me");
 
-    static @Nonnull
-    MyWindow createNew(final @Nonnull Class<?> testClass) {
+    static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
       MyWindow result = execute(new GuiQuery<MyWindow>() {
         @Override
         protected MyWindow executeInEDT() {

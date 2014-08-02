@@ -45,8 +45,7 @@ public final class ComponentEnabledQuery {
   public static boolean isEnabled(final @Nonnull Component component) {
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable
-      Boolean executeInEDT() {
+      protected @Nullable Boolean executeInEDT() {
         return component.isEnabled();
       }
     });

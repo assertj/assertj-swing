@@ -50,8 +50,7 @@ public class TestWindow extends JFrame {
    * @return the created window.
    */
   @RunsInEDT
-  public static @Nonnull
-  TestWindow createAndShowNewWindow(final @Nonnull Class<?> testClass) {
+  public static @Nonnull TestWindow createAndShowNewWindow(final @Nonnull Class<?> testClass) {
     TestWindow result = execute(new GuiQuery<TestWindow>() {
       @Override
       protected TestWindow executeInEDT() {
@@ -73,8 +72,7 @@ public class TestWindow extends JFrame {
    * @return the created window.
    */
   @RunsInEDT
-  public static @Nonnull
-  TestWindow createNewWindow(final @Nonnull Class<?> testClass) {
+  public static @Nonnull TestWindow createNewWindow(final @Nonnull Class<?> testClass) {
     TestWindow result = execute(new GuiQuery<TestWindow>() {
       @Override
       protected TestWindow executeInEDT() {
@@ -84,8 +82,7 @@ public class TestWindow extends JFrame {
     return checkNotNull(result);
   }
 
-  private static @Nonnull
-  TestWindow createInCurrentThread(@Nonnull Class<?> testClass) {
+  private static @Nonnull TestWindow createInCurrentThread(@Nonnull Class<?> testClass) {
     return new TestWindow(testClass);
   }
 
@@ -156,8 +153,7 @@ public class TestWindow extends JFrame {
    * @return the displayed window.
    */
   @RunsInCurrentThread
-  protected static @Nonnull
-  <T extends TestWindow> T display(@Nonnull T w) {
+  protected static @Nonnull <T extends TestWindow> T display(@Nonnull T w) {
     w.setLocation(DEFAULT_WINDOW_LOCATION);
     packAndShow(w);
     return w;

@@ -103,8 +103,7 @@ public class AppletLauncher {
    * @throws UnexpectedException if a new instance of the given type cannot be instantiated.
    */
   @RunsInEDT
-  public static @Nonnull
-  AppletLauncher applet(@Nonnull String appletType) {
+  public static @Nonnull AppletLauncher applet(@Nonnull String appletType) {
     checkNotNullOrEmpty(appletType);
     Class<?> type = load(appletType);
     if (!(Applet.class.isAssignableFrom(type))) {
@@ -115,8 +114,7 @@ public class AppletLauncher {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Class<?> load(@Nonnull String typeName) {
+  private static @Nonnull Class<?> load(@Nonnull String typeName) {
     try {
       return Class.forName(typeName);
     } catch (ClassNotFoundException e) {
@@ -141,18 +139,15 @@ public class AppletLauncher {
    * @throws UnexpectedException if a new instance of the given type cannot be instantiated.
    */
   @RunsInEDT
-  public static @Nonnull
-  AppletLauncher applet(@Nonnull Class<? extends Applet> appletType) {
+  public static @Nonnull AppletLauncher applet(@Nonnull Class<? extends Applet> appletType) {
     return instantiate(checkNotNull(appletType));
   }
 
-  private static @Nonnull
-  AppletLauncher instantiate(final @Nonnull Class<?> appletType) {
+  private static @Nonnull AppletLauncher instantiate(final @Nonnull Class<?> appletType) {
     try {
       Object applet = execute(new GuiQuery<Object>() {
         @Override
-        protected @Nullable
-        Object executeInEDT() throws Exception {
+        protected @Nullable Object executeInEDT() throws Exception {
           return appletType.newInstance();
         }
       });
@@ -170,8 +165,7 @@ public class AppletLauncher {
    * @return the created {@code AppletLauncher}.
    * @throws NullPointerException if the given {@code Applet} is {@code null}.
    */
-  public static @Nonnull
-  AppletLauncher launcherFor(@Nonnull Applet applet) {
+  public static @Nonnull AppletLauncher launcherFor(@Nonnull Applet applet) {
     return new AppletLauncher(applet);
   }
 
@@ -187,8 +181,7 @@ public class AppletLauncher {
    * @return this launcher.
    * @throws NullPointerException if {@code newParameters} is {@code null}.
    */
-  public @Nonnull
-  AppletLauncher withParameters(@Nonnull Map<String, String> newParameters) {
+  public @Nonnull AppletLauncher withParameters(@Nonnull Map<String, String> newParameters) {
     parameters.clear();
     parameters.putAll(checkNotNull(newParameters));
     return this;
@@ -202,8 +195,7 @@ public class AppletLauncher {
    * @throws NullPointerException if {@code newParameters} is {@code null}.
    * @throws NullPointerException if any parameter is {@code null}.
    */
-  public @Nonnull
-  AppletLauncher withParameters(@Nonnull AppletParameter... newParameters) {
+  public @Nonnull AppletLauncher withParameters(@Nonnull AppletParameter... newParameters) {
     checkNotNull(newParameters);
     parameters.clear();
     for (AppletParameter parameter : newParameters) {
@@ -223,8 +215,7 @@ public class AppletLauncher {
    * 
    * @return the created {@code AppletViewer}.
    */
-  public @Nonnull
-  AppletViewer start() {
+  public @Nonnull AppletViewer start() {
     return showAppletViewerWith(applet, parameters);
   }
 }

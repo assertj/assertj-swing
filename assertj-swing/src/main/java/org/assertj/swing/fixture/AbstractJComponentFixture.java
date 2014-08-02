@@ -89,8 +89,7 @@ public abstract class AbstractJComponentFixture<S, T extends JComponent, D exten
    * @throws NullPointerException if the given key is {@code null}.
    */
   @Override
-  public final @Nullable
-  Object clientProperty(@Nonnull Object key) {
+  public final @Nullable Object clientProperty(@Nonnull Object key) {
     return driver().clientProperty(target(), key);
   }
 
@@ -102,8 +101,7 @@ public abstract class AbstractJComponentFixture<S, T extends JComponent, D exten
    * @throws AssertionError if the toolTip in this fixture's {@code JComponent} does not match the given value.
    */
   @Override
-  public final @Nonnull
-  S requireToolTip(@Nullable String expected) {
+  public final @Nonnull S requireToolTip(@Nullable String expected) {
     driver().requireToolTip(target(), expected);
     return myself();
   }
@@ -117,8 +115,7 @@ public abstract class AbstractJComponentFixture<S, T extends JComponent, D exten
    * @throws AssertionError if the toolTip in this fixture's {@code JComponent} does not match the given value.
    */
   @Override
-  public final @Nonnull
-  S requireToolTip(@Nonnull Pattern pattern) {
+  public final @Nonnull S requireToolTip(@Nonnull Pattern pattern) {
     driver().requireToolTip(target(), pattern);
     return myself();
   }

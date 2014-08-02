@@ -22,8 +22,7 @@ import javax.annotation.Nonnull;
  * @author Yvonne Wang
  */
 public class BooleanProvider {
-  public static @Nonnull
-  Object[][] booleans() {
+  public static @Nonnull Object[][] booleans() {
     return new Object[][] { { true }, { false } };
   }
 }

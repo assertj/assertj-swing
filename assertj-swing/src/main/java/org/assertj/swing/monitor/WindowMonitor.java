@@ -115,16 +115,14 @@ public class WindowMonitor {
    * @param c the given {@code Component}.
    * @return the event queue corresponding to the given component.
    */
-  public @Nullable
-  EventQueue eventQueueFor(@Nonnull Component c) {
+  public @Nullable EventQueue eventQueueFor(@Nonnull Component c) {
     return context.eventQueueFor(c);
   }
 
   /**
    * @return all known event queues.
    */
-  public @Nonnull
-  Collection<EventQueue> allEventQueues() {
+  public @Nonnull Collection<EventQueue> allEventQueues() {
     return context.allEventQueues();
   }
 
@@ -135,8 +133,7 @@ public class WindowMonitor {
    * 
    * @return all available root {@code Window}s.
    */
-  public @Nonnull
-  Collection<Window> rootWindows() {
+  public @Nonnull Collection<Window> rootWindows() {
     return context.rootWindows();
   }
 
@@ -144,8 +141,7 @@ public class WindowMonitor {
    * @return the singleton instance of this class.
    */
   @RunsInEDT
-  public static @Nonnull
-  WindowMonitor instance() {
+  public static @Nonnull WindowMonitor instance() {
     return SingletonLazyLoader.INSTANCE;
   }
 
@@ -153,8 +149,7 @@ public class WindowMonitor {
   private static class SingletonLazyLoader {
     static final WindowMonitor INSTANCE = execute(new GuiQuery<WindowMonitor>() {
       @Override
-      protected @Nullable
-      WindowMonitor executeInEDT() {
+      protected @Nullable WindowMonitor executeInEDT() {
         return new WindowMonitor(ToolkitProvider.instance().defaultToolkit());
       }
     });

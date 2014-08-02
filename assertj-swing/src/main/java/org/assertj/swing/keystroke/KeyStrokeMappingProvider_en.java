@@ -82,8 +82,7 @@ public class KeyStrokeMappingProvider_en implements KeyStrokeMappingProvider {
    * @return the mapping between characters and {@code KeyStroke}s for locale {@code Locale.ENGLISH}.
    */
   @Override
-  public @Nonnull
-  Collection<KeyStrokeMapping> keyStrokeMappings() {
+  public @Nonnull Collection<KeyStrokeMapping> keyStrokeMappings() {
     return SingletonHolder.instance;
   }
 
@@ -92,8 +91,7 @@ public class KeyStrokeMappingProvider_en implements KeyStrokeMappingProvider {
     static List<KeyStrokeMapping> instance = createMappings();
   }
 
-  private static @Nonnull
-  List<KeyStrokeMapping> createMappings() {
+  private static @Nonnull List<KeyStrokeMapping> createMappings() {
     List<KeyStrokeMapping> mappings = newArrayList(defaultMappings());
     mappings.add(mapping('0', VK_0, NO_MASK));
     mappings.add(mapping(')', VK_0, SHIFT_MASK));

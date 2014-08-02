@@ -87,8 +87,7 @@ public class BasicAppletStub implements AppletStub {
    * @return the {@code Applet}'s context.
    */
   @Override
-  public @Nonnull
-  AppletContext getAppletContext() {
+  public @Nonnull AppletContext getAppletContext() {
     return context;
   }
 
@@ -119,8 +118,7 @@ public class BasicAppletStub implements AppletStub {
    * @return the value of the named parameter, or {@code null} if not set.
    */
   @Override
-  public @Nullable
-  String getParameter(@Nullable String name) {
+  public @Nullable String getParameter(@Nullable String name) {
     return parameters.get(name);
   }
 }

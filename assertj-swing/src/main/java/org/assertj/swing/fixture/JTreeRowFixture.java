@@ -52,8 +52,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws ActionFailedException if this method fails to expand the row.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture expand() {
+  public @Nonnull JTreeRowFixture expand() {
     tree.expandRow(index);
     return this;
   }
@@ -67,8 +66,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws ActionFailedException if this method fails to collapse the row.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture collapse() {
+  public @Nonnull JTreeRowFixture collapse() {
     tree.collapseRow(index);
     return this;
   }
@@ -82,8 +80,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture select() {
+  public @Nonnull JTreeRowFixture select() {
     tree.selectRow(index);
     return this;
   }
@@ -96,8 +93,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture click() {
+  public @Nonnull JTreeRowFixture click() {
     tree.clickRow(index);
     return this;
   }
@@ -112,8 +108,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture click(@Nonnull MouseButton button) {
+  public @Nonnull JTreeRowFixture click(@Nonnull MouseButton button) {
     tree.clickRow(index, button);
     return this;
   }
@@ -128,8 +123,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
+  public @Nonnull JTreeRowFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
     tree.clickRow(index, mouseClickInfo);
     return this;
   }
@@ -142,8 +136,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture doubleClick() {
+  public @Nonnull JTreeRowFixture doubleClick() {
     tree.doubleClickRow(index);
     return this;
   }
@@ -156,8 +149,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture rightClick() {
+  public @Nonnull JTreeRowFixture rightClick() {
     tree.rightClickRow(index);
     return this;
   }
@@ -170,8 +162,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture drag() {
+  public @Nonnull JTreeRowFixture drag() {
     tree.drag(index);
     return this;
   }
@@ -185,8 +176,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws ActionFailedException if there is no drag action in effect.
    */
   @Override
-  public @Nonnull
-  JTreeRowFixture drop() {
+  public @Nonnull JTreeRowFixture drop() {
     tree.drop(index);
     return this;
   }
@@ -200,8 +190,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull
-  JPopupMenuFixture showPopupMenu() {
+  public @Nonnull JPopupMenuFixture showPopupMenu() {
     return tree.showPopupMenuAt(index);
   }
 
@@ -209,8 +198,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
    * @return the {@code String} representation of this fixture's tree node.
    */
   @Override
-  public @Nullable
-  String value() {
+  public @Nullable String value() {
     return tree.valueAt(index);
   }
 

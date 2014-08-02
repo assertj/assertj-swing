@@ -38,8 +38,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  */
 final class JListCellBoundsQuery {
   @RunsInCurrentThread
-  static @Nullable
-  Rectangle cellBounds(@Nonnull JList list, int index) {
+  static @Nullable Rectangle cellBounds(@Nonnull JList list, int index) {
     checkIndexInBounds(list, index);
     return list.getCellBounds(index, index);
   }

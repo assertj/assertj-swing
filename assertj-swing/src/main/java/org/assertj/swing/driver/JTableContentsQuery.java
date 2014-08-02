@@ -32,12 +32,10 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JTableContentsQuery {
   @RunsInEDT
-  static @Nonnull
-  String[][] tableContents(final @Nonnull JTable table, final @Nonnull JTableCellReader cellReader) {
+  static @Nonnull String[][] tableContents(final @Nonnull JTable table, final @Nonnull JTableCellReader cellReader) {
     String[][] result = execute(new GuiQuery<String[][]>() {
       @Override
-      protected @Nonnull
-      String[][] executeInEDT() {
+      protected @Nonnull String[][] executeInEDT() {
         int rCount = table.getRowCount();
         int cCount = table.getColumnCount();
         String[][] contents = new String[rCount][cCount];

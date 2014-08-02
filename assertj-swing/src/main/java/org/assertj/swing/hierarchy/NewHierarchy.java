@@ -55,8 +55,7 @@ public class NewHierarchy extends ExistingHierarchy {
    * 
    * @return the created hierarchy.
    */
-  public static @Nonnull
-  NewHierarchy ignoreExistingComponents() {
+  public static @Nonnull NewHierarchy ignoreExistingComponents() {
     return new NewHierarchy(true);
   }
 
@@ -65,8 +64,7 @@ public class NewHierarchy extends ExistingHierarchy {
    * 
    * @return the created hierarchy.
    */
-  public static @Nonnull
-  NewHierarchy includeExistingComponents() {
+  public static @Nonnull NewHierarchy includeExistingComponents() {
     return new NewHierarchy(false);
   }
 
@@ -147,8 +145,7 @@ public class NewHierarchy extends ExistingHierarchy {
    */
   @RunsInCurrentThread
   @Override
-  public @Nonnull
-  Collection<Component> childrenOf(@Nonnull Component c) {
+  public @Nonnull Collection<Component> childrenOf(@Nonnull Component c) {
     if (filter.isIgnored(c)) {
       return emptyList();
     }
@@ -205,8 +202,7 @@ public class NewHierarchy extends ExistingHierarchy {
    * @return all available root containers, excluding those which have been filtered.
    */
   @Override
-  public @Nonnull
-  Collection<Container> roots() {
+  public @Nonnull Collection<Container> roots() {
     Collection<Container> roots = super.roots();
     roots.removeAll(filter.filtered());
     return roots;

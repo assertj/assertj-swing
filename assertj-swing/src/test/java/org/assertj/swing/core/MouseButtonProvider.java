@@ -26,8 +26,7 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 final class MouseButtonProvider {
-  static @Nonnull
-  Object[][] mouseButtons() {
+  static @Nonnull Object[][] mouseButtons() {
     return new Object[][] { { LEFT_BUTTON }, { MIDDLE_BUTTON }, { RIGHT_BUTTON } };
   }
 

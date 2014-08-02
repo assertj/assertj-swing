@@ -19,13 +19,11 @@ public class ClickRecorderManager implements TestRule {
     return new RecorderStatement(base);
   }
 
-  public @Nonnull
-  ClickRecorder attachDirectlyTo(@Nonnull Component target) {
+  public @Nonnull ClickRecorder attachDirectlyTo(@Nonnull Component target) {
     return ClickRecorder.attachTo(target);
   }
 
-  public @Nonnull
-  ToolkitClickRecorder attachToToolkitFor(@Nonnull Component target) {
+  public @Nonnull ToolkitClickRecorder attachToToolkitFor(@Nonnull Component target) {
     ToolkitClickRecorder clickRecorder = ToolkitClickRecorder.attachTo(target);
     attachedToolkitClickRecorders.add(clickRecorder);
     return clickRecorder;

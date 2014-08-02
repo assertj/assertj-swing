@@ -58,8 +58,7 @@ public final class Scrolling {
    * @param c the given {@code JComponent}.
    * @return the found ancestor or {@code null} if there isn't one.
    */
-  private static @Nullable
-  JComponent findClosestValidatingRootAncestor(@Nonnull JComponent c) {
+  private static @Nullable JComponent findClosestValidatingRootAncestor(@Nonnull JComponent c) {
     // the candidate validating root at every iteration (candidate = not necessarily a root)
     Container root = c;
     // we go up to the top of the hierarchy

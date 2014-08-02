@@ -14,9 +14,9 @@
  */
 /**
  * <p>
- * Public API, source of FEST's power and flexibility. Although you can use the {@link org.assertj.swing.core.BasicRobot}
- * directly, it is too low-level and requires, in our opinion, too much code. FEST fixtures can simplify creation and
- * maintenance of functional GUI tests by:
+ * Public API, source of FEST's power and flexibility. Although you can use the
+ * {@link org.assertj.swing.core.BasicRobot} directly, it is too low-level and requires, in our opinion, too much code.
+ * FEST fixtures can simplify creation and maintenance of functional GUI tests by:
  * 
  * <ol>
  * <li>providing reliable lookup of GUI components (by component name or using custom criteria)</li>
@@ -53,9 +53,9 @@
  * 
  * </p>
  * <p>
- * The test uses a {@link org.assertj.swing.fixture.FrameFixture} to launch the GUI to test ({@code LoginWindow}) and find
- * the GUI components in such window. This is the recommended way to use FEST. We could also use individual fixtures to
- * simulate user events, but it would result in more code to write and maintain:
+ * The test uses a {@link org.assertj.swing.fixture.FrameFixture} to launch the GUI to test ({@code LoginWindow}) and
+ * find the GUI components in such window. This is the recommended way to use FEST. We could also use individual
+ * fixtures to simulate user events, but it would result in more code to write and maintain:
  * 
  * <pre>
  *   private {@link org.assertj.swing.core.BasicRobot} robot;

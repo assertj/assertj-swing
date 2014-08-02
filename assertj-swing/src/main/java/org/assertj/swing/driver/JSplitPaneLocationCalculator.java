@@ -48,8 +48,7 @@ final class JSplitPaneLocationCalculator {
   static int locationToMoveDividerTo(final @Nonnull JSplitPane splitPane, final int desiredLocation) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable
-      Integer executeInEDT() {
+      protected @Nullable Integer executeInEDT() {
         return FINDERS.get(splitPane.getOrientation()).locationToMoveDividerTo(splitPane, desiredLocation);
       }
     });

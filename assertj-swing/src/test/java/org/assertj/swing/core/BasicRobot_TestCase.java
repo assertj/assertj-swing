@@ -82,8 +82,7 @@ public abstract class BasicRobot_TestCase extends EDTSafeTestCase {
     private final JTextField textField = new JTextField(10);
 
     @RunsInEDT
-    static @Nonnull
-    MyWindow createAndShow(final @Nonnull Class<?> testClass) {
+    static @Nonnull MyWindow createAndShow(final @Nonnull Class<?> testClass) {
       MyWindow result = execute(new GuiQuery<MyWindow>() {
         @Override
         protected MyWindow executeInEDT() {

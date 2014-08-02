@@ -33,8 +33,7 @@ public enum OSFamily {
   /**
    * @return the key (or abbreviation) of this OS family.
    */
-  public @Nonnull
-  String key() {
+  public @Nonnull String key() {
     return key;
   }
 }

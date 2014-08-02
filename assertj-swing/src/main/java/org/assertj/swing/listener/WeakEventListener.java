@@ -49,9 +49,8 @@ public final class WeakEventListener implements AWTEventListener {
    * @param eventMask the event mask to use to attach the {@code WeakEventListener} to the toolkit.
    * @return the created {@code WeakEventListener}.
    */
-  public static @Nonnull
-  WeakEventListener attachAsWeakEventListener(@Nonnull Toolkit toolkit, @Nonnull AWTEventListener listener,
-      long eventMask) {
+  public static @Nonnull WeakEventListener attachAsWeakEventListener(@Nonnull Toolkit toolkit,
+      @Nonnull AWTEventListener listener, long eventMask) {
     WeakEventListener l = new WeakEventListener(toolkit, listener);
     toolkit.addAWTEventListener(l, eventMask);
     return l;
@@ -65,8 +64,7 @@ public final class WeakEventListener implements AWTEventListener {
   /**
    * @return the underlying listener.
    */
-  public @Nonnull
-  AWTEventListener underlyingListener() {
+  public @Nonnull AWTEventListener underlyingListener() {
     return listenerReference.get();
   }
 

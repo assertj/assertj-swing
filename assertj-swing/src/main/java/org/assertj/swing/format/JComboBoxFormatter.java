@@ -40,8 +40,7 @@ public class JComboBoxFormatter extends ComponentFormatterTemplate {
    */
   @RunsInCurrentThread
   @Override
-  protected @Nonnull
-  String doFormat(@Nonnull Component c) {
+  protected @Nonnull String doFormat(@Nonnull Component c) {
     JComboBox comboBox = (JComboBox) c;
     String format = "%s[name=%s, selectedItem=%s, contents=%s, editable=%b, enabled=%b, visible=%b, showing=%b]";
     return String.format(format, comboBox.getClass().getName(), quote(comboBox.getName()),
@@ -50,8 +49,7 @@ public class JComboBoxFormatter extends ComponentFormatterTemplate {
   }
 
   @RunsInCurrentThread
-  private @Nonnull
-  Object[] contentsOf(@Nonnull JComboBox comboBox) {
+  private @Nonnull Object[] contentsOf(@Nonnull JComboBox comboBox) {
     List<Object> contents = Lists.newArrayList();
     int count = comboBox.getItemCount();
     for (int i = 0; i < count; i++) {
@@ -64,8 +62,7 @@ public class JComboBoxFormatter extends ComponentFormatterTemplate {
    * @return {@code JComboBox.class}.
    */
   @Override
-  public @Nonnull
-  Class<? extends Component> targetType() {
+  public @Nonnull Class<? extends Component> targetType() {
     return JComboBox.class;
   }
 }

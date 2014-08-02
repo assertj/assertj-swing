@@ -33,8 +33,7 @@ public class RobotFactory {
    *           thrown when {@code GraphicsEnvironment.isHeadless()} returns {@code true}.
    * @throws SecurityException if {@code createRobot} permission is not granted.
    */
-  public @Nonnull
-  Robot newRobotInPrimaryScreen() throws AWTException {
+  public @Nonnull Robot newRobotInPrimaryScreen() throws AWTException {
     return new Robot();
   }
 }

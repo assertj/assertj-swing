@@ -14,7 +14,6 @@
  */
 package org.assertj.swing.core;
 
-
 /**
  * GUI Tests for {@link HierarchyBasedFocusOwnerFinder}.
  * 

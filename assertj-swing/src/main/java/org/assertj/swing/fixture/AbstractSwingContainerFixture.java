@@ -95,8 +95,7 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    * @throws AssertionError if the toolTip in this fixture's {@code JScrollPane} does not match the given value.
    */
   @Override
-  public final @Nonnull
-  S requireToolTip(@Nullable String expected) {
+  public final @Nonnull S requireToolTip(@Nullable String expected) {
     driver().requireToolTip(target(), expected);
     return myself();
   }
@@ -111,8 +110,7 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    *           expression.
    */
   @Override
-  public final @Nonnull
-  S requireToolTip(@Nonnull Pattern pattern) {
+  public final @Nonnull S requireToolTip(@Nonnull Pattern pattern) {
     driver().requireToolTip(target(), pattern);
     return myself();
   }
@@ -125,8 +123,7 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    * @throws NullPointerException if the given key is {@code null}.
    */
   @Override
-  public final @Nullable
-  Object clientProperty(@Nonnull Object key) {
+  public final @Nullable Object clientProperty(@Nonnull Object key) {
     return driver().clientProperty(target(), key);
   }
 
@@ -139,8 +136,7 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public final @Nonnull
-  JPopupMenuFixture showPopupMenu() {
+  public final @Nonnull JPopupMenuFixture showPopupMenu() {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target()));
   }
 
@@ -154,8 +150,7 @@ public abstract class AbstractSwingContainerFixture<S, C extends JComponent, D e
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public final @Nonnull
-  JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
+  public final @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target(), p));
   }
 }

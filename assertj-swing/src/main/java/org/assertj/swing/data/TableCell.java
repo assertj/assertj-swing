@@ -48,8 +48,7 @@ public class TableCell {
    * @param row the row index of the table cell to create.
    * @return the created builder.
    */
-  public static @Nonnull
-  TableCellBuilder row(int row) {
+  public static @Nonnull TableCellBuilder row(int row) {
     return new TableCellBuilder(row);
   }
 
@@ -72,8 +71,7 @@ public class TableCell {
      * @param column the column index of the table cell to create.
      * @return the created table cell.
      */
-    public @Nonnull
-    TableCell column(int column) {
+    public @Nonnull TableCell column(int column) {
       return new TableCell(row, column);
     }
   }

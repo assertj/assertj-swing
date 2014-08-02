@@ -38,8 +38,7 @@ final class JListCellCenterQuery {
    * JScrollPane.) In this case, we return the center of visible rectangle of the JList (issue FEST-65.)
    */
   @RunsInCurrentThread
-  static @Nonnull
-  Point cellCenter(@Nonnull JList list, @Nonnull Rectangle cellBounds) {
+  static @Nonnull Point cellCenter(@Nonnull JList list, @Nonnull Rectangle cellBounds) {
     Point cellCenter = centerOf(cellBounds);
     Point translated = checkNotNull(translate(list, cellCenter.x, cellCenter.y));
     int listVisibleWidth = list.getVisibleRect().width;

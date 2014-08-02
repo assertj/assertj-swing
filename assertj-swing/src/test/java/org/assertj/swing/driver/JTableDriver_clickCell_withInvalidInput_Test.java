@@ -28,7 +28,8 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * Tests for
- * {@link JTableDriver#click(javax.swing.JTable, org.assertj.swing.data.TableCell, org.assertj.swing.core.MouseButton, int)}.
+ * {@link JTableDriver#click(javax.swing.JTable, org.assertj.swing.data.TableCell, org.assertj.swing.core.MouseButton, int)}
+ * .
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

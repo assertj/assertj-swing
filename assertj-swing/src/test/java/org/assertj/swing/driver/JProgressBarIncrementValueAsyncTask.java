@@ -37,8 +37,7 @@ import org.assertj.swing.core.Robot;
 class JProgressBarIncrementValueAsyncTask {
   private static Logger logger = Logger.getAnonymousLogger();
 
-  static @Nonnull
-  TaskBuilder with(@Nonnull JProgressBar progressBar) {
+  static @Nonnull TaskBuilder with(@Nonnull JProgressBar progressBar) {
     return new TaskBuilder(progressBar);
   }
 
@@ -62,8 +61,7 @@ class JProgressBarIncrementValueAsyncTask {
     task = createInnerTask();
   }
 
-  private @Nonnull
-  Runnable createInnerTask() {
+  private @Nonnull Runnable createInnerTask() {
     return new Runnable() {
       @Override
       public void run() {

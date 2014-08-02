@@ -69,8 +69,7 @@ public class GuiActionRunner {
    *           event dispatch thread (EDT.) Unchecked exceptions are re-thrown without any wrapping.
    * @see #executeInEDT()
    */
-  public static @Nullable
-  <T> T execute(@Nonnull GuiQuery<T> query) {
+  public static @Nullable <T> T execute(@Nonnull GuiQuery<T> query) {
     if (!executeInEDT) {
       return executeInCurrentThread(query);
     }
@@ -78,8 +77,7 @@ public class GuiActionRunner {
     return resultOf(query);
   }
 
-  private static @Nullable
-  <T> T executeInCurrentThread(@Nonnull GuiQuery<T> query) {
+  private static @Nullable <T> T executeInCurrentThread(@Nonnull GuiQuery<T> query) {
     try {
       return query.executeInEDT();
     } catch (Throwable e) {
@@ -128,8 +126,7 @@ public class GuiActionRunner {
     }
   }
 
-  private static @Nullable
-  <T> T resultOf(@Nonnull GuiQuery<T> query) {
+  private static @Nullable <T> T resultOf(@Nonnull GuiQuery<T> query) {
     T result = query.result();
     query.clearResult();
     rethrowCaughtExceptionIn(query);

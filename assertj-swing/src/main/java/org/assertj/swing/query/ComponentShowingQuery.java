@@ -47,8 +47,7 @@ public final class ComponentShowingQuery {
   public static boolean isShowing(final @Nonnull Component component) {
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable
-      Boolean executeInEDT() {
+      protected @Nullable Boolean executeInEDT() {
         return component.isShowing();
       }
     });

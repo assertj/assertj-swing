@@ -81,8 +81,7 @@ public class BasicRobot_rotateMouseWheelTest extends BasicRobot_TestCase {
   private static class MouseWheelRecorder implements MouseWheelListener {
     private int wheelRotation;
 
-    static @Nonnull
-    MouseWheelRecorder attachTo(@Nonnull Component c) {
+    static @Nonnull MouseWheelRecorder attachTo(@Nonnull Component c) {
       MouseWheelRecorder recorder = new MouseWheelRecorder();
       c.addMouseWheelListener(recorder);
       return recorder;

@@ -40,8 +40,7 @@ public class Pair<F, S> {
    * @param second the 2nd. value in this tuple.
    * @return the created {@code Pair}.
    */
-  public static @Nonnull
-  <F, S> Pair<F, S> of(@Nullable F first, @Nullable S second) {
+  public static @Nonnull <F, S> Pair<F, S> of(@Nullable F first, @Nullable S second) {
     return new Pair<F, S>(first, second);
   }
 

@@ -35,8 +35,7 @@ import javax.swing.ActionMap;
  * @author Alex Ruiz
  */
 final class Actions {
-  static @Nonnull
-  Object findActionKey(@Nonnull String name, @Nonnull ActionMap actionMap) {
+  static @Nonnull Object findActionKey(@Nonnull String name, @Nonnull ActionMap actionMap) {
     Action action = actionMap.get(name);
     if (action != null) {
       return name;
@@ -57,8 +56,7 @@ final class Actions {
     throw actionFailure(message);
   }
 
-  private static @Nonnull
-  List<String> formatAllActionKeys(@Nonnull Object[] keys) {
+  private static @Nonnull List<String> formatAllActionKeys(@Nonnull Object[] keys) {
     List<String> formattedKeys = newArrayList();
     for (Object key : keys) {
       String keyAsString = keyAsString(key);
@@ -70,8 +68,7 @@ final class Actions {
     return formattedKeys;
   }
 
-  private static @Nullable
-  String keyAsString(@Nullable Object key) {
+  private static @Nullable String keyAsString(@Nullable Object key) {
     if (key == null) {
       return null;
     }

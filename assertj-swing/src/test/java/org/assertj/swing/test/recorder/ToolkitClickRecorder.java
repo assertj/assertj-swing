@@ -43,8 +43,7 @@ public class ToolkitClickRecorder extends AbstractClickRecorder {
     // hide the constructor from the outside
   }
 
-  static @Nonnull
-  ToolkitClickRecorder attachTo(@Nonnull Component target) {
+  static @Nonnull ToolkitClickRecorder attachTo(@Nonnull Component target) {
     ToolkitClickRecorder recorder = new ToolkitClickRecorder();
     ClickListener listener = new ClickListener(recorder);
     recorderListeners.put(recorder, listener);

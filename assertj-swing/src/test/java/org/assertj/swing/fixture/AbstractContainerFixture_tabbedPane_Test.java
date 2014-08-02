@@ -105,8 +105,7 @@ public class AbstractContainerFixture_tabbedPane_Test extends RobotBasedTestCase
   private static class MyWindow extends TestWindow {
     final JTabbedPane tabbedPane = new JTabbedPane();
 
-    static @Nonnull
-    MyWindow createNew(final @Nonnull Class<?> testClass) {
+    static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
       MyWindow result = execute(new GuiQuery<MyWindow>() {
         @Override
         protected MyWindow executeInEDT() {

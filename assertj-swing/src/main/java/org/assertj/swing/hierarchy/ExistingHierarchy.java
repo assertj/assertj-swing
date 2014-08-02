@@ -53,8 +53,7 @@ public class ExistingHierarchy implements ComponentHierarchy {
   }
 
   @Override
-  public @Nonnull
-  Collection<Container> roots() {
+  public @Nonnull Collection<Container> roots() {
     List<Container> roots = newArrayList();
     for (Window w : windowMonitor.rootWindows()) {
       roots.add(w);
@@ -108,8 +107,7 @@ public class ExistingHierarchy implements ComponentHierarchy {
    */
   @RunsInCurrentThread
   @Override
-  public @Nonnull
-  Collection<Component> childrenOf(@Nonnull Component c) {
+  public @Nonnull Collection<Component> childrenOf(@Nonnull Component c) {
     return childrenFinder.childrenOf(c);
   }
 

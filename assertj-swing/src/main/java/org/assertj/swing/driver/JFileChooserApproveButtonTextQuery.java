@@ -37,12 +37,10 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JFileChooserApproveButtonTextQuery {
   @RunsInEDT
-  static @Nullable
-  String approveButtonTextFrom(final @Nonnull JFileChooser fileChooser) {
+  static @Nullable String approveButtonTextFrom(final @Nonnull JFileChooser fileChooser) {
     return execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable
-      String executeInEDT() {
+      protected @Nullable String executeInEDT() {
         String text = fileChooser.getApproveButtonText();
         if (!Strings.isNullOrEmpty(text)) {
           return text;

@@ -31,8 +31,7 @@ public abstract class TextReader<T extends Component> {
   /**
    * @return the type of AWT or Swing {@code Component} this reader supports.
    */
-  public abstract @Nonnull
-  Class<T> supportedComponent();
+  public abstract @Nonnull Class<T> supportedComponent();
 
   /**
    * Indicates whether the given AWT or Swing {@code Component} contains or displays the given text.

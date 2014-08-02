@@ -23,13 +23,11 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JTreeMatchingPathQuery {
   @RunsInEDT
-  static @Nonnull
-  TreePath verifyJTreeIsReadyAndFindMatchingPath(final @Nonnull JTree tree, final @Nonnull String path,
+  static @Nonnull TreePath verifyJTreeIsReadyAndFindMatchingPath(final @Nonnull JTree tree, final @Nonnull String path,
       final @Nonnull JTreePathFinder pathFinder) {
     TreePath result = execute(new GuiQuery<TreePath>() {
       @Override
-      protected @Nonnull
-      TreePath executeInEDT() {
+      protected @Nonnull TreePath executeInEDT() {
         checkEnabledAndShowing(tree);
         return matchingPathWithRootIfInvisible(tree, path, pathFinder);
       }
@@ -38,13 +36,11 @@ final class JTreeMatchingPathQuery {
   }
 
   @RunsInEDT
-  static @Nonnull
-  TreePath matchingPathFor(final @Nonnull JTree tree, final @Nonnull String path,
+  static @Nonnull TreePath matchingPathFor(final @Nonnull JTree tree, final @Nonnull String path,
       final @Nonnull JTreePathFinder pathFinder) {
     TreePath result = execute(new GuiQuery<TreePath>() {
       @Override
-      protected @Nonnull
-      TreePath executeInEDT() {
+      protected @Nonnull TreePath executeInEDT() {
         return matchingPathWithRootIfInvisible(tree, path, pathFinder);
       }
     });
@@ -52,8 +48,7 @@ final class JTreeMatchingPathQuery {
   }
 
   @RunsInCurrentThread
-  static @Nonnull
-  TreePath matchingPathWithRootIfInvisible(@Nonnull JTree tree, @Nonnull String path,
+  static @Nonnull TreePath matchingPathWithRootIfInvisible(@Nonnull JTree tree, @Nonnull String path,
       @Nonnull JTreePathFinder pathFinder) {
     TreePath matchingPath = pathFinder.findMatchingPath(tree, path);
     return addRootIfInvisible(tree, matchingPath);

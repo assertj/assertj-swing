@@ -57,12 +57,10 @@ public class BasicJTableCellReader_foregroundAt_Test extends BasicJTableCellRead
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Color foregroundOf(final @Nonnull Component component) {
+  private static @Nonnull Color foregroundOf(final @Nonnull Component component) {
     Color result = execute(new GuiQuery<Color>() {
       @Override
-      protected @Nullable
-      Color executeInEDT() {
+      protected @Nullable Color executeInEDT() {
         return component.getForeground();
       }
     });

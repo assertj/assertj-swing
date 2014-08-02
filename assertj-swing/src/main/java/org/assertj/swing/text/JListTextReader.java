@@ -44,8 +44,7 @@ public class JListTextReader extends TextReader<JList> {
    * @return {@code JList.class}.
    */
   @Override
-  public @Nonnull
-  Class<JList> supportedComponent() {
+  public @Nonnull Class<JList> supportedComponent() {
     return JList.class;
   }
 

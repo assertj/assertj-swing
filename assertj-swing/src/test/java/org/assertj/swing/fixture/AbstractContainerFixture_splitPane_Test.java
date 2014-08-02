@@ -106,8 +106,7 @@ public class AbstractContainerFixture_splitPane_Test extends RobotBasedTestCase 
   private static class MyWindow extends TestWindow {
     final JSplitPane splitPane = new JSplitPane(VERTICAL_SPLIT);
 
-    static @Nonnull
-    MyWindow createNew(final @Nonnull Class<?> testClass) {
+    static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
       MyWindow result = execute(new GuiQuery<MyWindow>() {
         @Override
         protected MyWindow executeInEDT() {

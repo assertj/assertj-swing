@@ -31,8 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JOptionPaneMessageQuery {
   @RunsInEDT
-  static @Nullable
-  Object messageOf(final @Nonnull JOptionPane optionPane) {
+  static @Nullable Object messageOf(final @Nonnull JOptionPane optionPane) {
     return execute(new GuiQuery<Object>() {
       @Override
       protected Object executeInEDT() {

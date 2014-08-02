@@ -62,8 +62,7 @@ public final class SingleComponentHierarchy implements ComponentHierarchy {
    * @return the parent component for the given {@code Component}.
    */
   @Override
-  public @Nullable
-  Container parentOf(@Nonnull Component c) {
+  public @Nullable Container parentOf(@Nonnull Component c) {
     return hierarchy.parentOf(c);
   }
 
@@ -71,14 +70,12 @@ public final class SingleComponentHierarchy implements ComponentHierarchy {
    * @return a collection containing only the root {@code Component} in this hierarchy.
    */
   @Override
-  public @Nonnull
-  Collection<Container> roots() {
+  public @Nonnull Collection<Container> roots() {
     return list;
   }
 
   @Override
-  public @Nonnull
-  Collection<Component> childrenOf(@Nonnull Component c) {
+  public @Nonnull Collection<Component> childrenOf(@Nonnull Component c) {
     return hierarchy.childrenOf(c);
   }
 

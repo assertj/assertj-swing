@@ -60,8 +60,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    *           the {@code JList}.
    */
   @Override
-  public final @Nonnull
-  JListItemFixture select() {
+  public final @Nonnull JListItemFixture select() {
     list.selectItem(index);
     return this;
   }
@@ -76,8 +75,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    *           the {@code JList}.
    */
   @Override
-  public final @Nonnull
-  JListItemFixture click() {
+  public final @Nonnull JListItemFixture click() {
     list.clickItem(index);
     return this;
   }
@@ -94,8 +92,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    *           the {@code JList}.
    */
   @Override
-  public final @Nonnull
-  JListItemFixture click(@Nonnull MouseButton button) {
+  public final @Nonnull JListItemFixture click(@Nonnull MouseButton button) {
     list.clickItem(index, button, 1);
     return this;
   }
@@ -112,8 +109,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    *           the {@code JList}.
    */
   @Override
-  public final @Nonnull
-  JListItemFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
+  public final @Nonnull JListItemFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
     list.clickItem(index, mouseClickInfo.button(), mouseClickInfo.times());
     return this;
   }
@@ -128,8 +124,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    *           the {@code JList}.
    */
   @Override
-  public final @Nonnull
-  JListItemFixture doubleClick() {
+  public final @Nonnull JListItemFixture doubleClick() {
     list.clickItem(index, LEFT_BUTTON, 2);
     return this;
   }
@@ -144,8 +139,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    *           the {@code JList}.
    */
   @Override
-  public final @Nonnull
-  JListItemFixture rightClick() {
+  public final @Nonnull JListItemFixture rightClick() {
     list.clickItem(index, RIGHT_BUTTON, 1);
     return this;
   }
@@ -161,8 +155,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public final @Nonnull
-  JPopupMenuFixture showPopupMenu() {
+  public final @Nonnull JPopupMenuFixture showPopupMenu() {
     return list.showPopupMenuAt(index);
   }
 
@@ -176,8 +169,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    * @see JListFixture#replaceCellReader(JListCellReader)
    */
   @Override
-  public final @Nullable
-  String value() {
+  public final @Nullable String value() {
     return list.valueAt(index);
   }
 
@@ -191,8 +183,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    *           the {@code JList}.
    */
   @Override
-  public final @Nonnull
-  JListItemFixture drag() {
+  public final @Nonnull JListItemFixture drag() {
     list.drag(index);
     return this;
   }
@@ -208,8 +199,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    * @throws ActionFailedException if there is no drag action in effect.
    */
   @Override
-  public final @Nonnull
-  JListItemFixture drop() {
+  public final @Nonnull JListItemFixture drop() {
     list.drop(index);
     return this;
   }

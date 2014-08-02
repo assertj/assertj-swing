@@ -79,8 +79,7 @@ public class BasicRobot_pressAndReleaseKeyWithModifiers_Test extends BasicRobot_
     final int type;
     final int keyCode;
 
-    static @Nonnull
-    KeyAction action(int type, int keyCode) {
+    static @Nonnull KeyAction action(int type, int keyCode) {
       return new KeyAction(type, keyCode);
     }
 
@@ -117,8 +116,7 @@ public class BasicRobot_pressAndReleaseKeyWithModifiers_Test extends BasicRobot_
     }
 
     @Override
-    public @Nonnull
-    String toString() {
+    public @Nonnull String toString() {
       StringBuilder b = new StringBuilder();
       b.append("[type=").append(type).append(", ");
       b.append("keyCode=").append(keyCode).append("]");

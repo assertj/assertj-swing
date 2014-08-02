@@ -48,8 +48,7 @@ public final class Containers {
    * @see #frameFor(Container)
    */
   @RunsInEDT
-  public static @Nonnull
-  FrameFixture showInFrame(@Nonnull Container contentPane) {
+  public static @Nonnull FrameFixture showInFrame(@Nonnull Container contentPane) {
     FrameFixture frameFixture = frameFixtureFor(contentPane);
     frameFixture.show();
     return frameFixture;
@@ -69,8 +68,7 @@ public final class Containers {
    * @see #frameFor(Container)
    */
   @RunsInEDT
-  public static @Nonnull
-  FrameFixture frameFixtureFor(@Nonnull Container contentPane) {
+  public static @Nonnull FrameFixture frameFixtureFor(@Nonnull Container contentPane) {
     return new FrameFixture(frameFor(contentPane));
   }
 
@@ -82,8 +80,7 @@ public final class Containers {
    * @return the created {@code JFrame}.
    */
   @RunsInEDT
-  public static @Nonnull
-  JFrame frameFor(final @Nonnull Container contentPane) {
+  public static @Nonnull JFrame frameFor(final @Nonnull Container contentPane) {
     JFrame result = execute(new GuiQuery<JFrame>() {
       @Override
       protected JFrame executeInEDT() throws Throwable {

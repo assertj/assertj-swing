@@ -42,8 +42,7 @@ public class JListFormatter extends ComponentFormatterTemplate {
    */
   @RunsInCurrentThread
   @Override
-  protected @Nonnull
-  String doFormat(@Nonnull Component c) {
+  protected @Nonnull String doFormat(@Nonnull Component c) {
     JList list = (JList) c;
     String format = "%s[name=%s, selectedValues=%s, contents=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b]";
     return String.format(format, list.getClass().getName(), quote(list.getName()),
@@ -51,8 +50,7 @@ public class JListFormatter extends ComponentFormatterTemplate {
         SELECTION_MODES.get(list.getSelectionMode()), list.isEnabled(), list.isVisible(), list.isShowing());
   }
 
-  private @Nonnull
-  Object[] contentsOf(JList list) {
+  private @Nonnull Object[] contentsOf(JList list) {
     List<Object> contents = newArrayList();
     ListModel model = list.getModel();
     int size = model.getSize();
@@ -66,8 +64,7 @@ public class JListFormatter extends ComponentFormatterTemplate {
    * @return {@code JList.class}.
    */
   @Override
-  public @Nonnull
-  Class<? extends Component> targetType() {
+  public @Nonnull Class<? extends Component> targetType() {
     return JList.class;
   }
 }

@@ -39,6 +39,5 @@ public abstract class ComponentFixtureExtension<C extends Component, F extends A
    * @param root the container where the component to handle by the created fixture is contained.
    * @return the created {@code ComponentFixture}.
    */
-  public abstract @Nonnull
-  F createFixture(@Nonnull Robot robot, @Nonnull Container root);
+  public abstract @Nonnull F createFixture(@Nonnull Robot robot, @Nonnull Container root);
 }

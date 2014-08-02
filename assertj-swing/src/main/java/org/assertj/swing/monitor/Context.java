@@ -121,12 +121,10 @@ class Context {
   }
 
   @RunsInEDT
-  private static @Nullable
-  Component topParentOf(final @Nonnull Component c) {
+  private static @Nullable Component topParentOf(final @Nonnull Component c) {
     return execute(new GuiQuery<Component>() {
       @Override
-      protected @Nullable
-      Component executeInEDT() {
+      protected @Nullable Component executeInEDT() {
         Component parent = c;
         // Components above the applet in the hierarchy may or may not share the same context with the applet itself.
         while (!(parent instanceof java.applet.Applet) && parent.getParent() != null) {

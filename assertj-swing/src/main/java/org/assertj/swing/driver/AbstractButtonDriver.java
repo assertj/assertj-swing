@@ -96,8 +96,7 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
    */
   @RunsInEDT
   @Override
-  public @Nonnull
-  String textOf(@Nonnull AbstractButton button) {
+  public @Nonnull String textOf(@Nonnull AbstractButton button) {
     return AbstractButtonTextQuery.textOf(button);
   }
 
@@ -135,8 +134,7 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
   private static boolean checkSelected(final @Nonnull AbstractButton button) {
     Boolean result = execute(new GuiQuery<Boolean>() {
       @Override
-      protected @Nullable
-      Boolean executeInEDT() {
+      protected @Nullable Boolean executeInEDT() {
         checkEnabledAndShowing(button);
         return button.isSelected();
       }
@@ -172,8 +170,7 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Description selectedProperty(@Nonnull AbstractButton button) {
+  private static @Nonnull Description selectedProperty(@Nonnull AbstractButton button) {
     return propertyName(button, SELECTED_PROPERTY);
   }
 }

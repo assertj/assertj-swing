@@ -38,8 +38,7 @@ public abstract class ComponentFormatterTemplate implements ComponentFormatter {
    */
   @RunsInCurrentThread
   @Override
-  public final @Nonnull
-  String format(@Nonnull Component c) {
+  public final @Nonnull String format(@Nonnull Component c) {
     checkTypeOf(c);
     return doFormat(c);
   }
@@ -51,8 +50,7 @@ public abstract class ComponentFormatterTemplate implements ComponentFormatter {
    * @return the {@code String} representation of the given {@code Component}.
    */
   @RunsInCurrentThread
-  protected abstract @Nonnull
-  String doFormat(@Nonnull Component c);
+  protected abstract @Nonnull String doFormat(@Nonnull Component c);
 
   private void checkTypeOf(@Nonnull Component c) {
     checkNotNull(c);

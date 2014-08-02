@@ -123,12 +123,10 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Pair<Container, Point> maximizeLocationOf(final @Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull Pair<Container, Point> maximizeLocationOf(final @Nonnull JInternalFrame internalFrame) {
     Pair<Container, Point> result = execute(new GuiQuery<Pair<Container, Point>>() {
       @Override
-      protected @Nullable
-      Pair<Container, Point> executeInEDT() {
+      protected @Nullable Pair<Container, Point> executeInEDT() {
         checkCanMaximize(internalFrame);
         return findMaximizeLocation(internalFrame);
       }
@@ -177,8 +175,7 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull
-  Pair<Container, Point> findMaximizeLocation(@Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull Pair<Container, Point> findMaximizeLocation(@Nonnull JInternalFrame internalFrame) {
     Container clickTarget = internalFrame.isIcon() ? internalFrame.getDesktopIcon() : internalFrame;
     Point location = maximizeButtonLocation(checkNotNull(clickTarget));
     return Pair.of(clickTarget, location);
@@ -220,12 +217,10 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Pair<Boolean, Point> findIconifyInfo(final @Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull Pair<Boolean, Point> findIconifyInfo(final @Nonnull JInternalFrame internalFrame) {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
       @Override
-      protected @Nullable
-      Pair<Boolean, Point> executeInEDT() throws Throwable {
+      protected @Nullable Pair<Boolean, Point> executeInEDT() throws Throwable {
         checkShowingOrIconified(internalFrame);
         if (!internalFrame.isIconifiable()) {
           String msg = String.format("The JInternalFrame <%s> is not iconifiable.", format(internalFrame));
@@ -238,8 +233,7 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull
-  Pair<Boolean, Point> iconifyInfo(@Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull Pair<Boolean, Point> iconifyInfo(@Nonnull JInternalFrame internalFrame) {
     boolean iconified = isIconified(internalFrame);
     if (iconified) {
       return Pair.of(true, null);
@@ -265,12 +259,11 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Triple<Boolean, Container, Point> validateAndfindDeiconifyInfo(final @Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull Triple<Boolean, Container, Point> validateAndfindDeiconifyInfo(
+      final @Nonnull JInternalFrame internalFrame) {
     Triple<Boolean, Container, Point> result = execute(new GuiQuery<Triple<Boolean, Container, Point>>() {
       @Override
-      protected @Nullable
-      Triple<Boolean, Container, Point> executeInEDT() throws Throwable {
+      protected @Nullable Triple<Boolean, Container, Point> executeInEDT() throws Throwable {
         checkShowingOrIconified(internalFrame);
         return deiconifyInfo(internalFrame);
       }
@@ -279,8 +272,7 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull
-  Triple<Boolean, Container, Point> deiconifyInfo(@Nonnull JInternalFrame internalFrame) {
+  private static @Nonnull Triple<Boolean, Container, Point> deiconifyInfo(@Nonnull JInternalFrame internalFrame) {
     boolean deiconified = !isIconified(internalFrame);
     if (deiconified) {
       return Triple.of(true, null, null);
@@ -290,8 +282,7 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull
-  Point findIconifyLocation(JInternalFrame internalFrame) {
+  private static @Nonnull Point findIconifyLocation(JInternalFrame internalFrame) {
     JDesktopIcon desktopIcon = checkNotNull(internalFrame.getDesktopIcon());
     return iconifyButtonLocation(desktopIcon);
   }
@@ -317,8 +308,7 @@ public class JInternalFrameDriver extends JComponentDriver {
     throw actionFailure(msg);
   }
 
-  private @Nullable
-  PropertyVetoException vetoFrom(@Nonnull UnexpectedException unexpected) {
+  private @Nullable PropertyVetoException vetoFrom(@Nonnull UnexpectedException unexpected) {
     Throwable cause = unexpected.getCause();
     if (!(cause instanceof PropertyVetoException)) {
       return null;
@@ -396,12 +386,10 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nullable
-  Point findCloseButtonLocation(final @Nonnull JInternalFrame internalFrame) {
+  private static @Nullable Point findCloseButtonLocation(final @Nonnull JInternalFrame internalFrame) {
     return execute(new GuiQuery<Point>() {
       @Override
-      protected @Nullable
-      Point executeInEDT() {
+      protected @Nullable Point executeInEDT() {
         checkShowing(internalFrame);
         if (!internalFrame.isClosable()) {
           String msg = String.format("The JInternalFrame <%s> is not closable", format(internalFrame));

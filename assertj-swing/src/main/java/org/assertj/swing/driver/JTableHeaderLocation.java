@@ -48,8 +48,7 @@ public class JTableHeaderLocation {
    * @throws LocationUnavailableException if a column with a matching value cannot be found.
    */
   @RunsInCurrentThread
-  public @Nonnull
-  Pair<Integer, Point> pointAt(@Nonnull JTableHeader tableHeader, @Nonnull TextMatcher matcher) {
+  public @Nonnull Pair<Integer, Point> pointAt(@Nonnull JTableHeader tableHeader, @Nonnull TextMatcher matcher) {
     int index = indexOf(tableHeader, matcher);
     if (isValidIndex(tableHeader, index)) {
       return Pair.of(index, point(tableHeader, index));
@@ -81,14 +80,12 @@ public class JTableHeaderLocation {
    * @throws IndexOutOfBoundsException if the index is out of bounds.
    */
   @RunsInCurrentThread
-  public @Nonnull
-  Point pointAt(@Nonnull JTableHeader tableHeader, int index) {
+  public @Nonnull Point pointAt(@Nonnull JTableHeader tableHeader, int index) {
     return point(tableHeader, checkIndexInBounds(tableHeader, index));
   }
 
   @RunsInCurrentThread
-  private static @Nonnull
-  Point point(@Nonnull JTableHeader tableHeader, int index) {
+  private static @Nonnull Point point(@Nonnull JTableHeader tableHeader, int index) {
     Rectangle r = tableHeader.getHeaderRect(index);
     return new Point(r.x + r.width / 2, r.y + r.height / 2);
   }

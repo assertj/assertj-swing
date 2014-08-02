@@ -184,8 +184,7 @@ public final class Platform {
   /**
    * @return the current operating system family.
    */
-  public static @Nonnull
-  OSFamily osFamily() {
+  public static @Nonnull OSFamily osFamily() {
     return osIdentifier.osFamily();
   }
 

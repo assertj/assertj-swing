@@ -91,8 +91,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
    * @return the titles of all the tabs.
    */
   @RunsInEDT
-  public @Nonnull
-  String[] tabTitles(@Nonnull JTabbedPane tabbedPane) {
+  public @Nonnull String[] tabTitles(@Nonnull JTabbedPane tabbedPane) {
     return tabTitlesOf(tabbedPane);
   }
 
@@ -142,8 +141,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Pair<Integer, Point> tabToSelectInfo(final @Nonnull JTabbedPaneLocation location,
+  private static @Nonnull Pair<Integer, Point> tabToSelectInfo(final @Nonnull JTabbedPaneLocation location,
       final @Nonnull JTabbedPane tabbedPane, final @Nonnull TextMatcher matcher) {
     Pair<Integer, Point> result = execute(new GuiQuery<Pair<Integer, Point>>() {
       @Override
@@ -183,9 +181,8 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Point pointAtTabWhenShowing(final @Nonnull JTabbedPaneLocation location, final @Nonnull JTabbedPane tabbedPane,
-      final int index) {
+  private static @Nonnull Point pointAtTabWhenShowing(final @Nonnull JTabbedPaneLocation location,
+      final @Nonnull JTabbedPane tabbedPane, final int index) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -215,8 +212,8 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Point pointAtTab(final @Nonnull JTabbedPaneLocation location, final @Nonnull JTabbedPane tabbedPane, final int index) {
+  private static @Nonnull Point pointAtTab(final @Nonnull JTabbedPaneLocation location,
+      final @Nonnull JTabbedPane tabbedPane, final int index) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -233,14 +230,12 @@ public class JTabbedPaneDriver extends JComponentDriver {
    * @return the currently selected component for the given {@code JTabbedPane}.
    */
   @RunsInEDT
-  public @Nullable
-  Component selectedComponentOf(@Nonnull JTabbedPane tabbedPane) {
+  public @Nullable Component selectedComponentOf(@Nonnull JTabbedPane tabbedPane) {
     return selectedComponent(tabbedPane);
   }
 
   @RunsInEDT
-  private static @Nullable
-  Component selectedComponent(final JTabbedPane tabbedPane) {
+  private static @Nullable Component selectedComponent(final JTabbedPane tabbedPane) {
     return execute(new GuiQuery<Component>() {
       @Override
       protected Component executeInEDT() {
@@ -286,8 +281,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nullable
-  String titleAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
+  private static @Nullable String titleAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
     return execute(new GuiQuery<String>() {
       @Override
       protected String executeInEDT() {
@@ -311,8 +305,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  String[] allTabTitlesIn(final @Nonnull JTabbedPane tabbedPane) {
+  private static @Nonnull String[] allTabTitlesIn(final @Nonnull JTabbedPane tabbedPane) {
     String[] result = execute(new GuiQuery<String[]>() {
       @Override
       protected String[] executeInEDT() {
@@ -327,8 +320,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
     return checkNotNull(result);
   }
 
-  private @Nonnull
-  JTabbedPaneLocation location() {
+  private @Nonnull JTabbedPaneLocation location() {
     return location;
   }
 }

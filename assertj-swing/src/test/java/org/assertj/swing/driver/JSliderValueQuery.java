@@ -35,8 +35,7 @@ final class JSliderValueQuery {
   static int valueOf(final @Nonnull JSlider slider) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable
-      Integer executeInEDT() {
+      protected @Nullable Integer executeInEDT() {
         return slider.getValue();
       }
     });

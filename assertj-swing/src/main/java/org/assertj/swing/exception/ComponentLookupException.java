@@ -53,8 +53,7 @@ public class ComponentLookupException extends RuntimeException {
   /**
    * @return the AWT and Swing {@code Component}s found by the lookup (if any.)
    */
-  public final @Nonnull
-  Collection<Component> found() {
+  public final @Nonnull Collection<Component> found() {
     return unmodifiableCollection(found);
   }
 }

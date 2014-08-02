@@ -94,8 +94,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
    */
   @RunsInCurrentThread
   @Override
-  protected @Nonnull
-  String doFormat(@Nonnull Component c) {
+  protected @Nonnull String doFormat(@Nonnull Component c) {
     StringBuilder b = new StringBuilder();
     b.append(c.getClass().getName()).append("[");
     int max = propertyNames.size() - 1;
@@ -118,8 +117,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
     }
   }
 
-  private @Nullable
-  Object propertyValue(@Nonnull Component c, @Nonnull String property) throws Exception {
+  private @Nullable Object propertyValue(@Nonnull Component c, @Nonnull String property) throws Exception {
     if ("showing".equals(property)) {
       return c.isShowing();
     }
@@ -139,8 +137,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
    * @return the type of AWT or Swing {@code Component} this formatter supports.
    */
   @Override
-  public @Nonnull
-  Class<? extends Component> targetType() {
+  public @Nonnull Class<? extends Component> targetType() {
     return targetType;
   }
 

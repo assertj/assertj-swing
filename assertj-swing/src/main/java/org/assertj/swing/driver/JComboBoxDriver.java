@@ -106,8 +106,7 @@ public class JComboBoxDriver extends JComponentDriver {
    * @see #replaceCellReader(JComboBoxCellReader)
    */
   @RunsInEDT
-  public @Nonnull
-  String[] contentsOf(@Nonnull JComboBox comboBox) {
+  public @Nonnull String[] contentsOf(@Nonnull JComboBox comboBox) {
     return contents(comboBox, cellReader());
   }
 
@@ -187,8 +186,7 @@ public class JComboBoxDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private @Nullable
-  String requiredSelectionOf(@Nonnull JComboBox comboBox) throws AssertionError {
+  private @Nullable String requiredSelectionOf(@Nonnull JComboBox comboBox) throws AssertionError {
     Pair<Boolean, String> selection = selection(comboBox, cellReader());
     boolean hasSelection = selection.first;
     if (!hasSelection) {
@@ -245,26 +243,23 @@ public class JComboBoxDriver extends JComponentDriver {
    *           {@code JComboBox}.
    * @see #replaceCellReader(JComboBoxCellReader)
    */
-  public @Nullable
-  String value(@Nonnull JComboBox comboBox, int index) {
+  public @Nullable String value(@Nonnull JComboBox comboBox, int index) {
     return valueAsText(comboBox, index, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable
-  String valueAsText(final @Nonnull JComboBox comboBox, final int index, final @Nonnull JComboBoxCellReader cellReader) {
+  private static @Nullable String valueAsText(final @Nonnull JComboBox comboBox, final int index,
+      final @Nonnull JComboBoxCellReader cellReader) {
     return execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable
-      String executeInEDT() {
+      protected @Nullable String executeInEDT() {
         checkItemIndexInBounds(comboBox, index);
         return cellReader.valueAt(comboBox, index);
       }
     });
   }
 
-  private @Nonnull
-  Description selectedIndexProperty(@Nonnull JComboBox comboBox) {
+  private @Nonnull Description selectedIndexProperty(@Nonnull JComboBox comboBox) {
     return propertyName(comboBox, SELECTED_INDEX_PROPERTY);
   }
 
@@ -378,12 +373,10 @@ public class JComboBoxDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nullable
-  Component accessibleEditorOf(final @Nonnull JComboBox comboBox) {
+  private static @Nullable Component accessibleEditorOf(final @Nonnull JComboBox comboBox) {
     return execute(new GuiQuery<Component>() {
       @Override
-      protected @Nullable
-      Component executeInEDT() {
+      protected @Nullable Component executeInEDT() {
         checkAccessibleEditor(comboBox);
         return editorComponentOf(comboBox);
       }
@@ -464,20 +457,17 @@ public class JComboBoxDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nullable
-  Component editorComponentOf(final @Nonnull JComboBox comboBox) {
+  private static @Nullable Component editorComponentOf(final @Nonnull JComboBox comboBox) {
     return execute(new GuiQuery<Component>() {
       @Override
-      protected @Nullable
-      Component executeInEDT() {
+      protected @Nullable Component executeInEDT() {
         return editorComponent(comboBox);
       }
     });
   }
 
   @RunsInCurrentThread
-  private static @Nullable
-  Component editorComponent(@Nonnull JComboBox comboBox) {
+  private static @Nullable Component editorComponent(@Nonnull JComboBox comboBox) {
     ComboBoxEditor editor = comboBox.getEditor();
     if (editor == null) {
       return null;
@@ -492,8 +482,7 @@ public class JComboBoxDriver extends JComponentDriver {
    * @throws ComponentLookupException if the {@code JList} in the pop-up could not be found.
    */
   @RunsInEDT
-  public @Nonnull
-  JList dropDownList() {
+  public @Nonnull JList dropDownList() {
     JList list = dropDownListFinder.findDropDownList();
     if (list == null) {
       throw new ComponentLookupException("Unable to find the pop-up list for the JComboBox");
@@ -565,13 +554,11 @@ public class JComboBoxDriver extends JComponentDriver {
    * @return the selected value of the given {code JComboBox} as plain text, or {@code null} if the {code JComboBox}
    *         does not have any selection.
    */
-  public @Nullable
-  String selectedItemOf(@Nonnull JComboBox comboBox) {
+  public @Nullable String selectedItemOf(@Nonnull JComboBox comboBox) {
     return selection(comboBox, cellReader()).second;
   }
 
-  private @Nonnull
-  JComboBoxCellReader cellReader() {
+  private @Nonnull JComboBoxCellReader cellReader() {
     return cellReader;
   }
 }

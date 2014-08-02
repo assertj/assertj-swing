@@ -191,8 +191,7 @@ public class ComponentDriver {
     robot.click(c, where);
   }
 
-  protected @Nonnull
-  Settings settings() {
+  protected @Nonnull Settings settings() {
     return robot.settings();
   }
 
@@ -231,8 +230,7 @@ public class ComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Description visibleProperty(@Nonnull Component c) {
+  private static @Nonnull Description visibleProperty(@Nonnull Component c) {
     return propertyName(c, VISIBLE_PROPERTY);
   }
 
@@ -247,12 +245,10 @@ public class ComponentDriver {
     assertThat(hasFocus(c)).as(requiredFocusedErrorMessage(c)).isTrue();
   }
 
-  private static @Nonnull
-  Description requiredFocusedErrorMessage(final Component c) {
+  private static @Nonnull Description requiredFocusedErrorMessage(final Component c) {
     return new GuiLazyLoadingDescription() {
       @Override
-      protected @Nonnull
-      String loadDescription() {
+      protected @Nonnull String loadDescription() {
         return String.format("Expected component %s to have input focus", format(c));
       }
     };
@@ -293,8 +289,7 @@ public class ComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Description enabledProperty(@Nonnull Component c) {
+  private static @Nonnull Description enabledProperty(@Nonnull Component c) {
     return propertyName(c, ENABLED_PROPERTY);
   }
 
@@ -520,8 +515,7 @@ public class ComponentDriver {
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull
-  JPopupMenu invokePopupMenu(@Nonnull Component c) {
+  public @Nonnull JPopupMenu invokePopupMenu(@Nonnull Component c) {
     checkInEdtEnabledAndShowing(c);
     return robot.showPopupMenu(c);
   }
@@ -539,8 +533,7 @@ public class ComponentDriver {
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull
-  JPopupMenu invokePopupMenu(@Nonnull Component c, @Nonnull Point p) {
+  public @Nonnull JPopupMenu invokePopupMenu(@Nonnull Component c, @Nonnull Point p) {
     checkNotNull(p);
     checkInEdtEnabledAndShowing(c);
     return robot.showPopupMenu(c, p);
@@ -575,12 +568,10 @@ public class ComponentDriver {
    * @see Formatting#format(Component)
    */
   @RunsInEDT
-  public static @Nonnull
-  Description propertyName(final @Nonnull Component c, final @Nonnull String propertyName) {
+  public static @Nonnull Description propertyName(final @Nonnull Component c, final @Nonnull String propertyName) {
     return new GuiLazyLoadingDescription() {
       @Override
-      protected @Nonnull
-      String loadDescription() {
+      protected @Nonnull String loadDescription() {
         return String.format("%s - property:'%s'", format(c), propertyName);
       }
     };
@@ -623,12 +614,10 @@ public class ComponentDriver {
    * @return the font of the given {@code Component}.
    */
   @RunsInEDT
-  public @Nonnull
-  Font fontOf(final @Nonnull Component c) {
+  public @Nonnull Font fontOf(final @Nonnull Component c) {
     Font result = execute(new GuiQuery<Font>() {
       @Override
-      protected @Nullable
-      Font executeInEDT() {
+      protected @Nullable Font executeInEDT() {
         return c.getFont();
       }
     });
@@ -642,12 +631,10 @@ public class ComponentDriver {
    * @return the background color of the given {@code Component}.
    */
   @RunsInEDT
-  public @Nonnull
-  Color backgroundOf(final @Nonnull Component c) {
+  public @Nonnull Color backgroundOf(final @Nonnull Component c) {
     Color result = execute(new GuiQuery<Color>() {
       @Override
-      protected @Nullable
-      Color executeInEDT() {
+      protected @Nullable Color executeInEDT() {
         return c.getBackground();
       }
     });
@@ -661,12 +648,10 @@ public class ComponentDriver {
    * @return the foreground color of the given {@code Component}.
    */
   @RunsInEDT
-  public @Nonnull
-  Color foregroundOf(final @Nonnull Component c) {
+  public @Nonnull Color foregroundOf(final @Nonnull Component c) {
     Color result = execute(new GuiQuery<Color>() {
       @Override
-      protected @Nullable
-      Color executeInEDT() {
+      protected @Nullable Color executeInEDT() {
         return c.getForeground();
       }
     });

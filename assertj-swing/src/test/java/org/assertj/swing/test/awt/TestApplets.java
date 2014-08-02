@@ -26,8 +26,7 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public final class TestApplets {
-  public static @Nonnull
-  Applet singletonAppletMock() {
+  public static @Nonnull Applet singletonAppletMock() {
     return LazyLoadedSingleton.INSTANCE;
   }
 
@@ -35,8 +34,7 @@ public final class TestApplets {
     static final Applet INSTANCE = newAppletMock();
   }
 
-  public static @Nonnull
-  Applet newAppletMock() {
+  public static @Nonnull Applet newAppletMock() {
     return mock(Applet.class);
   }
 

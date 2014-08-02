@@ -102,8 +102,7 @@ public class AbstractContainerFixture_progressBar_Test extends RobotBasedTestCas
   private static class MyWindow extends TestWindow {
     final JProgressBar progressBar = new JProgressBar();
 
-    static @Nonnull
-    MyWindow createNew(final @Nonnull Class<?> testClass) {
+    static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
       MyWindow result = execute(new GuiQuery<MyWindow>() {
         @Override
         protected MyWindow executeInEDT() {

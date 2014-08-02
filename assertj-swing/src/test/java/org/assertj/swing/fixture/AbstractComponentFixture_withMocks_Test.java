@@ -185,8 +185,7 @@ public class AbstractComponentFixture_withMocks_Test {
     }
 
     @Override
-    protected @Nonnull
-    ComponentDriver createDriver(@Nonnull Robot robot) {
+    protected @Nonnull ComponentDriver createDriver(@Nonnull Robot robot) {
       return mock(ComponentDriver.class);
     }
   }

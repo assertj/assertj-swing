@@ -30,12 +30,10 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JTextComponentSelectedTextQuery {
   @RunsInEDT
-  static @Nullable
-  String selectedTextOf(final @Nonnull JTextComponent textBox) {
+  static @Nullable String selectedTextOf(final @Nonnull JTextComponent textBox) {
     return execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable
-      String executeInEDT() {
+      protected @Nullable String executeInEDT() {
         return textBox.getSelectedText();
       }
     });

@@ -36,8 +36,7 @@ import org.assertj.swing.timing.Condition;
 class ComponentEnabledCondition extends Condition {
   private Component c;
 
-  static @Nonnull
-  ComponentEnabledCondition untilIsEnabled(@Nonnull Component c) {
+  static @Nonnull ComponentEnabledCondition untilIsEnabled(@Nonnull Component c) {
     return new ComponentEnabledCondition(c);
   }
 
@@ -46,12 +45,10 @@ class ComponentEnabledCondition extends Condition {
     this.c = c;
   }
 
-  private static @Nonnull
-  Description description(final @Nonnull Component c) {
+  private static @Nonnull Description description(final @Nonnull Component c) {
     return new GuiLazyLoadingDescription() {
       @Override
-      protected @Nonnull
-      String loadDescription() {
+      protected @Nonnull String loadDescription() {
         return concat(format(c), " to be enabled");
       }
     };

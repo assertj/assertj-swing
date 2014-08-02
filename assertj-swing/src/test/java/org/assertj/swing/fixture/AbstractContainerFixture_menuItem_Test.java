@@ -107,8 +107,7 @@ public class AbstractContainerFixture_menuItem_Test extends RobotBasedTestCase {
     final JMenuItem menuNew = new JMenuItem("New");
 
     @RunsInEDT
-    static @Nonnull
-    MyWindow createNew(final @Nonnull Class<?> testClass) {
+    static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
       MyWindow result = execute(new GuiQuery<MyWindow>() {
         @Override
         protected MyWindow executeInEDT() {

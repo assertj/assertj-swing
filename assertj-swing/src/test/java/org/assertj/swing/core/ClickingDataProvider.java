@@ -26,8 +26,7 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 public final class ClickingDataProvider {
-  public static @Nonnull
-  Object[][] clickingData() {
+  public static @Nonnull Object[][] clickingData() {
     return new Object[][] { { LEFT_BUTTON, 1 }, { LEFT_BUTTON, 2 }, { MIDDLE_BUTTON, 1 }, { MIDDLE_BUTTON, 2 },
         { RIGHT_BUTTON, 1 }, { RIGHT_BUTTON, 2 }, };
   }

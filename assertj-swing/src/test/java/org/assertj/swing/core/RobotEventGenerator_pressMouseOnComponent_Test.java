@@ -14,7 +14,6 @@
  */
 package org.assertj.swing.core;
 
-
 /**
  * Tests for {@link RobotEventGenerator#pressMouse(java.awt.Component, java.awt.Point, int)} and
  * {@link RobotEventGenerator#releaseMouse(int)}.

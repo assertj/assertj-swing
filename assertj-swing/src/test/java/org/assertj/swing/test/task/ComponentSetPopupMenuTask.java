@@ -43,8 +43,7 @@ public final class ComponentSetPopupMenuTask {
   }
 
   @RunsInEDT
-  public static @Nonnull
-  JPopupMenu createAndSetPopupMenu(final @Nonnull JComponent c, final String... items) {
+  public static @Nonnull JPopupMenu createAndSetPopupMenu(final @Nonnull JComponent c, final String... items) {
     JPopupMenu result = execute(new GuiQuery<JPopupMenu>() {
       @Override
       protected JPopupMenu executeInEDT() {

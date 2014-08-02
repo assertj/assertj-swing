@@ -43,8 +43,7 @@ public class ComponentIsFocusableQuery_isFocusable_Test extends EDTSafeTestCase 
   private Component component;
 
   @Parameters
-  public static @Nonnull
-  Collection<Object[]> isFocusable() {
+  public static @Nonnull Collection<Object[]> isFocusable() {
     return newArrayList(BooleanProvider.booleans());
   }
 

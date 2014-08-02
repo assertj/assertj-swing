@@ -140,8 +140,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @throws ActionFailedException if the given {@code Window} is not showing on the screen.
    */
   @Override
-  public final @Nonnull
-  S moveTo(@Nonnull Point p) {
+  public final @Nonnull S moveTo(@Nonnull Point p) {
     driver().moveTo(target(), p);
     return myself();
   }
@@ -152,8 +151,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @return this fixture.
    */
   @Override
-  public final @Nonnull
-  S moveToFront() {
+  public final @Nonnull S moveToFront() {
     driver().moveToFront(target());
     return myself();
   }
@@ -165,8 +163,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @return this fixture.
    */
   @Override
-  public final @Nonnull
-  S moveToBack() {
+  public final @Nonnull S moveToBack() {
     driver().moveToBack(target());
     return myself();
   }
@@ -179,8 +176,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @throws AssertionError if the size of this fixture's {@code Window} is not equal to the given size.
    */
   @Override
-  public final @Nonnull
-  S requireSize(@Nonnull Dimension size) {
+  public final @Nonnull S requireSize(@Nonnull Dimension size) {
     driver().requireSize(target(), size);
     return myself();
   }
@@ -193,8 +189,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @throws ActionFailedException if the {@code Window} is not resizable.
    */
   @Override
-  public final @Nonnull
-  S resizeHeightTo(int height) {
+  public final @Nonnull S resizeHeightTo(int height) {
     driver().resizeHeightTo(target(), height);
     return myself();
   }
@@ -207,8 +202,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @throws ActionFailedException if the {@code Window} is not resizable.
    */
   @Override
-  public final @Nonnull
-  S resizeTo(@Nonnull Dimension size) {
+  public final @Nonnull S resizeTo(@Nonnull Dimension size) {
     driver().resizeTo(target(), size);
     return myself();
   }
@@ -221,8 +215,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @throws ActionFailedException if the {@code Window} is not resizable.
    */
   @Override
-  public final @Nonnull
-  S resizeWidthTo(int width) {
+  public final @Nonnull S resizeWidthTo(int width) {
     driver().resizeWidthTo(target(), width);
     return myself();
   }
@@ -232,8 +225,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * 
    * @return this fixture.
    */
-  public final @Nonnull
-  S show() {
+  public final @Nonnull S show() {
     driver().show(target());
     return myself();
   }
@@ -244,8 +236,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @param size the size to resize this fixture's {@code Window} to.
    * @return this fixture.
    */
-  public final @Nonnull
-  S show(@Nonnull Dimension size) {
+  public final @Nonnull S show(@Nonnull Dimension size) {
     driver().show(target(), size);
     return myself();
   }
@@ -259,8 +250,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public final @Nonnull
-  JPopupMenuFixture showPopupMenu() {
+  public final @Nonnull JPopupMenuFixture showPopupMenu() {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target()));
   }
 
@@ -274,8 +264,7 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public final @Nonnull
-  JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
+  public final @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target(), p));
   }
 

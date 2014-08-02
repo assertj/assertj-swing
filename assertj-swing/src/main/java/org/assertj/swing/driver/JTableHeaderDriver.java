@@ -182,14 +182,13 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull
-  JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, int columnIndex) {
+  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, int columnIndex) {
     return robot.showPopupMenu(tableHeader, pointAtIndex(tableHeader, columnIndex, location));
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Point pointAtIndex(final @Nonnull JTableHeader tableHeader, final int columnIndex, final JTableHeaderLocation location) {
+  private static @Nonnull Point pointAtIndex(final @Nonnull JTableHeader tableHeader, final int columnIndex,
+      final JTableHeaderLocation location) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -213,8 +212,7 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull
-  JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nullable String columnName) {
+  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nullable String columnName) {
     return robot.showPopupMenu(tableHeader, pointAtName(tableHeader, new StringTextMatcher(columnName), location()));
   }
 
@@ -230,15 +228,13 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull
-  JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nonnull Pattern pattern) {
+  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nonnull Pattern pattern) {
     return robot.showPopupMenu(tableHeader, pointAtName(tableHeader, new PatternTextMatcher(pattern), location()));
   }
 
   @RunsInEDT
-  private static @Nonnull
-  Point pointAtName(final @Nonnull JTableHeader tableHeader, final @Nonnull TextMatcher matcher,
-      final @Nonnull JTableHeaderLocation location) {
+  private static @Nonnull Point pointAtName(final @Nonnull JTableHeader tableHeader,
+      final @Nonnull TextMatcher matcher, final @Nonnull JTableHeaderLocation location) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -251,8 +247,7 @@ public class JTableHeaderDriver extends JComponentDriver {
     return checkNotNull(result);
   }
 
-  private @Nonnull
-  JTableHeaderLocation location() {
+  private @Nonnull JTableHeaderLocation location() {
     return location;
   }
 }

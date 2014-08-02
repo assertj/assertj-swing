@@ -32,12 +32,10 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JComponentToolTipQuery {
   @RunsInEDT
-  static @Nullable
-  String toolTipOf(final @Nonnull JComponent c) {
+  static @Nullable String toolTipOf(final @Nonnull JComponent c) {
     return execute(new GuiQuery<String>() {
       @Override
-      protected @Nullable
-      String executeInEDT() {
+      protected @Nullable String executeInEDT() {
         return c.getToolTipText();
       }
     });

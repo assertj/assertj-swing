@@ -60,8 +60,7 @@ public class JInternalFrameFixture extends
   }
 
   @Override
-  protected @Nonnull
-  JInternalFrameDriver createDriver(@Nonnull Robot robot) {
+  protected @Nonnull JInternalFrameDriver createDriver(@Nonnull Robot robot) {
     return new JInternalFrameDriver(robot);
   }
 
@@ -71,8 +70,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture moveToFront() {
+  public @Nonnull JInternalFrameFixture moveToFront() {
     driver().moveToFront(target());
     return this;
   }
@@ -83,8 +81,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture moveToBack() {
+  public @Nonnull JInternalFrameFixture moveToBack() {
     driver().moveToBack(target());
     return this;
   }
@@ -96,8 +93,7 @@ public class JInternalFrameFixture extends
    * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture deiconify() {
+  public @Nonnull JInternalFrameFixture deiconify() {
     driver().deiconify(target());
     return this;
   }
@@ -110,8 +106,7 @@ public class JInternalFrameFixture extends
    * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture iconify() {
+  public @Nonnull JInternalFrameFixture iconify() {
     driver().iconify(target());
     return this;
   }
@@ -124,8 +119,7 @@ public class JInternalFrameFixture extends
    * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture maximize() {
+  public @Nonnull JInternalFrameFixture maximize() {
     driver().maximize(target());
     return this;
   }
@@ -137,8 +131,7 @@ public class JInternalFrameFixture extends
    * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture normalize() {
+  public @Nonnull JInternalFrameFixture normalize() {
     driver().normalize(target());
     return this;
   }
@@ -161,8 +154,7 @@ public class JInternalFrameFixture extends
    * @throws AssertionError if the size of this fixture's {@code JInternalFrame} is not equal to the given size.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture requireSize(@Nonnull Dimension size) {
+  public @Nonnull JInternalFrameFixture requireSize(@Nonnull Dimension size) {
     driver().requireSize(target(), size);
     return this;
   }
@@ -174,8 +166,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture resizeWidthTo(int width) {
+  public @Nonnull JInternalFrameFixture resizeWidthTo(int width) {
     driver().resizeWidth(target(), width);
     return this;
   }
@@ -187,8 +178,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture resizeHeightTo(int height) {
+  public @Nonnull JInternalFrameFixture resizeHeightTo(int height) {
     driver().resizeHeight(target(), height);
     return this;
   }
@@ -200,8 +190,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture resizeTo(@Nonnull Dimension size) {
+  public @Nonnull JInternalFrameFixture resizeTo(@Nonnull Dimension size) {
     driver().resizeTo(target(), size);
     return this;
   }
@@ -213,8 +202,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull
-  JInternalFrameFixture moveTo(@Nonnull Point p) {
+  public @Nonnull JInternalFrameFixture moveTo(@Nonnull Point p) {
     driver().move(target(), p);
     return this;
   }

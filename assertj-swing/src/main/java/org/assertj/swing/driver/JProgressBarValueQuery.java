@@ -33,8 +33,7 @@ final class JProgressBarValueQuery {
   static int valueOf(final JProgressBar progressBar) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
-      protected @Nullable
-      Integer executeInEDT() {
+      protected @Nullable Integer executeInEDT() {
         return progressBar.getValue();
       }
     });

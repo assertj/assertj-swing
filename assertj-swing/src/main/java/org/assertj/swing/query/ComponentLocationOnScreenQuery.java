@@ -45,12 +45,10 @@ public final class ComponentLocationOnScreenQuery {
    * @see Component#getLocationOnScreen()
    */
   @RunsInEDT
-  public static @Nonnull
-  Point locationOnScreen(final @Nonnull Component component) {
+  public static @Nonnull Point locationOnScreen(final @Nonnull Component component) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
-      protected @Nullable
-      Point executeInEDT() {
+      protected @Nullable Point executeInEDT() {
         return component.getLocationOnScreen();
       }
     });

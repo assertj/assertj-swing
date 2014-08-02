@@ -37,8 +37,7 @@ import org.assertj.swing.core.Robot;
 class JProgressBarMakeDeterminateAsyncTask {
   private static Logger logger = Logger.getAnonymousLogger();
 
-  static @Nonnull
-  TaskBuilder makeDeterminate(@Nonnull JProgressBar progressBar) {
+  static @Nonnull TaskBuilder makeDeterminate(@Nonnull JProgressBar progressBar) {
     return new TaskBuilder(progressBar);
   }
 
@@ -57,8 +56,7 @@ class JProgressBarMakeDeterminateAsyncTask {
     task = createInnerTask();
   }
 
-  private @Nonnull
-  Runnable createInnerTask() {
+  private @Nonnull Runnable createInnerTask() {
     return new Runnable() {
       @Override
       public void run() {

@@ -33,8 +33,7 @@ class JTreeChildrenShowUpCondition extends Condition {
   private JTree tree;
   private TreePath path;
 
-  static @Nonnull
-  JTreeChildrenShowUpCondition untilChildrenShowUp(@Nonnull JTree tree, @Nonnull TreePath path) {
+  static @Nonnull JTreeChildrenShowUpCondition untilChildrenShowUp(@Nonnull JTree tree, @Nonnull TreePath path) {
     return new JTreeChildrenShowUpCondition(tree, path);
   }
 

@@ -54,52 +54,43 @@ public class AbstractClickRecorder {
     pointClicked = e.getPoint();
   }
 
-  public final @Nonnull
-  AbstractClickRecorder wasNotClicked() {
+  public final @Nonnull AbstractClickRecorder wasNotClicked() {
     assertThat(clickedButton).isNull();
     return this;
   }
 
-  public final @Nonnull
-  AbstractClickRecorder timesClicked(int times) {
+  public final @Nonnull AbstractClickRecorder timesClicked(int times) {
     assertThat(clickCount).isEqualTo(times);
     return this;
   }
 
-  public final @Nonnull
-  AbstractClickRecorder wasClicked() {
+  public final @Nonnull AbstractClickRecorder wasClicked() {
     return clicked(LEFT_BUTTON).timesClicked(1);
   }
 
-  public final @Nonnull
-  AbstractClickRecorder wasDoubleClicked() {
+  public final @Nonnull AbstractClickRecorder wasDoubleClicked() {
     return clicked(LEFT_BUTTON).timesClicked(2);
   }
 
-  public final @Nonnull
-  AbstractClickRecorder wasRightClicked() {
+  public final @Nonnull AbstractClickRecorder wasRightClicked() {
     return clicked(RIGHT_BUTTON).timesClicked(1);
   }
 
-  public final @Nonnull
-  AbstractClickRecorder clicked(@Nonnull MouseButton button) {
+  public final @Nonnull AbstractClickRecorder clicked(@Nonnull MouseButton button) {
     return wasClickedWith(button);
   }
 
-  public final @Nonnull
-  AbstractClickRecorder wasClickedWith(@Nonnull MouseButton button) {
+  public final @Nonnull AbstractClickRecorder wasClickedWith(@Nonnull MouseButton button) {
     assertThat(clickedButton).isEqualTo(button);
     return this;
   }
 
-  public final @Nonnull
-  AbstractClickRecorder clickedAt(@Nonnull Point p) {
+  public final @Nonnull AbstractClickRecorder clickedAt(@Nonnull Point p) {
     assertThat(pointClicked).isEqualTo(p);
     return this;
   }
 
-  public final @Nonnull
-  Point pointClicked() {
+  public final @Nonnull Point pointClicked() {
     return pointClicked;
   }
 }

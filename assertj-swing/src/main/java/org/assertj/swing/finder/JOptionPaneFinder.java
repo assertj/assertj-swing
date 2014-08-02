@@ -99,8 +99,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * 
    * @return the created finder.
    */
-  public static @Nonnull
-  JOptionPaneFinder findOptionPane() {
+  public static @Nonnull JOptionPaneFinder findOptionPane() {
     return new JOptionPaneFinder();
   }
 
@@ -110,8 +109,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @param matcher the given matcher.
    * @return the created finder.
    */
-  public static @Nonnull
-  JOptionPaneFinder findOptionPane(@Nonnull GenericTypeMatcher<? extends JOptionPane> matcher) {
+  public static @Nonnull JOptionPaneFinder findOptionPane(@Nonnull GenericTypeMatcher<? extends JOptionPane> matcher) {
     return new JOptionPaneFinder(matcher);
   }
 
@@ -123,8 +121,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
    */
   @Override
-  public @Nonnull
-  JOptionPaneFixture using(@Nonnull Robot robot) {
+  public @Nonnull JOptionPaneFixture using(@Nonnull Robot robot) {
     return new JOptionPaneFixture(robot, findComponentWith(robot));
   }
 
@@ -135,8 +132,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @return this finder.
    */
   @Override
-  public @Nonnull
-  JOptionPaneFinder withTimeout(@Nonnegative long timeout) {
+  public @Nonnull JOptionPaneFinder withTimeout(@Nonnegative long timeout) {
     super.withTimeout(timeout);
     return this;
   }
@@ -149,8 +145,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @return this finder.
    */
   @Override
-  public @Nonnull
-  JOptionPaneFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
+  public @Nonnull JOptionPaneFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
     super.withTimeout(timeout, unit);
     return this;
   }
@@ -161,8 +156,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
    * @return the given {@code Component}, casted to {@code JFileChooser}.
    */
   @Override
-  protected @Nullable
-  JOptionPane cast(@Nullable Component c) {
+  protected @Nullable JOptionPane cast(@Nullable Component c) {
     return (JOptionPane) c;
   }
 }

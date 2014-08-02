@@ -14,7 +14,6 @@
  */
 package org.assertj.swing.core;
 
-
 /**
  * Tests for {@link ReflectionBasedFocusOwnerFinder}.
  * 
