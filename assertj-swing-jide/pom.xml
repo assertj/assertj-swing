@@ -1,0 +1,144 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.easytesting</groupId>
+    <artifactId>fest</artifactId>
+    <version>1.0.1</version>
+  </parent>
+
+  <artifactId>fest-swing-jide</artifactId>
+  <version>1.2b1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>FEST Swing Jidesoft Component Library</name>
+  <description>Jidesoft framework specific extensions for testing</description>
+  <url>http://fest.easytesting.org/swing</url>
+
+  <properties>
+    <jide.version>2.8.6</jide.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.5.11</version>
+    </dependency>
+
+    <!-- TODO this may need to be cleaned up -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>0.9.20</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.easytesting</groupId>
+      <artifactId>fest-util</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.easytesting</groupId>
+      <artifactId>fest-assert</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.easytesting</groupId>
+      <artifactId>fest-swing</artifactId>
+      <version>1.2rc</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jidesoft</groupId>
+      <artifactId>jide-common</artifactId>
+      <version>${jide.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jidesoft</groupId>
+      <artifactId>jide-grids</artifactId>
+      <version>${jide.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jidesoft</groupId>
+      <artifactId>jide-action</artifactId>
+      <version>${jide.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jidesoft</groupId>
+      <artifactId>jide-components</artifactId>
+      <version>${jide.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jidesoft</groupId>
+      <artifactId>jide-dock</artifactId>
+      <version>${jide.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jidesoft</groupId>
+      <artifactId>jide-editor</artifactId>
+      <version>${jide.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jidesoft</groupId>
+      <artifactId>jide-shortcut</artifactId>
+      <version>${jide.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <mailingLists>
+    <mailingList>
+      <name>Easy Testing Group</name>
+      <post>http://groups.google.com/group/easytesting</post>
+      <subscribe>http://groups.google.com/group/easytesting</subscribe>
+      <unsubscribe>http://groups.google.com/group/easytesting</unsubscribe>
+    </mailingList>
+  </mailingLists>
+
+  <scm>
+    <developerConnection>scm:svn:https://svn.codehaus.org/fest/trunk/fest-swing-jide</developerConnection>
+    <connection>scm:svn:http://svn.codehaus.org/fest/trunk/fest-swing-jide</connection>
+    <url>http://fisheye.codehaus.org/browse/fest/</url>
+  </scm>
+
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.codehaus.org/browse/FEST</url>
+  </issueManagement>
+</project>
