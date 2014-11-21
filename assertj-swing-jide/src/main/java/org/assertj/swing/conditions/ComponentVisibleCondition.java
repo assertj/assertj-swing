@@ -12,11 +12,11 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.conditions;
+package org.assertj.swing.conditions;
 
-import org.fest.swing.core.*;
-import org.fest.swing.exception.ComponentLookupException;
-import org.fest.swing.timing.Condition;
+import org.assertj.swing.core.*;
+import org.assertj.swing.exception.ComponentLookupException;
+import org.assertj.swing.timing.Condition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -83,7 +83,7 @@ public class ComponentVisibleCondition extends Condition {
 
   /**
    * Returns <code>true</code> if a component that matches the search criteria in this
-   * condition's <code>{@link org.fest.swing.core.ComponentMatcher}</code> can be found. Otherwise, this
+   * condition's <code>{@link org.assertj.swing.core.ComponentMatcher}</code> can be found. Otherwise, this
    * method returns <code>false</code>.
    * @return <code>true</code> if a matching component can be found, <code>false</code>
    *         otherwise.

@@ -12,19 +12,19 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.action;
+package org.assertj.swing.jide.action;
 
 import com.jidesoft.action.CommandBar;
-import org.fest.swing.core.Robot;
-import org.fest.swing.jide.action.driver.CommandBarDriver;
-import org.fest.swing.fixture.ContainerFixture;
-import org.fest.util.Strings;
+import org.assertj.swing.jide.action.driver.CommandBarDriver;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.fixture.AbstractContainerFixture;
+import org.assertj.core.util.Strings;
 
 /**
  * A FEST Fixture for the {@link CommandBar}.
  * @author Peter Murray
  */
-public class CommandBarFixture extends ContainerFixture<CommandBar> {
+public class CommandBarFixture extends AbstractContainerFixture<CommandBarFixture, CommandBar, CommandBarDriver> {
 
   private CommandBarDriver _driver;
 
@@ -36,7 +36,7 @@ public class CommandBarFixture extends ContainerFixture<CommandBar> {
    * @throws NullPointerException if <code>target</code> is <code>null</code>.
    */
   public CommandBarFixture(Robot robot, CommandBar target) {
-    super(robot, target);
+    super(CommandBarFixture.class, robot, target);
     createDriver();
   }
 
@@ -46,18 +46,23 @@ public class CommandBarFixture extends ContainerFixture<CommandBar> {
    * @param commandBarName the name of the {@link CommandBar} to find using the given
    * <code>Robot</code>.
    * @throws NullPointerException if <code>robot</code> is <code>null</code>.
-   * @throws org.fest.swing.exception.ComponentLookupException if a matching
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching
    * {@link CommandBar} could not be found.
-   * @throws org.fest.swing.exception.ComponentLookupException if more than one matching
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching
    * {@link CommandBar} is found.
    */
   public CommandBarFixture(Robot robot, String commandBarName) {
-    super(robot, commandBarName, CommandBar.class);
+    super(CommandBarFixture.class, robot, commandBarName, CommandBar.class);
     createDriver();
   }
 
   private void createDriver() {
-    updateDriver(new CommandBarDriver(robot));
+    updateDriver(new CommandBarDriver(robot()));
+  }
+
+  @Override
+  protected CommandBarDriver createDriver(Robot robot) {
+    return new CommandBarDriver(robot);
   }
 
   void updateDriver(CommandBarDriver newDriver) {
@@ -66,9 +71,9 @@ public class CommandBarFixture extends ContainerFixture<CommandBar> {
 
   @Override
   public String toString() {
-    return Strings.concat("name=", target.getName(),
-                          ", enabled=", target.isEnabled(),
-                          ", visible=", target.isVisible(),
-                          ", showing=", target.isShowing());
+    return Strings.concat("name=", target().getName(),
+                          ", enabled=", target().isEnabled(),
+                          ", visible=", target().isVisible(),
+                          ", showing=", target().isShowing());
   }
 }

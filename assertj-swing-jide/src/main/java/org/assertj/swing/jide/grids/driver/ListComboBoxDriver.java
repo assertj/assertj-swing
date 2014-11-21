@@ -12,7 +12,7 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
@@ -21,17 +21,17 @@ import java.util.ArrayList;
 import com.jidesoft.combobox.*;
 import com.jidesoft.converter.ConverterContext;
 import com.jidesoft.converter.ObjectConverter;
-import static org.fest.assertions.Assertions.assertThat;
-import org.fest.swing.annotation.RunsInEDT;
-import org.fest.swing.core.Robot;
-import org.fest.swing.driver.ComponentStateValidator;
-import org.fest.swing.driver.JListDriver;
-import org.fest.swing.edt.*;
-import org.fest.swing.exception.LocationUnavailableException;
+import static org.assertj.swing.assertions.Assertions.assertThat;
+import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.driver.ComponentPreconditions;
+import org.assertj.swing.driver.JListDriver;
+import org.assertj.swing.edt.*;
+import org.assertj.swing.exception.LocationUnavailableException;
 
-import static org.fest.util.Arrays.format;
-import static org.fest.util.Strings.concat;
-import static org.fest.util.Strings.quote;
+import static org.assertj.core.util.Arrays.format;
+import static org.assertj.core.util.Strings.concat;
+import static org.assertj.core.util.Strings.quote;
 
 /**
  * A driver to allow us to interact with a {@link com.jidesoft.combobox.ListComboBox}.
@@ -135,7 +135,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
    * @param comboBox the target <code>AbstractComboBox</code>.
    * @param index the given index.
    * @return the value of the element under the given index.
-   * @throws org.fest.swing.exception.LocationUnavailableException if the given index is
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given index is
    * negative or greater than the index of the last item in the
    * <code>AbstractComboBox</code>.
    * @see #cellReader(AbstractComboBoxCellReader)
@@ -211,7 +211,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
     GuiActionRunner.execute(new GuiTask() {
       @Override
       protected void executeInEDT() {
-        ComponentStateValidator.validateIsEnabledAndShowing(comboBox);
+        ComponentPreconditions.checkEnabledAndShowing(comboBox);
         AbstractComboBoxItemIndexValidator.validateIndex(comboBox, index);
       }
     });

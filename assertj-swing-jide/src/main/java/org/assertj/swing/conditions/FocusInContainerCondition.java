@@ -12,14 +12,14 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.conditions;
+package org.assertj.swing.conditions;
 
-import org.fest.swing.core.BasicComponentFinder;
-import org.fest.swing.core.ComponentFinder;
-import org.fest.swing.core.ComponentMatcher;
-import org.fest.swing.core.NameMatcher;
-import org.fest.swing.exception.ComponentLookupException;
-import org.fest.swing.timing.Condition;
+import org.assertj.swing.core.BasicComponentFinder;
+import org.assertj.swing.core.ComponentFinder;
+import org.assertj.swing.core.ComponentMatcher;
+import org.assertj.swing.core.NameMatcher;
+import org.assertj.swing.exception.ComponentLookupException;
+import org.assertj.swing.timing.Condition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +38,7 @@ public class FocusInContainerCondition extends Condition {
   private final ComponentMatcher _matcher;
 
   /**
-   * Creates a new <code>{@link org.fest.swing.conditions.FocusInContainerCondition}</code>
+   * Creates a new <code>{@link FocusInContainerCondition}</code>
    *
    * @param name The name of the component to find.
    * @param type The type of the component to find.
@@ -49,7 +49,7 @@ public class FocusInContainerCondition extends Condition {
   }
 
   /**
-   * Creates a new <code>{@link org.fest.swing.conditions.FocusInContainerCondition}</code>
+   * Creates a new <code>{@link FocusInContainerCondition}</code>
    *
    * @param name The name of the component to find.
    */
@@ -59,7 +59,7 @@ public class FocusInContainerCondition extends Condition {
   }
 
   /**
-   * Creates a new <code>{@link org.fest.swing.conditions.FocusInContainerCondition}</code>
+   * Creates a new <code>{@link FocusInContainerCondition}</code>
    * @param finder performs the component search.
    * @param matcher specifies the condition that the component we are looking for needs to
    * match.
@@ -70,7 +70,7 @@ public class FocusInContainerCondition extends Condition {
   }
 
   /**
-   * Creates a new <code>{@link org.fest.swing.conditions.FocusInContainerCondition}</code>
+   * Creates a new <code>{@link FocusInContainerCondition}</code>
    * @param description the description of this condition.
    * @param finder performs the component search.
    * @param matcher specifies the condition that the component we are looking for needs to

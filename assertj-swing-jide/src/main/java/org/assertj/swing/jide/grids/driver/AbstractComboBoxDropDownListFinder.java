@@ -12,15 +12,15 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import org.fest.swing.annotation.RunsInEDT;
-import org.fest.swing.core.*;
-import org.fest.swing.core.Robot;
+import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.core.*;
+import org.assertj.swing.core.Robot;
 
 /**
  * Understands look up of the <code>{@link javax.swing.JList}</code> in the pop-up raised

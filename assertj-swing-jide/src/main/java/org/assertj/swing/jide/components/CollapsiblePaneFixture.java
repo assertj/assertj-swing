@@ -12,52 +12,49 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.components;
+package org.assertj.swing.jide.components;
 
 import com.jidesoft.pane.CollapsiblePane;
-import org.fest.swing.core.Robot;
-import org.fest.swing.jide.components.driver.CollapsiblePaneDriver;
-import org.fest.swing.fixture.ContainerFixture;
+import org.assertj.swing.jide.components.driver.CollapsiblePaneDriver;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.fixture.AbstractContainerFixture;
 
 /**
  * TODO
  * @author Peter Murray
  */
-public class CollapsiblePaneFixture extends ContainerFixture<CollapsiblePane> {
-
-  protected CollapsiblePaneDriver _driver;
+public class CollapsiblePaneFixture extends AbstractContainerFixture<CollapsiblePaneFixture, CollapsiblePane, CollapsiblePaneDriver> {
 
   public CollapsiblePaneFixture(Robot robot, CollapsiblePane pane) {
-    super(robot, pane);
-    createDriver();
+    super(CollapsiblePaneFixture.class, robot, pane);
   }
 
   public CollapsiblePaneFixture(Robot robot, String name) {
-    super(robot, name, CollapsiblePane.class);
-    createDriver();
+    super(CollapsiblePaneFixture.class, robot, name, CollapsiblePane.class);
   }
 
   public CollapsiblePaneFixture expand() {
-    _driver.expand(target);
+    driver().expand(target());
     return this;
   }
 
   public CollapsiblePaneFixture collapse() {
-    _driver.collapse(target);
+    driver().collapse(target());
     return this;
   }
 
   public CollapsiblePaneFixture requireExpanded() {
-    _driver.requireExpanded(target);
+    driver().requireExpanded(target());
     return this;
   }
 
   public CollapsiblePaneFixture requireCollapsed() {
-    _driver.requireCollapsed(target);
+    driver().requireCollapsed(target());
     return this;
   }
 
-  protected void createDriver() {
-    _driver = new CollapsiblePaneDriver(robot);
+  @Override
+  protected CollapsiblePaneDriver createDriver(Robot robot) {
+    return new CollapsiblePaneDriver(robot);
   }
 }

@@ -12,14 +12,14 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import com.jidesoft.combobox.AbstractComboBox;
 import com.jidesoft.combobox.ListComboBox;
-import org.fest.swing.annotation.RunsInCurrentThread;
-import org.fest.swing.driver.ComponentStateValidator;
-import org.fest.swing.format.Formatting;
-import org.fest.util.Strings;
+import org.assertj.swing.annotation.RunsInCurrentThread;
+import org.assertj.swing.driver.ComponentPreconditions;
+import org.assertj.swing.format.Formatting;
+import org.assertj.core.util.Strings;
 
 /**
  * Understands an action that validates that the editor of a <code>{@link
@@ -36,7 +36,7 @@ public class AbstractComboBoxAccessibleEditorValidator {
 
   @RunsInCurrentThread
   public static void validateEditorIsAccessible(AbstractComboBox comboBox) {
-    ComponentStateValidator.validateIsEnabledAndShowing(comboBox);
+    ComponentPreconditions.checkEnabledAndShowing(comboBox);
     if (!comboBox.isEditable()) {
       throw new IllegalStateException(Strings.concat("Expecting component ",
                                                      Formatting.format(comboBox),

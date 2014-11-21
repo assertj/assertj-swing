@@ -12,12 +12,12 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import static java.lang.String.valueOf;
 import com.jidesoft.combobox.AbstractComboBox;
-import org.fest.swing.annotation.RunsInCurrentThread;
-import static org.fest.util.Strings.concat;
+import org.assertj.swing.annotation.RunsInCurrentThread;
+import static org.assertj.core.util.Strings.concat;
 
 /**
  * Understands verification that a given number is a valid index of an item in a

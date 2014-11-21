@@ -11,14 +11,14 @@
  *
  * Copyright @2008-2010 the original author or authors.
  */
-package org.fest.swing.conditions;
+package org.assertj.swing.conditions;
 
-import org.fest.swing.core.BasicComponentFinder;
-import org.fest.swing.core.ComponentFinder;
-import org.fest.swing.core.ComponentMatcher;
-import org.fest.swing.core.NameMatcher;
-import org.fest.swing.exception.ComponentLookupException;
-import org.fest.swing.timing.Condition;
+import org.assertj.swing.core.BasicComponentFinder;
+import org.assertj.swing.core.ComponentFinder;
+import org.assertj.swing.core.ComponentMatcher;
+import org.assertj.swing.core.NameMatcher;
+import org.assertj.swing.exception.ComponentLookupException;
+import org.assertj.swing.timing.Condition;
 
 import java.awt.*;
 
@@ -34,7 +34,7 @@ public class ComponentFocusedCondition extends Condition {
   private final ComponentMatcher _matcher;
 
   /**
-   * Creates a new <code>{@link org.fest.swing.conditions.ComponentVisibleCondition}</code>
+   * Creates a new <code>{@link ComponentVisibleCondition}</code>
    * @param name The name of the component to find in the GUI.
    */
   public ComponentFocusedCondition(String name) {
@@ -43,7 +43,7 @@ public class ComponentFocusedCondition extends Condition {
   }
 
   /**
-   * Creates a new <code>{@link org.fest.swing.conditions.ComponentVisibleCondition}</code>
+   * Creates a new <code>{@link ComponentVisibleCondition}</code>
    * @param name The name of the component to find in the GUI.
    * @param type The type of the component to find.
    */
@@ -53,7 +53,7 @@ public class ComponentFocusedCondition extends Condition {
   }
 
   /**
-   * Creates a new <code>{@link org.fest.swing.conditions.ComponentVisibleCondition}</code>
+   * Creates a new <code>{@link ComponentVisibleCondition}</code>
    * @param finder performs the component search.
    * @param matcher specifies the condition that the component we are looking for needs to
    * match.
@@ -64,7 +64,7 @@ public class ComponentFocusedCondition extends Condition {
   }
 
   /**
-   * Creates a new <code>{@link org.fest.swing.conditions.ComponentVisibleCondition}</code>
+   * Creates a new <code>{@link ComponentVisibleCondition}</code>
    * @param description the description of this condition.
    * @param finder performs the component search.
    * @param matcher specifies the condition that the component we are looking for needs to
@@ -80,7 +80,7 @@ public class ComponentFocusedCondition extends Condition {
 
   /**
    * Returns <code>true</code> if a component that matches the search criteria in this
-   * condition's <code>{@link org.fest.swing.core.ComponentMatcher}</code> can be found.
+   * condition's <code>{@link org.assertj.swing.core.ComponentMatcher}</code> can be found.
    * Otherwise, this method returns <code>false</code>.
    * @return <code>true</code> if a matching component can be found, <code>false</code>
    *         otherwise.

@@ -12,9 +12,9 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids;
+package org.assertj.swing.jide.grids;
 
-import org.fest.swing.fixture.ItemGroupFixture;
+import org.assertj.swing.fixture.ItemGroupFixture;
 
 /**
  * A Fixture that provides extra methods that can be performed on an item group.

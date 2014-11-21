@@ -12,7 +12,7 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,22 +20,22 @@ import com.jidesoft.combobox.AbstractComboBox;
 import com.jidesoft.combobox.PopupPanel;
 import com.jidesoft.converter.ConverterContext;
 import com.jidesoft.converter.ObjectConverter;
-import static org.fest.assertions.Assertions.assertThat;
-import org.fest.assertions.Description;
+import static org.assertj.swing.assertions.Assertions.assertThat;
+import org.assertj.core.description.Description;
 
-import static org.fest.assertions.Fail.fail;
-import org.fest.swing.annotation.RunsInEDT;
-import org.fest.swing.core.KeyPressInfo;
+import static org.assertj.core.api.Assertions.fail;
+import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.core.KeyPressInfo;
 
-import org.fest.swing.driver.JComponentDriver;
-import org.fest.swing.edt.*;
-import org.fest.swing.exception.LocationUnavailableException;
-import org.fest.swing.query.ComponentEnabledQuery;
-import org.fest.util.Strings;
+import org.assertj.swing.driver.JComponentDriver;
+import org.assertj.swing.edt.*;
+import org.assertj.swing.exception.LocationUnavailableException;
+import org.assertj.swing.query.ComponentEnabledQuery;
+import org.assertj.core.util.Strings;
 
 /**
  * A driver for an {@link com.jidesoft.combobox.AbstractComboBox}. This is loosely based
- * on the {@link org.fest.swing.driver.JComboBoxDriver} class so a familiar usage pattern
+ * on the {@link org.assertj.swing.driver.JComboBoxDriver} class so a familiar usage pattern
  * will exist between Swing combo boxes and Jide combo boxes.
  *
  * @author Peter Murray
@@ -48,7 +48,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   protected AbstractComboBoxCellReader _cellReader;
 
-  public AbstractComboBoxDriver(org.fest.swing.core.Robot robot) {
+  public AbstractComboBoxDriver(org.assertj.swing.core.Robot robot) {
     super(robot);
     cellReader(new AbstractComboBoxCellReader());
   }
@@ -91,7 +91,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static Component accessibleEditorOf(final AbstractComboBox comboBox) {
-    return org.fest.swing.edt.GuiActionRunner.execute(new GuiQuery<Component>() {
+    return org.assertj.swing.edt.GuiActionRunner.execute(new GuiQuery<Component>() {
       @Override
       protected Component executeInEDT() {
         AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox);
@@ -185,7 +185,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
   public void requireSelection(AbstractComboBox comboBox, String value) {
     String selectedItem = _cellReader.valueAsText(comboBox, comboBox.getSelectedItem());
     if (selectedItem == null) {
-      fail(org.fest.util.Strings.concat("[",
+      fail(org.assertj.core.util.Strings.concat("[",
                                         selectedIndexProperty(comboBox),
                                         "] No selection"));
     }
@@ -210,7 +210,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void inEdtValidateEditorIsAccessible(final AbstractComboBox comboBox) {
-    org.fest.swing.edt.GuiActionRunner.execute(new GuiTask() {
+    org.assertj.swing.edt.GuiActionRunner.execute(new GuiTask() {
       @Override
       protected void executeInEDT() {
         AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox);

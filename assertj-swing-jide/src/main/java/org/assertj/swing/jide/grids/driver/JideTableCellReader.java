@@ -12,14 +12,14 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import com.jidesoft.combobox.ListComboBox;
-import org.fest.swing.driver.BasicJTableCellReader;
+import org.assertj.swing.driver.BasicJTableCellReader;
 
 /**
  * TODO

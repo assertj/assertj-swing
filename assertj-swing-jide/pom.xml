@@ -4,21 +4,19 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.easytesting</groupId>
-    <artifactId>fest</artifactId>
-    <version>1.0.1</version>
+    <groupId>org.assertj</groupId>
+    <artifactId>assertj-swing-parent-pom</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>fest-swing-jide</artifactId>
-  <version>1.2b1-SNAPSHOT</version>
+  <artifactId>assertj-swing-jide</artifactId>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-
-  <name>FEST Swing Jidesoft Component Library</name>
+  <name>AssertJ-Swing - Jidesoft Component Library</name>
   <description>Jidesoft framework specific extensions for testing</description>
-  <url>http://fest.easytesting.org/swing</url>
 
   <properties>
-    <jide.version>2.8.6</jide.version>
+    <jide.version>3.6.4</jide.version>
   </properties>
 
   <dependencies>
@@ -39,7 +37,7 @@
     <dependency>
       <groupId>org.easytesting</groupId>
       <artifactId>fest-util</artifactId>
-      <version>1.1.2</version>
+      <version>1.2.5</version>
     </dependency>
 
     <dependency>
@@ -49,9 +47,10 @@
     </dependency>
 
     <dependency>
-      <groupId>org.easytesting</groupId>
-      <artifactId>fest-swing</artifactId>
-      <version>1.2rc</version>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-swing</artifactId>
+      <version>1.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
     </dependency>
 
     <dependency>
@@ -110,35 +109,39 @@
     </dependency>
   </dependencies>
 
-  <build>
+  <reporting>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <aggregate>true</aggregate>
+          <minmemory>128m</minmemory>
+          <maxmemory>512m</maxmemory>
+          <breakiterator>true</breakiterator>
+          <quiet>true</quiet>
+          <source>1.5</source>
+          <verbose>false</verbose>
+          <linksource>true</linksource>
+          <links>
+            <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+            <link>http://testng.org/javadocs</link>
+            <link>http://www.junit.org/junit/javadoc/4.3</link>
+            <link>http://fest.easytesting.org/swing/apidocs/</link>
+          </links>
         </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+        </reportSets>
       </plugin>
     </plugins>
-  </build>
-
-  <mailingLists>
-    <mailingList>
-      <name>Easy Testing Group</name>
-      <post>http://groups.google.com/group/easytesting</post>
-      <subscribe>http://groups.google.com/group/easytesting</subscribe>
-      <unsubscribe>http://groups.google.com/group/easytesting</unsubscribe>
-    </mailingList>
-  </mailingLists>
-
-  <scm>
-    <developerConnection>scm:svn:https://svn.codehaus.org/fest/trunk/fest-swing-jide</developerConnection>
-    <connection>scm:svn:http://svn.codehaus.org/fest/trunk/fest-swing-jide</connection>
-    <url>http://fisheye.codehaus.org/browse/fest/</url>
-  </scm>
-
-  <issueManagement>
-    <system>JIRA</system>
-    <url>http://jira.codehaus.org/browse/FEST</url>
-  </issueManagement>
+  </reporting>
 </project>

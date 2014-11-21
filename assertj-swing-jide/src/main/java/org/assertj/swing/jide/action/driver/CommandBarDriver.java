@@ -12,10 +12,10 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.action.driver;
+package org.assertj.swing.jide.action.driver;
 
-import org.fest.swing.core.Robot;
-import org.fest.swing.driver.JComponentDriver;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.driver.JComponentDriver;
 
 /**
  * A Driver for the Jide {@link com.jidesoft.action.CommandBar} class.

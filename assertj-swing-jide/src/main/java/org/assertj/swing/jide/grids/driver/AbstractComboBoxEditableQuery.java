@@ -12,11 +12,11 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import com.jidesoft.combobox.AbstractComboBox;
-import static org.fest.swing.edt.GuiActionRunner.execute;
-import org.fest.swing.edt.GuiQuery;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Understands an action, executed in the event dispatch thread, that indicates whether a

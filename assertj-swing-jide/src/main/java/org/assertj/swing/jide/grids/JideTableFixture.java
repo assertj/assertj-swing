@@ -12,13 +12,13 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids;
+package org.assertj.swing.jide.grids;
 
 import javax.swing.*;
 import com.jidesoft.grid.JideTable;
-import org.fest.swing.core.Robot;
-import org.fest.swing.jide.grids.driver.JideTableCellReader;
-import org.fest.swing.fixture.JTableFixture;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.jide.grids.driver.JideTableCellReader;
+import org.assertj.swing.fixture.JTableFixture;
 
 /**
  * A Fixture for dealing with {@link JideTable}s.
@@ -29,33 +29,33 @@ public class JideTableFixture extends JTableFixture implements ExtendedTableFixt
   public JideTableFixture(Robot robot, String name) {
     super(robot, name);
     checkTableInstance();
-    cellReader(new JideTableCellReader());
+    driver().replaceCellReader(new JideTableCellReader());
   }
 
   public JideTableFixture(Robot robot, JTable table) {
     super(robot, table);
     checkTableInstance();
-    cellReader(new JideTableCellReader());
+    driver().replaceCellReader(new JideTableCellReader());
   }
 
   public JideTable targetAsJideTable() {
-    return (JideTable)target;
+    return (JideTable)target();
   }
 
   public int selectedRow() {
-    return target.getSelectedRow();
+    return target().getSelectedRow();
   }
 
   public int[] selectedRows() {
-    return target.getSelectedRows();
+    return target().getSelectedRows();
   }
 
   public int rows() {
-    return target.getRowCount();
+    return target().getRowCount();
   }
 
   public int columns() {
-    return target.getColumnCount();
+    return target().getColumnCount();
   }
 
   public JideTableFixture requireSelection(int... rows) {
@@ -68,7 +68,7 @@ public class JideTableFixture extends JTableFixture implements ExtendedTableFixt
   \*-------------------------------------------------------------------------*/
 
   private void checkTableInstance() {
-    if (!(target instanceof JideTable)) {
+    if (!(target() instanceof JideTable)) {
       throw new UnsupportedOperationException("The table instance is not a JideTable");
     }
   }

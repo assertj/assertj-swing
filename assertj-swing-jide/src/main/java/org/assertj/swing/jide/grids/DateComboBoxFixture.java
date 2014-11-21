@@ -12,156 +12,78 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids;
+package org.assertj.swing.jide.grids;
+
+import com.jidesoft.combobox.DateComboBox;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.fixture.AbstractComponentFixture;
+import org.assertj.swing.jide.grids.driver.DateComboBoxDriver;
 
 import java.util.Calendar;
 import java.util.Date;
-import com.jidesoft.combobox.DateComboBox;
-import static org.fest.assertions.Assertions.assertThat;
-import org.fest.swing.core.*;
-import org.fest.swing.jide.grids.driver.DateComboBoxDriver;
-import org.fest.swing.driver.ComponentDriver;
-import org.fest.swing.fixture.*;
-import org.fest.swing.timing.Timeout;
+
+import static org.assertj.swing.assertions.Assertions.assertThat;
 
 /**
  * A Fixture for driving a DateComboBox using FEST.
+ *
  * @author Peter Murray
  */
-public class DateComboBoxFixture extends ComponentFixture<DateComboBox> {
+public class DateComboBoxFixture extends AbstractComponentFixture<DateComboBoxFixture, DateComboBox, DateComboBoxDriver> {
 
-  private DateComboBoxDriver _driver;
+    public DateComboBoxFixture(Robot robot, String comboBoxName) {
+        super(DateComboBoxFixture.class, robot, comboBoxName, DateComboBox.class);
+        createDriver(robot);
+    }
 
-  public DateComboBoxFixture(Robot robot, String comboBoxName) {
-    super(robot, comboBoxName, DateComboBox.class);
-    createDriver();
-  }
+    public DateComboBoxFixture(Robot robot, DateComboBox target) {
+        super(DateComboBoxFixture.class, robot, target);
+        createDriver(robot);
+    }
 
-  public DateComboBoxFixture(Robot robot, DateComboBox target) {
-    super(robot, target);
-    createDriver();
-  }
+    @Override
+    protected DateComboBoxDriver createDriver(Robot robot) {
+        return new DateComboBoxDriver(robot);
+    }
 
-  protected void createDriver() {
-    _driver = new DateComboBoxDriver(robot);
-  }
+    public Date date() {
+        return driver().getSelectedDate(target());
+    }
 
-  protected ComponentDriver driver() {
-    return _driver;
-  }
+    public Calendar calendar() {
+        return driver().getSelectedCalendar(target());
+    }
 
-  protected ComponentFixture<DateComboBox> pressAndReleaseKey(KeyPressInfo keyPressInfo) {
-    _driver.pressAndReleaseKey(target, keyPressInfo.keyCode(), keyPressInfo.modifiers());
-    return this;
-  }
-
-  public Date date() {
-    return _driver.getSelectedDate(target);
-  }
-
-  public Calendar calendar() {
-    return _driver.getSelectedCalendar(target);
-  }
-
-  public DateComboBoxFixture selectToday() {
-    _driver.selectToday(target);
-    return this;
-  }
+    public DateComboBoxFixture selectToday() {
+        driver().selectToday(target());
+        return this;
+    }
 
 //  public DateComboBoxFixture selectNow() {
-//    _driver.selectToday(target);
+//    driver().selectToday(target());
 //    return this;
 //  }
 
-  public DateComboBoxFixture selectDate(Date d) {
-    _driver.selectDate(target, d);
-    return this;
-  }
+    public DateComboBoxFixture selectDate(Date d) {
+        driver().selectDate(target(), d);
+        return this;
+    }
 
-  public DateComboBoxFixture selectCalendar(Calendar cal) {
-    _driver.selectCalendar(target, cal);
-    return this;
-  }
+    public DateComboBoxFixture selectCalendar(Calendar cal) {
+        driver().selectCalendar(target(), cal);
+        return this;
+    }
 
-  public DateComboBoxFixture requireDate(Date d) {
-    Date currentVal = date();
-    assertThat(currentVal).isEqualTo(d);
-    return this;
-  }
+    public DateComboBoxFixture requireDate(Date d) {
+        Date currentVal = date();
+        assertThat(currentVal).isEqualTo(d);
+        return this;
+    }
 
-  public DateComboBoxFixture requireCalendar(Calendar cal) {
-    Calendar currentVal = calendar();
-    assertThat(currentVal).isEqualTo(cal);
-    return this;
-  }
+    public DateComboBoxFixture requireCalendar(Calendar cal) {
+        Calendar currentVal = calendar();
+        assertThat(currentVal).isEqualTo(cal);
+        return this;
+    }
 
-  public DateComboBoxFixture click() {
-    _driver.click(target);
-    return this;
-  }
-
-  public DateComboBoxFixture click(MouseButton mouseButton) {
-    _driver.click(target, mouseButton);
-    return this;
-  }
-
-  public DateComboBoxFixture click(MouseClickInfo mouseClickInfo) {
-    _driver.click(target, mouseClickInfo.button(), mouseClickInfo.times());
-    return this;
-  }
-
-  public DateComboBoxFixture doubleClick() {
-    _driver.doubleClick(target);
-    return this;
-  }
-
-  public DateComboBoxFixture focus() {
-    _driver.focus(target);
-    return this;
-  }
-
-  public DateComboBoxFixture pressAndReleaseKeys(int... ints) {
-    _driver.pressAndReleaseKeys(target, ints);
-    return this;
-  }
-
-  public DateComboBoxFixture pressKey(int i) {
-    _driver.pressKey(target, i);
-    return this;
-  }
-
-  public DateComboBoxFixture releaseKey(int i) {
-    _driver.releaseKey(target, i);
-    return this;
-  }
-
-  public DateComboBoxFixture requireDisabled() {
-    _driver.requireDisabled(target);
-    return this;
-  }
-
-  public DateComboBoxFixture requireEnabled() {
-    _driver.requireEnabled(target);
-    return this;
-  }
-
-  public DateComboBoxFixture requireNotVisible() {
-    _driver.requireNotVisible(target);
-    return this;
-  }
-
-  public DateComboBoxFixture requireVisible() {
-    _driver.requireVisible(target);
-    return this;
-  }
-
-  public DateComboBoxFixture rightClick() {
-    _driver.rightClick(target);
-    return this;
-  }
-
-  protected ComponentFixture<DateComboBox> requireEnabled(Timeout timeout) {
-    _driver.requireEnabled(target, timeout);
-    return this;
-  }
 }
