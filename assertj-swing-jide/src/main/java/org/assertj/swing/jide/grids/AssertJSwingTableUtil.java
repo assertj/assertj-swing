@@ -12,18 +12,19 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids;
+package org.assertj.swing.jide.grids;
+
+import org.assertj.core.api.Fail;
 
 import java.util.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.fest.assertions.Fail;
 
 /**
  * Utility methods for tables when using FEST..
  * @author Peter Murray
  */
-class FestTableUtil {
+class AssertJSwingTableUtil {
 
   static void requireSelection(int[] expectedRows, int[] selectedRows) {
     assertEquals("The number of expected selected expectedRows do not match",

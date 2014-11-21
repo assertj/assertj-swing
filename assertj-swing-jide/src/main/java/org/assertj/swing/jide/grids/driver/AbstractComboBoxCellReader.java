@@ -12,7 +12,7 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import com.jidesoft.combobox.AbstractComboBox;
 import com.jidesoft.combobox.ListComboBox;

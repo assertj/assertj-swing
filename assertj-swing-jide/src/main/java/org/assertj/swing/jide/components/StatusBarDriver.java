@@ -12,14 +12,14 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.components;
+package org.assertj.swing.jide.components;
 
 import java.awt.*;
 import com.jidesoft.status.LabelStatusBarItem;
 import com.jidesoft.status.StatusBar;
-import static org.fest.assertions.Assertions.assertThat;
-import org.fest.swing.core.Robot;
-import org.fest.swing.driver.JComponentDriver;
+import static org.assertj.swing.assertions.Assertions.assertThat;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.driver.JComponentDriver;
 
 /**
  * A Driver for the Jide {@link StatusBar} class.

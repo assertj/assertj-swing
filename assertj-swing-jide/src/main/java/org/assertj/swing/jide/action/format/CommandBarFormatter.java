@@ -12,12 +12,12 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.action.format;
+package org.assertj.swing.jide.action.format;
 
 import java.awt.*;
 import com.jidesoft.action.CommandBar;
-import org.fest.swing.format.ComponentFormatterTemplate;
-import org.fest.util.Strings;
+import org.assertj.swing.format.ComponentFormatterTemplate;
+import org.assertj.core.util.Strings;
 
 /**
  * A formatter for {@link CommandBar} implementations.

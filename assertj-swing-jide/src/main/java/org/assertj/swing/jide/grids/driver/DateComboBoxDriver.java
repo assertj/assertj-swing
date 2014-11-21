@@ -12,7 +12,7 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,13 +21,13 @@ import java.util.Calendar;
 import java.util.Date;
 import com.jidesoft.combobox.DateChooserPanel;
 import com.jidesoft.combobox.DateComboBox;
-import org.fest.swing.core.*;
-import org.fest.swing.core.Robot;
-import org.fest.swing.driver.JComponentDriver;
-import org.fest.swing.timing.Pause;
-import org.fest.swing.annotation.RunsInEDT;
-import org.fest.swing.annotation.RunsInCurrentThread;
-import org.fest.swing.edt.*;
+import org.assertj.swing.core.*;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.driver.JComponentDriver;
+import org.assertj.swing.timing.Pause;
+import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.annotation.RunsInCurrentThread;
+import org.assertj.swing.edt.*;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 

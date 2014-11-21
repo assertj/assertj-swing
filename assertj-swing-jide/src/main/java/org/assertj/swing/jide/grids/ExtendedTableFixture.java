@@ -12,7 +12,7 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids;
+package org.assertj.swing.jide.grids;
 
 /**
  * An interface for defining advanced table fixture methods that will be useful for

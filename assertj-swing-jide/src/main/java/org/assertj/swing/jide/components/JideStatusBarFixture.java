@@ -12,71 +12,63 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.components;
+package org.assertj.swing.jide.components;
 
 import com.jidesoft.status.StatusBar;
-import org.fest.swing.core.Robot;
-import org.fest.swing.jide.components.StatusBarDriver;
-import org.fest.swing.fixture.ContainerFixture;
-import org.fest.util.Strings;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.fixture.AbstractContainerFixture;
+import org.assertj.core.util.Strings;
 
 /**
  * TODO
  * @author Peter Murray
  */
-public class JideStatusBarFixture extends ContainerFixture<StatusBar> {
-
-  private StatusBarDriver _driver;
+public class JideStatusBarFixture extends AbstractContainerFixture<JideStatusBarFixture, StatusBar, StatusBarDriver> {
 
   /**
-   * Creates a new <code>{@link org.fest.swing.jide.action.CommandBarFixture}</code>.
+   * Creates a new <code>{@link org.assertj.swing.jide.action.CommandBarFixture}</code>.
    * @param robot performs simulation of user events on the given {@link StatusBar}.
    * @param target the {@link StatusBar} to be managed by this fixture.
    * @throws NullPointerException if <code>robot</code> is <code>null</code>.
    * @throws NullPointerException if <code>target</code> is <code>null</code>.
    */
   public JideStatusBarFixture(Robot robot, StatusBar target) {
-    super(robot, target);
-    createDriver();
+    super(JideStatusBarFixture.class, robot, target);
   }
 
   /**
-   * Creates a new <code>{@link org.fest.swing.jide.action.CommandBarFixture}</code>.
+   * Creates a new <code>{@link org.assertj.swing.jide.action.CommandBarFixture}</code>.
    * @param robot performs simulation of user events on a {@link StatusBar}.
    * @param commandBarName the name of the {@link StatusBar} to find using the given
    * <code>Robot</code>.
    * @throws NullPointerException if <code>robot</code> is <code>null</code>.
-   * @throws org.fest.swing.exception.ComponentLookupException if a matching {@link
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@link
    * StatusBar} could not be found.
-   * @throws org.fest.swing.exception.ComponentLookupException if more than one matching
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching
    * {@link StatusBar} is found.
    */
   public JideStatusBarFixture(Robot robot, String commandBarName) {
-    super(robot, commandBarName, StatusBar.class);
-    createDriver();
+    super(JideStatusBarFixture.class, robot, commandBarName, StatusBar.class);
   }
 
-  private void createDriver() {
-    updateDriver(new StatusBarDriver(robot));
-  }
-
-  void updateDriver(StatusBarDriver newDriver) {
-    _driver = newDriver;
+  @Override
+  protected StatusBarDriver createDriver(Robot robot) {
+    return new StatusBarDriver(robot);
   }
 
   public void requireText(String text) {
-    _driver.requireText(target, text);
+    driver().requireText(target(), text);
   }
 
   public void containsText(String text) {
-    _driver.containsText(target, text);
+    driver().containsText(target(), text);
   }
 
   @Override
   public String toString() {
-    return Strings.concat("name=", target.getName(),
-                          ", enabled=", target.isEnabled(),
-                          ", visible=", target.isVisible(),
-                          ", showing=", target.isShowing());
+    return Strings.concat("name=", target().getName(),
+                          ", enabled=", target().isEnabled(),
+                          ", visible=", target().isVisible(),
+                          ", showing=", target().isShowing());
   }
 }

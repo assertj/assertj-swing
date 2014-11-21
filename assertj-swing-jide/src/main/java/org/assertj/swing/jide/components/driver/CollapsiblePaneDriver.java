@@ -12,16 +12,16 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.components.driver;
+package org.assertj.swing.jide.components.driver;
 
 import javax.swing.*;
 import com.jidesoft.pane.CollapsiblePane;
-import static org.fest.assertions.Assertions.assertThat;
-import org.fest.swing.core.Robot;
-import org.fest.swing.core.matcher.JButtonMatcher;
-import org.fest.swing.driver.JComponentDriver;
-import org.fest.swing.edt.GuiActionRunner;
-import org.fest.swing.edt.GuiQuery;
+import static org.assertj.swing.assertions.Assertions.assertThat;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.core.matcher.JButtonMatcher;
+import org.assertj.swing.driver.JComponentDriver;
+import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.edt.GuiQuery;
 
 /**
  * TODO

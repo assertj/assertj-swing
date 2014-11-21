@@ -12,7 +12,7 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide;
+package org.assertj.swing.jide;
 
 import com.jidesoft.action.CommandBar;
 import com.jidesoft.combobox.DateComboBox;
@@ -21,18 +21,18 @@ import com.jidesoft.grid.JideTable;
 import com.jidesoft.grid.TableScrollPane;
 import com.jidesoft.pane.CollapsiblePane;
 import com.jidesoft.status.StatusBar;
-import org.fest.swing.core.GenericTypeMatcher;
-import org.fest.swing.core.Robot;
-import org.fest.swing.fixture.FrameFixture;
-import org.fest.swing.format.Formatting;
-import org.fest.swing.jide.action.CommandBarFixture;
-import org.fest.swing.jide.action.format.CommandBarFormatter;
-import org.fest.swing.jide.components.CollapsiblePaneFixture;
-import org.fest.swing.jide.components.JideStatusBarFixture;
-import org.fest.swing.jide.grids.DateComboBoxFixture;
-import org.fest.swing.jide.grids.JideTableFixture;
-import org.fest.swing.jide.grids.ListComboBoxFixture;
-import org.fest.swing.jide.grids.TableScrollPaneFixture;
+import org.assertj.swing.jide.action.CommandBarFixture;
+import org.assertj.swing.jide.action.format.CommandBarFormatter;
+import org.assertj.swing.jide.components.CollapsiblePaneFixture;
+import org.assertj.swing.jide.components.JideStatusBarFixture;
+import org.assertj.swing.jide.grids.DateComboBoxFixture;
+import org.assertj.swing.jide.grids.JideTableFixture;
+import org.assertj.swing.jide.grids.TableScrollPaneFixture;
+import org.assertj.swing.core.GenericTypeMatcher;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.fixture.FrameFixture;
+import org.assertj.swing.format.Formatting;
+import org.assertj.swing.jide.grids.ListComboBoxFixture;
 
 import java.awt.*;
 
@@ -65,56 +65,56 @@ public class JideFrameFixture extends FrameFixture {
   }
 
   public ListComboBoxFixture listComboBox(String name) {
-    return new ListComboBoxFixture(robot, findByName(name, ListComboBox.class));
+    return new ListComboBoxFixture(robot(), findByName(name, ListComboBox.class));
   }
 
   public ListComboBoxFixture listComboBox(
           GenericTypeMatcher<? extends ListComboBox> matcher) {
-    return new ListComboBoxFixture(robot, find(matcher));
+    return new ListComboBoxFixture(robot(), find(matcher));
   }
 
   public DateComboBoxFixture dateComboBox(String name) {
-    return new DateComboBoxFixture(robot, findByName(name, DateComboBox.class));
+    return new DateComboBoxFixture(robot(), findByName(name, DateComboBox.class));
   }
 
 //  public DockingRootPaneContainerFixture dockingRootPaneContainer(String name) {
-//    return new DockingRootPaneContainerFixture(robot,
+//    return new DockingRootPaneContainerFixture(robot(),
 //                                               findByName(name,
 //                                                          DockingRootPaneContainer.class));
 //  }
 
   public TableScrollPaneFixture tableScrollPane(String name) {
-    return new TableScrollPaneFixture(robot,
+    return new TableScrollPaneFixture(robot(),
                                       findByName(name, TableScrollPane.class));
   }
 
   public JideTableFixture jideTable(String name) {
-    return new JideTableFixture(robot,
+    return new JideTableFixture(robot(),
                                 findByName(name, JideTable.class));
   }
 
 //  public GlassPaneFixture jComponent(String name) {
-//    return new GlassPaneFixture(robot, findByName(name, JComponent.class));
+//    return new GlassPaneFixture(robot(), findByName(name, JComponent.class));
 //  }
 
   public CommandBarFixture commandBar(String name) {
-    return new CommandBarFixture(robot, findByName(name, CommandBar.class));
+    return new CommandBarFixture(robot(), findByName(name, CommandBar.class));
   }
 
   public JideStatusBarFixture statusBar(String name) {
-    return new JideStatusBarFixture(robot, findByName(name, StatusBar.class));
+    return new JideStatusBarFixture(robot(), findByName(name, StatusBar.class));
   }
 
   public JideStatusBarFixture statusBar() {
-    return new JideStatusBarFixture(robot, findByType(StatusBar.class));
+    return new JideStatusBarFixture(robot(), findByType(StatusBar.class));
   }
 
   public CollapsiblePaneFixture collapsiblePane() {
-    return new CollapsiblePaneFixture(robot, findByType(CollapsiblePane.class));
+    return new CollapsiblePaneFixture(robot(), findByType(CollapsiblePane.class));
   }
 
   public CollapsiblePaneFixture collapsiblePane(String name) {
-    return new CollapsiblePaneFixture(robot, findByName(name, CollapsiblePane.class));
+    return new CollapsiblePaneFixture(robot(), findByName(name, CollapsiblePane.class));
   }
 
 //  public Condition condition(ConditionType condition, String name) {

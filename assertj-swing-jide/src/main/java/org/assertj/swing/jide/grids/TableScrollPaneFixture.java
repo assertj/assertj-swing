@@ -12,13 +12,13 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids;
+package org.assertj.swing.jide.grids;
 
 import com.jidesoft.grid.TableScrollPane;
-import org.fest.swing.core.Robot;
-import org.fest.swing.driver.JTableDriver;
-import org.fest.swing.fixture.JScrollPaneFixture;
-import org.fest.swing.data.TableCell;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.driver.JTableDriver;
+import org.assertj.swing.fixture.JScrollPaneFixture;
+import org.assertj.swing.data.TableCell;
 
 import static org.junit.Assert.assertEquals;
 
@@ -42,11 +42,11 @@ public class TableScrollPaneFixture extends JScrollPaneFixture
   }
 
   public JideTableFixture mainTable() {
-    return new JideTableFixture(robot, targetAsTableScrollPane().getMainTable());
+    return new JideTableFixture(robot(), targetAsTableScrollPane().getMainTable());
   }
 
   public JideTableFixture rowHeaderTable() {
-    return new JideTableFixture(robot, targetAsTableScrollPane().getRowHeaderTable());
+    return new JideTableFixture(robot(), targetAsTableScrollPane().getRowHeaderTable());
   }
 
   public int rows() {
@@ -72,7 +72,7 @@ public class TableScrollPaneFixture extends JScrollPaneFixture
   }
 
   public TableScrollPaneFixture requireSelection(int... rows) {
-    FestTableUtil.requireSelection(rows, targetAsTableScrollPane().getSelectedRows());
+    AssertJSwingTableUtil.requireSelection(rows, targetAsTableScrollPane().getSelectedRows());
     return this;
   }
 
@@ -82,7 +82,7 @@ public class TableScrollPaneFixture extends JScrollPaneFixture
   }
 
   public TableScrollPane targetAsTableScrollPane() {
-    return (TableScrollPane)target;
+    return (TableScrollPane)target();
   }
 
 //  public TJideTableScrollPane targetAsTJideTableScrollPane() {
@@ -93,7 +93,7 @@ public class TableScrollPaneFixture extends JScrollPaneFixture
 //  }
 
   private void checkTableInstance() {
-    if (!(target instanceof TableScrollPane)) {
+    if (!(target() instanceof TableScrollPane)) {
       throw new IllegalStateException("The target instance is not a TableScrollPane");
     }
   }

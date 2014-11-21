@@ -12,12 +12,12 @@
  * Copyright @2008-2010 the original author or authors.
  */
 
-package org.fest.swing.jide.grids.driver;
+package org.assertj.swing.jide.grids.driver;
 
 import com.jidesoft.combobox.ListComboBox;
-import org.fest.swing.annotation.RunsInEDT;
-import static org.fest.swing.edt.GuiActionRunner.execute;
-import org.fest.swing.edt.GuiTask;
+import org.assertj.swing.annotation.RunsInEDT;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+import org.assertj.swing.edt.GuiTask;
 
 /**
  * Understands a task that selects the element in the given index in the given
