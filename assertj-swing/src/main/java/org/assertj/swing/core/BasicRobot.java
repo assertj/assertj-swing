@@ -290,7 +290,7 @@ public class BasicRobot implements Robot {
         TimeoutWatch watch = startWatchWithTimeoutOf(settings().timeoutToBeVisible());
         while (!focusMonitor.hasFocus()) {
           if (watch.isTimeOut()) {
-            throw actionFailure(concat("Focus change to ", format(target), " failed"));
+              throw actionFailure(concat("Focus change to ", format(target), " failed", " focus owner: ", format(FocusOwnerFinder.focusOwner())));
           }
           pause();
         }
