@@ -14,18 +14,27 @@
  */
 package org.assertj.swing.timing;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * A {@link Condition} that is never satisfied.
  * 
  * @author Alex Ruiz
  */
 class NeverSatisfiedCondition extends Condition {
+  private AtomicInteger count;
   public NeverSatisfiedCondition() {
     super("Never satisfied");
+    count = new AtomicInteger(0);
   }
 
   @Override
   public boolean test() {
+    count.incrementAndGet();
     return false;
+  }
+
+  public int getCount() {
+    return count.get();
   }
 }
