@@ -15,6 +15,7 @@
 package org.assertj.swing.timing;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 import static org.assertj.swing.test.util.StopWatch.startNewStopWatch;
 
 import org.assertj.swing.exception.WaitTimedOutError;
@@ -30,6 +31,31 @@ public class Pause_pauseWithConditionAndTimeoutInMilliseconds_Test {
   @Test(expected = WaitTimedOutError.class)
   public void should_Timeout_If_Condition_Is_Never_Satisfied() {
     Pause.pause(new NeverSatisfiedCondition(), 1000);
+  }
+
+    @Test
+  public void should_Stop_Condition_if_Timedout() throws InterruptedException {
+    NeverSatisfiedCondition condition = new NeverSatisfiedCondition();
+    try {
+      Pause.pause(condition, 1000);
+      fail("Should have timed out");
+    } catch(WaitTimedOutError e) {
+      // expected
+    }
+
+    long start = System.currentTimeMillis();
+    while(true) {
+      int lastCount = condition.getCount();
+      Thread.sleep(2000);
+      System.out.println(condition.getCount() + " == " + lastCount);
+      if (condition.getCount() == lastCount) {
+        break;
+      }
+
+      if (System.currentTimeMillis() > (start + 20000)) {
+        fail("Condition was still being tested 20 seconds after the condition timed out");
+      }
+    }
   }
 
   @Test(expected = WaitTimedOutError.class, timeout = 1100)
