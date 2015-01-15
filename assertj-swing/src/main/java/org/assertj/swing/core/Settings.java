@@ -42,6 +42,7 @@ public class Settings {
   private int dropDelay;
   private int eventPostingDelay;
   private int idleTimeout;
+  private boolean simpleWaitForIdle;
 
   private java.awt.Robot robot;
 
@@ -255,5 +256,19 @@ public class Settings {
 
   private int valueToUpdate(int value, int min, int max) {
     return max(min, min(max, value));
+  }
+
+  /**
+   * @return the simple waitForIdle implementation is on or off
+   */
+  public boolean simpleWaitForIdle() {
+    return simpleWaitForIdle;
+  }
+
+  /**
+   * turns on or off the simple waitForIdle implementation
+   */
+  public void simpleWaitForIdle(boolean simpleWaitForIdle) {
+    this.simpleWaitForIdle = simpleWaitForIdle;
   }
 }
