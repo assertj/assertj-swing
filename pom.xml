@@ -21,6 +21,7 @@
     <module>assertj-swing-junit-4.3.1</module>
     <module>assertj-swing-junit-4.5</module>
     <module>assertj-swing-testng</module>
+    <module>assertj-swing-jide</module>
   </modules>
 
   <build>
