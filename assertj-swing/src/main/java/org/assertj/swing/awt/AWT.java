@@ -301,25 +301,7 @@ public class AWT {
    */
   @RunsInCurrentThread
   public static @Nullable Point locationOnScreenOf(@Nonnull Component c) {
-    if (!isAWTTreeLockHeld()) {
-      return new Point(c.getLocationOnScreen());
-    }
-    if (!c.isShowing()) {
-      return null;
-    }
-    Point location = new Point(c.getLocation());
-    if (c instanceof Window) {
-      return location;
-    }
-    Container parent = c.getParent();
-    if (parent == null) {
-      return null;
-    }
-    Point parentLocation = locationOnScreenOf(parent);
-    if (parentLocation != null) {
-      location.translate(parentLocation.x, parentLocation.y);
-    }
-    return null;
+    return new Point(c.getLocationOnScreen());
   }
 
   /**
@@ -337,65 +319,6 @@ public class AWT {
    */
   public static int popupMask() {
     return BUTTON3_MASK;
-  }
-
-  /**
-   * Indicates whether the AWT Tree Lock is currently held.
-   * 
-   * @return {@code true} if the AWT Tree Lock is currently held, {@code false} otherwise.
-   */
-  public static boolean isAWTTreeLockHeld() {
-    Frame[] frames = Frame.getFrames();
-    if (frames.length == 0) {
-      return false;
-    }
-    // From Abbot: Hack based on 1.4.2 java.awt.PopupMenu implementation, which blocks the event dispatch thread while
-    // the pop-up is visible, while holding the AWT tree lock.
-    // Start another thread which attempts to get the tree lock.
-    // If it can't get the tree lock, then there is a pop-up active in the current tree.
-    // Any component can provide the tree lock.
-    Object treeLock = checkNotNull(frames[0].getTreeLock());
-    ThreadStateChecker checker = new ThreadStateChecker(treeLock);
-    try {
-      checker.start();
-      // wait a little bit for the checker to finish
-      if (checker.isAlive()) {
-        checker.join(100);
-      }
-      return checker.isAlive();
-    } catch (InterruptedException e) {
-      return false;
-    }
-  }
-
-  // Try to lock the AWT tree lock; returns immediately if it can
-  private static class ThreadStateChecker extends Thread {
-    private final Object lock;
-
-    public ThreadStateChecker(@Nonnull Object lock) {
-      super("Thread state checker");
-      setDaemon(true);
-      this.lock = lock;
-    }
-
-    @Override
-    public synchronized void start() {
-      super.start();
-      try {
-        wait(30000);
-      } catch (InterruptedException e) {
-      }
-    }
-
-    @Override
-    public void run() {
-      synchronized (this) {
-        notifyAll();
-      }
-      synchronized (lock) {
-        setName(super.getName()); // dummy operation
-      }
-    }
   }
 
   private AWT() {
