@@ -11,8 +11,22 @@
  * 
  * Copyright @2008-2010 the original author or authors.
  */
-
 package org.assertj.swing.jide;
+
+import java.awt.Frame;
+
+import org.assertj.swing.core.GenericTypeMatcher;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.fixture.FrameFixture;
+import org.assertj.swing.format.Formatting;
+import org.assertj.swing.jide.action.CommandBarFixture;
+import org.assertj.swing.jide.action.format.CommandBarFormatter;
+import org.assertj.swing.jide.components.CollapsiblePaneFixture;
+import org.assertj.swing.jide.components.JideStatusBarFixture;
+import org.assertj.swing.jide.grids.DateComboBoxFixture;
+import org.assertj.swing.jide.grids.JideTableFixture;
+import org.assertj.swing.jide.grids.ListComboBoxFixture;
+import org.assertj.swing.jide.grids.TableScrollPaneFixture;
 
 import com.jidesoft.action.CommandBar;
 import com.jidesoft.combobox.DateComboBox;
@@ -21,20 +35,6 @@ import com.jidesoft.grid.JideTable;
 import com.jidesoft.grid.TableScrollPane;
 import com.jidesoft.pane.CollapsiblePane;
 import com.jidesoft.status.StatusBar;
-import org.assertj.swing.jide.action.CommandBarFixture;
-import org.assertj.swing.jide.action.format.CommandBarFormatter;
-import org.assertj.swing.jide.components.CollapsiblePaneFixture;
-import org.assertj.swing.jide.components.JideStatusBarFixture;
-import org.assertj.swing.jide.grids.DateComboBoxFixture;
-import org.assertj.swing.jide.grids.JideTableFixture;
-import org.assertj.swing.jide.grids.TableScrollPaneFixture;
-import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.fixture.FrameFixture;
-import org.assertj.swing.format.Formatting;
-import org.assertj.swing.jide.grids.ListComboBoxFixture;
-
-import java.awt.*;
 
 /**
  * A {@link FrameFixture} that allows Jide specific fixtures to be obtained from a {@link javax.swing.JFrame}'s
@@ -77,12 +77,6 @@ public class JideFrameFixture extends FrameFixture {
     return new DateComboBoxFixture(robot(), findByName(name, DateComboBox.class));
   }
 
-  // public DockingRootPaneContainerFixture dockingRootPaneContainer(String name) {
-  // return new DockingRootPaneContainerFixture(robot(),
-  // findByName(name,
-  // DockingRootPaneContainer.class));
-  // }
-
   public TableScrollPaneFixture tableScrollPane(String name) {
     return new TableScrollPaneFixture(robot(),
                                       findByName(name, TableScrollPane.class));
@@ -92,10 +86,6 @@ public class JideFrameFixture extends FrameFixture {
     return new JideTableFixture(robot(),
                                 findByName(name, JideTable.class));
   }
-
-  // public GlassPaneFixture jComponent(String name) {
-  // return new GlassPaneFixture(robot(), findByName(name, JComponent.class));
-  // }
 
   public CommandBarFixture commandBar(String name) {
     return new CommandBarFixture(robot(), findByName(name, CommandBar.class));
@@ -116,48 +106,4 @@ public class JideFrameFixture extends FrameFixture {
   public CollapsiblePaneFixture collapsiblePane(String name) {
     return new CollapsiblePaneFixture(robot(), findByName(name, CollapsiblePane.class));
   }
-
-  // public Condition condition(ConditionType condition, String name) {
-  // switch (condition) {
-  // case VISIBLE_COMPONENT:
-  // return new ComponentVisibleCondition(finder(),
-  // new NameMatcher(name, requireShowing()));
-  // case FOCUSED_COMPONENT:
-  // return new ComponentFocusedCondition(finder(),
-  // new NameMatcher(name, requireShowing()));
-  // case FOCUS_IN_CONTAINER:
-  // return new FocusInContainerCondition(finder(),
-  // new NameMatcher(name, requireShowing()));
-  // default: {
-  // throw new UnsupportedOperationException("Unsupported condition type, "
-  // + condition);
-  // }
-  // }
-  // }
-  //
-  // public Condition condition(ConditionType condition,
-  // String name,
-  // Class<? extends Component> type) {
-  // switch (condition) {
-  // case VISIBLE_COMPONENT:
-  // return new ComponentVisibleCondition(finder(),
-  // new NameMatcher(name,
-  // type,
-  // requireShowing()));
-  // case FOCUSED_COMPONENT:
-  // return new ComponentFocusedCondition(finder(),
-  // new NameMatcher(name,
-  // type,
-  // requireShowing()));
-  // case FOCUS_IN_CONTAINER:
-  // return new FocusInContainerCondition(finder(),
-  // new NameMatcher(name,
-  // type,
-  // requireShowing()));
-  // default: {
-  // throw new UnsupportedOperationException("Unsupported condition type, "
-  // + condition);
-  // }
-  // }
-  // }
 }

@@ -1,28 +1,29 @@
 /*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software distributed under the License
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
- * 
+ *
  * Copyright @2008-2010 the original author or authors.
  */
 
 package org.assertj.swing.jide.grids;
 
-import com.jidesoft.combobox.DateComboBox;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.fixture.AbstractComponentFixture;
-import org.assertj.swing.jide.grids.driver.DateComboBoxDriver;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.assertj.swing.assertions.Assertions.assertThat;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.fixture.AbstractComponentFixture;
+import org.assertj.swing.jide.grids.driver.DateComboBoxDriver;
+
+import com.jidesoft.combobox.DateComboBox;
 
 /**
  * A Fixture for driving a DateComboBox using FEST.
@@ -60,11 +61,6 @@ public class DateComboBoxFixture extends
     return this;
   }
 
-  // public DateComboBoxFixture selectNow() {
-  // driver().selectToday(target());
-  // return this;
-  // }
-
   public DateComboBoxFixture selectDate(Date d) {
     driver().selectDate(target(), d);
     return this;
@@ -86,5 +82,4 @@ public class DateComboBoxFixture extends
     assertThat(currentVal).isEqualTo(cal);
     return this;
   }
-
 }
