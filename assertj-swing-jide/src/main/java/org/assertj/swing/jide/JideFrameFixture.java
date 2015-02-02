@@ -1,14 +1,14 @@
 /*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
- *
+ * 
  * Copyright @2008-2010 the original author or authors.
  */
 
@@ -37,8 +37,8 @@ import org.assertj.swing.jide.grids.ListComboBoxFixture;
 import java.awt.*;
 
 /**
- * A {@link FrameFixture} that allows Jide specific fixtures to be obtained from a {@link
- * javax.swing.JFrame}'s children.
+ * A {@link FrameFixture} that allows Jide specific fixtures to be obtained from a {@link javax.swing.JFrame}'s
+ * children.
  *
  * @author Peter Murray
  */
@@ -69,7 +69,7 @@ public class JideFrameFixture extends FrameFixture {
   }
 
   public ListComboBoxFixture listComboBox(
-          GenericTypeMatcher<? extends ListComboBox> matcher) {
+                                          GenericTypeMatcher<? extends ListComboBox> matcher) {
     return new ListComboBoxFixture(robot(), find(matcher));
   }
 
@@ -77,11 +77,11 @@ public class JideFrameFixture extends FrameFixture {
     return new DateComboBoxFixture(robot(), findByName(name, DateComboBox.class));
   }
 
-//  public DockingRootPaneContainerFixture dockingRootPaneContainer(String name) {
-//    return new DockingRootPaneContainerFixture(robot(),
-//                                               findByName(name,
-//                                                          DockingRootPaneContainer.class));
-//  }
+  // public DockingRootPaneContainerFixture dockingRootPaneContainer(String name) {
+  // return new DockingRootPaneContainerFixture(robot(),
+  // findByName(name,
+  // DockingRootPaneContainer.class));
+  // }
 
   public TableScrollPaneFixture tableScrollPane(String name) {
     return new TableScrollPaneFixture(robot(),
@@ -93,9 +93,9 @@ public class JideFrameFixture extends FrameFixture {
                                 findByName(name, JideTable.class));
   }
 
-//  public GlassPaneFixture jComponent(String name) {
-//    return new GlassPaneFixture(robot(), findByName(name, JComponent.class));
-//  }
+  // public GlassPaneFixture jComponent(String name) {
+  // return new GlassPaneFixture(robot(), findByName(name, JComponent.class));
+  // }
 
   public CommandBarFixture commandBar(String name) {
     return new CommandBarFixture(robot(), findByName(name, CommandBar.class));
@@ -117,47 +117,47 @@ public class JideFrameFixture extends FrameFixture {
     return new CollapsiblePaneFixture(robot(), findByName(name, CollapsiblePane.class));
   }
 
-//  public Condition condition(ConditionType condition, String name) {
-//    switch (condition) {
-//      case VISIBLE_COMPONENT:
-//        return new ComponentVisibleCondition(finder(),
-//                                             new NameMatcher(name, requireShowing()));
-//      case FOCUSED_COMPONENT:
-//        return new ComponentFocusedCondition(finder(),
-//                                             new NameMatcher(name, requireShowing()));
-//      case FOCUS_IN_CONTAINER:
-//        return new FocusInContainerCondition(finder(),
-//                                             new NameMatcher(name, requireShowing()));
-//      default: {
-//        throw new UnsupportedOperationException("Unsupported condition type, "
-//                                                + condition);
-//      }
-//    }
-//  }
-//
-//  public Condition condition(ConditionType condition,
-//                             String name,
-//                             Class<? extends Component> type) {
-//    switch (condition) {
-//      case VISIBLE_COMPONENT:
-//        return new ComponentVisibleCondition(finder(),
-//                                             new NameMatcher(name,
-//                                                             type,
-//                                                             requireShowing()));
-//      case FOCUSED_COMPONENT:
-//        return new ComponentFocusedCondition(finder(),
-//                                             new NameMatcher(name,
-//                                                             type,
-//                                                             requireShowing()));
-//      case FOCUS_IN_CONTAINER:
-//        return new FocusInContainerCondition(finder(),
-//                                             new NameMatcher(name,
-//                                                             type,
-//                                                             requireShowing()));
-//      default: {
-//        throw new UnsupportedOperationException("Unsupported condition type, "
-//                                                + condition);
-//      }
-//    }
-//  }
+  // public Condition condition(ConditionType condition, String name) {
+  // switch (condition) {
+  // case VISIBLE_COMPONENT:
+  // return new ComponentVisibleCondition(finder(),
+  // new NameMatcher(name, requireShowing()));
+  // case FOCUSED_COMPONENT:
+  // return new ComponentFocusedCondition(finder(),
+  // new NameMatcher(name, requireShowing()));
+  // case FOCUS_IN_CONTAINER:
+  // return new FocusInContainerCondition(finder(),
+  // new NameMatcher(name, requireShowing()));
+  // default: {
+  // throw new UnsupportedOperationException("Unsupported condition type, "
+  // + condition);
+  // }
+  // }
+  // }
+  //
+  // public Condition condition(ConditionType condition,
+  // String name,
+  // Class<? extends Component> type) {
+  // switch (condition) {
+  // case VISIBLE_COMPONENT:
+  // return new ComponentVisibleCondition(finder(),
+  // new NameMatcher(name,
+  // type,
+  // requireShowing()));
+  // case FOCUSED_COMPONENT:
+  // return new ComponentFocusedCondition(finder(),
+  // new NameMatcher(name,
+  // type,
+  // requireShowing()));
+  // case FOCUS_IN_CONTAINER:
+  // return new FocusInContainerCondition(finder(),
+  // new NameMatcher(name,
+  // type,
+  // requireShowing()));
+  // default: {
+  // throw new UnsupportedOperationException("Unsupported condition type, "
+  // + condition);
+  // }
+  // }
+  // }
 }
