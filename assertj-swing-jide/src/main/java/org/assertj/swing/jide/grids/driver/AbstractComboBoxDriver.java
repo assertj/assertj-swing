@@ -1,37 +1,43 @@
 /*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
- *
+ * 
  * Copyright @2008-2010 the original author or authors.
  */
 
 package org.assertj.swing.jide.grids.driver;
 
-import javax.swing.*;
-import java.awt.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
+
+import java.awt.Component;
+
+import javax.swing.AbstractButton;
+import javax.swing.ComboBoxEditor;
+import javax.swing.JComponent;
+
+import org.assertj.core.description.Description;
+import org.assertj.core.util.Strings;
+import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.core.KeyPressInfo;
+import org.assertj.swing.driver.JComponentDriver;
+import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.edt.GuiTask;
+import org.assertj.swing.exception.LocationUnavailableException;
+import org.assertj.swing.query.ComponentEnabledQuery;
+
 import com.jidesoft.combobox.AbstractComboBox;
 import com.jidesoft.combobox.PopupPanel;
 import com.jidesoft.converter.ConverterContext;
 import com.jidesoft.converter.ObjectConverter;
-import static org.assertj.swing.assertions.Assertions.assertThat;
-import org.assertj.core.description.Description;
-
-import static org.assertj.core.api.Assertions.fail;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.KeyPressInfo;
-
-import org.assertj.swing.driver.JComponentDriver;
-import org.assertj.swing.edt.*;
-import org.assertj.swing.exception.LocationUnavailableException;
-import org.assertj.swing.query.ComponentEnabledQuery;
-import org.assertj.core.util.Strings;
 
 /**
  * A driver for an {@link com.jidesoft.combobox.AbstractComboBox}. This is loosely based
@@ -57,11 +63,12 @@ public class AbstractComboBoxDriver extends JComponentDriver {
    * Simulates a user entering the specified text in the <code>{@link com.jidesoft.combobox.AbstractComboBox}</code>,
    * replacing any text. This action is executed only if the <code>{@link
    * com.jidesoft.combobox.AbstractComboBox}</code> is editable.
+   * 
    * @param comboBox the target <code>AbstractComboBox</code>.
    * @param text the text to enter.
    * @throws IllegalStateException if the <code>AbstractComboBox</code> is disabled.
    * @throws IllegalStateException if the <code>AbstractComboBox</code> is not showing on the
-   * screen.
+   *           screen.
    * @throws IllegalStateException if the <code>AbstractComboBox</code> is not editable.
    */
   @RunsInEDT
@@ -73,10 +80,11 @@ public class AbstractComboBoxDriver extends JComponentDriver {
   /**
    * Simulates a user selecting the text in the <code>{@link com.jidesoft.combobox.AbstractComboBox}</code>. This
    * action is executed only if the <code>{@link com.jidesoft.combobox.AbstractComboBox}</code> is editable.
+   * 
    * @param comboBox the target <code>AbstractComboBox</code>.
    * @throws IllegalStateException if the <code>AbstractComboBox</code> is disabled.
    * @throws IllegalStateException if the <code>AbstractComboBox</code> is not showing on the
-   * screen.
+   *           screen.
    * @throws IllegalStateException if the <code>AbstractComboBox</code> is not editable.
    */
   @RunsInEDT
@@ -86,7 +94,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
       return;
     }
     focus(editor);
-    invokeAction((JComponent)editor, javax.swing.text.DefaultEditorKit.selectAllAction);
+    invokeAction((JComponent) editor, javax.swing.text.DefaultEditorKit.selectAllAction);
   }
 
   @RunsInEDT
@@ -105,6 +113,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
    * editable AbstractComboBox, the focus will move to the Editor, not the ComboBox
    * instance which will result in FEST failing on waiting for focus to move to the
    * comboBox.
+   * 
    * @param c the target component.
    * @param keyCodes one or more codes of the keys to press.
    */
@@ -122,6 +131,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
    * editable AbstractComboBox, the focus will move to the Editor, not the ComboBox
    * instance which will result in FEST failing on waiting for focus to move to the
    * comboBox.
+   * 
    * @param c the target component.
    * @param keyPressInfo specifies the key and modifiers to press.
    */
@@ -139,6 +149,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
    * editable AbstractComboBox, the focus will move to the Editor, not the ComboBox
    * instance which will result in FEST failing on waiting for focus to move to the
    * comboBox.
+   * 
    * @param c the target component.
    * @param keyCode the code of the key to press.
    * @param modifiers the given modifiers.
@@ -152,11 +163,12 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   /**
    * Simulates a user pressing given key on the <code>{@link Component}</code>.
+   * 
    * @param c the target component.
    * @param keyCode the code of the key to press.
    * @throws IllegalArgumentException if the given code is not a valid key code.
    * @throws IllegalStateException if the <code>Component</code> is disabled, or is not
-   * showing on the screen.
+   *           showing on the screen.
    * @see java.awt.event.KeyEvent
    */
   @Override
@@ -168,11 +180,12 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   /**
    * Simulates a user releasing the given key on the <code>{@link Component}</code>.
+   * 
    * @param c the target component.
    * @param keyCode the code of the key to release.
    * @throws IllegalArgumentException if the given code is not a valid key code.
    * @throws IllegalStateException if the <code>Component</code> is disabled, or is not
-   * showing on the screen.
+   *           showing on the screen.
    * @see java.awt.event.KeyEvent
    */
   @Override
@@ -186,8 +199,8 @@ public class AbstractComboBoxDriver extends JComponentDriver {
     String selectedItem = _cellReader.valueAsText(comboBox, comboBox.getSelectedItem());
     if (selectedItem == null) {
       fail(org.assertj.core.util.Strings.concat("[",
-                                        selectedIndexProperty(comboBox),
-                                        "] No selection"));
+                                                selectedIndexProperty(comboBox),
+                                                "] No selection"));
     }
     assertThat(selectedItem).as(selectedIndexProperty(comboBox)).isEqualTo(value);
   }
@@ -195,11 +208,12 @@ public class AbstractComboBoxDriver extends JComponentDriver {
   /**
    * Simulates a user entering the specified text in the <code>{@link com.jidesoft.combobox.AbstractComboBox}</code>.
    * This action is executed only if the <code>{@link com.jidesoft.combobox.AbstractComboBox}</code> is editable.
+   * 
    * @param comboBox the target <code>AbstractComboBox</code>.
    * @param text the text to enter.
    * @throws IllegalStateException if the <code>AbstractComboBox</code> is disabled.
    * @throws IllegalStateException if the <code>AbstractComboBox</code> is not editable or
-   * is not showing on the screen.
+   *           is not showing on the screen.
    */
   @RunsInEDT
   public void enterText(AbstractComboBox comboBox, String text) {
@@ -220,6 +234,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   /**
    * Asserts that the given <code>{@link com.jidesoft.combobox.AbstractComboBox}</code> is editable.
+   * 
    * @param comboBox the target <code>AbstractComboBox</code>.
    * @throws AssertionError if the <code>AbstractComboBox</code> is not editable.
    */
@@ -230,6 +245,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   /**
    * Asserts that the given <code>{@link com.jidesoft.combobox.AbstractComboBox}</code> is not editable.
+   * 
    * @param comboBox the given <code>AbstractComboBox</code>.
    * @throws AssertionError if the <code>AbstractComboBox</code> is editable.
    */
@@ -251,13 +267,13 @@ public class AbstractComboBoxDriver extends JComponentDriver {
   @RunsInEDT
   private void assertEditable(AbstractComboBox comboBox, boolean expected) {
     assertThat(AbstractComboBoxEditableQuery.isEditable(comboBox))
-            .as(editableProperty(comboBox)).isEqualTo(expected);
+                                                                  .as(editableProperty(comboBox)).isEqualTo(expected);
   }
 
   @RunsInEDT
   private void assertEnabled(AbstractComboBox comboBox, boolean expected) {
     assertThat(ComponentEnabledQuery.isEnabled(comboBox))
-            .as(editableProperty(comboBox)).isEqualTo(expected);
+                                                         .as(editableProperty(comboBox)).isEqualTo(expected);
   }
 
   @RunsInEDT
@@ -271,16 +287,15 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
     if (converter == null) {
       return String.valueOf(o);
-    } else {
-      return converter.toString(o, context);
     }
+    return converter.toString(o, context);
   }
 
   AbstractComboBox.EditorComponent getEditor(final AbstractComboBox comboBox) {
     GuiQuery<AbstractComboBox.EditorComponent> query = new GuiQuery<AbstractComboBox.EditorComponent>() {
       @Override
       protected AbstractComboBox.EditorComponent executeInEDT() throws Throwable {
-        return (AbstractComboBox.EditorComponent)comboBox.getEditor();
+        return (AbstractComboBox.EditorComponent) comboBox.getEditor();
       }
     };
     return GuiActionRunner.execute(query);
@@ -291,7 +306,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
       @Override
       protected String executeInEDT() throws Throwable {
         AbstractComboBox.EditorComponent editorComp =
-                (AbstractComboBox.EditorComponent)comboBox.getEditor();
+            (AbstractComboBox.EditorComponent) comboBox.getEditor();
         return editorComp.getText();
       }
     };
@@ -345,10 +360,11 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   /**
    * Converts an object that may be present in the ComboBox into a String representation.
+   * 
    * @param comboBox The comboBox to convert the object for.
    * @param o The object to convert into a String.
    * @return The object passed in converted in to a String so that it would appear as it
-   * would to a user selecting the value in the ComboBox.
+   *         would to a user selecting the value in the ComboBox.
    */
   protected String convertElementToString(AbstractComboBox comboBox, Object o) {
     if (o == null) {
@@ -356,15 +372,14 @@ public class AbstractComboBoxDriver extends JComponentDriver {
     }
 
     if (o instanceof String) {
-      return (String)o;
+      return (String) o;
     }
 
     ObjectConverter converter = comboBox.getConverter();
     if (converter != null) {
       return converter.toString(o, comboBox.getConverterContext());
-    } else {
-      return o.toString();
     }
+    return o.toString();
   }
 
   protected boolean isDropDownVisible(AbstractComboBox comboBox) {
@@ -392,14 +407,15 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   /**
    * Updates the implementation of <code>{@link AbstractComboBoxCellReader}</code> to use
-   * when comparing internal values of a <code>{@link com.jidesoft.combobox.ListComboBox}</code>
-   * and the values expected in a test.
+   * when comparing internal values of a <code>{@link com.jidesoft.combobox.ListComboBox}</code> and the values expected
+   * in a test.
+   * 
    * @param newCellReader the new <code>ListComboBoxCellValueReader</code> to use.
    * @throws IllegalArgumentException if <code>newCellReader</code> is <code>null</code>.
    */
   public void cellReader(AbstractComboBoxCellReader newCellReader) {
-    //TODO move this back to CommonConditions.validateCellReader()
-//    validateCellReader(newCellReader);
+    // TODO move this back to CommonConditions.validateCellReader()
+    // validateCellReader(newCellReader);
     if (newCellReader == null) {
       throw new NullPointerException("Cell reader should not be null");
     }
@@ -415,15 +431,16 @@ public class AbstractComboBoxDriver extends JComponentDriver {
   }
 
   /**
-   * Obtains the component that the user will interact with, which coule be the actual
+   * Obtains the component that the user will interact with, which could be the actual
    * combo box, or the editor component, depending upon the state of the combobox.
+   * 
    * @param c The Component to obtain the interactive component from.
    * @return The {@link java.awt.Component} that the user is to interact with.
    */
   @RunsInEDT
   protected Component getInteractionComponent(Component c) {
     if (c instanceof AbstractComboBox) {
-      AbstractComboBox combo = (AbstractComboBox)c;
+      AbstractComboBox combo = (AbstractComboBox) c;
       if (combo.isEditable()) {
         ComboBoxEditor editor = combo.getEditor();
         return editor.getEditorComponent();

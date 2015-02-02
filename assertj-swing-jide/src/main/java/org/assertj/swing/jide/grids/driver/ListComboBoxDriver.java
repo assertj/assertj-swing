@@ -1,40 +1,49 @@
 /*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
- *
+ * 
  * Copyright @2008-2010 the original author or authors.
  */
 
 package org.assertj.swing.jide.grids.driver;
 
-import javax.swing.*;
-import javax.swing.text.JTextComponent;
-import java.awt.*;
-import java.util.ArrayList;
-import com.jidesoft.combobox.*;
-import com.jidesoft.converter.ConverterContext;
-import com.jidesoft.converter.ObjectConverter;
-import static org.assertj.swing.assertions.Assertions.assertThat;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.core.Robot;
-import org.assertj.swing.driver.ComponentPreconditions;
-import org.assertj.swing.driver.JListDriver;
-import org.assertj.swing.edt.*;
-import org.assertj.swing.exception.LocationUnavailableException;
-
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.format;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 
+import java.awt.Component;
+import java.util.ArrayList;
+
+import javax.swing.ComboBoxModel;
+import javax.swing.JList;
+import javax.swing.text.JTextComponent;
+
+import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.core.Robot;
+import org.assertj.swing.driver.ComponentPreconditions;
+import org.assertj.swing.driver.JListDriver;
+import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.edt.GuiTask;
+import org.assertj.swing.exception.LocationUnavailableException;
+
+import com.jidesoft.combobox.AbstractComboBox;
+import com.jidesoft.combobox.ListComboBox;
+import com.jidesoft.combobox.PopupPanel;
+import com.jidesoft.converter.ConverterContext;
+import com.jidesoft.converter.ObjectConverter;
+
 /**
  * A driver to allow us to interact with a {@link com.jidesoft.combobox.ListComboBox}.
+ * 
  * @author Peter Murray
  */
 public class ListComboBoxDriver extends AbstractComboBoxDriver {
@@ -49,7 +58,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
     _listFinder = new AbstractComboBoxDropDownListFinder(robot);
   }
 
-  public JList getList(ListComboBox comboBox) {
+  public JList<?> getList(ListComboBox comboBox) {
     PopupPanel panel = showPopup(comboBox);
     return _listFinder.findDropDownList(panel);
   }
@@ -67,13 +76,14 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
 
   /**
    * Selects the item under the given index in the <code>{@link ListComboBox}</code>.
+   * 
    * @param comboBox the target <code>ListComboBox</code>.
    * @param index the given index.
    * @throws IllegalStateException if the <code>JComboBox</code> is disabled.
    * @throws IllegalStateException if the <code>JComboBox</code> is not showing on the
-   * screen.
+   *           screen.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the
-   * index of the last item in the <code>JComboBox</code>.
+   *           index of the last item in the <code>JComboBox</code>.
    */
   @RunsInEDT
   public void selectItem(final ListComboBox comboBox, int index) {
@@ -88,7 +98,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
       protected String executeInEDT() throws Throwable {
         Component editorComp = comboBox.getEditor().getEditorComponent();
         if (editorComp instanceof JTextComponent) {
-          return ((JTextComponent)editorComp).getText();
+          return ((JTextComponent) editorComp).getText();
         }
         return null;
       }
@@ -100,10 +110,11 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
   /**
    * Selects the first item matching the given text in the <code>{@link
    * ListComboBox}</code>.
+   * 
    * @param comboBox the target <code>ListComboBox</code>.
    * @param toSelect the text to match
    * @throws LocationUnavailableException if an element matching the given text cannot be
-   * found.
+   *           found.
    */
   public void selectItem(ListComboBox comboBox, String toSelect) {
     if (areEqual(comboBox,
@@ -132,12 +143,12 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
   /**
    * Returns the <code>String</code> representation of the element under the given index,
    * using this driver's <code>{@link AbstractComboBoxCellReader}</code>.
+   * 
    * @param comboBox the target <code>AbstractComboBox</code>.
    * @param index the given index.
    * @return the value of the element under the given index.
    * @throws org.assertj.swing.exception.LocationUnavailableException if the given index is
-   * negative or greater than the index of the last item in the
-   * <code>AbstractComboBox</code>.
+   *           negative or greater than the index of the last item in the <code>AbstractComboBox</code>.
    * @see #cellReader(AbstractComboBoxCellReader)
    */
   public String value(AbstractComboBox comboBox, int index) {
@@ -150,9 +161,9 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
    * ListComboBox}</code> list. Note that the current selection might not be included,
    * since it's possible to have a custom (edited) entry there that is not included in the
    * default contents.
+   * 
    * @param comboBox the target <code>ListComboBox</code>.
-   * @return an array of <code>String</code>s that represent the <code>ListComboBox</code>
-   *         list.
+   * @return an array of <code>String</code>s that represent the <code>ListComboBox</code> list.
    */
   public String[] contentsOf(ListComboBox comboBox) {
     int itemCount = size(comboBox);
@@ -164,7 +175,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
   }
 
   public String[] getContents(ListComboBox target) {
-    ComboBoxModel model = target.getModel();
+    ComboBoxModel<?> model = target.getModel();
     ConverterContext context = target.getConverterContext();
     ObjectConverter converter = target.getConverter();
 
@@ -184,9 +195,8 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
     ObjectConverter converter = target.getConverter();
     if (converter == null) {
       return String.valueOf(o);
-    } else {
-      return converter.toString(o, target.getConverterContext());
     }
+    return converter.toString(o, target.getConverterContext());
   }
 
   @RunsInEDT
@@ -195,14 +205,13 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
       clickPopupButton(comboBox);
     }
     PopupPanel panel = showPopup(comboBox);
-    JList dropDownList = _listFinder.findDropDownList(panel);
+    JList<?> dropDownList = _listFinder.findDropDownList(panel);
     if (dropDownList != null) {
-      int size = dropDownList.getModel().getSize();
       _listDriver.selectItem(dropDownList, index);
-      return;
+    } else {
+      ListComboBoxSetSelectedIndexTask.setSelectedIndex(comboBox, index);
+      robot.waitForIdle();
     }
-    ListComboBoxSetSelectedIndexTask.setSelectedIndex(comboBox, index);
-    robot.waitForIdle();
   }
 
   @RunsInEDT

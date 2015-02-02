@@ -14,14 +14,17 @@
 
 package org.assertj.swing.jide.grids;
 
-import javax.swing.*;
-import com.jidesoft.grid.JideTable;
+import javax.swing.JTable;
+
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.jide.grids.driver.JideTableCellReader;
 import org.assertj.swing.fixture.JTableFixture;
+import org.assertj.swing.jide.grids.driver.JideTableCellReader;
+
+import com.jidesoft.grid.JideTable;
 
 /**
  * A Fixture for dealing with {@link JideTable}s.
+ *
  * @author Peter Murray
  */
 public class JideTableFixture extends JTableFixture implements ExtendedTableFixture {
@@ -39,33 +42,34 @@ public class JideTableFixture extends JTableFixture implements ExtendedTableFixt
   }
 
   public JideTable targetAsJideTable() {
-    return (JideTable)target();
+    return (JideTable) target();
   }
 
+  @Override
   public int selectedRow() {
     return target().getSelectedRow();
   }
 
+  @Override
   public int[] selectedRows() {
     return target().getSelectedRows();
   }
 
+  @Override
   public int rows() {
     return target().getRowCount();
   }
 
+  @Override
   public int columns() {
     return target().getColumnCount();
   }
 
+  @Override
   public JideTableFixture requireSelection(int... rows) {
     AssertJSwingTableUtil.requireSelection(rows, selectedRows());
     return this;
   }
-
-  /*-------------------------------------------------------------------------*\
-   * PRIVATE METHODS
-  \*-------------------------------------------------------------------------*/
 
   private void checkTableInstance() {
     if (!(target() instanceof JideTable)) {

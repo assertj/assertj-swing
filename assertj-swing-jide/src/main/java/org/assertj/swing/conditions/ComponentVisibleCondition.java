@@ -1,29 +1,31 @@
 /*
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
- *
+ * 
  * Copyright @2008-2010 the original author or authors.
  */
 
 package org.assertj.swing.conditions;
 
-import org.assertj.swing.core.*;
+import java.awt.Component;
+
+import org.assertj.swing.core.BasicComponentFinder;
+import org.assertj.swing.core.ComponentFinder;
+import org.assertj.swing.core.ComponentMatcher;
+import org.assertj.swing.core.NameMatcher;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.timing.Condition;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.awt.*;
 
 /**
  * A Condition that requires a component to be visible.
+ * 
  * @author Peter Murray
  */
 public class ComponentVisibleCondition extends Condition {
@@ -57,9 +59,10 @@ public class ComponentVisibleCondition extends Condition {
 
   /**
    * Creates a new <code>{@link ComponentVisibleCondition}</code>
+   * 
    * @param finder performs the component search.
    * @param matcher specifies the condition that the component we are looking for needs to
-   * match.
+   *          match.
    */
   public ComponentVisibleCondition(ComponentFinder finder,
                                    ComponentMatcher matcher) {
@@ -68,10 +71,11 @@ public class ComponentVisibleCondition extends Condition {
 
   /**
    * Creates a new <code>{@link ComponentVisibleCondition}</code>
+   * 
    * @param description the description of this condition.
    * @param finder performs the component search.
    * @param matcher specifies the condition that the component we are looking for needs to
-   * match.
+   *          match.
    */
   public ComponentVisibleCondition(String description,
                                    ComponentFinder finder,
@@ -85,16 +89,15 @@ public class ComponentVisibleCondition extends Condition {
    * Returns <code>true</code> if a component that matches the search criteria in this
    * condition's <code>{@link org.assertj.swing.core.ComponentMatcher}</code> can be found. Otherwise, this
    * method returns <code>false</code>.
-   * @return <code>true</code> if a matching component can be found, <code>false</code>
-   *         otherwise.
+   * 
+   * @return <code>true</code> if a matching component can be found, <code>false</code> otherwise.
    */
   @Override
   public boolean test() {
     try {
       _found = _finder.find(_matcher);
       return _found.isVisible();
-    }
-    catch (ComponentLookupException e) {
+    } catch (ComponentLookupException e) {
     }
     return false;
   }

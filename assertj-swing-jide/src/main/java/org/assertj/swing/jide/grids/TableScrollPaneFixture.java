@@ -14,20 +14,22 @@
 
 package org.assertj.swing.jide.grids;
 
-import com.jidesoft.grid.TableScrollPane;
+import static org.junit.Assert.assertEquals;
+
 import org.assertj.swing.core.Robot;
+import org.assertj.swing.data.TableCell;
 import org.assertj.swing.driver.JTableDriver;
 import org.assertj.swing.fixture.JScrollPaneFixture;
-import org.assertj.swing.data.TableCell;
 
-import static org.junit.Assert.assertEquals;
+import com.jidesoft.grid.TableScrollPane;
 
 /**
  * A FEST fixture for driving a {@link TableScrollPane}.
+ *
  * @author Peter Murray
  */
 public class TableScrollPaneFixture extends JScrollPaneFixture
-        implements ExtendedTableFixture {
+    implements ExtendedTableFixture {
 
   protected JTableDriver _tableDriver;
 
@@ -49,18 +51,22 @@ public class TableScrollPaneFixture extends JScrollPaneFixture
     return new JideTableFixture(robot(), targetAsTableScrollPane().getRowHeaderTable());
   }
 
+  @Override
   public int rows() {
     return targetAsTableScrollPane().getRowCount();
   }
 
+  @Override
   public int columns() {
     return targetAsTableScrollPane().getColumnCount();
   }
 
+  @Override
   public int selectedRow() {
     return targetAsTableScrollPane().getSelectedRow();
   }
 
+  @Override
   public int[] selectedRows() {
     return targetAsTableScrollPane().getSelectedRows();
   }
@@ -71,6 +77,7 @@ public class TableScrollPaneFixture extends JScrollPaneFixture
                  targetAsTableScrollPane().getSelectedRow());
   }
 
+  @Override
   public TableScrollPaneFixture requireSelection(int... rows) {
     AssertJSwingTableUtil.requireSelection(rows, targetAsTableScrollPane().getSelectedRows());
     return this;
@@ -82,15 +89,8 @@ public class TableScrollPaneFixture extends JScrollPaneFixture
   }
 
   public TableScrollPane targetAsTableScrollPane() {
-    return (TableScrollPane)target();
+    return (TableScrollPane) target();
   }
-
-//  public TJideTableScrollPane targetAsTJideTableScrollPane() {
-//    if (target instanceof TJideTableScrollPane) {
-//      return (TJideTableScrollPane)target;
-//    }
-//    throw new IllegalStateException("The target is not an instance of a TJideTableScrollPane.");
-//  }
 
   private void checkTableInstance() {
     if (!(target() instanceof TableScrollPane)) {

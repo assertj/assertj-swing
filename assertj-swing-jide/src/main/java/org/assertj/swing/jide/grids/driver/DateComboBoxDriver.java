@@ -14,25 +14,28 @@
 
 package org.assertj.swing.jide.grids.driver;
 
-import javax.swing.*;
-import java.awt.*;
-import java.lang.reflect.InvocationTargetException;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Calendar;
 import java.util.Date;
-import com.jidesoft.combobox.DateChooserPanel;
-import com.jidesoft.combobox.DateComboBox;
-import org.assertj.swing.core.*;
+
+import javax.swing.JButton;
+
+import org.assertj.swing.annotation.RunsInCurrentThread;
+import org.assertj.swing.core.BasicComponentFinder;
+import org.assertj.swing.core.ComponentFinder;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
-import org.assertj.swing.timing.Pause;
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.edt.*;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.edt.GuiTask;
+
+import com.jidesoft.combobox.DateChooserPanel;
+import com.jidesoft.combobox.DateComboBox;
 
 /**
  * A basic rudimentary Driver for the {@link com.jidesoft.combobox.DateComboBox} class.
+ *
  * @author Peter Murray
  */
 public class DateComboBoxDriver extends JComponentDriver {
@@ -72,9 +75,8 @@ public class DateComboBoxDriver extends JComponentDriver {
     final JButton btn = finder.findByName(buttonName, JButton.class);
     if (btn == null) {
       throw new IllegalStateException("Could not find the today/now button to click.");
-    } else {
-      robot.click(btn);
     }
+    robot.click(btn);
   }
 
   @RunsInCurrentThread
@@ -84,7 +86,7 @@ public class DateComboBoxDriver extends JComponentDriver {
       return;
     }
     showPopup(combo);
-    DateChooserPanel panel = (DateChooserPanel)combo.getPopupPanel();
+    DateChooserPanel panel = (DateChooserPanel) combo.getPopupPanel();
     selectDateOnPanel(panel, d);
   }
 
