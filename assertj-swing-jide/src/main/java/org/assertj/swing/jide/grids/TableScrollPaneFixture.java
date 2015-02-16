@@ -25,7 +25,7 @@ import com.jidesoft.grid.TableScrollPane;
 
 /**
  * A FEST fixture for driving a {@link TableScrollPane}.
- *
+ * 
  * @author Peter Murray
  */
 public class TableScrollPaneFixture extends JScrollPaneFixture
@@ -34,67 +34,67 @@ public class TableScrollPaneFixture extends JScrollPaneFixture
   protected JTableDriver _tableDriver;
 
   public TableScrollPaneFixture(Robot robot, TableScrollPane pane) {
-    super(robot, pane);
-    checkTableInstance();
+	super(robot, pane);
+	checkTableInstance();
   }
 
   public TableScrollPaneFixture(Robot robot, String name) {
-    super(robot, name);
-    checkTableInstance();
+	super(robot, name);
+	checkTableInstance();
   }
 
   public JideTableFixture mainTable() {
-    return new JideTableFixture(robot(), targetAsTableScrollPane().getMainTable());
+	return new JideTableFixture(robot(), targetAsTableScrollPane().getMainTable());
   }
 
   public JideTableFixture rowHeaderTable() {
-    return new JideTableFixture(robot(), targetAsTableScrollPane().getRowHeaderTable());
+	return new JideTableFixture(robot(), targetAsTableScrollPane().getRowHeaderTable());
   }
 
   @Override
   public int rows() {
-    return targetAsTableScrollPane().getRowCount();
+	return targetAsTableScrollPane().getRowCount();
   }
 
   @Override
   public int columns() {
-    return targetAsTableScrollPane().getColumnCount();
+	return targetAsTableScrollPane().getColumnCount();
   }
 
   @Override
   public int selectedRow() {
-    return targetAsTableScrollPane().getSelectedRow();
+	return targetAsTableScrollPane().getSelectedRow();
   }
 
   @Override
   public int[] selectedRows() {
-    return targetAsTableScrollPane().getSelectedRows();
+	return targetAsTableScrollPane().getSelectedRows();
   }
 
   public void requireNoSelection() {
-    assertEquals("There should be no selection in the table",
-                 -1,
-                 targetAsTableScrollPane().getSelectedRow());
+	assertEquals("There should be no selection in the table",
+	             -1,
+	             targetAsTableScrollPane().getSelectedRow());
   }
 
   @Override
   public TableScrollPaneFixture requireSelection(int... rows) {
-    AssertJSwingTableUtil.requireSelection(rows, targetAsTableScrollPane().getSelectedRows());
-    return this;
+	AssertJSwingTableUtil.requireSelection(rows, targetAsTableScrollPane().getSelectedRows());
+	return this;
   }
 
   public TableScrollPaneFixture selectRow(int row) {
-    mainTable().selectCell(TableCell.row(row).column(0));
-    return this;
+	mainTable().selectCell(TableCell.row(row).column(0));
+	return this;
   }
 
   public TableScrollPane targetAsTableScrollPane() {
-    return (TableScrollPane) target();
+	return (TableScrollPane) target();
   }
 
   private void checkTableInstance() {
-    if (!(target() instanceof TableScrollPane)) {
-      throw new IllegalStateException("The target instance is not a TableScrollPane");
-    }
+	if (!(target() instanceof TableScrollPane)) {
+	  throw new IllegalStateException("The target instance is not a TableScrollPane");
+	}
   }
 }

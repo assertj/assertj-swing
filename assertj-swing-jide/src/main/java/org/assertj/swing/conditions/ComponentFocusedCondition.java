@@ -39,8 +39,8 @@ public class ComponentFocusedCondition extends Condition {
    * @param name The name of the component to find in the GUI.
    */
   public ComponentFocusedCondition(String name) {
-    this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
-         new NameMatcher(name, true));
+	this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
+	     new NameMatcher(name, true));
   }
 
   /**
@@ -50,8 +50,8 @@ public class ComponentFocusedCondition extends Condition {
    * @param type The type of the component to find.
    */
   public ComponentFocusedCondition(String name, Class<? extends Component> type) {
-    this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
-         new NameMatcher(name, type, true));
+	this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
+	     new NameMatcher(name, type, true));
   }
 
   /**
@@ -62,8 +62,8 @@ public class ComponentFocusedCondition extends Condition {
    *          match.
    */
   public ComponentFocusedCondition(ComponentFinder finder,
-                                   ComponentMatcher matcher) {
-    this("Component Focused Condition", finder, matcher);
+	                               ComponentMatcher matcher) {
+	this("Component Focused Condition", finder, matcher);
   }
 
   /**
@@ -75,11 +75,11 @@ public class ComponentFocusedCondition extends Condition {
    *          match.
    */
   public ComponentFocusedCondition(String description,
-                                   ComponentFinder finder,
-                                   ComponentMatcher matcher) {
-    super(description);
-    _finder = finder;
-    _matcher = matcher;
+	                               ComponentFinder finder,
+	                               ComponentMatcher matcher) {
+	super(description);
+	_finder = finder;
+	_matcher = matcher;
   }
 
   /**
@@ -91,12 +91,12 @@ public class ComponentFocusedCondition extends Condition {
    */
   @Override
   public boolean test() {
-    try {
-      Component found = _finder.find(_matcher);
-      return found.isFocusOwner();
-    } catch (ComponentLookupException e) {
-      // Ignore the exception and return false
-    }
-    return false;
+	try {
+	  Component found = _finder.find(_matcher);
+	  return found.isFocusOwner();
+	} catch (ComponentLookupException e) {
+	  // Ignore the exception and return false
+	}
+	return false;
   }
 }

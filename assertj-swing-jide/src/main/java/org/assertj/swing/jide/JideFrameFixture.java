@@ -39,71 +39,71 @@ import com.jidesoft.status.StatusBar;
 /**
  * A {@link FrameFixture} that allows Jide specific fixtures to be obtained from a {@link javax.swing.JFrame}'s
  * children.
- *
+ * 
  * @author Peter Murray
  */
 public class JideFrameFixture extends FrameFixture {
 
   static {
-    Formatting.register(new CommandBarFormatter());
+	Formatting.register(new CommandBarFormatter());
   }
 
   public JideFrameFixture(Frame f) {
-    super(f);
+	super(f);
   }
 
   public JideFrameFixture(Robot robot, Frame f) {
-    super(robot, f);
+	super(robot, f);
   }
 
   public JideFrameFixture(String name) {
-    super(name);
+	super(name);
   }
 
   public JideFrameFixture(Robot robot, String name) {
-    super(robot, name);
+	super(robot, name);
   }
 
   public ListComboBoxFixture listComboBox(String name) {
-    return new ListComboBoxFixture(robot(), findByName(name, ListComboBox.class));
+	return new ListComboBoxFixture(robot(), findByName(name, ListComboBox.class));
   }
 
   public ListComboBoxFixture listComboBox(
-                                          GenericTypeMatcher<? extends ListComboBox> matcher) {
-    return new ListComboBoxFixture(robot(), find(matcher));
+	                                      GenericTypeMatcher<? extends ListComboBox> matcher) {
+	return new ListComboBoxFixture(robot(), find(matcher));
   }
 
   public DateComboBoxFixture dateComboBox(String name) {
-    return new DateComboBoxFixture(robot(), findByName(name, DateComboBox.class));
+	return new DateComboBoxFixture(robot(), findByName(name, DateComboBox.class));
   }
 
   public TableScrollPaneFixture tableScrollPane(String name) {
-    return new TableScrollPaneFixture(robot(),
-                                      findByName(name, TableScrollPane.class));
+	return new TableScrollPaneFixture(robot(),
+	                                  findByName(name, TableScrollPane.class));
   }
 
   public JideTableFixture jideTable(String name) {
-    return new JideTableFixture(robot(),
-                                findByName(name, JideTable.class));
+	return new JideTableFixture(robot(),
+	                            findByName(name, JideTable.class));
   }
 
   public CommandBarFixture commandBar(String name) {
-    return new CommandBarFixture(robot(), findByName(name, CommandBar.class));
+	return new CommandBarFixture(robot(), findByName(name, CommandBar.class));
   }
 
   public JideStatusBarFixture statusBar(String name) {
-    return new JideStatusBarFixture(robot(), findByName(name, StatusBar.class));
+	return new JideStatusBarFixture(robot(), findByName(name, StatusBar.class));
   }
 
   public JideStatusBarFixture statusBar() {
-    return new JideStatusBarFixture(robot(), findByType(StatusBar.class));
+	return new JideStatusBarFixture(robot(), findByType(StatusBar.class));
   }
 
   public CollapsiblePaneFixture collapsiblePane() {
-    return new CollapsiblePaneFixture(robot(), findByType(CollapsiblePane.class));
+	return new CollapsiblePaneFixture(robot(), findByType(CollapsiblePane.class));
   }
 
   public CollapsiblePaneFixture collapsiblePane(String name) {
-    return new CollapsiblePaneFixture(robot(), findByName(name, CollapsiblePane.class));
+	return new CollapsiblePaneFixture(robot(), findByName(name, CollapsiblePane.class));
   }
 }

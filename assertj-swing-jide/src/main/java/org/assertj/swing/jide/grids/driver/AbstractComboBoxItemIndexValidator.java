@@ -31,17 +31,17 @@ final class AbstractComboBoxItemIndexValidator {
 
   @RunsInCurrentThread
   static void validateIndex(AbstractComboBox comboBox, int index) {
-    int itemCount = comboBox.getModel().getSize();
-    if (index >= 0 && index < itemCount) {
-      return;
-    }
-    throw new IndexOutOfBoundsException(concat("Item index (",
-                                               valueOf(index),
-                                               ") should be between [",
-                                               valueOf(0),
-                                               "] and [",
-                                               valueOf(itemCount - 1),
-                                               "] (inclusive)"));
+	int itemCount = comboBox.getModel().getSize();
+	if (index >= 0 && index < itemCount) {
+	  return;
+	}
+	throw new IndexOutOfBoundsException(concat("Item index (",
+	                                           valueOf(index),
+	                                           ") should be between [",
+	                                           valueOf(0),
+	                                           "] and [",
+	                                           valueOf(itemCount - 1),
+	                                           "] (inclusive)"));
   }
 
   private AbstractComboBoxItemIndexValidator() {

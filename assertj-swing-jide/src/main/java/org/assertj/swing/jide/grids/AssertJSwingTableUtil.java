@@ -32,34 +32,34 @@ import org.assertj.core.api.Fail;
 class AssertJSwingTableUtil {
 
   static void requireSelection(int[] expectedRows, int[] selectedRows) {
-    assertEquals("The number of expected selected expectedRows do not match",
-                 expectedRows.length,
-                 selectedRows.length);
+	assertEquals("The number of expected selected expectedRows do not match",
+	             expectedRows.length,
+	             selectedRows.length);
 
-    Set<Integer> requiredRows = new HashSet<Integer>(expectedRows.length);
-    for (int row : expectedRows) {
-      requiredRows.add(row);
-    }
+	Set<Integer> requiredRows = new HashSet<Integer>(expectedRows.length);
+	for (int row : expectedRows) {
+	  requiredRows.add(row);
+	}
 
-    for (int row : selectedRows) {
-      if (!requiredRows.remove(new Integer(row))) {
-        Fail.fail("A row is selected that was not expected to be selected,  " + row);
-      }
-    }
+	for (int row : selectedRows) {
+	  if (!requiredRows.remove(new Integer(row))) {
+		Fail.fail("A row is selected that was not expected to be selected,  " + row);
+	  }
+	}
 
-    assertTrue("There are required row selections that are not selected, ["
-               + getContents(requiredRows) + "]",
-               requiredRows.isEmpty());
+	assertTrue("There are required row selections that are not selected, ["
+	           + getContents(requiredRows) + "]",
+	           requiredRows.isEmpty());
   }
 
   static <T extends Object> String getContents(Collection<T> c) {
-    StringBuilder sb = new StringBuilder();
-    for (Iterator<T> it = c.iterator(); it.hasNext();) {
-      sb.append(it.next());
-      if (it.hasNext()) {
-        sb.append(", ");
-      }
-    }
-    return sb.toString();
+	StringBuilder sb = new StringBuilder();
+	for (Iterator<T> it = c.iterator(); it.hasNext();) {
+	  sb.append(it.next());
+	  if (it.hasNext()) {
+		sb.append(", ");
+	  }
+	}
+	return sb.toString();
   }
 }

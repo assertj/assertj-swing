@@ -36,24 +36,24 @@ public class AbstractComboBoxCellReader {
    *         test.
    */
   public String valueAt(AbstractComboBox comboBox, int index) {
-    final Object item = itemAt(comboBox, index);
-    return valueAsText(comboBox, item);
+	final Object item = itemAt(comboBox, index);
+	return valueAsText(comboBox, item);
   }
 
   public String valueAsText(AbstractComboBox comboBox, Object value) {
-    if (value == null) {
-      return null;
-    }
+	if (value == null) {
+	  return null;
+	}
 
-    if (comboBox.getConverter() != null) {
-      return comboBox.getConverter().toString(value, comboBox.getConverterContext());
-    }
-    return ObjectConverterManager.toString(value,
-                                           comboBox.getType(),
-                                           comboBox.getConverterContext());
+	if (comboBox.getConverter() != null) {
+	  return comboBox.getConverter().toString(value, comboBox.getConverterContext());
+	}
+	return ObjectConverterManager.toString(value,
+	                                       comboBox.getType(),
+	                                       comboBox.getConverterContext());
   }
 
   private Object itemAt(AbstractComboBox comboBox, int index) {
-    return comboBox.getModel().getElementAt(index);
+	return comboBox.getModel().getElementAt(index);
   }
 }

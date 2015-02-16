@@ -29,12 +29,12 @@ final class ListComboBoxSetSelectedIndexTask {
 
   @RunsInEDT
   static void setSelectedIndex(final ListComboBox comboBox, final int index) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setSelectedIndex(index);
-      }
-    });
+	execute(new GuiTask() {
+	  @Override
+	  protected void executeInEDT() {
+		comboBox.setSelectedIndex(index);
+	  }
+	});
   }
 
   private ListComboBoxSetSelectedIndexTask() {

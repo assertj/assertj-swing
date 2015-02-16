@@ -24,56 +24,56 @@ import com.jidesoft.grid.JideTable;
 
 /**
  * A Fixture for dealing with {@link JideTable}s.
- *
+ * 
  * @author Peter Murray
  */
 public class JideTableFixture extends JTableFixture implements ExtendedTableFixture {
 
   public JideTableFixture(Robot robot, String name) {
-    super(robot, name);
-    checkTableInstance();
-    driver().replaceCellReader(new JideTableCellReader());
+	super(robot, name);
+	checkTableInstance();
+	driver().replaceCellReader(new JideTableCellReader());
   }
 
   public JideTableFixture(Robot robot, JTable table) {
-    super(robot, table);
-    checkTableInstance();
-    driver().replaceCellReader(new JideTableCellReader());
+	super(robot, table);
+	checkTableInstance();
+	driver().replaceCellReader(new JideTableCellReader());
   }
 
   public JideTable targetAsJideTable() {
-    return (JideTable) target();
+	return (JideTable) target();
   }
 
   @Override
   public int selectedRow() {
-    return target().getSelectedRow();
+	return target().getSelectedRow();
   }
 
   @Override
   public int[] selectedRows() {
-    return target().getSelectedRows();
+	return target().getSelectedRows();
   }
 
   @Override
   public int rows() {
-    return target().getRowCount();
+	return target().getRowCount();
   }
 
   @Override
   public int columns() {
-    return target().getColumnCount();
+	return target().getColumnCount();
   }
 
   @Override
   public JideTableFixture requireSelection(int... rows) {
-    AssertJSwingTableUtil.requireSelection(rows, selectedRows());
-    return this;
+	AssertJSwingTableUtil.requireSelection(rows, selectedRows());
+	return this;
   }
 
   private void checkTableInstance() {
-    if (!(target() instanceof JideTable)) {
-      throw new UnsupportedOperationException("The table instance is not a JideTable");
-    }
+	if (!(target() instanceof JideTable)) {
+	  throw new UnsupportedOperationException("The table instance is not a JideTable");
+	}
   }
 }

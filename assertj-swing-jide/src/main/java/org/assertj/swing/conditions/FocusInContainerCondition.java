@@ -42,23 +42,23 @@ public class FocusInContainerCondition extends Condition {
 
   /**
    * Creates a new <code>{@link FocusInContainerCondition}</code>
-   *
+   * 
    * @param name The name of the component to find.
    * @param type The type of the component to find.
    */
   public FocusInContainerCondition(String name, Class<? extends Component> type) {
-    this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
-         new NameMatcher(name, type, true));
+	this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
+	     new NameMatcher(name, type, true));
   }
 
   /**
    * Creates a new <code>{@link FocusInContainerCondition}</code>
-   *
+   * 
    * @param name The name of the component to find.
    */
   public FocusInContainerCondition(String name) {
-    this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
-         new NameMatcher(name, true));
+	this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
+	     new NameMatcher(name, true));
   }
 
   /**
@@ -69,8 +69,8 @@ public class FocusInContainerCondition extends Condition {
    *          match.
    */
   public FocusInContainerCondition(ComponentFinder finder,
-                                   ComponentMatcher matcher) {
-    this("Container contains component with focus", finder, matcher);
+	                               ComponentMatcher matcher) {
+	this("Container contains component with focus", finder, matcher);
   }
 
   /**
@@ -82,11 +82,11 @@ public class FocusInContainerCondition extends Condition {
    *          match.
    */
   public FocusInContainerCondition(String description,
-                                   ComponentFinder finder,
-                                   ComponentMatcher matcher) {
-    super(description);
-    _finder = finder;
-    _matcher = matcher;
+	                               ComponentFinder finder,
+	                               ComponentMatcher matcher) {
+	super(description);
+	_finder = finder;
+	_matcher = matcher;
   }
 
   /**
@@ -97,33 +97,33 @@ public class FocusInContainerCondition extends Condition {
    */
   @Override
   public boolean test() {
-    try {
-      Component found = _finder.find(_matcher);
-      debug("testing focus inside component :: {}", found);
+	try {
+	  Component found = _finder.find(_matcher);
+	  debug("testing focus inside component :: {}", found);
 
-      Component focusOwner = KeyboardFocusManager.getCurrentKeyboardFocusManager()
-                                                 .getFocusOwner();
-      debug("\tActual focus owner: {}", focusOwner);
+	  Component focusOwner = KeyboardFocusManager.getCurrentKeyboardFocusManager()
+		                                         .getFocusOwner();
+	  debug("\tActual focus owner: {}", focusOwner);
 
-      if (found == focusOwner) {
-        debug("Focus is on the actual component :: returning true");
-        return true;
-      } else if (found instanceof Container) {
-        Container container = (Container) found;
-        boolean containsFocus = container.isAncestorOf(focusOwner);
-        debug("Component is a Container, does it contain the focus? {}", containsFocus);
-        return containsFocus;
-      }
-    } catch (ComponentLookupException e) {
-      debug("Component was not found {}", e);
-    }
-    debug("Focus is not within the container being tested");
-    return false;
+	  if (found == focusOwner) {
+		debug("Focus is on the actual component :: returning true");
+		return true;
+	  } else if (found instanceof Container) {
+		Container container = (Container) found;
+		boolean containsFocus = container.isAncestorOf(focusOwner);
+		debug("Component is a Container, does it contain the focus? {}", containsFocus);
+		return containsFocus;
+	  }
+	} catch (ComponentLookupException e) {
+	  debug("Component was not found {}", e);
+	}
+	debug("Focus is not within the container being tested");
+	return false;
   }
 
   private void debug(String message, Object... args) {
-    if (LOGGER.isDebugEnabled()) {
-      LOGGER.debug(message, args);
-    }
+	if (LOGGER.isDebugEnabled()) {
+	  LOGGER.debug(message, args);
+	}
   }
 }

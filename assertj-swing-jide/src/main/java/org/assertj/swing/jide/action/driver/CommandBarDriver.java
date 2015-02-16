@@ -25,6 +25,6 @@ import org.assertj.swing.driver.JComponentDriver;
 public class CommandBarDriver extends JComponentDriver {
 
   public CommandBarDriver(Robot robot) {
-    super(robot);
+	super(robot);
   }
 }

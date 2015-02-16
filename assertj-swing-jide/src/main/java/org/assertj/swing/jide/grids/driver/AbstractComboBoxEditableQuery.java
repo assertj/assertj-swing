@@ -29,12 +29,12 @@ import org.assertj.swing.edt.GuiQuery;
 public class AbstractComboBoxEditableQuery {
 
   static boolean isEditable(final AbstractComboBox comboBox) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return comboBox.isEditable();
-      }
-    });
+	return execute(new GuiQuery<Boolean>() {
+	  @Override
+	  protected Boolean executeInEDT() {
+		return comboBox.isEditable();
+	  }
+	});
   }
 
   private AbstractComboBoxEditableQuery() {

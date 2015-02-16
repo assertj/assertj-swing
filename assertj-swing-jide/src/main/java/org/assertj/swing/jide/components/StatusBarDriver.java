@@ -29,27 +29,27 @@ import org.assertj.swing.driver.JComponentDriver;
 public class StatusBarDriver extends JComponentDriver {
 
   public StatusBarDriver(Robot robot) {
-    super(robot);
+	super(robot);
   }
 
   public void requireText(StatusBar bar, String text) {
-    LabelStatusBarItem labelItem = getLabelItem(bar);
-    assertThat(labelItem).isNotNull();
-    assertThat(labelItem.getText()).isSameAs(text);
+	LabelStatusBarItem labelItem = getLabelItem(bar);
+	assertThat(labelItem).isNotNull();
+	assertThat(labelItem.getText()).isSameAs(text);
   }
 
   public void containsText(StatusBar bar, String text) {
-    LabelStatusBarItem item = getLabelItem(bar);
-    assertThat(item).isNotNull();
-    assertThat(item.getText()).contains(text);
+	LabelStatusBarItem item = getLabelItem(bar);
+	assertThat(item).isNotNull();
+	assertThat(item.getText()).contains(text);
   }
 
   private static LabelStatusBarItem getLabelItem(StatusBar bar) {
-    for (Component c : bar.getComponents()) {
-      if (c instanceof LabelStatusBarItem) {
-        return (LabelStatusBarItem) c;
-      }
-    }
-    return null;
+	for (Component c : bar.getComponents()) {
+	  if (c instanceof LabelStatusBarItem) {
+		return (LabelStatusBarItem) c;
+	  }
+	}
+	return null;
   }
 }

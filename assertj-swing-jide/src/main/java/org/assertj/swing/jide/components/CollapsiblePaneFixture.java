@@ -28,35 +28,35 @@ public class CollapsiblePaneFixture extends
     AbstractContainerFixture<CollapsiblePaneFixture, CollapsiblePane, CollapsiblePaneDriver> {
 
   public CollapsiblePaneFixture(Robot robot, CollapsiblePane pane) {
-    super(CollapsiblePaneFixture.class, robot, pane);
+	super(CollapsiblePaneFixture.class, robot, pane);
   }
 
   public CollapsiblePaneFixture(Robot robot, String name) {
-    super(CollapsiblePaneFixture.class, robot, name, CollapsiblePane.class);
+	super(CollapsiblePaneFixture.class, robot, name, CollapsiblePane.class);
   }
 
   public CollapsiblePaneFixture expand() {
-    driver().expand(target());
-    return this;
+	driver().expand(target());
+	return this;
   }
 
   public CollapsiblePaneFixture collapse() {
-    driver().collapse(target());
-    return this;
+	driver().collapse(target());
+	return this;
   }
 
   public CollapsiblePaneFixture requireExpanded() {
-    driver().requireExpanded(target());
-    return this;
+	driver().requireExpanded(target());
+	return this;
   }
 
   public CollapsiblePaneFixture requireCollapsed() {
-    driver().requireCollapsed(target());
-    return this;
+	driver().requireCollapsed(target());
+	return this;
   }
 
   @Override
   protected CollapsiblePaneDriver createDriver(Robot robot) {
-    return new CollapsiblePaneDriver(robot);
+	return new CollapsiblePaneDriver(robot);
   }
 }

@@ -23,26 +23,26 @@ import com.jidesoft.action.CommandBar;
 
 /**
  * A AssertJ Fixture for the {@link CommandBar}.
- *
+ * 
  * @author Peter Murray
  */
 public class CommandBarFixture extends AbstractContainerFixture<CommandBarFixture, CommandBar, CommandBarDriver> {
 
   /**
    * Creates a new <code>{@link CommandBarFixture}</code>.
-   *
+   * 
    * @param robot performs simulation of user events on the given {@link CommandBar}.
    * @param target the {@link CommandBar} to be managed by this fixture.
    * @throws NullPointerException if <code>robot</code> is <code>null</code>.
    * @throws NullPointerException if <code>target</code> is <code>null</code>.
    */
   public CommandBarFixture(Robot robot, CommandBar target) {
-    super(CommandBarFixture.class, robot, target);
+	super(CommandBarFixture.class, robot, target);
   }
 
   /**
    * Creates a new <code>{@link CommandBarFixture}</code>.
-   *
+   * 
    * @param robot performs simulation of user events on a {@link CommandBar}.
    * @param commandBarName the name of the {@link CommandBar} to find using the given <code>Robot</code>.
    * @throws NullPointerException if <code>robot</code> is <code>null</code>.
@@ -50,19 +50,19 @@ public class CommandBarFixture extends AbstractContainerFixture<CommandBarFixtur
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@link CommandBar} is found.
    */
   public CommandBarFixture(Robot robot, String commandBarName) {
-    super(CommandBarFixture.class, robot, commandBarName, CommandBar.class);
+	super(CommandBarFixture.class, robot, commandBarName, CommandBar.class);
   }
 
   @Override
   protected CommandBarDriver createDriver(Robot robot) {
-    return new CommandBarDriver(robot);
+	return new CommandBarDriver(robot);
   }
 
   @Override
   public String toString() {
-    return Strings.concat("name=", target().getName(),
-                          ", enabled=", target().isEnabled(),
-                          ", visible=", target().isVisible(),
-                          ", showing=", target().isShowing());
+	return Strings.concat("name=", target().getName(),
+	                      ", enabled=", target().isEnabled(),
+	                      ", visible=", target().isVisible(),
+	                      ", showing=", target().isShowing());
   }
 }

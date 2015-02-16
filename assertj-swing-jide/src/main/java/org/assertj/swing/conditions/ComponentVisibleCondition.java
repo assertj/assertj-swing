@@ -38,23 +38,23 @@ public class ComponentVisibleCondition extends Condition {
 
   /**
    * Creates a new <code>{@link ComponentVisibleCondition}</code>
-   *
+   * 
    * @param name The name of the component to find.
    * @param type The type of the component to find.
    */
   public ComponentVisibleCondition(String name, Class<? extends Component> type) {
-    this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
-         new NameMatcher(name, type, true));
+	this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
+	     new NameMatcher(name, type, true));
   }
 
   /**
    * Creates a new <code>{@link ComponentVisibleCondition}</code>
-   *
+   * 
    * @param name The name of the component to find.
    */
   public ComponentVisibleCondition(String name) {
-    this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
-         new NameMatcher(name, true));
+	this(BasicComponentFinder.finderWithCurrentAwtHierarchy(),
+	     new NameMatcher(name, true));
   }
 
   /**
@@ -65,8 +65,8 @@ public class ComponentVisibleCondition extends Condition {
    *          match.
    */
   public ComponentVisibleCondition(ComponentFinder finder,
-                                   ComponentMatcher matcher) {
-    this("Component Visible Condition", finder, matcher);
+	                               ComponentMatcher matcher) {
+	this("Component Visible Condition", finder, matcher);
   }
 
   /**
@@ -78,11 +78,11 @@ public class ComponentVisibleCondition extends Condition {
    *          match.
    */
   public ComponentVisibleCondition(String description,
-                                   ComponentFinder finder,
-                                   ComponentMatcher matcher) {
-    super(description);
-    _finder = finder;
-    _matcher = matcher;
+	                               ComponentFinder finder,
+	                               ComponentMatcher matcher) {
+	super(description);
+	_finder = finder;
+	_matcher = matcher;
   }
 
   /**
@@ -94,15 +94,15 @@ public class ComponentVisibleCondition extends Condition {
    */
   @Override
   public boolean test() {
-    try {
-      _found = _finder.find(_matcher);
-      return _found.isVisible();
-    } catch (ComponentLookupException e) {
-    }
-    return false;
+	try {
+	  _found = _finder.find(_matcher);
+	  return _found.isVisible();
+	} catch (ComponentLookupException e) {
+	}
+	return false;
   }
 
   public Component found() {
-    return _found;
+	return _found;
   }
 }

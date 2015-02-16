@@ -35,7 +35,7 @@ public class JideStatusBarFixture extends AbstractContainerFixture<JideStatusBar
    * @throws NullPointerException if <code>target</code> is <code>null</code>.
    */
   public JideStatusBarFixture(Robot robot, StatusBar target) {
-    super(JideStatusBarFixture.class, robot, target);
+	super(JideStatusBarFixture.class, robot, target);
   }
 
   /**
@@ -48,27 +48,27 @@ public class JideStatusBarFixture extends AbstractContainerFixture<JideStatusBar
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@link StatusBar} is found.
    */
   public JideStatusBarFixture(Robot robot, String commandBarName) {
-    super(JideStatusBarFixture.class, robot, commandBarName, StatusBar.class);
+	super(JideStatusBarFixture.class, robot, commandBarName, StatusBar.class);
   }
 
   @Override
   protected StatusBarDriver createDriver(Robot robot) {
-    return new StatusBarDriver(robot);
+	return new StatusBarDriver(robot);
   }
 
   public void requireText(String text) {
-    driver().requireText(target(), text);
+	driver().requireText(target(), text);
   }
 
   public void containsText(String text) {
-    driver().containsText(target(), text);
+	driver().containsText(target(), text);
   }
 
   @Override
   public String toString() {
-    return Strings.concat("name=", target().getName(),
-                          ", enabled=", target().isEnabled(),
-                          ", visible=", target().isVisible(),
-                          ", showing=", target().isShowing());
+	return Strings.concat("name=", target().getName(),
+	                      ", enabled=", target().isEnabled(),
+	                      ", visible=", target().isVisible(),
+	                      ", showing=", target().isShowing());
   }
 }

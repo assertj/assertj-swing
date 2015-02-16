@@ -39,12 +39,12 @@ public class AbstractComboBoxAccessibleEditorValidator {
 
   @RunsInCurrentThread
   public static void validateEditorIsAccessible(AbstractComboBox comboBox) {
-    ComponentPreconditions.checkEnabledAndShowing(comboBox);
-    if (!comboBox.isEditable()) {
-      throw new IllegalStateException(Strings.concat("Expecting component ",
-                                                     Formatting.format(comboBox),
-                                                     " to be editable"));
-    }
+	ComponentPreconditions.checkEnabledAndShowing(comboBox);
+	if (!comboBox.isEditable()) {
+	  throw new IllegalStateException(Strings.concat("Expecting component ",
+		                                             Formatting.format(comboBox),
+		                                             " to be editable"));
+	}
   }
 
   private AbstractComboBoxAccessibleEditorValidator() {

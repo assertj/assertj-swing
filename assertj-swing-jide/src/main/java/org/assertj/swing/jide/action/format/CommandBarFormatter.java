@@ -30,16 +30,16 @@ public class CommandBarFormatter extends ComponentFormatterTemplate {
 
   @Override
   protected String doFormat(Component c) {
-    return Strings.concat(c.getClass().getName(),
-                          " [name=", Strings.quote(c.getName()),
-                          ", enabled=", String.valueOf(c.isEnabled()),
-                          ", visible=", String.valueOf(c.isVisible()),
-                          ", showing=", String.valueOf(c.isShowing()),
-                          "]");
+	return Strings.concat(c.getClass().getName(),
+	                      " [name=", Strings.quote(c.getName()),
+	                      ", enabled=", String.valueOf(c.isEnabled()),
+	                      ", visible=", String.valueOf(c.isVisible()),
+	                      ", showing=", String.valueOf(c.isShowing()),
+	                      "]");
   }
 
   @Override
   public Class<? extends Component> targetType() {
-    return CommandBar.class;
+	return CommandBar.class;
   }
 }
