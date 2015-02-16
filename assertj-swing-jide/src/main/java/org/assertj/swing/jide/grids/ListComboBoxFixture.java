@@ -36,13 +36,13 @@ public class ListComboBoxFixture extends
     implements ItemGroupFixture {
 
   public ListComboBoxFixture(Robot robot, String comboBoxName) {
-    super(ListComboBoxFixture.class, robot, comboBoxName, ListComboBox.class);
-    createDriver(robot);
+	super(ListComboBoxFixture.class, robot, comboBoxName, ListComboBox.class);
+	createDriver(robot);
   }
 
   public ListComboBoxFixture(Robot robot, ListComboBox target) {
-    super(ListComboBoxFixture.class, robot, target);
-    createDriver(robot);
+	super(ListComboBoxFixture.class, robot, target);
+	createDriver(robot);
   }
 
   /**
@@ -59,8 +59,8 @@ public class ListComboBoxFixture extends
    *           editable.
    */
   public ListComboBoxFixture replaceText(String text) {
-    driver().replaceText(target(), text);
-    return this;
+	driver().replaceText(target(), text);
+	return this;
   }
 
   /**
@@ -75,8 +75,8 @@ public class ListComboBoxFixture extends
    *           editable.
    */
   public ListComboBoxFixture selectAllText() {
-    driver().selectAllText(target());
-    return this;
+	driver().selectAllText(target());
+	return this;
   }
 
   /**
@@ -92,27 +92,27 @@ public class ListComboBoxFixture extends
    *           editable.
    */
   public ListComboBoxFixture enterText(String text) {
-    driver().enterText(target(), text);
-    return this;
+	driver().enterText(target(), text);
+	return this;
   }
 
   public String editorText() {
-    return driver().getEditorText(target());
+	return driver().getEditorText(target());
   }
 
   public ListComboBoxFixture requireEditorText(String text) {
-    driver().requireEditorText(target(), text);
-    return this;
+	driver().requireEditorText(target(), text);
+	return this;
   }
 
   public ListComboBoxFixture requirePopupVisible() {
-    driver().requirePopupVisible(target(), true);
-    return this;
+	driver().requirePopupVisible(target(), true);
+	return this;
   }
 
   public ListComboBoxFixture requirePopupNotVisible() {
-    driver().requirePopupVisible(target(), false);
-    return this;
+	driver().requirePopupVisible(target(), false);
+	return this;
   }
 
   /**
@@ -122,14 +122,14 @@ public class ListComboBoxFixture extends
    * @throws org.assertj.swing.exception.ComponentLookupException if the <code>JList</code> in the pop-up could not be
    *           found.
    */
-  public JList<?> list() {
-    return driver().getList(target());
+  public JList list() {
+	return driver().getList(target());
   }
 
   @Override
   public ItemGroupFixture requireItemCount(int expected) {
-    driver().requireItemCount(target(), expected);
-    return this;
+	driver().requireItemCount(target(), expected);
+	return this;
   }
 
   /**
@@ -145,8 +145,8 @@ public class ListComboBoxFixture extends
    */
   @Override
   public ListComboBoxFixture selectItem(int index) {
-    driver().selectItem(target(), index);
-    return this;
+	driver().selectItem(target(), index);
+	return this;
   }
 
   /**
@@ -165,8 +165,8 @@ public class ListComboBoxFixture extends
    */
   @Override
   public ListComboBoxFixture selectItem(String text) {
-    driver().selectItem(target(), text);
-    return this;
+	driver().selectItem(target(), text);
+	return this;
   }
 
   /**
@@ -183,28 +183,28 @@ public class ListComboBoxFixture extends
    */
   @Override
   public String valueAt(int index) {
-    return driver().value(target(), index);
+	return driver().value(target(), index);
   }
 
   @Override
   public ItemGroupFixture clearSelection() {
-    // Set the selection to -1
-    throw new UnsupportedOperationException("Not Yet Implemented");
+	// Set the selection to -1
+	throw new UnsupportedOperationException("Not Yet Implemented");
   }
 
   @Override
   public ItemGroupFixture selectItem(Pattern pattern) {
-    throw new UnsupportedOperationException("Not Yet Implemented");
+	throw new UnsupportedOperationException("Not Yet Implemented");
   }
 
   @Override
   public ItemGroupFixture requireSelection(Pattern pattern) {
-    throw new UnsupportedOperationException("Not Yet Implemented");
+	throw new UnsupportedOperationException("Not Yet Implemented");
   }
 
   @Override
   public ItemGroupFixture requireSelection(int index) {
-    throw new UnsupportedOperationException("Not Yet Implemented");
+	throw new UnsupportedOperationException("Not Yet Implemented");
   }
 
   /**
@@ -214,8 +214,8 @@ public class ListComboBoxFixture extends
    * @throws AssertionError if this fixture's <code>JComboBox</code> is not editable.
    */
   public ListComboBoxFixture requireEditable() {
-    driver().requireEditable(target());
-    return this;
+	driver().requireEditable(target());
+	return this;
   }
 
   /**
@@ -225,8 +225,8 @@ public class ListComboBoxFixture extends
    * @throws AssertionError if this fixture's <code>JComboBox</code> is editable.
    */
   public ListComboBoxFixture requireNotEditable() {
-    driver().requireNotEditable(target());
-    return this;
+	driver().requireNotEditable(target());
+	return this;
   }
 
   /**
@@ -240,13 +240,13 @@ public class ListComboBoxFixture extends
    */
   @Override
   public ListComboBoxFixture requireSelection(String value) {
-    driver().requireSelection(target(), value);
-    return this;
+	driver().requireSelection(target(), value);
+	return this;
   }
 
   public ListComboBoxFixture requireText(String value) {
-    driver().requireText(target(), value);
-    return this;
+	driver().requireText(target(), value);
+	return this;
   }
 
   /**
@@ -258,8 +258,8 @@ public class ListComboBoxFixture extends
    */
   @Override
   public ListComboBoxFixture requireNoSelection() {
-    driver().requireNoSelection(target());
-    return this;
+	driver().requireNoSelection(target());
+	return this;
   }
 
   /**
@@ -273,22 +273,22 @@ public class ListComboBoxFixture extends
    * @throws NullPointerException if <code>cellReader</code> is <code>null</code>.
    */
   public ListComboBoxFixture cellReader(AbstractComboBoxCellReader cellReader) {
-    driver().cellReader(cellReader);
-    return this;
+	driver().cellReader(cellReader);
+	return this;
   }
 
   @Override
   public String[] contents() {
-    return driver().getContents(target());
+	return driver().getContents(target());
   }
 
   @Override
   protected ListComboBoxDriver createDriver(Robot robot) {
-    return new ListComboBoxDriver(robot);
+	return new ListComboBoxDriver(robot);
   }
 
   public ListComboBoxFixture clickPopupButton() {
-    driver().clickPopupButton(target());
-    return this;
+	driver().clickPopupButton(target());
+	return this;
   }
 }
