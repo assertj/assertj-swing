@@ -15,7 +15,7 @@
   <description>JIDE specific extensions for testing</description>
 
   <properties>
-    <jide.version>3.6.6</jide.version>
+    <jide.version>3.6.7</jide.version>
   </properties>
 
   <dependencies>
