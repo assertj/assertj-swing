@@ -40,7 +40,8 @@ public final class Containers {
    * is wrapped and displayed by a {@link FrameFixture}.
    * <p>
    * <strong>Note:</strong>This method creates a new {@link Robot}. When using this method, please do not create any
-   * additional instances of {@code Robot}. Only one instance of {@code Robot} can exist per test class.
+   * additional instances of {@code Robot}. Only one instance of {@code Robot} can exist per test class. If you've
+   * created your own {@code Robot} e.g. by extending the base test class, use {@code #showInFrame(Robot, Container)}.
    * </p>
    * 
    * @param contentPane the {@code Container} to use as content pane for the {@code JFrame} to create.
@@ -48,10 +49,29 @@ public final class Containers {
    * @see #frameFor(Container)
    */
   @RunsInEDT
-  public static @Nonnull FrameFixture showInFrame(@Nonnull Container contentPane) {
-    FrameFixture frameFixture = frameFixtureFor(contentPane);
-    frameFixture.show();
-    return frameFixture;
+  public static @Nonnull
+  FrameFixture showInFrame(@Nonnull Container contentPane) {
+	FrameFixture frameFixture = frameFixtureFor(contentPane);
+	frameFixture.show();
+	return frameFixture;
+  }
+
+  /**
+   * Creates a new {@code JFrame} and uses the given {@code Container} as its content pane. The created {@code JFrame}
+   * is wrapped and displayed by a {@link FrameFixture}. It uses the given {@code Robot}, if you've created your own
+   * {@code Robot} this method is best for you, if not use {@code #showInFrame(Container)}.
+   * 
+   * @param robot performs user events on the given window and verifies expected output.
+   * @param contentPane the {@code Container} to use as content pane for the {@code JFrame} to create.
+   * @return the created {@code FrameFixture}.
+   * @see #frameFor(Container)
+   */
+  @RunsInEDT
+  public static @Nonnull
+  FrameFixture showInFrame(@Nonnull Robot robot, @Nonnull Container contentPane) {
+	FrameFixture frameFixture = frameFixtureFor(robot, contentPane);
+	frameFixture.show();
+	return frameFixture;
   }
 
   /**
@@ -60,7 +80,9 @@ public final class Containers {
    * display the created {@code JFrame}.
    * <p>
    * <strong>Note:</strong>This method creates a new {@link Robot}. When using this method, please do not create any
-   * additional instances of {@code Robot}. Only one instance of {@code Robot} can exist per test class.
+   * additional instances of {@code Robot}. Only one instance of {@code Robot} can exist per test class. If you've
+   * created your own {@code Robot} e.g. by extending the base test class, use
+   * {@code #frameFixtureFor(Robot, Container)}.
    * </p>
    * 
    * @param contentPane the {@code Container} to use as content pane for the {@code JFrame} to create.
@@ -68,8 +90,26 @@ public final class Containers {
    * @see #frameFor(Container)
    */
   @RunsInEDT
-  public static @Nonnull FrameFixture frameFixtureFor(@Nonnull Container contentPane) {
-    return new FrameFixture(frameFor(contentPane));
+  public static @Nonnull
+  FrameFixture frameFixtureFor(@Nonnull Container contentPane) {
+	return new FrameFixture(frameFor(contentPane));
+  }
+
+  /**
+   * Creates a new {@code JFrame} and uses the given {@code Container} as its content pane. The created {@code JFrame}
+   * is wrapped by a {@link FrameFixture}. Unlike {@link #showInFrame(Container)}, this method does <strong>not</strong>
+   * display the created {@code JFrame}. It uses the given {@code Robot}, if you've created your own {@code Robot} this
+   * method is best for you, if not use {@code #frameFixtureFor(Container)}.
+   * 
+   * @param robot performs user events on the given window and verifies expected output.
+   * @param contentPane the {@code Container} to use as content pane for the {@code JFrame} to create.
+   * @return the created {@code FrameFixture}.
+   * @see #frameFor(Container)
+   */
+  @RunsInEDT
+  public static @Nonnull
+  FrameFixture frameFixtureFor(@Nonnull Robot robot, @Nonnull Container contentPane) {
+	return new FrameFixture(robot, frameFor(contentPane));
   }
 
   /**
@@ -80,17 +120,18 @@ public final class Containers {
    * @return the created {@code JFrame}.
    */
   @RunsInEDT
-  public static @Nonnull JFrame frameFor(final @Nonnull Container contentPane) {
-    JFrame result = execute(new GuiQuery<JFrame>() {
-      @Override
-      protected JFrame executeInEDT() throws Throwable {
-        JFrame frame = new JFrame("Created by FEST");
-        frame.setName(CREATED_FRAME_NAME);
-        frame.setContentPane(contentPane);
-        return frame;
-      }
-    });
-    return checkNotNull(result);
+  public static @Nonnull
+  JFrame frameFor(final @Nonnull Container contentPane) {
+	JFrame result = execute(new GuiQuery<JFrame>() {
+	  @Override
+	  protected JFrame executeInEDT() throws Throwable {
+		JFrame frame = new JFrame("Created by FEST");
+		frame.setName(CREATED_FRAME_NAME);
+		frame.setContentPane(contentPane);
+		return frame;
+	  }
+	});
+	return checkNotNull(result);
   }
 
   private Containers() {
