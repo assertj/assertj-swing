@@ -13,12 +13,12 @@ is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND
 or implied. See the License for the specific language governing permissions and limitations under
 the License.
 
-Copyright @2007-2009 the original author or authors.
+Copyright @2007-2015 the original author or authors.
  -->
 </head>
 <body bgcolor="white">
 <p>
-<a href="http://fest.easytesting.org/swing" target="_blank">FEST-Swing</a> can take screenshots of the desktop when a 
+<a href="http://assertj.org/assertj-swing.html" target="_blank">AssertJ Swing</a> can take screenshots of the desktop when a 
 <a href="http://testng.org" target="_blank">TestNG</a> GUI test fails. Because of TestNG's excellent support for 
 extensibility, this extension is very easy to configure.
 </p>
@@ -29,9 +29,8 @@ architecture, this listener can be called either from Ant, TestNG plug-in for Ec
 </p>
 To take screenshots of failed GUI tests, regardless of how they are executed, please follow these steps:
 <ul>
-   <li>Add the FEST TestNG Extension to your classpath (file fest-swing-testng-{VERSION}.jar, included when you 
-   download FEST-Swing)</li>
-   <li>Mark GUI tests (class or method level) with the annotation <code>org.fest.swing.annotation.GUITest</code></li>
+   <li>Add the AssertJ Swing TestNG Extension to your classpath (maven dependency org.assertj:assertj-swing-testng)</li>
+   <li>Mark GUI tests (class or method level) with the annotation <code>org.assertj.swing.annotation.GUITest</code></li>
 </ul>
 </p>
 </body>

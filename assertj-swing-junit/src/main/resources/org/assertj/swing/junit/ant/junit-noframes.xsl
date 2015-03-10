@@ -314,7 +314,7 @@
     <table width="100%">
     <tr>
         <td align="left"></td>
-        <td align="right">Designed for use with <a href='http://www.junit.org'>JUnit</a> and <a href='http://ant.apache.org/ant'>Ant</a>. Screenshots of failed tests taken by <a href="http://fest.easytesting.org/swing">FEST</a>.</td>
+        <td align="right">Designed for use with <a href='http://www.junit.org'>JUnit</a> and <a href='http://ant.apache.org/ant'>Ant</a>. Screenshots of failed tests taken by <a href="http://assertj.org/assertj-swing.html">AssertJ Swing</a>.</td>
     </tr>
     </table>
     <hr size="1"/>
