@@ -12,10 +12,8 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.assertj.swing.junit.v4_5.runner;
+package org.assertj.swing.junit.runner;
 
-import org.assertj.swing.junit.runner.FailureScreenshotTaker;
-import org.assertj.swing.junit.runner.ImageFolderCreator;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;

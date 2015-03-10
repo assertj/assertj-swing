@@ -12,7 +12,7 @@
  * 
  * Copyright @2009 the original author or authors.
  */
-package org.assertj.swing.junit.v4_5.runner;
+package org.assertj.swing.junit.runner;
 
 import org.assertj.swing.annotation.GUITest;
 import org.junit.Ignore;
@@ -25,27 +25,16 @@ import org.junit.runner.RunWith;
  * @author Alex Ruiz
  */
 @RunWith(GUITestRunner.class)
-public class TestWithGUITestMethods {
+@GUITest
+public class SomeGUITestFake {
 
-  @GUITest
   @Test
   public void successfulGUITest() {
   }
 
   @Ignore("enable for manual testing")
-  @GUITest
   @Test
   public void failedGUITest() {
-    throw new RuntimeException("Failed on purpose");
-  }
-
-  @Test
-  public void successfulNonGUITest() {
-  }
-
-  @Ignore("enable for manual testing")
-  @Test
-  public void failedNonGUITest() {
     throw new RuntimeException("Failed on purpose");
   }
 }
