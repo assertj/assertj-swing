@@ -10,7 +10,6 @@
   </parent>
 
   <artifactId>assertj-swing-junit-4.3.1</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
   <name>AssertJ-Swing - JUnit 4.3.1 Extension</name>
   <description>JUnit 4.3.1-specific extension for AssertJ-Swing</description>
 
