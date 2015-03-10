@@ -23,7 +23,6 @@ import java.util.Collection;
 import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
-import org.assertj.core.api.StringAssert;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
@@ -58,8 +57,8 @@ public class JTreeDriver_selectPath_withManyPaths_Test extends JTreeDriver_selec
   }
 
   @RunsInEDT
-  private StringAssert requireThatPathIsSelected() {
-    return assertThat(textOf(selectionPathOf(tree))).isEqualTo(treePath);
+  private void requireThatPathIsSelected() {
+    assertThat(textOf(selectionPathOf(tree))).isEqualTo(treePath);
   }
 
   @RunsInEDT
