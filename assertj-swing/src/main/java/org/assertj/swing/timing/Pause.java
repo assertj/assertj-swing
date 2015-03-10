@@ -22,6 +22,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
@@ -80,14 +81,8 @@ public final class Pause {
       Callable<Object> task = new Callable<Object>() {
         @Override
         public Object call() {
-          long done = System.currentTimeMillis() + timeout;
-          while (!condition.test()) {
+          while (!Thread.currentThread().isInterrupted() && !condition.test()) {
             pause();
-            
-            if (System.currentTimeMillis() > done) {
-              throw new WaitTimedOutError(String.format("Timed out waiting for %s",
-                new StandardRepresentation().toStringOf(condition)));
-            }
           }
           return condition;
         }
@@ -99,19 +94,18 @@ public final class Pause {
   }
 
   private static void performPause(Callable<Object> task, long timeout, Object value) {
+    Future<Object> futureResult = EXECUTOR_SERVICE.submit(task);
     try {
-      EXECUTOR_SERVICE.submit(task).get(timeout, TimeUnit.MILLISECONDS);
+      futureResult.get(timeout, TimeUnit.MILLISECONDS);
     } catch (TimeoutException ex) {
+      futureResult.cancel(true);
       throw new WaitTimedOutError(String.format("Timed out waiting for %s",
-          new StandardRepresentation().toStringOf(value)));
+                                                new StandardRepresentation().toStringOf(value)));
     } catch (InterruptedException e) {
       e.printStackTrace();
     } catch (ExecutionException e) {
       if (e.getCause() instanceof RuntimeException) {
         throw (RuntimeException) e.getCause();
-      }
-      if (e.getCause() != null && e.getCause() instanceof WaitTimedOutError) {
-        throw (WaitTimedOutError) e.getCause();
       }
       e.printStackTrace();
     }
@@ -164,14 +158,8 @@ public final class Pause {
       Callable<Object> task = new Callable<Object>() {
         @Override
         public Object call() {
-          long done = System.currentTimeMillis() + timeout;
-          while (!areSatisfied(conditions)) {
+          while (!Thread.currentThread().isInterrupted() && !areSatisfied(conditions)) {
             pause();
-            
-            if (System.currentTimeMillis() > done) {
-              throw new WaitTimedOutError(String.format("Timed out waiting for %s",
-                new StandardRepresentation().toStringOf(conditions)));
-            }
           }
           return conditions;
         }

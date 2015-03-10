@@ -33,27 +33,22 @@ public class Pause_pauseWithConditionAndTimeoutInMilliseconds_Test {
     Pause.pause(new NeverSatisfiedCondition(), 1000);
   }
 
-    @Test
+  @Test(timeout = 20000)
   public void should_Stop_Condition_if_Timedout() throws InterruptedException {
     NeverSatisfiedCondition condition = new NeverSatisfiedCondition();
     try {
       Pause.pause(condition, 1000);
       fail("Should have timed out");
-    } catch(WaitTimedOutError e) {
+    } catch (WaitTimedOutError e) {
       // expected
     }
 
-    long start = System.currentTimeMillis();
-    while(true) {
+    while (true) {
       int lastCount = condition.getCount();
       Thread.sleep(2000);
-      System.out.println(condition.getCount() + " == " + lastCount);
+      // if condition hasn't been tested again this test succeeded
       if (condition.getCount() == lastCount) {
         break;
-      }
-
-      if (System.currentTimeMillis() > (start + 20000)) {
-        fail("Condition was still being tested 20 seconds after the condition timed out");
       }
     }
   }
