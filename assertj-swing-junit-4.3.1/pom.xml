@@ -6,11 +6,11 @@
   <parent>
     <groupId>org.assertj</groupId>
     <artifactId>assertj-swing-parent-pom</artifactId>
-    <version>1.2.0</version>
+    <version>2.0.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>assertj-swing-junit-4.3.1</artifactId>
-  <version>1.2.0</version>
+  <version>2.0.0-SNAPSHOT</version>
   <name>AssertJ-Swing - JUnit 4.3.1 Extension</name>
   <description>JUnit 4.3.1-specific extension for AssertJ-Swing</description>
 
@@ -24,7 +24,7 @@
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-swing-junit</artifactId>
-      <version>1.2.0</version>
+      <version>2.0.0-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
