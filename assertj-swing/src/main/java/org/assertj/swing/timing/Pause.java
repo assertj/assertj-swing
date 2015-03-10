@@ -74,14 +74,20 @@ public final class Pause {
    * @throws NullPointerException if the given condition is {@code null}.
    * @throws WaitTimedOutError if the wait times out.
    */
-  public static void pause(@Nonnull final Condition condition, long timeout) {
+  public static void pause(@Nonnull final Condition condition, final long timeout) {
     checkNotNull(condition);
     try {
       Callable<Object> task = new Callable<Object>() {
         @Override
         public Object call() {
+          long done = System.currentTimeMillis() + timeout;
           while (!condition.test()) {
             pause();
+            
+            if (System.currentTimeMillis() > done) {
+              throw new WaitTimedOutError(String.format("Timed out waiting for %s",
+                new StandardRepresentation().toStringOf(condition)));
+            }
           }
           return condition;
         }
@@ -103,6 +109,9 @@ public final class Pause {
     } catch (ExecutionException e) {
       if (e.getCause() instanceof RuntimeException) {
         throw (RuntimeException) e.getCause();
+      }
+      if (e.getCause() != null && e.getCause() instanceof WaitTimedOutError) {
+        throw (WaitTimedOutError) e.getCause();
       }
       e.printStackTrace();
     }
@@ -155,8 +164,14 @@ public final class Pause {
       Callable<Object> task = new Callable<Object>() {
         @Override
         public Object call() {
+          long done = System.currentTimeMillis() + timeout;
           while (!areSatisfied(conditions)) {
             pause();
+            
+            if (System.currentTimeMillis() > done) {
+              throw new WaitTimedOutError(String.format("Timed out waiting for %s",
+                new StandardRepresentation().toStringOf(conditions)));
+            }
           }
           return conditions;
         }
