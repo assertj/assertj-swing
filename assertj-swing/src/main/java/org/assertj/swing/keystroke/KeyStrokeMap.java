@@ -1,13 +1,13 @@
 /**
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright 2012-2015 the original author or authors.
  */
 package org.assertj.swing.keystroke;
@@ -15,8 +15,6 @@ package org.assertj.swing.keystroke;
 import static java.awt.event.InputEvent.SHIFT_MASK;
 import static java.awt.event.KeyEvent.CHAR_UNDEFINED;
 import static org.assertj.swing.util.Platform.osFamily;
-
-import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -43,7 +41,7 @@ public class KeyStrokeMap {
   public static void reloadFromSystemSettings() {
     KeyStrokeMappingProviderPicker picker = new KeyStrokeMappingProviderPicker();
     maps.clear();
-    addKeyStrokesFrom(picker.providerFor(osFamily(), Locale.getDefault()));
+    addKeyStrokesFrom(picker.providerFor(osFamily(), KeyStrokeLocale.get()));
   }
 
   @VisibleForTesting
@@ -90,7 +88,8 @@ public class KeyStrokeMap {
    * @return the key code-based {@code KeyStroke} corresponding to the given character, or {@code null} if we cannot
    *         generate it.
    */
-  public static @Nullable KeyStroke keyStrokeFor(char character) {
+  public static @Nullable
+  KeyStroke keyStrokeFor(char character) {
     return maps.keyStrokeFor(character);
   }
 
@@ -114,7 +113,8 @@ public class KeyStrokeMap {
     return character;
   }
 
-  private static @Nullable Character charWithoutModifiersButShift(@Nonnull KeyStroke keyStroke) {
+  private static @Nullable
+  Character charWithoutModifiersButShift(@Nonnull KeyStroke keyStroke) {
     int mask = keyStroke.getModifiers() & ~SHIFT_MASK;
     return maps.charFor(KeyStroke.getKeyStroke(keyStroke.getKeyCode(), mask));
   }
