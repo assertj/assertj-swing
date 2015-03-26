@@ -286,8 +286,7 @@ public class AWT {
 
   /**
    * <p>
-   * Safe version of {@code Component.getLocationOnScreen}, which avoids lockup if an AWT pop-up menu is showing. The
-   * AWT pop-up holds the AWT tree lock when showing, which lock is required by {@code getLocationOnScreen}.
+   * Wrapper for {@code Component.getLocationOnScreen}.
    * </p>
    * 
    * <p>
@@ -296,11 +295,10 @@ public class AWT {
    * </p>
    * 
    * @param c the given AWT or Swing {@code Component}.
-   * @return the a point specifying the {@code Component}'s top-left corner in the screen's coordinate space, or
-   *         {@code null}, if the {@code Component} is not showing on the screen.
+   * @return the a point specifying the {@code Component}'s top-left corner in the screen's coordinate space.
    */
   @RunsInCurrentThread
-  public static @Nullable Point locationOnScreenOf(@Nonnull Component c) {
+  public static @Nonnull Point locationOnScreenOf(@Nonnull Component c) {
     return new Point(c.getLocationOnScreen());
   }
 
