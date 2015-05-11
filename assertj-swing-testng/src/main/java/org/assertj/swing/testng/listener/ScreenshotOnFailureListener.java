@@ -35,11 +35,12 @@ import org.testng.Reporter;
  * fails.
  * <p>
  * <strong>Note:</strong> A test is consider a GUI test if it is marked with the annotation
- * <code>{@link org.fest.swing.annotation.GUITest}</code>.
+ * <code>{@link org.assertj.swing.annotation.GUITest}</code>.
  * </p>
  * <p>
  * To use this listener, we just need to make TestNG aware of it. The following is an example using Ant:
- * 
+ * </p>
+ *
  * <pre>
  * &lt;testng <strong><span style="text-decoration: underline">listeners=&quot;org.assertj.swing.testng.listener.ScreenshotOnFailureListener&quot;</span></strong> outputDir=&quot;${target.test.results.dir}&quot; haltOnFailure=&quot;true&quot; verbose=&quot;2&quot;&gt;
  *   &lt;classfileset dir=&quot;${target.test.classes.dir}&quot; includes=&quot;&#42;&#42;/&#42;Test.class&quot; /&gt;
@@ -48,13 +49,12 @@ import org.testng.Reporter;
  *   &lt;classpath refid=&quot;test.classpath&quot; /&gt;
  * &lt;/testng&gt;
  * </pre>
- * 
- * </p>
+ *
  * <p>
  * You can find more information <a href="http://www.jroller.com/page/alexRuiz?entry=screenshots_of_failures_in_test"
  * target="_blank">here</a>.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 public class ScreenshotOnFailureListener extends AbstractTestListener {
@@ -84,7 +84,7 @@ public class ScreenshotOnFailureListener extends AbstractTestListener {
   /**
    * Gets the output directory from the given context after the test class is instantiated and before any configuration
    * method is called.
-   * 
+   *
    * @param context the given method context.
    */
   @Override
@@ -97,7 +97,7 @@ public class ScreenshotOnFailureListener extends AbstractTestListener {
   /**
    * When a test fails, this method takes a screenshot of the desktop and adds an hyperlink to the screenshot it in the
    * HTML test report.
-   * 
+   *
    * @param result contains information about the failing test.
    */
   @Override
