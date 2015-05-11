@@ -129,7 +129,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * <code>{@link OutputStream}</code>.
    *
    * @param suite the test suite.
-   * @throws BuildException on error.
+   * @throws org.apache.tools.ant.BuildException on error.
    */
   @Override
   public final void endTestSuite(JUnitTest suite) {
