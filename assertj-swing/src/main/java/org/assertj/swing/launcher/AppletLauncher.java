@@ -26,61 +26,56 @@ import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.applet.AppletViewer;
-import org.assertj.swing.applet.BasicAppletContext;
-import org.assertj.swing.applet.BasicAppletStub;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.UnexpectedException;
-import org.assertj.swing.launcher.AppletParameter.AppletParameterBuilder;
 
 /**
  * <p>
  * Fluent interface for launching and testing {@code Applet}s.
  * </p>
- * 
+ *
  * <p>
  * An {@code Applet} can be launched by passing its type as {@code String}, the actual type, or an instance of the
  * {@code Applet} to launch:
- * 
+ * </p>
+ *
  * <pre>
  * {@link AppletViewer} viewer = AppletLauncher.{@link #applet(String) applet}(&quot;org.assertj.swing.applet.MyApplet&quot;).{@link #start() start}();
- * 
+ *
  * // or
- * 
+ *
  * {@link AppletViewer} viewer = AppletLauncher.{@link #applet(Class) applet}(MyApplet.class).{@link #start() start}();
- * 
+ *
  * // or
- * 
+ *
  * {@link AppletViewer} viewer = AppletLauncher.{@link #launcherFor(Applet) applet}(new MyApplet()).{@link #start() start}();
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * In addition, we can pass parameters to the applet to launch. The parameters to pass are the same that are specified
  * in the <a href="http://java.sun.com/docs/books/tutorial/deployment/applet/html.html" target="_blank">HTML "param"
  * tag</a>:
- * 
+ * </p>
+ *
  * <pre>
  * {@link AppletViewer} viewer = AppletLauncher.{@link #launcherFor(Applet) applet}(new MyApplet())
  *                                     .{@link #withParameters(Map) withParameters}(
- *                                         {@link AppletParameter#name(String) name}(&quot;bgcolor&quot;).{@link AppletParameterBuilder#value(String) value}(&quot;blue&quot;),
- *                                         {@link AppletParameter#name(String) name}(&quot;color&quot;).{@link AppletParameterBuilder#value(String) value}(&quot;red&quot;),
- *                                         {@link AppletParameter#name(String) name}(&quot;pause&quot;).{@link AppletParameterBuilder#value(String) value}(&quot;200&quot;)
+ *                                         {@link AppletParameter#name(String) name}(&quot;bgcolor&quot;).{@link org.assertj.swing.launcher.AppletParameter.AppletParameterBuilder#value(String) value}(&quot;blue&quot;),
+ *                                         {@link AppletParameter#name(String) name}(&quot;color&quot;).{@link org.assertj.swing.launcher.AppletParameter.AppletParameterBuilder#value(String) value}(&quot;red&quot;),
+ *                                         {@link AppletParameter#name(String) name}(&quot;pause&quot;).{@link org.assertj.swing.launcher.AppletParameter.AppletParameterBuilder#value(String) value}(&quot;200&quot;)
  *                                      )
  *                                     .{@link #start() start}();
- * 
+ *
  * // or
- * 
+ *
  * Map&lt;String, String&gt; parameters = new HashMap&lt;String, String&gt;();
  * parameters.put(&quot;bgcolor&quot;, &quot;blue&quot;);
  * parameters.put(&quot;color&quot;, &quot;red&quot;);
  * parameters.put(&quot;pause&quot;, &quot;200&quot;);
- * 
+ *
  * {@link AppletViewer} viewer = AppletLauncher.{@link #launcherFor(Applet) applet}(new MyApplet()).{@link #withParameters(Map) withParameters}(parameters).{@link #start() start}();
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -91,7 +86,7 @@ public class AppletLauncher {
   /**
    * Creates a new {@link AppletLauncher}. The {@code Applet} to launch is a new instance of the given type. It is
    * assumed that the given type has a default constructor.
-   * 
+   *
    * @param appletType the type of {@code Applet} to instantiate.
    * @return the created {@code AppletLauncher}.
    * @throws NullPointerException if the given type name is {@code null}.
@@ -130,7 +125,7 @@ public class AppletLauncher {
   /**
    * Creates a new {@link AppletLauncher}. The {@code Applet} to launch is a new instance of the given type. It is
    * assumed that the given type has a default constructor.
-   * 
+   *
    * @param appletType the type of {@code Applet} to instantiate.
    * @return the created {@code AppletLauncher}.
    * @throws NullPointerException if the given type is {@code null}.
@@ -158,7 +153,7 @@ public class AppletLauncher {
 
   /**
    * Creates a new {@link AppletLauncher}.
-   * 
+   *
    * @param applet the {@code Applet} to launch.
    * @return the created {@code AppletLauncher}.
    * @throws NullPointerException if the given {@code Applet} is {@code null}.
@@ -174,7 +169,7 @@ public class AppletLauncher {
   /**
    * Sets the parameters for the {@code Applet} to launch, as an alternative to
    * {@link #withParameters(AppletParameter...)}.
-   * 
+   *
    * @param newParameters the parameters for the {@code Applet} to launch.
    * @return this launcher.
    * @throws NullPointerException if {@code newParameters} is {@code null}.
@@ -187,7 +182,7 @@ public class AppletLauncher {
 
   /**
    * Sets the parameters for the {@code Applet} to launch, as an alternative to {@link #withParameters(Map)}.
-   * 
+   *
    * @param newParameters the parameters for the {@code Applet} to launch.
    * @return this launcher.
    * @throws NullPointerException if {@code newParameters} is {@code null}.
@@ -207,10 +202,11 @@ public class AppletLauncher {
   }
 
   /**
-   * Launches the {@code Applet} in a {@link AppletViewer} (using implementations of {@link BasicAppletStub} and
-   * {@link BasicAppletContext}. To provide your own {@code AppletStub} create a new {@link AppletViewer} directly. The
-   * {@code AppletViewer} is created and launched in the event dispatch thread (EDT.)
-   * 
+   * Launches the {@code Applet} in a {@link AppletViewer} (using implementations of
+   * {@link org.assertj.swing.applet.BasicAppletStub} and {@link org.assertj.swing.applet.BasicAppletContext}. To
+   * provide your own {@code AppletStub} create a new {@link AppletViewer} directly. The {@code AppletViewer} is created
+   * and launched in the event dispatch thread (EDT.)
+   *
    * @return the created {@code AppletViewer}.
    */
   public @Nonnull AppletViewer start() {

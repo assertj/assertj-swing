@@ -39,12 +39,12 @@ import org.assertj.swing.util.Pair;
  * <p>
  * Supports functional testing of {@code JProgressBar}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 @InternalApi
@@ -54,7 +54,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Creates a new {@link JProgressBarDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JProgressBarDriver(@Nonnull Robot robot) {
@@ -63,7 +63,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Asserts that the text of the {@code JProgressBar} is equal to the specified {@code String}.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
    * @param expected the text to match.
    * @throws AssertionError if the text of the {@code JProgressBar} is not equal to the given one.
@@ -77,7 +77,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Asserts that the text of the {@code JProgressBar} matches the given regular expression pattern.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
    * @param pattern the regular expression pattern to match.
    * @throws AssertionError if the text of the {@code JProgressBar} does not match the given regular expression pattern.
@@ -92,7 +92,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Verifies that the value of the given {@code JProgressBar} is equal to the given one.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
    * @param value the expected value.
    * @throws AssertionError if the value of the {@code JProgressBar} is not equal to the given one.
@@ -104,7 +104,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Verifies that the given {@code JProgressBar} is in indeterminate mode.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
    * @throws AssertionError if the given {@code JProgressBar} is not in indeterminate mode.
    */
@@ -115,7 +115,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Verifies that the given {@code JProgressBar} is in determinate mode.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
    * @throws AssertionError if the given {@code JProgressBar} is not in determinate mode.
    */
@@ -131,12 +131,13 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Waits until the value of the given {@code JProgressBar} is equal to the given value.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
    * @param value the expected value.
    * @throws IllegalArgumentException if the given value is less than the {@code JProgressBar}'s minimum value.
    * @throws IllegalArgumentException if the given value is greater than the {@code JProgressBar}'s maximum value.
-   * @throws WaitTimedOutError if the value of the {@code JProgressBar} does not reach the expected value within 30
+   * @throws org.assertj.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the
+   *           expected value within 30
    *           seconds.
    */
   @RunsInEDT
@@ -146,14 +147,15 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Waits until the value of the given {@code JProgressBar} is equal to the given value.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
    * @param value the expected value.
    * @param timeout the amount of time to wait.
    * @throws IllegalArgumentException if the given value is less than the {@code JProgressBar}'s minimum value.
    * @throws IllegalArgumentException if the given value is greater than the {@code JProgressBar}'s maximum value.
    * @throws NullPointerException if the given timeout is {@code null}.
-   * @throws WaitTimedOutError if the value of the {@code JProgressBar} does not reach the expected value within the
+   * @throws org.assertj.swing.exception.WaitTimedOutError if the value of the {@code JProgressBar} does not reach the
+   *           expected value within the
    *           specified timeout.
    */
   @RunsInEDT
@@ -179,9 +181,10 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Waits until the value of the given {@code JProgressBar} is in determinate mode.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
-   * @throws WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode within 30 seconds.
+   * @throws org.assertj.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode
+   *           within 30 seconds.
    */
   @RunsInEDT
   public void waitUntilIsDeterminate(@Nonnull JProgressBar progressBar) {
@@ -190,11 +193,12 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Waits until the value of the given {@code JProgressBar} is in determinate mode.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
    * @param timeout the amount of time to wait.
    * @throws NullPointerException if the given timeout is {@code null}.
-   * @throws WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode within the specified timeout.
+   * @throws org.assertj.swing.exception.WaitTimedOutError if the {@code JProgressBar} does not reach determinate mode
+   *           within the specified timeout.
    */
   @RunsInEDT
   public void waitUntilIsDeterminate(@Nonnull JProgressBar progressBar, @Nonnull Timeout timeout) {
@@ -204,7 +208,7 @@ public class JProgressBarDriver extends JComponentDriver implements TextDisplayD
 
   /**
    * Returns the text of the given {@code JProgressBar}.
-   * 
+   *
    * @param progressBar the target {@code JProgressBar}.
    * @return the text of the given {@code JProgressBar}.
    */

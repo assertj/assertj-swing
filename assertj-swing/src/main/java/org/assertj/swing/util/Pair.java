@@ -17,10 +17,10 @@ import javax.annotation.Nullable;
 
 /**
  * Tuple of size 2.
- * 
+ *
  * @param <F> the generic type of the 1st. value in this tuple.
  * @param <S> the generic type of the 2nd. value in this tuple.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -34,6 +34,8 @@ public class Pair<F, S> {
   /**
    * Creates a new {@link Pair}.
    * 
+   * @param <F> the generic type of the 1st. value in this tuple.
+   * @param <S> the generic type of the 2nd. value in this tuple.
    * @param first the 1st. value in this tuple.
    * @param second the 2nd. value in this tuple.
    * @return the created {@code Pair}.

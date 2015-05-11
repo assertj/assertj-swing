@@ -15,15 +15,16 @@
  * {@code Component}-specific test drivers. Classes in this package are not part of the API. Use the classes in
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * <p>
  * A test driver is capable of:
+ * </p>
  * <ul>
  * <li>Simulate user input on a {@code Component}</li>
  * <li>Verify the state of a {@code Component}</li>
  * <li>Safely expose the state of a {@code Component}</li>
- * </p>
- * 
+ * </ul>
+ *
  * @author Alex Ruiz
  */
 package org.assertj.swing.driver;

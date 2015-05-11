@@ -24,10 +24,10 @@ import org.assertj.swing.exception.EdtViolationException;
 
 /**
  * <p>
- * Fails a test when a Event Dispatch Thread rule violation is detected.<br/>
- * See <a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/threads.html">How to Use Threads</a> for more info
+ * Fails a test when a Event Dispatch Thread rule violation is detected. See <a
+ * href="http://java.sun.com/docs/books/tutorial/uiswing/misc/threads.html">How to Use Threads</a> for more information.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 public class FailOnThreadViolationRepaintManager extends CheckThreadViolationRepaintManager {
@@ -35,13 +35,13 @@ public class FailOnThreadViolationRepaintManager extends CheckThreadViolationRep
    * <p>
    * Creates a new {@link FailOnThreadViolationRepaintManager} and sets it as the current repaint manager.
    * </p>
-   * 
+   *
    * <p>
    * On Sun JVMs, this method will install the new repaint manager the first time only. Once installed, subsequent calls
    * to this method will not install new repaint managers. This optimization may not work on non-Sun JVMs, since we use
    * reflection to check if a {@code CheckThreadViolationRepaintManager} is already installed.
    * </p>
-   * 
+   *
    * @return the created (and installed) repaint manager.
    * @see RepaintManager#setCurrentManager(RepaintManager)
    */
@@ -56,7 +56,7 @@ public class FailOnThreadViolationRepaintManager extends CheckThreadViolationRep
   private static @Nullable Object currentRepaintManager() {
     try {
       return method("appContextGet").withReturnType(Object.class).withParameterTypes(Object.class)
-          .in(SwingUtilities.class).invoke(RepaintManager.class);
+                                    .in(SwingUtilities.class).invoke(RepaintManager.class);
     } catch (RuntimeException e) {
       return null;
     }
@@ -77,7 +77,7 @@ public class FailOnThreadViolationRepaintManager extends CheckThreadViolationRep
 
   /**
    * Throws a {@link EdtViolationException} when a EDT access violation is found.
-   * 
+   *
    * @param c the component involved in the EDT violation.
    * @param stackTraceElements stack trace elements to be set to the thrown exception.
    * @throws EdtViolationException when a EDT access violation is found.

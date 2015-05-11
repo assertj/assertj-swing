@@ -16,14 +16,14 @@ import static org.assertj.core.util.Objects.HASH_CODE_PRIME;
 
 /**
  * Represents a location in (x, y) coordinate space, specified in integer precision.
- * 
+ *
  * @author Yvonne Wang
  */
 public class Point {
 
   /**
-   * Creates a new </code>{@link Point}</code>.
-   * 
+   * Creates a new <code>{@link Point}</code>.
+   *
    * @param x the x coordinate.
    * @param y the y coordinate.
    * @return the created {@code Point}.

@@ -27,10 +27,10 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Matches an AWT or Swing {@code Component} by the text of the associated {@code JLabel} and (optionally) by type.
- * 
+ *
  * @see JLabel#getLabelFor()
  * @see JLabel#setLabelFor(Component)
- * 
+ *
  * @author Alex Ruiz
  */
 public class LabelMatcher extends AbstractComponentMatcher {
@@ -39,7 +39,7 @@ public class LabelMatcher extends AbstractComponentMatcher {
 
   /**
    * Creates a new {@link LabelMatcher}. The AWT or Swing {@code Component} to match does not have to be showing.
-   * 
+   *
    * @param label the text of the label associated to the {@code Component} we are looking for.
    * @throws NullPointerException if the given label is {@code null}.
    * @throws IllegalArgumentException if the given label is empty.
@@ -50,7 +50,7 @@ public class LabelMatcher extends AbstractComponentMatcher {
 
   /**
    * Creates a new {@link LabelMatcher}.
-   * 
+   *
    * @param label the text of the label associated to the AWT or Swing {@code Component} we are looking for.
    * @param requireShowing indicates if the {@code Component} to match should be showing or not.
    * @throws NullPointerException if the given label is {@code null}.
@@ -62,7 +62,7 @@ public class LabelMatcher extends AbstractComponentMatcher {
 
   /**
    * Creates a new {@link LabelMatcher}. The AWT or Swing {@code Component} to match does not have to be showing.
-   * 
+   *
    * @param label the text of the label associated to the {@code Component} we are looking for.
    * @param type the type of the {@code Component} we are looking for.
    * @throws NullPointerException if the given label is {@code null}.
@@ -75,7 +75,7 @@ public class LabelMatcher extends AbstractComponentMatcher {
 
   /**
    * Creates a new {@link LabelMatcher}.
-   * 
+   *
    * @param label the text of the label associated to the AWT or Swing {@code Component} we are looking for.
    * @param type the type of the {@code Component} we are looking for.
    * @param requireShowing indicates if the {@code Component} to match should be showing or not.
@@ -92,19 +92,19 @@ public class LabelMatcher extends AbstractComponentMatcher {
   /**
    * <p>
    * Indicates whether the given AWT or Swing {@code Component} matches the criteria specified in this matcher:
+   * </p>
    * <ol>
    * <li>the text of the {@code JLabel} attached to the {@code Component} to look for matches the text specified in this
    * matcher</li>
    * <li>the {@code Component} to look for is of the type specified in this matcher (if specified)</li>
    * <li>visibility of the given {@code Component} matches the value specified in this matcher</li>
    * </ol>
-   * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @return {@code true} if the name and visibility of the given {@code Component} matches the values specified in this
    *         matcher, {@code false} otherwise.
    */

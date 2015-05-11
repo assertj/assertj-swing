@@ -36,37 +36,35 @@ import org.assertj.swing.util.ToolkitProvider;
  * An escape valve for users to abort a running FEST-Swing test by pressing 'Ctrl + Shift + A'. The key combination to
  * use to abort test is configurable through the method {@link EmergencyAbortListener#keyCombination(KeyPressInfo)}.
  * </p>
- * 
+ *
  * <p>
  * The following example shows to use this listener in a TestNG test:
- * 
+ * </p>
+ *
  * <pre>
  * private EmergencyAbortListener listener;
- * 
+ *
  * &#064;BeforeMethod
  * public void setUp() {
  *   // set up your test fixture.
  *   listener = EmergencyAbortListener.registerInToolkit();
  * }
- * 
+ *
  * &#064;AfterMethod
  * public void tearDown() {
  *   // clean up resources.
  *   listener.unregister();
  * }
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * Changing the default key combination for aborting test:
- * 
+ * </p>
+ *
  * <pre>
  * listener = EmergencyAbortListener.registerInToolkit().{@link EmergencyAbortListener#keyCombination(KeyPressInfo) keyCombination}(key(VK_C).modifiers(SHIFT_MASK));
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author <a href="mailto:simeon.fitch@mseedsoft.com">Simeon H.K. Fitch</a>
  * @author Alex Ruiz
  */
@@ -82,7 +80,7 @@ public class EmergencyAbortListener implements AWTEventListener {
   /**
    * Attaches a new instance of {@link EmergencyAbortListener} to the given AWT {@code Toolkit}. Any other instances of
    * {@code EmergencyAbortListener} will be removed from the {@code Toolkit}.
-   * 
+   *
    * @return the created listener.
    */
   public static EmergencyAbortListener registerInToolkit() {
@@ -119,7 +117,7 @@ public class EmergencyAbortListener implements AWTEventListener {
 
   /**
    * Sets the key combination that will terminate any FEST-Swing test. The default combination is 'Ctrl + Shift + A'.
-   * 
+   *
    * @param keyPressInfo contains information about the key code and modifiers.
    * @return this listener.
    * @throws NullPointerException if the {@code KeyPressInfo} is {@code null}.
@@ -140,7 +138,7 @@ public class EmergencyAbortListener implements AWTEventListener {
 
   /**
    * Inspects key events for the key combination that should terminate any running FEST-Swing tests.
-   * 
+   *
    * @param event the event to inspect.
    * @see java.awt.event.AWTEventListener#eventDispatched(java.awt.AWTEvent)
    */

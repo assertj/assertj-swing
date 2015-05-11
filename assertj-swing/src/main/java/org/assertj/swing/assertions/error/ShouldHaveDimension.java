@@ -19,14 +19,14 @@ import org.assertj.core.error.ErrorMessageFactory;
 
 /**
  * Creates an error message indicating that an assertion that verifies that a value have certain dimension failed.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ShouldHaveDimension extends BasicErrorMessageFactory {
 
   /**
-   * Creates a new </code>{@link ShouldHaveDimension}</code>.
-   * 
+   * Creates a new <code>{@link ShouldHaveDimension}</code>.
+   *
    * @param actual the actual value in the failed assertion.
    * @param actualSize the size of {@code actual}.
    * @param expectedSize the expected size.
@@ -38,6 +38,6 @@ public class ShouldHaveDimension extends BasicErrorMessageFactory {
 
   private ShouldHaveDimension(Object actual, Dimension actualSize, Dimension expectedSize) {
     super("expected size:<%sx%s> but was:<%sx%s> in:<%s>", expectedSize.width, expectedSize.height, actualSize.width,
-        actualSize.height, actual);
+          actualSize.height, actual);
   }
 }

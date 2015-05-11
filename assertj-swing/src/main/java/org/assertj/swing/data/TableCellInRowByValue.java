@@ -26,23 +26,21 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.exception.ActionFailedException;
 
 /**
  * <p>
  * Looks up a cell in the first found row in {@code JTable} whose values match the given ones.
  * </p>
- * 
+ *
  * <p>
  * Example:
- * 
+ * </p>
+ *
  * <pre>
  * // import static org.assertj.swing.data.TableCellInSelectedRow.row;
  * {@link TableCell} cell = dialog.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("column1", "column2", "column3").column(2));
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 public class TableCellInRowByValue implements TableCellFinder {
@@ -50,17 +48,16 @@ public class TableCellInRowByValue implements TableCellFinder {
    * <p>
    * Starting point for the creation of a {@link TableCellInRowByValue}.
    * </p>
-   * 
+   *
    * <p>
    * Example:
-   * 
+   * </p>
+   *
    * <pre>
    * // import static org.assertj.swing.data.TableCellInRowByValue.rowWithValue;
    * TableCellByColumnId cell = rowWithValue(&quot;column1&quot;, &quot;column2&quot;, &quot;column3&quot;).column(3);
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param values the values in the cells of the row we are looking for.
    * @return the created builder.
    * @throws NullPointerException if the given array of values is {@code null}.
@@ -71,7 +68,7 @@ public class TableCellInRowByValue implements TableCellFinder {
 
   /**
    * Builder of {@link TableCellInSelectedRow}s.
-   * 
+   *
    * @author Alex Ruiz
    */
   public static class TableCellBuilder {
@@ -79,7 +76,7 @@ public class TableCellInRowByValue implements TableCellFinder {
 
     /**
      * Creates a new {@link TableCellBuilder}.
-     * 
+     *
      * @param values the values of the cells of the row to find.
      */
     TableCellBuilder(@Nonnull String[] values) {
@@ -90,7 +87,7 @@ public class TableCellInRowByValue implements TableCellFinder {
      * Creates a new table cell finder using the row cell values specified in
      * {@link TableCellInRowByValue#rowWithValue(String...)} and the column index specified as the argument in this
      * method.
-     * 
+     *
      * @param column the index of the column in the table cell to find.
      * @return the created finder.
      */
@@ -104,7 +101,7 @@ public class TableCellInRowByValue implements TableCellFinder {
 
   /**
    * Creates a new {@link TableCellInRowByValue}.
-   * 
+   *
    * @param values the values in the cells of the row we are looking for.
    * @param column the index of the column in the table cell to find.
    */
@@ -119,13 +116,13 @@ public class TableCellInRowByValue implements TableCellFinder {
    * <li>is located in the first row whose values match the given ones</li>
    * <li>has a matching row index</li>
    * </ol>
-   * 
+   *
    * @param table the target {@code JTable}.
    * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
    * @return the cell found, if any.
    * @throws IllegalStateException if the size of values to look up is not equal to the number of columns in the given
    *           {@code JTable}.
-   * @throws ActionFailedException if a matching cell could not be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if a matching cell could not be found.
    */
   @RunsInEDT
   @Override
@@ -139,7 +136,7 @@ public class TableCellInRowByValue implements TableCellFinder {
 
   @RunsInEDT
   private static int findRowIndex(final @Nonnull JTable table, final @Nonnull JTableCellReader cellReader,
-      final @Nonnull String[] values) {
+                                  final @Nonnull String[] values) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
       protected Integer executeInEDT() {
@@ -166,7 +163,7 @@ public class TableCellInRowByValue implements TableCellFinder {
 
   @RunsInCurrentThread
   private static boolean matchingRow(@Nonnull JTable table, @Nonnull JTableCellReader cellReader,
-      @Nonnull String[] values, int row) {
+                                     @Nonnull String[] values, int row) {
     int columnCount = table.getColumnCount();
     for (int col = 0; col < columnCount; col++) {
       if (!areEqual(cellReader.valueAt(table, row, col), values[col])) {

@@ -18,15 +18,13 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JLabel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Looks up AWT and Swing {@code Component}s based on different search criteria, such as a {@code Component}'s name,
  * type or label, and custom search criteria as well.
- * 
+ *
  * @author Alex Ruiz
  */
 @RunsInEDT
@@ -44,20 +42,20 @@ public interface ComponentFinder {
    * showing or not. If this finder is <em>not</em> attached to any {@code Robot}, the component to find does not have
    * to be showing.
    * </p>
-   * 
+   *
    * <p>
    * Example:
-   * 
+   * </p>
+   *
    * <pre>
    * JTextField textbox = finder.findByType(JTextField.class);
    * </pre>
-   * 
-   * </p>
-   * 
-   * @param type the type of the component to find.
+   *
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -67,12 +65,13 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} by type. For example:
-   * 
-   * @param type the type of the component to find.
+   *
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByType(Class)
    */
   @Nonnull
@@ -85,32 +84,31 @@ public interface ComponentFinder {
    * whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
    * {@code Robot}, the component to find does not have to be showing.
    * </p>
-   * 
+   *
    * <p>
    * Let's assume we have the following {@code JFrame} containing a {@code JTextField}:
-   * 
+   * </p>
+   *
    * <pre>
    * JFrame myFrame = new JFrame();
    * myFrame.add(new JTextField());
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * If we want to get a reference to the {@code JTextField} in that particular {@code JFrame} without going through the
    * whole AWT component hierarchy, we could simply specify:
-   * 
+   * </p>
+   *
    * <pre>
    * JTextField textbox = finder.findByType(myFrame, JTextField.class);
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param root the root used as the starting point of the search.
-   * @param type the type of the component to find.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -120,13 +118,14 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} by type in the hierarchy under the given root.
-   * 
+   *
    * @param root the root used as the starting point of the search.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
-   * @param type the type of the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByType(Container, Class)
    */
   @Nonnull
@@ -139,44 +138,42 @@ public interface ComponentFinder {
    * whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
    * {@code Robot}, the component to find does not have to be showing.
    * </p>
-   * 
+   *
    * <p>
    * Let's assume we have the {@code JTextField} with a {@code JLabel} with text "Name";
-   * 
+   * </p>
+   *
    * <pre>
    * JLabel label = new JLabel(&quot;Name&quot;);
    * JTextField textbox = new JTextField();
    * label.setLabelFor(textBox);
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * To get a reference to this {@code JTextField} by the text of its associated {@code JLabel}, we can specify:
-   * 
+   * </p>
+   *
    * <pre>
    * JTextField textBox = (JTextField) finder.findByLabel(&quot;Name&quot;);
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * Please note that you need to cast the result of the lookup to the right type. To avoid casting, please use one of
    * following:
+   * </p>
    * <ol>
    * <li>{@link #findByLabel(String, Class)}</li>
    * <li>{@link #findByLabel(String, Class, boolean)}</li>
    * <li>{@link #findByLabel(Container, String, Class)}</li>
    * <li>{@link #findByLabel(Container, String, Class, boolean)}</li>
    * </ol>
-   * </p>
-   * 
+   *
    * @param label the text of the {@code JLabel} associated to the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
-   * @see JLabel#getLabelFor()
-   * @see JLabel#setLabelFor(Component)
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
+   * @see javax.swing.JLabel#getLabelFor()
+   * @see javax.swing.JLabel#setLabelFor(Component)
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -189,15 +186,16 @@ public interface ComponentFinder {
    * attached to a {@link Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to
    * determine whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
    * {@code Robot}, the component to find does not have to be showing.
-   * 
+   *
    * @param label the text of the {@code JLabel} associated to the component to find.
-   * @param type the type of the component to find.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
-   * @see JLabel#getLabelFor()
-   * @see JLabel#setLabelFor(Component)
+   * @see javax.swing.JLabel#getLabelFor()
+   * @see javax.swing.JLabel#setLabelFor(Component)
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -207,31 +205,32 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} by the text of its associated {@code JLabel} and type.
-   * 
+   *
    * @param label the text of the {@code JLabel} associated to the component to find.
-   * @param type the type of the component to find.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
-   * @see JLabel#getLabelFor()
-   * @see JLabel#setLabelFor(Component)
+   * @see javax.swing.JLabel#getLabelFor()
+   * @see javax.swing.JLabel#setLabelFor(Component)
    */
   @Nonnull
   <T extends Component> T findByLabel(@Nullable String label, @Nonnull Class<T> type, boolean showing);
 
   /**
    * Finds an AWT or Swing {@code Component} by by the text of its associated {@code JLabel}.
-   * 
+   *
    * @param label the text of the {@code JLabel} associated to the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
-   * @see JLabel#getLabelFor()
-   * @see JLabel#setLabelFor(Component)
+   * @see javax.swing.JLabel#getLabelFor()
+   * @see javax.swing.JLabel#setLabelFor(Component)
    */
   @Nonnull
   Component findByLabel(@Nullable String label, boolean showing);
@@ -241,15 +240,15 @@ public interface ComponentFinder {
    * given root. If this finder is attached to a {@link Robot}, it will use the component lookup scope in the
    * {@code Robot}'s {@link Settings} to determine whether the component to find should be showing or not. If this
    * finder is <em>not</em> attached to any {@code Robot}, the component to find does not have to be showing.
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param label the text of the {@code JLabel} associated to the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
-   * @see JLabel#getLabelFor()
-   * @see JLabel#setLabelFor(Component)
+   * @see javax.swing.JLabel#getLabelFor()
+   * @see javax.swing.JLabel#setLabelFor(Component)
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -260,16 +259,16 @@ public interface ComponentFinder {
   /**
    * Finds an AWT or Swing {@code Component} by the text of its associated {@code JLabel}, in the hierarchy under the
    * given root.
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param label the text of the {@code JLabel} associated to the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
-   * @see JLabel#getLabelFor()
-   * @see JLabel#setLabelFor(Component)
+   * @see javax.swing.JLabel#getLabelFor()
+   * @see javax.swing.JLabel#setLabelFor(Component)
    */
   @Nonnull
   Component findByLabel(@Nonnull Container root, @Nullable String label, boolean showing);
@@ -279,16 +278,17 @@ public interface ComponentFinder {
    * under the given root. If this finder is attached to a {@link Robot}, it will use the component lookup scope in the
    * {@code Robot}'s {@link Settings} to determine whether the component to find should be showing or not. If this
    * finder is <em>not</em> attached to any {@code Robot}, the component to find does not have to be showing.
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param label the text of the {@code JLabel} associated to the component to find.
-   * @param type the type of the component to find.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
-   * @see JLabel#getLabelFor()
-   * @see JLabel#setLabelFor(Component)
+   * @see javax.swing.JLabel#getLabelFor()
+   * @see javax.swing.JLabel#setLabelFor(Component)
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -299,21 +299,22 @@ public interface ComponentFinder {
   /**
    * Finds an AWT or Swing {@code Component} by the text of its associated {@code JLabel} and type, in the hierarchy
    * under the given root.
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param label the text of the {@code JLabel} associated to the component to find.
-   * @param type the type of the component to find.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByLabel(String)
-   * @see JLabel#getLabelFor()
-   * @see JLabel#setLabelFor(Component)
+   * @see javax.swing.JLabel#getLabelFor()
+   * @see javax.swing.JLabel#setLabelFor(Component)
    */
   @Nonnull
   <T extends Component> T findByLabel(@Nonnull Container root, @Nullable String label, @Nonnull Class<T> type,
-      boolean showing);
+                                      boolean showing);
 
   /**
    * <p>
@@ -322,41 +323,39 @@ public interface ComponentFinder {
    * showing or not. If this finder is <em>not</em> attached to any {@code Robot}, the component to find does not have
    * to be showing.
    * </p>
-   * 
+   *
    * <p>
    * Let's assume we have the {@code JTextField} with name "myTextBox";
-   * 
+   * </p>
+   *
    * <pre>
    * JTextField textbox = new JTextField();
    * textBox.setName(&quot;myTextBox&quot;);
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * To get a reference to this {@code JTextField} by its name, we can specify:
-   * 
+   * </p>
+   *
    * <pre>
    * JTextField textBox = (JTextField) finder.findByName(&quot;myTextBox&quot;);
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * Please note that you need to cast the result of the lookup to the right type. To avoid casting, please use one of
    * following:
+   * </p>
    * <ol>
    * <li>{@link #findByName(String, Class)}</li>
    * <li>{@link #findByName(String, Class, boolean)}</li>
    * <li>{@link #findByName(Container, String, Class)}</li>
    * <li>{@link #findByName(Container, String, Class, boolean)}</li>
    * </ol>
-   * </p>
-   * 
+   *
    * @param name the name of the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -369,12 +368,13 @@ public interface ComponentFinder {
    * use the component lookup scope in the {@code Robot}'s {@link Settings} to determine whether the component to find
    * should be showing or not. If this finder is <em>not</em> attached to any {@code Robot}, the component to find does
    * not have to be showing.
-   * 
+   *
    * @param name the name of the component to find.
-   * @param type the type of the component to find.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -385,13 +385,14 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} by name and type.
-   * 
+   *
    * @param name the name of the component to find.
-   * @param type the type of the component to find.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByName(String)
    */
   @Nonnull
@@ -399,12 +400,12 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} by name.
-   * 
+   *
    * @param name the name of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByName(String)
    */
   @Nonnull
@@ -415,12 +416,12 @@ public interface ComponentFinder {
    * to a {@link Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to determine
    * whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
    * {@code Robot}, the component to find does not have to be showing.
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param name the name of the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -431,13 +432,13 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} by name, in the hierarchy under the given root.
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param name the name of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByName(String)
    */
   @Nonnull
@@ -448,13 +449,14 @@ public interface ComponentFinder {
    * attached to a {@link Robot}, it will use the component lookup scope in the {@code Robot}'s {@link Settings} to
    * determine whether the component to find should be showing or not. If this finder is <em>not</em> attached to any
    * {@code Robot}, the component to find does not have to be showing.
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param name the name of the component to find.
-   * @param type the type of the component to find.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see Robot#settings()
    * @see Settings#componentLookupScope()
    * @see ComponentLookupScope
@@ -465,29 +467,30 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} by name and type, in the hierarchy under the given root.
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param name the name of the component to find.
-   * @param type the type of the component to find.
+   * @param <T> the type of the component to find.
+   * @param type the class of the component to find.
    * @param showing indicates whether the component to find should be visible (or showing) or not.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see #findByName(String)
    */
   @Nonnull
   <T extends Component> T findByName(@Nonnull Container root, @Nullable String name, @Nonnull Class<T> type,
-      boolean showing);
+                                     boolean showing);
 
   /**
    * Finds an AWT or Swing {@code Component} using the given {@link ComponentMatcher}. The given matcher will be
    * evaluated in the event dispatch thread (EDT.) Implementations of {@code ComponentMatcher} do not need to be
    * concerned about the event dispatch thread (EDT.)
-   * 
+   *
    * @param m the matcher to use to find the component of interest.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   @Nonnull
   Component find(@Nonnull ComponentMatcher m);
@@ -496,11 +499,12 @@ public interface ComponentFinder {
    * Finds an AWT or Swing {@code Component} using the given {@link GenericTypeMatcher}. The given matcher will be
    * evaluated in the event dispatch thread (EDT.) Implementations of {@code GenericTypeMatcher} do not need to be
    * concerned about the event dispatch thread (EDT.)
-   * 
+   *
+   * @param <T> the type of the component to find.
    * @param m the matcher to use to find the component of interest.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   @Nonnull
   <T extends Component> T find(@Nonnull GenericTypeMatcher<T> m);
@@ -509,12 +513,13 @@ public interface ComponentFinder {
    * Finds an AWT or Swing {@code Component} using the given {@link GenericTypeMatcher} in the hierarchy under the given
    * root. The given matcher will be evaluated in the event dispatch thread (EDT.) Implementations of
    * {@code GenericTypeMatcher} do not need to be concerned about the event dispatch thread (EDT.)
-   * 
+   *
    * @param root the root used as the starting point of the search.
+   * @param <T> the type of the component to find.
    * @param m the matcher to use to find the component.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   @Nonnull
   <T extends Component> T find(@Nonnull Container root, @Nonnull GenericTypeMatcher<T> m);
@@ -523,12 +528,12 @@ public interface ComponentFinder {
    * Finds an AWT or Swing {@code Component} using the given {@link ComponentMatcher} in the hierarchy under the given
    * root. The given matcher will be evaluated in the event dispatch thread (EDT.) Implementations of
    * {@code ComponentMatcher} do not need to be concerned about the event dispatch thread (EDT.)
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param m the matcher to use to find the component.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   @Nonnull
   Component find(@Nullable Container root, @Nonnull ComponentMatcher m);
@@ -536,7 +541,7 @@ public interface ComponentFinder {
   /**
    * Returns all the AWT or Swing {@code Component}s that match the search criteria specified in the given
    * {@link ComponentMatcher}.
-   * 
+   *
    * @param m the matcher to use to find the component.
    * @return all the {@code Component}s that match the search criteria specified in the given {@code ComponentMatcher};
    *         or an empty collection, if there are no matching components.
@@ -547,7 +552,7 @@ public interface ComponentFinder {
   /**
    * Returns all the AWT or Swing {@code Component}s under the given root that match the search criteria specified in
    * the given {@link ComponentMatcher}.
-   * 
+   *
    * @param root the root used as the starting point of the search.
    * @param m the matcher to use to find the component.
    * @return all the {@code Component}s under the given root that match the search criteria specified in the given
@@ -559,7 +564,8 @@ public interface ComponentFinder {
   /**
    * Returns all the AWT or Swing {@code Component}s that match the search criteria specified in the given
    * {@link GenericTypeMatcher}.
-   * 
+   *
+   * @param <T> the type of the component to find.
    * @param m the matcher to use to find the component.
    * @return all the {@code Component}s that match the search criteria specified in the given {@code GenericTypeMatcher}
    *         ; or an empty collection, if there are no matching components.
@@ -570,8 +576,9 @@ public interface ComponentFinder {
   /**
    * Returns all the AWT or Swing {@code Component}s under the given root that match the search criteria specified in
    * the given {@link GenericTypeMatcher}.
-   * 
+   *
    * @param root the root used as the starting point of the search.
+   * @param <T> the type of the component to find.
    * @param m the matcher to use to find the component.
    * @return all the {@code Component}s under the given root that match the search criteria specified in the given
    *         {@code GenericTypeMatcher}; or an empty collection, if there are no matching components.
@@ -580,18 +587,20 @@ public interface ComponentFinder {
   <T extends Component> Collection<T> findAll(@Nonnull Container root, @Nonnull GenericTypeMatcher<T> m);
 
   /**
-   * Returns whether the message in a {@link ComponentLookupException} should include the current component hierarchy.
+   * Returns whether the message in a {@link org.assertj.swing.exception.ComponentLookupException} should include the
+   * current component hierarchy.
    * The default value is {@code true}.
-   * 
-   * @return {@code true} if the component hierarchy is included as part of the {@code ComponentLookupException}
-   *         message, {@code false} otherwise.
+   *
+   * @return {@code true} if the component hierarchy is included as part of the
+   *         {@code org.assertj.swing.exception.ComponentLookupException} message, {@code false} otherwise.
    */
   boolean includeHierarchyIfComponentNotFound();
 
   /**
-   * Updates whether the message in a {@link ComponentLookupException} should include the current component hierarchy.
+   * Updates whether the message in a {@link org.assertj.swing.exception.ComponentLookupException} should include the
+   * current component hierarchy.
    * The default value is {@code true}.
-   * 
+   *
    * @param newValue the new value to set.
    */
   void includeHierarchyIfComponentNotFound(boolean newValue);

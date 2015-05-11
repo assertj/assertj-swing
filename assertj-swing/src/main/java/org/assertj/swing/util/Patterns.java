@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 
 /**
  * Utility methods for regular expression patterns.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class Patterns {
@@ -28,22 +28,23 @@ public final class Patterns {
    * <p>
    * Formats the given array of regular expression patterns.
    * </p>
-   * 
+   *
    * <p>
    * For example, the array
-   * 
+   * </p>
+   *
    * <pre>
    * Pattern[] patterns = { Pattern.compile(&quot;hello&quot;), Pattern.compile(&quot;world&quot;) };
    * </pre>
-   * 
+   *
+   * <p>
    * will be formatted as
-   * 
+   * </p>
+   *
    * <pre>
    * ['hello', 'world']
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param patterns the array of patterns to format.
    * @return the {@code String} containing the formatted array.
    * @throws NullPointerException if the given array of patterns is {@code null}.

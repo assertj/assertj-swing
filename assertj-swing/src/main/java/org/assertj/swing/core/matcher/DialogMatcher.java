@@ -22,7 +22,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Matches AWT or Swing {@code Dialog}s by name, title or visibility on the screen.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
@@ -32,26 +32,24 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * <p>
    * Creates a new {@link DialogMatcher} that matches an AWT or Swing {@code Dialog} by name.
    * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code Dialog} by name and title:
-   * 
+   * </p>
+   *
    * <pre>
    * DialogMatcher m = {@link #withName(String) withName}("saveFile").{@link #andTitle(String) andTitle}("Save File");
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code Dialog}, that should be showing on the screen, by name and
    * title:
-   * 
+   * </p>
+   *
    * <pre>
    * DialogMatcher m = {@link #withName(String) withName}("saveFile").{@link #andTitle(String) andTitle}("Save File").{@link #andShowing() andShowing}();
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param name the id to match.
    * @return the created matcher.
    */
@@ -63,25 +61,23 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * <p>
    * Creates a new {@link DialogMatcher} that matches an AWT or Swing {@code Dialog} by title.
    * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code Dialog} title:
-   * 
+   * </p>
+   *
    * <pre>
    * DialogMatcher m = {@link #withTitle(String) withTitle}("Save File");
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code Dialog}, that should be showing on the screen, by title:
-   * 
+   * </p>
+   *
    * <pre>
    * DialogMatcher m = {@link #withTitle(String) withTitle}("Save File").{@link #andShowing() andShowing}();
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param title the title to match. It can be a regular expression.
    * @return the created matcher.
    */
@@ -93,26 +89,24 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * <p>
    * Creates a new {@link DialogMatcher} that matches an AWT or Swing {@code Dialog} by title.
    * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code Dialog} title, using a regular expression pattern:
-   * 
+   * </p>
+   *
    * <pre>
    * DialogMatcher m = {@link #withTitle(Pattern) withTitle}(Pattern.compile("Sav.*"));
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code Dialog}, that should be showing on the screen, by title,
    * using a regular expression pattern:
-   * 
+   * </p>
+   *
    * <pre>
    * DialogMatcher m = {@link #withTitle(Pattern) withTitle}(Pattern.compile("Sav.*")).{@link #andShowing() andShowing}();
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return the created matcher.
    */
@@ -122,7 +116,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
 
   /**
    * Creates a new {@link DialogMatcher} that matches any {@code Dialog}.
-   * 
+   *
    * @return the created matcher.
    */
   public static @Nonnull DialogMatcher any() {
@@ -137,7 +131,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
   /**
    * Specifies the title to match. If this matcher was created using {@link #withTitle(String)} or
    * {@link #withTitle(Pattern)}, this method will simply update the title to match.
-   * 
+   *
    * @param newTitle the new title to match. It can be a regular expression.
    * @return this matcher.
    */
@@ -149,7 +143,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
   /**
    * Specifies the title to match. If this matcher was created using {@link #withTitle(String)}, or
    * {@link #withTitle(Pattern)} this method will simply update the title to match.
-   * 
+   *
    * @param titlePattern the regular expression pattern to match.
    * @return this matcher.
    */
@@ -160,7 +154,7 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
 
   /**
    * Indicates that the AWT or Swing {@code Dialog} to match should be showing on the screen.
-   * 
+   *
    * @return this matcher.
    */
   public @Nonnull DialogMatcher andShowing() {
@@ -172,12 +166,12 @@ public final class DialogMatcher extends NamedComponentMatcherTemplate<Dialog> {
    * <p>
    * Indicates whether the name and title of the given AWT or Swing {@code Dialog} match the ones in this matcher.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param dialog the {@code Dialog} to match.
    * @return {@code true} if the {@code Dialog} matches the search criteria in this matcher.
    */

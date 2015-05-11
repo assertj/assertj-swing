@@ -40,12 +40,12 @@ import org.assertj.swing.util.ToolkitProvider;
  * <p>
  * Supports functional testing of AWT or Swing {@code Frame}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -53,7 +53,7 @@ import org.assertj.swing.util.ToolkitProvider;
 public class FrameDriver extends WindowDriver {
   /**
    * Creates a new {@link FrameDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public FrameDriver(@Nonnull Robot robot) {
@@ -62,7 +62,7 @@ public class FrameDriver extends WindowDriver {
 
   /**
    * Iconifies the given AWT or Swing {@code Frame}.
-   * 
+   *
    * @param frame the given {@code Frame}.
    * @throws IllegalStateException if the {@code Frame} is not enabled.
    * @throws IllegalStateException if the {@code Frame} is not showing on the screen.
@@ -87,7 +87,7 @@ public class FrameDriver extends WindowDriver {
 
   /**
    * Deiconifies the given AWT or Swing {@code Frame}.
-   * 
+   *
    * @param frame the given {@code Frame}.
    * @throws IllegalStateException if the {@code Frame} is not enabled.
    * @throws IllegalStateException if the {@code Frame} is not showing on the screen.
@@ -100,7 +100,7 @@ public class FrameDriver extends WindowDriver {
 
   /**
    * Normalizes the given AWT or Swing {@code Frame}.
-   * 
+   *
    * @param frame the given {@code Frame}.
    * @throws IllegalStateException if the {@code Frame} is not enabled.
    * @throws IllegalStateException if the {@code Frame} is not showing on the screen.
@@ -113,11 +113,12 @@ public class FrameDriver extends WindowDriver {
 
   /**
    * Makes the AWT or Swing {@code Frame} full size.
-   * 
+   *
    * @param frame the target {@code Frame}.
    * @throws IllegalStateException if the {@code Frame} is not enabled.
    * @throws IllegalStateException if the {@code Frame} is not showing on the screen.
-   * @throws ActionFailedException if the operating system does not support maximizing frames.
+   * @throws org.assertj.swing.exception.ActionFailedException if the operating system does not support maximizing
+   *           frames.
    */
   @RunsInEDT
   public void maximize(@Nonnull Frame frame) {

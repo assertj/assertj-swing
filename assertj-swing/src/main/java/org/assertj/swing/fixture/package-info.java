@@ -14,33 +14,34 @@
  * <p>
  * Public API, source of FEST's power and flexibility. Although you can use the
  * {@link org.assertj.swing.core.BasicRobot} directly, it is too low-level and requires, in our opinion, too much code.
- * FEST fixtures can simplify creation and maintenance of functional GUI tests by:
- * 
+ * AssertJ-Swing fixtures can simplify creation and maintenance of functional GUI tests by:
+ * </p>
+ *
  * <ol>
  * <li>providing reliable lookup of GUI components (by component name or using custom criteria)</li>
  * <li>simulating user events on GUI components</li>
  * <li>providing assertion methods about the state of GUI components</li>
  * </ol>
- * </p>
- * 
+ *
  * <p>
- * The following example shows how easy is to use FEST fixtures. The test verifies that an error message is displayed if
- * the user enters her username but forgets to enter her password.
- * 
+ * The following example shows how easy is to use AssertJ-Swing fixtures. The test verifies that an error message is
+ * displayed if the user enters her username but forgets to enter her password.
+ * </p>
+ *
  * <pre>
  *   private {@link org.assertj.swing.fixture.FrameFixture} window;
- * 
+ *
  *   &#64;Before
  *   public void setUp() {
  *     window = new FrameFixture(new LoginWindow());
  *     window.show();
  *   }
- * 
+ *
  *   &#64;After
  *   public void tearDown() {
  *     window.cleanUp();
  *   }
- * 
+ *
  *   &#64;Test
  *   public void shouldCopyTextInLabelWhenClickingButton() {
  *     window.textBox(&quot;username&quot;).enterText(&quot;some.user&quot;);
@@ -48,27 +49,27 @@
  *     window.optionPane().requireErrorMessage().requireMessage(&quot;Please enter your password&quot;);
  *   }
  * </pre>
- * 
- * </p>
+ *
  * <p>
  * The test uses a {@link org.assertj.swing.fixture.FrameFixture} to launch the GUI to test ({@code LoginWindow}) and
  * find the GUI components in such window. This is the recommended way to use FEST. We could also use individual
  * fixtures to simulate user events, but it would result in more code to write and maintain:
- * 
+ * </p>
+ *
  * <pre>
  *   private {@link org.assertj.swing.core.BasicRobot} robot;
- * 
+ *
  *   &#64;Before
  *   public void setUp() {
  *     robot = BasicRobot.robotWithNewAwtHierarchy();
  *     robot.showWindow(new LoginWindow());
  *   }
- * 
+ *
  *   &#64;After
  *   public void tearDown() {
  *     robot.cleanUp();
  *   }
- * 
+ *
  *   &#64;Test
  *   public void shouldCopyTextInLabelWhenClickingButton() {
  *     new {@link org.assertj.swing.fixture.JTextComponentFixture}(robot, &quot;username&quot;).enterText(&quot;some.user&quot;);
@@ -76,8 +77,7 @@
  *     new {@link org.assertj.swing.fixture.JOptionPaneFixture}(robot).requireErrorMessage().requireMessage(&quot;Please enter your password&quot;);
  *   }
  * </pre>
- * 
- * </p>
+ *
  * <p>
  * <strong>Note:</strong> It is very important to clean up resources used by FEST (keyboard, mouse and opened windows)
  * after each test; otherwise, the FEST robot will keep control of them and can make your computer pretty much unusable.
@@ -88,8 +88,7 @@
  * Each fixture has the name of the GUI component it can control plus the word &quot;Fixture&quot; at the end. For
  * example, {@link org.assertj.swing.fixture.JButtonFixture} can simulate user events on {@code JButton}s.
  * </p>
- * *
- * 
+ *
  * @author Alex Ruiz
  */
 package org.assertj.swing.fixture;

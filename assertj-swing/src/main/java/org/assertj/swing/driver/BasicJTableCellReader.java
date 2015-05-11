@@ -32,7 +32,7 @@ import org.assertj.swing.cell.JTableCellReader;
 
 /**
  * Default implementation of {@link JTableCellReader}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -50,32 +50,34 @@ public class BasicJTableCellReader implements JTableCellReader {
 
   /**
    * Creates a new {@link BasicJTableCellReader}.
-   * 
+   *
    * @param reader knows how to read values from the cell renderer component in a {@code JTable}.
    * @throws NullPointerException if {@code reader} is {@code null}.
    */
   public BasicJTableCellReader(@Nonnull CellRendererReader reader) {
-    this.rendererReader = checkNotNull(reader);
+    rendererReader = checkNotNull(reader);
   }
 
   /**
    * <p>
    * Returns the internal value of a cell in a {@code JTable} as expected in a test. This method first tries to return
    * the value displayed in the {@code JTable}'s cell renderer.
+   * </p>
    * <ul>
    * <li>if the renderer is a {@code JLabel}, this method returns its text</li>
    * <li>if the renderer is a {@code JComboBox}, this method returns the value of its selection as a {@code String}</li>
    * <li>if the renderer is a {@code JCheckBox}, this method returns whether it is selected or not</li>
    * </ul>
+   * <p>
    * If it fails reading the cell renderer, this method will get the value from the {@code toString} implementation of
    * the object stored in the {@code JTable}'s model at the specified indices.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
@@ -113,12 +115,12 @@ public class BasicJTableCellReader implements JTableCellReader {
    * <p>
    * Returns the font of the cell renderer for the given {@code JTable} cell.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
@@ -135,7 +137,7 @@ public class BasicJTableCellReader implements JTableCellReader {
    * <p>
    * Returns the background color of the cell renderer for the given {@code JTable} cell.
    * </p>
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
@@ -152,12 +154,12 @@ public class BasicJTableCellReader implements JTableCellReader {
    * <p>
    * Returns the foreground color of the cell renderer for the given {@code JTable} cell.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.

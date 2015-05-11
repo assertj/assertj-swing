@@ -47,9 +47,10 @@ import org.fest.reflect.exception.ReflectionError;
  * <p>
  * Creates {@link KeyStrokeMapping}s by parsing a text file.
  * </p>
- * 
+ *
  * <p>
  * Mappings for the following characters:
+ * </p>
  * <ul>
  * <li>Backspace</li>
  * <li>Delete</li>
@@ -57,37 +58,40 @@ import org.fest.reflect.exception.ReflectionError;
  * <li>Escape</li>
  * <li>Tab</li>
  * </ul>
+ * <p>
  * will be automatically added and should <strong>not</strong> be included to the file to parse.
  * </p>
- * 
+ *
  * <p>
  * The following is an example of a mapping file:
- * 
+ * </p>
+ *
  * <pre>
  * a, A, NO_MASK
  * A, A, SHIFT_MASK
  * COMMA, COMMA, NO_MASK
  * </pre>
- * 
+ *
+ * <p>
  * Each line represents a character-keystroke mapping where each value is separated by a comma.
  * </p>
- * 
+ *
  * <p>
  * The first value represents the character to map. For example 'a' or 'A'. Since each field is separated by a comma, to
  * map the ',' character we need to specify the text "COMMA."
  * </p>
- * 
+ *
  * <p>
  * The second value represents the key code, which should be the name of a key code from {@link KeyEvent} without the
  * prefix "VK_". For example, if the key code is {@link KeyEvent#VK_COMMA} we just need to specify "COMMA".
  * </p>
- * 
+ *
  * <p>
  * The third value represents any modifiers to use, which should be the name of a modifier from a {@code InputEvent}.
  * For example, if the modifier to use is {@code InputEvent.SHIFT_MASK} we need to specify "SHIFT_MASK". If no modifiers
  * are necessary, we just specify "NO_MASK".
  * </p>
- * 
+ *
  * @author Olivier DOREMIEUX
  * @author Alex Ruiz
  */
@@ -103,11 +107,11 @@ public class KeyStrokeMappingsParser {
    * Creates a {@link KeyStrokeMappingProvider} containing all the character-keystroke mappings specified in the file
    * with the given name.
    * </p>
-   * 
+   *
    * <p>
    * <strong>Note:</strong> This attempts to read the file using {@link ClassLoader#getResourceAsStream(String)}.
    * </p>
-   * 
+   *
    * @param fileName the name of the file to parse.
    * @return the created {@code KeyStrokeMappingProvider}.
    * @throws NullPointerException if the given name is {@code null}.
@@ -135,7 +139,7 @@ public class KeyStrokeMappingsParser {
   /**
    * Creates a {@link KeyStrokeMappingProvider} containing all the character-keystroke mappings specified in the given
    * file.
-   * 
+   *
    * @param file the file to parse.
    * @return the created {@code KeyStrokeMappingProvider}.
    * @throws NullPointerException if the given file is {@code null}.

@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 
 /**
  * A cell in a {@code JTable}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class TableCell {
@@ -32,17 +32,16 @@ public class TableCell {
    * <p>
    * Starting point for the creation of a {@link TableCell}.
    * </p>
-   * 
+   *
    * <p>
    * Example:
-   * 
+   * </p>
+   *
    * <pre>
    * // import static org.assertj.swing.data.TableCell.row;
    * TableCell cell = row(5).column(3);
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param row the row index of the table cell to create.
    * @return the created builder.
    */
@@ -52,7 +51,7 @@ public class TableCell {
 
   /**
    * Factory of {@link TableCell}s.
-   * 
+   *
    * @author Alex Ruiz
    */
   public static class TableCellBuilder {
@@ -65,7 +64,7 @@ public class TableCell {
     /**
      * Creates a new table cell using the row index specified in {@link TableCellBuilder#row(int)} and the column index
      * specified as the argument in this method.
-     * 
+     *
      * @param column the column index of the table cell to create.
      * @return the created table cell.
      */
@@ -76,7 +75,7 @@ public class TableCell {
 
   /**
    * Creates a new {@link TableCell}.
-   * 
+   *
    * @param row the row of the cell.
    * @param column the column of the cell.
    */

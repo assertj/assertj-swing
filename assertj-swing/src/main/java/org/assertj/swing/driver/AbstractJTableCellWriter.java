@@ -47,7 +47,7 @@ import org.assertj.swing.exception.WaitTimedOutError;
 
 /**
  * Template for implementations of {@link JTableCellWriter}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -109,7 +109,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
 
   /**
    * Returns the editor for the given {@code JTable} cell. This method is executed in the EDT.
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
@@ -129,12 +129,12 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    * <p>
    * Scrolls the given {@code JTable} to the given cell.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
@@ -166,16 +166,17 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    * <p>
    * Finds the AWT or Swing {@code Component} used as editor for the given {@code JTable}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
-   * @param supportedType the type of component we expect as editor.
+   * @param <T> the type of component we expect as editor.
+   * @param supportedType the class of the type of component.
    * @return the component used as editor for the given table cell.
    * @throws IndexOutOfBoundsException if any of the indices is out of bounds or if the {@code JTable} does not have any
    *           rows.
@@ -188,7 +189,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    */
   @RunsInCurrentThread
   protected static @Nonnull <T extends Component> T editor(@Nonnull JTable table, int row, int column,
-      @Nonnull Class<T> supportedType) {
+                                                           @Nonnull Class<T> supportedType) {
     validate(table, row, column);
     Component editor = cellEditorIn(table, row, column);
     if (supportedType.isInstance(editor)) {
@@ -199,7 +200,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
 
   /**
    * Returns the location of the given table cell.
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
@@ -213,7 +214,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    */
   @RunsInEDT
   protected static @Nonnull Point cellLocation(final @Nonnull JTable table, final int row, final int column,
-      final @Nonnull JTableLocation location) {
+                                               final @Nonnull JTableLocation location) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected @Nullable Point executeInEDT() {
@@ -228,18 +229,18 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
   /**
    * <p>
    * Validates that:
+   * </p>
    * <ol>
    * <li>the given {@code JTable} is enabled and showing on the screen</li>
    * <li>the row and column indices are correct (not out of bounds)</li>
    * <li>the table cell at the given indices is editable</li>
    * </ol>
-   * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
@@ -258,34 +259,37 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
 
   /**
    * Waits until the editor of the given table cell is showing on the screen. Component lookup is performed by type.
-   * 
+   *
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
-   * @param supportedType the type of component we expect as editor.
+   * @param <T> the type of component we expect as editor.
+   * @param supportedType the class of the type of component.
    * @return the editor of the given table cell once it is showing on the screen.
    * @throws ActionFailedException if an editor for the given cell cannot be found or cannot be activated.
    */
   @RunsInEDT
   protected final @Nullable <T extends Component> T waitForEditorActivation(@Nonnull JTable table, int row, int column,
-      @Nonnull Class<T> supportedType) {
+                                                                            @Nonnull Class<T> supportedType) {
     return waitForEditorActivation(new TypeMatcher(supportedType, true), table, row, column, supportedType);
   }
 
   /**
    * Waits until the editor of the given table cell is showing on the screen.
-   * 
+   *
    * @param matcher the condition that the cell editor to look for needs to satisfy.
    * @param table the given {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
-   * @param supportedType the type of component we expect as editor.
+   * @param <T> the type of component we expect as editor.
+   * @param supportedType the class of the type of component.
    * @return the editor of the given table cell once it is showing on the screen.
    * @throws ActionFailedException if an editor for the given cell cannot be found or cannot be activated.
    */
   @RunsInEDT
   protected final @Nullable <T extends Component> T waitForEditorActivation(@Nonnull ComponentMatcher matcher,
-      @Nonnull JTable table, int row, int column, @Nonnull Class<T> supportedType) {
+                                                                            @Nonnull JTable table, int row, int column,
+                                                                            @Nonnull Class<T> supportedType) {
     ComponentFoundCondition condition = new ComponentFoundCondition("", robot.finder(), matcher, table);
     try {
       pause(condition, EDITOR_LOOKUP_TIMEOUT);
@@ -298,7 +302,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
   /**
    * Throws a {@link ActionFailedException} if this {@link JTableCellWriter} could not find or activate the cell editor
    * of the supported type.
-   * 
+   *
    * @param row the row index of the cell.
    * @param column the column index of the cell.
    * @return the thrown exception.
@@ -317,7 +321,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
 
   /**
    * Sets the cell editor being currently used.
-   * 
+   *
    * @param newCellEditor the cell editor being currently used.
    */
   protected final void cellEditor(@Nullable TableCellEditor newCellEditor) {

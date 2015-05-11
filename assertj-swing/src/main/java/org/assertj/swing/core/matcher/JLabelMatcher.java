@@ -22,7 +22,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Matches {@code JLabel}s by name, text or visibility on the screen.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
@@ -32,26 +32,24 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * <p>
    * Creates a new {@link JLabelMatcher} that matches a {@code JLabel} by text.
    * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code JLabel} by name and text:
-   * 
+   * </p>
+   *
    * <pre>
    * JLabelMatcher m = {@link #withName(String) withName}("firstName").{@link #andText(String) andText}("First Name:");
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code JLabel}, that should be showing on the screen, by name and
    * text:
-   * 
+   * </p>
+   *
    * <pre>
    * JLabelMatcher m = {@link #withName(String) withName}("firstName").{@link #andText(String) andText}("First Name:").{@link #andShowing() andShowing}();
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param name the id to match.
    * @return the created matcher.
    */
@@ -63,25 +61,23 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * <p>
    * Creates a new {@link JLabelMatcher} that matches a {@code JLabel} by text.
    * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code JLabel} by text:
-   * 
+   * </p>
+   *
    * <pre>
    * JLabelMatcher m = {@link #withText(String) withText}("First Name:");
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code JLabel}, that should be showing on the screen, by text:
-   * 
+   * </p>
+   *
    * <pre>
    * JLabelMatcher m = {@link #withText(String) withText}("First Name:").{@link #andShowing() andShowing}();
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param text the text to match. It can be a regular expression.
    * @return the created matcher.
    */
@@ -93,25 +89,23 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * <p>
    * Creates a new {@link JLabelMatcher} that matches a {@code JLabel} by text.
    * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code JLabel} by text:
-   * 
+   * </p>
+   *
    * <pre>
    * JLabelMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("F.*");
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code JLabel}, that should be showing on the screen, by text:
-   * 
+   * </p>
+   *
    * <pre>
    * JLabelMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("F.*").{@link #andShowing() andShowing}();
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param textPattern the regular expression pattern to match.
    * @return the created matcher.
    */
@@ -121,7 +115,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
 
   /**
    * Creates a new {@link JLabelMatcher} that matches any {@code JLabel}.
-   * 
+   *
    * @return the created matcher.
    */
   public static @Nonnull JLabelMatcher any() {
@@ -136,7 +130,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
   /**
    * Specifies the text to match. If this matcher was created using {@link #withText(String)} or
    * {@link #withText(Pattern)}, this method will simply update the text to match.
-   * 
+   *
    * @param newText the new text to match. It can be a regular expression.
    * @return this matcher.
    */
@@ -148,7 +142,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
   /**
    * Specifies the text to match. If this matcher was created using {@link #withText(String)} or
    * {@link #withText(Pattern)}, this method will simply update the text to match.
-   * 
+   *
    * @param textPattern the regular expression pattern to match.
    * @return this matcher.
    */
@@ -159,7 +153,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
 
   /**
    * Indicates that the {@code JLabel} to match should be showing on the screen.
-   * 
+   *
    * @return this matcher.
    */
   public JLabelMatcher andShowing() {
@@ -171,12 +165,12 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * <p>
    * Indicates whether the name and text of the given {@code JLabel} match the ones in this matcher.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param label the {@code JLabel} to match.
    * @return {@code true} if the text in the {@code JLabel} is equal to the text in this matcher, {@code false}
    *         otherwise.

@@ -24,9 +24,9 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 /**
  * {@link ComponentMatcher} that matches an AWT or Swing {@code Component} by type and some custom search criteria. It
  * uses generics to improve type safety.
- * 
+ *
  * @param <T> the type of {@code Component} supported by this matcher.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -35,7 +35,7 @@ public abstract class GenericTypeMatcher<T extends Component> extends AbstractCo
 
   /**
    * Creates a new {@link GenericTypeMatcher}. The {@code Component} to match does not have to be showing.
-   * 
+   *
    * @param supportedType the type supported by this matcher.
    * @throws NullPointerException if the given type is {@code null}.
    */
@@ -45,7 +45,7 @@ public abstract class GenericTypeMatcher<T extends Component> extends AbstractCo
 
   /**
    * Creates a new {@link GenericTypeMatcher}.
-   * 
+   *
    * @param supportedType the type supported by this matcher.
    * @param requireShowing indicates if the {@code Component} to match should be showing or not.
    * @throws NullPointerException if the given type is {@code null}.
@@ -58,17 +58,17 @@ public abstract class GenericTypeMatcher<T extends Component> extends AbstractCo
   /**
    * <p>
    * Verifies that the given AWT or Swing {@code Component}:
+   * </p>
    * <ol>
    * <li>Is an instance of the generic type specified in this {@link ComponentMatcher}</li>
    * <li>Matches some search criteria</li>
    * </ol>
-   * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the {@code Component} to verify.
    * @return {@code true} if the given {@code Component} is an instance of the generic type of this matcher and matches
    *         some search criteria. Otherwise, {@code false}.
@@ -100,12 +100,12 @@ public abstract class GenericTypeMatcher<T extends Component> extends AbstractCo
    * <p>
    * Verifies that the given AWT or Swing {@code Component} matches some search criteria.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param component the {@code Component} to verify.
    * @return {@code true} if the given {@code Component} matches the defined search criteria; otherwise, {@code false} .
    */

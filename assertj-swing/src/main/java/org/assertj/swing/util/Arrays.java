@@ -27,7 +27,7 @@ import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * Utility methods for arrays.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class Arrays {
@@ -37,7 +37,7 @@ public final class Arrays {
 
   /**
    * Verifies that the given {@code String} arrays are equal.
-   * 
+   *
    * @param one the first array.
    * @param two the second array.
    * @return {@code true} if the arrays are equal, {@code false} otherwise.
@@ -76,21 +76,21 @@ public final class Arrays {
 
   /**
    * Formats a two-dimensional {@code String} array. For example, the array:
-   * 
+   *
    * <pre>
    * String[][] array = { { &quot;0-0&quot;, &quot;0-1&quot;, &quot;0-2&quot; }, { &quot;1-0&quot;, &quot;1-1&quot;, &quot;1-2&quot; }, { &quot;2-0&quot;, &quot;2-1&quot;, &quot;2-2&quot; },
    *     { &quot;3-0&quot;, &quot;3-1&quot;, &quot;3-2&quot; }, };
    * </pre>
-   * 
+   *
    * will be formatted as:
-   * 
+   *
    * <pre>
    * [['0-0', '0-1', '0-2'],
    *  ['1-0', '1-1', '1-2'],
    *  ['2-0', '2-1', '2-2'],
    *  ['3-0', '3-1', '3-2']]
    * </pre>
-   * 
+   *
    * @param array the array to format.
    * @return the data of the given array formatted to make it easier to read.
    */
@@ -138,7 +138,7 @@ public final class Arrays {
 
   /**
    * Creates and returns a copy of the given array.
-   * 
+   *
    * @param array the array to copy.
    * @return the created copy.
    * @throws NullPointerException if the array to copy is {@code null}.
@@ -156,6 +156,7 @@ public final class Arrays {
   /**
    * Creates and returns a copy of the given array.
    * 
+   * @param <T> the type of the values in this array.
    * @param array the array to copy.
    * @return the created copy.
    * @throws NullPointerException if the array to copy is {@code null}.

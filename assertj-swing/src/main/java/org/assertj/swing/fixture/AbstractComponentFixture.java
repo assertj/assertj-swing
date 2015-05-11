@@ -28,22 +28,18 @@ import org.assertj.swing.core.KeyPressInfo;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.Settings;
 import org.assertj.swing.driver.ComponentDriver;
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.query.ComponentEnabledQuery;
 import org.assertj.swing.timing.Timeout;
 
 /**
  * Supports functional testing of AWT and Swing {@code Component}s.
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
  *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @param <C> the type of {@code Component} that this fixture can manage.
  * @param <D> the type of {@link ComponentDriver} that this fixture uses internally.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -68,14 +64,14 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Creates a new {@link AbstractComponentFixture}.
-   * 
+   *
    * @param selfType the "self type."
    * @param robot performs simulation of user events on a {@code Component}.
    * @param type the type of the {@code Component} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   public AbstractComponentFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
     this(selfType, robot, findTarget(robot, type));
@@ -89,23 +85,23 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Creates a new {@link AbstractComponentFixture}.
-   * 
+   *
    * @param selfType the "self type."
    * @param robot performs simulation of user events on a {@code Component}.
    * @param name the name of the {@code Component} to find using the given {@code Robot}.
    * @param type the type of the {@code Component} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   public AbstractComponentFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
-      @Nonnull Class<? extends C> type) {
+                                  @Nonnull Class<? extends C> type) {
     this(selfType, robot, findTarget(robot, name, type));
   }
 
   private static @Nonnull <C extends Component> C findTarget(@Nonnull Robot robot, @Nullable String name,
-      @Nonnull Class<? extends C> type) {
+                                                             @Nonnull Class<? extends C> type) {
     checkNotNull(robot);
     checkNotNull(type);
     return robot.finder().findByName(name, type, requireShowing(robot));
@@ -113,7 +109,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Creates a new {@link AbstractComponentFixture}.
-   * 
+   *
    * @param selfType the "self type."
    * @param robot performs simulation of user events on the given {@code Component}.
    * @param target the {@code Component} to be managed by this fixture.
@@ -140,7 +136,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Simulates a user clicking this fixture's {@code Component}.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
@@ -153,7 +149,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Simulates a user clicking this fixture's {@code Component}.
-   * 
+   *
    * @param button the button to click.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
@@ -168,7 +164,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Simulates a user clicking this fixture's {@code Component}.
-   * 
+   *
    * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
@@ -183,7 +179,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Simulates a user double-clicking this fixture's {@code Component}.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
@@ -196,7 +192,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Simulates a user right-clicking this fixture's {@code Component}.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
@@ -209,7 +205,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Gives input focus to this fixture's {@code Component}.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
@@ -222,7 +218,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
   /**
    * Simulates a user pressing given key with the given modifiers on this fixture's {@code Component}. Modifiers is a
    * mask from the available AWT {@code InputEvent} masks.
-   * 
+   *
    * @param keyPressInfo specifies the key and modifiers to press.
    * @return this fixture.
    * @throws NullPointerException if the given {@code KeyPressInfo} is {@code null}.
@@ -238,7 +234,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Simulates a user pressing and releasing the given keys on this fixture's {@code Component}.
-   * 
+   *
    * @param keyCodes one or more codes of the keys to press.
    * @return this fixture.
    * @throws NullPointerException if the given array of codes is {@code null}.
@@ -254,7 +250,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Simulates a user pressing the given key on this fixture's {@code Component}.
-   * 
+   *
    * @param keyCode the code of the key to press.
    * @return this fixture.
    * @throws IllegalArgumentException if any of the given code is not a valid key code.
@@ -269,7 +265,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Simulates a user releasing the given key on this fixture's {@code Component}.
-   * 
+   *
    * @param keyCode the code of the key to release.
    * @return this fixture.
    * @throws IllegalArgumentException if any of the given code is not a valid key code.
@@ -284,7 +280,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Asserts that this fixture's {@code Component} has input focus.
-   * 
+   *
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code Component} does not have input focus.
    */
@@ -295,7 +291,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Asserts that this fixture's {@code Component} is enabled.
-   * 
+   *
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code Component} is disabled.
    */
@@ -306,10 +302,10 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Asserts that this fixture's {@code Component} is enabled.
-   * 
+   *
    * @param timeout the time this fixture will wait for the component to be enabled.
    * @return this fixture.
-   * @throws WaitTimedOutError if this fixture's {@code Component} is never enabled.
+   * @throws org.assertj.swing.exception.WaitTimedOutError if this fixture's {@code Component} is never enabled.
    */
   public final @Nonnull S requireEnabled(@Nonnull Timeout timeout) {
     driver.requireEnabled(target(), timeout);
@@ -318,7 +314,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Asserts that this fixture's {@code Component} is disabled.
-   * 
+   *
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code Component} is enabled.
    */
@@ -329,7 +325,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Asserts that this fixture's {@code Component} is visible.
-   * 
+   *
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code Component} is not visible.
    */
@@ -340,7 +336,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Asserts that this fixture's {@code Component} is not visible.
-   * 
+   *
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code Component} is visible.
    */
@@ -351,9 +347,9 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Returns whether showing components are the only ones participating in a component lookup. The returned value is
-   * obtained from the {@link Settings#componentLookupScope() component lookup scope} stored in this fixture's
-   * {@link Robot}.
-   * 
+   * obtained from the {@link org.assertj.swing.core.Settings#componentLookupScope() component lookup scope} stored in
+   * this fixture's {@link Robot}.
+   *
    * @return {@code true} if only showing components can participate in a component lookup, {@code false} otherwise.
    */
   protected boolean requireShowing() {
@@ -390,7 +386,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Indicates whether this fixture's {@code Component} is enabled.
-   * 
+   *
    * @return {@code true} if this fixture's {@code Component} is enabled; {@code false} otherwise.
    */
   public final boolean isEnabled() {
@@ -399,8 +395,9 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
 
   /**
    * Returns this fixture's {@code Component} casted to the given sub-type.
-   * 
-   * @param type the type that the managed {@code Component} will be casted to.
+   *
+   * @param <T> the type that the managed {@code Component} will be casted to.
+   * @param type the class for the type of component.
    * @return this fixture's {@code Component} casted to the given sub-type.
    * @throws AssertionError if this fixture's {@code Component} is not an instance of the given type.
    */
@@ -416,12 +413,12 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * <p>
    * <strong>Note:</strong> Access to the GUI component returned by this method <em>must</em> be executed in the event
    * dispatch thread (EDT.) To do so, please execute a {@link org.assertj.swing.edt.GuiQuery GuiQuery} or
-   * {@link org.assertj.swing.edt.GuiTask GuiTask} (depending on what you need to do,) inside a {@link GuiActionRunner}.
-   * To learn more about Swing threading, please read the <a
+   * {@link org.assertj.swing.edt.GuiTask GuiTask} (depending on what you need to do,) inside a
+   * {@link org.assertj.swing.edt.GuiActionRunner}. To learn more about Swing threading, please read the <a
    * href="http://java.sun.com/javase/6/docs/api/javax/swing/package-summary.html#threading" target="_blank">Swing
    * Threading Policy</a>.
    * </p>
-   * 
+   *
    * @return the GUI component in this fixture.
    */
   public final @Nonnull C target() {

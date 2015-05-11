@@ -19,7 +19,7 @@ import org.assertj.core.data.Offset;
 
 /**
  * A color.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -35,8 +35,8 @@ public final class RgbColor {
   public final int b;
 
   /**
-   * Creates a new </code>{@link RgbColor}</code>.
-   * 
+   * Creates a new <code>{@link RgbColor}</code>.
+   *
    * @param rgb a value representing a RGB combination.
    * @return the created color.
    */
@@ -56,7 +56,7 @@ public final class RgbColor {
 
   /**
    * Indicates whether the given <code>{@link RgbColor}</code> is equal to this one.
-   * 
+   *
    * @param color the {@code RgbColor} to compare this one to.
    * @param offset used to tolerate a difference between the individual components of the {@code RgbColor}s to compare.
    * @return {@code true} if the given {@code RgbColor} is equal to this one; {@code false} otherwise.

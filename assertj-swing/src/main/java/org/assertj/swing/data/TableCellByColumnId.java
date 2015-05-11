@@ -33,17 +33,16 @@ import org.assertj.swing.exception.ActionFailedException;
  * <p>
  * Looks up a cell in a {@code JTable} by column identifier.
  * </p>
- * 
+ *
  * <p>
  * Example:
- * 
+ * </p>
+ *
  * <pre>
  * // import static org.assertj.swing.data.TableCellByColumnId.row;
  * {@link TableCell} cell = dialog.table("records").cell({@link TableCellByColumnId#row(int) row}(3).columnId("firstColumn"));
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 public class TableCellByColumnId implements TableCellFinder {
@@ -54,14 +53,13 @@ public class TableCellByColumnId implements TableCellFinder {
    * Starting point for the creation of a {@link TableCellByColumnId}.
    * <p>
    * Example:
-   * 
+   * </p>
+   *
    * <pre>
    * // import static org.assertj.swing.data.TableCellByColumnId.row;
    * TableCellByColumnId cell = row(5).columnId(&quot;hobbyColumn&quot;);
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param row the row index of the table cell to find.
    * @return the created builder.
    */
@@ -71,7 +69,7 @@ public class TableCellByColumnId implements TableCellFinder {
 
   /**
    * Factory of {@link TableCellByColumnId}s.
-   * 
+   *
    * @author Alex Ruiz
    */
   public static class TableCellBuilder {
@@ -84,7 +82,7 @@ public class TableCellByColumnId implements TableCellFinder {
     /**
      * Creates a new table cell finder using the row index specified in {@link TableCellByColumnId#row(int)} and the
      * column id specified as the argument in this method.
-     * 
+     *
      * @param columnId the name of the column in the table cell to find.
      * @return the created finder.
      */
@@ -100,11 +98,11 @@ public class TableCellByColumnId implements TableCellFinder {
 
   /**
    * Finds a cell in the given {@code JTable} that has a matching row index and column id.
-   * 
+   *
    * @param table the target {@code JTable}.
    * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
    * @return the cell found, if any.
-   * @throws ActionFailedException if a matching cell could not be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if a matching cell could not be found.
    */
   @RunsInEDT
   @Override

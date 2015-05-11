@@ -22,23 +22,21 @@ import javax.swing.JTable;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.exception.ActionFailedException;
 
 /**
  * <p>
  * Looks up a cell in the first selected row of a {@code JTable}.
  * </p>
- * 
+ *
  * <p>
  * Example:
- * 
+ * </p>
+ *
  * <pre>
  * // import static org.assertj.swing.data.TableCellInSelectedRow.row;
  * {@link TableCell} cell = dialog.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 public class TableCellInSelectedRow implements TableCellFinder {
@@ -46,17 +44,16 @@ public class TableCellInSelectedRow implements TableCellFinder {
    * <p>
    * Starting point for the creation of a {@link TableCellInSelectedRow}.
    * </p>
-   * 
+   *
    * <p>
    * Example:
-   * 
+   * </p>
+   *
    * <pre>
    * // import static org.assertj.swing.data.TableCellInSelectedRow.row;
    * TableCellInSelectedRow cell = selectedRow().column(2);
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @return the created builder.
    */
   public static @Nonnull TableCellBuilder selectedRow() {
@@ -65,13 +62,13 @@ public class TableCellInSelectedRow implements TableCellFinder {
 
   /**
    * Factory of {@link TableCellInSelectedRow}s.
-   * 
+   *
    * @author Alex Ruiz
    */
   public static class TableCellBuilder {
     /**
      * Creates a new table cell finder.
-     * 
+     *
      * @param column the column index of the cell to find.
      * @return the created finder.
      */
@@ -88,11 +85,11 @@ public class TableCellInSelectedRow implements TableCellFinder {
 
   /**
    * Finds a cell in the given {@code JTable} that belongs to the first selected row and has a matching column index.
-   * 
+   *
    * @param table the target {@code JTable}.
    * @param cellReader knows how to read the contents of a cell in a {@code JTable}.
    * @return the cell found, if any.
-   * @throws ActionFailedException if a matching cell could not be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if a matching cell could not be found.
    */
   @Override
   public @Nonnull TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {

@@ -20,22 +20,21 @@ import javax.annotation.Nonnull;
  * <p>
  * A range (from, to.)
  * </p>
- * 
+ *
  * <p>
  * Usage:
- * 
+ * </p>
+ *
  * <pre>
  * Range range = {@link #from(int) from}(0).{@link #to(int) to}(8);
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 public final class Range {
   /**
    * Creates a new {@link From}, representing the starting value of a range.
-   * 
+   *
    * @param value the starting value of the range.
    * @return the created {@code From}.
    */
@@ -45,7 +44,7 @@ public final class Range {
 
   /**
    * Creates a new {@link To}, representing the ending value of a range.
-   * 
+   *
    * @param value the ending value of the range.
    * @return the created {@code To}.
    */
@@ -55,9 +54,9 @@ public final class Range {
 
   /**
    * Starting value of a range.
-   * 
+   *
    * @see Range
-   * 
+   *
    * @author Alex Ruiz
    */
   public static class From {
@@ -90,9 +89,9 @@ public final class Range {
 
   /**
    * Ending value of a range.
-   * 
+   *
    * @see Range
-   * 
+   *
    * @author Alex Ruiz
    */
   public static class To {

@@ -16,11 +16,11 @@ import javax.annotation.Nonnull;
 
 /**
  * A tuple of size 3.
- * 
+ *
  * @param <F> the generic type of the 1st. value in this tuple.
  * @param <S> the generic type of the 2nd. value in this tuple.
  * @param <T> the generic type of the 3rd. value in this tuple.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Triple<F, S, T> extends Pair<F, S> {
@@ -30,6 +30,9 @@ public class Triple<F, S, T> extends Pair<F, S> {
   /**
    * Creates a new {@link Triple}.
    * 
+   * @param <F> the generic type of the 1st. value in this tuple.
+   * @param <S> the generic type of the 2nd. value in this tuple.
+   * @param <T> the generic type of the 3rd. value in this tuple.
    * @param first the 1st. value in this tuple.
    * @param second the 2nd. value in this tuple.
    * @param third the 3rd. value in this tuple.

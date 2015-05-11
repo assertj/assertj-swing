@@ -25,39 +25,40 @@ import org.assertj.swing.core.GenericTypeMatcher;
  * Looks up {@code Frame}s and {@code Dialog}s. Lookups are performed till the window of interest is found, or until the
  * given time to perform the lookup is over. The default lookup time is 5 seconds.
  * </p>
- * 
+ *
  * <p>
  * {@link WindowFinder} is the &quot;entry point&quot; of a fluent interface to look up frames and dialogs. This example
  * illustrates finding a {@code Frame} by name, using the default lookup time (5 seconds):
- * 
+ * </p>
+ *
  * <pre>
  * FrameFixture frame = WindowFinder.findFrame(&quot;someFrame&quot;).using(robot);
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * Where {@code robot} is an instance of {@link org.assertj.swing.core.Robot}.
  * </p>
- * 
+ *
  * <p>
  * This example shows how to find a {@code Dialog} by type using a lookup time of 10 seconds:
- * 
+ * </p>
+ *
  * <pre>
  * DialogFixture dialog = WindowFinder.findDialog(MyDialog.class).withTimeout(10000).using(robot);
  * </pre>
- * 
+ *
+ * <p>
  * We can also specify the time unit:
- * 
+ * </p>
+ *
  * <pre>
  * DialogFixture dialog = WindowFinder.findDialog(MyDialog.class).withTimeout(10, {@link java.util.concurrent.TimeUnit#SECONDS SECONDS}).using(robot);
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * This example shows how to use a {@link GenericTypeMatcher} to find a {@code Frame} with title "Hello":
- * 
+ * </p>
+ *
  * <pre>
  * GenericTypeMatcher&lt;JFrame&gt; matcher = new GenericTypeMatcher&lt;JFrame&gt;() {
  *   protected boolean isMatching(JFrame frame) {
@@ -66,9 +67,7 @@ import org.assertj.swing.core.GenericTypeMatcher;
  * };
  * FrameFixture frame = WindowFinder.findFrame(matcher).using(robot);
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -78,7 +77,7 @@ public final class WindowFinder {
 
   /**
    * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} by name.
-   * 
+   *
    * @param frameName the name of the frame to find.
    * @return the created finder.
    */
@@ -88,7 +87,7 @@ public final class WindowFinder {
 
   /**
    * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} by type.
-   * 
+   *
    * @param frameType the type of the frame to find.
    * @return the created finder.
    */
@@ -98,7 +97,7 @@ public final class WindowFinder {
 
   /**
    * Creates a new {@link FrameFinder} capable of looking up a {@code Frame} using the provided matcher.
-   * 
+   *
    * @param matcher the matcher to use to find a frame.
    * @return the created finder.
    */
@@ -108,7 +107,7 @@ public final class WindowFinder {
 
   /**
    * Creates a new {@link DialogFinder} capable of looking up a {@code Dialog} by name.
-   * 
+   *
    * @param dialogName the name of the dialog to find.
    * @return the created finder.
    */
@@ -118,7 +117,7 @@ public final class WindowFinder {
 
   /**
    * Creates a new {@link DialogFinder} capable of looking up a {@code Dialog} by type.
-   * 
+   *
    * @param dialogType the type of the dialog to find.
    * @return the created finder.
    */
@@ -128,7 +127,7 @@ public final class WindowFinder {
 
   /**
    * Creates a new {@link DialogFinder} capable of looking up a {@code Dialog} using the provided matcher.
-   * 
+   *
    * @param matcher the matcher to use to find a dialog.
    * @return the created finder.
    */

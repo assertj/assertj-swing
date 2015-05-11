@@ -21,45 +21,42 @@ import static org.fest.reflect.core.Reflection.method;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.exception.UnexpectedException;
-import org.fest.reflect.exception.ReflectionError;
 
 /**
  * <p>
  * Executes a Java application from a class that has a "main" method.
  * </p>
- * 
+ *
  * <p>
  * The following example shows how to start an application without any arguments:
- * 
+ * </p>
+ *
  * <pre>
  * ApplicationLauncher.application(JavaApp.class).start();
- * 
+ *
  * // or
- * 
+ *
  * ApplicationLauncher.{@link #application(String) application}(&quot;org.assertj.swing.application.JavaApp&quot;).{@link #start() start}();
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * The following example shows how to start an application with arguments:
- * 
+ * </p>
+ *
  * <pre>
  * ApplicationLauncher.{@link #application(Class) application}(JavaApp.class).{@link #withArgs(String...) withArgs}(&quot;arg1&quot;, &quot;arg2&quot;).{@link #start() start}();
- * 
+ *
  * // or
- * 
+ *
  * ApplicationLauncher.{@link #application(String) application}(&quot;org.assertj.swing.application.JavaApp&quot;).{@link #withArgs(String...) withArgs}(&quot;arg1&quot;, &quot;arg2&quot;).{@link #start() start}();
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Yvonne Wang
  */
 public class ApplicationLauncher {
   /**
    * Starting point of the fluent interface.
-   * 
+   *
    * @param applicationTypeName the fully qualified name of the class containing the "main" method.
    * @return the created {@code ApplicationStarter}.
    * @throws UnexpectedException if the class specified in the given name cannot be loaded.
@@ -75,7 +72,7 @@ public class ApplicationLauncher {
 
   /**
    * Starting point of the fluent interface.
-   * 
+   *
    * @param applicationType the class containing the "main" method.
    * @return the created {@code ApplicationStarter}.
    */
@@ -93,7 +90,7 @@ public class ApplicationLauncher {
   /**
    * Specifies the arguments to pass to the "main" method. Please note that the arguments to pass are specific to your
    * application. JVM-specific arguments are ignored (e.g. -Xms, -Xmx)
-   * 
+   *
    * @param newArgs the arguments to pass to the "main" method.
    * @return this {@code ApplicationStarter}.
    * @throws NullPointerException if {@code newArgs} is {@code null}.
@@ -105,8 +102,8 @@ public class ApplicationLauncher {
 
   /**
    * Starts the application.
-   * 
-   * @throws ReflectionError if the "main" method cannot be invoked.
+   *
+   * @throws org.fest.reflect.exception.ReflectionError if the "main" method cannot be invoked.
    */
   public void start() {
     method("main").withParameterTypes(String[].class).in(applicationType).invoke(new Object[] { args });

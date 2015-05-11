@@ -18,19 +18,21 @@ import javax.annotation.Nonnull;
  * <p>
  * Fluent interface for creation of {@code Applet} parameters.
  * </p>
- * 
+ *
  * <p>
  * For example, the following code listing:
- * 
+ * </p>
+ *
  * <pre>
  * // import static org.assertj.swing.launcher.AppletParameter.name;
- * 
+ *
  * AppletParameter p = {@link #name(String) name}(&quot;bgcolor&quot;).{@link AppletParameterBuilder#value(String) value}(&quot;blue&quot;);
  * </pre>
- * 
+ *
+ * <p>
  * will create an applet parameter with name "bgcolor" and value "blue."
  * </p>
- * 
+ *
  * @author Yvonne Wang
  */
 public class AppletParameter {
@@ -44,7 +46,7 @@ public class AppletParameter {
 
   /**
    * Starting point of the fluent interface for creation of {@link AppletParameter}s.
-   * 
+   *
    * @param name the name of the {@code Applet} parameter.
    * @return a builder of {@code AppletParameter}s.
    */
@@ -54,7 +56,7 @@ public class AppletParameter {
 
   /**
    * Builder for instances of {@link AppletParameter}.
-   * 
+   *
    * @author Yvonne Wang
    */
   public static class AppletParameterBuilder {
@@ -66,7 +68,7 @@ public class AppletParameter {
 
     /**
      * Creates a new {@link AppletParameter} with the given name and value.
-     * 
+     *
      * @param value the value for the {@code AppletParameter}.
      * @return the created {@code AppletParameter}.
      */

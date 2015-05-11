@@ -59,12 +59,12 @@ import org.assertj.swing.timing.Timeout;
 
 /**
  * Looks up AWT or Swing {@code Component}s contained in a {@code Container}.
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
  *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @param <C> the type of {@code Container} that this fixture can manage.
  * @param <D> the type of {@link ComponentDriver} that this fixture uses internally.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -76,14 +76,14 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 
   /**
    * Creates a new {@link AbstractContainerFixture}.
-   * 
+   *
    * @param selfType the "self type."
    * @param robot performs simulation of user events on a {@code Container}.
    * @param type the type of the {@code Container} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see org.assertj.swing.core.ComponentFinder#findByType(Class)
    */
   public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends C> type) {
@@ -93,26 +93,26 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 
   /**
    * Creates a new {@link AbstractContainerFixture}.
-   * 
+   *
    * @param selfType the "self type."
    * @param robot performs simulation of user events on a {@code Container}.
    * @param name the name of the {@code Container} to find using the given {@code Robot}.
    * @param type the type of the {@code Container} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    * @see org.assertj.swing.core.ComponentFinder#findByName(String, Class)
    */
   public AbstractContainerFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
-      @Nonnull Class<? extends C> type) {
+                                  @Nonnull Class<? extends C> type) {
     super(selfType, robot, name, type);
     menuItemFinder = new JMenuItemFinder(robot, target());
   }
 
   /**
    * Creates a new {@link AbstractContainerFixture}.
-   * 
+   *
    * @param selfType the "self type."
    * @param robot performs simulation of user events on the given {@code Container}.
    * @param target the {@code Container} to be.
@@ -246,7 +246,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
   @RunsInEDT
   @Override
   public @Nonnull JFileChooserFixture fileChooser(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher,
-      @Nonnull Timeout timeout) {
+                                                  @Nonnull Timeout timeout) {
     return findFileChooser(matcher, timeout);
   }
 
@@ -597,11 +597,12 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 
   /**
    * Finds a component by type, contained in this fixture's {@code Container}.
-   * 
-   * @param type the type of component to find.
+   *
+   * @param <T> the type of component to find.
+   * @param type the class for the type.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   protected final @Nonnull <T extends Component> T findByType(@Nonnull Class<T> type) {
     return finder().findByType(target(), type, requireShowing());
@@ -609,12 +610,13 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 
   /**
    * Finds a component by name and type, contained in this fixture's {@code Container}.
-   * 
+   *
    * @param name the name of the component to find.
-   * @param type the type of component to find.
+   * @param <T> the type of component to find.
+   * @param type the class for the type.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   protected final @Nonnull <T extends Component> T findByName(@Nullable String name, @Nonnull Class<T> type) {
     return finder().findByName(target(), name, type, requireShowing());
@@ -623,11 +625,12 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
   /**
    * Finds a {@code Component} using the given {@link GenericTypeMatcher}, contained in this fixture's {@code Container}
    * .
-   * 
+   *
+   * @param <T> the type of component to find.
    * @param matcher the matcher to use to find the component.
    * @return the found component.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   protected final @Nonnull <T extends Component> T find(@Nonnull GenericTypeMatcher<? extends T> matcher) {
     return finder().find(target(), matcher);
@@ -636,7 +639,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
   @RunsInEDT
   @Override
   public @Nonnull <T extends Component, F extends AbstractComponentFixture<?, T, ?>> F with(
-      @Nonnull ComponentFixtureExtension<T, F> extension) {
+                                                                                            @Nonnull ComponentFixtureExtension<T, F> extension) {
     return extension.createFixture(robot(), target());
   }
 

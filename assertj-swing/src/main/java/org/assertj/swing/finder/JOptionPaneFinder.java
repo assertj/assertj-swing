@@ -29,38 +29,39 @@ import org.assertj.swing.fixture.JOptionPaneFixture;
  * Finder for {@code JOptionPane}s. Lookups are performed till a file chooser is found, or until the given time to
  * perform the lookup is over. The default lookup time is 5 seconds.
  * </p>
- * 
+ *
  * <p>
  * This example illustrates finding a {@code JOptionPane} by name, using the default lookup time (5 seconds):
- * 
+ * </p>
+ *
  * <pre>
  * JOptionPaneFixture optionPane = JOptionPaneFinder.findOptionPane().using(robot);
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * Where {@code robot} is an instance of {@link org.assertj.swing.core.Robot}.
  * </p>
- * 
+ *
  * <p>
  * This example shows how to find a {@code JOptionPane} by type using a lookup time of 10 seconds:
- * 
+ * </p>
+ *
  * <pre>
  * JOptionPaneFixture optionPane = JOptionPaneFinder.findOptionPane().withTimeout(10000).using(robot);
  * </pre>
- * 
+ *
+ * <p>
  * We can also specify the time unit:
- * 
+ * </p>
+ *
  * <pre>
  * JOptionPaneFixture optionPane = JOptionPaneFinder.findOptionPane().withTimeout(10, {@link TimeUnit#SECONDS SECONDS}).using(robot);
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * This example shows how to find a {@code JOptionPane} using a {@link GenericTypeMatcher}:
- * 
+ * </p>
+ *
  * <pre>
  * GenericTypeMatcher&lt;JOptionPane&gt; matcher = new GenericTypeMatcher&lt;JOptionPane&gt;() {
  *   protected boolean isMatching(JOptionPane optionPane) {
@@ -69,9 +70,7 @@ import org.assertj.swing.fixture.JOptionPaneFixture;
  * };
  * JOptionPaneFixture optionPane = JOptionPaneFinder.findOptionPane(matcher).using(robot);
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -85,7 +84,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
 
   /**
    * Creates a new {@link JOptionPaneFinder}.
-   * 
+   *
    * @param matcher specifies the search criteria to use when looking up a {@code JOptionPane}.
    */
   protected JOptionPaneFinder(@Nonnull GenericTypeMatcher<? extends JOptionPane> matcher) {
@@ -94,7 +93,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
 
   /**
    * Creates a new {@link JOptionPaneFinder} capable of looking up a {@code JOptionPane}.
-   * 
+   *
    * @return the created finder.
    */
   public static @Nonnull JOptionPaneFinder findOptionPane() {
@@ -103,7 +102,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
 
   /**
    * Creates a new {@link JOptionPaneFinder} capable of looking up a {@code JOptionPane} using the given matcher.
-   * 
+   *
    * @param matcher the given matcher.
    * @return the created finder.
    */
@@ -113,7 +112,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
 
   /**
    * Finds a {@code JOptionPane} by name or type.
-   * 
+   *
    * @param robot contains the underlying finding to delegate the search to.
    * @return a {@code JOptionPaneFixture} managing the found {@code JOptionPane}.
    * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JOptionPane} could not be found.
@@ -125,7 +124,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
 
   /**
    * Sets the timeout for this finder. The window to search should be found within the given time period.
-   * 
+   *
    * @param timeout the number of milliseconds before stopping the search.
    * @return this finder.
    */
@@ -137,7 +136,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
 
   /**
    * Sets the timeout for this finder. The window to search should be found within the given time period.
-   * 
+   *
    * @param timeout the period of time the search should be performed.
    * @param unit the time unit for {@code timeout}.
    * @return this finder.
@@ -150,7 +149,7 @@ public class JOptionPaneFinder extends ComponentFinderTemplate<JOptionPane> {
 
   /**
    * Casts the given AWT or Swing {@code Component} to {@code JOptionPane}.
-   * 
+   *
    * @return the given {@code Component}, casted to {@code JFileChooser}.
    */
   @Override

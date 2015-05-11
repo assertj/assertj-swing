@@ -40,22 +40,21 @@ import org.assertj.swing.edt.GuiQuery;
  * <p>
  * A window that displays an {@code Applet}.
  * </p>
- * 
+ *
  * <p>
  * Example:
- * 
+ * </p>
+ *
  * <pre>
  * AppletViewer viewer = AppletViewer.newViewer(new MyApplet());
- * 
+ *
  * // test the applet, viewer can be wrapped with a FrameFixture.
  * FrameFixture viewerFixture = new FrameFixture(viewer);
- * 
+ *
  * viewer.unloadApplet() // stops and destroys the applet
  * viewerFixture.cleanUp();
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -71,12 +70,12 @@ public class AppletViewer extends JFrame implements StatusDisplay {
   /**
    * <p>
    * Creates a new {@link AppletViewer} using a {@link BasicAppletStub} as
-   * <p>
-   * 
+   * </p>
+   *
    * <p>
    * <b>Note:</b> This method is executed in the event dispatch thread (EDT.)
    * </p>
-   * 
+   *
    * @param applet the {@code Applet} to view.
    * @return the created {@code AppletViewer}.
    * @throws NullPointerException if {@code applet} is {@code null}.
@@ -93,11 +92,11 @@ public class AppletViewer extends JFrame implements StatusDisplay {
    * Creates a new {@link AppletViewer}. This factory method creates new instances of {@link BasicAppletStub} and
    * {@link BasicAppletContext}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is executed in the event dispatch thread (EDT.)
    * </p>
-   * 
+   *
    * @param applet the {@code Applet} to view.
    * @param parameters the parameters included in an "applet" HTML tag.
    * @return the created {@code AppletViewer}.
@@ -116,7 +115,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
    * <p>
    * <b>Note:</b> This method is executed in the event dispatch thread (EDT.)
    * </p>
-   * 
+   *
    * @param applet the {@code Applet} to view.
    * @param stub the applet's stub.
    * @return the created {@code AppletViewer}.
@@ -200,7 +199,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
 
   /**
    * Indicates whether the {@code Applet} in this viewer is loaded or not.
-   * 
+   *
    * @return {@code true} if this {@code Applet} is loaded, {@code false} otherwise.
    */
   public boolean appletLoaded() {
@@ -209,7 +208,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
 
   /**
    * Displays the given status message. This method is executed in the event dispatch thread (EDT.)
-   * 
+   *
    * @param status the status to display.
    */
   @RunsInEDT

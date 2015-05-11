@@ -16,41 +16,38 @@ import static org.assertj.swing.util.Arrays.copyOf;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.util.Platform;
-
 /**
  * <p>
  * Information about a key (from the keyboard) to press.
  * </p>
- * 
+ *
  * <p>
  * Examples:
  * </p>
- * 
+ *
  * <p>
  * Specify that 'CTRL' + 'C' should be pressed:
- * 
+ * </p>
+ *
  * <pre>
  * // import static org.assertj.swing.fixture.KeyPressInfo.*;
  * KeyPressInfo i = key(VK_C).modifiers(CTRL_MASK);
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * Specify that 'SHIFT' + 'R' should be pressed:
- * 
+ * </p>
+ *
  * <pre>
  * // import static org.assertj.swing.fixture.KeyPressInfo.*;
  * KeyPressInfo i = key(VK_R).modifiers(SHIFT_MASK);
  * </pre>
- * 
- * </p>
+ *
  * <p>
  * For platform-safe mask pressing (e.g. 'Control' in Windows or 'Command' in MacOS) use
- * {@link Platform#controlOrCommandMask()}.
+ * {@link org.assertj.swing.util.Platform#controlOrCommandMask()}.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -62,7 +59,7 @@ public final class KeyPressInfo {
 
   /**
    * Specifies the code of the key to press, without any modifiers (e.g. {@code java.awt.event.KeyEvent.VK_C}.)
-   * 
+   *
    * @param keyCode the code of the key to press.
    * @return the created {@code KeyPressInfo}.
    */
@@ -94,12 +91,12 @@ public final class KeyPressInfo {
    * Specifies the modifiers to use when pressing {@link #keyCode() the specified key} (e.g.
    * {@code java.awt.Event.CTRL_MASK}.)
    * </p>
-   * 
+   *
    * <p>
    * For platform-safe mask pressing (e.g. 'Control' in Windows or 'Command' in MacOS) use
-   * {@link Platform#controlOrCommandMask()}.
+   * {@link org.assertj.swing.util.Platform#controlOrCommandMask()}.
    * </p>
-   * 
+   *
    * @param newModifiers the new modifiers to use.
    * @return this object.
    * @throws NullPointerException if {@code newModifiers} is {@code null}.

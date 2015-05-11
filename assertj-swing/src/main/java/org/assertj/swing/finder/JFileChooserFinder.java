@@ -29,38 +29,39 @@ import org.assertj.swing.fixture.JFileChooserFixture;
  * Looks up {@code JFileChooser}s. Lookups are performed till a file chooser is found, or until the given time to
  * perform the lookup is over. The default lookup time is 5 seconds.
  * </p>
- * 
+ *
  * <p>
  * This example illustrates finding a {@code JFileChooser} by name, using the default lookup time (5 seconds):
- * 
+ * </p>
+ *
  * <pre>
  * JFileChooserFixture fileChooser = JFileChooserFinder.findFileChooser().using(robot);
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * Where {@code robot} is an instance of {@link org.assertj.swing.core.Robot}.
  * </p>
- * 
+ *
  * <p>
  * This example shows how to find a {@code JFileChooser} by type using a lookup time of 10 seconds:
- * 
+ * </p>
+ *
  * <pre>
  * JFileChooserFixture fileChooser = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robot);
  * </pre>
- * 
+ *
+ * <p>
  * We can also specify the time unit:
- * 
+ * </p>
+ *
  * <pre>
  * JFileChooserFixture fileChooser = JFileChooserFinder.findFileChooser().withTimeout(10, {@link java.util.concurrent.TimeUnit#SECONDS SECONDS}).using(robot);
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * This examples shows how to find a {@code JFileChooser} using a {@link GenericTypeMatcher}:
- * 
+ * </p>
+ *
  * <pre>
  * GenericTypeMatcher&lt;JFileChooser&gt; matcher = new GenericTypeMatcher&lt;JFileChooser&gt;() {
  *   protected boolean isMatching(JFileChooser fileChooser) {
@@ -69,9 +70,7 @@ import org.assertj.swing.fixture.JFileChooserFixture;
  * };
  * JFileChooserFixture fileChooser = JFileChooserFinder.findFileChooser(matcher).using(robot);
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
@@ -84,7 +83,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 
   /**
    * Creates a new {@link JFileChooserFinder}.
-   * 
+   *
    * @param name the name of the {@code FileChooser} to look for.
    */
   protected JFileChooserFinder(@Nullable String name) {
@@ -93,7 +92,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 
   /**
    * Creates a new {@link JFileChooserFinder}.
-   * 
+   *
    * @param matcher specifies the search criteria to use when looking up a {@code JFileChooser}.
    */
   protected JFileChooserFinder(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher) {
@@ -102,7 +101,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 
   /**
    * Creates a new {@link JFileChooserFinder} capable of looking up a {@code JFileChooser}.
-   * 
+   *
    * @return the created finder.
    */
   public static @Nonnull JFileChooserFinder findFileChooser() {
@@ -111,7 +110,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 
   /**
    * Creates a new {@link JFileChooserFinder} capable of looking up a {@code JFileChooser} by name.
-   * 
+   *
    * @param name the name of the file chooser to find.
    * @return the created finder.
    */
@@ -121,7 +120,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 
   /**
    * Creates a new {@link JFileChooserFinder} capable of looking up a {@code JFileChooser} using the given matcher.
-   * 
+   *
    * @param matcher the given matcher.
    * @return the created finder.
    */
@@ -131,7 +130,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 
   /**
    * Finds a {@code JFileChooser} by name or type.
-   * 
+   *
    * @param robot contains the underlying finding to delegate the search to.
    * @return a {@code JFileChooserFixture} managing the found {@code JFileChooser}.
    * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
@@ -143,7 +142,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 
   /**
    * Sets the timeout for this finder. The {@code JFileChooser} to find should be found within the given time period.
-   * 
+   *
    * @param timeout the number of milliseconds before stopping the search.
    * @return this finder.
    * @throws IllegalArgumentException if the timeout is a negative number.
@@ -156,7 +155,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 
   /**
    * Sets the timeout for this finder. The {@code JFileChooser} to find should be found within the given time period.
-   * 
+   *
    * @param timeout the period of time the search should be performed.
    * @param unit the time unit for {@code timeout}.
    * @return this finder.
@@ -171,7 +170,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
 
   /**
    * Casts the given AWT or Swing {@code Component} to {@code JFileChooser}.
-   * 
+   *
    * @return the given {@code Component}, casted to {@code JFileChooser}.
    */
   @Override

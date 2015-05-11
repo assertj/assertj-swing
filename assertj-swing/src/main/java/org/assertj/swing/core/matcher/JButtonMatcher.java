@@ -22,7 +22,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Matches {@code JButton}s by name, text or visibility on the screen.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton> {
@@ -34,22 +34,21 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * </p>
    * <p>
    * The following code listing shows how to match a {@code JButton} by name and text:
-   * 
+   * </p>
+   *
    * <pre>
    * JButtonMatcher m = {@link #withName(String) withName}("ok").{@link #andText(String) andText}("OK");
    * </pre>
-   * 
-   * </p>
+   *
    * <p>
    * The following code listing shows how to match a {@code JButton}, that should be showing on the screen, by name and
    * text:
-   * 
+   * </p>
+   *
    * <pre>
    * JButtonMatcher m = {@link #withName(String) withName}("ok").{@link #andText(String) andText}("OK").{@link #andShowing() andShowing}();
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param name the name to match.
    * @return the created matcher.
    */
@@ -61,24 +60,23 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * <p>
    * Creates a new {@link JButtonMatcher} that matches a {@code JButton} by text.
    * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code JButton} by text:
-   * 
+   * </p>
+   *
    * <pre>
    * JButtonMatcher m = {@link #withText(String) withText}("OK");
    * </pre>
-   * 
-   * </p>
+   *
    * <p>
    * The following code listing shows how to match a {@code JButton}, that should be showing on the screen, by text:
-   * 
+   * </p>
+   *
    * <pre>
    * JButtonMatcher m = {@link #withText(String) withText}("OK").{@link #andShowing() andShowing}();
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param text the text to match. It can be a regular expression.
    * @return the created matcher.
    */
@@ -90,26 +88,24 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * <p>
    * Creates a new {@link JButtonMatcher} that matches a {@code JButton} by text.
    * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code JButton} by text, using a regular expression pattern:
-   * 
+   * </p>
+   *
    * <pre>
    * JButtonMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("O.*"));
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * <p>
    * The following code listing shows how to match a {@code JButton}, that should be showing on the screen, by text,
    * using a regular expression pattern:
-   * 
+   * </p>
+   *
    * <pre>
    * JButtonMatcher m = {@link #withText(Pattern) withText}(Pattern.compile("O.*")).{@link #andShowing() andShowing}();
    * </pre>
-   * 
-   * </p>
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return the created matcher.
    */
@@ -119,7 +115,7 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
 
   /**
    * Creates a new {@link JButtonMatcher} that matches any {@code JButton}.
-   * 
+   *
    * @return the created matcher.
    */
   public static JButtonMatcher any() {
@@ -134,7 +130,7 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
   /**
    * Specifies the text to match. If this matcher was created using {@link #withText(String)} or
    * {@link #withText(Pattern)}, this method will simply update the text to match.
-   * 
+   *
    * @param newText the new text to match. It can be a regular expression.
    * @return this matcher.
    */
@@ -146,7 +142,7 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
   /**
    * Specifies the text to match. If this matcher was created using {@link #withText(String)} or
    * {@link #withText(Pattern)}, this method will simply update the text to match.
-   * 
+   *
    * @param textPattern the regular expression pattern to match.
    * @return this matcher.
    */
@@ -157,7 +153,7 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
 
   /**
    * Indicates that the {@code JButton} to match should be showing on the screen.
-   * 
+   *
    * @return this matcher.
    */
   public @Nonnull JButtonMatcher andShowing() {
@@ -169,12 +165,12 @@ public final class JButtonMatcher extends NamedComponentMatcherTemplate<JButton>
    * <p>
    * Indicates whether the name and text of the given {@code JButton} match the ones in this matcher.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param button the {@code JButton} to match.
    * @return {@code true} if the {@code JButton} matches the search criteria in this matcher.
    */

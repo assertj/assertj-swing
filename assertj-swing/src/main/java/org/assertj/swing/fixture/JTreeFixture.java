@@ -21,20 +21,17 @@ import org.assertj.swing.cell.JTreeCellReader;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.driver.BasicJTreeCellReader;
 import org.assertj.swing.driver.JTreeDriver;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.LocationUnavailableException;
 
 /**
  * <p>
  * Supports functional testing of {@code JTree}s.
  * </p>
- * 
+ *
  * <p>
  * {@code TreePath}s can be specified using {@code String}s. For example, for the following tree:
- * 
+ * </p>
+ *
  * <pre>
  * root
  *   |
@@ -42,24 +39,25 @@ import org.assertj.swing.exception.LocationUnavailableException;
  *      |
  *      -- node1.1
  * </pre>
- * 
+ *
+ * <p>
  * we can identify the node "node1.1" as follows:
- * 
+ * </p>
+ *
  * <pre>
  *   root/node1/node1.1
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * The default path separator is "/". It can be changed by calling {@link #replaceSeparator(String)}.
  * </p>
- * 
+ *
  * <p>
  * The conversion between the values given in tests and the values being displayed by a {@code JTree} renderer is
- * performed by a {@link JTreeCellReader}. This fixture uses a {@link BasicJTreeCellReader} by default.
+ * performed by a {@link JTreeCellReader}. This fixture uses a {@link org.assertj.swing.driver.BasicJTreeCellReader} by
+ * default.
  * </p>
- * 
+ *
  * @author Keith Coughtrey
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -69,7 +67,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
     EditableComponentFixture<JTreeFixture> {
   /**
    * Creates a new {@link JTreeFixture}.
-   * 
+   *
    * @param robot performs simulation of user events on the given {@code JTree}.
    * @param target the {@code JTree} to be managed by this fixture.
    * @throws NullPointerException if {@code robot} is {@code null}.
@@ -81,12 +79,12 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Creates a new {@link JTreeFixture}.
-   * 
+   *
    * @param robot performs simulation of user events on a {@code JTree}.
    * @param treeName the name of the {@code JTree} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JTree} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JTree} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JTree} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JTree} is found.
    */
   public JTreeFixture(@Nonnull Robot robot, @Nullable String treeName) {
     super(JTreeFixture.class, robot, treeName, JTree.class);
@@ -99,14 +97,14 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Clicks the given row.
-   * 
+   *
    * @param row the given row.
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
    */
   public @Nonnull JTreeFixture clickRow(int row) {
     driver().clickRow(target(), row);
@@ -115,7 +113,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Clicks the given row.
-   * 
+   *
    * @param row the given row.
    * @param button the mouse button to use.
    * @return this fixture.
@@ -124,7 +122,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
    */
   public @Nonnull JTreeFixture clickRow(int row, @Nonnull MouseButton button) {
     driver().clickRow(target(), row, button);
@@ -133,7 +131,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Clicks the given row.
-   * 
+   *
    * @param row the given row.
    * @param mouseClickInfo specifies the mouse button to use and how many times to click.
    * @return this fixture.
@@ -142,7 +140,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
    */
   public @Nonnull JTreeFixture clickRow(int row, @Nonnull MouseClickInfo mouseClickInfo) {
     driver().clickRow(target(), row, mouseClickInfo);
@@ -151,12 +149,12 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Clicks the given path, expanding parent nodes if necessary.
-   * 
+   *
    * @param path the given path.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nonnull JTreeFixture clickPath(@Nonnull String path) {
     driver().clickPath(target(), path);
@@ -165,14 +163,14 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Clicks the given path, expanding parent nodes if necessary.
-   * 
+   *
    * @param path the given path.
    * @param button the mouse button to use.
    * @return this fixture.
    * @throws NullPointerException if the button is {@code null}.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nonnull JTreeFixture clickPath(@Nonnull String path, @Nonnull MouseButton button) {
     driver().clickPath(target(), path, button);
@@ -181,14 +179,14 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Clicks the given path, expanding parent nodes if necessary.
-   * 
+   *
    * @param path the given path.
    * @param mouseClickInfo specifies the mouse button to use and how many times to click.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nonnull JTreeFixture clickPath(@Nonnull String path, @Nonnull MouseClickInfo mouseClickInfo) {
     driver().clickPath(target(), path, mouseClickInfo);
@@ -197,14 +195,14 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Double-clicks the given row.
-   * 
+   *
    * @param row the given row.
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
    */
   public @Nonnull JTreeFixture doubleClickRow(int row) {
     driver().doubleClickRow(target(), row);
@@ -213,12 +211,12 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Double-clicks the given path.
-   * 
+   *
    * @param path the given path.
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nonnull JTreeFixture doubleClickPath(@Nonnull String path) {
     driver().doubleClickPath(target(), path);
@@ -227,14 +225,14 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Right-clicks the given row.
-   * 
+   *
    * @param row the given row.
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
    */
   public @Nonnull JTreeFixture rightClickRow(int row) {
     driver().rightClickRow(target(), row);
@@ -243,12 +241,12 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Right-clicks the given path, expanding parent nodes if necessary.
-   * 
+   *
    * @param path the given path.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nonnull JTreeFixture rightClickPath(@Nonnull String path) {
     driver().rightClickPath(target(), path);
@@ -257,14 +255,14 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user dragging a row from this fixture's {@code JTree}.
-   * 
+   *
    * @param row the index of the row to drag.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
    */
   public @Nonnull JTreeFixture drag(int row) {
     driver().drag(target(), row);
@@ -273,15 +271,15 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user dropping an item into this fixture's {@code JTree}.
-   * 
+   *
    * @param row the row to drop the item to.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   public @Nonnull JTreeFixture drop(int row) {
     driver().drop(target(), row);
@@ -290,12 +288,12 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user dragging an item from this fixture's {@code JTree}.
-   * 
+   *
    * @param path the path corresponding to the item to drag.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nonnull JTreeFixture drag(@Nonnull String path) {
     driver().drag(target(), path);
@@ -304,13 +302,13 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user dropping an item into this fixture's {@code JTree}.
-   * 
+   *
    * @param path the path corresponding to the item relative to the drop point.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   public @Nonnull JTreeFixture drop(@Nonnull String path) {
     driver().drop(target(), path);
@@ -319,14 +317,14 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user selecting the tree node at the given row.
-   * 
+   *
    * @param row the index of the row to select.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
    */
   public @Nonnull JTreeFixture selectRow(int row) {
     driver().selectRow(target(), row);
@@ -335,7 +333,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user selecting the tree nodes at the given rows.
-   * 
+   *
    * @param rows the indices of the rows to select.
    * @return this fixture.
    * @throws NullPointerException if the array of rows is {@code null}.
@@ -344,7 +342,8 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for any of the given rows cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for any of the given rows cannot be
+   *           found.
    */
   public @Nonnull JTreeFixture selectRows(@Nonnull int... rows) {
     driver().selectRows(target(), rows);
@@ -354,12 +353,12 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
   /**
    * Selects the given path, expanding parent nodes if necessary. Unlike {@link #clickPath(String)}, this method will
    * not click the path if it is already selected.
-   * 
+   *
    * @param path the path to select.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nonnull JTreeFixture selectPath(@Nonnull String path) {
     driver().selectPath(target(), path);
@@ -368,14 +367,14 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Select the given paths, expanding parent nodes if necessary.
-   * 
+   *
    * @param paths the paths to select.
    * @return this fixture.
    * @throws NullPointerException if the array of rows is {@code null}.
    * @throws IllegalArgumentException if the array of rows is empty.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the any of the given paths cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the any of the given paths cannot be found.
    */
   public @Nonnull JTreeFixture selectPaths(@Nonnull String... paths) {
     driver().selectPaths(target(), paths);
@@ -384,15 +383,15 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user toggling the open/closed state of the tree node at the given row.
-   * 
+   *
    * @param row the index of the row to toggle.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws ActionFailedException if this method fails to toggle the row.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to toggle the row.
    */
   public @Nonnull JTreeFixture toggleRow(int row) {
     driver().toggleRow(target(), row);
@@ -401,15 +400,15 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user expanding the tree node at the given row.
-   * 
+   *
    * @param row the index of the row to expand.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws ActionFailedException if this method fails to expand the row.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to expand the row.
    */
   public @Nonnull JTreeFixture expandRow(int row) {
     driver().expandRow(target(), row);
@@ -418,15 +417,15 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user collapsing the tree node at the given row.
-   * 
+   *
    * @param row the index of the row to collapse.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws ActionFailedException if this method fails to collapse the row.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to collapse the row.
    */
   public @Nonnull JTreeFixture collapseRow(int row) {
     driver().collapseRow(target(), row);
@@ -435,13 +434,13 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user expanding the tree node at the given path.
-   * 
+   *
    * @param path the path of the row to expand.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
-   * @throws ActionFailedException if this method fails to expand the path.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to expand the path.
    */
   public @Nonnull JTreeFixture expandPath(@Nonnull String path) {
     driver().expandPath(target(), path);
@@ -450,13 +449,13 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Simulates a user collapsing the tree node at the given path.
-   * 
+   *
    * @param path the path of the row to collapse.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws LocationUnavailableException if the given path cannot be found.
-   * @throws ActionFailedException if this method fails to collapse the path.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to collapse the path.
    */
   public @Nonnull JTreeFixture collapsePath(@Nonnull String path) {
     driver().collapsePath(target(), path);
@@ -465,15 +464,15 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Shows a pop-up menu at the position of the node in the given row.
-   * 
+   *
    * @param row the index of the row invoking the pop-up menu.
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
    */
   public @Nonnull JPopupMenuFixture showPopupMenuAt(int row) {
     JPopupMenu popupMenu = driver().showPopupMenu(target(), row);
@@ -483,13 +482,13 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
   /**
    * Shows a pop-up menu at the position of the last node in the given path. The last node in the given path will be
    * made visible (by expanding the parent node(s)) if it is not visible.
-   * 
+   *
    * @param path the path of the node invoking the pop-up menu.
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull String path) {
     JPopupMenu popupMenu = driver().showPopupMenu(target(), path);
@@ -498,7 +497,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Asserts that this fixture's {@code JTree} is editable.
-   * 
+   *
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code JTree} is not editable.
    */
@@ -510,7 +509,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Asserts that this fixture's {@code JTree} is not editable.
-   * 
+   *
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code JTree} is editable.
    */
@@ -522,7 +521,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Asserts that this fixture's {@code JTree}'s selected rows are equal to the given one.
-   * 
+   *
    * @param rows the indices of the rows, expected to be selected.
    * @throws NullPointerException if the array of row indices is {@code null}.
    * @throws AssertionError if this fixture's {@code JTree} selection is not equal to the given rows.
@@ -535,11 +534,11 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Asserts that this fixture's {@code JTree} selection is equal to the given paths.
-   * 
+   *
    * @param paths the given paths, expected to be selected.
    * @return this fixture.
    * @throws NullPointerException if the array of paths is {@code null}.
-   * @throws LocationUnavailableException if any of the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if any of the given path cannot be found.
    * @throws AssertionError if this fixture's {@code JTree} selection is not equal to the given paths.
    */
   public @Nonnull JTreeFixture requireSelection(@Nonnull String... paths) {
@@ -549,7 +548,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Asserts that this fixture's {@code JTree}'s does not have any selection.
-   * 
+   *
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code JTree} has a selection.
    */
@@ -567,7 +566,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Updates the separator to use when converting {@code TreePath}s to {@code String}s. The default value is "/".
-   * 
+   *
    * @param separator the new separator.
    * @return this fixture.
    * @throws NullPointerException if the given separator is {@code null}.
@@ -579,8 +578,9 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Updates the implementation of {@link JTreeCellReader} to use when comparing internal values of a {@code JTree} and
-   * the values expected in a test. The default implementation to use is {@link BasicJTreeCellReader}.
-   * 
+   * the values expected in a test. The default implementation to use is
+   * {@link org.assertj.swing.driver.BasicJTreeCellReader}.
+   *
    * @param cellReader the new {@code JTreeCellValueReader} to use.
    * @throws NullPointerException if {@code cellReader} is {@code null}.
    * @return this fixture.
@@ -592,7 +592,7 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Returns a fixture that manages the node specified by the given row.
-   * 
+   *
    * @param row the given row.
    * @return a fixture that manages the node specified by the given row.
    * @throws IndexOutOfBoundsException if the given index is less than zero or equal than or greater than the number of
@@ -605,10 +605,10 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Returns a fixture that manages the node specified by the given path.
-   * 
+   *
    * @param path the given path.
    * @return a fixture that manages the node specified by the given path.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nonnull JTreePathFixture node(@Nonnull String path) {
     driver().checkPathExists(target(), path);
@@ -617,12 +617,12 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Returns the {@code String} representation of the given row.
-   * 
+   *
    * @param row the given row.
    * @return the {@code String} representation of the node at the given path.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
-   * @throws LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
    */
   public @Nullable String valueAt(int row) {
     return driver().nodeValue(target(), row);
@@ -630,10 +630,10 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
 
   /**
    * Returns the {@code String} representation of the node at the given path.
-   * 
+   *
    * @param path the given path.
    * @return the {@code String} representation of the node at the given path.
-   * @throws LocationUnavailableException if the given path cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
    */
   public @Nullable String valueAt(@Nonnull String path) {
     return driver().nodeValue(target(), path);

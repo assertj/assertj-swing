@@ -24,9 +24,9 @@ import org.assertj.swing.internal.assertions.Images;
 /**
  * Assertion methods for images.
  * <p>
- * To create an instance of this class, invoke <code>{@link AwtAssertions#assertThat(BufferedImage)}</code>.
+ * To create an instance of this class, invoke <code>{@link Assertions#assertThat(BufferedImage)}</code>.
  * </p>
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  * @author Ansgar Konermann
@@ -48,7 +48,7 @@ public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
    * <li>they have equal size</li>
    * <li>the the RGB values of the color at each pixel are equal</li>
    * </ol>
-   * 
+   *
    * @param expected the given image to compare the actual image to.
    * @return {@code this} assertion object.
    * @throws AssertionError if the actual image is not equal to the given one.
@@ -64,7 +64,7 @@ public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
    * <li>they have the same size</li>
    * <li>the difference between the RGB values of the color at each pixel is less than or equal to the given offset</li>
    * </ol>
-   * 
+   *
    * @param expected the given image to compare the actual image to.
    * @param offset helps decide if the color of two pixels are similar: two pixels that are identical to the human eye
    *          may still have slightly different color values. For example, by using an offset of 1 we can indicate that
@@ -85,7 +85,7 @@ public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
 
   /**
    * Verifies that the actual image has the given size.
-   * 
+   *
    * @param expected the expected size of the actual image.
    * @return {@code this} assertion object.
    * @throws NullPointerException if the given size is {@code null}.
@@ -104,7 +104,7 @@ public class ImageAssert extends AbstractAssert<ImageAssert, BufferedImage> {
   @Override
   public ImageAssert usingDefaultComparator() {
     super.usingDefaultComparator();
-    this.images = Images.instance();
+    images = Images.instance();
     return myself;
   }
 }

@@ -24,31 +24,29 @@ import javax.annotation.Nonnull;
  * <p>
  * Information about a mouse button to click.
  * </p>
- * 
+ *
  * <p>
  * Examples:
  * </p>
- * 
+ *
  * <p>
  * Specify that the right button should be clicked once:
- * 
+ * </p>
+ *
  * <pre>
  * // import static org.assertj.swing.fixture.MouseClickInfo.*;
  * MouseClickInfo i = rightButton();
  * </pre>
- * 
- * </p>
- * 
+ *
  * <p>
  * Specify that the left button should be clicked two times (similar to double-click):
- * 
+ * </p>
+ *
  * <pre>
  * // import static org.assertj.swing.fixture.MouseClickInfo.*;
  * MouseClickInfo i = leftButton().times(2);
  * </pre>
- * 
- * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 public final class MouseClickInfo {
@@ -57,7 +55,7 @@ public final class MouseClickInfo {
 
   /**
    * Specifies that the left button should be clicked once.
-   * 
+   *
    * @return the created click info.
    */
   public static @Nonnull MouseClickInfo leftButton() {
@@ -66,7 +64,7 @@ public final class MouseClickInfo {
 
   /**
    * Specifies that the middle button should be clicked once.
-   * 
+   *
    * @return the created click info.
    */
   public static @Nonnull MouseClickInfo middleButton() {
@@ -75,7 +73,7 @@ public final class MouseClickInfo {
 
   /**
    * Specifies that the right button should be clicked once.
-   * 
+   *
    * @return the created click info.
    */
   public static @Nonnull MouseClickInfo rightButton() {
@@ -84,7 +82,7 @@ public final class MouseClickInfo {
 
   /**
    * Specifies that the given button should be clicked once.
-   * 
+   *
    * @param button the mouse button to click.
    * @return the created click info.
    * @throws NullPointerException if {@code button} is {@code null}.
@@ -114,7 +112,7 @@ public final class MouseClickInfo {
 
   /**
    * Specifies how many times the mouse button should be clicked.
-   * 
+   *
    * @param newTimes the specified number of times to click the mouse button.
    * @return this object.
    */
