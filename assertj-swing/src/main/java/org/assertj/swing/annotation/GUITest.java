@@ -22,9 +22,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Identifies tests as "GUI tests." FEST only takes screenshots of the desktop if failing tests have been marked with
- * this annotation.
- * 
+ * Identifies tests as "GUI tests." AssertJ-Swing only takes screenshots of the desktop if failing tests have been
+ * marked with this annotation.
+ *
  * @author Alex Ruiz
  */
 @Retention(RUNTIME)

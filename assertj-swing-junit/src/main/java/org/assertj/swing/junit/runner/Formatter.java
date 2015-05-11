@@ -18,8 +18,8 @@ import static org.assertj.core.util.Strings.concat;
 import java.lang.reflect.Method;
 
 /**
- * Understands formatting utilities for FEST-Swing JUnit runners.
- * 
+ * Understands formatting utilities for AssertJ-Swing JUnit runners.
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -27,7 +27,7 @@ public final class Formatter {
 
   /**
    * Returns the name of a test given its class and method names.
-   * 
+   *
    * @param type the name of the test class.
    * @param method the name of the test method.
    * @return the name of a test.

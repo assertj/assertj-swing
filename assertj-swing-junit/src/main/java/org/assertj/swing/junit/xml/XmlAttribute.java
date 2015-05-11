@@ -21,8 +21,8 @@ import static org.assertj.core.util.Strings.quote;
 
 /**
  * Understands an attribute of a <code>{@link XmlNode}</code>. This class is intended for internal use only. It only
- * provides the necessary functionality needed by the FEST-Swing JUnit extension.
- * 
+ * provides the necessary functionality needed by the AssertJ-Swing JUnit extension.
+ *
  * @author Alex Ruiz
  */
 public class XmlAttribute {
@@ -32,7 +32,7 @@ public class XmlAttribute {
 
   /**
    * Creates a new <code>{@link XmlAttributeBuilder}</code>.
-   * 
+   *
    * @param name the name of the attribute that the created builder will build.
    * @return the created <code>XmlAttributeBuilder</code>.
    */
@@ -42,7 +42,7 @@ public class XmlAttribute {
 
   /**
    * Understands creation of <code>{@link XmlAttribute}</code>s.
-   * 
+   *
    * @author Alex Ruiz
    */
   public static class XmlAttributeBuilder {
@@ -55,7 +55,7 @@ public class XmlAttribute {
     /**
      * Creates a new <code>{@link XmlAttribute}</code> using the attribute name passed when this builder was created and
      * the given value.
-     * 
+     *
      * @param value the value of the attribute to create.
      * @return the created <code>XmlAttribute</code>.
      */
@@ -66,7 +66,7 @@ public class XmlAttribute {
     /**
      * Creates a new <code>{@link XmlAttribute}</code> using the attribute name passed when this builder was created and
      * the given value.
-     * 
+     *
      * @param value the value of the attribute to create.
      * @return the created <code>XmlAttribute</code>.
      */
@@ -77,7 +77,7 @@ public class XmlAttribute {
     /**
      * Creates a new <code>{@link XmlAttribute}</code> using the attribute name passed when this builder was created and
      * the given value.
-     * 
+     *
      * @param value the value of the attribute to create.
      * @return the created <code>XmlAttribute</code>.
      */
@@ -93,7 +93,7 @@ public class XmlAttribute {
 
   /**
    * Returns the name of this attribute.
-   * 
+   *
    * @return the name of this attribute.
    */
   public String name() {
@@ -102,7 +102,7 @@ public class XmlAttribute {
 
   /**
    * Returns the value of this attribute.
-   * 
+   *
    * @return the value of this attribute.
    */
   public String value() {
@@ -112,7 +112,7 @@ public class XmlAttribute {
   /**
    * Indicates whether the given <code>Object</code> is equal to this attribute. To be equal, the given object should be
    * a <code>{@link XmlAttribute}</code> with its name and value equal to the ones in this attribute.
-   * 
+   *
    * @param obj the <code>Object</code> to compare to.
    * @return <code>true</code> if the given <code>Object</code> is equal to this attribute, <code>false</code>
    *         otherwise.
@@ -133,7 +133,7 @@ public class XmlAttribute {
 
   /**
    * Returns the hash code of this attribute, based on its name and value.
-   * 
+   *
    * @return the hash code of this attribute.
    */
   @Override
@@ -146,7 +146,7 @@ public class XmlAttribute {
 
   /**
    * Returns a <code>String</code> representation of this attribute.
-   * 
+   *
    * @return a <code>String</code> representation of this attribute.
    */
   @Override

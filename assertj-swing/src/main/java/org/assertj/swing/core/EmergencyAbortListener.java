@@ -33,8 +33,8 @@ import org.assertj.swing.util.ToolkitProvider;
 
 /**
  * <p>
- * An escape valve for users to abort a running FEST-Swing test by pressing 'Ctrl + Shift + A'. The key combination to
- * use to abort test is configurable through the method {@link EmergencyAbortListener#keyCombination(KeyPressInfo)}.
+ * An escape valve for users to abort a running AssertJ-Swing test by pressing 'Ctrl + Shift + A'. The key combination
+ * to use to abort test is configurable through the method {@link EmergencyAbortListener#keyCombination(KeyPressInfo)}.
  * </p>
  *
  * <p>
@@ -116,7 +116,7 @@ public class EmergencyAbortListener implements AWTEventListener {
   }
 
   /**
-   * Sets the key combination that will terminate any FEST-Swing test. The default combination is 'Ctrl + Shift + A'.
+   * Sets the key combination that will terminate any AssertJ-Swing test. The default combination is 'Ctrl + Shift + A'.
    *
    * @param keyPressInfo contains information about the key code and modifiers.
    * @return this listener.
@@ -137,7 +137,7 @@ public class EmergencyAbortListener implements AWTEventListener {
   }
 
   /**
-   * Inspects key events for the key combination that should terminate any running FEST-Swing tests.
+   * Inspects key events for the key combination that should terminate any running AssertJ-Swing tests.
    *
    * @param event the event to inspect.
    * @see java.awt.event.AWTEventListener#eventDispatched(java.awt.AWTEvent)

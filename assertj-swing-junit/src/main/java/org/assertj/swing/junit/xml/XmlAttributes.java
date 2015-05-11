@@ -24,8 +24,8 @@ import java.util.List;
 
 /**
  * Understands a collection of attributes of a <code>{@link XmlNode}</code>. This class is intended for internal use
- * only. It only provides the necessary functionality needed by the FEST-Swing JUnit extension.
- * 
+ * only. It only provides the necessary functionality needed by the AssertJ-Swing JUnit extension.
+ *
  * @author Alex Ruiz
  */
 public class XmlAttributes implements Iterable<XmlAttribute> {
@@ -34,7 +34,7 @@ public class XmlAttributes implements Iterable<XmlAttribute> {
 
   /**
    * Creates a new <code>{@link XmlAttributes}</code>.
-   * 
+   *
    * @param attributes the actual attributes.
    * @return the created <code>XmlAttributes</code>.
    */
@@ -48,7 +48,7 @@ public class XmlAttributes implements Iterable<XmlAttribute> {
 
   /**
    * Returns an iterator containing all the <code>{@link XmlAttribute}</code>s in this collection.
-   * 
+   *
    * @return an iterator containing all the <code>XmlAttribute</code>s in this collection.
    */
   @Override

@@ -24,9 +24,9 @@ import org.w3c.dom.Text;
 
 /**
  * Understands a DOM-based XML element. This class is intended for internal use only. It is just a thin wrapper around a
- * DOM <code>{@link Element}</code>. It only provides the necessary functionality needed by the FEST-Swing JUnit
+ * DOM <code>{@link Element}</code>. It only provides the necessary functionality needed by the AssertJ-Swing JUnit
  * extension.
- * 
+ *
  * @author Alex Ruiz
  */
 public class XmlNode {
@@ -35,7 +35,7 @@ public class XmlNode {
 
   /**
    * Creates a new </code>{@link XmlNode}</code>.
-   * 
+   *
    * @param target the underlying DOM element.
    */
   protected XmlNode(Element target) {
@@ -44,7 +44,7 @@ public class XmlNode {
 
   /**
    * Creates and adds a new XML node to this node.
-   * 
+   *
    * @param name the name of the node to add.
    * @return the created node.
    */
@@ -54,7 +54,7 @@ public class XmlNode {
 
   /**
    * Creates and adds a new XML node to this node.
-   * 
+   *
    * @param name the name of the node to add.
    * @param attributes the attributes of the node to add.
    * @return the created node.
@@ -74,7 +74,7 @@ public class XmlNode {
 
   /**
    * Adds a CDATA section to this node.
-   * 
+   *
    * @param data the data for the CDATA section to create.
    */
   public void addCdata(String data) {
@@ -84,7 +84,7 @@ public class XmlNode {
 
   /**
    * Adds a text node to this node.
-   * 
+   *
    * @param text the text of the new text node.
    */
   public void addText(String text) {
@@ -98,7 +98,7 @@ public class XmlNode {
 
   /**
    * Adds an attribute to this node.
-   * 
+   *
    * @param a the attribute to add.
    */
   public void addAttribute(XmlAttribute a) {
@@ -107,7 +107,7 @@ public class XmlNode {
 
   /**
    * Adds one or more attributes to this node.
-   * 
+   *
    * @param attributes the attribute(s) to add to this node.
    */
   public void addAttributes(XmlAttribute... attributes) {
@@ -121,7 +121,7 @@ public class XmlNode {
 
   /**
    * Returns the underlying DOM <code>{@link Element}</code>.
-   * 
+   *
    * @return the underlying DOM element.
    */
   public Element target() {
@@ -130,7 +130,7 @@ public class XmlNode {
 
   /**
    * Returns the parent node of this node.
-   * 
+   *
    * @return the parent node of this node.
    */
   public XmlNode parentNode() {
@@ -139,7 +139,7 @@ public class XmlNode {
 
   /**
    * Returns the number of children in this node.
-   * 
+   *
    * @return the number of children in this node.
    */
   public int size() {
@@ -148,7 +148,7 @@ public class XmlNode {
 
   /**
    * Returns the child at the given index.
-   * 
+   *
    * @param index the given index.
    * @return the child at the given index.
    */
@@ -165,7 +165,7 @@ public class XmlNode {
   /**
    * Returns the value of the given attribute, or an empty <code>String</code> if this node does not contain an
    * attribute with the given name.
-   * 
+   *
    * @param name the name of the attribute we are looking for.
    * @return the value of the attribute with the given name, or an empty <code>String</code> if this node does not
    *         contain a matching attribute.
@@ -176,7 +176,7 @@ public class XmlNode {
 
   /**
    * Returns the name of this node.
-   * 
+   *
    * @return the name of this node.
    */
   public String name() {
@@ -185,7 +185,7 @@ public class XmlNode {
 
   /**
    * Returns the text content of this node.
-   * 
+   *
    * @return the text content of this node.
    */
   public String text() {
@@ -194,7 +194,7 @@ public class XmlNode {
 
   /**
    * Returns the number of attributes in this node.
-   * 
+   *
    * @return the number of attributes in this node.
    */
   public int attributeCount() {

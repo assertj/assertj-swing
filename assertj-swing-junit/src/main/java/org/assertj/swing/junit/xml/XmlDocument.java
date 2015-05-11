@@ -19,9 +19,9 @@ import org.w3c.dom.Document;
 
 /**
  * Understands a DOM-based XML document. This class is intended for internal use only. It is just a thin wrapper around
- * a DOM <code>{@link Document}</code>. It only provides the necessary functionality needed by the FEST-Swing JUnit
+ * a DOM <code>{@link Document}</code>. It only provides the necessary functionality needed by the AssertJ-Swing JUnit
  * extension.
- * 
+ *
  * @author Alex Ruiz
  */
 public class XmlDocument {
@@ -30,7 +30,7 @@ public class XmlDocument {
 
   /**
    * Creates a new </code>{@link XmlDocument}</code>.
-   * 
+   *
    * @throws ExceptionInInitializerError if the XML document could not be created.
    */
   public XmlDocument() {
@@ -43,7 +43,7 @@ public class XmlDocument {
 
   /**
    * Creates and adds a new XML root node.
-   * 
+   *
    * @param name the name of the XML node to create.
    * @return the created root node.
    */

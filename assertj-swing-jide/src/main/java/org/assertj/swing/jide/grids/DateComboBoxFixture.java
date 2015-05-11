@@ -24,60 +24,60 @@ import org.assertj.swing.jide.grids.driver.DateComboBoxDriver;
 import com.jidesoft.combobox.DateComboBox;
 
 /**
- * A Fixture for driving a DateComboBox using FEST.
- * 
+ * A Fixture for driving a DateComboBox using AssertJ-Swing.
+ *
  * @author Peter Murray
  */
 public class DateComboBoxFixture extends
     AbstractComponentFixture<DateComboBoxFixture, DateComboBox, DateComboBoxDriver> {
 
   public DateComboBoxFixture(Robot robot, String comboBoxName) {
-	super(DateComboBoxFixture.class, robot, comboBoxName, DateComboBox.class);
-	createDriver(robot);
+    super(DateComboBoxFixture.class, robot, comboBoxName, DateComboBox.class);
+    createDriver(robot);
   }
 
   public DateComboBoxFixture(Robot robot, DateComboBox target) {
-	super(DateComboBoxFixture.class, robot, target);
-	createDriver(robot);
+    super(DateComboBoxFixture.class, robot, target);
+    createDriver(robot);
   }
 
   @Override
   protected DateComboBoxDriver createDriver(Robot robot) {
-	return new DateComboBoxDriver(robot);
+    return new DateComboBoxDriver(robot);
   }
 
   public Date date() {
-	return driver().getSelectedDate(target());
+    return driver().getSelectedDate(target());
   }
 
   public Calendar calendar() {
-	return driver().getSelectedCalendar(target());
+    return driver().getSelectedCalendar(target());
   }
 
   public DateComboBoxFixture selectToday() {
-	driver().selectToday(target());
-	return this;
+    driver().selectToday(target());
+    return this;
   }
 
   public DateComboBoxFixture selectDate(Date d) {
-	driver().selectDate(target(), d);
-	return this;
+    driver().selectDate(target(), d);
+    return this;
   }
 
   public DateComboBoxFixture selectCalendar(Calendar cal) {
-	driver().selectCalendar(target(), cal);
-	return this;
+    driver().selectCalendar(target(), cal);
+    return this;
   }
 
   public DateComboBoxFixture requireDate(Date d) {
-	Date currentVal = date();
-	assertThat(currentVal).isEqualTo(d);
-	return this;
+    Date currentVal = date();
+    assertThat(currentVal).isEqualTo(d);
+    return this;
   }
 
   public DateComboBoxFixture requireCalendar(Calendar cal) {
-	Calendar currentVal = calendar();
-	assertThat(currentVal).isEqualTo(cal);
-	return this;
+    Calendar currentVal = calendar();
+    assertThat(currentVal).isEqualTo(cal);
+    return this;
   }
 }

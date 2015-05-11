@@ -12,7 +12,7 @@
  */
 /**
  * <p>
- * Public API, source of FEST's power and flexibility. Although you can use the
+ * Public API, source of AssertJ-Swing's power and flexibility. Although you can use the
  * {@link org.assertj.swing.core.BasicRobot} directly, it is too low-level and requires, in our opinion, too much code.
  * AssertJ-Swing fixtures can simplify creation and maintenance of functional GUI tests by:
  * </p>
@@ -52,8 +52,8 @@
  *
  * <p>
  * The test uses a {@link org.assertj.swing.fixture.FrameFixture} to launch the GUI to test ({@code LoginWindow}) and
- * find the GUI components in such window. This is the recommended way to use FEST. We could also use individual
- * fixtures to simulate user events, but it would result in more code to write and maintain:
+ * find the GUI components in such window. This is the recommended way to use AssertJ-Swing. We could also use
+ * individual fixtures to simulate user events, but it would result in more code to write and maintain:
  * </p>
  *
  * <pre>
@@ -79,9 +79,9 @@
  * </pre>
  *
  * <p>
- * <strong>Note:</strong> It is very important to clean up resources used by FEST (keyboard, mouse and opened windows)
- * after each test; otherwise, the FEST robot will keep control of them and can make your computer pretty much unusable.
- * To clean up resources call the method 'cleanUp' from {@link org.assertj.swing.core.BasicRobot},
+ * <strong>Note:</strong> It is very important to clean up resources used by AssertJ-Swing (keyboard, mouse and opened
+ * windows) after each test; otherwise, the AssertJ-Swing robot will keep control of them and can make your computer
+ * pretty much unusable. To clean up resources call the method 'cleanUp' from {@link org.assertj.swing.core.BasicRobot},
  * {@link org.assertj.swing.fixture.FrameFixture} or {@link org.assertj.swing.fixture.DialogFixture}.
  * </p>
  * <p>

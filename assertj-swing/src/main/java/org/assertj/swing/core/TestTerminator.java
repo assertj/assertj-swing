@@ -17,8 +17,8 @@ import static org.assertj.swing.util.AWTExceptionHandlerInstaller.installAWTExce
 import javax.annotation.Nonnull;
 
 /**
- * Terminates any running FEST-Swing tests.
- * 
+ * Terminates any running AssertJ-Swing tests.
+ *
  * @author <a href="mailto:simeon.fitch@mseedsoft.com">Simeon H.K. Fitch</a>
  */
 class TestTerminator {
@@ -31,7 +31,7 @@ class TestTerminator {
   }
 
   TestTerminator(@Nonnull ThreadsSource threadsSource, @Nonnull FrameDisposer frameDisposer,
-      @Nonnull MainThreadIdentifier mainThreadIdentifier) {
+                 @Nonnull MainThreadIdentifier mainThreadIdentifier) {
     this.threadsSource = threadsSource;
     this.frameDisposer = frameDisposer;
     this.mainThreadIdentifier = mainThreadIdentifier;
@@ -48,8 +48,8 @@ class TestTerminator {
   }
 
   /*
-   * Calls {@link Thread#interrupt()} on main thread in attempt to interrupt current FEST operation. Only affects thread
-   * if it is in a {@link Object#wait()} or {@link Thread#sleep(long)} method.
+   * Calls {@link Thread#interrupt()} on main thread in attempt to interrupt current AssertJ-Swing operation. Only
+   * affects thread if it is in a {@link Object#wait()} or {@link Thread#sleep(long)} method.
    */
   private void pokeMainThread() {
     Thread mainThread = mainThreadIdentifier.mainThreadIn(threadsSource.allThreads());

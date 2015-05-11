@@ -14,8 +14,8 @@ package org.assertj.swing.jide.grids;
 
 /**
  * An interface for defining advanced table fixture methods that will be useful for
- * driving table like components in FEST tests.
- * 
+ * driving table like components in AssertJ-Swing tests.
+ *
  * @author Peter Murray
  */
 public interface ExtendedTableFixture {
