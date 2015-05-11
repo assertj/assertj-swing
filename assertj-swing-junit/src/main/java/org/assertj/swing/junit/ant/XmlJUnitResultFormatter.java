@@ -23,7 +23,6 @@ import java.io.OutputStream;
 import junit.framework.AssertionFailedError;
 import junit.framework.Test;
 
-import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitResultFormatter;
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
 import org.assertj.swing.junit.xml.XmlDocument;
@@ -31,7 +30,7 @@ import org.assertj.swing.junit.xml.XmlNode;
 
 /**
  * Understands a copy of the original <code>XMLJUnitResultFormatter</code>, with flexibility for extension.
- * 
+ *
  * @author Alex Ruiz
  */
 public class XmlJUnitResultFormatter implements JUnitResultFormatter {
@@ -49,7 +48,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
   private final XmlOutputWriter xmlOutputWriter;
 
   /**
-   * Creates a new </code>{@link XmlJUnitResultFormatter}</code>.
+   * Creates a new <code>{@link XmlJUnitResultFormatter}</code>.
    */
   public XmlJUnitResultFormatter() {
     tests = new TestCollection();
@@ -66,7 +65,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * Sets the stream the formatter is supposed to write its results to.
-   * 
+   *
    * @param out the output stream to use.
    */
   @Override
@@ -76,7 +75,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * This is what the test has written to <code>System.out</code>,
-   * 
+   *
    * @param out the <code>String</code> to write.
    */
   @Override
@@ -86,7 +85,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * This is what the test has written to <code>System.err</code>.
-   * 
+   *
    * @param out the <code>String</code> to write.
    */
   @Override
@@ -104,7 +103,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * The whole test suite started. This method starts creation of the XML report.
-   * 
+   *
    * @param suite the test suite.
    * @throws ExceptionInInitializerError if the underlying XML document could not be created.
    */
@@ -119,7 +118,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * Hook for subclasses to add extra functionality after the whole test suite started.
-   * 
+   *
    * @param suite the test suite.
    */
   protected void onStartTestSuite(JUnitTest suite) {
@@ -128,7 +127,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
   /**
    * The whole test suite ended. This method finishes writing the XML report and writes its contents to this formatter's
    * <code>{@link OutputStream}</code>.
-   * 
+   *
    * @param suite the test suite.
    * @throws BuildException on error.
    */
@@ -142,7 +141,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * A new test is started.
-   * 
+   *
    * @param test the test.
    */
   @Override
@@ -152,7 +151,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * A test is finished.
-   * 
+   *
    * @param test the test.
    */
   @Override
@@ -173,7 +172,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * A test failed.
-   * 
+   *
    * @param test the test.
    * @param failedAssertion the failed assertion.
    */
@@ -184,7 +183,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * A test failed.
-   * 
+   *
    * @param test the test.
    * @param error the exception.
    */
@@ -195,7 +194,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * An error occurred while running the test.
-   * 
+   *
    * @param test the test.
    * @param error the error.
    */
@@ -223,7 +222,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * Writes the stack trace and message of the given error to the given XML node.
-   * 
+   *
    * @param error the given error.
    * @param errorXmlNode the XML node to write to.
    */
@@ -233,7 +232,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
 
   /**
    * Hook for subclasses to add extra functionality after a test failure or a test execution error.
-   * 
+   *
    * @param test the executing test.
    * @param error the reason of the failure or error.
    * @param errorXmlNode the XML element containing information about the test failure or error.

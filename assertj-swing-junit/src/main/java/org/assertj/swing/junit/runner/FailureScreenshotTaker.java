@@ -25,7 +25,7 @@ import org.assertj.swing.image.ScreenshotTaker;
 
 /**
  * Understands taking a screenshot of the desktop when a GUI test fails.
- * 
+ *
  * @author Alex Ruiz
  */
 public class FailureScreenshotTaker {
@@ -36,8 +36,8 @@ public class FailureScreenshotTaker {
   private final ScreenshotTaker screenshotTaker;
 
   /**
-   * Creates a new </code>{@link FailureScreenshotTaker}</code>.
-   * 
+   * Creates a new <code>{@link FailureScreenshotTaker}</code>.
+   *
    * @param imageFolder the folder where screenshots will be saved to.
    */
   public FailureScreenshotTaker(File imageFolder) {
@@ -51,7 +51,7 @@ public class FailureScreenshotTaker {
 
   /**
    * Saves a screenshot of the desktop using the given description as the file name.
-   * 
+   *
    * @param failedTest the description of the test failure.
    */
   public void saveScreenshot(String failedTest) {

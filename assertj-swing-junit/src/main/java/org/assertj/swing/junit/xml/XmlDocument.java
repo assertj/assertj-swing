@@ -29,7 +29,7 @@ public class XmlDocument {
   private final Document document;
 
   /**
-   * Creates a new </code>{@link XmlDocument}</code>.
+   * Creates a new <code>{@link XmlDocument}</code>.
    *
    * @throws ExceptionInInitializerError if the XML document could not be created.
    */

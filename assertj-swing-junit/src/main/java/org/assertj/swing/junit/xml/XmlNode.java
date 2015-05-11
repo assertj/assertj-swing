@@ -34,7 +34,7 @@ public class XmlNode {
   private final Element target;
 
   /**
-   * Creates a new </code>{@link XmlNode}</code>.
+   * Creates a new <code>{@link XmlNode}</code>.
    *
    * @param target the underlying DOM element.
    */
