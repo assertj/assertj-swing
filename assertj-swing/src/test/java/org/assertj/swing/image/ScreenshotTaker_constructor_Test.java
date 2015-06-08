@@ -48,7 +48,7 @@ public class ScreenshotTaker_constructor_Test {
 
   @Test
   public void should_Throw_Wrapped_Exception_Thrown_When_Creating_Robot() throws AWTException {
-    when(robotFactory.newRobotInPrimaryScreen()).thenThrow(toThrow);
+    when(robotFactory.newRobotInLeftScreen()).thenThrow(toThrow);
     thrown.expectWrappingException(ImageException.class, toThrow);
     new ScreenshotTaker(writer, robotFactory);
   }

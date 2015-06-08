@@ -51,7 +51,7 @@ class RobotEventGenerator implements InputEventGenerator {
 
   RobotEventGenerator(@Nonnull RobotFactory robotFactory, @Nonnull Settings settings) {
     try {
-      robot = robotFactory.newRobotInPrimaryScreen();
+      robot = robotFactory.newRobotInLeftScreen();
       if (isWindows() || isOSX()) {
         pause(500);
       }

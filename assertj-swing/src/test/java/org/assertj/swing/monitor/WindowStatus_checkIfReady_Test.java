@@ -96,7 +96,7 @@ public class WindowStatus_checkIfReady_Test extends SequentialEDTSafeTestCase {
   public void should_Not_Check_If_Frame_Is_Ready_If_Robot_Is_Null() throws AWTException {
     final RobotFactory factory = mock(RobotFactory.class);
     Point before = MouseInfo.getPointerInfo().getLocation();
-    when(factory.newRobotInPrimaryScreen()).thenReturn(null);
+    when(factory.newRobotInLeftScreen()).thenReturn(null);
     status = new WindowStatus(windows, factory);
     status.checkIfReady(window);
     // mouse pointer should not have moved

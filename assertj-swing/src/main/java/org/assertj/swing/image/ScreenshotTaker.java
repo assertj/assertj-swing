@@ -65,7 +65,7 @@ public class ScreenshotTaker {
   ScreenshotTaker(@Nonnull ImageFileWriter writer, @Nonnull RobotFactory robotFactory) {
     this.writer = writer;
     try {
-      robot = robotFactory.newRobotInPrimaryScreen();
+      robot = robotFactory.newRobotInLeftScreen();
     } catch (AWTException e) {
       throw new ImageException("Unable to create AWT Robot", e);
     }

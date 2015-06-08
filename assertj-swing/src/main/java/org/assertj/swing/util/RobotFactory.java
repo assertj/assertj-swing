@@ -13,6 +13,8 @@
 package org.assertj.swing.util;
 
 import java.awt.AWTException;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Robot;
 
 import javax.annotation.Nonnull;
@@ -33,5 +35,26 @@ public class RobotFactory {
    */
   public @Nonnull Robot newRobotInPrimaryScreen() throws AWTException {
     return new Robot();
+  }
+
+  /**
+   * Creates a new AWT {@code Robot} object in the coordinate system of the left screen (in terms of coordinates).
+   * 
+   * @return the created {@code Robot}.
+   * @throws AWTException if the platform configuration does not allow low-level input control. This exception is always
+   *           thrown when {@code GraphicsEnvironment.isHeadless()} returns {@code true}.
+   * @throws SecurityException if {@code createRobot} permission is not granted.
+   */
+  public @Nonnull
+  Robot newRobotInLeftScreen() throws AWTException {
+    int lowestX = Integer.MAX_VALUE;
+    GraphicsDevice lowestScreen = null;
+    for (GraphicsDevice screen : GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()) {
+      if (screen.getDefaultConfiguration().getBounds().x < lowestX) {
+        lowestX = screen.getDefaultConfiguration().getBounds().x;
+        lowestScreen = screen;
+      }
+    }
+    return new Robot(lowestScreen);
   }
 }

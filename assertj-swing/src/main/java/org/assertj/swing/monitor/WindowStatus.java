@@ -56,7 +56,7 @@ class WindowStatus {
     this.windows = windows;
     Robot r = null;
     try {
-      r = robotFactory.newRobotInPrimaryScreen();
+      r = robotFactory.newRobotInLeftScreen();
     } catch (AWTException ignored) {
       logger.log(WARNING, "Error ocurred when creating a new Robot", ignored);
     }

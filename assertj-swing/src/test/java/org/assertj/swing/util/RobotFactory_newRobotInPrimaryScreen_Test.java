@@ -37,7 +37,7 @@ public class RobotFactory_newRobotInPrimaryScreen_Test {
   public void shouldCreateNewRobot() throws AWTException {
     Robot last = null;
     for (int i = 0; i < 6; i++) {
-      Robot current = robotFactory.newRobotInPrimaryScreen();
+      Robot current = robotFactory.newRobotInLeftScreen();
       assertThat(current).isNotNull().isNotSameAs(last);
       last = current;
     }

@@ -35,7 +35,7 @@ public abstract class RobotEventGenerator_TestCase {
   public final void setUp() throws Exception {
     RobotFactory robotFactory = newRobotFactoryMock();
     robot = mock(Robot.class);
-    when(robotFactory.newRobotInPrimaryScreen()).thenReturn(robot);
+    when(robotFactory.newRobotInLeftScreen()).thenReturn(robot);
     eventGenerator = new RobotEventGenerator(robotFactory, new Settings());
   }
 
