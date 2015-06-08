@@ -15,9 +15,9 @@ package org.assertj.swing.testng.listener;
 import static java.io.File.separator;
 import static java.util.logging.Level.SEVERE;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.Strings.isEmpty;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.testng.listener.ScreenshotFileNameGenerator.screenshotFileNameFrom;
+import static org.assertj.swing.util.Strings.isNullOrEmpty;
 
 import java.lang.reflect.Method;
 import java.util.logging.Logger;
@@ -105,7 +105,7 @@ public class ScreenshotOnFailureListener extends AbstractTestListener {
     if (!ready || !isGUITest(result))
       return;
     String screenshotFileName = takeScreenshotAndReturnFileName(result);
-    if (isEmpty(screenshotFileName))
+    if (isNullOrEmpty(screenshotFileName))
       return;
     logger.info(concat("Screenshot of desktop saved as: ", quote(screenshotFileName)));
     Reporter.setCurrentTestResult(result);

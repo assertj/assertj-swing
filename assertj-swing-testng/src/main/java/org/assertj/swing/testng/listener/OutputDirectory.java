@@ -13,7 +13,7 @@
 package org.assertj.swing.testng.listener;
 
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.Strings.isEmpty;
+import static org.assertj.swing.util.Strings.isNullOrEmpty;
 
 import java.io.File;
 
@@ -34,7 +34,7 @@ class OutputDirectory {
   }
 
   boolean hasPath() {
-    return !isEmpty(path);
+    return !isNullOrEmpty(path);
   }
 
   String path() {

@@ -12,7 +12,6 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.assertj.core.util.Files.flushAndClose;
 import static org.assertj.swing.image.ImageFileExtensions.PNG;
 import static org.assertj.swing.junit.ant.CommonConstants.UTF_8;
 
@@ -32,13 +31,10 @@ import org.apache.commons.codec.binary.Base64;
 class ImageEncoder {
 
   String encodeBase64(BufferedImage image) throws IOException {
-    ByteArrayOutputStream out = new ByteArrayOutputStream();
-    try {
+    try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
       ImageIO.write(image, PNG, out);
       byte[] encoded = Base64.encodeBase64(out.toByteArray());
       return new String(encoded, UTF_8);
-    } finally {
-      flushAndClose(out);
     }
   }
 }

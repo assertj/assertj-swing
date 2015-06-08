@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.junit.ant;
 
-import static org.assertj.core.util.Strings.isEmpty;
 import static org.assertj.core.util.Strings.join;
 import static org.assertj.swing.image.ImageFileExtensions.PNG;
 import static org.assertj.swing.junit.ant.ImageHandler.encodeBase64;
 import static org.assertj.swing.junit.ant.Tests.testClassNameFrom;
 import static org.assertj.swing.junit.ant.Tests.testMethodNameFrom;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
+import static org.assertj.swing.util.Strings.isNullOrEmpty;
 
 import java.awt.image.BufferedImage;
 
@@ -55,7 +55,7 @@ class ScreenshotXmlWriter {
     if (!guiTestRecognizer.isGUITest(testClass, testMethod))
       return;
     String image = takeScreenshotAndReturnEncoded();
-    if (isEmpty(image))
+    if (isNullOrEmpty(image))
       return;
     writeScreenshotFileName(target, image, imageFileName(testClass, testMethod));
   }

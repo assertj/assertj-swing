@@ -108,6 +108,16 @@ public final class Strings {
     return p.matcher(s).matches();
   }
 
+  /**
+   * Indicates whether the given {@code String} is {@code null} or empty.
+   * 
+   * @param s the {@code String} to check.
+   * @return {@code true} if the given {@code String} is {@code null} or empty, otherwise {@code false}.
+   */
+  public static boolean isNullOrEmpty(String s) {
+    return s == null || s.isEmpty();
+  }
+
   private Strings() {
   }
 }
