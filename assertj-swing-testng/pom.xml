@@ -6,11 +6,11 @@
   <parent>
     <groupId>org.assertj</groupId>
     <artifactId>assertj-swing-parent-pom</artifactId>
-    <version>2.0.2-SNAPSHOT</version>
+    <version>2.0.2</version>
   </parent>
 
   <artifactId>assertj-swing-testng</artifactId>
-  <version>2.0.2-SNAPSHOT</version>
+  <version>2.0.2</version>
   <name>AssertJ-Swing - TestNG Extension</name>
   <description>TestNG-specific extension for AssertJ-Swing</description>
 
@@ -58,7 +58,7 @@
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-swing</artifactId>
-      <version>2.0.2-SNAPSHOT</version>
+      <version>2.0.2</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
