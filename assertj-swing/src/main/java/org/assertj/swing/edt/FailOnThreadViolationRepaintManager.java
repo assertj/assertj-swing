@@ -31,6 +31,9 @@ import org.assertj.swing.exception.EdtViolationException;
  * @author Alex Ruiz
  */
 public class FailOnThreadViolationRepaintManager extends CheckThreadViolationRepaintManager {
+  /** the {@link RepaintManager} that was installed before {@link #install()} has been called. */
+  private static RepaintManager previousRepaintManager;
+
   /**
    * <p>
    * Creates a new {@link FailOnThreadViolationRepaintManager} and sets it as the current repaint manager.
@@ -43,6 +46,7 @@ public class FailOnThreadViolationRepaintManager extends CheckThreadViolationRep
    * </p>
    *
    * @return the created (and installed) repaint manager.
+   * @see #uninstall()
    * @see RepaintManager#setCurrentManager(RepaintManager)
    */
   public static @Nonnull FailOnThreadViolationRepaintManager install() {
@@ -53,17 +57,41 @@ public class FailOnThreadViolationRepaintManager extends CheckThreadViolationRep
     return installNew();
   }
 
-  private static @Nullable Object currentRepaintManager() {
+  /**
+   * <p>
+   * Tries to restore the repaint manager before installing the {@link FailOnThreadViolationRepaintManager} via
+   * {@link #install()}.
+   * </p>
+   * 
+   * @return the restored (and installed) repaint manager.
+   * @see #install()
+   * @see RepaintManager#setCurrentManager(RepaintManager)
+   */
+  public static @Nonnull
+  RepaintManager uninstall() {
+    RepaintManager restored = previousRepaintManager;
+    setCurrentManager(restored);
+    previousRepaintManager = null;
+    return restored;
+  }
+
+  private static @Nullable
+  RepaintManager currentRepaintManager() {
     try {
-      return method("appContextGet").withReturnType(Object.class).withParameterTypes(Object.class)
-                                    .in(SwingUtilities.class).invoke(RepaintManager.class);
+      Object repaintManager = method("appContextGet").withReturnType(Object.class).withParameterTypes(Object.class)
+                                                     .in(SwingUtilities.class).invoke(RepaintManager.class);
+      if (repaintManager instanceof RepaintManager) {
+        return (RepaintManager) repaintManager;
+      }
     } catch (RuntimeException e) {
       return null;
     }
+    return null;
   }
 
   private static @Nonnull FailOnThreadViolationRepaintManager installNew() {
     FailOnThreadViolationRepaintManager m = new FailOnThreadViolationRepaintManager();
+    previousRepaintManager = currentRepaintManager();
     setCurrentManager(m);
     return m;
   }
