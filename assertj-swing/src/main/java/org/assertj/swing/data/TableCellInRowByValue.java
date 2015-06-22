@@ -37,8 +37,8 @@ import org.assertj.swing.edt.GuiQuery;
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.data.TableCellInSelectedRow.row;
- * {@link TableCell} cell = dialog.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("column1", "column2", "column3").column(2));
+ * // import static org.assertj.swing.data.TableCellInRowByValue.rowWithValue;
+ * {@link JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("Sue", "Black", "Knitting").column(2));
  * </pre>
  *
  * @author Alex Ruiz
