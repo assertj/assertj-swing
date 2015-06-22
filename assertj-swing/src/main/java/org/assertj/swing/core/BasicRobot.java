@@ -76,7 +76,6 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.hierarchy.ComponentHierarchy;
@@ -289,7 +288,7 @@ public class BasicRobot implements Robot {
         while (!focusMonitor.hasFocus()) {
           if (watch.isTimeOut()) {
             throw actionFailure(concat("Focus change to ", format(target), " failed", " focus owner: ",
-                format(FocusOwnerFinder.focusOwner())));
+                                       format(FocusOwnerFinder.focusOwner())));
           }
           pause();
         }
@@ -638,6 +637,7 @@ public class BasicRobot implements Robot {
     for (char character : text.toCharArray()) {
       type(character);
     }
+    waitForIdle();
   }
 
   @RunsInEDT
