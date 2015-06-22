@@ -1,20 +1,20 @@
 /**
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
+ * 
  * Copyright 2012-2015 the original author or authors.
  */
 package org.assertj.swing.testng.testcase;
 
-import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
 import org.assertj.swing.testing.AssertJSwingTestCaseTemplate;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -53,6 +53,15 @@ public abstract class AssertJSwingTestngTestCase extends AssertJSwingTestCaseTem
    * executing <code>{@link #setUp()}</code>.
    */
   protected abstract void onSetUp();
+
+  /**
+   * Removes the <code>{@link FailOnThreadViolationRepaintManager}</code> again to allow EDT violating and EDT safe
+   * tests in the same suite.
+   */
+  @AfterClass
+  public static final void tearDownOnce() {
+    FailOnThreadViolationRepaintManager.uninstall();
+  }
 
   /**
    * Cleans up any resources used in this test. After calling <code>{@link #onTearDown()}</code>, this method cleans up
