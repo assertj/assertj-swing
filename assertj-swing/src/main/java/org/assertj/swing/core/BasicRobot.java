@@ -77,6 +77,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ComponentLookupException;
+import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.hierarchy.ComponentHierarchy;
 import org.assertj.swing.hierarchy.ExistingHierarchy;
@@ -719,14 +720,18 @@ public class BasicRobot implements Robot {
   @Override
   public void waitForIdle() {
     waitIfNecessary();
-    Collection<EventQueue> queues = windowMonitor.allEventQueues();
-    if (queues.size() == 1) {
-      waitForIdle(checkNotNull(toolkit.getSystemEventQueue()));
-      return;
-    }
-    // FIXME this resurrects dead event queues
-    for (EventQueue queue : queues) {
-      waitForIdle(checkNotNull(queue));
+    if (settings.simpleWaitForIdle()) {
+      simpleWaitForIdle();
+    } else {
+      Collection<EventQueue> queues = windowMonitor.allEventQueues();
+      if (queues.size() == 1) {
+        waitForIdle(checkNotNull(toolkit.getSystemEventQueue()));
+        return;
+      }
+      // FIXME this resurrects dead event queues
+      for (EventQueue queue : queues) {
+        waitForIdle(checkNotNull(queue));
+      }
     }
   }
 
@@ -736,6 +741,17 @@ public class BasicRobot implements Robot {
     if (eventPostingDelay > delayBetweenEvents) {
       pause(eventPostingDelay - delayBetweenEvents);
     }
+  }
+
+  private void simpleWaitForIdle() {
+      if (EventQueue.isDispatchThread()) {
+          throw new IllegalThreadStateException("Cannot call method from the event dispatcher thread");
+      }
+      try {
+          EventQueue.invokeAndWait(EMPTY_RUNNABLE);
+      } catch (Exception e) {
+          throw new UnexpectedException("could not invokeAndWait", e);
+      }
   }
 
   private void waitForIdle(@Nonnull EventQueue eventQueue) {
