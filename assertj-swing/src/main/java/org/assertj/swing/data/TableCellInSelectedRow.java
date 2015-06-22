@@ -33,8 +33,8 @@ import org.assertj.swing.edt.GuiQuery;
  * </p>
  *
  * <pre>
- * // import static org.assertj.swing.data.TableCellInSelectedRow.row;
- * {@link TableCell} cell = dialog.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
+ * // import static org.assertj.swing.data.TableCellInSelectedRow.selectedRow;
+ * {@link JTableCellFixture} cell = window.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
  * </pre>
  *
  * @author Alex Ruiz
