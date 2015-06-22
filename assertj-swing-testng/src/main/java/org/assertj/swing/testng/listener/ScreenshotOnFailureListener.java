@@ -19,13 +19,16 @@ import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.testng.listener.ScreenshotFileNameGenerator.screenshotFileNameFrom;
 import static org.assertj.swing.util.Strings.isNullOrEmpty;
 
+import java.awt.GraphicsEnvironment;
 import java.lang.reflect.Method;
 import java.util.logging.Logger;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.GUITestFinder;
 import org.assertj.swing.image.ImageException;
+import org.assertj.swing.image.NoopScreenshotTaker;
 import org.assertj.swing.image.ScreenshotTaker;
+import org.assertj.swing.image.ScreenshotTakerIF;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
@@ -61,7 +64,7 @@ public class ScreenshotOnFailureListener extends AbstractTestListener {
 
   private static Logger logger = Logger.getAnonymousLogger();
 
-  private ScreenshotTaker screenshotTaker;
+  private ScreenshotTakerIF screenshotTaker;
   private OutputDirectory output;
   private boolean ready;
 
@@ -70,7 +73,7 @@ public class ScreenshotOnFailureListener extends AbstractTestListener {
    */
   public ScreenshotOnFailureListener() {
     try {
-      screenshotTaker = new ScreenshotTaker();
+      screenshotTaker = GraphicsEnvironment.isHeadless() ? new NoopScreenshotTaker() : new ScreenshotTaker();
     } catch (ImageException e) {
       logger.log(SEVERE, "Unable to create ScreenshotTaker", e);
     }

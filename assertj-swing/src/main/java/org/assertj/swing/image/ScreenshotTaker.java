@@ -48,7 +48,7 @@ import org.assertj.swing.util.RobotFactory;
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
-public class ScreenshotTaker {
+public class ScreenshotTaker implements ScreenshotTakerIF {
   private final Robot robot;
   private final ImageFileWriter writer;
 
@@ -71,53 +71,23 @@ public class ScreenshotTaker {
     }
   }
 
-  /**
-   * Takes a screenshot of the desktop and saves it as a PNG file.
-   * 
-   * @param imageFilePath the path of the file to save the screenshot to.
-   * @throws NullPointerException if the given file path is {@code null}.
-   * @throws IllegalArgumentException if the given file path is empty.
-   * @throws IllegalArgumentException if the given file path does not end with ".png".
-   * @throws IllegalArgumentException if the given file path belongs to a non-empty directory.
-   * @throws IORuntimeException if an I/O error prevents the image from being saved as a file.
-   */
+  @Override
   public void saveDesktopAsPng(String imageFilePath) {
     saveImage(takeDesktopScreenshot(), imageFilePath);
   }
 
-  /**
-   * Takes a screenshot of the desktop.
-   * 
-   * @return the screenshot of the desktop.
-   * @throws SecurityException if {@code readDisplayPixels} permission is not granted.
-   */
+  @Override
   public BufferedImage takeDesktopScreenshot() {
     Rectangle r = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
     return takeScreenshot(r);
   }
 
-  /**
-   * Takes a screenshot of the given AWT or Swing {@code Component} and saves it as a PNG file.
-   * 
-   * @param c the given {@code Component}.
-   * @param imageFilePath the path of the file to save the screenshot to.
-   * @throws NullPointerException if the given file path is {@code null}.
-   * @throws IllegalArgumentException if the given file path is empty.
-   * @throws IllegalArgumentException if the given file path does not end with ".png".
-   * @throws IllegalArgumentException if the given file path belongs to a non-empty directory.
-   * @throws IORuntimeException if an I/O error prevents the image from being saved as a file.
-   */
+  @Override
   public void saveComponentAsPng(@Nonnull Component c, @Nonnull String imageFilePath) {
     saveImage(takeScreenshotOf(c), imageFilePath);
   }
 
-  /**
-   * Takes a screenshot of the given AWT or Swing {@code Component}.
-   * 
-   * @param c the given {@code Component}.
-   * @return a screenshot of the given {@code Component}.
-   * @throws SecurityException if {@code readDisplayPixels} permission is not granted.
-   */
+  @Override
   public @Nonnull BufferedImage takeScreenshotOf(@Nonnull Component c) {
     Point locationOnScreen = locationOnScreen(c);
     Dimension size = sizeOf(c);
@@ -187,17 +157,7 @@ public class ScreenshotTaker {
     });
   }
 
-  /**
-   * Saves the given image as a PNG file.
-   * 
-   * @param image the image to save.
-   * @param filePath the path of the file to save the image to.
-   * @throws NullPointerException if the given file path is {@code null}.
-   * @throws IllegalArgumentException if the given file path is empty.
-   * @throws IllegalArgumentException if the given file path does not end with ".png".
-   * @throws IllegalArgumentException if the given file path belongs to a non-empty directory.
-   * @throws IORuntimeException if an I/O error prevents the image from being saved as a file.
-   */
+  @Override
   public void saveImage(@Nonnull BufferedImage image, @Nonnull String filePath) {
     Preconditions.checkNotNullOrEmpty(filePath);
     if (!filePath.endsWith(PNG)) {

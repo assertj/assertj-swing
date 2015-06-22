@@ -18,10 +18,13 @@ import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.image.ImageFileExtensions.PNG;
 
+import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.util.logging.Logger;
 
+import org.assertj.swing.image.NoopScreenshotTaker;
 import org.assertj.swing.image.ScreenshotTaker;
+import org.assertj.swing.image.ScreenshotTakerIF;
 
 /**
  * Understands taking a screenshot of the desktop when a GUI test fails.
@@ -33,7 +36,7 @@ public class FailureScreenshotTaker {
   private static Logger logger = Logger.getAnonymousLogger();
 
   private final File imageFolder;
-  private final ScreenshotTaker screenshotTaker;
+  private final ScreenshotTakerIF screenshotTaker;
 
   /**
    * Creates a new <code>{@link FailureScreenshotTaker}</code>.
@@ -41,10 +44,10 @@ public class FailureScreenshotTaker {
    * @param imageFolder the folder where screenshots will be saved to.
    */
   public FailureScreenshotTaker(File imageFolder) {
-    this(imageFolder, new ScreenshotTaker());
+    this(imageFolder, GraphicsEnvironment.isHeadless() ? new NoopScreenshotTaker() : new ScreenshotTaker());
   }
 
-  FailureScreenshotTaker(File imageFolder, ScreenshotTaker screenshotTaker) {
+  FailureScreenshotTaker(File imageFolder, ScreenshotTakerIF screenshotTaker) {
     this.imageFolder = imageFolder;
     this.screenshotTaker = screenshotTaker;
   }
