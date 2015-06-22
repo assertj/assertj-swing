@@ -300,6 +300,19 @@ public class JTableFixture_withMocks_Test {
   }
 
   @Test
+  public void should_Return_Self_When_Column_Exists() {
+    when(driver.columnIndex(target, "Name")).thenReturn(2);
+    assertThat(fixture.requireColumnNamed("Name")).isSameAs(fixture);
+    verify(driver).columnIndex(target, "Name");
+  }
+
+  @Test(expected = AssertionError.class)
+  public void should_Throw_Error_When_Column_Not_Exists() {
+    when(driver.columnIndex(target, "Name")).thenThrow(new AssertionError());
+    fixture.requireColumnNamed("Name");
+  }
+
+  @Test
   public void should_Return_JPopupMenu_With_Cell_Using_Driver() {
     JPopupMenu popupMenu = mock(JPopupMenu.class);
     when(driver.showPopupMenuAt(target, cell)).thenReturn(popupMenu);
