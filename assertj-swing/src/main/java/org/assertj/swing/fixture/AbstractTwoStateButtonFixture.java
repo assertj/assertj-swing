@@ -17,7 +17,6 @@ import javax.annotation.Nullable;
 import javax.swing.AbstractButton;
 
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code AbstractButton}s that have 2 states ("checked" and "unchecked.")
@@ -55,8 +54,23 @@ public abstract class AbstractTwoStateButtonFixture<S, T extends AbstractButton>
    * @throws ComponentLookupException if more than one matching {@code AbstractButton} is found.
    */
   public AbstractTwoStateButtonFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String buttonName,
-      @Nonnull Class<? extends T> type) {
+                                       @Nonnull Class<? extends T> type) {
     super(selfType, robot, buttonName, type);
+  }
+
+  /**
+   * Checks (or unchecks) this fixture's {@code AbstractButton} according to the <code>checked</code> parameter.
+   * 
+   * @param checked <code>true</code> if the {@link AbstractButton} should be checked.
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code AbstractButton} is disabled.
+   * @throws IllegalStateException if this fixture's {@code AbstractButton} is not showing on the screen.
+   */
+  public final @Nonnull S check(boolean checked) {
+    if (checked) {
+      return check();
+    }
+    return uncheck();
   }
 
   /**
@@ -81,6 +95,21 @@ public abstract class AbstractTwoStateButtonFixture<S, T extends AbstractButton>
   public final @Nonnull S uncheck() {
     driver().deselect(target());
     return myself();
+  }
+
+  /**
+   * Verifies that this fixture's {@code AbstractButton} selection state is equal to the <code>selected</code>
+   * parameter.
+   * 
+   * @param selected <code>true</code> if the {@link AbstractButton} must be selected.
+   * @return this fixture.
+   * @throws AssertionError if the {@code AbstractButton} managed by this fixture is not selected.
+   */
+  public final @Nonnull S requireSelected(boolean selected) {
+    if (selected) {
+      return requireSelected();
+    }
+    return requireNotSelected();
   }
 
   /**

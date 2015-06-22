@@ -51,6 +51,18 @@ public class AbstractTwoStateButtonFixture_withMocks_Test {
   }
 
   @Test
+  public void should_Call_Select_In_Driver_And_Return_Self_If_Checked_Is_True() {
+    assertThat(fixture.check(true)).isSameAs(fixture);
+    verify(fixture.driver()).select(fixture.target());
+  }
+
+  @Test
+  public void should_Call_Deselect_In_Driver_And_Return_Self_If_Checked_Is_False() {
+    assertThat(fixture.check(false)).isSameAs(fixture);
+    verify(fixture.driver()).deselect(fixture.target());
+  }
+
+  @Test
   public void should_Call_RequireSelected_In_Driver_And_Return_Self() {
     assertThat(fixture.requireSelected()).isSameAs(fixture);
     verify(fixture.driver()).requireSelected(fixture.target());
@@ -59,6 +71,18 @@ public class AbstractTwoStateButtonFixture_withMocks_Test {
   @Test
   public void should_Call_RequireNotSelected_In_Driver_And_Return_Self() {
     assertThat(fixture.requireNotSelected()).isSameAs(fixture);
+    verify(fixture.driver()).requireNotSelected(fixture.target());
+  }
+
+  @Test
+  public void should_Call_RequireSelected_In_Driver_And_Return_Self_If_Selected_Is_True() {
+    assertThat(fixture.requireSelected(true)).isSameAs(fixture);
+    verify(fixture.driver()).requireSelected(fixture.target());
+  }
+
+  @Test
+  public void should_Call_RequireNotSelected_In_Driver_And_Return_Self_If_Selected_Is_False() {
+    assertThat(fixture.requireSelected(false)).isSameAs(fixture);
     verify(fixture.driver()).requireNotSelected(fixture.target());
   }
 
