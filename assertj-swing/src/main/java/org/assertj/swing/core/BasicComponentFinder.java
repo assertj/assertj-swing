@@ -15,7 +15,7 @@ package org.assertj.swing.core;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
+import static java.lang.System.lineSeparator;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
@@ -282,7 +282,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   private @Nonnull ComponentLookupException componentNotFound(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
     String message = concat("Unable to find component using matcher ", m, ".");
     if (includeHierarchyIfComponentNotFound()) {
-      message = concat(message, LINE_SEPARATOR, LINE_SEPARATOR, "Component hierarchy:", LINE_SEPARATOR,
+      message = concat(message, lineSeparator(), lineSeparator(), "Component hierarchy:", lineSeparator(),
           formattedHierarchy(root(h)));
     }
     throw new ComponentLookupException(message);
@@ -312,7 +312,7 @@ public final class BasicComponentFinder implements ComponentFinder {
     message.append(String.format(format, m.toString()));
     appendComponents(message, found);
     if (!found.isEmpty()) {
-      message.append(LINE_SEPARATOR);
+      message.append(lineSeparator());
     }
     throw new ComponentLookupException(message.toString(), found);
   }

@@ -12,10 +12,10 @@
  */
 package org.assertj.swing.util;
 
+import static java.lang.System.lineSeparator;
 import static org.assertj.core.util.Objects.areEqual;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.quote;
-import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 
 import java.lang.reflect.Array;
 
@@ -78,17 +78,18 @@ public final class Arrays {
    * Formats a two-dimensional {@code String} array. For example, the array:
    *
    * <pre>
-   * String[][] array = { { &quot;0-0&quot;, &quot;0-1&quot;, &quot;0-2&quot; }, { &quot;1-0&quot;, &quot;1-1&quot;, &quot;1-2&quot; }, { &quot;2-0&quot;, &quot;2-1&quot;, &quot;2-2&quot; },
-   *     { &quot;3-0&quot;, &quot;3-1&quot;, &quot;3-2&quot; }, };
+   * String[][] array = { { &quot;0-0&quot;, &quot;0-1&quot;, &quot;0-2&quot; }, { &quot;1-0&quot;, &quot;1-1&quot;,
+   * &quot;1-2&quot; }, { &quot;2-0&quot;, &quot;2-1&quot;, &quot;2-2&quot; },
+   * { &quot;3-0&quot;, &quot;3-1&quot;, &quot;3-2&quot; }, };
    * </pre>
    *
    * will be formatted as:
    *
    * <pre>
    * [['0-0', '0-1', '0-2'],
-   *  ['1-0', '1-1', '1-2'],
-   *  ['2-0', '2-1', '2-2'],
-   *  ['3-0', '3-1', '3-2']]
+   * ['1-0', '1-1', '1-2'],
+   * ['2-0', '2-1', '2-2'],
+   * ['3-0', '3-1', '3-2']]
    * </pre>
    *
    * @param array the array to format.
@@ -109,7 +110,7 @@ public final class Arrays {
     b.append("[");
     for (int i = 0; i < size; i++) {
       if (i != 0) {
-        b.append(LINE_SEPARATOR).append(" ");
+        b.append(lineSeparator()).append(" ");
       }
       addLine(array[i], b);
       if (i != size - 1) {
@@ -155,7 +156,7 @@ public final class Arrays {
 
   /**
    * Creates and returns a copy of the given array.
-   * 
+   *
    * @param <T> the type of the values in this array.
    * @param array the array to copy.
    * @return the created copy.

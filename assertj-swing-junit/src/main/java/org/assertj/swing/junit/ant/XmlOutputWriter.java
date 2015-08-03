@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.junit.ant;
 
+import static java.lang.System.lineSeparator;
 import static org.apache.tools.ant.util.FileUtils.close;
-import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -27,7 +27,7 @@ import org.assertj.swing.junit.xml.XmlNode;
 
 /**
  * Understands writing the contents of an XML document to an <code>{@link OutputStream}</code>.
- * 
+ *
  * @author Alex Ruiz
  */
 class XmlOutputWriter {
@@ -55,7 +55,7 @@ class XmlOutputWriter {
     try {
       writer = new BufferedWriter(new OutputStreamWriter(out, CHARSET));
       writer.write(XML_HEADER);
-      writer.write(LINE_SEPARATOR);
+      writer.write(lineSeparator());
       xmlWriter.write(xml.target(), writer, 0, INDENT);
       writer.flush();
     } catch (IOException ex) {

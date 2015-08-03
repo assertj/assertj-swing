@@ -20,11 +20,9 @@ import static java.awt.event.KeyEvent.VK_DELETE;
 import static java.awt.event.KeyEvent.VK_ENTER;
 import static java.awt.event.KeyEvent.VK_ESCAPE;
 import static java.awt.event.KeyEvent.VK_TAB;
+import static java.lang.System.lineSeparator;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Closeables.closeQuietly;
 import static org.assertj.core.util.Files.newTemporaryFile;
-import static org.assertj.core.util.Flushables.flush;
-import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 import static org.assertj.swing.keystroke.KeyStrokeMapping.mapping;
 import static org.assertj.swing.keystroke.KeyStrokeMappingProvider.NO_MASK;
 import static org.assertj.swing.test.ExpectedException.none;
@@ -45,7 +43,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link KeyStrokeMappingsParser#parse(String)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class KeyStrokeMappingProvider_parse_Test {
@@ -76,7 +74,7 @@ public class KeyStrokeMappingProvider_parse_Test {
     assertThatContainsDefaultMappings(mappingProvider);
     Collection<KeyStrokeMapping> mappings = mappingProvider.keyStrokeMappings();
     assertThat(mappings).contains(mapping('a', VK_A, NO_MASK), mapping('A', VK_A, SHIFT_MASK),
-        mapping(',', VK_COMMA, NO_MASK));
+                                  mapping(',', VK_COMMA, NO_MASK));
   }
 
   @Test
@@ -114,15 +112,12 @@ public class KeyStrokeMappingProvider_parse_Test {
 
   private static File createMappingFile(String... mappings) throws IOException {
     File f = newTemporaryFile();
-    Writer output = new BufferedWriter(new FileWriter(f));
-    try {
+
+    try (Writer output = new BufferedWriter(new FileWriter(f));) {
       for (String mapping : mappings) {
         output.write(mapping);
-        output.write(LINE_SEPARATOR);
+        output.write(lineSeparator());
       }
-    } finally {
-      flush(output);
-      closeQuietly(output);
     }
     return f;
   }
@@ -130,7 +125,8 @@ public class KeyStrokeMappingProvider_parse_Test {
   private static void assertThatContainsDefaultMappings(KeyStrokeMappingProvider mappingProvider) {
     Collection<KeyStrokeMapping> mappings = mappingProvider.keyStrokeMappings();
     assertThat(mappings).contains(mapping('\b', VK_BACK_SPACE, NO_MASK), mapping('', VK_DELETE, NO_MASK),
-        mapping('\n', VK_ENTER, NO_MASK), mapping('', VK_ESCAPE, NO_MASK), mapping('\t', VK_TAB, NO_MASK));
+                                  mapping('\n', VK_ENTER, NO_MASK), mapping('', VK_ESCAPE, NO_MASK),
+                                  mapping('\t', VK_TAB, NO_MASK));
     if (isWindows()) {
       assertThat(mappings).contains(mapping('\r', VK_ENTER, NO_MASK));
     }
