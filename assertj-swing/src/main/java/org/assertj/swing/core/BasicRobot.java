@@ -90,10 +90,10 @@ import org.assertj.swing.util.ToolkitProvider;
 
 /**
  * Default implementation of {@link Robot}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
- * 
+ *
  * @see Robot
  */
 public class BasicRobot implements Robot {
@@ -129,7 +129,7 @@ public class BasicRobot implements Robot {
   /**
    * Creates a new {@link Robot} with a new AWT hierarchy. The created {@code Robot} will not be able to access any AWT
    * and Swing {@code Component}s that were created before it.
-   * 
+   *
    * @return the created {@code Robot}.
    */
   public static @Nonnull Robot robotWithNewAwtHierarchy() {
@@ -143,7 +143,7 @@ public class BasicRobot implements Robot {
 
   /**
    * Creates a new {@link Robot} that has access to all the AWT and Swing {@code Component}s in the AWT hierarchy.
-   * 
+   *
    * @return the created {@code Robot}.
    */
   public static @Nonnull Robot robotWithCurrentAwtHierarchy() {
@@ -246,7 +246,7 @@ public class BasicRobot implements Robot {
 
   /**
    * Returns the {@code Applet} descendant of the given AWT {@code Container}, if any.
-   * 
+   *
    * @param c the given {@code Container}.
    * @return the {@code Applet} descendant of the given AWT {@code Container}, or {@code null} if none is found.
    */
@@ -278,6 +278,11 @@ public class BasicRobot implements Robot {
       return;
     }
     FocusMonitor focusMonitor = FocusMonitor.attachTo(target);
+    Component newOwner = inEdtFocusOwner();
+    if (newOwner == target) {
+      target.removeFocusListener(focusMonitor);
+      return;
+    }
     // for pointer focus
     moveMouse(target);
     // Make sure the correct window is in front
@@ -327,7 +332,7 @@ public class BasicRobot implements Robot {
 
   /**
    * Activates the given AWT {@code Window}. "Activate" means that the given window gets the keyboard focus.
-   * 
+   *
    * @param w the window to activate.
    */
   @RunsInEDT
@@ -744,14 +749,14 @@ public class BasicRobot implements Robot {
   }
 
   private void simpleWaitForIdle() {
-      if (EventQueue.isDispatchThread()) {
-          throw new IllegalThreadStateException("Cannot call method from the event dispatcher thread");
-      }
-      try {
-          EventQueue.invokeAndWait(EMPTY_RUNNABLE);
-      } catch (Exception e) {
-          throw new UnexpectedException("could not invokeAndWait", e);
-      }
+    if (EventQueue.isDispatchThread()) {
+      throw new IllegalThreadStateException("Cannot call method from the event dispatcher thread");
+    }
+    try {
+      EventQueue.invokeAndWait(EMPTY_RUNNABLE);
+    } catch (Exception e) {
+      throw new UnexpectedException("could not invokeAndWait", e);
+    }
   }
 
   private void waitForIdle(@Nonnull EventQueue eventQueue) {
@@ -851,12 +856,12 @@ public class BasicRobot implements Robot {
    * <p>
    * Indicates whether the given AWT or Swing {@code Component} is ready for input.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code Component}.
    * @return {@code true} if the given {@code Component} is ready for input, {@code false} otherwise.
    * @throws ActionFailedException if the given {@code Component} does not have a {@code Window} ancestor.
