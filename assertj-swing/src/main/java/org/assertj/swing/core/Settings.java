@@ -265,6 +265,8 @@ public class Settings {
 
   /**
    * turns on or off the simple waitForIdle implementation
+   *
+   * @param simpleWaitForIdle <code>true</code> if simple implementation should be used
    */
   public void simpleWaitForIdle(boolean simpleWaitForIdle) {
     this.simpleWaitForIdle = simpleWaitForIdle;

@@ -17,41 +17,40 @@ import com.jidesoft.converter.ObjectConverterManager;
 
 /**
  * A CellReader for extracting a String representation of a value in an {@link AbstractComboBox}.
- * 
+ *
  * @author Peter Murray
  */
 public class AbstractComboBoxCellReader {
 
   /**
-   * Returns the internal value of a cell in a <code>{@link ListComboBox}</code> as expected
+   * Returns the internal value of a cell in a <code>{@link com.jidesoft.combobox.ListComboBox}</code> as expected
    * in a test. This method first tries to get the value from the <code>toString</code> implementation of the object
-   * stored in the <code>JComboBox</code>'s model at the
-   * specified index. If it fails, it returns the value displayed in the <code>ListComboBox</code>'s cell renderer.
-   * 
+   * stored in the <code>JComboBox</code>'s model at the specified index. If it fails, it returns the value displayed in
+   * the <code>ListComboBox</code>'s cell renderer.
+   *
    * @param comboBox the given <code>ListComboBox</code>.
    * @param index the index of the cell.
-   * @return the internal value of a cell in a <code>ListComboBox</code> as expected in a
-   *         test.
+   * @return the internal value of a cell in a <code>ListComboBox</code> as expected in a test.
    */
   public String valueAt(AbstractComboBox comboBox, int index) {
-	final Object item = itemAt(comboBox, index);
-	return valueAsText(comboBox, item);
+    final Object item = itemAt(comboBox, index);
+    return valueAsText(comboBox, item);
   }
 
   public String valueAsText(AbstractComboBox comboBox, Object value) {
-	if (value == null) {
-	  return null;
-	}
+    if (value == null) {
+      return null;
+    }
 
-	if (comboBox.getConverter() != null) {
-	  return comboBox.getConverter().toString(value, comboBox.getConverterContext());
-	}
-	return ObjectConverterManager.toString(value,
-	                                       comboBox.getType(),
-	                                       comboBox.getConverterContext());
+    if (comboBox.getConverter() != null) {
+      return comboBox.getConverter().toString(value, comboBox.getConverterContext());
+    }
+    return ObjectConverterManager.toString(value,
+                                           comboBox.getType(),
+                                           comboBox.getConverterContext());
   }
 
   private Object itemAt(AbstractComboBox comboBox, int index) {
-	return comboBox.getModel().getElementAt(index);
+    return comboBox.getModel().getElementAt(index);
   }
 }

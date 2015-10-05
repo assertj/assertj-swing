@@ -40,7 +40,7 @@ public class ImageFolderCreator {
    * 'failed-gui-tests'. If the folder already exists, it is deleted and recreated again.
    *
    * @return the created folder.
-   * @throws FilesException if any error occurs when creating the folder.
+   * @throws org.assertj.core.api.exception.RuntimeIOException if any error occurs when creating the folder.
    */
   public File createImageFolder() {
     return folderCreator.createFolder(currentFolder(), FAILED_GUI_TESTS_FOLDER);

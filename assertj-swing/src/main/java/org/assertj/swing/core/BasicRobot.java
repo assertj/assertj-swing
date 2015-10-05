@@ -864,7 +864,8 @@ public class BasicRobot implements Robot {
    *
    * @param c the given {@code Component}.
    * @return {@code true} if the given {@code Component} is ready for input, {@code false} otherwise.
-   * @throws ActionFailedException if the given {@code Component} does not have a {@code Window} ancestor.
+   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code Component} does not have a
+   *           {@code Window} ancestor.
    */
   @Override
   @RunsInCurrentThread

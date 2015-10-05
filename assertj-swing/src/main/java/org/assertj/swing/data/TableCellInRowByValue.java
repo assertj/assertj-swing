@@ -38,7 +38,7 @@ import org.assertj.swing.edt.GuiQuery;
  *
  * <pre>
  * // import static org.assertj.swing.data.TableCellInRowByValue.rowWithValue;
- * {@link JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("Sue", "Black", "Knitting").column(2));
+ * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("Sue", "Black", "Knitting").column(2));
  * </pre>
  *
  * @author Alex Ruiz

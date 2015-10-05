@@ -34,7 +34,7 @@ import org.assertj.swing.edt.GuiQuery;
  *
  * <pre>
  * // import static org.assertj.swing.data.TableCellInSelectedRow.selectedRow;
- * {@link JTableCellFixture} cell = window.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
+ * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
  * </pre>
  *
  * @author Alex Ruiz

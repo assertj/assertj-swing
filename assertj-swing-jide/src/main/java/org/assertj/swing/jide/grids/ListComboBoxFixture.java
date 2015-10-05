@@ -79,14 +79,14 @@ public class ListComboBoxFixture extends
 
   /**
    * Simulates a user entering the specified text in this fixture's <code>{@link
-   * JComboBox}</code>. This action is executed only if the <code>{@link JComboBox}</code> is editable.
+   * ListComboBox}</code>. This action is executed only if the <code>{@link ListComboBox}</code> is editable.
    *
    * @param text the text to enter.
    * @return this fixture.
-   * @throws IllegalStateException if this fixture's <code>JComboBox</code> is disabled.
-   * @throws IllegalStateException if this fixture's <code>JComboBox</code> is not showing
+   * @throws IllegalStateException if this fixture's <code>ListComboBox</code> is disabled.
+   * @throws IllegalStateException if this fixture's <code>ListComboBox</code> is not showing
    *           on the screen.
-   * @throws IllegalStateException if this fixture's <code>JComboBox</code> is not
+   * @throws IllegalStateException if this fixture's <code>ListComboBox</code> is not
    *           editable.
    */
   public ListComboBoxFixture enterText(String text) {
@@ -114,9 +114,9 @@ public class ListComboBoxFixture extends
   }
 
   /**
-   * Finds and returns the {@link JList} in the pop-up raised by this fixture's <code>{@link JComboBox}</code>.
+   * Finds and returns the {@link JList} in the pop-up raised by this fixture's <code>{@link ListComboBox}</code>.
    *
-   * @return the <code>JList</code> in the pop-up raised by this fixture's <code>JComboBox</code>.
+   * @return the <code>JList</code> in the pop-up raised by this fixture's <code>ListComboBox</code>.
    * @throws org.assertj.swing.exception.ComponentLookupException if the <code>JList</code> in the pop-up could not be
    *           found.
    */
@@ -131,15 +131,15 @@ public class ListComboBoxFixture extends
   }
 
   /**
-   * Simulates a user selecting an item in this fixture's <code>{@link JComboBox}</code>.
+   * Simulates a user selecting an item in this fixture's <code>{@link ListComboBox}</code>.
    *
    * @param index the index of the item to select.
    * @return this fixture.
-   * @throws IllegalStateException if this fixture's <code>JComboBox</code> is disabled.
-   * @throws IllegalStateException if this fixture's <code>JComboBox</code> is not showing
+   * @throws IllegalStateException if this fixture's <code>ListComboBox</code> is disabled.
+   * @throws IllegalStateException if this fixture's <code>ListComboBox</code> is not showing
    *           on the screen.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the
-   *           index of the last item in the <code>JComboBox</code>.
+   *           index of the last item in the <code>ListComboBox</code>.
    */
   @Override
   public ListComboBoxFixture selectItem(int index) {
@@ -148,7 +148,7 @@ public class ListComboBoxFixture extends
   }
 
   /**
-   * Simulates a user selecting an item in this fixture's <code>{@link JComboBox}</code>.
+   * Simulates a user selecting an item in this fixture's <code>{@link ListComboBox}</code>.
    * Value matching is performed by this fixture's <code>{@link
    * org.assertj.swing.cell.JComboBoxCellReader}</code>.
    *
@@ -156,8 +156,8 @@ public class ListComboBoxFixture extends
    * @return this fixture.
    * @throws org.assertj.swing.exception.LocationUnavailableException if an element matching
    *           the given text cannot be found.
-   * @throws IllegalStateException if this fixture's <code>JComboBox</code> is disabled.
-   * @throws IllegalStateException if this fixture's <code>JComboBox</code> is not showing
+   * @throws IllegalStateException if this fixture's <code>ListComboBox</code> is disabled.
+   * @throws IllegalStateException if this fixture's <code>ListComboBox</code> is not showing
    *           on the screen.
    * @see #cellReader(org.assertj.swing.jide.grids.driver.AbstractComboBoxCellReader)
    */
@@ -169,14 +169,14 @@ public class ListComboBoxFixture extends
 
   /**
    * Returns the <code>String</code> representation of the value of an item in this
-   * fixture's <code>{@link JComboBox}</code>, using this fixture's <code>{@link
+   * fixture's <code>{@link ListComboBox}</code>, using this fixture's <code>{@link
    * org.assertj.swing.cell.JComboBoxCellReader}</code>.
    *
    * @param index the index of the item to return.
    * @return the <code>String</code> representation of the value of an item in this
-   *         fixture's <code>JComboBox</code>.
+   *         fixture's <code>ListComboBox</code>.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the
-   *           index of the last item in the <code>JComboBox</code>.
+   *           index of the last item in the <code>ListComboBox</code>.
    * @see #cellReader(org.assertj.swing.jide.grids.driver.AbstractComboBoxCellReader)
    */
   @Override
@@ -206,10 +206,10 @@ public class ListComboBoxFixture extends
   }
 
   /**
-   * Asserts that this fixture's <code>{@link JComboBox}</code> is editable.
+   * Asserts that this fixture's <code>{@link ListComboBox}</code> is editable.
    *
    * @return this fixture.
-   * @throws AssertionError if this fixture's <code>JComboBox</code> is not editable.
+   * @throws AssertionError if this fixture's <code>ListComboBox</code> is not editable.
    */
   public ListComboBoxFixture requireEditable() {
     driver().requireEditable(target());
@@ -217,10 +217,10 @@ public class ListComboBoxFixture extends
   }
 
   /**
-   * Asserts that this fixture's <code>{@link JComboBox}</code> is not editable.
+   * Asserts that this fixture's <code>{@link ListComboBox}</code> is not editable.
    *
    * @return this fixture.
-   * @throws AssertionError if this fixture's <code>JComboBox</code> is editable.
+   * @throws AssertionError if this fixture's <code>ListComboBox</code> is editable.
    */
   public ListComboBoxFixture requireNotEditable() {
     driver().requireNotEditable(target());
@@ -229,7 +229,7 @@ public class ListComboBoxFixture extends
 
   /**
    * Verifies that the <code>String</code> representation of the selected item in this
-   * fixture's <code>{@link JComboBox}</code> matches the given text.
+   * fixture's <code>{@link ListComboBox}</code> matches the given text.
    *
    * @param value the text to match.
    * @return this fixture.
@@ -248,11 +248,11 @@ public class ListComboBoxFixture extends
   }
 
   /**
-   * Verifies that this fixture's <code>{@link JComboBox}</code> does not have any
+   * Verifies that this fixture's <code>{@link ListComboBox}</code> does not have any
    * selection.
    *
    * @return this fixture.
-   * @throws AssertionError if this fixture's <code>JComboBox</code> has a selection.
+   * @throws AssertionError if this fixture's <code>ListComboBox</code> has a selection.
    */
   @Override
   public ListComboBoxFixture requireNoSelection() {
