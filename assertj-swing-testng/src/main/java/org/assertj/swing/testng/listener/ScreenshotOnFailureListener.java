@@ -117,7 +117,7 @@ public class ScreenshotOnFailureListener extends AbstractTestListener {
 
   private static boolean isGUITest(ITestResult testResult) {
     Class<?> realClass = testResult.getTestClass().getRealClass();
-    Method testMethod = testResult.getMethod().getMethod();
+    Method testMethod = testResult.getMethod().getConstructorOrMethod().getMethod();
     return GUITestFinder.isGUITest(realClass, testMethod);
   }
 
