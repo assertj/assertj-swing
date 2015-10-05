@@ -13,7 +13,7 @@
 package org.assertj.swing.junit.ant;
 
 import static java.lang.System.lineSeparator;
-import static org.assertj.core.api.StrictAssertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.classextension.EasyMock.createMock;
 

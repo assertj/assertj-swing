@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.jide.grids.driver;
 
-import static org.assertj.core.api.StrictAssertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.format;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
@@ -81,7 +81,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
    * @throws IllegalStateException if the <code>JComboBox</code> is disabled.
    * @throws IllegalStateException if the <code>JComboBox</code> is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
-   * <code>JComboBox</code>.
+   *           <code>JComboBox</code>.
    */
   @RunsInEDT
   public void selectItem(final ListComboBox comboBox, int index) {
@@ -141,7 +141,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
    * @param index the given index.
    * @return the value of the element under the given index.
    * @throws org.assertj.swing.exception.LocationUnavailableException if the given index is negative or greater than the
-   * index of the last item in the <code>AbstractComboBox</code>.
+   *           index of the last item in the <code>AbstractComboBox</code>.
    * @see #cellReader(AbstractComboBoxCellReader)
    */
   public String value(AbstractComboBox comboBox, int index) {

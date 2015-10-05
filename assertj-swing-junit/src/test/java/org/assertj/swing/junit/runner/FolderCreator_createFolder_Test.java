@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.junit.runner;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
-import static org.assertj.core.api.StrictAssertions.assertThat;
 import static org.assertj.core.util.Files.newTemporaryFolder;
 import static org.easymock.classextension.EasyMock.createMock;
 

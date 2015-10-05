@@ -28,7 +28,7 @@ import javax.annotation.Nonnull;
 
 /**
  * Message types of a {@code JOptionPane}.
- * 
+ *
  * @author Alex Ruiz
  */
 final class JOptionPaneMessageTypes {
@@ -43,7 +43,7 @@ final class JOptionPaneMessageTypes {
 
   static @Nonnull String messageTypeAsText(int messageType) {
     if (messageMap.containsKey(messageType)) {
-      return checkNotNullOrEmpty(messageMap.get(messageType));
+      return checkNotNullOrEmpty(messageMap.get(messageType)).toString();
     }
     throw actionFailure(concat("The message type <", messageType, "> is not valid"));
   }

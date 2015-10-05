@@ -13,7 +13,7 @@
 package org.assertj.swing.util;
 
 import static java.lang.System.lineSeparator;
-import static org.assertj.core.api.StrictAssertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 
 import org.junit.Test;
