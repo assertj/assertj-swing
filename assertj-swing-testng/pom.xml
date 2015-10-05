@@ -50,8 +50,7 @@
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>5.7</version>
-      <classifier>jdk15</classifier>
+      <version>6.9.6</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -65,6 +64,10 @@
       <artifactId>fest-mocks</artifactId>
       <version>1.1</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.easytesting</groupId>
+      <artifactId>fest-reflect</artifactId>
     </dependency>
   </dependencies>
   <reporting>

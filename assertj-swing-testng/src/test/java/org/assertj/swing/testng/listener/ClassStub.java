@@ -13,10 +13,12 @@
 package org.assertj.swing.testng.listener;
 
 import org.testng.IClass;
+import org.testng.xml.XmlClass;
+import org.testng.xml.XmlTest;
 
 /**
  * Understands an <code>{@link IClass}</code> stub for testing purposes.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ClassStub implements IClass {
@@ -67,5 +69,22 @@ public class ClassStub implements IClass {
 
   public void setRealClass(Class<?> realClass) {
     this.realClass = realClass;
+  }
+
+  @Override
+  public XmlTest getXmlTest() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public XmlClass getXmlClass() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public String getTestName() {
+    return name;
   }
 }
