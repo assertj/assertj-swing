@@ -17,35 +17,34 @@ import java.awt.Point;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.exception.ActionFailedException;
-
 /**
  * Generates input events.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 interface InputEventGenerator {
   /**
    * Simulates a user pressing mouse buttons.
-   * 
+   *
    * @param buttons the buttons to press.
    */
   void pressMouse(int buttons);
 
   /**
    * Simulates a user pressing the given mouse buttons on the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the {@code Component} to click on.
    * @param where the given coordinates, relative to the given {@code Component}.
    * @param buttons the mouse buttons to press.
-   * @throws ActionFailedException if the {@code Component} to click is out of the boundaries of the screen.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code Component} to click is out of the
+   *           boundaries of the screen.
    */
   void pressMouse(@Nonnull Component c, @Nonnull Point where, int buttons);
 
   /**
    * Simulates a user pressing the given mouse buttons on the given coordinates.
-   * 
+   *
    * @param where the coordinates where to press the given mouse buttons.
    * @param buttons the mouse buttons to press.
    */
@@ -54,7 +53,7 @@ interface InputEventGenerator {
   /**
    * Simulates a user moving the mouse pointer to the given coordinates relative to the given AWT or Swing
    * {@code Component}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @param x X coordinate, relative to the given {@code Component}.
    * @param y Y coordinate, relative to the given {@code Component}.
@@ -63,7 +62,7 @@ interface InputEventGenerator {
 
   /**
    * Simulates a user moving the mouse pointer to the given coordinates.
-   * 
+   *
    * @param x X coordinate.
    * @param y Y coordinate.
    */
@@ -71,14 +70,14 @@ interface InputEventGenerator {
 
   /**
    * Releases the given mouse buttons.
-   * 
+   *
    * @param buttons the mouse buttons to release.
    */
   void releaseMouse(int buttons);
 
   /**
    * Rotates the scroll wheel on wheel-equipped mice.
-   * 
+   *
    * @param amount number of "notches" to move the mouse wheel. Negative values indicate movement up/away from the user,
    *          while positive values indicate movement down/towards the user.
    */
@@ -86,7 +85,7 @@ interface InputEventGenerator {
 
   /**
    * Simulates a user pressing given key.
-   * 
+   *
    * @param keyCode the code of the key to press.
    * @param keyChar the given character.
    * @throws IllegalArgumentException if the key code is not valid.
@@ -96,7 +95,7 @@ interface InputEventGenerator {
 
   /**
    * Simulates a user releasing the given key.
-   * 
+   *
    * @param keyCode the code of the key to release.
    * @see java.awt.event.KeyEvent
    */

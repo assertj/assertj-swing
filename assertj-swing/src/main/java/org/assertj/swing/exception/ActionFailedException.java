@@ -16,13 +16,16 @@ import javax.annotation.Nonnull;
 
 /**
  * Error that occurred when simulation of user input failed.
- * 
+ *
  * @author Yvonne Wang
  */
 public class ActionFailedException extends RuntimeException {
+  /** Generated serial version UID. */
+  private static final long serialVersionUID = 8302395324992017367L;
+
   /**
    * Creates a new {@link ActionFailedException}.
-   * 
+   *
    * @param message the detail message.
    * @return the created exception.
    */
@@ -32,7 +35,7 @@ public class ActionFailedException extends RuntimeException {
 
   /**
    * Creates a new {@link ActionFailedException}.
-   * 
+   *
    * @param message the detail message.
    * @param cause the cause of the error.
    * @return the created exception.

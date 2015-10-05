@@ -33,7 +33,7 @@ import org.assertj.swing.util.TimeoutWatch;
 
 /**
  * Looks up the {@code JList} in the pop-up raised by a {@code JComboBox}, if the LAF actually uses one.
- * 
+ *
  * @author Alex Ruiz
  */
 final class JComboBoxDropDownListFinder {
@@ -47,12 +47,12 @@ final class JComboBoxDropDownListFinder {
 
   /**
    * Finds the {@code JList} in the pop-up raised by a {@code JComboBox}, if the LAF actually uses one.
-   * 
+   *
    * @return the found {@code JList}, or {@code null} if a drop-down list cannot be found.
    */
   @RunsInEDT
   @Nullable
-  JList findDropDownList() {
+  JList<?> findDropDownList() {
     JPopupMenu popup = robot.findActivePopupMenu();
     if (popup == null) {
       TimeoutWatch watch = startWatchWithTimeoutOf(robot.settings().timeoutToFindPopup());
@@ -68,11 +68,11 @@ final class JComboBoxDropDownListFinder {
     return findListIn(popup);
   }
 
-  private @Nullable JList findListIn(@Nonnull Container parent) {
+  private @Nullable JList<?> findListIn(@Nonnull Container parent) {
     List<Component> found = newArrayList(robot.finder().findAll(parent, LIST_MATCHER));
     if (found.size() != 1) {
       return null;
     }
-    return (JList) found.get(0);
+    return (JList<?>) found.get(0);
   }
 }

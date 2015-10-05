@@ -24,13 +24,13 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the smallest selection index in a {@code JList}. This query is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 final class JListSelectedIndexQuery {
   @RunsInEDT
-  static int selectedIndexOf(final @Nonnull JList list) {
+  static int selectedIndexOf(final @Nonnull JList<?> list) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
       protected @Nullable Integer executeInEDT() {

@@ -770,7 +770,6 @@ public class BasicRobot implements Robot {
     // returns.
     // We always post at least one idle event to allow any current event dispatch processing to finish.
     long start = currentTimeMillis();
-    int count = 0;
     do {
       // Timed out waiting for idle
       int idleTimeout = settings.idleTimeout();
@@ -781,7 +780,6 @@ public class BasicRobot implements Robot {
       if (currentTimeMillis() - start > idleTimeout) {
         break;
       }
-      ++count;
       // Force a yield
       pause();
       // Abbot: this does not detect invocation events (i.e. what gets posted with EventQueue.invokeLater), so if

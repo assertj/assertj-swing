@@ -27,12 +27,11 @@ import java.awt.Point;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.util.TimeoutWatch;
 
 /**
  * Simulates a user performing drag-and-drop.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ComponentDragAndDrop {
@@ -40,7 +39,7 @@ public class ComponentDragAndDrop {
 
   /**
    * Creates a new {@link ComponentDragAndDrop}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public ComponentDragAndDrop(@Nonnull Robot robot) {
@@ -52,7 +51,7 @@ public class ComponentDragAndDrop {
 
   /**
    * Performs a drag action at the given location.
-   * 
+   *
    * @param target the target AWT or Swing {@code Component}.
    * @param where the point where to start the drag action.
    */
@@ -73,8 +72,8 @@ public class ComponentDragAndDrop {
       return;
     }
     mouseMove(target, point(x + DRAG_THRESHOLD / 2, y + DRAG_THRESHOLD / 2),
-        point(x + DRAG_THRESHOLD, y + DRAG_THRESHOLD), point(x + DRAG_THRESHOLD / 2, y + DRAG_THRESHOLD / 2),
-        point(x, y));
+              point(x + DRAG_THRESHOLD, y + DRAG_THRESHOLD), point(x + DRAG_THRESHOLD / 2, y + DRAG_THRESHOLD / 2),
+              point(x, y));
   }
 
   @RunsInEDT
@@ -86,7 +85,7 @@ public class ComponentDragAndDrop {
       dx = DRAG_THRESHOLD;
     }
     mouseMove(target, point(x + dx / 4, y + dy / 4), point(x + dx / 2, y + dy / 2), point(x + dx, y + dy),
-        point(x + dx + 1, y + dy));
+              point(x + dx + 1, y + dy));
   }
 
   private int distance(int coordinate, int dimension) {
@@ -101,14 +100,14 @@ public class ComponentDragAndDrop {
    * <p>
    * Ends a drag operation, releasing the mouse button over the given target location.
    * </p>
-   * 
+   *
    * <p>
    * This method is tuned for native drag/drop operations, so if you get odd behavior, you might try using a simple
    * {@link Robot#moveMouse(Component, int, int)} and {@link Robot#releaseMouseButtons()}.
-   * 
+   *
    * @param target the target AWT or Swing {@code Component}.
    * @param where the point where the drag operation ends.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
   public void drop(@Nonnull Component target, @Nonnull Point where) {
@@ -140,7 +139,7 @@ public class ComponentDragAndDrop {
   /**
    * Move the mouse appropriately to get from the source to the destination. Enter/exit events will be generated where
    * appropriate.
-   * 
+   *
    * @param target the target AWT or Swing {@code Component}.
    * @param where the point to drag over.
    */

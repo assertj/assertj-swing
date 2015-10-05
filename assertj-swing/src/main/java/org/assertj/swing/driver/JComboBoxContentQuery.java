@@ -26,12 +26,12 @@ import org.assertj.swing.edt.GuiQuery;
 /**
  * Returns an array of {@code String}s that represents the contents of a given {@code JComboBox}. This action is
  * executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JComboBoxContentQuery {
   @RunsInEDT
-  static @Nonnull String[] contents(final @Nonnull JComboBox comboBox, final @Nonnull JComboBoxCellReader cellReader) {
+  static @Nonnull String[] contents(final @Nonnull JComboBox<?> comboBox, final @Nonnull JComboBoxCellReader cellReader) {
     String[] result = execute(new GuiQuery<String[]>() {
       @Override
       protected @Nullable String[] executeInEDT() {

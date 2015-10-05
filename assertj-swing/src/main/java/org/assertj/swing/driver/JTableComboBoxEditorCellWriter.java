@@ -23,12 +23,11 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JTableCellWriter;
 import org.assertj.swing.core.Robot;
 
 /**
- * {@link JTableCellWriter} that knows how to use {@code JComboBox}es as cell editors.
- * 
+ * {@link org.assertj.swing.cell.JTableCellWriter} that knows how to use {@code JComboBox}es as cell editors.
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -43,12 +42,12 @@ public class JTableComboBoxEditorCellWriter extends AbstractJTableCellWriter {
   @RunsInEDT
   @Override
   public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
-    JComboBox editor = doStartCellEditing(table, row, column);
+    JComboBox<?> editor = doStartCellEditing(table, row, column);
     selectOrType(editor, value);
     stopEditing(table, row, column);
   }
 
-  private void selectOrType(@Nonnull JComboBox editor, @Nonnull String value) {
+  private void selectOrType(@Nonnull JComboBox<?> editor, @Nonnull String value) {
     boolean selectValue = !isEditable(editor);
     if (!selectValue) {
       selectValue = newArrayList(driver.contentsOf(editor)).contains(value);
@@ -67,16 +66,16 @@ public class JTableComboBoxEditorCellWriter extends AbstractJTableCellWriter {
   }
 
   @RunsInEDT
-  private JComboBox doStartCellEditing(@Nonnull JTable table, int row, int column) {
+  private JComboBox<?> doStartCellEditing(@Nonnull JTable table, int row, int column) {
     Point cellLocation = cellLocation(table, row, column, location());
     robot.click(table, cellLocation); // activate JComboBox editor
-    JComboBox comboBox = waitForEditorActivation(table, row, column);
+    JComboBox<?> comboBox = waitForEditorActivation(table, row, column);
     cellEditor(cellEditor(table, row, column));
     return comboBox;
   }
 
   @RunsInEDT
-  private JComboBox waitForEditorActivation(@Nonnull JTable table, int row, int column) {
+  private JComboBox<?> waitForEditorActivation(@Nonnull JTable table, int row, int column) {
     return waitForEditorActivation(table, row, column, JComboBox.class);
   }
 }

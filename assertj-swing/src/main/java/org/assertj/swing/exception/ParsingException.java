@@ -16,13 +16,16 @@ import javax.annotation.Nonnull;
 
 /**
  * Error thrown when an unexpected error occurs while parsing a file.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ParsingException extends RuntimeException {
+  /** Generated serial version UID. */
+  private static final long serialVersionUID = -8420935990336354323L;
+
   /**
    * Creates a new {@link ParsingException}.
-   * 
+   *
    * @param message the detail message.
    */
   public ParsingException(@Nonnull String message) {
@@ -31,7 +34,7 @@ public class ParsingException extends RuntimeException {
 
   /**
    * Creates a new {@link ParsingException}.
-   * 
+   *
    * @param message the detail message.
    * @param cause the cause of the error.
    */

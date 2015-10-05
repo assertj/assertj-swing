@@ -26,17 +26,17 @@ import javax.swing.JList;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
- * Calculates the center of a cell in a {@code JList}.
- * 
+ * Calculates the centre of a cell in a {@code JList}.
+ *
  * @author Alex Ruiz
  */
 final class JListCellCenterQuery {
   /*
    * Sometimes the cell can be a lot longer than the JList (e.g. when a list item has long text and the JList is in a
-   * JScrollPane.) In this case, we return the center of visible rectangle of the JList (issue FEST-65.)
+   * JScrollPane.) In this case, we return the centre of visible rectangle of the JList (issue FEST-65.)
    */
   @RunsInCurrentThread
-  static @Nonnull Point cellCenter(@Nonnull JList list, @Nonnull Rectangle cellBounds) {
+  static @Nonnull Point cellCenter(@Nonnull JList<?> list, @Nonnull Rectangle cellBounds) {
     Point cellCenter = centerOf(cellBounds);
     Point translated = checkNotNull(translate(list, cellCenter.x, cellCenter.y));
     int listVisibleWidth = list.getVisibleRect().width;

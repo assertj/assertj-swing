@@ -26,7 +26,7 @@ import org.assertj.swing.cell.JListCellReader;
 
 /**
  * Default implementation of {@link JListCellReader}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -43,7 +43,7 @@ public class BasicJListCellReader implements JListCellReader {
 
   /**
    * Creates a new {@link BasicJListCellReader}.
-   * 
+   *
    * @param rendererReader knows how to read values from the cell renderer component in a {@code JList}.
    * @throws NullPointerException if {@code rendererReader} is {@code null}.
    */
@@ -55,12 +55,12 @@ public class BasicJListCellReader implements JListCellReader {
    * <p>
    * Returns the internal value of a cell in a {@code JList} as expected in a test.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param list the given {@code JList}.
    * @param index the index of the cell.
    * @return the internal value of a cell in a {@code JList} as expected in a test.

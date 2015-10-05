@@ -59,6 +59,9 @@ import org.assertj.swing.edt.GuiQuery;
  * @author Yvonne Wang
  */
 public class AppletViewer extends JFrame implements StatusDisplay {
+  /** Generated serial version UID. */
+  private static final long serialVersionUID = 5187805904213837898L;
+
   private static final Dimension DEFAULT_SIZE = new Dimension(100, 100);
 
   private final JLabel statusLabel = new JLabel();

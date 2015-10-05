@@ -24,17 +24,17 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * <p>
  * Validates that a given number is a valid index of an item in a {@code JComboBox}.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT.) Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 final class JComboBoxItemIndexPreconditions {
   @RunsInCurrentThread
-  static void checkItemIndexInBounds(@Nonnull JComboBox comboBox, int index) {
+  static void checkItemIndexInBounds(@Nonnull JComboBox<?> comboBox, int index) {
     if (index < 0) {
       String msg = String.format("%s should not be less than zero", itemIndex(index));
       throw new IndexOutOfBoundsException(msg);

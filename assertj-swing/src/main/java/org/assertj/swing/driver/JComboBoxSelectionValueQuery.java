@@ -27,15 +27,15 @@ import org.assertj.swing.util.Pair;
 /**
  * Returns the selected value of a {@code JComboBox} as plain text. This query is executed in the event dispatch thread
  * (EDT.)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JComboBoxSelectionValueQuery {
   private static final Pair<Boolean, String> NO_SELECTION = Pair.of(false, null);
 
   @RunsInEDT
-  static @Nonnull Pair<Boolean, String> selection(final @Nonnull JComboBox comboBox,
-      final @Nonnull JComboBoxCellReader cellReader) {
+  static @Nonnull Pair<Boolean, String> selection(final @Nonnull JComboBox<?> comboBox,
+                                                  final @Nonnull JComboBoxCellReader cellReader) {
     Pair<Boolean, String> result = execute(new GuiQuery<Pair<Boolean, String>>() {
       @Override
       protected @Nullable Pair<Boolean, String> executeInEDT() {
@@ -49,7 +49,7 @@ final class JComboBoxSelectionValueQuery {
     return checkNotNull(result);
   }
 
-  private static @Nonnull Pair<Boolean, String> valueForNoSelection(@Nonnull JComboBox comboBox) {
+  private static @Nonnull Pair<Boolean, String> valueForNoSelection(@Nonnull JComboBox<?> comboBox) {
     if (!comboBox.isEditable()) {
       return NO_SELECTION;
     }

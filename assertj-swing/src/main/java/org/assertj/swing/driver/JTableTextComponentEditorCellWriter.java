@@ -24,13 +24,12 @@ import javax.swing.JTable;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JTableCellWriter;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.exception.ActionFailedException;
 
 /**
- * {@link JTableCellWriter} that knows how to use {@code JTextComponent}s as cell editors.
- * 
+ * {@link org.assertj.swing.cell.JTableCellWriter} that knows how to use {@code JTextComponent}s as cell editors.
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -71,7 +70,7 @@ public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWrite
 
   @RunsInEDT
   private @Nullable JTextComponent activateEditorWithF2Key(@Nonnull JTable table, int row, int column,
-      @Nonnull Point cellLocation) {
+                                                           @Nonnull Point cellLocation) {
     robot.click(table, cellLocation);
     robot.pressAndReleaseKeys(VK_F2);
     return waitForEditorActivation(table, row, column);
@@ -79,7 +78,7 @@ public class JTableTextComponentEditorCellWriter extends AbstractJTableCellWrite
 
   @RunsInEDT
   private @Nullable JTextComponent activateEditorWithDoubleClick(@Nonnull JTable table, int row, int column,
-      @Nonnull Point cellLocation) {
+                                                                 @Nonnull Point cellLocation) {
     robot.click(table, cellLocation, LEFT_BUTTON, 2);
     return waitForEditorActivation(table, row, column);
   }

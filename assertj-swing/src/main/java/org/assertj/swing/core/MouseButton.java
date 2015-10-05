@@ -16,13 +16,11 @@ import static java.awt.event.InputEvent.BUTTON1_MASK;
 import static java.awt.event.InputEvent.BUTTON2_MASK;
 import static java.awt.event.InputEvent.BUTTON3_MASK;
 
-import java.awt.event.InputEvent;
-
 import javax.annotation.Nonnull;
 
 /**
  * Mouse buttons. Provides better type safety that the {@code int} values in AWT.
- * 
+ *
  * @author Alex Ruiz
  */
 public enum MouseButton {
@@ -30,8 +28,8 @@ public enum MouseButton {
 
   /**
    * The mouse button modifier.
-   * 
-   * @see InputEvent
+   *
+   * @see java.awt.event.InputEvent
    */
   public final int mask;
 
@@ -42,7 +40,7 @@ public enum MouseButton {
   /**
    * Returns the mouse button whose mask matches the given mask. Valid values are the constants {@code BUTTON1_MASK},
    * {@code BUTTON2_MASK}, and {@code BUTTON3_MASK} in {@code java.awt.event.InputEvent}.
-   * 
+   *
    * @param mask the mask of the button we are looking for.
    * @return the found button.
    * @throws IllegalArgumentException if the given mask is not a valid one.

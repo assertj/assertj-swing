@@ -23,14 +23,14 @@ import org.assertj.swing.edt.GuiTask;
 /**
  * Selects the element in the given index in the given {@code JComboBox}. This task is executed in the event dispatch
  * thread (EDT.)
- * 
+ *
  * @see JComboBox#setSelectedIndex(int)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JComboBoxSetSelectedIndexTask {
   @RunsInEDT
-  static void setSelectedIndex(final @Nonnull JComboBox comboBox, final int index) {
+  static void setSelectedIndex(final @Nonnull JComboBox<?> comboBox, final int index) {
     execute(new GuiTask() {
       @Override
       protected void executeInEDT() {

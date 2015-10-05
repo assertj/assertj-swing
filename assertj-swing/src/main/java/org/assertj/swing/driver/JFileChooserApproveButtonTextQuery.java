@@ -17,7 +17,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JFileChooser;
-import javax.swing.plaf.FileChooserUI;
 
 import org.assertj.core.util.Strings;
 import org.assertj.swing.annotation.RunsInEDT;
@@ -26,10 +25,10 @@ import org.assertj.swing.edt.GuiQuery;
 /**
  * Returns the text used in the "approve button" of a {@code JFileChooser}. This action is executed in the event
  * dispatch thread (EDT.)
- * 
+ *
  * @see JFileChooser#getApproveButtonText()
- * @see FileChooserUI#getApproveButtonText(JFileChooser)
- * 
+ * @see javax.swing.plaf.FileChooserUI#getApproveButtonText(JFileChooser)
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */

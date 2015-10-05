@@ -25,14 +25,14 @@ import org.assertj.swing.edt.GuiQuery;
 /**
  * Returns the {@code String} that represents the single selection of a given {@code JList}. This query is executed in
  * the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JListSelectionValueQuery {
   static final Object NO_SELECTION_VALUE = new Object();
 
   @RunsInEDT
-  static @Nullable Object singleSelectionValue(final @Nonnull JList list, final @Nonnull JListCellReader cellReader) {
+  static @Nullable Object singleSelectionValue(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
     return execute(new GuiQuery<Object>() {
       @Override
       protected Object executeInEDT() {

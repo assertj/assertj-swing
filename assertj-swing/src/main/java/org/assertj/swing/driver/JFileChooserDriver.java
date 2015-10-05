@@ -33,7 +33,6 @@ import javax.swing.JTextField;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
@@ -42,18 +41,16 @@ import org.assertj.swing.internal.annotation.InternalApi;
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 @InternalApi
 public class JFileChooserDriver extends JComponentDriver {
-  private static final String APPROVE_BUTTON = "Approve";
-  private static final String CANCEL_BUTTON = "Cancel";
 
   /**
    * Creates a new {@link JFileChooserDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JFileChooserDriver(@Nonnull Robot robot) {
@@ -62,7 +59,7 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Selects the given file in the {@code JFileChooser}.
-   * 
+   *
    * @param fileChooser the target {@code JFileChooser}.
    * @param file the file to select.
    * @throws NullPointerException if the given file is {@code null}.
@@ -80,7 +77,7 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Selects the given file in the {@code JFileChooser}.
-   * 
+   *
    * @param fileChooser the target {@code JFileChooser}.
    * @param files the files to select.
    * @throws NullPointerException if the given array of files is {@code null}.
@@ -104,7 +101,7 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Sets the current directory in the {@code JFileChooser} to the given one.
-   * 
+   *
    * @param fileChooser the target {@code JFileChooser}.
    * @param dir the directory to set as current.
    * @throws IllegalStateException if the {@code JFileChooser} is disabled.
@@ -123,10 +120,10 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Returns the text field where the user can enter the name of the file to select.
-   * 
+   *
    * @param fileChooser the target {@code JFileChooser}.
    * @return the found text field.
-   * @throws ComponentLookupException if a matching text field could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching text field could not be found.
    */
   @RunsInEDT
   public JTextField fileNameTextBox(@Nonnull JFileChooser fileChooser) {
@@ -135,9 +132,9 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Finds and clicks the "Cancel" button in the given {@code JFileChooser}.
-   * 
+   *
    * @param fileChooser the target {@code JFileChooser}.
-   * @throws ComponentLookupException if the "Cancel" button cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
    * @throws IllegalStateException if the "Cancel" button is disabled.
    * @throws IllegalStateException if the "Cancel" button is not showing on the screen.
    */
@@ -148,21 +145,21 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Finds the "Cancel" button in the given {@code JFileChooser}.
-   * 
+   *
    * @param fileChooser the target {@code JFileChooser}.
    * @return the found "Cancel" button.
-   * @throws ComponentLookupException if the "Cancel" button cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the "Cancel" button cannot be found.
    */
   @RunsInEDT
   public @Nonnull JButton cancelButton(@Nonnull JFileChooser fileChooser) {
-    return findButton(fileChooser, CANCEL_BUTTON, cancelButtonText());
+    return findButton(fileChooser, cancelButtonText());
   }
 
   /**
    * Finds and clicks the "Approve" button in the given {@code JFileChooser}.
-   * 
+   *
    * @param fileChooser the target {@code JFileChooser}.
-   * @throws ComponentLookupException if the "Approve" button cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
    * @throws IllegalStateException if the "Approve" button is disabled.
    * @throws IllegalStateException if the "Approve" button is not showing on the screen.
    */
@@ -173,19 +170,19 @@ public class JFileChooserDriver extends JComponentDriver {
 
   /**
    * Finds the "Approve" button in the given {@code JFileChooser}.
-   * 
+   *
    * @param fileChooser the target {@code JFileChooser}.
    * @return the found "Approve" button.
-   * @throws ComponentLookupException if the "Approve" button cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the "Approve" button cannot be found.
    */
   @RunsInEDT
   public @Nonnull JButton approveButton(@Nonnull JFileChooser fileChooser) {
-    return findButton(fileChooser, APPROVE_BUTTON, approveButtonTextFrom(fileChooser));
+    return findButton(fileChooser, approveButtonTextFrom(fileChooser));
   }
 
   @RunsInEDT
-  private @Nonnull JButton findButton(@Nonnull JFileChooser fileChooser, @Nonnull String logicalName,
-      @Nullable String text) {
+  private @Nonnull JButton findButton(@Nonnull JFileChooser fileChooser,
+                                      @Nullable String text) {
     return robot.finder().find(fileChooser, withText(text).andShowing());
   }
 }

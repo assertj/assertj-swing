@@ -22,15 +22,17 @@ import javax.annotation.Nonnull;
 
 /**
  * Error thrown when looking up a component using a {@link org.assertj.swing.core.ComponentFinder}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ComponentLookupException extends RuntimeException {
+  /** Generated serial version UID. */
+  private static final long serialVersionUID = 8565803426992774170L;
   private final Collection<Component> found = newArrayList();
 
   /**
    * Creates a new {@link ComponentLookupException}.
-   * 
+   *
    * @param message the detail message.
    * @param found the AWT and Swing {@code Component}s found by the lookup (if any.)
    */
@@ -41,7 +43,7 @@ public class ComponentLookupException extends RuntimeException {
 
   /**
    * Creates a new {@link ComponentLookupException}.
-   * 
+   *
    * @param message the detail message.
    */
   public ComponentLookupException(@Nonnull String message) {

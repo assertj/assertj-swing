@@ -25,13 +25,13 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the value, as text, of an item in a {@code JList}. This query is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JListItemValueQuery {
   @RunsInEDT
-  static @Nullable String itemValue(final @Nonnull JList list, final int index,
-      final @Nonnull JListCellReader cellReader) {
+  static @Nullable String itemValue(final @Nonnull JList<?> list, final int index,
+                                    final @Nonnull JListCellReader cellReader) {
     return execute(new GuiQuery<String>() {
       @Override
       protected String executeInEDT() {

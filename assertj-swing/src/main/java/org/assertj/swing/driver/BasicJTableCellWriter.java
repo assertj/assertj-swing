@@ -22,11 +22,10 @@ import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.cell.JTableCellWriter;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.exception.ActionFailedException;
 
 /**
  * Default implementation of {@link JTableCellWriter}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -52,12 +51,13 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
    * value.</li>
    * <li>{@code JTextComponent}: any value will be entered in the cell.</li>
    * </ul>
-   * 
+   *
    * @param table the target {@code JTable}.
    * @param row the row index of the cell.
    * @param column the column index of the cell.
    * @param value the value to enter.
-   * @throws ActionFailedException if this writer is unable to handle the underlying cell editor.
+   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   *           editor.
    */
   @Override
   public void enterValue(@Nonnull JTable table, int row, int column, @Nonnull String value) {
@@ -72,10 +72,11 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
    * <li>{@code JComboBox}</li>
    * <li>{@code JTextComponent}</li>
    * </ul>
-   * 
+   *
    * @param row the row index of the cell.
    * @param column the column index of the cell.
-   * @throws ActionFailedException if this writer is unable to handle the underlying cell editor.
+   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   *           editor.
    * @see JTableCellWriter#startCellEditing(JTable, int, int)
    */
   @Override
@@ -91,10 +92,11 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
    * <li>{@code JComboBox}</li>
    * <li>{@code JTextComponent}</li>
    * </ul>
-   * 
+   *
    * @param row the row index of the cell.
    * @param column the column index of the cell.
-   * @throws ActionFailedException if this writer is unable to handle the underlying cell editor.
+   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   *           editor.
    * @see JTableCellWriter#stopCellEditing(JTable, int, int)
    */
   @Override
@@ -110,10 +112,11 @@ public class BasicJTableCellWriter extends AbstractJTableCellWriter {
    * <li>{@code JComboBox}</li>
    * <li>{@code JTextComponent}</li>
    * </ul>
-   * 
+   *
    * @param row the row index of the cell.
    * @param column the column index of the cell.
-   * @throws ActionFailedException if this writer is unable to handle the underlying cell editor.
+   * @throws org.assertj.swing.exception.ActionFailedException if this writer is unable to handle the underlying cell
+   *           editor.
    * @see JTableCellWriter#cancelCellEditing(JTable, int, int)
    */
   @Override

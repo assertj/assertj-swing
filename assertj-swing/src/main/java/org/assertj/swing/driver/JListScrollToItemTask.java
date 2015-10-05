@@ -36,7 +36,7 @@ import org.assertj.swing.util.TextMatcher;
 
 /**
  * Performs scrolling to a specific element in a {@code JList}.
- * 
+ *
  * @author Alex Ruiz
  */
 final class JListScrollToItemTask {
@@ -44,7 +44,7 @@ final class JListScrollToItemTask {
 
   @RunsInEDT
   // returns the point that the JList was scrolled to.
-  static @Nonnull Point scrollToItem(final @Nonnull JList list, final int index) {
+  static @Nonnull Point scrollToItem(final @Nonnull JList<?> list, final int index) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -58,8 +58,8 @@ final class JListScrollToItemTask {
 
   @RunsInEDT
   // returns the index of first matching element and the point that the JList was scrolled to.
-  static @Nonnull Pair<Integer, Point> scrollToItem(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
-      final @Nonnull JListCellReader cellReader) {
+  static @Nonnull Pair<Integer, Point> scrollToItem(final @Nonnull JList<?> list, final @Nonnull TextMatcher matcher,
+                                                    final @Nonnull JListCellReader cellReader) {
     Pair<Integer, Point> result = execute(new GuiQuery<Pair<Integer, Point>>() {
       @Override
       protected Pair<Integer, Point> executeInEDT() {
@@ -76,8 +76,9 @@ final class JListScrollToItemTask {
 
   @RunsInEDT
   // returns the index of first matching element and the point that the JList was scrolled to.
-  static @Nonnull Pair<Integer, Point> scrollToItemIfNotSelectedYet(final @Nonnull JList list,
-      final @Nonnull TextMatcher matcher, final @Nonnull JListCellReader cellReader) {
+  static @Nonnull Pair<Integer, Point> scrollToItemIfNotSelectedYet(final @Nonnull JList<?> list,
+                                                                    final @Nonnull TextMatcher matcher,
+                                                                    final @Nonnull JListCellReader cellReader) {
     Pair<Integer, Point> result = execute(new GuiQuery<Pair<Integer, Point>>() {
       @Override
       protected Pair<Integer, Point> executeInEDT() {
@@ -94,7 +95,7 @@ final class JListScrollToItemTask {
 
   @RunsInEDT
   // returns the point that the JList was scrolled to.
-  static @Nullable Point scrollToItemIfNotSelectedYet(final @Nonnull JList list, final int index) {
+  static @Nullable Point scrollToItemIfNotSelectedYet(final @Nonnull JList<?> list, final int index) {
     return execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -107,7 +108,7 @@ final class JListScrollToItemTask {
 
   @RunsInCurrentThread
   // returns the point that the JList was scrolled to.
-  private static @Nullable Point scrollToItemWithIndexIfNotSelectedYet(final @Nonnull JList list, final int index) {
+  private static @Nullable Point scrollToItemWithIndexIfNotSelectedYet(final @Nonnull JList<?> list, final int index) {
     if (list.getSelectedIndex() == index) {
       return null;
     }
@@ -115,7 +116,7 @@ final class JListScrollToItemTask {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Point scrollToItemWithIndex(@Nonnull JList list, int index) {
+  private static @Nonnull Point scrollToItemWithIndex(@Nonnull JList<?> list, int index) {
     Rectangle cellBounds = checkNotNull(cellBounds(list, index));
     list.scrollRectToVisible(cellBounds);
     return cellCenter(list, cellBounds);

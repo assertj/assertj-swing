@@ -16,13 +16,16 @@ import javax.annotation.Nonnull;
 
 /**
  * Error thrown when a wait (for some condition) times out.
- * 
+ *
  * @author Yvonne Wang
  */
 public final class WaitTimedOutError extends RuntimeException {
+  /** Generated serial version UID. */
+  private static final long serialVersionUID = 4272325985481493108L;
+
   /**
    * Creates a new {@link WaitTimedOutError}.
-   * 
+   *
    * @param message the detail message.
    */
   public WaitTimedOutError(@Nonnull String message) {

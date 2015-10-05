@@ -44,7 +44,6 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
@@ -54,12 +53,12 @@ import org.assertj.swing.util.Triple;
  * <p>
  * Supports functional testing of {@code JInternalFrame}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -67,7 +66,7 @@ import org.assertj.swing.util.Triple;
 public class JInternalFrameDriver extends JComponentDriver {
   /**
    * Creates a new {@link JInternalFrameDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JInternalFrameDriver(@Nonnull Robot robot) {
@@ -76,7 +75,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Brings the given {@code JInternalFrame} to the front.
-   * 
+   *
    * @param internalFrame the target {@code JInternalFrame}.
    */
   @RunsInEDT
@@ -92,7 +91,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Brings the given {@code JInternalFrame} to the back.
-   * 
+   *
    * @param internalFrame the target {@code JInternalFrame}.
    */
   @RunsInEDT
@@ -107,12 +106,12 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   /**
-   * Maximizes the given {@code JInternalFrame}, deconifying it first if it is iconified.
-   * 
+   * Maximises the given {@code JInternalFrame}, deconifying it first if it is iconified.
+   *
    * @param internalFrame the target {@code JInternalFrame}.
-   * @throws IllegalStateException if the {@code JInternalFrame} is not maximizable.
+   * @throws IllegalStateException if the {@code JInternalFrame} is not maximisable.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
-   * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @RunsInEDT
   public void maximize(@Nonnull JInternalFrame internalFrame) {
@@ -142,11 +141,11 @@ public class JInternalFrameDriver extends JComponentDriver {
   }
 
   /**
-   * Normalizes the given {@code JInternalFrame}, deconifying it first if it is iconified.
-   * 
+   * Normalises the given {@code JInternalFrame}, deconifying it first if it is iconified.
+   *
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
-   * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @RunsInEDT
   public void normalize(@Nonnull JInternalFrame internalFrame) {
@@ -181,7 +180,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   @RunsInEDT
   private void maximizeOrNormalize(@Nonnull JInternalFrame internalFrame, @Nonnull JInternalFrameAction action,
-      @Nonnull Pair<Container, Point> toMoveMouseTo) {
+                                   @Nonnull Pair<Container, Point> toMoveMouseTo) {
     moveMouseIgnoringAnyError(toMoveMouseTo.first, toMoveMouseTo.second);
     setMaximumProperty(internalFrame, action);
   }
@@ -198,11 +197,11 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Iconifies the given {@code JInternalFrame}.
-   * 
+   *
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
    * @throws IllegalStateException if the {@code JInternalFrame} is not iconifiable.
-   * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @RunsInEDT
   public void iconify(@Nonnull JInternalFrame internalFrame) {
@@ -241,10 +240,10 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * De-iconifies the given {@code JInternalFrame}.
-   * 
+   *
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
-   * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @RunsInEDT
   public void deiconify(@Nonnull JInternalFrame internalFrame) {
@@ -258,7 +257,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull Triple<Boolean, Container, Point> validateAndfindDeiconifyInfo(
-      final @Nonnull JInternalFrame internalFrame) {
+                                                                                         final @Nonnull JInternalFrame internalFrame) {
     Triple<Boolean, Container, Point> result = execute(new GuiQuery<Triple<Boolean, Container, Point>>() {
       @Override
       protected @Nullable Triple<Boolean, Container, Point> executeInEDT() throws Throwable {
@@ -297,7 +296,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   @VisibleForTesting
   void failIfVetoed(@Nonnull JInternalFrame internalFrame, @Nonnull JInternalFrameAction action,
-      @Nonnull UnexpectedException unexpected) {
+                    @Nonnull UnexpectedException unexpected) {
     PropertyVetoException vetoError = vetoFrom(unexpected);
     if (vetoError == null) {
       return;
@@ -316,7 +315,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Resizes the {@code JInternalFrame} horizontally.
-   * 
+   *
    * @param internalFrame the target {@code JInternalFrame}.
    * @param width the width that the {@code JInternalFrame} should have after being resized.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
@@ -329,7 +328,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Resizes the {@code JInternalFrame} vertically.
-   * 
+   *
    * @param w the target {@code JInternalFrame}.
    * @param height the height that the {@code JInternalFrame} should have after being resized.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
@@ -342,7 +341,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Resizes the {@code JInternalFrame} to the given size.
-   * 
+   *
    * @param internalFrame the target {@code JInternalFrame}.
    * @param size the size to resize the {@code JInternalFrame} to.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
@@ -355,7 +354,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Moves the {@code JInternalFrame} to the given location.
-   * 
+   *
    * @param internalFrame the target {@code JInternalFrame}.
    * @param where the location to move the {@code JInternalFrame} to.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
@@ -367,7 +366,7 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   /**
    * Closes the given {@code JInternalFrame}.
-   * 
+   *
    * @param internalFrame the target {@code JInternalFrame}.
    * @throws IllegalStateException if the {@code JInternalFrame} is not showing on the screen.
    * @throws IllegalStateException if the {@code JInternalFrame} is not closable.

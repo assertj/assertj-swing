@@ -16,14 +16,17 @@ import javax.annotation.Nonnull;
 
 /**
  * Error thrown when an unexpected error occurs.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 public class UnexpectedException extends RuntimeException {
+  /** Generated serial version UID. */
+  private static final long serialVersionUID = 1097894632492119256L;
+
   /**
    * Returns a {@link UnexpectedException}.
-   * 
+   *
    * @param cause the unexpected exception.
    * @return the created exception.
    */
@@ -33,7 +36,7 @@ public class UnexpectedException extends RuntimeException {
 
   /**
    * Creates a new {@link UnexpectedException}.
-   * 
+   *
    * @param cause the unexpected exception.
    */
   public @Nonnull UnexpectedException(@Nonnull Throwable cause) {
@@ -42,7 +45,7 @@ public class UnexpectedException extends RuntimeException {
 
   /**
    * Creates a new {@link UnexpectedException}.
-   * 
+   *
    * @param message the detail message.
    * @param cause the unexpected exception.
    */

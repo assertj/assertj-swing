@@ -24,15 +24,15 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the selected index in a {@code JComboBox}. This query is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @see JComboBox#getSelectedIndex()
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JComboBoxSelectedIndexQuery {
   @RunsInEDT
-  static int selectedIndexOf(final @Nonnull JComboBox comboBox) {
+  static int selectedIndexOf(final @Nonnull JComboBox<?> comboBox) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
       protected @Nullable Integer executeInEDT() {

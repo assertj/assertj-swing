@@ -38,19 +38,18 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>
  * Supports functional testing of {@code JMenuItem}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -58,7 +57,7 @@ import org.assertj.swing.internal.annotation.InternalApi;
 public class JMenuItemDriver extends JComponentDriver {
   /**
    * Creates a new {@link JMenuItemDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JMenuItemDriver(@Nonnull Robot robot) {
@@ -80,11 +79,11 @@ public class JMenuItemDriver extends JComponentDriver {
 
   /**
    * Finds and selects the given {@code JMenuItem}.
-   * 
+   *
    * @param menuItem the {@code JMenuItem} to select.
    * @throws IllegalStateException if the menu to select is disabled.
    * @throws IllegalStateException if the menu to select is not showing on the screen.
-   * @throws ActionFailedException if the menu has a pop-up and it fails to show up.
+   * @throws org.assertj.swing.exception.ActionFailedException if the menu has a pop-up and it fails to show up.
    */
   @RunsInEDT
   public void click(@Nonnull JMenuItem menuItem) {

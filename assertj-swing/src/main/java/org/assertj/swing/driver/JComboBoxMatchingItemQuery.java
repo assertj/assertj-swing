@@ -26,13 +26,13 @@ import org.assertj.swing.util.TextMatcher;
 
 /**
  * Looks up the first item in a {@code JComboBox} whose value matches a given one.
- * 
+ *
  * @author Alex Ruiz
  */
 final class JComboBoxMatchingItemQuery {
   @RunsInEDT
-  static int matchingItemIndex(final @Nonnull JComboBox comboBox, final @Nonnull TextMatcher matcher,
-      final @Nonnull JComboBoxCellReader cellReader) {
+  static int matchingItemIndex(final @Nonnull JComboBox<?> comboBox, final @Nonnull TextMatcher matcher,
+                               final @Nonnull JComboBoxCellReader cellReader) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
       protected @Nullable Integer executeInEDT() {

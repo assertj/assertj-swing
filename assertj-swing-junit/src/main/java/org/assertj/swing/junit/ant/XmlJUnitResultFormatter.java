@@ -121,7 +121,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    *
    * @param suite the test suite.
    */
-  protected void onStartTestSuite(JUnitTest suite) {
+  protected void onStartTestSuite(@SuppressWarnings("unused") JUnitTest suite) {
   }
 
   /**
@@ -237,6 +237,7 @@ public class XmlJUnitResultFormatter implements JUnitResultFormatter {
    * @param error the reason of the failure or error.
    * @param errorXmlNode the XML element containing information about the test failure or error.
    */
-  protected void onFailureOrError(Test test, Throwable error, XmlNode errorXmlNode) {
+  protected void onFailureOrError(@SuppressWarnings("unused") Test test, @SuppressWarnings("unused") Throwable error,
+                                  @SuppressWarnings("unused") XmlNode errorXmlNode) {
   }
 }

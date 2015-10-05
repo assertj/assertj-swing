@@ -30,8 +30,6 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
@@ -42,12 +40,12 @@ import org.assertj.swing.util.TextMatcher;
  * <p>
  * Supports functional testing of {@code JTableHeader}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -57,7 +55,7 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   /**
    * Creates a new {@link JTableHeaderDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JTableHeaderDriver(@Nonnull Robot robot) {
@@ -66,7 +64,7 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   /**
    * Clicks the column under the given index.
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param columnIndex the given index.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
@@ -80,7 +78,7 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   /**
    * Clicks the column under the given index using the given mouse button the given number of times.
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param columnIndex the given index.
    * @param button the mouse button to use.
@@ -98,12 +96,12 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   /**
    * Clicks the column which name matches the given value.
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param columnName the column name to match. It can be a regular expression.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
-   * @throws LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nullable String columnName) {
@@ -112,13 +110,13 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   /**
    * Clicks the column which name matches the given regular expression pattern.
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param columnNamePattern the the regular expression pattern to match.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nonnull Pattern columnNamePattern) {
@@ -127,25 +125,25 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   /**
    * Clicks the column which name matches the given one using the given mouse button the given number of times.
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param columnName the column name to match. It can be a regular expression.
    * @param button the mouse button to use.
    * @param times the number of times to click.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
-   * @throws LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nullable String columnName, @Nonnull MouseButton button,
-      int times) {
+                          int times) {
     clickColumn(tableHeader, new StringTextMatcher(columnName), button, times);
   }
 
   /**
    * Clicks the column which name matches the given regular expression pattern using the given mouse button the given
    * number of times.
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param columnNamePattern the regular expression pattern to match.
    * @param button the mouse button to use.
@@ -153,31 +151,31 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws LocationUnavailableException if a column with a matching name cannot be found.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a column with a matching name cannot be found.
    */
   @RunsInEDT
   public void clickColumn(@Nonnull JTableHeader tableHeader, @Nonnull Pattern columnNamePattern,
-      @Nonnull MouseButton button, int times) {
+                          @Nonnull MouseButton button, int times) {
     clickColumn(tableHeader, new PatternTextMatcher(columnNamePattern), button, times);
   }
 
   @RunsInEDT
   private void clickColumn(@Nonnull JTableHeader tableHeader, @Nonnull TextMatcher matcher,
-      @Nonnull MouseButton button, int times) {
+                           @Nonnull MouseButton button, int times) {
     Point p = pointAtName(tableHeader, matcher, location());
     robot.click(tableHeader, p, button, times);
   }
 
   /**
    * Shows a pop-up menu at the given column.
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param columnIndex the index of the column.
    * @return the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the index is out of bounds.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, int columnIndex) {
@@ -186,7 +184,7 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull Point pointAtIndex(final @Nonnull JTableHeader tableHeader, final int columnIndex,
-      final JTableHeaderLocation location) {
+                                             final JTableHeaderLocation location) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -201,13 +199,13 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   /**
    * Shows a pop-up menu at the given column.
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param columnName the name of the column. It can be a regular expression.
    * @return the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nullable String columnName) {
@@ -216,14 +214,14 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   /**
    * Shows a pop-up menu at the column whose name matches the given regular expression pattern.
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param pattern the regular expression pattern to match.
    * @return the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTableHeader} is disabled.
    * @throws IllegalStateException if the {@code JTableHeader} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nonnull Pattern pattern) {
@@ -232,7 +230,8 @@ public class JTableHeaderDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull Point pointAtName(final @Nonnull JTableHeader tableHeader,
-      final @Nonnull TextMatcher matcher, final @Nonnull JTableHeaderLocation location) {
+                                            final @Nonnull TextMatcher matcher,
+                                            final @Nonnull JTableHeaderLocation location) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {

@@ -39,20 +39,17 @@ import org.assertj.swing.core.ComponentFinder;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.TypeMatcher;
 import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.UnexpectedException;
 
 /**
  * <p>
  * Supports functional testing of {@code JSpinner}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -62,7 +59,7 @@ public class JSpinnerDriver extends JComponentDriver {
 
   /**
    * Creates a new {@link JSpinnerDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JSpinnerDriver(@Nonnull Robot robot) {
@@ -71,7 +68,7 @@ public class JSpinnerDriver extends JComponentDriver {
 
   /**
    * Increments the value of the {@code JSpinner} the given number of times.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @param times how many times the value of this fixture's {@code JSpinner} should be incremented.
    * @throws IllegalArgumentException if {@code times} is less than or equal to zero.
@@ -109,7 +106,7 @@ public class JSpinnerDriver extends JComponentDriver {
 
   /**
    * Increments the value of the {@code JSpinner}.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @throws IllegalStateException if the {@code JSpinner} is disabled.
    * @throws IllegalStateException if the {@code JSpinner} is not showing on the screen.
@@ -136,7 +133,7 @@ public class JSpinnerDriver extends JComponentDriver {
 
   /**
    * Decrements the value of the {@code JSpinner} the given number of times.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @param times how many times the value of this fixture's {@code JSpinner} should be decremented.
    * @throws IllegalArgumentException if {@code times} is less than or equal to zero.
@@ -182,7 +179,7 @@ public class JSpinnerDriver extends JComponentDriver {
 
   /**
    * Decrements the value of the {@code JSpinner}.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @throws IllegalStateException if the {@code JSpinner} is disabled.
    * @throws IllegalStateException if the {@code JSpinner} is not showing on the screen.
@@ -211,7 +208,7 @@ public class JSpinnerDriver extends JComponentDriver {
    * Returns the text displayed in the given {@code JSpinner}. This method first tries to get the text displayed in the
    * {@code JSpinner}'s editor, assuming it is a {@code JTextComponent}. If the text from the editor cannot be
    * retrieved, it will return the {@code String} representation of the value in the {@code JSpinner}'s model.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @return the text displayed in the given {@code JSpinner}.
    */
@@ -228,14 +225,13 @@ public class JSpinnerDriver extends JComponentDriver {
   /**
    * Enters and commits the given text in the {@code JSpinner}, assuming its editor has a {@code JTextComponent} under
    * it.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @param text the text to enter.
-   * @throws IllegalStateException if the {@code JSpinner} is disabled.
-   * @throws IllegalStateException if the {@code JSpinner} is not showing on the screen.
-   * @throws ActionFailedException if the editor of the {@code JSpinner} is not a {@code JTextComponent} or cannot be
-   *           found.
-   * @throws UnexpectedException if entering the text in the {@code JSpinner}'s editor fails.
+   * @throws IllegalStateException if the {@code JSpinner} is disabled. Or if the {@code JSpinner} is not showing on the
+   *           screen.
+   * @throws org.assertj.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a
+   *           {@code JTextComponent} or cannot be found.
    */
   @RunsInEDT
   public void enterTextAndCommit(@Nonnull JSpinner spinner, String text) {
@@ -257,14 +253,14 @@ public class JSpinnerDriver extends JComponentDriver {
   /**
    * Enters the given text in the {@code JSpinner}, assuming its editor has a {@code JTextComponent} under it. This
    * method does not commit the value to the {@code JSpinner}.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @param text the text to enter.
-   * @throws IllegalStateException if the {@code JSpinner} is disabled.
-   * @throws IllegalStateException if the {@code JSpinner} is not showing on the screen.
-   * @throws ActionFailedException if the editor of the {@code JSpinner} is not a {@code JTextComponent} or cannot be
+   * @throws IllegalStateException if the {@code JSpinner} is disabled. Or if the {@code JSpinner} is not showing on the
+   *           screen.
+   * @throws org.assertj.swing.exception.ActionFailedException if the editor of the {@code JSpinner} is not a
+   *           {@code JTextComponent} or cannot be
    *           found.
-   * @throws UnexpectedException if entering the text in the {@code JSpinner}'s editor fails.
    * @see #enterTextAndCommit(JSpinner, String)
    */
   @RunsInEDT
@@ -309,7 +305,7 @@ public class JSpinnerDriver extends JComponentDriver {
 
   /**
    * Selects the given value in the given {@code JSpinner}.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @param value the value to select.
    * @throws IllegalStateException if the {@code JSpinner} is disabled.
@@ -329,10 +325,11 @@ public class JSpinnerDriver extends JComponentDriver {
 
   /**
    * Returns the {@code JTextComponent} used as editor in the given {@code JSpinner}.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @return the {@code JTextComponent} used as editor in the given {@code JSpinner}.
-   * @throws ComponentLookupException if the given {@code JSpinner} does not have a {@code JTextComponent} as editor.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the given {@code JSpinner} does not have a
+   *           {@code JTextComponent} as editor.
    */
   @RunsInEDT
   public JTextComponent editor(@Nonnull JSpinner spinner) {
@@ -341,7 +338,7 @@ public class JSpinnerDriver extends JComponentDriver {
 
   /**
    * Verifies that the value of the {@code JSpinner} is equal to the given one.
-   * 
+   *
    * @param spinner the target {@code JSpinner}.
    * @param value the expected value.
    * @throws AssertionError if the value of the {@code JSpinner} is not equal to the given one.

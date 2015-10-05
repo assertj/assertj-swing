@@ -24,12 +24,12 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the selected indices in a {@code JList}. This query is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JListSelectionIndicesQuery {
   @RunsInEDT
-  static @Nonnull int[] selectedIndices(final @Nonnull JList list) {
+  static @Nonnull int[] selectedIndices(final @Nonnull JList<?> list) {
     int[] result = execute(new GuiQuery<int[]>() {
       @Override
       protected @Nullable int[] executeInEDT() {

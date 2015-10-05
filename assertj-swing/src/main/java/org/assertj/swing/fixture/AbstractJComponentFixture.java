@@ -20,30 +20,29 @@ import javax.swing.JComponent;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JComponent}s.
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
  *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
  * @param <T> the type of {@code JComponent} that this fixture can manage.
  * @param <D> the type of {@link JComponentDriver} that this fixture uses internally.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class AbstractJComponentFixture<S, T extends JComponent, D extends JComponentDriver> extends
     AbstractComponentFixture<S, T, D> implements JComponentFixture<S> {
   /**
    * Creates a new {@link AbstractJComponentFixture}.
-   * 
+   *
    * @param selfType the "self type."
    * @param robot performs simulation of user events on a {@code JComponent}.
    * @param type the type of the {@code JComponent} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching component is found.
    */
   public AbstractJComponentFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nonnull Class<? extends T> type) {
     super(selfType, robot, type);
@@ -51,24 +50,24 @@ public abstract class AbstractJComponentFixture<S, T extends JComponent, D exten
 
   /**
    * Creates a new {@link AbstractJComponentFixture}.
-   * 
+   *
    * @param selfType the "self type."
    * @param robot performs simulation of user events on a {@code JComponent}.
    * @param name the name of the {@code JComponent} to find using the given {@code Robot}.
    * @param type the type of the {@code JComponent} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
    * @throws NullPointerException if {@code type} is {@code null}.
-   * @throws ComponentLookupException if a matching component could not be found.
-   * @throws ComponentLookupException if more than one matching component is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching component could not be found. Or if more
+   *           than one matching component is found.
    */
   public AbstractJComponentFixture(@Nonnull Class<S> selfType, @Nonnull Robot robot, @Nullable String name,
-      @Nonnull Class<? extends T> type) {
+                                   @Nonnull Class<? extends T> type) {
     super(selfType, robot, name, type);
   }
 
   /**
    * Creates a new {@link AbstractJComponentFixture}.
-   * 
+   *
    * @param selfType the "self type."
    * @param robot performs simulation of user events on the given {@code JComponent}.
    * @param target the {@code JComponent} to be managed by this fixture.
@@ -81,7 +80,7 @@ public abstract class AbstractJComponentFixture<S, T extends JComponent, D exten
 
   /**
    * Returns the client property stored in this fixture's {@code JComponent}, under the given key.
-   * 
+   *
    * @param key the key to use to retrieve the client property.
    * @return the value of the client property stored under the given key, or {@code null} if the property was not found.
    * @throws NullPointerException if the given key is {@code null}.
@@ -93,7 +92,7 @@ public abstract class AbstractJComponentFixture<S, T extends JComponent, D exten
 
   /**
    * Asserts that the toolTip in this fixture's {@code JComponent} matches the given value.
-   * 
+   *
    * @param expected the given value. It can be a regular expression.
    * @return this fixture.
    * @throws AssertionError if the toolTip in this fixture's {@code JComponent} does not match the given value.
@@ -106,7 +105,7 @@ public abstract class AbstractJComponentFixture<S, T extends JComponent, D exten
 
   /**
    * Asserts that the toolTip in this fixture's {@code JComponent} matches the given regular expression pattern.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.

@@ -54,8 +54,6 @@ import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.internal.annotation.InternalApi;
@@ -67,12 +65,12 @@ import org.assertj.swing.util.Triple;
  * <p>
  * Supports functional testing of {@code JTree}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 @InternalApi
@@ -85,7 +83,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Creates a new {@link JTreeDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JTreeDriver(@Nonnull Robot robot) {
@@ -96,7 +94,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Clicks the given row.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -113,7 +111,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Clicks the given row.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @param button the mouse button to use.
@@ -132,7 +130,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Clicks the given row.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @param mouseClickInfo specifies the mouse button to use and how many times to click.
@@ -157,7 +155,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Double-clicks the given row.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -174,7 +172,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Right-clicks the given row.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -198,7 +196,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Clicks the given path, expanding parent nodes if necessary.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the path to path.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -213,7 +211,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Clicks the given path, expanding parent nodes if necessary.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the path to path.
    * @param button the mouse button to use.
@@ -230,7 +228,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Clicks the given path, expanding parent nodes if necessary.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the path to path.
    * @param mouseClickInfo specifies the mouse button to use and how many times to click.
@@ -252,7 +250,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Double-clicks the given path.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the path to double-click.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -277,7 +275,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Right-clicks the given path, expanding parent nodes if necessary.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the path to path.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -298,9 +296,9 @@ public class JTreeDriver extends JComponentDriver {
    * Expands the given row, is possible. If the row is already expanded, this method will not do anything.
    * <p>
    * NOTE: a reasonable assumption is that the toggle control is just to the left of the row bounds and is roughly a
-   * square the dimensions of the row height. Clicking in the center of that square should work.
+   * square the dimensions of the row height. Clicking in the centre of that square should work.
    * </p>
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -308,7 +306,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws ActionFailedException if this method fails to expand the row.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to expand the row.
    */
   @RunsInEDT
   public void expandRow(@Nonnull JTree tree, int row) {
@@ -324,9 +322,9 @@ public class JTreeDriver extends JComponentDriver {
    * Collapses the given row, is possible. If the row is already collapsed, this method will not do anything.
    * <p>
    * NOTE: a reasonable assumption is that the toggle control is just to the left of the row bounds and is roughly a
-   * square the dimensions of the row height. Clicking in the center of that square should work.
+   * square the dimensions of the row height. Clicking in the centre of that square should work.
    * </p>
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -334,7 +332,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws ActionFailedException if this method fails to collapse the row.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to collapse the row.
    */
   @RunsInEDT
   public void collapseRow(@Nonnull JTree tree, int row) {
@@ -350,9 +348,9 @@ public class JTreeDriver extends JComponentDriver {
    * Change the open/closed state of the given row, if possible.
    * <p>
    * NOTE: a reasonable assumption is that the toggle control is just to the left of the row bounds and is roughly a
-   * square the dimensions of the row height. Clicking in the center of that square should work.
+   * square the dimensions of the row height. Clicking in the centre of that square should work.
    * </p>
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -360,7 +358,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws ActionFailedException if this method fails to toggle the row.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to toggle the row.
    */
   @RunsInEDT
   public void toggleRow(@Nonnull JTree tree, int row) {
@@ -374,7 +372,8 @@ public class JTreeDriver extends JComponentDriver {
    */
   @RunsInEDT
   private static @Nonnull Triple<Boolean, Point, Integer> scrollToRowAndGetToggleInfo(final @Nonnull JTree tree,
-      final int row, final @Nonnull JTreeLocation location) {
+                                                                                      final int row,
+                                                                                      final @Nonnull JTreeLocation location) {
     Triple<Boolean, Point, Integer> result = execute(new GuiQuery<Triple<Boolean, Point, Integer>>() {
       @Override
       protected Triple<Boolean, Point, Integer> executeInEDT() {
@@ -390,15 +389,15 @@ public class JTreeDriver extends JComponentDriver {
    * Expands the given path, is possible. If the path is already expanded, this method will not do anything.
    * <p>
    * NOTE: a reasonable assumption is that the toggle control is just to the left of the row bounds and is roughly a
-   * square the dimensions of the row height. Clicking in the center of that square should work.
+   * square the dimensions of the row height. Clicking in the centre of that square should work.
    * </p>
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the path to expand.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @throws ActionFailedException if this method fails to expand the path.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to expand the path.
    */
   @RunsInEDT
   public void expandPath(@Nonnull JTree tree, @Nonnull String path) {
@@ -413,15 +412,15 @@ public class JTreeDriver extends JComponentDriver {
    * Collapses the given path, is possible. If the path is already expanded, this method will not do anything.
    * <p>
    * NOTE: a reasonable assumption is that the toggle control is just to the left of the row bounds and is roughly a
-   * square the dimensions of the row height. Clicking in the center of that square should work.
+   * square the dimensions of the row height. Clicking in the centre of that square should work.
    * </p>
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the path to collapse.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @throws ActionFailedException if this method fails to collapse the path.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to collapse the path.
    */
   @RunsInEDT
   public void collapsePath(@Nonnull JTree tree, @Nonnull String path) {
@@ -437,8 +436,10 @@ public class JTreeDriver extends JComponentDriver {
    */
   @RunsInEDT
   private static @Nonnull Triple<Boolean, Point, Integer> scrollToMatchingPathAndGetToggleInfo(
-      final @Nonnull JTree tree, final @Nonnull String path, final @Nonnull JTreePathFinder pathFinder,
-      final @Nonnull JTreeLocation location) {
+                                                                                               final @Nonnull JTree tree,
+                                                                                               final @Nonnull String path,
+                                                                                               final @Nonnull JTreePathFinder pathFinder,
+                                                                                               final @Nonnull JTreeLocation location) {
     Triple<Boolean, Point, Integer> result = execute(new GuiQuery<Triple<Boolean, Point, Integer>>() {
       @Override
       protected Triple<Boolean, Point, Integer> executeInEDT() {
@@ -477,7 +478,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Selects the given rows.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param rows the rows to select.
    * @throws NullPointerException if the array of rows is {@code null}.
@@ -513,7 +514,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Selects the given row.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the row to select.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -528,7 +529,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Selects the given paths, expanding parent nodes if necessary.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param paths the paths to select.
    * @throws NullPointerException if the array of rows is {@code null}.
@@ -557,7 +558,7 @@ public class JTreeDriver extends JComponentDriver {
   /**
    * Selects the given path, expanding parent nodes if necessary. Unlike {@link #clickPath(JTree, String)}, this method
    * will not click the path if it is already selected
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the path to select.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -571,13 +572,13 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Shows a pop-up menu at the position of the node in the given row.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @return a driver that manages the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
@@ -592,13 +593,13 @@ public class JTreeDriver extends JComponentDriver {
   /**
    * Shows a pop-up menu at the position of the last node in the given path. The last node in the given path will be
    * made visible (by expanding the parent node(s)) if it is not visible.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the given path.
    * @return a driver that manages the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws LocationUnavailableException if the given path cannot be found.
    * @see #replaceSeparator(String)
    */
@@ -612,7 +613,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Starts a drag operation at the location of the given row.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -639,7 +640,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Ends a drag operation at the location of the given row.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param row the given row.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -647,7 +648,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
   public void drop(@Nonnull JTree tree, int row) {
@@ -660,7 +661,7 @@ public class JTreeDriver extends JComponentDriver {
    */
   @RunsInEDT
   private static @Nonnull Pair<Boolean, Point> scrollToRow(final @Nonnull JTree tree, final int row,
-      final @Nonnull JTreeLocation location) {
+                                                           final @Nonnull JTreeLocation location) {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
       @Override
       protected Pair<Boolean, Point> executeInEDT() {
@@ -682,7 +683,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Starts a drag operation at the location of the given {@code TreePath}.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the given path.
    * @throws IllegalStateException if the {@code JTree} is disabled.
@@ -709,13 +710,13 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Ends a drag operation at the location of the given {@code TreePath}.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the given path.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    * @throws LocationUnavailableException if the given path cannot be found.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    * @see #replaceSeparator(String)
    */
   @RunsInEDT
@@ -741,7 +742,8 @@ public class JTreeDriver extends JComponentDriver {
    */
   @RunsInEDT
   private static @Nonnull Pair<Boolean, Point> scrollToPathToSelect(final @Nonnull JTree tree,
-      final @Nonnull TreePath path, final @Nonnull JTreeLocation location) {
+                                                                    final @Nonnull TreePath path,
+                                                                    final @Nonnull JTreeLocation location) {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
       @Override
       protected Pair<Boolean, Point> executeInEDT() {
@@ -754,7 +756,7 @@ public class JTreeDriver extends JComponentDriver {
 
   @RunsInCurrentThread
   private static @Nonnull Point scrollToTreePath(@Nonnull JTree tree, @Nonnull TreePath path,
-      @Nonnull JTreeLocation location) {
+                                                 @Nonnull JTreeLocation location) {
     Pair<Rectangle, Point> boundsAndCoordinates = location.pathBoundsAndCoordinates(tree, path);
     tree.scrollRectToVisible(boundsAndCoordinates.first);
     return checkNotNull(boundsAndCoordinates.second);
@@ -772,7 +774,7 @@ public class JTreeDriver extends JComponentDriver {
   /**
    * Matches, makes visible, and expands the path one component at a time, from uppermost ancestor on down, since
    * children may be lazily loaded/created.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param path the tree path to make visible.
    * @param expandWhenFound indicates if nodes should be expanded or not when found.
@@ -804,7 +806,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Asserts that the given {@code JTree}'s selected rows are equal to the given one.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param rows the indices of the rows, expected to be selected.
    * @throws NullPointerException if the array of row indices is {@code null}.
@@ -818,7 +820,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Asserts that the given {@code JTree}'s selected paths are equal to the given one.
-   * 
+   *
    * @param tree the target {@code JTree}.
    * @param paths the given paths, expected to be selected.
    * @throws NullPointerException if the array of paths is {@code null}.
@@ -834,7 +836,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Asserts that the given {@code JTree} does not have any selection.
-   * 
+   *
    * @param tree the given {@code JTree}.
    * @throws AssertionError if the {@code JTree} has a selection.
    */
@@ -850,7 +852,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Asserts that the given {@code JTree} is editable.
-   * 
+   *
    * @param tree the given {@code JTree}.
    * @throws AssertionError if the {@code JTree} is not editable.
    */
@@ -861,7 +863,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Asserts that the given {@code JTree} is not editable.
-   * 
+   *
    * @param tree the given {@code JTree}.
    * @throws AssertionError if the {@code JTree} is editable.
    */
@@ -889,7 +891,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Updates the separator to use when converting {@code TreePath}s to {@code String}s.
-   * 
+   *
    * @param newSeparator the new separator.
    * @throws NullPointerException if the given separator is {@code null}.
    */
@@ -900,7 +902,7 @@ public class JTreeDriver extends JComponentDriver {
   /**
    * Updates the implementation of {@link JTreeCellReader} to use when comparing internal values of a {@code JTree} and
    * the values expected in a test.
-   * 
+   *
    * @param newCellReader the new {@code JTreeCellValueReader} to use.
    * @throws NullPointerException if {@code newCellReader} is {@code null}.
    */
@@ -910,7 +912,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Verifies that the given row index is valid.
-   * 
+   *
    * @param tree the given {@code JTree}.
    * @param row the given index.
    * @throws IndexOutOfBoundsException if the given index is less than zero or equal than or greater than the number of
@@ -923,7 +925,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Verifies that the given node path exists.
-   * 
+   *
    * @param tree the given {@code JTree}.
    * @param path the given path.
    * @throws LocationUnavailableException if the given path cannot be found.
@@ -935,7 +937,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Returns the {@code String} representation of the node at the given path.
-   * 
+   *
    * @param tree the given {@code JTree}.
    * @param path the given path.
    * @return the {@code String} representation of the node at the given path.
@@ -948,7 +950,7 @@ public class JTreeDriver extends JComponentDriver {
 
   /**
    * Returns the {@code String} representation of the node at the given row index.
-   * 
+   *
    * @param tree the given {@code JTree}.
    * @param row the given row.
    * @return the {@code String} representation of the node at the given row index.

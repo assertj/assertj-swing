@@ -56,8 +56,6 @@ import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
@@ -71,12 +69,12 @@ import org.assertj.swing.util.TextMatcher;
  * <p>
  * Supports functional testing of {@code JList}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -89,7 +87,7 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Creates a new {@link JListDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JListDriver(@Nonnull Robot robot) {
@@ -99,19 +97,19 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Returns an array of {@code String}s that represents the contents of the given {@code JList}.
-   * 
+   *
    * @param list the target {@code JList}.
    * @return an array of {@code String}s that represents the contents of the given {@code JList}.
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public @Nonnull String[] contentsOf(@Nonnull JList list) {
+  public @Nonnull String[] contentsOf(@Nonnull JList<?> list) {
     return contents(list, cellReader());
   }
 
   /**
    * Selects the items matching the given values.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param values the values to match. Each {@code String} can be a regular expression.
    * @throws NullPointerException if the given array is {@code null}.
@@ -121,13 +119,13 @@ public class JListDriver extends JComponentDriver {
    * @throws LocationUnavailableException if an element matching the any of the given values cannot be found.
    */
   @RunsInEDT
-  public void selectItems(@Nonnull JList list, @Nonnull String[] values) {
+  public void selectItems(@Nonnull JList<?> list, @Nonnull String[] values) {
     selectItems(list, new StringTextMatcher(values));
   }
 
   /**
    * Selects the items matching the given regular expression patterns.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param patterns the regular expression patterns to match.
    * @throws NullPointerException if the given array is {@code null}.
@@ -139,12 +137,12 @@ public class JListDriver extends JComponentDriver {
    *           be found.
    */
   @RunsInEDT
-  public void selectItems(@Nonnull JList list, @Nonnull Pattern[] patterns) {
+  public void selectItems(@Nonnull JList<?> list, @Nonnull Pattern[] patterns) {
     selectItems(list, new PatternTextMatcher(patterns));
   }
 
   @RunsInEDT
-  private void selectItems(final @Nonnull JList list, final @Nonnull TextMatcher matcher) {
+  private void selectItems(final @Nonnull JList<?> list, final @Nonnull TextMatcher matcher) {
     final List<Integer> indices = matchingItemIndices(list, matcher, cellReader());
     if (indices.isEmpty()) {
       throw failMatchingNotFound(list, matcher);
@@ -165,7 +163,7 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Selects the item in the given {@code JList} whose value matches the given one.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param value the value to match.
    * @throws IllegalStateException if the {@code JList} is disabled.
@@ -173,13 +171,13 @@ public class JListDriver extends JComponentDriver {
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    */
   @RunsInEDT
-  public void selectItem(@Nonnull JList list, @Nullable String value) {
+  public void selectItem(@Nonnull JList<?> list, @Nullable String value) {
     selectItem(list, new StringTextMatcher(value));
   }
 
   /**
    * Selects the item in the given {@code JList} whose value matches the given regular expression pattern.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param pattern the regular expression to match.
    * @throws IllegalStateException if the {@code JList} is disabled.
@@ -188,12 +186,12 @@ public class JListDriver extends JComponentDriver {
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    */
   @RunsInEDT
-  public void selectItem(@Nonnull JList list, @Nonnull Pattern pattern) {
+  public void selectItem(@Nonnull JList<?> list, @Nonnull Pattern pattern) {
     selectItem(list, new PatternTextMatcher(pattern));
   }
 
   @RunsInEDT
-  private void selectItem(@Nonnull JList list, @Nonnull TextMatcher matcher) {
+  private void selectItem(@Nonnull JList<?> list, @Nonnull TextMatcher matcher) {
     Pair<Integer, Point> scrollInfo = scrollToItemIfNotSelectedYet(list, matcher, cellReader());
     robot.waitForIdle();
     checkItemFound(list, scrollInfo, matcher);
@@ -205,7 +203,7 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Clicks the first item matching the given value, using the specified mouse button, the given number times.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param value the value to match.
    * @param button the button to use.
@@ -214,14 +212,14 @@ public class JListDriver extends JComponentDriver {
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    */
-  public void clickItem(@Nonnull JList list, @Nullable String value, @Nonnull MouseButton button, int times) {
+  public void clickItem(@Nonnull JList<?> list, @Nullable String value, @Nonnull MouseButton button, int times) {
     clickItem(list, new StringTextMatcher(value), button, times);
   }
 
   /**
    * Clicks the first item matching the given regular expression pattern, using the specified mouse button, the given
    * number times.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param pattern the regular expression pattern to match.
    * @param button the button to use.
@@ -231,11 +229,11 @@ public class JListDriver extends JComponentDriver {
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if an element matching the given regular expression pattern cannot be found.
    */
-  public void clickItem(@Nonnull JList list, @Nonnull Pattern pattern, @Nonnull MouseButton button, int times) {
+  public void clickItem(@Nonnull JList<?> list, @Nonnull Pattern pattern, @Nonnull MouseButton button, int times) {
     clickItem(list, new PatternTextMatcher(pattern), button, times);
   }
 
-  private void clickItem(@Nonnull JList list, @Nonnull TextMatcher matcher, @Nonnull MouseButton button, int times) {
+  private void clickItem(@Nonnull JList<?> list, @Nonnull TextMatcher matcher, @Nonnull MouseButton button, int times) {
     Pair<Integer, Point> scrollInfo = scrollToItem(list, matcher, cellReader());
     robot.waitForIdle();
     checkItemFound(list, scrollInfo, matcher);
@@ -244,7 +242,7 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Selects the items under the given indices.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param indices the indices of the items to select.
    * @throws NullPointerException if the given array is {@code null}.
@@ -254,7 +252,7 @@ public class JListDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if any of the indices is negative or greater than the index of the last item in
    *           the {@code JList}.
    */
-  public void selectItems(final @Nonnull JList list, final @Nonnull int[] indices) {
+  public void selectItems(final @Nonnull JList<?> list, final @Nonnull int[] indices) {
     checkNotNullOrEmpty(indices);
     clearSelection(list);
     new MultipleSelectionTemplate(robot) {
@@ -273,16 +271,16 @@ public class JListDriver extends JComponentDriver {
   /**
    * Clears the selection in the given {@code JList}. Since this method does not simulate user input, it does not
    * verifies that the {@code JList} is enabled and showing.
-   * 
+   *
    * @param list the target {@code JList}.
    */
-  public void clearSelection(@Nonnull JList list) {
+  public void clearSelection(@Nonnull JList<?> list) {
     clearSelectionOf(list);
     robot.waitForIdle();
   }
 
   @RunsInEDT
-  private static void clearSelectionOf(final @Nonnull JList list) {
+  private static void clearSelectionOf(final @Nonnull JList<?> list) {
     execute(new GuiTask() {
       @Override
       protected void executeInEDT() {
@@ -293,7 +291,7 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Selects the items in the specified range.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param from the starting point of the selection.
    * @param to the last item to select.
@@ -303,13 +301,13 @@ public class JListDriver extends JComponentDriver {
    *           {@code JList}.
    */
   @RunsInEDT
-  public void selectItems(@Nonnull JList list, @Nonnull From from, @Nonnull To to) {
+  public void selectItems(@Nonnull JList<?> list, @Nonnull From from, @Nonnull To to) {
     selectItems(list, from.value, to.value);
   }
 
   /**
    * Selects the items in the specified range.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param start the starting point of the selection.
    * @param end the last item to select (inclusive.)
@@ -319,7 +317,7 @@ public class JListDriver extends JComponentDriver {
    *           {@code JList}.
    */
   @RunsInEDT
-  public void selectItems(@Nonnull JList list, int start, int end) {
+  public void selectItems(@Nonnull JList<?> list, int start, int end) {
     validateIndicesAndClearSelection(list, start, end);
     selectItem(list, start);
     robot.pressKey(VK_SHIFT);
@@ -331,7 +329,7 @@ public class JListDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static void validateIndicesAndClearSelection(final @Nonnull JList list, final @Nonnull int... indices) {
+  private static void validateIndicesAndClearSelection(final @Nonnull JList<?> list, final @Nonnull int... indices) {
     execute(new GuiTask() {
       @Override
       protected void executeInEDT() {
@@ -343,7 +341,7 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Selects the item under the given index using left mouse button once.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param index the index of the item to click.
    * @throws IllegalStateException if the {@code JList} is disabled.
@@ -352,7 +350,7 @@ public class JListDriver extends JComponentDriver {
    *           {@code JList}.
    */
   @RunsInEDT
-  public void selectItem(@Nonnull JList list, int index) {
+  public void selectItem(@Nonnull JList<?> list, int index) {
     Point cellCenter = scrollToItemIfNotSelectedYet(list, index);
     robot.waitForIdle();
     if (cellCenter == null) {
@@ -363,7 +361,7 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Clicks the item under the given index, using the specified mouse button, the given number times.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param index the index of the item to click.
    * @param button the button to use.
@@ -374,7 +372,7 @@ public class JListDriver extends JComponentDriver {
    *           {@code JList}.
    */
   @RunsInEDT
-  public void clickItem(@Nonnull JList list, int index, @Nonnull MouseButton button, int times) {
+  public void clickItem(@Nonnull JList<?> list, int index, @Nonnull MouseButton button, int times) {
     Point cellCenter = scrollToItem(list, index);
     robot.waitForIdle();
     robot.click(list, cellCenter, button, times);
@@ -382,21 +380,21 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Verifies that the selected item in the {@code JList} matches the given value.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param value the value to match. It can be a regular expression pattern.
    * @throws AssertionError if the selected item does not match the value.
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public void requireSelection(final @Nonnull JList list, @Nullable String value) {
+  public void requireSelection(final @Nonnull JList<?> list, @Nullable String value) {
     String selection = requiredSelection(list);
     verifyThat(selection).as(selectedIndexProperty(list)).isEqualOrMatches(value);
   }
 
   /**
    * Verifies that the selected item in the {@code JList} matches the given regular expression pattern.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param pattern the regular expression pattern to match.
    * @throws AssertionError if the selected item does not match the given regular expression pattern.
@@ -404,12 +402,12 @@ public class JListDriver extends JComponentDriver {
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public void requireSelection(@Nonnull JList list, @Nonnull Pattern pattern) {
+  public void requireSelection(@Nonnull JList<?> list, @Nonnull Pattern pattern) {
     String selection = requiredSelection(list);
     verifyThat(selection).as(selectedIndexProperty(list)).matches(pattern);
   }
 
-  private @Nullable String requiredSelection(final @Nonnull JList list) {
+  private @Nullable String requiredSelection(final @Nonnull JList<?> list) {
     Object selection = singleSelectionValue(list, cellReader());
     if (NO_SELECTION_VALUE == selection) {
       failNoSelection(list);
@@ -419,13 +417,13 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Verifies that the selected index in the {@code JList} matches the given value.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param index the selection index to match.
    * @throws AssertionError if the selected index does not match the value.
    */
   @RunsInEDT
-  public void requireSelection(final @Nonnull JList list, int index) {
+  public void requireSelection(final @Nonnull JList<?> list, int index) {
     int selectedIndex = selectedIndexOf(list);
     if (selectedIndex == -1) {
       failNoSelection(list);
@@ -436,20 +434,20 @@ public class JListDriver extends JComponentDriver {
   /**
    * Returns an array of {@code String}s that represents the selection in the given {@code JList}, using this driver's
    * {@link JListCellReader}.
-   * 
+   *
    * @param list the target {@code JList}.
    * @return an array of {@code String}s that represents the selection in the given {@code JList}.
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public @Nonnull String[] selectionOf(@Nonnull JList list) {
+  public @Nonnull String[] selectionOf(@Nonnull JList<?> list) {
     List<String> selection = selectionValues(list, cellReader());
     return selection.toArray(new String[selection.size()]);
   }
 
   /**
    * Verifies that the selected items in the {@code JList} match the given values.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param items the values to match. Each value can be a regular expression pattern.
    * @throws NullPointerException if the given array is {@code null}.
@@ -457,13 +455,13 @@ public class JListDriver extends JComponentDriver {
    * @throws AssertionError if the selected items do not match the given values.
    */
   @RunsInEDT
-  public void requireSelectedItems(@Nonnull JList list, @Nonnull String... items) {
+  public void requireSelectedItems(@Nonnull JList<?> list, @Nonnull String... items) {
     requireSelectedItems(list, new StringTextMatcher(items));
   }
 
   /**
    * Verifies that the selected items in the {@code JList} match the given regular expression patterns.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param patterns the regular expression patterns to match.
    * @throws NullPointerException if the given array is {@code null}.
@@ -473,20 +471,21 @@ public class JListDriver extends JComponentDriver {
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public void requireSelectedItems(@Nonnull JList list, @Nonnull Pattern... patterns) {
+  public void requireSelectedItems(@Nonnull JList<?> list, @Nonnull Pattern... patterns) {
     requireSelectedItems(list, new PatternTextMatcher(patterns));
   }
 
   @RunsInEDT
-  private void requireSelectedItems(@Nonnull JList list, @Nonnull TextMatcher matcher) {
+  private void requireSelectedItems(@Nonnull JList<?> list, @Nonnull TextMatcher matcher) {
     List<String> matchingValues = matchingItemValues(list, matcher, cellReader());
-    assertThat(selectionValues(list, cellReader())).as(propertyName(list, SELECTED_INDICES_PROPERTY)).isEqualTo(
-        matchingValues);
+    assertThat(selectionValues(list, cellReader())).as(propertyName(list, SELECTED_INDICES_PROPERTY))
+                                                   .isEqualTo(
+                                                              matchingValues);
   }
 
   /**
    * Verifies that the given item indices are selected in the {@code JList}.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param indices the expected indices of the selected items.
    * @throws NullPointerException if the given array is {@code null}.
@@ -494,7 +493,7 @@ public class JListDriver extends JComponentDriver {
    * @throws AssertionError if the selection in the {@code JList} does not match the given one.
    */
   @RunsInEDT
-  public void requireSelectedItems(@Nonnull JList list, @Nonnull int... indices) {
+  public void requireSelectedItems(@Nonnull JList<?> list, @Nonnull int... indices) {
     checkNotNullOrEmpty(indices);
     sort(indices);
     assertThat(selectedIndices(list)).as(propertyName(list, SELECTED_INDICES_PROPERTY)).isEqualTo(indices);
@@ -502,28 +501,28 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Verifies that the {@code JList} does not have a selection.
-   * 
+   *
    * @param list the target {@code JList}.
    * @throws AssertionError if the {@code JList} has a selection.
    */
   @RunsInEDT
-  public void requireNoSelection(@Nonnull JList list) {
+  public void requireNoSelection(@Nonnull JList<?> list) {
     assertThat(selectedIndexOf(list)).as(selectedIndexProperty(list)).isEqualTo(-1);
   }
 
   @RunsInEDT
-  private void failNoSelection(@Nonnull JList list) {
+  private void failNoSelection(@Nonnull JList<?> list) {
     fail(String.format("[%s] No selection", selectedIndexProperty(list).value()));
   }
 
   @RunsInEDT
-  private Description selectedIndexProperty(@Nonnull JList list) {
+  private Description selectedIndexProperty(@Nonnull JList<?> list) {
     return propertyName(list, SELECTED_INDEX_PROPERTY);
   }
 
   /**
    * Starts a drag operation at the location of the first item matching the given value.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param value the value to match. It can be a regular expression.
    * @throws IllegalStateException if the {@code JList} is disabled.
@@ -532,13 +531,13 @@ public class JListDriver extends JComponentDriver {
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public void drag(@Nonnull JList list, @Nullable String value) {
+  public void drag(@Nonnull JList<?> list, @Nullable String value) {
     drag(list, new StringTextMatcher(value));
   }
 
   /**
    * Starts a drag operation at the location of the first item matching the given regular expression pattern.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param pattern the regular expression pattern to match.
    * @throws IllegalStateException if the {@code JList} is disabled.
@@ -548,11 +547,11 @@ public class JListDriver extends JComponentDriver {
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public void drag(@Nonnull JList list, @Nonnull Pattern pattern) {
+  public void drag(@Nonnull JList<?> list, @Nonnull Pattern pattern) {
     drag(list, new PatternTextMatcher(pattern));
   }
 
-  private void drag(@Nonnull JList list, @Nonnull TextMatcher matcher) {
+  private void drag(@Nonnull JList<?> list, @Nonnull TextMatcher matcher) {
     Pair<Integer, Point> scrollInfo = scrollToItem(list, matcher, cellReader());
     robot.waitForIdle();
     checkItemFound(list, scrollInfo, matcher);
@@ -561,43 +560,43 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Ends a drag operation at the location of the first item matching the given value.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param value the value to match. It can be a regular expression.
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
-  public void drop(@Nonnull JList list, @Nullable String value) {
+  public void drop(@Nonnull JList<?> list, @Nullable String value) {
     drop(list, new StringTextMatcher(value));
   }
 
   /**
    * Ends a drag operation at the location of the first item matching the given regular expression pattern.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param pattern the regular expression pattern to match.
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
-  public void drop(@Nonnull JList list, @Nonnull Pattern pattern) {
+  public void drop(@Nonnull JList<?> list, @Nonnull Pattern pattern) {
     drop(list, new PatternTextMatcher(pattern));
   }
 
-  private void drop(@Nonnull JList list, @Nonnull TextMatcher matcher) {
+  private void drop(@Nonnull JList<?> list, @Nonnull TextMatcher matcher) {
     Pair<Integer, Point> scrollInfo = scrollToItem(list, matcher, cellReader());
     robot.waitForIdle();
     checkItemFound(list, scrollInfo, matcher);
     super.drop(list, cellCenterIn(scrollInfo));
   }
 
-  private void checkItemFound(@Nonnull JList list, @Nonnull Pair<Integer, Point> scrollInfo,
-      @Nonnull TextMatcher matcher) {
+  private void checkItemFound(@Nonnull JList<?> list, @Nonnull Pair<Integer, Point> scrollInfo,
+                              @Nonnull TextMatcher matcher) {
     if (ITEM_NOT_FOUND == scrollInfo) {
       throw failMatchingNotFound(list, matcher);
     }
@@ -605,7 +604,7 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Starts a drag operation at the location of the given index.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param index the given index.
    * @throws IllegalStateException if the {@code JList} is disabled.
@@ -614,7 +613,7 @@ public class JListDriver extends JComponentDriver {
    *           {@code JList}.
    */
   @RunsInEDT
-  public void drag(@Nonnull JList list, int index) {
+  public void drag(@Nonnull JList<?> list, int index) {
     Point cellCenter = scrollToItem(list, index);
     robot.waitForIdle();
     super.drag(list, cellCenter);
@@ -622,71 +621,71 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Ends a drag operation at the location of the given index.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param index the given index.
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
    *           {@code JList}.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
-  public void drop(@Nonnull JList list, int index) {
+  public void drop(@Nonnull JList<?> list, int index) {
     Point cellCenter = scrollToItem(list, index);
     robot.waitForIdle();
     super.drop(list, cellCenter);
   }
 
   /**
-   * Ends a drag operation at the center of the {@code JList}.
-   * 
+   * Ends a drag operation at the centre of the {@code JList}.
+   *
    * @param list the target {@code JList}.
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
-  public void drop(@Nonnull JList list) {
+  public void drop(@Nonnull JList<?> list) {
     checkInEdtEnabledAndShowing(list);
     super.drop(list, visibleCenterOf(list));
   }
 
   /**
    * Shows a pop-up menu at the location of the specified item in the {@code JList}.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param value the value to match. It can be a regular expression pattern.
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    */
   @RunsInEDT
-  public JPopupMenu showPopupMenu(@Nonnull JList list, @Nullable String value) {
+  public JPopupMenu showPopupMenu(@Nonnull JList<?> list, @Nullable String value) {
     return showPopupMenu(list, new StringTextMatcher(value));
   }
 
   /**
    * Shows a pop-up menu at the location of the specified item in the {@code JList}.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param pattern the regular expression pattern to match.
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws NullPointerException if the regular expression pattern is {@code null}.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    */
   @RunsInEDT
-  public JPopupMenu showPopupMenu(@Nonnull JList list, @Nonnull Pattern pattern) {
+  public JPopupMenu showPopupMenu(@Nonnull JList<?> list, @Nonnull Pattern pattern) {
     return showPopupMenu(list, new PatternTextMatcher(pattern));
   }
 
   @RunsInEDT
-  private @Nonnull JPopupMenu showPopupMenu(@Nonnull JList list, @Nonnull TextMatcher matcher) {
+  private @Nonnull JPopupMenu showPopupMenu(@Nonnull JList<?> list, @Nonnull TextMatcher matcher) {
     Pair<Integer, Point> scrollInfo = scrollToItem(list, matcher, cellReader());
     robot.waitForIdle();
     checkItemFound(list, scrollInfo, matcher);
@@ -699,18 +698,18 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Shows a pop-up menu at the location of the specified item in the {@code JList}.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param index the index of the item.
    * @return a driver that manages the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
    *           {@code JList}.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JList list, int index) {
+  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JList<?> list, int index) {
     Point cellCenter = scrollToItem(list, index);
     robot.waitForIdle();
     return robot.showPopupMenu(list, cellCenter);
@@ -718,33 +717,33 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Returns the coordinates of the first item matching the given value.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param value the value to match.
    * @return the coordinates of the item at the given item.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    */
   @RunsInEDT
-  public @Nonnull Point pointAt(@Nonnull JList list, @Nullable String value) {
+  public @Nonnull Point pointAt(@Nonnull JList<?> list, @Nullable String value) {
     return centerOfMatchingItemCell(list, value, cellReader());
   }
 
   /**
    * Returns the index of the first item matching the given value.
-   * 
+   *
    * @param list the target {@code JList}
    * @param value the value to match. It can be a regular expression.
    * @return the index of the first item matching the given value.
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    */
   @RunsInEDT
-  public int indexOf(@Nonnull JList list, @Nullable String value) {
+  public int indexOf(@Nonnull JList<?> list, @Nullable String value) {
     return indexOf(list, new StringTextMatcher(value));
   }
 
   /**
    * Returns the index of the first item matching the given regular expression pattern.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param pattern the regular expression pattern to match.
    * @return the index of the first item matching the given regular expression pattern.
@@ -752,12 +751,12 @@ public class JListDriver extends JComponentDriver {
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    */
   @RunsInEDT
-  public int indexOf(@Nonnull JList list, @Nonnull Pattern pattern) {
+  public int indexOf(@Nonnull JList<?> list, @Nonnull Pattern pattern) {
     return indexOf(list, new PatternTextMatcher(pattern));
   }
 
   @RunsInEDT
-  private int indexOf(@Nonnull JList list, @Nonnull TextMatcher matcher) {
+  private int indexOf(@Nonnull JList<?> list, @Nonnull TextMatcher matcher) {
     int index = itemIndex(list, matcher, cellReader());
     if (index >= 0) {
       return index;
@@ -766,8 +765,8 @@ public class JListDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static int itemIndex(final @Nonnull JList list, final @Nonnull TextMatcher matcher,
-      final @Nonnull JListCellReader cellReader) {
+  private static int itemIndex(final @Nonnull JList<?> list, final @Nonnull TextMatcher matcher,
+                               final @Nonnull JListCellReader cellReader) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
       protected Integer executeInEDT() {
@@ -777,17 +776,18 @@ public class JListDriver extends JComponentDriver {
     return checkNotNull(result);
   }
 
-  private @Nonnull LocationUnavailableException failMatchingNotFound(@Nonnull JList list, @Nonnull TextMatcher matcher) {
+  private @Nonnull LocationUnavailableException failMatchingNotFound(@Nonnull JList<?> list,
+                                                                     @Nonnull TextMatcher matcher) {
     String format = "Unable to find item matching the %s %s among the JList contents %s";
     String msg = String.format(format, matcher.description(), matcher.formattedValues(),
-        format(contents(list, cellReader())));
+                               format(contents(list, cellReader())));
     return new LocationUnavailableException(msg);
   }
 
   /**
    * Returns the {@code String} representation of the element under the given index, using this driver's
    * {@link JListCellReader}.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param index the given index.
    * @return the value of the element under the given index.
@@ -796,14 +796,14 @@ public class JListDriver extends JComponentDriver {
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public @Nullable String value(@Nonnull JList list, int index) {
+  public @Nullable String value(@Nonnull JList<?> list, int index) {
     return itemValue(list, index, cellReader());
   }
 
   /**
    * Updates the implementation of {@link JListCellReader} to use when comparing internal values of a {@code JList} and
    * the values expected in a test.
-   * 
+   *
    * @param newCellReader the new {@code JListCellValueReader} to use.
    * @throws NullPointerException if {@code newCellReader} is {@code null}.
    */
@@ -813,13 +813,13 @@ public class JListDriver extends JComponentDriver {
 
   /**
    * Verifies that number of items in the given {@code JList} is equal to the expected one.
-   * 
+   *
    * @param list the target {@code JList}.
    * @param expected the expected number of items.
    * @throws AssertionError if the number of items in the given {@code JList} is not equal to the expected one.
    */
   @RunsInEDT
-  public void requireItemCount(@Nonnull JList list, int expected) {
+  public void requireItemCount(@Nonnull JList<?> list, int expected) {
     int actual = itemCountIn(list);
     assertThat(actual).as(propertyName(list, "itemCount")).isEqualTo(expected);
   }

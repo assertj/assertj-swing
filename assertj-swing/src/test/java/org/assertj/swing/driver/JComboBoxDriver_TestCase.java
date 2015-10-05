@@ -40,7 +40,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link JComboBoxDriver}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -176,7 +176,7 @@ public abstract class JComboBoxDriver_TestCase extends RobotBasedTestCase {
     }
 
     @Override
-    public String valueAt(@Nonnull JComboBox comboBox, int index) {
+    public String valueAt(@Nonnull JComboBox<?> comboBox, int index) {
       methodInvocations.invoked("valueAt");
       return super.valueAt(comboBox, index);
     }

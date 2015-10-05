@@ -24,12 +24,12 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the number of items in a given {@code JList}. This query is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  */
 @RunsInEDT
 final class JListItemCountQuery {
-  static int itemCountIn(final @Nonnull JList list) {
+  static int itemCountIn(final @Nonnull JList<?> list) {
     Integer result = execute(new GuiQuery<Integer>() {
       @Override
       protected @Nullable Integer executeInEDT() {

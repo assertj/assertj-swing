@@ -25,12 +25,12 @@ import org.assertj.swing.edt.GuiQuery;
 /**
  * Returns an array of {@code String}s that represents the contents of a given {@code JList}. This query is executed in
  * the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JListContentQuery {
   @RunsInEDT
-  static @Nonnull String[] contents(final @Nonnull JList list, final @Nonnull JListCellReader cellReader) {
+  static @Nonnull String[] contents(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
     String[] result = execute(new GuiQuery<String[]>() {
       @Override
       protected String[] executeInEDT() {

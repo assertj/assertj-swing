@@ -98,12 +98,12 @@ public class BasicJTableCellReader implements JTableCellReader {
       return valueOf(((JCheckBox) c).isSelected());
     }
     if (c instanceof JComboBox) {
-      return valueAsText((JComboBox) c);
+      return valueAsText((JComboBox<?>) c);
     }
     return asText(table.getValueAt(row, column));
   }
 
-  private @Nullable String valueAsText(@Nonnull JComboBox comboBox) {
+  private @Nullable String valueAsText(@Nonnull JComboBox<?> comboBox) {
     int selectedIndex = comboBox.getSelectedIndex();
     if (selectedIndex == -1) {
       return null;
