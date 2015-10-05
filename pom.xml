@@ -38,7 +38,7 @@
     <developerConnection>scm:git:git@github.com:joel-costigliola/assertj-swing.git</developerConnection>
     <connection>git://github.com/joel-costigliola/assertj-swing.git</connection>
     <url>https://github.com/joel-costigliola/assertj-swing</url>
-    <tag>HEAD</tag>
+    <tag>2.2.x</tag>
   </scm>
   <issueManagement>
     <system>github</system>
