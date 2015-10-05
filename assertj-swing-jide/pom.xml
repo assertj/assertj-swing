@@ -13,7 +13,7 @@
   <description>JIDE specific extensions for testing</description>
 
   <properties>
-    <jide.version>3.6.7</jide.version>
+    <jide.version>3.6.10</jide.version>
   </properties>
 
   <dependencies>
