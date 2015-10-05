@@ -17,12 +17,12 @@ import static org.assertj.swing.util.Strings.isNullOrEmpty;
 
 import java.io.File;
 
-import org.assertj.core.util.FilesException;
+import org.assertj.core.api.exception.RuntimeIOException;
 import org.testng.ITestContext;
 
 /**
  * Understands TestNG's output directory.
- * 
+ *
  * @author Alex Ruiz
  */
 class OutputDirectory {
@@ -47,6 +47,6 @@ class OutputDirectory {
       return;
     if (f.mkdirs())
       return;
-    throw new FilesException(concat("Unable to create output directory ", path));
+    throw new RuntimeIOException(concat("Unable to create output directory ", path));
   }
 }

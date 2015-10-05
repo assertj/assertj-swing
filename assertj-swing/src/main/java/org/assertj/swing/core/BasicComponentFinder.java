@@ -12,10 +12,10 @@
  */
 package org.assertj.swing.core;
 
+import static java.lang.System.lineSeparator;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
@@ -39,9 +39,9 @@ import org.assertj.swing.hierarchy.SingleComponentHierarchy;
 
 /**
  * Default implementation of {@link ComponentFinder}.
- * 
+ *
  * @author Alex Ruiz
- * 
+ *
  * @see ComponentFinder
  */
 public final class BasicComponentFinder implements ComponentFinder {
@@ -56,7 +56,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   /**
    * Creates a new {@link BasicComponentFinder} with a new AWT hierarchy. AWT and Swing {@code Component}s created
    * before the created {@link BasicComponentFinder} cannot be accessed by the created {@link BasicComponentFinder}.
-   * 
+   *
    * @return the created finder.
    */
   public static @Nonnull ComponentFinder finderWithNewAwtHierarchy() {
@@ -66,7 +66,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   /**
    * Creates a new {@link BasicComponentFinder} that has access to all the AWT and Swing {@code Component}s in the AWT
    * hierarchy.
-   * 
+   *
    * @return the created finder.
    */
   public static @Nonnull ComponentFinder finderWithCurrentAwtHierarchy() {
@@ -75,7 +75,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   /**
    * Creates a new {@link BasicComponentFinder}. The created finder does not use any {@link Settings}.
-   * 
+   *
    * @param hierarchy the component hierarchy to use.
    */
   protected BasicComponentFinder(@Nonnull ComponentHierarchy hierarchy) {
@@ -84,7 +84,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   /**
    * Creates a new {@link BasicComponentFinder}.
-   * 
+   *
    * @param hierarchy the component hierarchy to use.
    * @param settings the configuration settings to use. It can be {@code null}.
    */
@@ -190,14 +190,14 @@ public final class BasicComponentFinder implements ComponentFinder {
   @RunsInEDT
   @Override
   public @Nonnull <T extends Component> T findByName(@Nonnull Container root, @Nullable String name,
-      @Nonnull Class<T> type) {
+                                                     @Nonnull Class<T> type) {
     return findByName(root, name, type, requireShowing());
   }
 
   @RunsInEDT
   @Override
   public @Nonnull <T extends Component> T findByName(@Nonnull Container root, @Nullable String name,
-      @Nonnull Class<T> type, boolean showing) {
+                                                     @Nonnull Class<T> type, boolean showing) {
     Component found = find(root, new NameMatcher(name, type, showing));
     return type.cast(found);
   }
@@ -217,14 +217,14 @@ public final class BasicComponentFinder implements ComponentFinder {
   @RunsInEDT
   @Override
   public @Nonnull <T extends Component> T findByLabel(@Nonnull Container root, @Nullable String label,
-      @Nonnull Class<T> type) {
+                                                      @Nonnull Class<T> type) {
     return findByLabel(root, label, type, requireShowing());
   }
 
   @RunsInEDT
   @Override
   public @Nonnull <T extends Component> T findByLabel(@Nonnull Container root, @Nullable String label,
-      @Nonnull Class<T> type, boolean showing) {
+                                                      @Nonnull Class<T> type, boolean showing) {
     Component found = find(root, new LabelMatcher(label, type, showing));
     return labelFor(found, type);
   }
@@ -282,8 +282,8 @@ public final class BasicComponentFinder implements ComponentFinder {
   private @Nonnull ComponentLookupException componentNotFound(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
     String message = concat("Unable to find component using matcher ", m, ".");
     if (includeHierarchyIfComponentNotFound()) {
-      message = concat(message, LINE_SEPARATOR, LINE_SEPARATOR, "Component hierarchy:", LINE_SEPARATOR,
-          formattedHierarchy(root(h)));
+      message = concat(message, lineSeparator(), lineSeparator(), "Component hierarchy:", lineSeparator(),
+                       formattedHierarchy(root(h)));
     }
     throw new ComponentLookupException(message);
   }
@@ -306,13 +306,13 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   @RunsInEDT
   private static @Nonnull ComponentLookupException multipleComponentsFound(@Nonnull Collection<Component> found,
-      @Nonnull ComponentMatcher m) {
+                                                                           @Nonnull ComponentMatcher m) {
     StringBuilder message = new StringBuilder();
     String format = "Found more than one component using matcher %s. %n%nFound:";
     message.append(String.format(format, m.toString()));
     appendComponents(message, found);
     if (!found.isEmpty()) {
-      message.append(LINE_SEPARATOR);
+      message.append(lineSeparator());
     }
     throw new ComponentLookupException(message.toString(), found);
   }
@@ -363,7 +363,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   /**
    * Returns the value of the flag "requireShowing" in the {@link ComponentLookupScope} this finder's {@link Settings}.
    * If the settings object is {@code null}, this method will return the provided default value.
-   * 
+   *
    * @param defaultValue the value to return if this matcher does not have any configuration settings.
    * @return the value of the flag "requireShowing" in this finder's settings, or the provided default value if this
    *         finder does not have configuration settings.

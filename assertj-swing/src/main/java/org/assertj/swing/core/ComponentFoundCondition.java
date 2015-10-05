@@ -12,9 +12,9 @@
  */
 package org.assertj.swing.core;
 
+import static java.lang.System.lineSeparator;
 import static java.util.Collections.emptyList;
 import static org.assertj.core.util.Strings.concat;
-import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -31,7 +31,7 @@ import org.assertj.swing.timing.Condition;
 
 /**
  * Condition that is satisfied if an AWT or Swing {@code Component} that matches certain search criteria is found.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -46,51 +46,51 @@ public final class ComponentFoundCondition extends Condition {
 
   /**
    * Creates a new {@link ComponentFoundCondition}.
-   * 
+   *
    * @param description the description of this condition.
    * @param finder performs the search.
    * @param matcher specifies the condition that the AWT or Swing {@code Component} we are looking for needs to match.
    */
   public ComponentFoundCondition(@Nonnull String description, @Nonnull ComponentFinder finder,
-      @Nonnull ComponentMatcher matcher) {
+                                 @Nonnull ComponentMatcher matcher) {
     this(description, finder, matcher, null);
   }
 
   /**
    * Creates a new {@link ComponentFoundCondition}.
-   * 
+   *
    * @param description the description of this condition.
    * @param finder performs the search.
    * @param matcher specifies the condition that the AWT or Swing {@code Component} we are looking for needs to match.
    * @param root the root {@code Container} used as the starting point of the search.
    */
   public ComponentFoundCondition(@Nonnull String description, @Nonnull ComponentFinder finder,
-      @Nonnull ComponentMatcher matcher, @Nullable Container root) {
+                                 @Nonnull ComponentMatcher matcher, @Nullable Container root) {
     this(new TextDescription(description), finder, matcher, root);
   }
 
   /**
    * Creates a new {@link ComponentFoundCondition}.
-   * 
+   *
    * @param description the description of this condition.
    * @param finder performs the search.
    * @param matcher specifies the condition that the AWT or Swing {@code Component} we are looking for needs to match.
    */
   public ComponentFoundCondition(@Nonnull Description description, @Nonnull ComponentFinder finder,
-      @Nonnull ComponentMatcher matcher) {
+                                 @Nonnull ComponentMatcher matcher) {
     this(description, finder, matcher, null);
   }
 
   /**
    * Creates a new {@link ComponentFoundCondition}.
-   * 
+   *
    * @param description the description of this condition.
    * @param finder performs the search.
    * @param matcher specifies the condition that the AWT or Swing {@code Component} we are looking for needs to match.
    * @param root the root {@code Container} used as the starting point of the search.
    */
   public ComponentFoundCondition(@Nonnull Description description, @Nonnull ComponentFinder finder,
-      @Nonnull ComponentMatcher matcher, @Nullable Container root) {
+                                 @Nonnull ComponentMatcher matcher, @Nullable Container root) {
     super(description);
     this.finder = finder;
     this.matcher = matcher;
@@ -100,7 +100,7 @@ public final class ComponentFoundCondition extends Condition {
   /**
    * Indicates whether {@code true} an AWT or Swing {@code Component}, that matches the search criteria in this
    * condition's {@link ComponentMatcher}, can be found.
-   * 
+   *
    * @return {@code true} if a matching {@code Component} can be found, {@code false} otherwise.
    */
   @Override
@@ -136,7 +136,7 @@ public final class ComponentFoundCondition extends Condition {
     if (error == null) {
       return EMPTY_TEXT;
     }
-    return concat(LINE_SEPARATOR, error.getMessage());
+    return concat(lineSeparator(), error.getMessage());
   }
 
   /**

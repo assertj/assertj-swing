@@ -20,7 +20,7 @@ import static org.easymock.classextension.EasyMock.createMock;
 import java.io.File;
 import java.io.IOException;
 
-import org.assertj.core.util.FilesException;
+import org.assertj.core.api.exception.RuntimeIOException;
 import org.easymock.EasyMock;
 import org.fest.mocks.EasyMockTemplate;
 import org.junit.BeforeClass;
@@ -28,7 +28,7 @@ import org.junit.Test;
 
 /**
  * Tests for <code>{@link FolderCreator#createFolder(File, String)}</code>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class FolderCreator_createFolder_Test {
@@ -81,7 +81,7 @@ public class FolderCreator_createFolder_Test {
         try {
           creator.createFolder(f, "hello");
           fail("expecting exception");
-        } catch (FilesException e) {
+        } catch (RuntimeIOException e) {
           assertThat(e).hasMessage("Unable to create directory 'hello'");
           assertThat(e.getCause()).isSameAs(error);
         }

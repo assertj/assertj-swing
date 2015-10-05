@@ -25,7 +25,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Matches an AWT or Swing {@code Component} by name and (optionally) by type.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class NameMatcher extends AbstractComponentMatcher {
@@ -34,7 +34,7 @@ public final class NameMatcher extends AbstractComponentMatcher {
 
   /**
    * Creates a new {@link NameMatcher}. The AWT or Swing {@code Component} to match does not have to be showing.
-   * 
+   *
    * @param name the name of the {@code Component} we are looking for.
    * @throws NullPointerException if the given name is {@code null}.
    * @throws IllegalArgumentException if the given name is empty.
@@ -45,7 +45,7 @@ public final class NameMatcher extends AbstractComponentMatcher {
 
   /**
    * Creates a new {@link NameMatcher}.
-   * 
+   *
    * @param name the name of the AWT or Swing {@code Component} we are looking for.
    * @param requireShowing indicates if the {@code Component} to match should be showing or not.
    * @throws NullPointerException if the given name is {@code null}.
@@ -57,7 +57,7 @@ public final class NameMatcher extends AbstractComponentMatcher {
 
   /**
    * Creates a new {@link NameMatcher}. The AWT or Swing {@code Component} to match does not have to be showing.
-   * 
+   *
    * @param name the name of the {@code Component} we are looking for.
    * @param type the type of the {@code Component} we are looking for.
    * @throws NullPointerException if the given name is empty.
@@ -70,7 +70,7 @@ public final class NameMatcher extends AbstractComponentMatcher {
 
   /**
    * Creates a new {@link NameMatcher}.
-   * 
+   *
    * @param name the name of the AWT or Swing {@code Component} we are looking for.
    * @param type the type of the {@code Component} we are looking for.
    * @param requireShowing indicates if the {@code Component} to match should be showing or not.
@@ -80,7 +80,7 @@ public final class NameMatcher extends AbstractComponentMatcher {
    */
   public NameMatcher(@Nullable String name, @Nonnull Class<? extends Component> type, boolean requireShowing) {
     super(requireShowing);
-    this.name = checkNotNullOrEmpty(name);
+    this.name = checkNotNullOrEmpty(name).toString();
     this.type = checkNotNull(type);
   }
 
@@ -89,12 +89,12 @@ public final class NameMatcher extends AbstractComponentMatcher {
    * Indicates whether the name and visibility of the given AWT or Swing {@code Component} matches the value specified
    * in this matcher.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @return {@code true} if the name and visibility of the given {@code Component} matches the values specified in this
    *         matcher, {@code false} otherwise.
    */

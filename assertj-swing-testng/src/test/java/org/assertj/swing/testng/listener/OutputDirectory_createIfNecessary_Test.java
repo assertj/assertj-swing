@@ -22,7 +22,7 @@ import static org.easymock.classextension.EasyMock.createMock;
 
 import java.io.File;
 
-import org.assertj.core.util.FilesException;
+import org.assertj.core.api.exception.RuntimeIOException;
 import org.fest.mocks.EasyMockTemplate;
 import org.junit.After;
 import org.junit.Before;
@@ -31,7 +31,7 @@ import org.testng.ITestContext;
 
 /**
  * Tests for <code>{@link OutputDirectory#createIfNecessary()}</code>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class OutputDirectory_createIfNecessary_Test {
@@ -95,7 +95,7 @@ public class OutputDirectory_createIfNecessary_Test {
     }.run();
   }
 
-  @Test(expected = FilesException.class)
+  @Test(expected = RuntimeIOException.class)
   public void should_Throw_Error_If_Output_Folder_Cannot_Be_Created() {
     File folder = newFolder(unwritablePath);
     assertThat(folder.setReadOnly()).isTrue();

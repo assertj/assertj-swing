@@ -19,11 +19,11 @@ import static org.assertj.core.util.Strings.quote;
 
 import java.io.File;
 
-import org.assertj.core.util.FilesException;
+import org.assertj.core.api.exception.RuntimeIOException;
 
 /**
  * Understands creation of folders.
- * 
+ *
  * @author Alex Ruiz
  */
 class FolderCreator {
@@ -36,7 +36,7 @@ class FolderCreator {
       imageFolder.mkdir();
       return imageFolder;
     } catch (Exception e) {
-      throw new FilesException(concat("Unable to create directory ", quote(name)), e);
+      throw new RuntimeIOException(concat("Unable to create directory ", quote(name)), e);
     }
   }
 }

@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.junit.ant;
 
+import static java.lang.System.lineSeparator;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.SystemProperties.LINE_SEPARATOR;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.classextension.EasyMock.createMock;
 
@@ -27,7 +27,7 @@ import org.junit.Test;
 
 /**
  * Tests for <code>{@link XmlOutputWriter#write(org.assertj.swing.junit.xml.XmlNode, java.io.OutputStream)}</code>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class XmlOutputWriter_write_Test extends XmlOutputWriter_TestCase {
@@ -70,8 +70,9 @@ public class XmlOutputWriter_write_Test extends XmlOutputWriter_TestCase {
 
   private String expectedXml() {
     StringBuilder expected = new StringBuilder();
-    expected.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>").append(LINE_SEPARATOR).append("<root>")
-        .append(LINE_SEPARATOR).append("  <child />").append(LINE_SEPARATOR).append("</root>").append(LINE_SEPARATOR);
+    expected.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>").append(lineSeparator()).append("<root>")
+            .append(lineSeparator()).append("  <child />").append(lineSeparator()).append("</root>")
+            .append(lineSeparator());
     return expected.toString();
   }
 

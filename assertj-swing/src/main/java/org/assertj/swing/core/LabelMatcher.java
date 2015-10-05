@@ -85,7 +85,7 @@ public class LabelMatcher extends AbstractComponentMatcher {
    */
   public LabelMatcher(@Nullable String label, @Nonnull Class<? extends Component> type, boolean requireShowing) {
     super(requireShowing);
-    this.label = checkNotNullOrEmpty(label);
+    this.label = checkNotNullOrEmpty(label).toString();
     this.type = checkNotNull(type);
   }
 

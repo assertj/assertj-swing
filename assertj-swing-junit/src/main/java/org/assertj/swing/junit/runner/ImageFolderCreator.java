@@ -16,11 +16,9 @@ import static org.assertj.core.util.Files.currentFolder;
 
 import java.io.File;
 
-import org.assertj.core.util.FilesException;
-
 /**
  * Understands creation of the folder where screenshots of failed GUI tests will be saved to.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ImageFolderCreator {
@@ -40,7 +38,7 @@ public class ImageFolderCreator {
   /**
    * Creates the folder where to save screenshots of failing GUI tests. The name of the folder to create is
    * 'failed-gui-tests'. If the folder already exists, it is deleted and recreated again.
-   * 
+   *
    * @return the created folder.
    * @throws FilesException if any error occurs when creating the folder.
    */
