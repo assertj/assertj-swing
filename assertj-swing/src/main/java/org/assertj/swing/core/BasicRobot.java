@@ -24,6 +24,7 @@ import static javax.swing.SwingUtilities.getWindowAncestor;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Sets.newHashSet;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.awt.AWT.centerOf;
 import static org.assertj.swing.awt.AWT.visibleCenterOf;
@@ -62,6 +63,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -897,10 +899,34 @@ public class BasicRobot implements Robot {
   @RunsInEDT
   private @Nullable JPopupMenu activePopupMenu() {
     List<Component> found = newArrayList(finder().findAll(POPUP_MATCHER));
+    if (found.size() >= 1) {
+      return findOuterPopupMenu(found);
+    }
+    return null;
+  }
+
+  @RunsInEDT
+  private JPopupMenu findOuterPopupMenu(List<Component> found) {
     if (found.size() == 1) {
       return (JPopupMenu) found.get(0);
     }
-    return null;
+    List<JPopupMenu> innerMenus = newArrayList();
+    for (Component component : found) {
+      innerMenus.addAll(popupMenus(((JPopupMenu) component).getComponents()));
+    }
+    found.removeAll(innerMenus);
+    return findOuterPopupMenu(found);
+  }
+
+  @RunsInEDT
+  private Collection<? extends JPopupMenu> popupMenus(Component[] components) {
+    Set<JPopupMenu> menus = newHashSet();
+    for (Component component : components) {
+      if (component instanceof JPopupMenu) {
+        menus.add((JPopupMenu) component);
+      }
+    }
+    return menus;
   }
 
   @RunsInEDT
