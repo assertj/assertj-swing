@@ -24,7 +24,6 @@ public class BasicRobot_waitForIdle_Test extends BasicRobot_TestCase {
       @Override
       protected void executeInEDT() {
         BasicRobot_waitForIdle_Test.this.window().textField().setEnabled(false);
-        System.out.println("Disabled TB");
         new Thread(() -> {
           try {
             Thread.sleep(2000); // Simulate fetching something from the DB
