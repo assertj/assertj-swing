@@ -19,6 +19,7 @@ import static java.lang.System.lineSeparator;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.hierarchy.NewHierarchy.ignoreExistingComponents;
+import static org.assertj.swing.timing.Pause.pause;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -33,9 +34,11 @@ import javax.swing.JLabel;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ComponentLookupException;
+import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.hierarchy.ComponentHierarchy;
 import org.assertj.swing.hierarchy.ExistingHierarchy;
 import org.assertj.swing.hierarchy.SingleComponentHierarchy;
+import org.assertj.swing.timing.Condition;
 
 /**
  * Default implementation of {@link ComponentFinder}.
@@ -268,6 +271,53 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   @RunsInEDT
   private @Nonnull Component find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
+
+
+    FindCondition condition = new FindCondition(h, m);
+
+    try {
+      pause(condition, 500);
+    } catch (WaitTimedOutError w) {
+      Collection<Component> found = condition.found();
+
+      if (found.isEmpty()) {
+        throw componentNotFound(h, m);
+      }
+      if (found.size() > 1) {
+        throw multipleComponentsFound(found, m);
+      }
+    }
+
+    return checkNotNull(condition.found.iterator().next());
+  }
+
+
+  private class FindCondition extends Condition {
+
+    Collection<Component> found;
+    ComponentHierarchy hierarchy;
+    ComponentMatcher matcher;
+
+    FindCondition(ComponentHierarchy hierarchy, ComponentMatcher matcher) {
+      super(matcher.toString());
+      this.hierarchy = hierarchy;
+      this.matcher = matcher;
+    }
+
+    @Override
+    public boolean test() {
+      found = finderDelegate.find(this.hierarchy, this.matcher);
+
+      return found.size() == 1;
+    }
+
+    public Collection<Component> found() {
+      return found;
+    }
+  }
+
+  @RunsInEDT
+  private @Nonnull Component instantFind(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
     Collection<Component> found = finderDelegate.find(h, m);
     if (found.isEmpty()) {
       throw componentNotFound(h, m);
