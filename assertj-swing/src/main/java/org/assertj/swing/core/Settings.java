@@ -35,6 +35,7 @@ public class Settings {
   private int timeoutToBeVisible;
   private int timeoutToFindPopup;
   private int timeoutToFindSubMenu;
+  private int timeoutToFind;
   private int delayBetweenEvents;
   private int dragDelay;
   private int dropDelay;
@@ -48,6 +49,7 @@ public class Settings {
     timeoutToBeVisible(DEFAULT_DELAY);
     timeoutToFindPopup(DEFAULT_DELAY);
     timeoutToFindSubMenu(100);
+    timeoutToFind(3000);
     delayBetweenEvents(60);
     dragDelay(0);
     dropDelay(0);
@@ -116,6 +118,23 @@ public class Settings {
    */
   public void timeoutToBeVisible(int ms) {
     timeoutToBeVisible = valueToUpdate(ms, 0, 60000);
+  }
+
+  /**
+   * @return the number of milliseconds to wait before failing to find a component. The default
+   *         value is 30000 milliseconds.
+   */
+  public int timeoutToFind() {
+    return timeoutToFind;
+  }
+
+  /**
+   * Updates the number of milliseconds to wait before failing to find a component. The default value is
+   *         3000 milliseconds.
+   * @param ms the time in milliseconds. It should be between 0 and 60000.
+   */
+  public void timeoutToFind(int ms) {
+    timeoutToFind = valueToUpdate(ms, 0, 60000);
   }
 
   /**

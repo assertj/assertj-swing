@@ -42,9 +42,9 @@ import org.assertj.swing.timing.Condition;
 
 /**
  * Default implementation of {@link ComponentFinder}.
- * 
+ *
  * @author Alex Ruiz
- * 
+ *
  * @see ComponentFinder
  */
 public final class BasicComponentFinder implements ComponentFinder {
@@ -59,7 +59,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   /**
    * Creates a new {@link BasicComponentFinder} with a new AWT hierarchy. AWT and Swing {@code Component}s created
    * before the created {@link BasicComponentFinder} cannot be accessed by the created {@link BasicComponentFinder}.
-   * 
+   *
    * @return the created finder.
    */
   public static @Nonnull ComponentFinder finderWithNewAwtHierarchy() {
@@ -69,7 +69,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   /**
    * Creates a new {@link BasicComponentFinder} that has access to all the AWT and Swing {@code Component}s in the AWT
    * hierarchy.
-   * 
+   *
    * @return the created finder.
    */
   public static @Nonnull ComponentFinder finderWithCurrentAwtHierarchy() {
@@ -78,7 +78,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   /**
    * Creates a new {@link BasicComponentFinder}. The created finder does not use any {@link Settings}.
-   * 
+   *
    * @param hierarchy the component hierarchy to use.
    */
   protected BasicComponentFinder(@Nonnull ComponentHierarchy hierarchy) {
@@ -87,7 +87,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   /**
    * Creates a new {@link BasicComponentFinder}.
-   * 
+   *
    * @param hierarchy the component hierarchy to use.
    * @param settings the configuration settings to use. It can be {@code null}.
    */
@@ -271,12 +271,19 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   @RunsInEDT
   private @Nonnull Component find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
+    return find(h, m, timeoutToFind());
+  }
 
+  @RunsInEDT
+  private @Nonnull Component find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m, long timeout) {
+    if(timeout == 0) {
+      return instantFind(h, m);
+    }
 
     FindCondition condition = new FindCondition(h, m);
 
     try {
-      pause(condition, 500);
+      pause(condition, timeout);
     } catch (WaitTimedOutError w) {
       Collection<Component> found = condition.found();
 
@@ -289,31 +296,6 @@ public final class BasicComponentFinder implements ComponentFinder {
     }
 
     return checkNotNull(condition.found.iterator().next());
-  }
-
-
-  private class FindCondition extends Condition {
-
-    Collection<Component> found;
-    ComponentHierarchy hierarchy;
-    ComponentMatcher matcher;
-
-    FindCondition(ComponentHierarchy hierarchy, ComponentMatcher matcher) {
-      super(matcher.toString());
-      this.hierarchy = hierarchy;
-      this.matcher = matcher;
-    }
-
-    @Override
-    public boolean test() {
-      found = finderDelegate.find(this.hierarchy, this.matcher);
-
-      return found.size() == 1;
-    }
-
-    public Collection<Component> found() {
-      return found;
-    }
   }
 
   @RunsInEDT
@@ -413,7 +395,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   /**
    * Returns the value of the flag "requireShowing" in the {@link ComponentLookupScope} this finder's {@link Settings}.
    * If the settings object is {@code null}, this method will return the provided default value.
-   * 
+   *
    * @param defaultValue the value to return if this matcher does not have any configuration settings.
    * @return the value of the flag "requireShowing" in this finder's settings, or the provided default value if this
    *         finder does not have configuration settings.
@@ -430,5 +412,37 @@ public final class BasicComponentFinder implements ComponentFinder {
       return hierarchy;
     }
     return new SingleComponentHierarchy(root, hierarchy);
+  }
+
+  private int timeoutToFind() {
+    if(settings != null) {
+      return settings.timeoutToFind();
+    }
+    else {
+      return 0;
+    }
+  }
+
+  private class FindCondition extends Condition {
+
+    private Collection<Component> found;
+    private ComponentHierarchy hierarchy;
+    private ComponentMatcher matcher;
+
+    FindCondition(ComponentHierarchy hierarchy, ComponentMatcher matcher) {
+      super(matcher.toString());
+      this.hierarchy = hierarchy;
+      this.matcher = matcher;
+    }
+
+    @Override
+    public boolean test() {
+      found = finderDelegate.find(this.hierarchy, this.matcher);
+      return found.size() == 1;
+    }
+
+    public Collection<Component> found() {
+      return found;
+    }
   }
 }

@@ -12,6 +12,7 @@
  */
 package org.assertj.swing.core;
 
+import org.assertj.swing.hierarchy.ExistingHierarchy;
 import org.assertj.swing.timing.Pause;
 import org.junit.Test;
 
@@ -32,7 +33,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class BasicComponentFinder_findWithTimeout_Test extends BasicComponentFinder_TestCase {
     @Test
-    public void should_wait_for_given_timeout() {
+    public void should_try_to_find_until_timeout_passed() {
+
+        Settings settings = new Settings();
+        finder = new BasicComponentFinder(new ExistingHierarchy(), settings);
+
 
         Executors.newSingleThreadExecutor().execute(() -> {
             Pause.pause(250);
@@ -49,4 +54,6 @@ public class BasicComponentFinder_findWithTimeout_Test extends BasicComponentFin
 
         assertThat(found).isEqualTo(window.button);
     }
+
+
 }
