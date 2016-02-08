@@ -450,6 +450,9 @@ public class BasicRobot implements Robot {
   @RunsInEDT
   @Override
   public void click(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button, int times) {
+    if (!waitForComponentToBeReady(c, settings.timeoutToBeVisible())) {
+      throw actionFailure(concat("Could not obtain position of component ", format(c)));
+    }
     doClick(c, where, button, times);
   }
 
