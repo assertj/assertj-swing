@@ -12,15 +12,12 @@
  */
 package org.assertj.swing.format;
 
-import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.swing.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.test.builder.JComboBoxes.comboBox;
 
 /**
  * Tests for {@link IntrospectionComponentFormatter#format(java.awt.Component)}.
