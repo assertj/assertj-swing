@@ -93,7 +93,7 @@ public abstract class BasicRobot_TestCase extends EDTSafeTestCase {
     private MyWindow(@Nonnull Class<?> testClass) {
       super(testClass);
       addComponents(textField);
-      setMinimumSize(new Dimension(100, 50));
+      setMinimumSize(new Dimension(100, 100));
     }
 
     @Nonnull

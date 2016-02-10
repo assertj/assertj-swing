@@ -877,7 +877,7 @@ public class BasicRobot implements Robot {
     if (w == null) {
       throw actionFailure(concat("Component ", format(c), " does not have a Window ancestor"));
     }
-    return c.isShowing() && windowMonitor.isWindowReady(w);
+    return c.isShowing() && c.getWidth() > 0 && c.getHeight() > 0 && windowMonitor.isWindowReady(w);
   }
 
   @RunsInEDT
