@@ -13,9 +13,9 @@
 package org.assertj.swing.monitor;
 
 import static java.lang.Boolean.TRUE;
-import static org.assertj.core.util.Maps.newWeakHashMap;
 import static org.assertj.core.util.Sets.newHashSet;
 import static org.assertj.swing.query.ComponentParentQuery.parentOf;
+import static org.assertj.swing.util.Maps.newWeakHashMap;
 
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -31,7 +31,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * A mapping of unique event queues to the set of root windows found on each queue.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */

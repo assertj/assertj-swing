@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.keystroke;
 
-import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.util.Map;
 
@@ -22,7 +22,7 @@ import javax.swing.KeyStroke;
 
 /**
  * Mapping between characters and {@code KeyStroke}s.
- * 
+ *
  * @author Alex Ruiz
  */
 class KeyStrokeMapCollection {

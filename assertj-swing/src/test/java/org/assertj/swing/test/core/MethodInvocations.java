@@ -14,12 +14,12 @@ package org.assertj.swing.test.core;
 
 import static java.util.Arrays.deepEquals;
 import static org.assertj.core.api.Fail.fail;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.util.Arrays.copyOf;
 import static org.assertj.swing.util.Arrays.format;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.util.Map;
 
@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 
 /**
  * Mechanism to record and verify expected method invocations.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -37,7 +37,7 @@ public class MethodInvocations {
 
   /**
    * Records that a method with the given name was invoked.
-   * 
+   *
    * @param methodName the name of the invoked method.
    * @return {@code this}.
    */
@@ -48,7 +48,7 @@ public class MethodInvocations {
 
   /**
    * Records that a method with the given name was invoked with the given arguments.
-   * 
+   *
    * @param methodName the name of the invoked method.
    * @param args the arguments passed to the invoked method.
    * @return {@code this}.
@@ -61,7 +61,7 @@ public class MethodInvocations {
 
   /**
    * Verifies that a method with the given name was invoked.
-   * 
+   *
    * @param methodName the name of the method to verify.
    * @return {@code this}.
    * @throws AssertionError if the method was not invoked.
@@ -75,7 +75,7 @@ public class MethodInvocations {
 
   /**
    * Verifies that a method with the given name was invoked with the given arguments.
-   * 
+   *
    * @param methodName the name of the method to verify.
    * @param args the arguments that should have been passed to the method to verify.
    * @return {@code this}.
@@ -101,7 +101,7 @@ public class MethodInvocations {
 
   /**
    * List of arguments passed to a method.
-   * 
+   *
    * @author Alex Ruiz
    * @author Yvonne Wang
    */
@@ -110,7 +110,7 @@ public class MethodInvocations {
 
     /**
      * Creates a new {@link Args}.
-     * 
+     *
      * @param args the arguments to store.
      * @return the created {@code Args}.
      */

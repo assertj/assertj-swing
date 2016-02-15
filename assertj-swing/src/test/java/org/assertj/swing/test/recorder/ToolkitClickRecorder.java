@@ -13,8 +13,8 @@
 package org.assertj.swing.test.recorder;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.awt.AWTEvent;
 import java.awt.Component;
@@ -30,7 +30,7 @@ import javax.annotation.Nonnull;
 /**
  * An event listener that records mouse events on a specific component as {@link AWTEventListener} in the
  * {@link Toolkit}.
- * 
+ *
  * @author Christian Rösch
  */
 public class ToolkitClickRecorder extends AbstractClickRecorder {

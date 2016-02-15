@@ -14,7 +14,7 @@ package org.assertj.swing.input;
 
 import static java.awt.event.WindowEvent.WINDOW_CLOSED;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
-import static org.assertj.core.util.Maps.newWeakHashMap;
+import static org.assertj.swing.util.Maps.newWeakHashMap;
 
 import java.awt.AWTEvent;
 import java.awt.Window;
@@ -23,7 +23,7 @@ import java.util.Map;
 
 /**
  * Verifies that a notification of the disposal of an AWT or Swing {@code Window} is not duplicated.
- * 
+ *
  * @author Alex Ruiz
  */
 class DisposedWindowMonitor {

@@ -12,11 +12,11 @@
  */
 package org.assertj.swing.launcher;
 
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.launcher.NewAppletViewerQuery.showAppletViewerWith;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.applet.Applet;
 import java.util.Map;

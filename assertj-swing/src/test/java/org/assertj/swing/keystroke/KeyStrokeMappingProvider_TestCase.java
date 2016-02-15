@@ -19,10 +19,10 @@ import static java.awt.event.KeyEvent.VK_ESCAPE;
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.timing.Pause.pause;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.awt.Dimension;
 import java.util.Collection;
@@ -45,7 +45,7 @@ import org.junit.Test;
 
 /**
  * Test case for implementations of {@link KeyStrokeMappingProvider}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class KeyStrokeMappingProvider_TestCase extends RobotBasedTestCase {

@@ -13,11 +13,11 @@
 package org.assertj.swing.driver;
 
 import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.core.TestRobots.singletonRobotMock;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.applet.AppletContext;
 import java.net.URL;
@@ -33,7 +33,7 @@ import org.junit.Before;
 
 /**
  * Base test case for {@link JAppletDriver}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JAppletDriver_TestCase extends EDTSafeTestCase {

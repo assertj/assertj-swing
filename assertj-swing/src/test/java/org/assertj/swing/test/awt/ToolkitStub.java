@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.test.awt;
 
-import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.swing.util.Maps.newHashMap;
 import static org.mockito.Mockito.spy;
 
 import java.awt.Button;

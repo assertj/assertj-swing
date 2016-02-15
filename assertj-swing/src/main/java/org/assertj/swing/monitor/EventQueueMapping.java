@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.monitor;
 
-import static org.assertj.core.util.Maps.newWeakHashMap;
 import static org.assertj.core.util.Sets.newHashSet;
+import static org.assertj.swing.util.Maps.newWeakHashMap;
 
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -29,7 +29,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * A mapping of AWT or Swing {@code Component}s, and their respective {@link EventQueue}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */

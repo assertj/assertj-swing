@@ -13,7 +13,7 @@
 package org.assertj.swing.monitor;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.awt.EventQueue;
 import java.awt.Window;
@@ -23,7 +23,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link WindowEventQueueMapping#removeMappingFor(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class WindowEventQueueMapping_removeMappingFor_Test extends WindowEventQueueMapping_withWindow_TestCase {
