@@ -41,7 +41,6 @@
     <dependency>
       <groupId>org.easytesting</groupId>
       <artifactId>fest-reflect</artifactId>
-      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.easytesting</groupId>
