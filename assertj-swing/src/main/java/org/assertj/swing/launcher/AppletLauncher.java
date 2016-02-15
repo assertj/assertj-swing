@@ -110,8 +110,6 @@ public class AppletLauncher {
   private static @Nonnull Class<?> load(@Nonnull String typeName) {
     try {
       return Class.forName(typeName);
-    } catch (ClassNotFoundException e) {
-      throw cannotLoadType(typeName, e);
     } catch (Exception e) {
       throw cannotLoadType(typeName, e);
     }
