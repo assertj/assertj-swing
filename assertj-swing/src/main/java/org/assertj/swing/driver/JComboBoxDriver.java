@@ -12,6 +12,7 @@
  */
 package org.assertj.swing.driver;
 
+import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
@@ -335,6 +336,23 @@ public class JComboBoxDriver extends JComponentDriver {
   }
 
   /**
+   * Deletes the text of the {@code JComboBox}.
+   *
+   * @param comboBox the target {@code JComboBox}.
+   * @throws IllegalStateException if the {@code JComboBox} is disabled.
+   * @throws IllegalStateException if the {@code JComboBox} is not showing on the screen.
+   */
+  @RunsInEDT
+  public void deleteText(@Nonnull JComboBox<?> comboBox) {
+    selectAllText(comboBox);
+    Component editor = accessibleEditorOf(comboBox);
+    if (!(editor instanceof JComponent)) {
+      return;
+    }
+    invokeAction((JComponent) editor, deletePrevCharAction);
+  }
+
+  /**
    * Simulates a user entering the specified text in the {@code JComboBox}, replacing any text. This action is executed
    * only if the {@code JComboBox} is editable.
    *
@@ -346,8 +364,13 @@ public class JComboBoxDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void replaceText(@Nonnull JComboBox<?> comboBox, @Nonnull String text) {
-    selectAllText(comboBox);
-    enterText(comboBox, text);
+    checkNotNull(text);
+    if (text.isEmpty()) {
+      deleteText(comboBox);
+    } else {
+      selectAllText(comboBox);
+      enterText(comboBox, text);
+    }
   }
 
   /**

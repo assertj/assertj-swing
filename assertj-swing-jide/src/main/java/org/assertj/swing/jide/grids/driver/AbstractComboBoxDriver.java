@@ -12,8 +12,10 @@
  */
 package org.assertj.swing.jide.grids.driver;
 
+import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
+import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Component;
 
@@ -40,7 +42,7 @@ import com.jidesoft.converter.ObjectConverter;
 /**
  * A driver for an {@link com.jidesoft.combobox.AbstractComboBox}. This is loosely based
  * on the {@link org.assertj.swing.driver.JComboBoxDriver} class so a familiar usage pattern
- * will exist between Swing combo boxes and Jide combo boxes.
+ * will exist between Swing combo boxes and JIDE combo boxes.
  *
  * @author Peter Murray
  */
@@ -58,6 +60,24 @@ public class AbstractComboBoxDriver extends JComponentDriver {
   }
 
   /**
+   * Deletes the text of the {@code AbstractComboBox}.
+   *
+   * @param comboBox the target {@code AbstractComboBox}.
+   * @throws IllegalStateException if the {@code AbstractComboBox} is disabled.
+   * @throws IllegalStateException if the {@code AbstractComboBox} is not showing on the screen.
+   */
+  @RunsInEDT
+  public void deleteText(AbstractComboBox comboBox) {
+    selectAllText(comboBox);
+    Component editor = accessibleEditorOf(comboBox);
+    if (!(editor instanceof JComponent)) {
+      return;
+    }
+    focus(editor);
+    invokeAction((JComponent) editor, deletePrevCharAction);
+  }
+
+  /**
    * Simulates a user entering the specified text in the <code>{@link com.jidesoft.combobox.AbstractComboBox}</code>,
    * replacing any text. This action is executed only if the <code>{@link
    * com.jidesoft.combobox.AbstractComboBox}</code> is editable.
@@ -71,8 +91,13 @@ public class AbstractComboBoxDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void replaceText(AbstractComboBox comboBox, String text) {
-    selectAllText(comboBox);
-    enterText(comboBox, text);
+    checkNotNull(text);
+    if (text.isEmpty()) {
+      deleteText(comboBox);
+    } else {
+      selectAllText(comboBox);
+      enterText(comboBox, text);
+    }
   }
 
   /**
@@ -430,7 +455,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   /**
    * Obtains the component that the user will interact with, which could be the actual
-   * combo box, or the editor component, depending upon the state of the combobox.
+   * combo box, or the editor component, depending upon the state of the combo box.
    *
    * @param c The Component to obtain the interactive component from.
    * @return The {@link java.awt.Component} that the user is to interact with.

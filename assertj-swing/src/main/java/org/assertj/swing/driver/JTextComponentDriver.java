@@ -18,7 +18,6 @@ import static java.lang.String.valueOf;
 import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.isNullOrEmpty;
 import static org.assertj.core.util.Strings.quote;
@@ -100,7 +99,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
    * Types the given text into the {@code JTextComponent}, replacing any existing text already there.
    * 
    * @param textBox the target {@code JTextComponent}.
-   * @param text the text to enter.
+   * @param text the text to enter. Uses {@link #deleteText(JTextComponent)} if this is an empty string.
    * @throws NullPointerException if the text to enter is {@code null}.
    * @throws IllegalArgumentException if the text to enter is empty.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
@@ -108,9 +107,13 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
    */
   @RunsInEDT
   public void replaceText(@Nonnull JTextComponent textBox, @Nonnull String text) {
-    checkNotNullOrEmpty(text);
-    selectAll(textBox);
-    enterText(textBox, text);
+    checkNotNull(text);
+    if (text.isEmpty()) {
+      deleteText(textBox);
+    } else {
+      selectAll(textBox);
+      enterText(textBox, text);
+    }
   }
 
   /**

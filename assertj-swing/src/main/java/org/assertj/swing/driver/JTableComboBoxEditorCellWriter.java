@@ -56,7 +56,7 @@ public class JTableComboBoxEditorCellWriter extends AbstractJTableCellWriter {
       driver.selectItem(editor, value);
       return;
     }
-    driver.enterText(editor, value);
+    driver.replaceText(editor, value);
   }
 
   @Override

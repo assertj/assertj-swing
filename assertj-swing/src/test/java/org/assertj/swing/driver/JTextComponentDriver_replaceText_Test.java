@@ -16,7 +16,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTextComponentDriver#replaceText(javax.swing.text.JTextComponent, String)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -27,6 +27,14 @@ public class JTextComponentDriver_replaceText_Test extends JTextComponentDriver_
     setTextFieldText("Hi");
     driver.replaceText(textField, "Bye");
     requireTextInTextField("Bye");
+  }
+
+  @Test
+  public void should_Replace_Text_With_Empty_String() {
+    showWindow();
+    setTextFieldText("Hi");
+    driver.replaceText(textField, "");
+    requireTextInTextField("");
   }
 
   @Test
