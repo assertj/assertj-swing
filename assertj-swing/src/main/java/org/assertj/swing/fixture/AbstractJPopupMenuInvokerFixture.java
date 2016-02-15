@@ -83,7 +83,8 @@ public abstract class AbstractJPopupMenuInvokerFixture<S, T extends JComponent, 
    * Shows a pop-up menu using this fixture's {@code JComponent} as the invoker of the pop-up menu.
    *
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if this fixture's {@code JComponent} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code JComponent} is disabled.
    * @throws IllegalStateException if this fixture's {@code JComponent} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
@@ -97,7 +98,8 @@ public abstract class AbstractJPopupMenuInvokerFixture<S, T extends JComponent, 
    *
    * @param p the given point where to show the pop-up menu.
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if this fixture's {@code JComponent} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code JComponent} is disabled.
    * @throws IllegalStateException if this fixture's {@code JComponent} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */

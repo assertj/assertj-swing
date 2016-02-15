@@ -19,6 +19,7 @@ import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.driver.ComponentEnabledCondition.untilIsEnabled;
 import static org.assertj.swing.driver.ComponentPerformDefaultAccessibleActionTask.performDefaultAccessibleAction;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
+import static org.assertj.swing.driver.ComponentPreconditions.checkShowing;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.query.ComponentEnabledQuery.isEnabled;
@@ -91,12 +92,13 @@ public class ComponentDriver {
    * Simulates a user clicking once the given AWT or Swing {@code Component} using the left mouse button.
    *
    * @param c the {@code Component} to click on.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
   public void click(@Nonnull Component c) {
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     robot.click(c);
   }
 
@@ -106,7 +108,8 @@ public class ComponentDriver {
    * @param c the {@code Component} to click on.
    * @param button the mouse button to use.
    * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
@@ -120,7 +123,8 @@ public class ComponentDriver {
    * @param c the {@code Component} to click on.
    * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
@@ -133,7 +137,8 @@ public class ComponentDriver {
    * Simulates a user double-clicking the given AWT or Swing {@code Component}.
    *
    * @param c the {@code Component} to click on.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
@@ -145,7 +150,8 @@ public class ComponentDriver {
    * Simulates a user right-clicking the given AWT or Swing {@code Component}.
    *
    * @param c the {@code Component} to click on.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
@@ -160,13 +166,14 @@ public class ComponentDriver {
    * @param button the mouse button to click.
    * @param times the number of times to click the given mouse button.
    * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
   public void click(@Nonnull Component c, @Nonnull MouseButton button, int times) {
     checkNotNull(button);
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     robot.click(c, button, times);
   }
 
@@ -175,12 +182,13 @@ public class ComponentDriver {
    *
    * @param c the {@code Component} to click on.
    * @param where the position where to click.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
   public void click(@Nonnull Component c, @Nonnull Point where) {
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     robot.click(c, where);
   }
 
@@ -503,13 +511,14 @@ public class ComponentDriver {
    *
    * @param c the invoker of the {@code JPopupMenu}.
    * @return the displayed pop-up menu.
-   * @throws IllegalStateException if the given {@code Component} is disabled.
-   * @throws IllegalStateException if the given {@code Component} is not showing on the screen.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   public @Nonnull JPopupMenu invokePopupMenu(@Nonnull Component c) {
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     return robot.showPopupMenu(c);
   }
 
@@ -521,20 +530,20 @@ public class ComponentDriver {
    * @param p the given point where to show the pop-up menu.
    * @return the displayed pop-up menu.
    * @throws NullPointerException if the given point is {@code null}.
-   * @throws IllegalStateException if the given {@code Component} is disabled.
-   * @throws IllegalStateException if the given {@code Component} is not showing on the screen.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   public @Nonnull JPopupMenu invokePopupMenu(@Nonnull Component c, @Nonnull Point p) {
     checkNotNull(p);
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     return robot.showPopupMenu(c, p);
   }
 
   /**
-   * Verifies that the given AWT or Swing {@code Component} is enabled and showing on the screen. This method is
-   * executed in the event dispatch thread (EDT.)
+   * Verifies that the given AWT or Swing {@code Component} is enabled and showing on the screen.
    *
    * @param c the {@code Component} to check.
    * @throws IllegalStateException if the {@code Component} is disabled.
@@ -548,6 +557,39 @@ public class ComponentDriver {
         checkEnabledAndShowing(c);
       }
     });
+  }
+
+  /**
+   * Verifies that the given AWT or Swing {@code Component} is showing on the screen.
+   *
+   * @param c the {@code Component} to check.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   */
+  @RunsInEDT
+  protected static void checkInEdtShowing(final @Nonnull Component c) {
+    execute(new GuiTask() {
+      @Override
+      protected void executeInEDT() {
+        checkShowing(c);
+      }
+    });
+  }
+
+  /**
+   * Verifies that the given AWT or Swing {@code Component} is enabled and showing on the screen.
+   *
+   * @param c the {@code Component} to check.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   */
+  @RunsInEDT
+  protected void checkClickAllowed(final @Nonnull Component c) {
+    if (robot.settings().clickOnDisabledComponentsAllowed()) {
+      checkInEdtShowing(c);
+    } else {
+      checkInEdtEnabledAndShowing(c);
+    }
   }
 
   /**

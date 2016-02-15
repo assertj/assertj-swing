@@ -48,12 +48,12 @@ import org.assertj.swing.util.TextMatcher;
  * <p>
  * Supports functional testing of {@code JTabbedPane}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -63,7 +63,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   /**
    * Creates a new {@link JTabbedPaneDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JTabbedPaneDriver(@Nonnull Robot robot) {
@@ -72,7 +72,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   /**
    * Creates a new {@link JTabbedPaneDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    * @param location knows how to find the location of a tab.
    */
@@ -84,7 +84,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   /**
    * Returns the titles of all the tabs.
-   * 
+   *
    * @param tabbedPane the target {@code JTabbedPane}.
    * @return the titles of all the tabs.
    */
@@ -95,7 +95,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   /**
    * Simulates a user selecting the tab containing the given title.
-   * 
+   *
    * @param tabbedPane the target {@code JTabbedPane}.
    * @param title the given text to match. It can be a regular expression.
    * @throws IllegalStateException if the {@code JTabbedPane} is disabled.
@@ -109,7 +109,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   /**
    * Simulates a user selecting the tab whose title matches the given regular expression pattern.
-   * 
+   *
    * @param tabbedPane the target {@code JTabbedPane}.
    * @param pattern the regular expression pattern to match.
    * @throws IllegalStateException if the {@code JTabbedPane} is disabled.
@@ -128,6 +128,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
     Point target = tabToSelectInfo.second;
     if (target != null) {
       try {
+        checkInEdtEnabledAndShowing(tabbedPane);
         click(tabbedPane, target);
       } catch (ActionFailedException e) {
         // On Mac it may be necessary to scroll the tabs to find the one to click.
@@ -140,7 +141,8 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull Pair<Integer, Point> tabToSelectInfo(final @Nonnull JTabbedPaneLocation location,
-      final @Nonnull JTabbedPane tabbedPane, final @Nonnull TextMatcher matcher) {
+                                                               final @Nonnull JTabbedPane tabbedPane,
+                                                               final @Nonnull TextMatcher matcher) {
     Pair<Integer, Point> result = execute(new GuiQuery<Pair<Integer, Point>>() {
       @Override
       protected Pair<Integer, Point> executeInEDT() {
@@ -160,16 +162,18 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   /**
    * Simulates a user selecting the tab located at the given index.
-   * 
+   *
    * @param tabbedPane the target {@code JTabbedPane}.
    * @param index the index of the tab to select.
    * @throws IllegalStateException if the {@code JTabbedPane} is disabled.
    * @throws IllegalStateException if the {@code JTabbedPane} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
    */
+  @RunsInEDT
   public void selectTab(@Nonnull JTabbedPane tabbedPane, int index) {
     try {
       Point p = pointAtTabWhenShowing(location(), tabbedPane, index);
+      checkInEdtEnabledAndShowing(tabbedPane);
       click(tabbedPane, p);
     } catch (LocationUnavailableException e) {
       setTabDirectly(tabbedPane, index);
@@ -180,7 +184,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull Point pointAtTabWhenShowing(final @Nonnull JTabbedPaneLocation location,
-      final @Nonnull JTabbedPane tabbedPane, final int index) {
+                                                      final @Nonnull JTabbedPane tabbedPane, final int index) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -211,7 +215,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull Point pointAtTab(final @Nonnull JTabbedPaneLocation location,
-      final @Nonnull JTabbedPane tabbedPane, final int index) {
+                                           final @Nonnull JTabbedPane tabbedPane, final int index) {
     Point result = execute(new GuiQuery<Point>() {
       @Override
       protected Point executeInEDT() {
@@ -223,7 +227,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   /**
    * Returns the currently selected component for the given {@code JTabbedPane}.
-   * 
+   *
    * @param tabbedPane the target {@code JTabbedPane}.
    * @return the currently selected component for the given {@code JTabbedPane}.
    */
@@ -244,7 +248,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the title of the tab at the given index matches the given value.
-   * 
+   *
    * @param tabbedPane the target {@code JTabbedPane}.
    * @param title the expected title. It can be a regular expression.
    * @param index the index of the tab.
@@ -259,7 +263,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the title of the tab at the given index matches the given regular expression pattern.
-   * 
+   *
    * @param tabbedPane the target {@code JTabbedPane}.
    * @param pattern the regular expression pattern to match.
    * @param index the index of the tab.
@@ -291,7 +295,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
   /**
    * Asserts that the tabs of the given {@code JTabbedPane} have the given titles. The tab titles are evaluated by index
    * order, for example, the first tab is expected to have the first title in the given array, and so on.
-   * 
+   *
    * @param tabbedPane the target {@code JTabbedPane}.
    * @param titles the expected titles.
    * @throws AssertionError if the title of any of the tabs is not equal to the expected titles.

@@ -12,74 +12,60 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.AbstractButton;
-
+import org.assertj.swing.test.recorder.ClickRecorder;
+import org.assertj.swing.test.recorder.ClickRecorderManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
  * Tests for {@link AbstractButtonDriver#click(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class AbstractButtonDriver_click_Test extends AbstractButtonDriver_TestCase {
+  @Rule
+  public ClickRecorderManager clickRecorder = new ClickRecorderManager();
+
   @Test
   public void should_Click_Button() {
     showWindow();
-    ActionPerformedRecorder recorder = ActionPerformedRecorder.attachTo(checkBox);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(checkBox);
     driver.click(checkBox);
-    recorder.wasPerformed();
+    recorder.wasClickedWith(LEFT_BUTTON);
   }
 
   @Test
-  public void should_Throw_Error_If_AbstractButton_Is_Disabled() {
+  public void should_Click_Disabled_Button() {
+    showWindow();
     disableCheckBox();
-    ActionPerformedRecorder action = ActionPerformedRecorder.attachTo(checkBox);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(checkBox);
+    driver.click(checkBox);
+    recorder.wasClickedWith(LEFT_BUTTON);
+  }
+
+  @Test
+  public void should_Throw_Error_If_AbstractButton_Is_Disabled_And_ClickOnDisabledAllowd_Is_False() {
+    robot.settings().clickOnDisabledComponentsAllowed(false);
+    disableCheckBox();
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(checkBox);
     thrown.expectIllegalStateIsDisabledComponent();
     try {
       driver.click(checkBox);
     } finally {
-      action.wasNotPerformed();
+      recorder.wasNotClicked();
     }
   }
 
   @Test
   public void should_Throw_Error_If_AbstractButton_Is_Not_Showing_On_The_Screen() {
-    ActionPerformedRecorder action = ActionPerformedRecorder.attachTo(checkBox);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(checkBox);
     thrown.expectIllegalStateIsNotShowingComponent();
     try {
       driver.click(checkBox);
     } finally {
-      action.wasNotPerformed();
-    }
-  }
-
-  private static class ActionPerformedRecorder implements ActionListener {
-    private boolean actionPerformed;
-
-    static ActionPerformedRecorder attachTo(AbstractButton button) {
-      ActionPerformedRecorder r = new ActionPerformedRecorder();
-      button.addActionListener(r);
-      return r;
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-      actionPerformed = true;
-    }
-
-    ActionPerformedRecorder wasPerformed() {
-      assertThat(actionPerformed).isTrue();
-      return this;
-    }
-
-    ActionPerformedRecorder wasNotPerformed() {
-      assertThat(actionPerformed).isFalse();
-      return this;
+      recorder.wasNotClicked();
     }
   }
 }

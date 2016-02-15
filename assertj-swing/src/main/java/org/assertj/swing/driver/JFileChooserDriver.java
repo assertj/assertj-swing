@@ -140,6 +140,7 @@ public class JFileChooserDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void clickCancelButton(@Nonnull JFileChooser fileChooser) {
+    checkInEdtEnabledAndShowing(fileChooser);
     click(cancelButton(fileChooser));
   }
 
@@ -165,6 +166,7 @@ public class JFileChooserDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void clickApproveButton(@Nonnull JFileChooser fileChooser) {
+    checkInEdtEnabledAndShowing(fileChooser);
     click(approveButton(fileChooser));
   }
 

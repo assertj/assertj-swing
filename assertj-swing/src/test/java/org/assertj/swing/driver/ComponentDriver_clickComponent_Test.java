@@ -21,7 +21,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ComponentDriver#click(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -38,7 +38,17 @@ public class ComponentDriver_clickComponent_Test extends ComponentDriver_TestCas
   }
 
   @Test
-  public void should_Throw_Error_If_Component_Is_Disabled() {
+  public void should_Click_Disabled_Component() {
+    showWindow();
+    disableButton();
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
+    driver.click(window.button);
+    recorder.wasClicked().clickedAt(centerOf(window.button)).timesClicked(1);
+  }
+
+  @Test
+  public void should_Throw_Error_If_Component_Is_Disabled_And_ClickOnDisabledAllowd_Is_False() {
+    robot.settings().clickOnDisabledComponentsAllowed(false);
     ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     disableButton();
     thrown.expectIllegalStateIsDisabledComponent();

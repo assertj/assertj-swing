@@ -138,7 +138,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Simulates a user clicking this fixture's {@code Component}.
    *
    * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override
@@ -153,7 +154,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @param button the button to click.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override
@@ -168,7 +170,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override
@@ -181,7 +184,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Simulates a user double-clicking this fixture's {@code Component}.
    *
    * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override
@@ -194,7 +198,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Simulates a user right-clicking this fixture's {@code Component}.
    *
    * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override

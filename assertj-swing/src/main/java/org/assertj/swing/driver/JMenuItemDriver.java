@@ -81,7 +81,8 @@ public class JMenuItemDriver extends JComponentDriver {
    * Finds and selects the given {@code JMenuItem}.
    *
    * @param menuItem the {@code JMenuItem} to select.
-   * @throws IllegalStateException if the menu to select is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           menu to select is disabled.
    * @throws IllegalStateException if the menu to select is not showing on the screen.
    * @throws org.assertj.swing.exception.ActionFailedException if the menu has a pop-up and it fails to show up.
    */

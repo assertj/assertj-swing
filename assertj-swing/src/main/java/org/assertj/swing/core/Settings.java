@@ -41,6 +41,7 @@ public class Settings {
   private int eventPostingDelay;
   private int idleTimeout;
   private boolean simpleWaitForIdle;
+  private boolean allowClickOnDisabled;
 
   private java.awt.Robot robot;
 
@@ -54,6 +55,7 @@ public class Settings {
     eventPostingDelay(100);
     componentLookupScope(DEFAULT);
     idleTimeout(10000);
+    clickOnDisabledComponentsAllowed(true);
   }
 
   void attachTo(@Nonnull java.awt.Robot newRobot) {
@@ -270,5 +272,15 @@ public class Settings {
    */
   public void simpleWaitForIdle(boolean simpleWaitForIdle) {
     this.simpleWaitForIdle = simpleWaitForIdle;
+  }
+
+  /** @return <code>true</code> if clicking on disabled components should be possible. Defaults to <code>true</code>. */
+  public boolean clickOnDisabledComponentsAllowed() {
+    return allowClickOnDisabled;
+  }
+
+  /** @param allow new value for {@link #clickOnDisabledComponentsAllowed(boolean)}. */
+  public void clickOnDisabledComponentsAllowed(boolean allow) {
+    allowClickOnDisabled = allow;
   }
 }
