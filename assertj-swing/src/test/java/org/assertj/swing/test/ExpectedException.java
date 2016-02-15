@@ -22,7 +22,7 @@ import org.junit.runners.model.Statement;
 
 /**
  * Allows in-test specification of expected exception types and messages.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ExpectedException implements TestRule {
@@ -48,6 +48,14 @@ public class ExpectedException implements TestRule {
     expectAssertionErrorForProperty(property, doubleQuote(expected), doubleQuote(actual));
   }
 
+  public void expectAssertionError(String property, int expected, int actual) {
+    expectAssertionErrorForProperty(property, quote(expected), quote(actual));
+  }
+
+  private String quote(int actual) {
+    return "[" + actual + "]";
+  }
+
   private String doubleQuote(String string) {
     return "\"" + string + "\"";
   }
@@ -59,7 +67,8 @@ public class ExpectedException implements TestRule {
   private void expectAssertionErrorForProperty(String property, String expected, String actual) {
     expect(AssertionError.class);
     expectMessageToContain("property:'" + property + "'");
-    expectMessageToContain("expected:<" + expected + "> but was:<" + actual + ">");
+    expectMessageToContain("expected:<" + expected + ">");
+    expectMessageToContain("but was:<" + actual + ">");
   }
 
   public void expectAssertionError(String property, String content, Pattern pattern) {

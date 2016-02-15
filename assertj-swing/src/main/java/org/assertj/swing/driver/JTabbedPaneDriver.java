@@ -16,6 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
+import static org.assertj.swing.driver.JTabbedPaneSelectTabQuery.selectedTabIndexOf;
 import static org.assertj.swing.driver.JTabbedPaneSelectTabTask.setSelectedTab;
 import static org.assertj.swing.driver.JTabbedPaneTabTitlesQuery.tabTitlesOf;
 import static org.assertj.swing.driver.TextAssert.verifyThat;
@@ -175,9 +176,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
       Point p = pointAtTabWhenShowing(location(), tabbedPane, index);
       checkInEdtEnabledAndShowing(tabbedPane);
       click(tabbedPane, p);
-    } catch (LocationUnavailableException e) {
-      setTabDirectly(tabbedPane, index);
-    } catch (ActionFailedException e) {
+    } catch (LocationUnavailableException | ActionFailedException e) {
       setTabDirectly(tabbedPane, index);
     }
   }
@@ -275,6 +274,19 @@ public class JTabbedPaneDriver extends JComponentDriver {
   public void requireTabTitle(@Nonnull JTabbedPane tabbedPane, @Nonnull Pattern pattern, @Nonnull Index index) {
     String actualTitle = titleAt(tabbedPane, index);
     verifyThat(actualTitle).as(titleAtProperty(tabbedPane)).matches(pattern);
+  }
+
+  /**
+   * Asserts that the tab at the given index is the selected tab.
+   *
+   * @param tabbedPane the target {@code JTabbedPane}.
+   * @param index the index of the selected tab.
+   * @throws AssertionError if the index of the selected tab does not match the given one.
+   */
+  @RunsInEDT
+  public void requireSelectedTab(@Nonnull JTabbedPane tabbedPane, @Nonnull Index index) {
+    assertThat(selectedTabIndexOf(tabbedPane).value).as(propertyName(tabbedPane, "selectedIndex"))
+                                                    .isEqualTo(index.value);
   }
 
   @RunsInEDT
