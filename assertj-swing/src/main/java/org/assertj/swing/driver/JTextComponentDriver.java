@@ -60,12 +60,12 @@ import org.assertj.swing.util.Platform;
  * <p>
  * Supports functional testing of {@code JTextComponent}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 @InternalApi
@@ -75,7 +75,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Creates a new {@link JTextComponentDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JTextComponentDriver(@Nonnull Robot robot) {
@@ -84,7 +84,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Deletes the text of the {@code JTextComponent}.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
    * @throws IllegalStateException if the {@code JTextComponent} is not showing on the screen.
@@ -97,7 +97,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Types the given text into the {@code JTextComponent}, replacing any existing text already there.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param text the text to enter. Uses {@link #deleteText(JTextComponent)} if this is an empty string.
    * @throws NullPointerException if the text to enter is {@code null}.
@@ -118,7 +118,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Selects the text in the {@code JTextComponent}.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
    * @throws IllegalStateException if the {@code JTextComponent} is not showing on the screen.
@@ -131,7 +131,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Types the given text into the {@code JTextComponent}.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param text the text to enter.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
@@ -151,7 +151,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
    * <p>
    * Primarily desired for speeding up tests when precise user event fidelity isn't necessary.
    * </p>
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param text the text to enter.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
@@ -166,7 +166,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Select the given text range.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param text the text to select.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
@@ -201,7 +201,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Select the given text range.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param start the starting index of the selection.
    * @param end the ending index of the selection.
@@ -241,7 +241,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Move the pointer to the location of the given index. Takes care of auto-scrolling through text.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param index the given location.
    * @return the position of the pointer after being moved.
@@ -330,7 +330,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   @RunsInEDT
   private static void performAndValidateTextSelection(final @Nonnull JTextComponent textBox, final int start,
-      final int end) {
+                                                      final int end) {
     execute(new GuiTask() {
       @Override
       protected void executeInEDT() {
@@ -354,7 +354,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the text in the given {@code JTextComponent} is equal to the specified value.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @param expected the text to match. It can be a regular expression pattern.
    * @throws AssertionError if the text of the {@code JTextComponent} is not equal to the given one.
@@ -367,7 +367,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the text in the given {@code JTextComponent} matches the given regular expression pattern.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @param pattern the regular expression pattern to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
@@ -381,7 +381,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the given {@code JTextComponent} is empty.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @throws AssertionError if the {@code JTextComponent} is not empty.
    */
@@ -397,7 +397,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the given {@code JTextComponent} is editable.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @throws AssertionError if the {@code JTextComponent} is not editable.
    */
@@ -408,7 +408,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the given {@code JTextComponent} is not editable.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @throws AssertionError if the {@code JTextComponent} is editable.
    */
@@ -429,7 +429,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Returns the text of the given {@code JTextComponent}.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @return the text of the given {@code JTextComponent}.
    */
