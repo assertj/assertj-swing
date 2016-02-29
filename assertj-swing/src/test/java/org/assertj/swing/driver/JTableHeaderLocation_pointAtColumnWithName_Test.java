@@ -23,7 +23,9 @@ import java.awt.Point;
 import javax.swing.table.JTableHeader;
 
 import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.edt.GuiQuery;
+import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.util.Pair;
@@ -33,7 +35,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTableHeaderLocation#pointAt(JTableHeader, TextMatcher)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -57,6 +59,23 @@ public class JTableHeaderLocation_pointAtColumnWithName_Test extends JTableHeade
     assertThat(index).isEqualTo(1);
     Point point = pair.second;
     assertThat(point).isEqualTo(expectedPoint(1));
+  }
+
+  @Test
+  public void should_Return_View_Index() {
+    GuiActionRunner.execute(new GuiTask() {
+      @Override
+      protected void executeInEDT() throws Throwable {
+        tableHeader.getTable().moveColumn(0, 1);
+      }
+    });
+    when(matcher.isMatching("0")).thenReturn(false);
+    when(matcher.isMatching("1")).thenReturn(true);
+    Pair<Integer, Point> pair = matchingIndexAndPoint();
+    int index = pair.first;
+    assertThat(index).isEqualTo(0);
+    Point point = pair.second;
+    assertThat(point).isEqualTo(expectedPoint(0));
   }
 
   @Test
