@@ -15,6 +15,7 @@ package org.assertj.swing.core;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static org.assertj.swing.core.ComponentLookupScope.DEFAULT;
+import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.util.Platform.isOSX;
 import static org.assertj.swing.util.Platform.isWindows;
 import static org.assertj.swing.util.Platform.isX11;
@@ -44,6 +45,7 @@ public class Settings {
   private static final ComponentLookupScope DEFAULT_LOOKUP_SCOPE;
   private static final int DEFAULT_TIMEOUT_IDLE;
   private static final boolean DEFAULT_CLICK_ON_DISABLED;
+  private static final MouseButton DEFAULT_DRAG_BUTTON;
 
   private static final boolean PRESERVE_SCREENSHOTS;
 
@@ -67,6 +69,8 @@ public class Settings {
     DEFAULT_LOOKUP_SCOPE = getGeneric(p, "lookup_scope", t -> ComponentLookupScope.valueOf(t), DEFAULT);
     DEFAULT_TIMEOUT_IDLE = get(p, "timeout.idle", 10000);
     DEFAULT_CLICK_ON_DISABLED = get(p, "allow_click_on_disabled_component", true);
+    DEFAULT_DRAG_BUTTON = getGeneric(p, "drag.button", t -> MouseButton.valueOf(t), LEFT_BUTTON);
+
     PRESERVE_SCREENSHOTS = get(p, "preserve_screenshots", false);
   }
 
@@ -102,6 +106,7 @@ public class Settings {
   private int idleTimeout;
   private boolean simpleWaitForIdle;
   private boolean allowClickOnDisabled;
+  private MouseButton dragButton;
 
   private java.awt.Robot robot;
 
@@ -116,6 +121,7 @@ public class Settings {
     componentLookupScope(DEFAULT_LOOKUP_SCOPE);
     idleTimeout(DEFAULT_TIMEOUT_IDLE);
     clickOnDisabledComponentsAllowed(DEFAULT_CLICK_ON_DISABLED);
+    dragButton(DEFAULT_DRAG_BUTTON);
   }
 
   public static boolean shouldPreserveScreenshots() {
@@ -346,5 +352,19 @@ public class Settings {
   /** @param allow new value for {@link #clickOnDisabledComponentsAllowed(boolean)}. */
   public void clickOnDisabledComponentsAllowed(boolean allow) {
     allowClickOnDisabled = allow;
+  }
+
+  /** @return the {@link MouseButton} to use for drag operations. */
+  public MouseButton dragButton() {
+    return dragButton;
+  }
+
+  /**
+   * Changes the {@link MouseButton} to use for drag operations.
+   * 
+   * @param button the {@link MouseButton} to use from now on
+   */
+  public void dragButton(MouseButton button) {
+    dragButton = button;
   }
 }

@@ -13,7 +13,6 @@
 package org.assertj.swing.core;
 
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.Platform.isMacintosh;
@@ -57,7 +56,7 @@ public class ComponentDragAndDrop {
    */
   @RunsInEDT
   public void drag(@Nonnull Component target, @Nonnull Point where) {
-    robot.pressMouse(target, where, LEFT_BUTTON);
+    robot.pressMouse(target, where, robot.settings().dragButton());
     int dragDelay = settings().dragDelay();
     if (dragDelay > delayBetweenEvents()) {
       pause(dragDelay);
