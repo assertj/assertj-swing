@@ -136,7 +136,7 @@ public class JMenuItemDriver extends JComponentDriver {
 
   @RunsInEDT
   private void doClick(@Nonnull JMenuItem menuItem) {
-    if (isMacOSMenuBar()) {
+    if (isMacOSMenuBar(menuItem)) {
       validateAndDoClick(menuItem);
       return;
     }
@@ -144,8 +144,9 @@ public class JMenuItemDriver extends JComponentDriver {
     robot.waitForIdle();
   }
 
-  private boolean isMacOSMenuBar() {
-    return isOSX() && (getBoolean("apple.laf.useScreenMenuBar") || getBoolean("com.apple.macos.useScreenMenuBar"));
+  private boolean isMacOSMenuBar(@Nonnull JMenuItem menuItem) {
+    return menuItem instanceof JMenu && locationOf(menuItem).inMenuBar() && isOSX()
+           && (getBoolean("apple.laf.useScreenMenuBar") || getBoolean("com.apple.macos.useScreenMenuBar"));
   }
 
   @RunsInEDT
