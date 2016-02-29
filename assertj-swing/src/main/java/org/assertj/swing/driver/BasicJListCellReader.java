@@ -20,6 +20,7 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JList;
+import javax.swing.ListSelectionModel;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.cell.JListCellReader;
@@ -70,7 +71,10 @@ public class BasicJListCellReader implements JListCellReader {
   @RunsInCurrentThread
   public @Nullable String valueAt(@Nonnull JList list, int index) {
     Object element = list.getModel().getElementAt(index);
-    Component c = list.getCellRenderer().getListCellRendererComponent(list, element, index, true, true);
+    ListSelectionModel lsm = list.getSelectionModel();
+    boolean isSelected = lsm.isSelectedIndex(index);
+    boolean cellHasFocus = list.hasFocus() && lsm.getLeadSelectionIndex() == index;
+    Component c = list.getCellRenderer().getListCellRendererComponent(list, element, index, isSelected, cellHasFocus);
     String value = (c != null) ? rendererReader.valueFrom(c) : null;
     if (value != null) {
       return value;
