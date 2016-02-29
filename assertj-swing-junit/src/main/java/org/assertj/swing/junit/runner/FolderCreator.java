@@ -28,11 +28,13 @@ import org.assertj.core.api.exception.RuntimeIOException;
  */
 class FolderCreator {
 
-  File createFolder(File parent, String name) {
+  File createFolder(File parent, String name, boolean deleteIfExists) {
     try {
       String canonicalPath = parent.getCanonicalPath();
       File imageFolder = new File(concat(canonicalPath, separator, name));
-      delete(imageFolder);
+      if (deleteIfExists) {
+        delete(imageFolder);
+      }
       imageFolder.mkdir();
       return imageFolder;
     } catch (Exception e) {

@@ -13,6 +13,7 @@
 package org.assertj.swing.junit.runner;
 
 import static org.assertj.core.util.Files.currentFolder;
+import static org.assertj.swing.core.Settings.shouldPreserveScreenshots;
 
 import java.io.File;
 
@@ -37,12 +38,14 @@ public class ImageFolderCreator {
 
   /**
    * Creates the folder where to save screenshots of failing GUI tests. The name of the folder to create is
-   * 'failed-gui-tests'. If the folder already exists, it is deleted and recreated again.
+   * 'failed-gui-tests'. If {@link org.assertj.swing.core.Settings#shouldPreserveScreenshots()} is <code>false</code>
+   * and the folder already exists, it is deleted and recreated again. If it is <code>true</code> the folder is created
+   * if it not yet exists.
    *
    * @return the created folder.
    * @throws org.assertj.core.api.exception.RuntimeIOException if any error occurs when creating the folder.
    */
   public File createImageFolder() {
-    return folderCreator.createFolder(currentFolder(), FAILED_GUI_TESTS_FOLDER);
+    return folderCreator.createFolder(currentFolder(), FAILED_GUI_TESTS_FOLDER, !shouldPreserveScreenshots());
   }
 }

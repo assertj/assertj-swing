@@ -45,6 +45,8 @@ public class Settings {
   private static final int DEFAULT_TIMEOUT_IDLE;
   private static final boolean DEFAULT_CLICK_ON_DISABLED;
 
+  private static final boolean PRESERVE_SCREENSHOTS;
+
   static {
     Properties p = new Properties();
     try {
@@ -65,7 +67,7 @@ public class Settings {
     DEFAULT_LOOKUP_SCOPE = getGeneric(p, "lookup_scope", t -> ComponentLookupScope.valueOf(t), DEFAULT);
     DEFAULT_TIMEOUT_IDLE = get(p, "timeout.idle", 10000);
     DEFAULT_CLICK_ON_DISABLED = get(p, "allow_click_on_disabled_component", true);
-
+    PRESERVE_SCREENSHOTS = get(p, "preserve_screenshots", false);
   }
 
   private static <T> T getGeneric(Properties p, String suffix, Function<String, T> convert, T defaultValue) {
@@ -114,6 +116,10 @@ public class Settings {
     componentLookupScope(DEFAULT_LOOKUP_SCOPE);
     idleTimeout(DEFAULT_TIMEOUT_IDLE);
     clickOnDisabledComponentsAllowed(DEFAULT_CLICK_ON_DISABLED);
+  }
+
+  public static boolean shouldPreserveScreenshots() {
+    return PRESERVE_SCREENSHOTS;
   }
 
   void attachTo(@Nonnull java.awt.Robot newRobot) {
