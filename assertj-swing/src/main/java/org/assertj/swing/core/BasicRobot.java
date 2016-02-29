@@ -20,6 +20,7 @@ import static java.awt.event.KeyEvent.KEY_TYPED;
 import static java.awt.event.KeyEvent.VK_UNDEFINED;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static java.lang.System.currentTimeMillis;
+import static java.lang.System.lineSeparator;
 import static javax.swing.SwingUtilities.getWindowAncestor;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 import static org.assertj.core.util.Lists.newArrayList;
@@ -913,7 +914,34 @@ public class BasicRobot implements Robot {
       innerMenus.addAll(popupMenus(((JPopupMenu) component).getComponents()));
     }
     found.removeAll(innerMenus);
-    return findOuterPopupMenu(found);
+    if (found.size() == 1) {
+      return (JPopupMenu) found.get(0);
+    }
+    throw multiplePopupMenusFound(found);
+  }
+
+  @RunsInEDT
+  private static @Nonnull ComponentLookupException multiplePopupMenusFound(@Nonnull Collection<Component> found) {
+    StringBuilder message = new StringBuilder();
+    String format = "Found more than one popup menu.%n%nFound:";
+    message.append(String.format(format));
+    appendComponents(message, found);
+    if (!found.isEmpty()) {
+      message.append(lineSeparator());
+    }
+    throw new ComponentLookupException(message.toString(), found);
+  }
+
+  @RunsInEDT
+  private static void appendComponents(final @Nonnull StringBuilder message, final @Nonnull Collection<Component> found) {
+    execute(new GuiTask() {
+      @Override
+      protected void executeInEDT() {
+        for (Component c : found) {
+          message.append(String.format("%n%s", format(c)));
+        }
+      }
+    });
   }
 
   @RunsInEDT
