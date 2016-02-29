@@ -30,7 +30,21 @@ import javax.annotation.Nonnull;
 import org.assertj.core.util.VisibleForTesting;
 
 /**
- * AssertJ-Swing configuration settings.
+ * <p>
+ * AssertJ-Swing configuration settings. There are two kinds of configuration entries, writable and only readable
+ * entries.
+ * </p>
+ * <p>
+ * The read-only entries have hard-coded defaults which may be overwritten by <code>assertj-swing.properties</code>,
+ * which may be overwritten by system properties. See the javadoc of each method to find out the key which is identical
+ * in the properties file and as system property. You can identify read-only properties by the static methods in this
+ * class.
+ * </p>
+ * <p>
+ * The writable entries are not static but depend on the {@link Settings} object which is created in {@link BasicRobot}
+ * and can be accessed through the robot instance. The initialisation is the same as for read-only properties, but you
+ * may change the value at runtime calling the setter methods.
+ * </p>
  *
  * @author Alex Ruiz
  */
@@ -144,7 +158,8 @@ public class Settings {
   }
 
   /**
-   * @return a value representing the millisecond count in between generated events. The default is 60 milliseconds.
+   * @return a value representing the millisecond count in between generated events.
+   * @see #delayBetweenEvents(int) for default value and configuration key
    */
   public int delayBetweenEvents() {
     return delayBetweenEvents;
@@ -153,6 +168,10 @@ public class Settings {
   /**
    * Updates the value representing the millisecond count in between generated events. Usually just set to 100-200 if
    * you want to slow down the playback to simulate actual user input. The default is 60 milliseconds.
+   * <p>
+   * The property key for configuration file and system properties is
+   * <code>org.assertj.swing.delay.between_events</code>
+   * </p>
    * <p>
    * To change the speed of a GUI test, you need to change the values of both {@code delayBetweenEvents} and
    * {@code eventPostingDelay}.
@@ -173,8 +192,8 @@ public class Settings {
   }
 
   /**
-   * @return the number of milliseconds to wait for an AWT or Swing {@code Component} to be visible. The default value
-   *         is 30,000 milliseconds.
+   * @return the number of milliseconds to wait for an AWT or Swing {@code Component} to be visible.
+   * @see #timeoutToBeVisible(int) for default value and configuration key
    */
   public int timeoutToBeVisible() {
     return timeoutToBeVisible;
@@ -183,6 +202,9 @@ public class Settings {
   /**
    * Updates the number of milliseconds to wait for an AWT or Swing {@code Component} to be visible. The default value
    * is 30,000 milliseconds.
+   * <p>
+   * The property key for configuration file and system properties is <code>org.assertj.swing.timeout.visibility</code>
+   * </p>
    *
    * @param ms the time in milliseconds. It should be between 0 and 60000.
    */
@@ -191,8 +213,8 @@ public class Settings {
   }
 
   /**
-   * @return the number of milliseconds to wait before failing to find a pop-up menu that should appear. The default
-   *         value is 30000 milliseconds.
+   * @return the number of milliseconds to wait before failing to find a pop-up menu that should appear.
+   * @see #timeoutToFindPopup(int) for default value and configuration key
    */
   public int timeoutToFindPopup() {
     return timeoutToFindPopup;
@@ -201,6 +223,9 @@ public class Settings {
   /**
    * Updates the number of milliseconds to wait before failing to find a pop-up menu that should appear. The default
    * value is 30000 milliseconds.
+   * <p>
+   * The property key for configuration file and system properties is <code>org.assertj.swing.timeout.popup</code>
+   * </p>
    *
    * @param ms the time in milliseconds. It should be between 0 and 60000.
    */
@@ -209,7 +234,8 @@ public class Settings {
   }
 
   /**
-   * @return the number of milliseconds to wait for a sub-menu to appear. The default value is 100 milliseconds.
+   * @return the number of milliseconds to wait for a sub-menu to appear.
+   * @see #timeoutToFindSubMenu(int) for default value and configuration key
    */
   public int timeoutToFindSubMenu() {
     return timeoutToFindSubMenu;
@@ -217,6 +243,9 @@ public class Settings {
 
   /**
    * Updates the number of milliseconds to wait for a sub-menu to appear. The default value is 100 milliseconds.
+   * <p>
+   * The property key for configuration file and system properties is <code>org.assertj.swing.timeout.submenu</code>
+   * </p>
    *
    * @param ms the time in milliseconds. It should be between 0 and 10000.
    */
@@ -225,9 +254,8 @@ public class Settings {
   }
 
   /**
-   * @return the number of milliseconds to wait between a pressing a mouse button and moving the mouse. The default
-   *         value for Mac OS X or the X11 Windowing system is 100 milliseconds. For other platforms, the default value
-   *         is 0.
+   * @return the number of milliseconds to wait between a pressing a mouse button and moving the mouse.
+   * @see #dragDelay(int) for default value and configuration key
    */
   public int dragDelay() {
     return dragDelay;
@@ -236,6 +264,9 @@ public class Settings {
   /**
    * Updates the number of milliseconds to wait between a pressing a mouse button and moving the mouse. The default
    * value for Mac OS X or the X11 Windowing system is 100 milliseconds. For other platforms, the default value is 0.
+   * <p>
+   * The property key for configuration file and system properties is <code>org.assertj.swing.delay.drag</code>
+   * </p>
    *
    * @param ms the time in milliseconds. For Mac OS X or the X11 Windowing system, the minimum value is 100. For other
    *          platforms the minimum value is 0. The maximum value for all platforms is 60000.
@@ -246,7 +277,8 @@ public class Settings {
   }
 
   /**
-   * @return the number of milliseconds before checking for idle. The default value is 100 milliseconds.
+   * @return the number of milliseconds before checking for idle.
+   * @see #eventPostingDelay(int) for default value and configuration key
    */
   public int eventPostingDelay() {
     return eventPostingDelay;
@@ -256,6 +288,10 @@ public class Settings {
    * <p>
    * Updates the number of milliseconds before checking for idle. This allows the system a little time to put a native
    * event onto the AWT event queue. The default value is 100 milliseconds.
+   * </p>
+   * <p>
+   * The property key for configuration file and system properties is
+   * <code>org.assertj.swing.delay.posting_events</code>
    * </p>
    *
    * <p>
@@ -271,8 +307,8 @@ public class Settings {
   }
 
   /**
-   * @return the number of milliseconds between the final mouse movement and mouse release to ensure drop ends. The
-   *         default value for Windows is 200. For other platforms, the default value is 0.
+   * @return the number of milliseconds between the final mouse movement and mouse release to ensure drop ends.
+   * @see #dropDelay(int) for default value and configuration key
    */
   public int dropDelay() {
     return dropDelay;
@@ -281,6 +317,9 @@ public class Settings {
   /**
    * Updates the number of milliseconds between the final mouse movement and mouse release to ensure drop ends. The
    * default value for Windows is 200. For other platforms, the default value is 0.
+   * <p>
+   * The property key for configuration file and system properties is <code>org.assertj.swing.delay.drop</code>
+   * </p>
    *
    * @param ms the time in milliseconds. For Windows, the minimum value is 200. For other platforms, the minimum value
    *          is 0. The maximum value for all platforms is 60000.
@@ -292,7 +331,8 @@ public class Settings {
 
   /**
    * @return the scope of AWT or Swing {@code Component} lookups. This setting only affects the classes in the package
-   *         {@code org.assertj.swing.fixture}. The default value is {@link ComponentLookupScope#DEFAULT}.
+   *         {@code org.assertj.swing.fixture}.
+   * @see #componentLookupScope(ComponentLookupScope) for default value and configuration key
    */
   public @Nonnull ComponentLookupScope componentLookupScope() {
     return componentLookupScope;
@@ -301,6 +341,9 @@ public class Settings {
   /**
    * Updates the scope of AWT or Swing {@code Component} lookups. This setting only affects the classes in the package
    * {@code org.assertj.swing.fixture}. The default value is {@link ComponentLookupScope#DEFAULT}.
+   * <p>
+   * The property key for configuration file and system properties is <code>org.assertj.swing.lookup_scope</code>
+   * </p>
    *
    * @param scope the new value for the scope.
    */
@@ -309,7 +352,8 @@ public class Settings {
   }
 
   /**
-   * @return the time (in milliseconds) to wait for an idle AWT event queue. The default value is 10000 milliseconds.
+   * @return the time (in milliseconds) to wait for an idle AWT event queue.
+   * @see #idleTimeout(int) for default value and configuration key
    */
   public int idleTimeout() {
     return idleTimeout;
@@ -317,6 +361,9 @@ public class Settings {
 
   /**
    * Updates the time (in milliseconds) to wait for an idle AWT event queue.
+   * <p>
+   * The property key for configuration file and system properties is <code>org.assertj.swing.timeout.idle</code>
+   * </p>
    *
    * @param ms the new time. The value should be equal to or greater than zero.
    */
@@ -344,24 +391,41 @@ public class Settings {
     this.simpleWaitForIdle = simpleWaitForIdle;
   }
 
-  /** @return <code>true</code> if clicking on disabled components should be possible. Defaults to <code>true</code>. */
+  /**
+   * @return <code>true</code> if clicking on disabled components should be possible.
+   * @see #clickOnDisabledComponentsAllowed(boolean) for default value and configuration key
+   */
   public boolean clickOnDisabledComponentsAllowed() {
     return allowClickOnDisabled;
   }
 
-  /** @param allow new value for {@link #clickOnDisabledComponentsAllowed(boolean)}. */
+  /**
+   * Default is <code>true</code>.
+   * <p>
+   * The property key for configuration file and system properties is
+   * <code>org.assertj.swing.allow_click_on_disabled_component</code>.
+   * </p>
+   *
+   * @param allow new value for {@link #clickOnDisabledComponentsAllowed(boolean)}.
+   */
   public void clickOnDisabledComponentsAllowed(boolean allow) {
     allowClickOnDisabled = allow;
   }
 
-  /** @return the {@link MouseButton} to use for drag operations. */
+  /**
+   * @return the {@link MouseButton} to use for drag operations.
+   * @see #dragButton(MouseButton) for default value and configuration key
+   */
   public MouseButton dragButton() {
     return dragButton;
   }
 
   /**
-   * Changes the {@link MouseButton} to use for drag operations.
-   * 
+   * Changes the {@link MouseButton} to use for drag operations. Default is {@link MouseButton#LEFT_BUTTON}.
+   * <p>
+   * The property key for configuration file and system properties is <code>org.assertj.swing.drag.button</code>
+   * </p>
+   *
    * @param button the {@link MouseButton} to use from now on
    */
   public void dragButton(MouseButton button) {
