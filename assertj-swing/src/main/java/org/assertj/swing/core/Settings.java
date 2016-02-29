@@ -19,6 +19,11 @@ import static org.assertj.swing.util.Platform.isOSX;
 import static org.assertj.swing.util.Platform.isWindows;
 import static org.assertj.swing.util.Platform.isX11;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+import java.util.function.Function;
+
 import javax.annotation.Nonnull;
 
 import org.assertj.core.util.VisibleForTesting;
@@ -29,7 +34,64 @@ import org.assertj.core.util.VisibleForTesting;
  * @author Alex Ruiz
  */
 public class Settings {
-  private static final int DEFAULT_DELAY = 30000;
+  private static final int DEFAULT_TIMEOUT_VISIBILITY;
+  private static final int DEFAULT_TIMEOUT_POPUP;
+  private static final int DEFAULT_TIMEOUT_SUBMENU;
+  private static final int DEFAULT_DELAY_BETWEEN_EVENTS;
+  private static final int DEFAULT_DELAY_DRAG;
+  private static final int DEFAULT_DELAY_DROP;
+  private static final int DEFAULT_DELAY_POSTING_EVENTS;
+  private static final ComponentLookupScope DEFAULT_LOOKUP_SCOPE;
+  private static final int DEFAULT_TIMEOUT_IDLE;
+  private static final boolean DEFAULT_CLICK_ON_DISABLED;
+
+  static {
+    Properties p = new Properties();
+    try {
+      InputStream stream = Settings.class.getResourceAsStream("/assertj-swing.properties");
+      if (stream != null) {
+        p.load(stream);
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    DEFAULT_TIMEOUT_VISIBILITY = get(p, "timeout.visibility", 30000);
+    DEFAULT_TIMEOUT_POPUP = get(p, "timeout.popup", 30000);
+    DEFAULT_TIMEOUT_SUBMENU = get(p, "timeout.submenu", 100);
+    DEFAULT_DELAY_BETWEEN_EVENTS = get(p, "delay.between_events", 60);
+    DEFAULT_DELAY_DRAG = get(p, "delay.drag", 0);
+    DEFAULT_DELAY_DROP = get(p, "delay.drop", 0);
+    DEFAULT_DELAY_POSTING_EVENTS = get(p, "delay.posting_events", 100);
+    DEFAULT_LOOKUP_SCOPE = getGeneric(p, "lookup_scope", t -> ComponentLookupScope.valueOf(t), DEFAULT);
+    DEFAULT_TIMEOUT_IDLE = get(p, "timeout.idle", 10000);
+    DEFAULT_CLICK_ON_DISABLED = get(p, "allow_click_on_disabled_component", true);
+
+  }
+
+  private static <T> T getGeneric(Properties p, String suffix, Function<String, T> convert, T defaultValue) {
+    String key = "org.assertj.swing." + suffix;
+    String systemProperty = System.getProperty(key);
+    if (systemProperty != null) {
+      return convert.apply(systemProperty);
+    }
+    String property = p.getProperty(key);
+    if (property != null) {
+      return convert.apply(systemProperty);
+    }
+    return defaultValue;
+  }
+
+  private static int get(Properties p, String suffix, int defaultValue) {
+    return getGeneric(p, suffix, t -> Integer.parseInt(t), defaultValue);
+  }
+
+  private static boolean get(Properties p, String suffix, boolean defaultValue) {
+    return getGeneric(p, suffix, t -> Boolean.parseBoolean(t), defaultValue);
+  }
+
+  public static void main(String[] args) {
+    System.out.println(DEFAULT_CLICK_ON_DISABLED);
+  }
 
   private ComponentLookupScope componentLookupScope;
   private int timeoutToBeVisible;
@@ -46,16 +108,16 @@ public class Settings {
   private java.awt.Robot robot;
 
   public Settings() {
-    timeoutToBeVisible(DEFAULT_DELAY);
-    timeoutToFindPopup(DEFAULT_DELAY);
-    timeoutToFindSubMenu(100);
-    delayBetweenEvents(60);
-    dragDelay(0);
-    dropDelay(0);
-    eventPostingDelay(100);
-    componentLookupScope(DEFAULT);
-    idleTimeout(10000);
-    clickOnDisabledComponentsAllowed(true);
+    timeoutToBeVisible(DEFAULT_TIMEOUT_VISIBILITY);
+    timeoutToFindPopup(DEFAULT_TIMEOUT_POPUP);
+    timeoutToFindSubMenu(DEFAULT_TIMEOUT_SUBMENU);
+    delayBetweenEvents(DEFAULT_DELAY_BETWEEN_EVENTS);
+    dragDelay(DEFAULT_DELAY_DRAG);
+    dropDelay(DEFAULT_DELAY_DROP);
+    eventPostingDelay(DEFAULT_DELAY_POSTING_EVENTS);
+    componentLookupScope(DEFAULT_LOOKUP_SCOPE);
+    idleTimeout(DEFAULT_TIMEOUT_IDLE);
+    clickOnDisabledComponentsAllowed(DEFAULT_CLICK_ON_DISABLED);
   }
 
   void attachTo(@Nonnull java.awt.Robot newRobot) {
