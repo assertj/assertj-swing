@@ -25,7 +25,7 @@ import org.assertj.swing.util.TextMatcher;
 
 /**
  * Location of a {@code JTableHeader} (a coordinate, column index or value.)
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -34,12 +34,12 @@ public class JTableHeaderLocation {
    * <p>
    * Returns the index and the coordinates of the column which name matches the value in the given {@link TextMatcher}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param matcher indicates which is the matching column name.
    * @return the index and the coordinates of the column under the given index.
@@ -66,12 +66,12 @@ public class JTableHeaderLocation {
    * <p>
    * Returns the coordinates of the column under the given index.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param index the given index.
    * @return the coordinates of the column under the given index.
@@ -103,12 +103,12 @@ public class JTableHeaderLocation {
    * Returns the index of the column which name matches the value in the given {@link TextMatcher}, or -1 if a matching
    * column was not found.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param tableHeader the target {@code JTableHeader}.
    * @param matcher indicates which is the matching column name.
    * @return the index of a matching column or -1 if a matching column was not found.
@@ -118,7 +118,7 @@ public class JTableHeaderLocation {
     int size = columnCount(tableHeader);
     for (int i = 0; i < size; i++) {
       if (matcher.isMatching(columnName(tableHeader, i))) {
-        return i;
+        return tableHeader.getTable().convertColumnIndexToView(i);
       }
     }
     return -1;
