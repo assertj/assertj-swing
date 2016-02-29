@@ -89,10 +89,6 @@ public class Settings {
     return getGeneric(p, suffix, t -> Boolean.parseBoolean(t), defaultValue);
   }
 
-  public static void main(String[] args) {
-    System.out.println(DEFAULT_CLICK_ON_DISABLED);
-  }
-
   private ComponentLookupScope componentLookupScope;
   private int timeoutToBeVisible;
   private int timeoutToFindPopup;
