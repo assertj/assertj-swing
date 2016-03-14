@@ -133,4 +133,40 @@ public abstract class AbstractTwoStateButtonFixture<S, T extends AbstractButton>
     driver().requireNotSelected(target());
     return myself();
   }
+
+  /**
+   * Verifies that this fixture's {@code AbstractButton} armed state is equal to the <code>armed</code> parameter.
+   *
+   * @param armed <code>true</code> if the {@link AbstractButton} must be armed.
+   * @return this fixture.
+   * @throws AssertionError if the {@code AbstractButton} managed by this fixture is not armed.
+   */
+  public final @Nonnull S requireArmed(boolean armed) {
+    if (armed) {
+      return requireArmed();
+    }
+    return requireNotArmed();
+  }
+
+  /**
+   * Verifies that this fixture's {@code AbstractButton} is armed.
+   *
+   * @return this fixture.
+   * @throws AssertionError if the {@code AbstractButton} managed by this fixture is not armed.
+   */
+  public final @Nonnull S requireArmed() {
+    driver().requireArmed(target());
+    return myself();
+  }
+
+  /**
+   * Verifies that this fixture's {@code AbstractButton} is not armed.
+   *
+   * @return this fixture.
+   * @throws AssertionError if the {@code AbstractButton} managed by this fixture is armed.
+   */
+  public final @Nonnull S requireNotArmed() {
+    driver().requireNotArmed(target());
+    return myself();
+  }
 }

@@ -16,6 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.AbstractButtonSelectedQuery.isSelected;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.ExpectedException.none;
+import static org.assertj.swing.test.task.AbstractButtonSetArmedTask.setArmed;
 import static org.assertj.swing.test.task.AbstractButtonSetSelectedTask.setSelected;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
@@ -31,7 +32,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link AbstractButtonDriver}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -80,6 +81,18 @@ public abstract class AbstractButtonDriver_TestCase extends RobotBasedTestCase {
   @RunsInEDT
   final void unselectCheckBox() {
     setSelected(checkBox, false);
+    robot.waitForIdle();
+  }
+
+  @RunsInEDT
+  final void armCheckBox() {
+    setArmed(checkBox, true);
+    robot.waitForIdle();
+  }
+
+  @RunsInEDT
+  final void unarmCheckBox() {
+    setArmed(checkBox, false);
     robot.waitForIdle();
   }
 
