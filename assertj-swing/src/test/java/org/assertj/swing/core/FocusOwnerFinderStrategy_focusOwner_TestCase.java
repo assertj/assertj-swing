@@ -31,7 +31,7 @@ import org.junit.Test;
 
 /**
  * Test case for implementations of {@link FocusOwnerFinderStrategy#focusOwner()}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends SequentialEDTSafeTestCase {
@@ -82,12 +82,7 @@ public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends Seque
 
     @RunsInEDT
     static MyDialog createAndShow(final Frame owner) {
-      MyDialog dialog = execute(new GuiQuery<MyDialog>() {
-        @Override
-        protected MyDialog executeInEDT() {
-          return new MyDialog(owner);
-        }
-      });
+      MyDialog dialog = execute(() -> new MyDialog(owner));
       dialog.display();
       return dialog;
     }
@@ -103,12 +98,7 @@ public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends Seque
 
     @RunsInEDT
     static MyWindow createAndShow(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return display(new MyWindow(testClass));
-        }
-      });
+      return execute(() -> display(new MyWindow(testClass)));
     }
 
     private MyWindow(Class<?> testClass) {

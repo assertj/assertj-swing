@@ -33,7 +33,6 @@ import javax.swing.KeyStroke;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
@@ -201,11 +200,6 @@ public class JComponentDriver extends ContainerDriver {
   }
 
   private static @Nullable Object clientPropertyIn(final @Nonnull JComponent c, final @Nonnull Object key) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected @Nullable Object executeInEDT() {
-        return c.getClientProperty(key);
-      }
-    });
+    return execute(() -> c.getClientProperty(key));
   }
 }

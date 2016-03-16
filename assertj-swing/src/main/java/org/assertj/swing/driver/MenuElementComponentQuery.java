@@ -18,28 +18,21 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import java.awt.Component;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.MenuElement;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the AWT or Swing {@code Component} used to paint a Swing {@code MenuElement}. This query is executed in the
  * event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class MenuElementComponentQuery {
   @RunsInEDT
   static @Nonnull Component componentIn(final @Nonnull MenuElement menuElement) {
-    Component result = execute(new GuiQuery<Component>() {
-      @Override
-      protected @Nullable Component executeInEDT() {
-        return menuElement.getComponent();
-      }
-    });
+    Component result = execute(() -> menuElement.getComponent());
     return checkNotNull(result);
   }
 

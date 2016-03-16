@@ -27,7 +27,7 @@ import org.assertj.swing.test.swing.TestWindow;
 
 /**
  * Base test case for {@link JTableColumnByIdentifierQuery}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class JTableColumnByIdentifierQuery_TestCase extends RobotBasedTestCase {
@@ -46,12 +46,7 @@ public abstract class JTableColumnByIdentifierQuery_TestCase extends RobotBasedT
 
   @RunsInEDT
   private static int columnIndexByIdentifier(final MyTable table, final String identifier) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return JTableColumnByIdentifierQuery.columnIndexByIdentifier(table, identifier);
-      }
-    });
+    return execute(() -> JTableColumnByIdentifierQuery.columnIndexByIdentifier(table, identifier));
   }
 
   static class MyWindow extends TestWindow {

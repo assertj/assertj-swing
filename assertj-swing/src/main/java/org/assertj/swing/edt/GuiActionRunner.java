@@ -17,6 +17,7 @@ import static javax.swing.SwingUtilities.isEventDispatchThread;
 import static org.assertj.core.util.Throwables.appendStackTraceInCurentThreadToThrowable;
 import static org.assertj.swing.exception.UnexpectedException.unexpected;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 
 import javax.annotation.Nonnull;
@@ -56,6 +57,27 @@ public class GuiActionRunner {
   }
 
   /**
+   * Executes the given callable in the event dispatch thread (EDT). This method waits until the query has finished its
+   * execution.
+   *
+   * @param query the query to execute.
+   * @param <T> the return type of the action to execute.
+   * @return the result of the query executed in the main thread.
+   * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+   *           the given query in the event dispatch thread (EDT). Unchecked exceptions are re-thrown without any
+   *           wrapping.
+   * @see #execute(GuiQuery)
+   */
+  public static @Nullable <T> T execute(@Nonnull Callable<T> query) {
+    return execute(new GuiQuery<T>() {
+      @Override
+      protected T executeInEDT() throws Throwable {
+        return query.call();
+      }
+    });
+  }
+
+  /**
    * Executes the given query in the event dispatch thread (EDT.) This method waits until the query has finished its
    * execution.
    *
@@ -66,6 +88,7 @@ public class GuiActionRunner {
    *           the given query in the
    *           event dispatch thread (EDT.) Unchecked exceptions are re-thrown without any wrapping.
    * @see #executeInEDT()
+   * @see #execute(Callable)
    */
   public static @Nullable <T> T execute(@Nonnull GuiQuery<T> query) {
     if (!executeInEDT) {

@@ -19,14 +19,12 @@ import static org.assertj.swing.driver.JInternalFrameSetMaximumTask.setMaximum;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.exception.UnexpectedException;
 import org.junit.Test;
 
 /**
  * Tests for
  * {@link JInternalFrameDriver#failIfVetoed(javax.swing.JInternalFrame, JInternalFrameAction, UnexpectedException)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -55,12 +53,7 @@ public class JInternalFrameDriver_normalize_Test extends JInternalFrameDriver_Te
 
   @RunsInEDT
   private void assertThatIsNormalized() {
-    boolean normalized = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return !isIconified(internalFrame) && !internalFrame.isMaximum();
-      }
-    });
+    boolean normalized = execute(() -> !isIconified(internalFrame) && !internalFrame.isMaximum());
     assertThat(normalized).isTrue();
   }
 }

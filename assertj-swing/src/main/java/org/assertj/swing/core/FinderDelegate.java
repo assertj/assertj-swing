@@ -29,7 +29,7 @@ import org.assertj.swing.hierarchy.ComponentHierarchy;
 /**
  * Finds all the AWT and Swing {@code Components} in a {@link ComponentHierarchy} that match the search criteria
  * specified in a {@link ComponentMatcher}.
- * 
+ *
  * @author Alex Ruiz
  */
 final class FinderDelegate {
@@ -45,7 +45,7 @@ final class FinderDelegate {
 
   @RunsInEDT
   private void find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m, @Nonnull Component root,
-      @Nonnull Set<Component> found) {
+                    @Nonnull Set<Component> found) {
     for (Component c : childrenOfComponent(root, h)) {
       find(h, m, checkNotNull(c), found);
     }
@@ -56,13 +56,8 @@ final class FinderDelegate {
 
   @RunsInEDT
   private static @Nonnull Collection<Component> childrenOfComponent(final @Nonnull Component c,
-      final @Nonnull ComponentHierarchy h) {
-    Collection<Component> children = execute(new GuiQuery<Collection<Component>>() {
-      @Override
-      protected Collection<Component> executeInEDT() {
-        return h.childrenOf(c);
-      }
-    });
+                                                                    final @Nonnull ComponentHierarchy h) {
+    Collection<Component> children = execute(() -> h.childrenOf(c));
     return checkNotNull(children);
   }
 
@@ -100,7 +95,7 @@ final class FinderDelegate {
 
   @RunsInEDT
   private <T extends Component> void find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m,
-      @Nonnull Component root, Set<T> found) {
+                                          @Nonnull Component root, Set<T> found) {
     for (Component c : childrenOfComponent(root, h)) {
       find(h, m, checkNotNull(c), found);
     }
@@ -111,7 +106,7 @@ final class FinderDelegate {
 
   @RunsInEDT
   private static <T extends Component> boolean isMatching(final @Nonnull Component c,
-      final @Nonnull GenericTypeMatcher<T> m) {
+                                                          final @Nonnull GenericTypeMatcher<T> m) {
     Boolean matching = execute(new GuiQuery<Boolean>() {
       @Override
       protected Boolean executeInEDT() {

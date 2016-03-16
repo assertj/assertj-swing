@@ -117,12 +117,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    */
   @RunsInEDT
   protected static @Nullable TableCellEditor cellEditor(final @Nonnull JTable table, final int row, final int column) {
-    return execute(new GuiQuery<TableCellEditor>() {
-      @Override
-      protected @Nullable TableCellEditor executeInEDT() throws Throwable {
-        return table.getCellEditor(row, column);
-      }
-    });
+    return execute(() -> table.getCellEditor(row, column));
   }
 
   /**

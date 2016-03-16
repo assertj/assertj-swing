@@ -39,7 +39,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link JOptionPaneDriver}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class JOptionPaneDriver_TestCase extends RobotBasedTestCase {
@@ -62,12 +62,7 @@ public abstract class JOptionPaneDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static JOptionPane confirmMessage() {
-    return execute(new GuiQuery<JOptionPane>() {
-      @Override
-      protected JOptionPane executeInEDT() {
-        return new JOptionPane(MESSAGE, QUESTION_MESSAGE, YES_NO_CANCEL_OPTION);
-      }
-    });
+    return execute(() -> new JOptionPane(MESSAGE, QUESTION_MESSAGE, YES_NO_CANCEL_OPTION));
   }
 
   @RunsInEDT

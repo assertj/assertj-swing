@@ -33,7 +33,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ContainerFocusOwnerFinder#focusOwnerOf(Container)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ContainerFocusOwnerFinder_focusOwnerOf_Test extends SequentialEDTSafeTestCase {
@@ -103,12 +103,7 @@ public class ContainerFocusOwnerFinder_focusOwnerOf_Test extends SequentialEDTSa
 
     @RunsInEDT
     static MyDialog createAndShow(final Frame owner) {
-      MyDialog dialog = execute(new GuiQuery<MyDialog>() {
-        @Override
-        protected MyDialog executeInEDT() {
-          return new MyDialog(owner);
-        }
-      });
+      MyDialog dialog = execute(() -> new MyDialog(owner));
       dialog.display();
       return dialog;
     }

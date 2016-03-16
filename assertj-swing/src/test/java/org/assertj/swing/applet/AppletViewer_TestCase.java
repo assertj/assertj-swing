@@ -18,7 +18,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.timing.Pause.pause;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.test.core.EDTSafeTestCase;
@@ -29,7 +28,7 @@ import org.junit.Before;
 
 /**
  * Base class for GUI tests for {@link AppletViewer}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class AppletViewer_TestCase extends EDTSafeTestCase {
@@ -53,12 +52,7 @@ public abstract class AppletViewer_TestCase extends EDTSafeTestCase {
 
   @RunsInEDT
   private static TestApplet createApplet() {
-    return execute(new GuiQuery<TestApplet>() {
-      @Override
-      protected TestApplet executeInEDT() {
-        return new TestApplet();
-      }
-    });
+    return execute(() -> new TestApplet());
   }
 
   @RunsInEDT

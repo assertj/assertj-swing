@@ -34,7 +34,6 @@ import javax.swing.JLabel;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * <p>
@@ -135,12 +134,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
 
   @RunsInEDT
   private static AppletViewer createInEDT(@Nonnull final Applet applet) {
-    return execute(new GuiQuery<AppletViewer>() {
-      @Override
-      protected AppletViewer executeInEDT() {
-        return new AppletViewer(applet);
-      }
-    });
+    return execute(() -> new AppletViewer(applet));
   }
 
   private AppletViewer(@Nonnull Applet applet) {

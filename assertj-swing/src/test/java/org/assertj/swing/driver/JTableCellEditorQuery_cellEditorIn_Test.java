@@ -36,7 +36,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * Tests for {@link JTableCellEditorQuery#cellEditorIn(JTable, int, int)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -72,12 +72,7 @@ public class JTableCellEditorQuery_cellEditorIn_Test extends RobotBasedTestCase 
 
   @RunsInEDT
   private static Component cellEditorIn(final JTable table, final int row, final int column) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        return JTableCellEditorQuery.cellEditorIn(table, row, column);
-      }
-    });
+    return execute(() -> JTableCellEditorQuery.cellEditorIn(table, row, column));
   }
 
   private static class MyWindow extends TestWindow {

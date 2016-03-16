@@ -34,7 +34,7 @@ import org.junit.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-194" target="_blank">FEST-194</a>
- * 
+ *
  * @author Andriy Tsykholyas
  * @author Alex Ruiz
  */
@@ -62,12 +62,7 @@ public class FEST194_clickJTableHeaderColumnOutsideJTable_Test extends RobotBase
 
   @RunsInEDT
   static int columnCountOf(final JTable table) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return table.getColumnCount();
-      }
-    });
+    return execute(() -> table.getColumnCount());
   }
 
   private static class MyWindow extends TestWindow {

@@ -40,7 +40,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link JTreeDriver}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
@@ -128,12 +128,7 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static int childCountOf(final TreeNode node) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return node.getChildCount();
-      }
-    });
+    return execute(() -> node.getChildCount());
   }
 
   @RunsInEDT
@@ -194,8 +189,9 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
 
     private static TreeModel nodes() {
       MutableTreeNode root = node("root",
-          node("branch1", node("branch1.1", node("branch1.1.1"), node("branch1.1.2")), node("branch1.2")),
-          node("branch2"), node("branch3"), node("branch4"), node("branch5", node("branch5.1")));
+                                  node("branch1", node("branch1.1", node("branch1.1.1"), node("branch1.1.2")),
+                                       node("branch1.2")),
+                                  node("branch2"), node("branch3"), node("branch4"), node("branch5", node("branch5.1")));
       return new DefaultTreeModel(root);
     }
 

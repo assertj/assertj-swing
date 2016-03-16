@@ -21,23 +21,17 @@ import javax.annotation.Nonnull;
 import javax.swing.JFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the content pane object of a given {@code JFrame}. This query is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 @RunsInEDT
 final class JFrameContentPaneQuery {
   static @Nonnull Container contentPaneOf(final @Nonnull JFrame frame) {
-    Container result = execute(new GuiQuery<Container>() {
-      @Override
-      protected Container executeInEDT() {
-        return frame.getContentPane();
-      }
-    });
+    Container result = execute(() -> frame.getContentPane());
     return checkNotNull(result);
   }
 

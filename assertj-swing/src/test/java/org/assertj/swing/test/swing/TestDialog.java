@@ -35,7 +35,7 @@ import org.assertj.swing.test.task.FrameShowTask;
 
 /**
  * Base dialog for all GUI tests.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -48,18 +48,13 @@ public class TestDialog extends JDialog {
    * Creates a new {@link TestDialog} and displays it on the screen with the given frame as its owner. This constructor
    * will set the title of the dialog to be the same as its owner. This method is executed in the event dispatch thread
    * (EDT.)
-   * 
+   *
    * @param owner the owner of the dialog to create.
    * @return the created window.
    */
   @RunsInEDT
   public static TestDialog createAndShowNewDialog(final Frame owner) {
-    TestDialog dialog = execute(new GuiQuery<TestDialog>() {
-      @Override
-      protected TestDialog executeInEDT() {
-        return createInCurrentThread(owner);
-      }
-    });
+    TestDialog dialog = execute(() -> createInCurrentThread(owner));
     dialog.display();
     return dialog;
   }
@@ -67,7 +62,7 @@ public class TestDialog extends JDialog {
   /**
    * Creates a new {@link TestDialog} with the given frame as its owner. This constructor will set the title of the
    * dialog to be the same as its owner. This method is executed in the event dispatch thread (EDT.)
-   * 
+   *
    * @param owner the owner of the dialog to create.
    * @return the created window.
    */
@@ -89,7 +84,7 @@ public class TestDialog extends JDialog {
   /**
    * Creates a new {@link TestDialog} with the given frame as its owner. This constructor will set the title of the
    * dialog to be the same as its owner.
-   * 
+   *
    * @param owner the owner of the dialog to create.
    */
   @RunsInCurrentThread
@@ -102,7 +97,7 @@ public class TestDialog extends JDialog {
   /**
    * Adds the given GUI components to this dialog. This method is <b>not</b> executed in the event dispatch thread
    * (EDT.)
-   * 
+   *
    * @param components the components to add.
    */
   @RunsInCurrentThread
@@ -122,7 +117,7 @@ public class TestDialog extends JDialog {
 
   /**
    * Displays the given dialog on the screen. the current thread where it is called.
-   * 
+   *
    * @param dialog the dialog to display on the screen.
    */
   @RunsInEDT
@@ -133,7 +128,7 @@ public class TestDialog extends JDialog {
   /**
    * Displays this dialog on the screen using the given dimension as its preferred size. This method is executed in the
    * event dispatch thread (EDT.)
-   * 
+   *
    * @param preferredSize the preferred size to set to this dialog before displaying it on the screen.
    */
   @RunsInEDT
@@ -144,7 +139,7 @@ public class TestDialog extends JDialog {
   /**
    * Displays the given dialog on the screen using the given dimension as its preferred size. This method is executed in
    * the EDT.
-   * 
+   *
    * @param dialog the dialog to display on the screen.
    * @param preferredSize the preferred size to set to the given dialog before displaying it on the screen.
    */
@@ -194,7 +189,7 @@ public class TestDialog extends JDialog {
 
   /**
    * Hides and disposes the given dialog. This method is executed in the current thread where it is called.
-   * 
+   *
    * @param dialog the dialog to destroy.
    */
   @RunsInCurrentThread

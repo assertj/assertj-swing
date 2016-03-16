@@ -667,12 +667,7 @@ public class ComponentDriver {
    */
   @RunsInEDT
   public @Nonnull Color backgroundOf(final @Nonnull Component c) {
-    Color result = execute(new GuiQuery<Color>() {
-      @Override
-      protected @Nullable Color executeInEDT() {
-        return c.getBackground();
-      }
-    });
+    Color result = execute(() -> c.getBackground());
     return checkNotNull(result);
   }
 

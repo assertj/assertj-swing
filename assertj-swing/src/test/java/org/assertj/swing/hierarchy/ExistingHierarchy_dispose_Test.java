@@ -15,7 +15,6 @@ package org.assertj.swing.hierarchy;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -23,7 +22,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ExistingHierarchy#dispose(java.awt.Window)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -55,12 +54,7 @@ public class ExistingHierarchy_dispose_Test extends SequentialEDTSafeTestCase {
 
     @RunsInEDT
     static MyWindow createAndShow(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return display(new MyWindow(testClass));
-        }
-      });
+      return execute(() -> display(new MyWindow(testClass)));
     }
 
     private MyWindow(Class<?> testClass) {
