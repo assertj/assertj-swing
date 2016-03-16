@@ -62,6 +62,7 @@ import org.assertj.swing.driver.JTreeDriver;
  * @author Alex Ruiz
  * @author Yvonne Wang
  * @author Fabien Barbero
+ * @author Christian Rösch
  */
 public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture, JTree, JTreeDriver> implements
     EditableComponentFixture<JTreeFixture> {
@@ -378,6 +379,72 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
    */
   public @Nonnull JTreeFixture selectPaths(@Nonnull String... paths) {
     driver().selectPaths(target(), paths);
+    return this;
+  }
+
+  /**
+   * Simulates a user unselecting the tree node at the given row.
+   *
+   * @param row the index of the row to unselect.
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
+   *           visible rows in the {@code JTree}.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
+   */
+  public @Nonnull JTreeFixture unselectRow(int row) {
+    driver().unselectRow(target(), row);
+    return this;
+  }
+
+  /**
+   * Simulates a user unselecting the tree nodes at the given rows.
+   *
+   * @param rows the indices of the rows to unselect.
+   * @return this fixture.
+   * @throws NullPointerException if the array of rows is {@code null}.
+   * @throws IllegalArgumentException if the array of rows is empty.
+   * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
+   *           visible rows in the {@code JTree}.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for any of the given rows cannot be
+   *           found.
+   */
+  public @Nonnull JTreeFixture unselectRows(@Nonnull int... rows) {
+    driver().unselectRows(target(), rows);
+    return this;
+  }
+
+  /**
+   * Unselects the given path, expanding parent nodes if necessary. Unlike {@link #clickPath(String)}, this method will
+   * not click the path if it is not selected.
+   *
+   * @param path the path to unselect.
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the given path cannot be found.
+   */
+  public @Nonnull JTreeFixture unselectPath(@Nonnull String path) {
+    driver().unselectPath(target(), path);
+    return this;
+  }
+
+  /**
+   * Unselect the given paths, expanding parent nodes if necessary.
+   *
+   * @param paths the paths to unselect.
+   * @return this fixture.
+   * @throws NullPointerException if the array of rows is {@code null}.
+   * @throws IllegalArgumentException if the array of rows is empty.
+   * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if the any of the given paths cannot be found.
+   */
+  public @Nonnull JTreeFixture unselectPaths(@Nonnull String... paths) {
+    driver().unselectPaths(target(), paths);
     return this;
   }
 

@@ -161,6 +161,25 @@ public class JListDriver extends JComponentDriver {
     }.multiSelect();
   }
 
+  @RunsInEDT
+  private void unselectItems(final @Nonnull JList<?> list, final @Nonnull TextMatcher matcher) {
+    final List<Integer> indices = matchingItemIndices(list, matcher, cellReader());
+    if (indices.isEmpty()) {
+      throw failMatchingNotFound(list, matcher);
+    }
+    new MultipleSelectionTemplate(robot) {
+      @Override
+      int elementCount() {
+        return indices.size();
+      }
+
+      @Override
+      void unselectElement(int index) {
+        unselectItem(list, indices.get(index));
+      }
+    }.multiUnselect();
+  }
+
   /**
    * Selects the item in the given {@code JList} whose value matches the given one.
    *
@@ -269,6 +288,33 @@ public class JListDriver extends JComponentDriver {
   }
 
   /**
+   * Unselects the items under the given indices.
+   *
+   * @param list the target {@code JList}.
+   * @param indices the indices of the items to unselect.
+   * @throws NullPointerException if the given array is {@code null}.
+   * @throws IllegalArgumentException if the given array is empty.
+   * @throws IllegalStateException if the {@code JList} is disabled.
+   * @throws IllegalStateException if the {@code JList} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if any of the indices is negative or greater than the index of the last item in
+   *           the {@code JList}.
+   */
+  public void unselectItems(final @Nonnull JList<?> list, final @Nonnull int[] indices) {
+    checkNotNullOrEmpty(indices);
+    new MultipleSelectionTemplate(robot) {
+      @Override
+      int elementCount() {
+        return indices.length;
+      }
+
+      @Override
+      void unselectElement(int index) {
+        unselectItem(list, indices[index]);
+      }
+    }.multiUnselect();
+  }
+
+  /**
    * Clears the selection in the given {@code JList}. Since this method does not simulate user input, it does not
    * verifies that the {@code JList} is enabled and showing.
    *
@@ -357,6 +403,25 @@ public class JListDriver extends JComponentDriver {
       return; // cell already selected
     }
     robot.click(list, cellCenter);
+  }
+
+  /**
+   * Unselects the item under the given index using left mouse button once.
+   *
+   * @param list the target {@code JList}.
+   * @param index the index of the item to click.
+   * @throws IllegalStateException if the {@code JList} is disabled.
+   * @throws IllegalStateException if the {@code JList} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
+   *           {@code JList}.
+   */
+  @RunsInEDT
+  public void unselectItem(@Nonnull JList<?> list, int index) {
+    Point cellCenter = scrollToItem(list, index);
+    robot.waitForIdle();
+    if (list.isSelectedIndex(index)) {
+      robot.click(list, cellCenter);
+    }
   }
 
   /**

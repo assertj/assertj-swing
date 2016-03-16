@@ -21,18 +21,18 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * <p>
  * Indicates whether a cell in a {@code JTable} is selected.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
  * event dispatch thread (EDT.) Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 final class JTableSingleRowCellSelectedQuery {
   @RunsInCurrentThread
   static boolean isCellSelected(final @Nonnull JTable table, final int row, final int column) {
-    return table.isRowSelected(row) && table.isColumnSelected(column) && table.getSelectedRowCount() == 1;
+    return table.isCellSelected(row, column);
   }
 
   private JTableSingleRowCellSelectedQuery() {

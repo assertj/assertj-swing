@@ -26,7 +26,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTreeRowFixture}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTreeRowFixture_withMocks_Test extends EDTSafeTestCase {
@@ -58,6 +58,12 @@ public class JTreeRowFixture_withMocks_Test extends EDTSafeTestCase {
   public void should_Call_SelectRow_In_JTreeFixture_And_Return_Self() {
     assertThat(fixture.select()).isSameAs(fixture);
     verify(treeFixture).selectRow(index);
+  }
+
+  @Test
+  public void should_Call_UnselectRow_In_JTreeFixture_And_Return_Self() {
+    assertThat(fixture.unselect()).isSameAs(fixture);
+    verify(treeFixture).unselectRow(index);
   }
 
   @Test

@@ -16,18 +16,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.core.TestRobots.newRobotMock;
 import static org.assertj.swing.util.Platform.controlOrCommandKey;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
 
 import org.assertj.swing.core.Robot;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Tests for {@link MultipleSelectionTemplate#multiSelect()}.
+ * Tests for {@link MultipleSelectionTemplate#multiUnselect()}.
  *
- * @author Yvonne Wang
+ * @author Christian Rösch
  */
-public class MultipleSelectionTemplate_multiSelect_Test {
+public class MultipleSelectionTemplate_multiUnselect_Test {
   private Robot robot;
   private MultipleSelection template;
 
@@ -37,19 +36,21 @@ public class MultipleSelectionTemplate_multiSelect_Test {
   }
 
   @Test
-  public void should_Select_Once_If_Element_Count_Is_One() {
+  public void should_Unselect_Once_If_Element_Count_Is_One() {
     template = new MultipleSelection(robot, 1);
-    template.multiSelect();
-    assertThat(template.timesSelected).isEqualTo(1);
-    verifyZeroInteractions(robot);
+    int key = controlOrCommandKey();
+    template.multiUnselect();
+    assertThat(template.timesUnselected).isEqualTo(1);
+    verify(robot).pressKey(key);
+    verify(robot).releaseKey(key);
   }
 
   @Test
-  public void should_Select_Multiple_Items() {
+  public void should_Unselect_Multiple_Items() {
     template = new MultipleSelection(robot, 2);
     int key = controlOrCommandKey();
-    template.multiSelect();
-    assertThat(template.timesSelected).isEqualTo(2);
+    template.multiUnselect();
+    assertThat(template.timesUnselected).isEqualTo(2);
     verify(robot).pressKey(key);
     verify(robot).releaseKey(key);
   }
@@ -57,7 +58,7 @@ public class MultipleSelectionTemplate_multiSelect_Test {
   private static class MultipleSelection extends MultipleSelectionTemplate {
     private final int elementCount;
 
-    int timesSelected;
+    int timesUnselected;
 
     MultipleSelection(Robot robot, int elementCount) {
       super(robot);
@@ -71,12 +72,12 @@ public class MultipleSelectionTemplate_multiSelect_Test {
 
     @Override
     void selectElement(int index) {
-      timesSelected++;
+      throw new AssertionError("unexpected method call");
     }
 
     @Override
     void unselectElement(int index) {
-      throw new AssertionError("unexpected method call");
+      timesUnselected++;
     }
   }
 }

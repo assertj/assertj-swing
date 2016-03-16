@@ -35,7 +35,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTableCellFixture}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTableCellFixture_withMocks_Test {
@@ -59,6 +59,12 @@ public class JTableCellFixture_withMocks_Test {
   public void should_Call_Select_In_JTableFixture_And_Return_Self() {
     assertThat(fixture.select()).isSameAs(fixture);
     verify(table).selectCell(cell);
+  }
+
+  @Test
+  public void should_Call_Unselect_In_JTableFixture_And_Return_Self() {
+    assertThat(fixture.unselect()).isSameAs(fixture);
+    verify(table).unselectCell(cell);
   }
 
   @Test

@@ -42,7 +42,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link JTableDriver}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -96,6 +96,11 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
   @RunsInEDT
   final void requireCellSelected(int row, int column) {
     assertThat(isCellSelected(row, column)).isTrue();
+  }
+
+  @RunsInEDT
+  final void requireCellNotSelected(int row, int column) {
+    assertThat(isCellSelected(row, column)).isFalse();
   }
 
   @RunsInEDT

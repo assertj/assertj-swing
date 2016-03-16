@@ -31,7 +31,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTreeFixture}.
- * 
+ *
  * @author Keith Coughtrey
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -160,6 +160,32 @@ public class JTreeFixture_withMocks_Test {
     String[] paths = { "root", "root/child" };
     assertThat(fixture.selectPaths(paths)).isSameAs(fixture);
     verify(driver).selectPaths(target, paths);
+  }
+
+  @Test
+  public void should_Call_UnselectRow_In_Driver_And_Return_Self() {
+    assertThat(fixture.unselectRow(6)).isSameAs(fixture);
+    verify(driver).unselectRow(target, 6);
+  }
+
+  @Test
+  public void should_Call_UnselectRows_In_Driver_And_Return_Self() {
+    int[] rows = { 6, 8 };
+    assertThat(fixture.unselectRows(rows)).isSameAs(fixture);
+    verify(driver).unselectRows(target, rows);
+  }
+
+  @Test
+  public void should_Call_UnselectPath_In_Driver_And_Return_Self() {
+    assertThat(fixture.unselectPath("root/child")).isSameAs(fixture);
+    verify(driver).unselectPath(target, "root/child");
+  }
+
+  @Test
+  public void should_Call_UnselectPaths_In_Driver_And_Return_Self() {
+    String[] paths = { "root", "root/child" };
+    assertThat(fixture.unselectPaths(paths)).isSameAs(fixture);
+    verify(driver).unselectPaths(target, paths);
   }
 
   @Test

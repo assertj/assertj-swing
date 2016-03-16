@@ -51,6 +51,7 @@ import org.assertj.swing.driver.JTableDriver;
  * @author Yvonne Wang
  * @author Fabien Barbero
  * @author Andriy Tsykholyas
+ * @author Christian Rösch
  */
 public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixture, JTable, JTableDriver> {
   /**
@@ -291,6 +292,54 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    */
   public @Nonnull JTableFixture selectRows(@Nonnull int... rows) {
     driver().selectRows(target(), rows);
+    return this;
+  }
+
+  /**
+   * Simulates a user unselecting the given cell (row and column) of this fixture's {@code JTable}.
+   *
+   * @param cell the cell to unselect.
+   * @return this fixture.
+   * @throws NullPointerException if the cell is {@code null}.
+   * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
+   */
+  public @Nonnull JTableFixture unselectCell(@Nonnull TableCell cell) {
+    driver().unselectCell(target(), cell);
+    return this;
+  }
+
+  /**
+   * Simulates a user unselecting the given cells of this fixture's {@code JTable}.
+   *
+   * @param cells the cells to unselect.
+   * @return this fixture.
+   * @throws NullPointerException if {@code cells} is {@code null} or empty.
+   * @throws IllegalArgumentException if {@code cells} is {@code null} or empty.
+   * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
+   * @throws NullPointerException if any element in {@code cells} is {@code null}.
+   * @throws IndexOutOfBoundsException if any of the indices of any of the {@code cells} are out of bounds.
+   */
+  public @Nonnull JTableFixture unselectCells(@Nonnull TableCell... cells) {
+    driver().unselectCells(target(), cells);
+    return this;
+  }
+
+  /**
+   * Simulates a user unselecting the given rows in this fixture's {@code JTable}.
+   *
+   * @param rows the indices of the row to unselect.
+   * @return this fixture.
+   * @throws NullPointerException if the given array of indices is {@code null}.
+   * @throws IllegalArgumentException if the given array of indices is empty.
+   * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if any of the given indices is out of bounds.
+   */
+  public @Nonnull JTableFixture unselectRows(@Nonnull int... rows) {
+    driver().unselectRows(target(), rows);
     return this;
   }
 

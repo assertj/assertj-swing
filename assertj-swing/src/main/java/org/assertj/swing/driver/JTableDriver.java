@@ -33,6 +33,7 @@ import static org.assertj.swing.query.JTableColumnByIdentifierQuery.columnIndexB
 import static org.assertj.swing.util.ArrayPreconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.util.Arrays.equal;
 import static org.assertj.swing.util.Arrays.format;
+import static org.assertj.swing.util.Platform.controlOrCommandKey;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -350,6 +351,34 @@ public class JTableDriver extends JComponentDriver {
   }
 
   /**
+   * Unselects the given cells of the {@code JTable}.
+   *
+   * @param table the target {@code JTable}.
+   * @param cells the cells to select.
+   * @throws NullPointerException if {@code cells} is {@code null} or empty.
+   * @throws IllegalArgumentException if {@code cells} is {@code null} or empty.
+   * @throws IllegalStateException if the {@code JTable} is disabled.
+   * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
+   * @throws NullPointerException if any element in {@code cells} is {@code null}.
+   * @throws IndexOutOfBoundsException if any of the indices of any of the {@code cells} are out of bounds.
+   */
+  public void unselectCells(final @Nonnull JTable table, final @Nonnull TableCell[] cells) {
+    checkNotNullOrEmpty(cells);
+    new MultipleSelectionTemplate(robot) {
+      @Override
+      int elementCount() {
+        return cells.length;
+      }
+
+      @Override
+      void unselectElement(int index) {
+        TableCell cell = checkNotNull(cells[index]);
+        selectCell(table, cell.row, cell.column, false);
+      }
+    }.multiUnselect();
+  }
+
+  /**
    * Verifies that the {@code JTable} does not have any selection.
    *
    * @param table the target {@code JTable}.
@@ -389,7 +418,29 @@ public class JTableDriver extends JComponentDriver {
   @RunsInEDT
   public void selectCell(@Nonnull JTable table, @Nonnull TableCell cell) {
     checkNotNull(cell);
-    selectCell(table, cell.row, cell.column);
+    selectCell(table, cell.row, cell.column, true);
+  }
+
+  /**
+   * Unselects the given cell, if it is selected.
+   *
+   * @param table the target {@code JTable}.
+   * @param cell the cell to unselect.
+   * @throws NullPointerException if the cell is {@code null}.
+   * @throws IllegalStateException if the {@code JTable} is disabled.
+   * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
+   */
+  @RunsInEDT
+  public void unselectCell(@Nonnull JTable table, @Nonnull TableCell cell) {
+    checkNotNull(cell);
+    int key = controlOrCommandKey();
+    robot.pressKey(key);
+    try {
+      selectCell(table, cell.row, cell.column, false);
+    } finally {
+      robot.releaseKey(key);
+    }
   }
 
   /**
@@ -857,16 +908,44 @@ public class JTableDriver extends JComponentDriver {
 
       @Override
       void selectElement(int index) {
-        selectCell(table, rows[index], 0);
+        selectCell(table, rows[index], 0, true);
       }
     }.multiSelect();
   }
 
+  /**
+   * Simulates a user unselecting the given rows in the given {@code JTable}.
+   *
+   * @param table the target {@code JTable}.
+   * @param rows the indices of the row to unselect.
+   * @throws NullPointerException if the given array of indices is {@code null}.
+   * @throws IllegalArgumentException if the given array of indices is empty.
+   * @throws IllegalStateException if the {@code JTable} is disabled.
+   * @throws IllegalStateException if the {@code JTable} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if any of the given indices is negative, or equal to or greater than the number
+   *           of rows in the {@code JTable}.
+   */
   @RunsInEDT
-  private void selectCell(@Nonnull JTable table, int row, int column) {
+  public void unselectRows(final @Nonnull JTable table, final @Nonnull int... rows) {
+    checkNotNullOrEmpty(rows);
+    new MultipleSelectionTemplate(robot) {
+      @Override
+      int elementCount() {
+        return rows.length;
+      }
+
+      @Override
+      void unselectElement(int index) {
+        selectCell(table, rows[index], 0, false);
+      }
+    }.multiUnselect();
+  }
+
+  @RunsInEDT
+  private void selectCell(@Nonnull JTable table, int row, int column, boolean select) {
     Pair<Boolean, Point> cellSelectionInfo = cellSelectionInfo(table, row, column, location);
-    if (cellSelectionInfo.first) {
-      return; // cell already selected
+    if (cellSelectionInfo.first == select) {
+      return; // cell selection already correct
     }
     robot.click(table, checkNotNull(cellSelectionInfo.second), LEFT_BUTTON, 1);
   }
@@ -878,12 +957,9 @@ public class JTableDriver extends JComponentDriver {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
       @Override
       protected Pair<Boolean, Point> executeInEDT() {
-        if (isCellSelected(table, row, column)) {
-          return Pair.of(true, null);
-        }
         scrollToCell(table, row, column, location);
         Point pointAtCell = location.pointAt(table, row, column);
-        return Pair.of(false, pointAtCell);
+        return Pair.of(isCellSelected(table, row, column), pointAtCell);
       }
     });
     return checkNotNull(result);

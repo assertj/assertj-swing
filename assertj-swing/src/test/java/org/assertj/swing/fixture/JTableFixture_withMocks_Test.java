@@ -42,7 +42,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTableFixture}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -188,6 +188,26 @@ public class JTableFixture_withMocks_Test {
     int rows[] = { 6, 8 };
     assertThat(fixture.selectRows(rows)).isSameAs(fixture);
     verify(driver).selectRows(target, rows);
+  }
+
+  @Test
+  public void should_Call_UnselectCell_In_Driver_And_Return_Self() {
+    assertThat(fixture.unselectCell(cell)).isSameAs(fixture);
+    verify(driver).unselectCell(target, cell);
+  }
+
+  @Test
+  public void should_Call_UnselectCells_In_Driver_And_Return_Self() {
+    TableCell[] cells = { cell };
+    assertThat(fixture.unselectCells(cells)).isSameAs(fixture);
+    verify(driver).unselectCells(target, cells);
+  }
+
+  @Test
+  public void should_Call_UnselectRows_In_Driver_And_Return_Self() {
+    int rows[] = { 6, 8 };
+    assertThat(fixture.unselectRows(rows)).isSameAs(fixture);
+    verify(driver).unselectRows(target, rows);
   }
 
   @Test

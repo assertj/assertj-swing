@@ -14,15 +14,19 @@ package org.assertj.swing.driver;
 
 import static org.assertj.swing.util.Platform.controlOrCommandKey;
 
+import java.util.function.Consumer;
+
 import javax.annotation.Nonnull;
 
+import org.assertj.core.api.Fail;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 
 /**
  * Simulates multiple selection on a GUI component.
- * 
+ *
  * @author Yvonne Wang
+ * @author Christian Rösch
  */
 abstract class MultipleSelectionTemplate {
   private final Robot robot;
@@ -35,21 +39,43 @@ abstract class MultipleSelectionTemplate {
 
   @RunsInEDT
   final void multiSelect() {
+    multiSelect(i -> selectElement(i), true);
+  }
+
+  @RunsInEDT
+  final void multiUnselect() {
+    multiSelect(i -> unselectElement(i), false);
+  }
+
+  @RunsInEDT
+  final void multiSelect(Consumer<Integer> action, boolean firstWithoutCommandKey) {
     int elementCount = elementCount();
-    selectElement(0);
-    if (elementCount == 1) {
-      return;
+    if (firstWithoutCommandKey) {
+      action.accept(0);
+      if (elementCount == 1) {
+        return;
+      }
     }
     int key = controlOrCommandKey();
     robot.pressKey(key);
     try {
-      for (int i = 1; i < elementCount; i++) {
-        selectElement(i);
+      for (int i = firstWithoutCommandKey ? 1 : 0; i < elementCount; i++) {
+        action.accept(i);
       }
     } finally {
       robot.releaseKey(key);
     }
   }
 
-  abstract void selectElement(int index);
+  void selectElement(int index) {
+    fail();
+  }
+
+  void unselectElement(int index) {
+    fail();
+  }
+
+  private void fail() {
+    Fail.fail("Unexpected method call.");
+  }
 }
