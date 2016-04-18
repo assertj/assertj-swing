@@ -18,7 +18,6 @@ import static org.assertj.swing.test.task.ComponentSetVisibleTask.hide;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**

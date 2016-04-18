@@ -18,7 +18,6 @@ import static org.assertj.swing.test.core.MethodInvocations.Args.args;
 import javax.swing.table.TableColumn;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.MethodInvocations.Args;
 import org.assertj.swing.test.core.RobotBasedTestCase;

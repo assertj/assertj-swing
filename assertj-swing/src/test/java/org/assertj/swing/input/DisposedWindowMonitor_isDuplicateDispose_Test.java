@@ -19,7 +19,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.test.awt.TestAWTEvents.singletonAWTEventMock;
 import static org.assertj.swing.test.builder.JFrames.frame;
 
-import java.awt.AWTEvent;
 import java.awt.Window;
 import java.awt.event.ComponentListener;
 import java.awt.event.WindowEvent;

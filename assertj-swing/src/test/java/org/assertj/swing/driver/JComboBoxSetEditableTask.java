@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Sets a {@code JComboBox} editable. This task is executed in the event dispatch thread (EDT.)

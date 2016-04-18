@@ -18,8 +18,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
-import org.assertj.swing.edt.GuiQuery;
-
 /**
  * Returns the number of selected rows in a {@code JTable}. This query is executed in the event dispatch thread (EDT.)
  * 

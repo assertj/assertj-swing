@@ -19,7 +19,6 @@ import java.awt.Window;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Moves a {@code Window} to the front and gives it input focus. This task is executed in the event dispatch thread

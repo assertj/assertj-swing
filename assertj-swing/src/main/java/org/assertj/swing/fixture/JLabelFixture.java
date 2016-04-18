@@ -20,7 +20,6 @@ import javax.swing.JLabel;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JLabelDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JLabel}s.

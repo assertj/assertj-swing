@@ -54,7 +54,6 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JListCellReader;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;

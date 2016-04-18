@@ -17,8 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JProgressBarIncrementValueAsyncTask.with;
 import static org.assertj.swing.driver.JProgressBarValueQuery.valueOf;
 
-import javax.swing.JProgressBar;
-
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.junit.Test;
 

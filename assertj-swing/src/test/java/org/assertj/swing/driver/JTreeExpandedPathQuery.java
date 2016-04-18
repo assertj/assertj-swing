@@ -20,7 +20,6 @@ import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Indicates whether the node (in a {@code JTree}) identified by the given path is expanded. This query is executed in

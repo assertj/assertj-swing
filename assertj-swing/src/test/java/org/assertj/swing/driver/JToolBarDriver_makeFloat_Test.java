@@ -21,7 +21,6 @@ import java.awt.Window;
 import javax.swing.JToolBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.Rule;
 import org.junit.Test;

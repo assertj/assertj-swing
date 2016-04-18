@@ -20,7 +20,6 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.Nonnull;
-import javax.swing.KeyStroke;
 
 /**
  * {@link KeyStrokeMappingProvider} created by parsing a text file containing all the key mappings.

@@ -17,10 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.util.Modifiers.keysFor;
 
-import java.awt.Event;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
 
 import javax.annotation.Nonnull;
 

@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the title of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT.)

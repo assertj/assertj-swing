@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.test.builder;
 
-import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Arrays.isNullOrEmpty;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.swing.JSpinner;
 import javax.swing.SpinnerListModel;

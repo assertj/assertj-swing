@@ -18,7 +18,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
 
 /**

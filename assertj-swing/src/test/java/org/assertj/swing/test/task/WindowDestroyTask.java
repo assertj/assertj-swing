@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Hides and disposes a {@code Window}.

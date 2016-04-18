@@ -19,10 +19,8 @@ import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the size of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT.)

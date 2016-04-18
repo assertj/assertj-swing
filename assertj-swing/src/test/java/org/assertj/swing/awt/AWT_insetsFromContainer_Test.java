@@ -23,7 +23,6 @@ import java.awt.Insets;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 

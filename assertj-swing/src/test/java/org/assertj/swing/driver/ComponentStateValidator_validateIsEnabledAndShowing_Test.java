@@ -19,7 +19,6 @@ import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 import java.awt.Component;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;

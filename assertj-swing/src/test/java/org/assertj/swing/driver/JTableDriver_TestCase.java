@@ -31,8 +31,6 @@ import javax.swing.table.JTableHeader;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.data.TableCell;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;

@@ -22,7 +22,6 @@ import java.awt.AWTEvent;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.timing.Condition;
 import org.junit.Before;
 import org.junit.Test;

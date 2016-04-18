@@ -14,8 +14,6 @@ package org.assertj.swing.fixture;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.exception.ActionFailedException;
-
 /**
  * Supports functional testing of single nodes in {@code JTree}s
  * 

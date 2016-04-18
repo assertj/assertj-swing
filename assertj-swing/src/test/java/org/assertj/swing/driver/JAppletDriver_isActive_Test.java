@@ -17,8 +17,6 @@ import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 
-import javax.swing.JApplet;
-
 import org.assertj.swing.test.data.BooleanProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;

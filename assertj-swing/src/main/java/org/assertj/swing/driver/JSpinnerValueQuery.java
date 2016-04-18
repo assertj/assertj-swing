@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
 import javax.swing.JSpinner;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the value of a {@code JSpinner}. This query is executed in the event dispatch thread (EDT.)

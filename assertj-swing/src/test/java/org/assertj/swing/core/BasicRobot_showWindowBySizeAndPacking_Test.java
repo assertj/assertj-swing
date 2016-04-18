@@ -21,7 +21,6 @@ import java.awt.Dimension;
 
 import javax.swing.JWindow;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.After;
 import org.junit.Before;

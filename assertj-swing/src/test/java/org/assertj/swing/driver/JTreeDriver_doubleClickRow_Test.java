@@ -14,8 +14,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import javax.swing.JTree;
-
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.test.recorder.ClickRecorder;
 import org.assertj.swing.test.recorder.ClickRecorderManager;

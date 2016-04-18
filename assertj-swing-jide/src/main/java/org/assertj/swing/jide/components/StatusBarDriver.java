@@ -12,12 +12,15 @@
  */
 package org.assertj.swing.jide.components;
 
-import java.awt.*;
-import com.jidesoft.status.LabelStatusBarItem;
-import com.jidesoft.status.StatusBar;
-import static org.assertj.swing.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.awt.Component;
+
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
+
+import com.jidesoft.status.LabelStatusBarItem;
+import com.jidesoft.status.StatusBar;
 
 /**
  * A Driver for the Jide {@link StatusBar} class.

@@ -18,9 +18,6 @@ import javax.swing.JSpinner;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JSpinnerDriver;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.UnexpectedException;
 
 /**
  * Supports functional testing of {@code JSpinner}s:

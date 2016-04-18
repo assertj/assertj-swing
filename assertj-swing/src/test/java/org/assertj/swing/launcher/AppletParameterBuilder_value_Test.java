@@ -14,7 +14,6 @@ package org.assertj.swing.launcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.swing.launcher.AppletParameter.AppletParameterBuilder;
 import org.junit.Test;
 
 /**

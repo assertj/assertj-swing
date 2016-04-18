@@ -19,7 +19,6 @@ import static org.assertj.swing.data.TableCellByColumnId.row;
 
 import java.util.Collection;
 
-import org.assertj.swing.cell.JTableCellReader;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

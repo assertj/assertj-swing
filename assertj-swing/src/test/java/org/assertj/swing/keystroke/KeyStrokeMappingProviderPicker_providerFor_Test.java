@@ -19,9 +19,6 @@ import static org.assertj.swing.util.OSFamily.WINDOWS;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import java.util.Locale;
-
-import org.assertj.swing.util.OSFamily;
 import org.junit.Before;
 import org.junit.Test;
 

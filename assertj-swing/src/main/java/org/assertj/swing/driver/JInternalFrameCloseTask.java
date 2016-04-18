@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Closes a {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT.)

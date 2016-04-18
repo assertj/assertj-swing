@@ -22,7 +22,6 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 

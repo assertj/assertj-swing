@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Selects an element in a {@code JComboBox}. This task is executed in the event dispatch thread (EDT.)

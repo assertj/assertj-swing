@@ -26,7 +26,6 @@ import javax.annotation.Nonnull;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**

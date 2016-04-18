@@ -19,7 +19,6 @@ import javax.annotation.Nonnull;
 import javax.swing.AbstractButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Indicates whether a Swing {@code AbstractButton} is armed. This action is executed in the event dispatch thread

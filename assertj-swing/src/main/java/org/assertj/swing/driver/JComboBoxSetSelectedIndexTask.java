@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Selects the element in the given index in the given {@code JComboBox}. This task is executed in the event dispatch

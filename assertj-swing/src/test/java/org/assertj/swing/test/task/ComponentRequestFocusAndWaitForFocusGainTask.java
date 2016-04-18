@@ -22,7 +22,6 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Requests input focus for a {@code Component}. This task is executed in the event dispatch thread (EDT.)

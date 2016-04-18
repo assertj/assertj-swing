@@ -14,7 +14,6 @@ package org.assertj.swing.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.swing.hierarchy.SingleComponentHierarchy;
 import org.junit.Test;
 
 /**

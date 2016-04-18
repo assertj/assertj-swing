@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
 
 import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.fixture.JOptionPaneFixture;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.JOptionPaneLauncher;

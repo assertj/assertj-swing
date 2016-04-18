@@ -29,7 +29,6 @@ import javax.swing.JDialog;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.task.FrameShowTask;
 

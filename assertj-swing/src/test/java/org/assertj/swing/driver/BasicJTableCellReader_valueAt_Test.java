@@ -26,7 +26,6 @@ import javax.swing.table.DefaultTableModel;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.swing.CustomCellRenderer;
 import org.junit.Test;

@@ -21,7 +21,6 @@ import java.awt.Component;
 import javax.swing.JDialog;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**

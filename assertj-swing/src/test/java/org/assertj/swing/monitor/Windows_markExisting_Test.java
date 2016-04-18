@@ -15,7 +15,6 @@ package org.assertj.swing.monitor;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 

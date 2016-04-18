@@ -14,8 +14,6 @@ package org.assertj.swing.input;
 
 import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
 
-import java.awt.event.AWTEventListener;
-
 import org.assertj.swing.test.awt.ToolkitStub;
 import org.junit.Before;
 import org.junit.Test;

@@ -21,8 +21,6 @@ import javax.swing.JInternalFrame;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JInternalFrameDriver;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JInternalFrame}s

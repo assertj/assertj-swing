@@ -15,9 +15,6 @@ package org.assertj.swing.fixture;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
-
 /**
  * Supports functional testing of single items inside {@code JComponents} (e.g. a cell in a {@code JTable} or a row in a
  * {@code JList}).

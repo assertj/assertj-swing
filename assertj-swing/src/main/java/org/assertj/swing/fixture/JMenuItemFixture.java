@@ -18,7 +18,6 @@ import javax.swing.JMenuItem;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JMenuItemDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JMenuItem}s.

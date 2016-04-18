@@ -26,7 +26,6 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.MethodInvocations;

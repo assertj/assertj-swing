@@ -24,7 +24,6 @@ import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.After;

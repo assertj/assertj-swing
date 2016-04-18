@@ -20,7 +20,6 @@ import java.awt.Point;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Sets the location of an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT.)

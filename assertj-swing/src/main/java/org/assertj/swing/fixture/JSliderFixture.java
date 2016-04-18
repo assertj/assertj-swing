@@ -18,7 +18,6 @@ import javax.swing.JSlider;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JSliderDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JSlider}s.

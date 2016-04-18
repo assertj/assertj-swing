@@ -14,7 +14,6 @@ package org.assertj.swing.data;
 
 import static org.assertj.swing.data.TableCellByColumnId.row;
 
-import org.assertj.swing.cell.JTableCellReader;
 import org.assertj.swing.exception.ActionFailedException;
 import org.junit.Test;
 

@@ -12,10 +12,11 @@
  */
 package org.assertj.swing.jide.components;
 
-import com.jidesoft.status.StatusBar;
+import org.assertj.core.util.Strings;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.fixture.AbstractContainerFixture;
-import org.assertj.core.util.Strings;
+
+import com.jidesoft.status.StatusBar;
 
 /**
  * TODO

@@ -19,8 +19,6 @@ import static org.assertj.swing.test.ExpectedException.none;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.Rule;

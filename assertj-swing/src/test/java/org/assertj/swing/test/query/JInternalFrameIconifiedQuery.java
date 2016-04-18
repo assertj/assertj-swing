@@ -19,7 +19,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns whether a {@code JInternalFrame} is currently iconified. This query is executed in the event dispatch thread

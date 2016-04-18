@@ -22,7 +22,6 @@ import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JComboBoxCellReader;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.assertj.swing.util.TextMatcher;

@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the toolTip text of a given {@code JComponent}. This task is executed in the event dispatch thread (EDT.)

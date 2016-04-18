@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the text of a {@code JTextComponent}. This query is executed in the event dispatch thread (EDT.)

@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Makes a {@code JTextComponent} editable. This task is executed in the event dispatch thread (EDT.)

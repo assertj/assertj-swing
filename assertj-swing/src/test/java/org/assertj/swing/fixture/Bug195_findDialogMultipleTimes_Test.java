@@ -30,7 +30,6 @@ import javax.swing.JLabel;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.finder.WindowFinder;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;

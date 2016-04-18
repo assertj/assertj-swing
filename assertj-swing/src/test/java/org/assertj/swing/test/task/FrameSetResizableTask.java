@@ -19,7 +19,6 @@ import java.awt.Frame;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Makes a {@code Frame} resizable. This task is executed in the event dispatch thread (EDT.)

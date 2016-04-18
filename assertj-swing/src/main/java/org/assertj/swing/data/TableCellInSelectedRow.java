@@ -21,7 +21,6 @@ import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * <p>

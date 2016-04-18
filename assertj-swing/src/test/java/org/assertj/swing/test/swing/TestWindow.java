@@ -29,7 +29,6 @@ import javax.swing.JFrame;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * The base {@code Window} for all GUI tests.

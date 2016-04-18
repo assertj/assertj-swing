@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
 
 import org.assertj.core.description.Description;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.timing.Condition;
 
 /**

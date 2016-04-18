@@ -26,7 +26,6 @@ import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeModel;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTree;

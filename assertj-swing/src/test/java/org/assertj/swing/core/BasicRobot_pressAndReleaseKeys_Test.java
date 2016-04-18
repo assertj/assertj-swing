@@ -22,7 +22,6 @@ import static org.assertj.swing.timing.Timeout.timeout;
 
 import javax.swing.JTextField;
 
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.recorder.KeyRecorder;
 import org.assertj.swing.timing.Condition;
 import org.junit.Test;

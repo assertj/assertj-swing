@@ -24,8 +24,6 @@ import javax.swing.table.JTableHeader;
 import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JTableHeaderDriver;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.LocationUnavailableException;
 
 /**
  * Supports functional testing of {@code JTableHeader}s.

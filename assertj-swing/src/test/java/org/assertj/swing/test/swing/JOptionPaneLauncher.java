@@ -21,7 +21,6 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.timing.Condition;
 
 /**

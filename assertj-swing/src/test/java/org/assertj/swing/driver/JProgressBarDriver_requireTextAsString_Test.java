@@ -14,8 +14,6 @@ package org.assertj.swing.driver;
 
 import java.util.regex.Pattern;
 
-import javax.swing.JProgressBar;
-
 import org.junit.Test;
 
 /**

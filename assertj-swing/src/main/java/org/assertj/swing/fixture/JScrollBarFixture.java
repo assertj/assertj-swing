@@ -18,7 +18,6 @@ import javax.swing.JScrollBar;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JScrollBarDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JScrollBar}s.

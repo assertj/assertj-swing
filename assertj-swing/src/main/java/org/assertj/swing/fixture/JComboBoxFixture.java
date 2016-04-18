@@ -22,9 +22,6 @@ import javax.swing.JList;
 import org.assertj.swing.cell.JComboBoxCellReader;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JComboBoxDriver;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.LocationUnavailableException;
 
 /**
  * <p>

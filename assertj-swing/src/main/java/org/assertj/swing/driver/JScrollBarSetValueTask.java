@@ -17,8 +17,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.annotation.Nonnull;
 import javax.swing.JScrollBar;
 
-import org.assertj.swing.edt.GuiTask;
-
 /**
  * Sets the value of a {@code JScrollBar}. This task is executed in the event dispatch thread (EDT.)
  * 

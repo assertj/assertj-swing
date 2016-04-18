@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JProgressBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Sets value in a {@code JProgressBar}. This task is executed in the event dispatch thread (EDT.)

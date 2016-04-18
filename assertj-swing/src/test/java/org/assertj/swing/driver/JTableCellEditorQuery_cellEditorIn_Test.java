@@ -25,7 +25,6 @@ import javax.swing.JTable;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TableRenderDemo;
 import org.assertj.swing.test.swing.TestWindow;

@@ -15,7 +15,6 @@ package org.assertj.swing.applet;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.awt.TestApplets.singletonAppletMock;
 
-import java.applet.Applet;
 import java.applet.AppletStub;
 
 import org.assertj.swing.edt.GuiTask;

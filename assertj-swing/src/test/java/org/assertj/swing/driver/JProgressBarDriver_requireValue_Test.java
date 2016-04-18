@@ -12,8 +12,6 @@
  */
 package org.assertj.swing.driver;
 
-import javax.swing.JProgressBar;
-
 import org.junit.Test;
 
 /**

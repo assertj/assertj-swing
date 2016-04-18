@@ -19,7 +19,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JProgressBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the value of the property "indeterminate" in a {@code JProgressBar}. This query is executed in the event

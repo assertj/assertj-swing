@@ -27,7 +27,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Before;
 import org.junit.Test;
 

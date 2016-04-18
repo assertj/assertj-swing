@@ -20,7 +20,6 @@ import static org.assertj.swing.test.task.ComponentSetEnabledTask.setEnabled;
 import java.util.Collection;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.data.BooleanProvider;

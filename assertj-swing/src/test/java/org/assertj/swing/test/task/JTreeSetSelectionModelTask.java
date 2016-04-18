@@ -19,7 +19,6 @@ import javax.swing.JTree;
 import javax.swing.tree.TreeSelectionModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Sets a {@link TreeSelectionModel} in a {@code JTree}. This task is executed in the event dispatch thread (EDT.)

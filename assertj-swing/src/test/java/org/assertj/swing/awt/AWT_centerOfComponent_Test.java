@@ -20,7 +20,6 @@ import java.awt.Component;
 import java.awt.Point;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Test;
 

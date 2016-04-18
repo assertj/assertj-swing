@@ -49,7 +49,6 @@ import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.Settings;
 import org.assertj.swing.edt.GuiLazyLoadingDescription;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.timing.Timeout;
 import org.assertj.swing.util.TimeoutWatch;

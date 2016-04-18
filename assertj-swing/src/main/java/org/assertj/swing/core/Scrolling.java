@@ -26,8 +26,6 @@ import javax.swing.JComponent;
 import javax.swing.JInternalFrame;
 import javax.swing.JViewport;
 
-import org.assertj.swing.edt.GuiTask;
-
 /**
  * Utility methods related to scrolling.
  * 

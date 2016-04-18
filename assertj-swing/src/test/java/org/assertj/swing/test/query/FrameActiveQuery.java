@@ -19,7 +19,6 @@ import java.awt.Frame;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns whether a {@code Frame} is currently active. This query is executed in the event dispatch thread (EDT).

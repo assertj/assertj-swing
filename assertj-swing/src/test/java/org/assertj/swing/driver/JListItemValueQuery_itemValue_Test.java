@@ -13,9 +13,9 @@
 package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Arrays.array;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import static org.assertj.core.util.Arrays.array;
 
 import java.awt.Dimension;
 import java.util.Collection;
@@ -25,7 +25,6 @@ import javax.swing.JScrollPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JListCellReader;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;

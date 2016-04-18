@@ -21,7 +21,6 @@ import java.awt.Insets;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the insets of a {@code Container}. This query is executed in the event dispatch thread (EDT.)

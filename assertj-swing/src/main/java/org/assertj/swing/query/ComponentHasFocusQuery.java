@@ -20,7 +20,6 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} has input focus. This query is executed in the event dispatch

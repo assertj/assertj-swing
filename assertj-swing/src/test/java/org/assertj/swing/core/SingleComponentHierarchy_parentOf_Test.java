@@ -22,7 +22,6 @@ import java.awt.Container;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import org.assertj.swing.hierarchy.SingleComponentHierarchy;
 import org.junit.Test;
 
 /**

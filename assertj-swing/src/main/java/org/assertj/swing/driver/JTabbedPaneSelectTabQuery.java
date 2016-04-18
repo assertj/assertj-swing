@@ -20,7 +20,6 @@ import javax.swing.JTabbedPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.data.Index;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Fetches the selected tab index in a {@code JTabbedPane}.

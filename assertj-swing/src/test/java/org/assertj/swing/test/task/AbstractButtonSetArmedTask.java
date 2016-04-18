@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 import javax.swing.AbstractButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Arms/disarms a Swing {@code AbstractButton}. This task is executed in the event dispatch thread (EDT).

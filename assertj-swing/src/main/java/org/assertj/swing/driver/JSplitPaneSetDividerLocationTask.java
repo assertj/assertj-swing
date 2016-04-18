@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JSplitPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Sets the location of the divider of a {@code JSplitPane}. This task is executed in the event dispatch thread (EDT.)
