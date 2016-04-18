@@ -44,12 +44,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static int[] selectedRowsOf(final JTree tree) {
-    return execute(new GuiQuery<int[]>() {
-      @Override
-      protected int[] executeInEDT() {
-        return tree.getSelectionRows();
-      }
-    });
+    return execute(() -> tree.getSelectionRows());
   }
 
   @RunsInEDT
@@ -97,12 +92,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static TreePath[] selectionPathsOf(final JTree tree) {
-    return execute(new GuiQuery<TreePath[]>() {
-      @Override
-      protected TreePath[] executeInEDT() {
-        return tree.getSelectionPaths();
-      }
-    });
+    return execute(() -> tree.getSelectionPaths());
   }
 
   @RunsInEDT

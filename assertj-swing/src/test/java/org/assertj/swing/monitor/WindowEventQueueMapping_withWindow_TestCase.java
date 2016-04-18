@@ -55,12 +55,7 @@ public abstract class WindowEventQueueMapping_withWindow_TestCase extends Window
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Toolkit toolkit, final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(toolkit, testClass);
-        }
-      });
+      return execute(() -> new MyWindow(toolkit, testClass));
     }
 
     private final Toolkit toolkit;

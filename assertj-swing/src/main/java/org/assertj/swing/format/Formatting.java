@@ -45,7 +45,6 @@ import javax.swing.text.JTextComponent;
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Utility methods related to formatting.
@@ -141,13 +140,7 @@ public class Formatting {
    */
   @RunsInEDT
   public static @Nonnull String inEdtFormat(final @Nonnull Component c) {
-    String result = execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return format(c);
-      }
-    });
-    return checkNotNull(result);
+    return checkNotNull(execute(() -> format(c)));
   }
 
   /**

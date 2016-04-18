@@ -25,14 +25,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.finder.JOptionPaneFinder;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 
 /**
  * Test for <a href="http://code.google.com/p/fest/issues/detail?id=76">Bug 76</a>.
- * 
+ *
  * @author Wim Deblauwe
  * @author Yvonne Wang
  */
@@ -66,12 +65,7 @@ public class Bug76_JOptionPaneLookup_Test extends RobotBasedTestCase {
   private static class JOptionPaneStarter extends JDialog {
     @RunsInEDT
     static JOptionPaneStarter createNew(final String message) {
-      return execute(new GuiQuery<JOptionPaneStarter>() {
-        @Override
-        protected JOptionPaneStarter executeInEDT() {
-          return new JOptionPaneStarter(message);
-        }
-      });
+      return execute(() -> new JOptionPaneStarter(message));
     }
 
     private JOptionPaneStarter(String message) {

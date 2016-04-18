@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JComboBoxEditableQuery {
   @RunsInEDT
   static boolean isEditable(final @Nonnull JComboBox<?> comboBox) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return comboBox.isEditable();
-      }
-    });
+    Boolean result = execute(() -> comboBox.isEditable());
     return Preconditions.checkNotNull(result);
   }
 

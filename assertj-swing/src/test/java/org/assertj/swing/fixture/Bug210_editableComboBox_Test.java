@@ -62,12 +62,7 @@ public class Bug210_editableComboBox_Test extends RobotBasedTestCase {
   private static class MyDialog extends JDialog {
     @RunsInEDT
     static MyDialog createNew(final String[] items) {
-      return execute(new GuiQuery<MyDialog>() {
-        @Override
-        protected MyDialog executeInEDT() {
-          return new MyDialog(items);
-        }
-      });
+      return execute(() -> new MyDialog(items));
     }
 
     private MyDialog(String[] items) {

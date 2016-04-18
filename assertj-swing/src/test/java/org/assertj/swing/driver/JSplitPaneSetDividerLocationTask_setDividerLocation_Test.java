@@ -59,12 +59,7 @@ public class JSplitPaneSetDividerLocationTask_setDividerLocation_Test extends Ro
 
   @RunsInEDT
   private static int dividerLocationOf(final JSplitPane splitPane) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return splitPane.getDividerLocation();
-      }
-    });
+    return execute(() -> splitPane.getDividerLocation());
   }
 
   private static class MyWindow extends TestWindow {
@@ -72,12 +67,7 @@ public class JSplitPaneSetDividerLocationTask_setDividerLocation_Test extends Ro
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

@@ -54,12 +54,7 @@ public class JMenuItemFixture_constructor_withRobotAndName_Test extends RobotBas
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JMenuItem menuItem = new JMenuItem("Save");

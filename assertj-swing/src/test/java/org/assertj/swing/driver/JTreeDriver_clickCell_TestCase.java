@@ -35,12 +35,7 @@ public abstract class JTreeDriver_clickCell_TestCase extends JTreeDriver_TestCas
 
   @RunsInEDT
   private static int rowAtPoint(final JTree tree, final Point p) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return tree.getRowForLocation(p.x, p.y);
-      }
-    });
+    return execute(() -> tree.getRowForLocation(p.x, p.y));
   }
 
   @RunsInEDT

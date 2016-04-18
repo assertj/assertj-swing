@@ -19,23 +19,17 @@ import javax.annotation.Nonnull;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the type of message of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 class JOptionPaneMessageTypeQuery {
   @RunsInEDT
   static int messageTypeOf(final @Nonnull JOptionPane optionPane) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() throws Throwable {
-        return optionPane.getMessageType();
-      }
-    });
+    Integer result = execute(() -> optionPane.getMessageType());
     return checkNotNull(result);
   }
 

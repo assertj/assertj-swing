@@ -19,13 +19,12 @@ import static org.assertj.swing.test.swing.JOptionPaneLauncher.launch;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 
 /**
  * Tests for {@link JOptionPaneTitleQuery#titleOf(JOptionPane)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -49,12 +48,7 @@ public class JOptionPaneTitleQuery_titleOf_Test extends RobotBasedTestCase {
   private static class MyOptionPane extends JOptionPane {
     @RunsInEDT
     static MyOptionPane createNew() {
-      return execute(new GuiQuery<MyOptionPane>() {
-        @Override
-        protected MyOptionPane executeInEDT() {
-          return new MyOptionPane();
-        }
-      });
+      return execute(() -> new MyOptionPane());
     }
 
     private MyOptionPane() {

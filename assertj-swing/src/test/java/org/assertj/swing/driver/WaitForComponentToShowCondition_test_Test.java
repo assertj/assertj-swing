@@ -18,14 +18,13 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Tests for {@link WaitForComponentToShowCondition#test()}.
- * 
+ *
  * @author Yvonne Wang
  */
 public class WaitForComponentToShowCondition_test_Test extends EDTSafeTestCase {
@@ -54,19 +53,14 @@ public class WaitForComponentToShowCondition_test_Test extends EDTSafeTestCase {
 
     @RunsInEDT
     static ComponentStub createNew() {
-      return execute(new GuiQuery<ComponentStub>() {
-        @Override
-        protected ComponentStub executeInEDT() {
-          return new ComponentStub();
-        }
-      });
+      return execute(() -> new ComponentStub());
     }
 
     private ComponentStub() {
     }
 
     void showing(boolean isShowing) {
-      this.showing = isShowing;
+      showing = isShowing;
     }
 
     @Override

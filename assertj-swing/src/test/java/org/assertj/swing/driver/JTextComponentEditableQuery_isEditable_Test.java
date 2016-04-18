@@ -69,12 +69,7 @@ public class JTextComponentEditableQuery_isEditable_Test extends RobotBasedTestC
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final MyTextField textField = new MyTextField();

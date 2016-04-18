@@ -18,15 +18,13 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import java.awt.Component;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} is visible. This query is executed in the event dispatch thread
  * (EDT.)
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -34,19 +32,14 @@ public final class ComponentVisibleQuery {
   /**
    * Indicates whether the given AWT or Swing {@code Component} is visible or not. This query is executed in the event
    * dispatch thread (EDT.)
-   * 
+   *
    * @param component the given {@code Component}.
    * @return {@code true} if the given {@code Component} is visible, {@code false} otherwise.
    * @see Component#isVisible()
    */
   @RunsInEDT
   public static boolean isVisible(final @Nonnull Component component) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected @Nullable Boolean executeInEDT() {
-        return component.isVisible();
-      }
-    });
+    Boolean result = execute(() -> component.isVisible());
     return checkNotNull(result);
   }
 

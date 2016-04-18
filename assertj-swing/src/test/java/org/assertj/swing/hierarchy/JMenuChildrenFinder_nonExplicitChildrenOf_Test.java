@@ -25,7 +25,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JPopupMenu;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -34,7 +33,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JMenuChildrenFinder#nonExplicitChildrenOf(Container)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -61,12 +60,7 @@ public class JMenuChildrenFinder_nonExplicitChildrenOf_Test extends EDTSafeTestC
   public void should_Return_JPopupMenu_If_Component_Is_JMenu() {
     ScreenLock.instance().acquire(this);
     final MyWindow window = MyWindow.createNew();
-    Collection<Component> children = execute(new GuiQuery<Collection<Component>>() {
-      @Override
-      protected Collection<Component> executeInEDT() {
-        return finder.nonExplicitChildrenOf(window.menu);
-      }
-    });
+    Collection<Component> children = execute(() -> finder.nonExplicitChildrenOf(window.menu));
     try {
       assertThat(children).containsOnly(popupMenuOf(window.menu));
     } finally {
@@ -80,23 +74,13 @@ public class JMenuChildrenFinder_nonExplicitChildrenOf_Test extends EDTSafeTestC
 
   @RunsInEDT
   private static JPopupMenu popupMenuOf(final JMenu menu) {
-    return execute(new GuiQuery<JPopupMenu>() {
-      @Override
-      protected JPopupMenu executeInEDT() {
-        return menu.getPopupMenu();
-      }
-    });
+    return execute(() -> menu.getPopupMenu());
   }
 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JMenu menu = new JMenu("Menu");

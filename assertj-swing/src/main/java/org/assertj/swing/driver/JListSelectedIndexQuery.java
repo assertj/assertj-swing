@@ -31,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JListSelectedIndexQuery {
   @RunsInEDT
   static int selectedIndexOf(final @Nonnull JList<?> list) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return list.getSelectedIndex();
-      }
-    });
+    Integer result = execute(() -> list.getSelectedIndex());
     return checkNotNull(result);
   }
 

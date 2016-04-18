@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JTabbedPaneSelectTabQuery {
   @RunsInEDT
   static Index selectedTabIndexOf(final @Nonnull JTabbedPane tabbedPane) {
-    Integer selectedTab = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return tabbedPane.getSelectedIndex();
-      }
-    });
+    Integer selectedTab = execute(() -> tabbedPane.getSelectedIndex());
     return atIndex(selectedTab);
   }
 

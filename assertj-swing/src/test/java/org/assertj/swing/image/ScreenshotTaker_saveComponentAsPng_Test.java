@@ -77,12 +77,7 @@ public class ScreenshotTaker_saveComponentAsPng_Test extends SequentialEDTSafeTe
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTextField textField = new JTextField(20);

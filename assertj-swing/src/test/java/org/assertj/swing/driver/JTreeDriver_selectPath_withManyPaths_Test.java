@@ -61,11 +61,6 @@ public class JTreeDriver_selectPath_withManyPaths_Test extends JTreeDriver_selec
 
   @RunsInEDT
   private static TreePath selectionPathOf(final JTree tree) {
-    return execute(new GuiQuery<TreePath>() {
-      @Override
-      protected TreePath executeInEDT() {
-        return tree.getSelectionPath();
-      }
-    });
+    return execute(() -> tree.getSelectionPath());
   }
 }

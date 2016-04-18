@@ -26,14 +26,13 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-148" target="_blank">FEST-148</a>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -59,12 +58,7 @@ public class FEST148_selectTreeCell_Test extends RobotBasedTestCase {
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTree tree = new JTree();
@@ -81,12 +75,14 @@ public class FEST148_selectTreeCell_Test extends RobotBasedTestCase {
 
     private DefaultMutableTreeNode root() {
       return node(
-          "root",
-          node(
-              "node1",
-              node("node11", node("node111"),
-                  node("node112", node("node1121", node("node11211", node("node112111", node("node1121111")))))),
-              node("node12")), node("node2"));
+                  "root",
+                  node(
+                       "node1",
+                       node("node11",
+                            node("node111"),
+                            node("node112",
+                                 node("node1121", node("node11211", node("node112111", node("node1121111")))))),
+                       node("node12")), node("node2"));
     }
   }
 }

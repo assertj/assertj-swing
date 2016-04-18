@@ -32,12 +32,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JTreeExpandedPathQuery {
   @RunsInEDT
   static boolean isExpanded(final @Nonnull JTree tree, final @Nonnull TreePath path) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return tree.isExpanded(path);
-      }
-    });
+    Boolean result = execute(() -> tree.isExpanded(path));
     return checkNotNull(result);
   }
 

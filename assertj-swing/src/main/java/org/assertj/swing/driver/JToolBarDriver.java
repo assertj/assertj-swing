@@ -72,12 +72,7 @@ public class JToolBarDriver extends JComponentDriver {
    */
   @RunsInEDT
   public boolean isFloating(final @Nonnull JToolBar toolBar) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return isJToolBarFloating(toolBar);
-      }
-    });
+    Boolean result = execute(() -> isJToolBarFloating(toolBar));
     return checkNotNull(result);
   }
 

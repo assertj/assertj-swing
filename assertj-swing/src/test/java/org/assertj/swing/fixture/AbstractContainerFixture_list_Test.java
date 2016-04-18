@@ -100,12 +100,7 @@ public class AbstractContainerFixture_list_Test extends RobotBasedTestCase {
     final JList list = new JList(array("One", "Two", "Three"));
 
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

@@ -32,12 +32,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JMenuPopupMenuQuery {
   @RunsInEDT
   static @Nonnull JPopupMenu popupMenuOf(final @Nonnull JMenu menu) {
-    JPopupMenu result = execute(new GuiQuery<JPopupMenu>() {
-      @Override
-      protected @Nullable JPopupMenu executeInEDT() {
-        return menu.getPopupMenu();
-      }
-    });
+    JPopupMenu result = execute(() -> menu.getPopupMenu());
     return checkNotNull(result);
   }
 

@@ -14,19 +14,18 @@ package org.assertj.swing.format;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.array;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JButtons.button;
 
 import javax.swing.JButton;
 
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Tests for {@link IntrospectionComponentFormatter#format(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class IntrospectionComponentFormatter_format_Test extends EDTSafeTestCase {
@@ -66,12 +65,7 @@ public class IntrospectionComponentFormatter_format_Test extends EDTSafeTestCase
 
   static class MyButton extends JButton {
     static MyButton newButton(final String[] names) {
-      return GuiActionRunner.execute(new GuiQuery<MyButton>() {
-        @Override
-        protected MyButton executeInEDT() {
-          return new MyButton(names);
-        }
-      });
+      return execute(() -> new MyButton(names));
     }
 
     final String[] names;

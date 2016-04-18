@@ -95,12 +95,7 @@ public class Bug159_moveParentToFrontWhenClickingMenuItem_Test extends RobotBase
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JMenuItem menuItemFromMenuBar = new JMenuItem("New");

@@ -25,7 +25,6 @@ import java.util.Collection;
 import javax.swing.JFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestDialog;
@@ -35,7 +34,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link WindowChildrenFinder#nonExplicitChildrenOf(Container)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -85,11 +84,6 @@ public class WindowChildrenFinder_nonExplicitChildrenOf_Test extends EDTSafeTest
 
   @RunsInEDT
   private static Collection<Component> findChildren(final WindowChildrenFinder finder, final Window w) {
-    return execute(new GuiQuery<Collection<Component>>() {
-      @Override
-      protected Collection<Component> executeInEDT() {
-        return finder.nonExplicitChildrenOf(w);
-      }
-    });
+    return execute(() -> finder.nonExplicitChildrenOf(w));
   }
 }

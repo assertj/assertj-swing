@@ -22,7 +22,7 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Factory of {@code JFrame}s.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class JFrames {
@@ -68,12 +68,7 @@ public final class JFrames {
 
     @RunsInEDT
     public JFrame createNew() {
-      return execute(new GuiQuery<JFrame>() {
-        @Override
-        protected JFrame executeInEDT() {
-          return create();
-        }
-      });
+      return execute(() -> create());
     }
 
     @RunsInCurrentThread

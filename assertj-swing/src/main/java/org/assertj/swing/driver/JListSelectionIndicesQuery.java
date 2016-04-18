@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JListSelectionIndicesQuery {
   @RunsInEDT
   static @Nonnull int[] selectedIndices(final @Nonnull JList<?> list) {
-    int[] result = execute(new GuiQuery<int[]>() {
-      @Override
-      protected @Nullable int[] executeInEDT() {
-        return list.getSelectedIndices();
-      }
-    });
+    int[] result = execute(() -> list.getSelectedIndices());
     return checkNotNull(result);
   }
 

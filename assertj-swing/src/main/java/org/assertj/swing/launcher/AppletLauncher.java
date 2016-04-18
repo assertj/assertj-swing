@@ -22,11 +22,9 @@ import java.applet.Applet;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.applet.AppletViewer;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.UnexpectedException;
 
 /**
@@ -136,12 +134,7 @@ public class AppletLauncher {
 
   private static @Nonnull AppletLauncher instantiate(final @Nonnull Class<?> appletType) {
     try {
-      Object applet = execute(new GuiQuery<Object>() {
-        @Override
-        protected @Nullable Object executeInEDT() throws Exception {
-          return appletType.newInstance();
-        }
-      });
+      Object applet = execute(() -> appletType.newInstance());
       return launcherFor(checkNotNull((Applet) applet));
     } catch (Exception e) {
       String msg = String.format("Unable to create a new instance of %s", appletType.getName());

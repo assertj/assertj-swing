@@ -94,12 +94,7 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static int locationToIndex(final JList list, final Point p) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return list.locationToIndex(p);
-      }
-    });
+    return execute(() -> list.locationToIndex(p));
   }
 
   @RunsInEDT
@@ -109,12 +104,7 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static Object selectedValue(final JList list) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected Object executeInEDT() {
-        return list.getSelectedValue();
-      }
-    });
+    return execute(() -> list.getSelectedValue());
   }
 
   @RunsInEDT
@@ -124,12 +114,7 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static Object[] selectedValues(final JList list) {
-    return execute(new GuiQuery<Object[]>() {
-      @Override
-      protected Object[] executeInEDT() {
-        return list.getSelectedValues();
-      }
-    });
+    return execute(() -> list.getSelectedValues());
   }
 
   @RunsInEDT
@@ -161,12 +146,7 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

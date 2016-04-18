@@ -42,12 +42,7 @@ public final class ComponentParentQuery {
    */
   @RunsInEDT
   public static @Nullable Container parentOf(final @Nonnull Component component) {
-    return execute(new GuiQuery<Container>() {
-      @Override
-      protected @Nullable Container executeInEDT() {
-        return component.getParent();
-      }
-    });
+    return execute(() -> component.getParent());
   }
 
   private ComponentParentQuery() {

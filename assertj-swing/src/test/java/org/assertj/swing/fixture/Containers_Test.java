@@ -41,12 +41,7 @@ public class Containers_Test {
 
   @Before
   public void setUp() {
-    panel = execute(new GuiQuery<MyPanel>() {
-      @Override
-      protected MyPanel executeInEDT() {
-        return new MyPanel();
-      }
-    });
+    panel = execute(() -> new MyPanel());
   }
 
   @Test

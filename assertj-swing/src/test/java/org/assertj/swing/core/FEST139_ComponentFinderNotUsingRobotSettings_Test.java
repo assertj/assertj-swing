@@ -20,14 +20,13 @@ import java.awt.Component;
 
 import javax.swing.JLabel;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for bug <a href="http://jira.codehaus.org/browse/FEST-139" target="_blank">FEST_139</a>.
- * 
+ *
  * @author Woody Folsom
  * @author Alex Ruiz
  */
@@ -44,12 +43,7 @@ public class FEST139_ComponentFinderNotUsingRobotSettings_Test extends RobotBase
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JLabel label = new JLabel("Test Label");

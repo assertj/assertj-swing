@@ -56,12 +56,7 @@ public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends Seque
   @Test
   public final void should_Find_Focus_Owner() {
     giveFocusAndWaitTillIsFocused(textField);
-    Component focusOwner = execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        return finder.focusOwner();
-      }
-    });
+    Component focusOwner = execute(() -> finder.focusOwner());
     assertThat(focusOwner).isSameAs(textField);
   }
 

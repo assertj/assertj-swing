@@ -110,12 +110,7 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static boolean isCellSelected(final JTable table, final int row, final int column) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return table.isCellSelected(row, column);
-      }
-    });
+    return execute(() -> table.isCellSelected(row, column));
   }
 
   @RunsInEDT
@@ -189,12 +184,7 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

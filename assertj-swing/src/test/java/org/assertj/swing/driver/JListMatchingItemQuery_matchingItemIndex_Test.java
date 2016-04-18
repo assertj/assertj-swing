@@ -48,11 +48,6 @@ public class JListMatchingItemQuery_matchingItemIndex_Test extends JListMatching
 
   @RunsInEDT
   private int matchingItemIndex(final TextMatcher matcher) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return JListMatchingItemQuery.matchingItemIndex(list, matcher, cellReader);
-      }
-    });
+    return execute(() -> JListMatchingItemQuery.matchingItemIndex(list, matcher, cellReader));
   }
 }

@@ -19,24 +19,18 @@ import javax.annotation.Nonnull;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the choices the user can make in a {@code JOptionPane}. This query is executed in the event dispatch thread
  * (EDT.)
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JOptionPaneOptionsQuery {
   @RunsInEDT
   static @Nonnull Object[] optionsOf(final @Nonnull JOptionPane optionPane) {
-    Object[] result = execute(new GuiQuery<Object[]>() {
-      @Override
-      protected Object[] executeInEDT() throws Throwable {
-        return optionPane.getOptions();
-      }
-    });
+    Object[] result = execute(() -> optionPane.getOptions());
     return checkNotNull(result);
   }
 

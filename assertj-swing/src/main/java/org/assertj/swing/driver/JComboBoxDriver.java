@@ -478,12 +478,7 @@ public class JComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nullable Component editorComponentOf(final @Nonnull JComboBox<?> comboBox) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected @Nullable Component executeInEDT() {
-        return editorComponent(comboBox);
-      }
-    });
+    return execute(() -> editorComponent(comboBox));
   }
 
   @RunsInCurrentThread

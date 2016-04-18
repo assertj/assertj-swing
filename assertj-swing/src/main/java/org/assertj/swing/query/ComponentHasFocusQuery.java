@@ -39,12 +39,7 @@ public final class ComponentHasFocusQuery {
    */
   @RunsInEDT
   public static boolean hasFocus(final @Nonnull Component component) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return component.hasFocus();
-      }
-    });
+    Boolean result = execute(() -> component.hasFocus());
     return checkNotNull(result);
   }
 

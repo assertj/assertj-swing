@@ -24,7 +24,6 @@ import javax.swing.table.JTableHeader;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.ExpectedException;
@@ -95,11 +94,6 @@ public class JTableHeaderLocation_pointAtColumnWithName_Test extends JTableHeade
 
   @RunsInEDT
   private static Pair<Integer, Point> pointAt(final JTableHeaderLocation l, final JTableHeader h, final TextMatcher m) {
-    return execute(new GuiQuery<Pair<Integer, Point>>() {
-      @Override
-      protected Pair<Integer, Point> executeInEDT() {
-        return l.pointAt(h, m);
-      }
-    });
+    return execute(() -> l.pointAt(h, m));
   }
 }

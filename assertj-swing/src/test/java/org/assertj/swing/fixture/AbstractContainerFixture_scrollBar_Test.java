@@ -102,13 +102,7 @@ public class AbstractContainerFixture_scrollBar_Test extends RobotBasedTestCase 
     final JScrollBar scrollBar = new JScrollBar(VERTICAL, 8, 1, 6, 10);
 
     static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
-      MyWindow result = execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
-      return checkNotNull(result);
+      return checkNotNull(execute(() -> new MyWindow(testClass)));
     }
 
     private MyWindow(@Nonnull Class<?> testClass) {

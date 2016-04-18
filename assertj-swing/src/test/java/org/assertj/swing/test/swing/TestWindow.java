@@ -71,12 +71,7 @@ public class TestWindow extends JFrame {
    */
   @RunsInEDT
   public static @Nonnull TestWindow createNewWindow(final @Nonnull Class<?> testClass) {
-    TestWindow result = execute(new GuiQuery<TestWindow>() {
-      @Override
-      protected TestWindow executeInEDT() {
-        return createInCurrentThread(testClass);
-      }
-    });
+    TestWindow result = execute(() -> createInCurrentThread(testClass));
     return checkNotNull(result);
   }
 

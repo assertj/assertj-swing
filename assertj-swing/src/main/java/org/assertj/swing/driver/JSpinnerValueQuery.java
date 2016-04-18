@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JSpinnerValueQuery {
   @RunsInEDT
   static @Nullable Object valueOf(final @Nonnull JSpinner spinner) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected @Nullable Object executeInEDT() {
-        return spinner.getValue();
-      }
-    });
+    return execute(() -> spinner.getValue());
   }
 
   private JSpinnerValueQuery() {

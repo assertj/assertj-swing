@@ -70,12 +70,7 @@ public class FEST104_JMenuItemShouldNotReceiveFocusWhenClicked_Test extends Robo
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JMenuItem newMenu = new JMenuItem("New");

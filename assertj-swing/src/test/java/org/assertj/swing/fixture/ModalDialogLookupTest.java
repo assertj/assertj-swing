@@ -13,6 +13,7 @@
 package org.assertj.swing.fixture;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.finder.WindowFinder.findDialog;
 
 import java.awt.Dimension;
@@ -22,8 +23,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestDialog;
 import org.assertj.swing.test.swing.TestWindow;
@@ -33,7 +32,7 @@ import org.junit.Test;
  * Tests lookup of a modal dialog. This test tries to reproduce the problem reported at <a
  * href="http://groups.google.com/group/easytesting/browse_thread/thread/c42bd103c28d6a1a" target="_blank">this mailing
  * list message</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ModalDialogLookupTest extends RobotBasedTestCase {
@@ -56,12 +55,7 @@ public class ModalDialogLookupTest extends RobotBasedTestCase {
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return GuiActionRunner.execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JButton button = new JButton("Launch");

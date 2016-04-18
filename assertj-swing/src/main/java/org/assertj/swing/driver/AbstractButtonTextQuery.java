@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class AbstractButtonTextQuery {
   @RunsInEDT
   static @Nonnull String textOf(final @Nonnull AbstractButton button) {
-    String result = execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return button.getText();
-      }
-    });
+    String result = execute(() -> button.getText());
     return result == null ? "" : result;
   }
 

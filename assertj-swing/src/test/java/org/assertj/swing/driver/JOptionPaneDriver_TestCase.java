@@ -134,12 +134,7 @@ public abstract class JOptionPaneDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static JOptionPane messageWithValue(final Object message) {
-    return execute(new GuiQuery<JOptionPane>() {
-      @Override
-      protected JOptionPane executeInEDT() {
-        return new JOptionPane(message);
-      }
-    });
+    return execute(() -> new JOptionPane(message));
   }
 
   @RunsInEDT
@@ -154,11 +149,6 @@ public abstract class JOptionPaneDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static JOptionPane messageOfType(final int type) {
-    return execute(new GuiQuery<JOptionPane>() {
-      @Override
-      protected JOptionPane executeInEDT() {
-        return new JOptionPane(MESSAGE, type);
-      }
-    });
+    return execute(() -> new JOptionPane(MESSAGE, type));
   }
 }

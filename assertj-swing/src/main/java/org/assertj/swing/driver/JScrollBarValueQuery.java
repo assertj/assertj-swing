@@ -31,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JScrollBarValueQuery {
   @RunsInEDT
   static int valueOf(final @Nonnull JScrollBar scrollBar) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return scrollBar.getValue();
-      }
-    });
+    Integer result = execute(() -> scrollBar.getValue());
     return checkNotNull(result);
   }
 

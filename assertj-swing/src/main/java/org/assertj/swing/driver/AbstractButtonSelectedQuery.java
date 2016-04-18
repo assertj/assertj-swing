@@ -31,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class AbstractButtonSelectedQuery {
   @RunsInEDT
   static boolean isSelected(final @Nonnull AbstractButton button) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return button.isSelected();
-      }
-    });
+    Boolean result = execute(() -> button.isSelected());
     return checkNotNull(result);
   }
 

@@ -102,12 +102,7 @@ public class TableCellInSelectedRow implements TableCellFinder {
 
   @RunsInEDT
   private static int selectedRowOf(final JTable table) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return table.getSelectedRow();
-      }
-    });
+    Integer result = execute(() -> table.getSelectedRow());
     return checkNotNull(result);
   }
 

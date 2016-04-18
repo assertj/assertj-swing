@@ -20,17 +20,15 @@ import java.awt.Component;
 import java.awt.Font;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
 
 /**
  * Tests for {@link BasicJTableCellReader#fontAt(JTable, int, int)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -44,22 +42,12 @@ public class BasicJTableCellReader_fontAt_Test extends BasicJTableCellReader_Tes
 
   @RunsInEDT
   private static Font fontAt(final BasicJTableCellReader reader, final JTable table, final int row, final int column) {
-    return execute(new GuiQuery<Font>() {
-      @Override
-      protected Font executeInEDT() {
-        return reader.fontAt(table, row, column);
-      }
-    });
+    return execute(() -> reader.fontAt(table, row, column));
   }
 
   @RunsInEDT
   private static @Nonnull Font fontOf(final @Nonnull Component component) {
-    Font result = execute(new GuiQuery<Font>() {
-      @Override
-      protected @Nullable Font executeInEDT() {
-        return component.getFont();
-      }
-    });
+    Font result = execute(() -> component.getFont());
     return checkNotNull(result);
   }
 }

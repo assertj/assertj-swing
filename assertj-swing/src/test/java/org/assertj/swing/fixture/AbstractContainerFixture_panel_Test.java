@@ -23,7 +23,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JPanel;
 
 import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -33,7 +32,7 @@ import org.junit.Test;
 
 /**
  * Tests lookups of {@code JPanel}s in {@link AbstractContainerFixture}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class AbstractContainerFixture_panel_Test extends RobotBasedTestCase {
@@ -60,7 +59,7 @@ public class AbstractContainerFixture_panel_Test extends RobotBasedTestCase {
   public void should_Fail_If_Visible_JPanel_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
-        "name='somePanel', type=javax.swing.JPanel, requireShowing=true");
+                                  "name='somePanel', type=javax.swing.JPanel, requireShowing=true");
     fixture.panel("somePanel");
   }
 
@@ -75,7 +74,7 @@ public class AbstractContainerFixture_panel_Test extends RobotBasedTestCase {
   public void should_Fail_If_Visible_JPanel_Not_Found_By_Type() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
-        "type=javax.swing.JPanel, requireShowing=true");
+                                  "type=javax.swing.JPanel, requireShowing=true");
     fixture.panel();
   }
 
@@ -102,13 +101,7 @@ public class AbstractContainerFixture_panel_Test extends RobotBasedTestCase {
     final JPanel panel = new JPanel();
 
     static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
-      MyWindow result = execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
-      return checkNotNull(result);
+      return checkNotNull(execute(() -> new MyWindow(testClass)));
     }
 
     private MyWindow(@Nonnull Class<?> testClass) {

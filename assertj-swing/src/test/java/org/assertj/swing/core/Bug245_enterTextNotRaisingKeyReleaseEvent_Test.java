@@ -28,14 +28,13 @@ import java.util.List;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Test case for <a href="http://code.google.com/p/fest/issues/detail?id=245">Bug 245</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Bug245_enterTextNotRaisingKeyReleaseEvent_Test extends RobotBasedTestCase {
@@ -74,12 +73,7 @@ public class Bug245_enterTextNotRaisingKeyReleaseEvent_Test extends RobotBasedTe
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTextField textField = new JTextField(10);

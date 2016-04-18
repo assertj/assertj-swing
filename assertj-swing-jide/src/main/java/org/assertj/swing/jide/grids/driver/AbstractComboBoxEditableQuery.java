@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.jide.grids.driver;
 
-import com.jidesoft.combobox.AbstractComboBox;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import org.assertj.swing.edt.GuiQuery;
+
+import com.jidesoft.combobox.AbstractComboBox;
 
 /**
  * Understands an action, executed in the event dispatch thread, that indicates whether a
  * <code>{@link javax.swing.JComboBox}</code> is editable or not.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  * @see javax.swing.JComboBox#isEditable()
@@ -27,12 +27,7 @@ import org.assertj.swing.edt.GuiQuery;
 public class AbstractComboBoxEditableQuery {
 
   static boolean isEditable(final AbstractComboBox comboBox) {
-	return execute(new GuiQuery<Boolean>() {
-	  @Override
-	  protected Boolean executeInEDT() {
-		return comboBox.isEditable();
-	  }
-	});
+    return execute(() -> comboBox.isEditable());
   }
 
   private AbstractComboBoxEditableQuery() {

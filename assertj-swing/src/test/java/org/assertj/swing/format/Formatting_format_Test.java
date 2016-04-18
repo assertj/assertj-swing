@@ -197,12 +197,7 @@ public class Formatting_format_Test extends EDTSafeTestCase {
 
   @RunsInEDT
   private static JRootPane newJRootPane() {
-    return execute(new GuiQuery<JRootPane>() {
-      @Override
-      protected JRootPane executeInEDT() {
-        return new JRootPane();
-      }
-    });
+    return execute(() -> new JRootPane());
   }
 
   @Test

@@ -25,12 +25,10 @@ import java.awt.Insets;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JSplitPane;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Calculates a valid position of a {@code JSplitPane}'s divider, while respecting the minimum sizes of the right and
@@ -53,12 +51,8 @@ final class JSplitPaneLocationCalculator {
 
   @RunsInEDT
   static int locationToMoveDividerTo(final @Nonnull JSplitPane splitPane, final int desiredLocation) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return FINDERS.get(splitPane.getOrientation()).locationToMoveDividerTo(splitPane, desiredLocation);
-      }
-    });
+    Integer result = execute(() -> FINDERS.get(splitPane.getOrientation()).locationToMoveDividerTo(splitPane,
+                                                                                                   desiredLocation));
     return checkNotNull(result);
   }
 

@@ -15,14 +15,13 @@ package org.assertj.swing.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.data.TableCellInRowByValue.rowWithValue;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Dimension;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -30,7 +29,7 @@ import org.junit.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-293" target="_blank">FEST-293</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class FEST293_TableCellInRowByValueMatchesAnything_Test extends RobotBasedTestCase {
@@ -55,12 +54,7 @@ public class FEST293_TableCellInRowByValueMatchesAnything_Test extends RobotBase
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return GuiActionRunner.execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

@@ -61,12 +61,7 @@ public class JScrollPaneFixture_constructor_withRobotAndName_Test extends RobotB
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JScrollPane scrollPane = new JScrollPane();

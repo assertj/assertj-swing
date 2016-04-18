@@ -33,12 +33,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JComboBoxSelectedIndexQuery {
   @RunsInEDT
   static int selectedIndexOf(final @Nonnull JComboBox<?> comboBox) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return comboBox.getSelectedIndex();
-      }
-    });
+    Integer result = execute(() -> comboBox.getSelectedIndex());
     return checkNotNull(result);
   }
 

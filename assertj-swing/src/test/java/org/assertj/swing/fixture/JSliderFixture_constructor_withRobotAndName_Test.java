@@ -57,12 +57,7 @@ public class JSliderFixture_constructor_withRobotAndName_Test extends RobotBased
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JSlider slider = new JSlider(6, 10, 8);

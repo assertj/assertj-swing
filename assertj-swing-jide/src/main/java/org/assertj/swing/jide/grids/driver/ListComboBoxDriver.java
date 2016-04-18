@@ -16,6 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Arrays.format;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 import java.util.ArrayList;
@@ -63,13 +64,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
   }
 
   public void requireItemCount(final ListComboBox comboBox, int expected) {
-    GuiQuery<Integer> query = new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() throws Throwable {
-        return comboBox.getModel().getSize();
-      }
-    };
-    Integer count = GuiActionRunner.execute(query);
+    Integer count = execute(() -> comboBox.getModel().getSize());
     assertThat(count).as("ItemCount").isEqualTo(expected);
   }
 

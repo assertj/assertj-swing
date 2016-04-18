@@ -99,12 +99,7 @@ public abstract class AbstractButtonDriver_TestCase extends RobotBasedTestCase {
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     final JCheckBox checkBox = new JCheckBox("Hello", true);

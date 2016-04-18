@@ -16,6 +16,7 @@ import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 
@@ -28,7 +29,6 @@ import org.assertj.core.util.Strings;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.KeyPressInfo;
 import org.assertj.swing.driver.JComponentDriver;
-import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.LocationUnavailableException;
@@ -315,25 +315,11 @@ public class AbstractComboBoxDriver extends JComponentDriver {
   }
 
   AbstractComboBox.EditorComponent getEditor(final AbstractComboBox comboBox) {
-    GuiQuery<AbstractComboBox.EditorComponent> query = new GuiQuery<AbstractComboBox.EditorComponent>() {
-      @Override
-      protected AbstractComboBox.EditorComponent executeInEDT() throws Throwable {
-        return (AbstractComboBox.EditorComponent) comboBox.getEditor();
-      }
-    };
-    return GuiActionRunner.execute(query);
+    return execute(() -> (AbstractComboBox.EditorComponent) comboBox.getEditor());
   }
 
   public String getEditorText(final AbstractComboBox comboBox) {
-    GuiQuery<String> query = new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() throws Throwable {
-        AbstractComboBox.EditorComponent editorComp =
-            (AbstractComboBox.EditorComponent) comboBox.getEditor();
-        return editorComp.getText();
-      }
-    };
-    return GuiActionRunner.execute(query);
+    return execute(() -> ((AbstractComboBox.EditorComponent) comboBox.getEditor()).getText());
   }
 
   public void requireEditorText(final AbstractComboBox comboBox, String requiredText) {
@@ -472,14 +458,9 @@ public class AbstractComboBoxDriver extends JComponentDriver {
     return c;
   }
 
+  @RunsInEDT
   public void requirePopupVisible(final AbstractComboBox target, boolean visible) {
-    GuiQuery<Boolean> query = new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() throws Throwable {
-        return target.isPopupVisible();
-      }
-    };
-    Boolean isVisible = GuiActionRunner.execute(query);
+    Boolean isVisible = execute(() -> target.isPopupVisible());
     assertThat(isVisible).as("Popup Visibility").isEqualTo(visible);
   }
 }

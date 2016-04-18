@@ -54,12 +54,7 @@ public abstract class EdtSafeCondition extends Condition {
    */
   @Override
   public final boolean test() {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return testInEDT();
-      }
-    });
+    Boolean result = execute(() -> testInEDT());
     return checkNotNull(result);
   }
 

@@ -24,15 +24,13 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.hierarchy.SingleComponentHierarchy;
 import org.junit.After;
 import org.junit.Test;
 
 /**
  * Tests for {@link SingleComponentHierarchy#childrenOf(Component)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class SingleComponentHierarchy_childrenOf_Test extends SingleComponentHierarchy_TestCase {
@@ -66,12 +64,7 @@ public class SingleComponentHierarchy_childrenOf_Test extends SingleComponentHie
     final JButton button = new JButton();
 
     static FrameWithButton createNew() {
-      return execute(new GuiQuery<FrameWithButton>() {
-        @Override
-        protected FrameWithButton executeInEDT() {
-          return new FrameWithButton();
-        }
-      });
+      return execute(() -> new FrameWithButton());
     }
 
     private FrameWithButton() {

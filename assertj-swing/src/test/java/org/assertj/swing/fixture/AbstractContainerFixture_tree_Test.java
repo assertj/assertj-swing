@@ -101,12 +101,7 @@ public class AbstractContainerFixture_tree_Test extends RobotBasedTestCase {
     final JTree tree = new JTree(new DefaultMutableTreeNode("root"));
 
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

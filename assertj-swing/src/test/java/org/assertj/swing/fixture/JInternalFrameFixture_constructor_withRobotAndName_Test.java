@@ -55,12 +55,7 @@ public class JInternalFrameFixture_constructor_withRobotAndName_Test extends Rob
 
   private static class MyWindow extends TestMdiWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

@@ -81,12 +81,7 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
 
   @RunsInEDT
   private static boolean isCellSelected(final JTable table, final int row, final int column) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return JTableSingleRowCellSelectedQuery.isCellSelected(table, row, column);
-      }
-    });
+    return execute(() -> JTableSingleRowCellSelectedQuery.isCellSelected(table, row, column));
   }
 
   private static class MyWindow extends TestWindow {
@@ -94,12 +89,7 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

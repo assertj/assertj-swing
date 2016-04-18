@@ -127,12 +127,7 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
 
   // TODO(Alex): Verify that this method really needs to be executed in the EDT.
   private static @Nonnull BufferedImage takeScreenshot(final @Nonnull Robot robot, final @Nonnull Rectangle r) {
-    BufferedImage result = execute(new GuiQuery<BufferedImage>() {
-      @Override
-      protected @Nullable BufferedImage executeInEDT() {
-        return robot.createScreenCapture(r);
-      }
-    });
+    BufferedImage result = execute(() -> robot.createScreenCapture(r));
     return checkNotNull(result);
   }
 

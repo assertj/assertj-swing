@@ -31,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JTableRowCountQuery {
   @RunsInEDT
   static int rowCountOf(final @Nonnull JTable table) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return table.getRowCount();
-      }
-    });
+    Integer result = execute(() -> table.getRowCount());
     return checkNotNull(result);
   }
 

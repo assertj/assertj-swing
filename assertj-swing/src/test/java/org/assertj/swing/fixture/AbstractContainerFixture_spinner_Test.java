@@ -102,13 +102,7 @@ public class AbstractContainerFixture_spinner_Test extends RobotBasedTestCase {
     final JSpinner spinner = new JSpinner(new SpinnerNumberModel(8, 6, 10, 1));
 
     static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
-      MyWindow result = execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
-      return checkNotNull(result);
+      return checkNotNull(execute(() -> new MyWindow(testClass)));
     }
 
     private MyWindow(@Nonnull Class<?> testClass) {

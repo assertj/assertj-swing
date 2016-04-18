@@ -31,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JSliderValueQuery {
   @RunsInEDT
   static int valueOf(final @Nonnull JSlider slider) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return slider.getValue();
-      }
-    });
+    Integer result = execute(() -> slider.getValue());
     return checkNotNull(result);
   }
 

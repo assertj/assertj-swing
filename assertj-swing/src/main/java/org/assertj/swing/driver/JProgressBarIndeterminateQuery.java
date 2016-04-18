@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JProgressBarIndeterminateQuery {
   @RunsInEDT
   static boolean isIndeterminate(final @Nonnull JProgressBar progressBar) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return progressBar.isIndeterminate();
-      }
-    });
+    Boolean result = execute(() -> progressBar.isIndeterminate());
     return checkNotNull(result);
   }
 

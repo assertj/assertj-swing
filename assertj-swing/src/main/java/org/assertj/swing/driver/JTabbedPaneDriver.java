@@ -215,12 +215,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nonnull Point pointAtTab(final @Nonnull JTabbedPaneLocation location,
                                            final @Nonnull JTabbedPane tabbedPane, final int index) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        return location.pointAt(tabbedPane, index);
-      }
-    });
+    Point result = execute(() -> location.pointAt(tabbedPane, index));
     return checkNotNull(result);
   }
 
@@ -237,12 +232,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nullable Component selectedComponent(final JTabbedPane tabbedPane) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        return tabbedPane.getSelectedComponent();
-      }
-    });
+    return execute(() -> tabbedPane.getSelectedComponent());
   }
 
   /**
@@ -296,12 +286,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nullable String titleAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return tabbedPane.getTitleAt(index.value);
-      }
-    });
+    return execute(() -> tabbedPane.getTitleAt(index.value));
   }
 
   /**

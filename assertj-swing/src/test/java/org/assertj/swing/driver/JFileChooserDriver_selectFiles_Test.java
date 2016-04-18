@@ -131,12 +131,7 @@ public class JFileChooserDriver_selectFiles_Test extends JFileChooserDriver_Test
 
   @RunsInEDT
   private static File[] selectedFilesIn(final JFileChooser fileChooser) {
-    return execute(new GuiQuery<File[]>() {
-      @Override
-      protected File[] executeInEDT() {
-        return fileChooser.getSelectedFiles();
-      }
-    });
+    return execute(() -> fileChooser.getSelectedFiles());
   }
 
   private static class TemporaryFolderAndFile {

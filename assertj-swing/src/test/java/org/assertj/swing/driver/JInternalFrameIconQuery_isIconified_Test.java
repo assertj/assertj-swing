@@ -79,12 +79,7 @@ public class JInternalFrameIconQuery_isIconified_Test extends RobotBasedTestCase
 
   @RunsInEDT
   private static boolean isIconified(final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return JInternalFrameIconQuery.isIconified(internalFrame);
-      }
-    });
+    return execute(() -> JInternalFrameIconQuery.isIconified(internalFrame));
   }
 
   @RunsInEDT

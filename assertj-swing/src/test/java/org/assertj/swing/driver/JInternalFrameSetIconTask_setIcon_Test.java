@@ -64,11 +64,6 @@ public class JInternalFrameSetIconTask_setIcon_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static boolean isIcon(final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return internalFrame.isIcon() && !internalFrame.isMaximum();
-      }
-    });
+    return execute(() -> internalFrame.isIcon() && !internalFrame.isMaximum());
   }
 }

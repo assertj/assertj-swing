@@ -26,7 +26,6 @@ import javax.swing.ListCellRenderer;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.cell.JComboBoxCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Default implementation of {@link JComboBoxCellReader}.
@@ -38,12 +37,7 @@ public class BasicJComboBoxCellReader implements JComboBoxCellReader {
   private static final JList<?> REFERENCE_JLIST = newJList();
 
   private static @Nonnull <T> JList<T> newJList() {
-    JList<T> result = execute(new GuiQuery<JList<T>>() {
-      @Override
-      protected @Nullable JList<T> executeInEDT() {
-        return new JList<T>();
-      }
-    });
+    JList<T> result = execute(() -> new JList<T>());
     return checkNotNull(result);
   }
 

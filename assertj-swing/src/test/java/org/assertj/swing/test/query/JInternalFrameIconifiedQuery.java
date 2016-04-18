@@ -34,12 +34,7 @@ public final class JInternalFrameIconifiedQuery {
    */
   @RunsInEDT
   public static @Nonnull Boolean isIconified(final @Nonnull JInternalFrame internalFrame) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return internalFrame.isIcon();
-      }
-    });
+    Boolean result = execute(() -> internalFrame.isIcon());
     return checkNotNull(result);
   }
 

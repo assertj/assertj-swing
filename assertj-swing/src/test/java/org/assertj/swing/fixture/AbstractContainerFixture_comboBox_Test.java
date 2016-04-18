@@ -100,12 +100,7 @@ public class AbstractContainerFixture_comboBox_Test extends RobotBasedTestCase {
     final JComboBox comboBox = new JComboBox(array("One", "Two", "Three"));
 
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

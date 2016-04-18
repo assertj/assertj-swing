@@ -31,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class ComponentLocationQuery {
   static @Nonnull Point locationOf(final @Nonnull Component component) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        return component.getLocation();
-      }
-    });
+    Point result = execute(() -> component.getLocation());
     return checkNotNull(result);
   }
 

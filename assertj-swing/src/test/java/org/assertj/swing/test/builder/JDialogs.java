@@ -24,7 +24,7 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Factory of {@link JDialog}s.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class JDialogs {
@@ -63,12 +63,7 @@ public final class JDialogs {
 
     @RunsInEDT
     public JDialog createNew() {
-      return execute(new GuiQuery<JDialog>() {
-        @Override
-        protected JDialog executeInEDT() {
-          return create();
-        }
-      });
+      return execute(() -> create());
     }
 
     @RunsInEDT

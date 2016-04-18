@@ -687,12 +687,7 @@ public class JTableDriver extends JComponentDriver {
   private static void requireEditableEqualTo(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                              boolean editable) {
     checkNotNull(cell);
-    boolean cellEditable = checkNotNull(execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return isCellEditable(table, cell);
-      }
-    }));
+    boolean cellEditable = checkNotNull(execute(() -> isCellEditable(table, cell)));
     assertThat(cellEditable).as(cellProperty(table, concat(EDITABLE_PROPERTY, " ", cell))).isEqualTo(editable);
   }
 
@@ -989,12 +984,7 @@ public class JTableDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull int[] selectedRowsOf(final @Nonnull JTable table) {
-    int[] result = execute(new GuiQuery<int[]>() {
-      @Override
-      protected int[] executeInEDT() {
-        return table.getSelectedRows();
-      }
-    });
+    int[] result = execute(() -> table.getSelectedRows());
     return checkNotNull(result);
   }
 

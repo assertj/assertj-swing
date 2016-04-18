@@ -90,12 +90,7 @@ public class ContainerFocusOwnerFinder_focusOwnerOf_Test extends SequentialEDTSa
 
   @RunsInEDT
   private Component focusOwnerOf(final Container c) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        return finder.focusOwnerOf(c);
-      }
-    });
+    return execute(() -> finder.focusOwnerOf(c));
   }
 
   private static class MyDialog extends TestDialog {
@@ -119,12 +114,7 @@ public class ContainerFocusOwnerFinder_focusOwnerOf_Test extends SequentialEDTSa
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

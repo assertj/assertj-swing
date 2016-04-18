@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JProgressBarValueQuery {
   @RunsInEDT
   static int valueOf(final JProgressBar progressBar) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return progressBar.getValue();
-      }
-    });
+    Integer result = execute(() -> progressBar.getValue());
     return checkNotNull(result);
   }
 

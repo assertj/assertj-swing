@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JProgressBarStringQuery {
   @RunsInEDT
   static @Nullable String stringOf(final @Nonnull JProgressBar progressBar) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return progressBar.getString();
-      }
-    });
+    return execute(() -> progressBar.getString());
   }
 
   private JProgressBarStringQuery() {

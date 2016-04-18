@@ -49,12 +49,7 @@ public class JSliderDriver_slideToMaximum_Test extends JSliderDriver_TestCase {
 
   @RunsInEDT
   private static int maximumOf(final JSlider slider) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return slider.getMaximum();
-      }
-    });
+    return execute(() -> slider.getMaximum());
   }
 
   @Test

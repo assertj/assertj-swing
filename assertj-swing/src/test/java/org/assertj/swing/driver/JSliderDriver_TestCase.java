@@ -25,7 +25,6 @@ import java.awt.Dimension;
 import javax.swing.JSlider;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -35,7 +34,7 @@ import org.junit.runners.Parameterized;
 
 /**
  * Base test case for {@link JSliderDriver}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -85,12 +84,7 @@ public abstract class JSliderDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final Class<? extends JSliderDriver_TestCase> testClass, final int orientation) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass, orientation);
-        }
-      });
+      return execute(() -> new MyWindow(testClass, orientation));
     }
 
     private MyWindow(Class<? extends JSliderDriver_TestCase> testClass, int orientation) {

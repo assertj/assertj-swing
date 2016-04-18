@@ -98,12 +98,7 @@ public class JTreeMatchingPathQuery_matchingPathFor_Test extends RobotBasedTestC
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     final MutableTreeNode root = createRoot();

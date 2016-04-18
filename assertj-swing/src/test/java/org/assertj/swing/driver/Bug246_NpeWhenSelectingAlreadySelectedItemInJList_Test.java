@@ -19,14 +19,13 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=246" target="_blank">Bug 246</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Bug246_NpeWhenSelectingAlreadySelectedItemInJList_Test extends RobotBasedTestCase {
@@ -50,12 +49,7 @@ public class Bug246_NpeWhenSelectingAlreadySelectedItemInJList_Test extends Robo
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JList list = new JList(array("One", "Two"));

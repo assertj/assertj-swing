@@ -70,12 +70,7 @@ public class FEST194_clickJTableHeaderColumnOutsideJTable_Test extends RobotBase
     private static final Dimension FRAME_SIZE = new Dimension((int) (COLUMN_WIDTH * 1.3), 200);
 
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTable table = table();

@@ -21,6 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.timing.Pause.pause;
 import static org.assertj.swing.util.Maps.newHashMap;
 
@@ -35,8 +36,6 @@ import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.driver.JTextComponentDriver;
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.recorder.KeyRecorder;
 import org.assertj.swing.test.swing.TestWindow;
@@ -133,12 +132,7 @@ public abstract class KeyStrokeMappingProvider_TestCase extends RobotBasedTestCa
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return GuiActionRunner.execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     final JTextArea textArea = new JTextArea(3, 8);

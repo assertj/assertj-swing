@@ -71,11 +71,6 @@ public class JInternalFrameDesktopPaneQuery_desktopPaneOf_Test extends Sequentia
 
   @RunsInEDT
   private static JDesktopPane desktopPaneOf(final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<JDesktopPane>() {
-      @Override
-      protected JDesktopPane executeInEDT() {
-        return JInternalFrameDesktopPaneQuery.desktopPaneOf(internalFrame);
-      }
-    });
+    return execute(() -> JInternalFrameDesktopPaneQuery.desktopPaneOf(internalFrame));
   }
 }

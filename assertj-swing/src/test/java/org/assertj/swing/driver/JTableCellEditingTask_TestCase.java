@@ -56,12 +56,7 @@ public abstract class JTableCellEditingTask_TestCase extends RobotBasedTestCase 
 
   @RunsInEDT
   final boolean isTableEditing() {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return window.table.isEditing();
-      }
-    });
+    return execute(() -> window.table.isEditing());
   }
 
   final void assertCellEditingStopped() {
@@ -75,12 +70,7 @@ public abstract class JTableCellEditingTask_TestCase extends RobotBasedTestCase 
     final MyTable table = new MyTable();
 
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

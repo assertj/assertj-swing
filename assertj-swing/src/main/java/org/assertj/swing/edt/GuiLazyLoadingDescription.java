@@ -35,12 +35,7 @@ public abstract class GuiLazyLoadingDescription extends Description {
    */
   @Override
   public final @Nonnull String value() {
-    String result = execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return loadDescription();
-      }
-    });
+    String result = execute(() -> loadDescription());
     return checkNotNull(result);
   }
 

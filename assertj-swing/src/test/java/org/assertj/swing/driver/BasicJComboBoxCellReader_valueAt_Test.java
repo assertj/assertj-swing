@@ -30,7 +30,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link BasicJComboBoxCellReader#valueAt(JComboBox, int)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -91,12 +91,7 @@ public class BasicJComboBoxCellReader_valueAt_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static String firstItemValue(final BasicJComboBoxCellReader reader, final JComboBox comboBox) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return reader.valueAt(comboBox, 0);
-      }
-    });
+    return execute(() -> reader.valueAt(comboBox, 0));
   }
 
   private static class MyWindow extends TestWindow {
@@ -104,12 +99,7 @@ public class BasicJComboBoxCellReader_valueAt_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

@@ -29,7 +29,6 @@ import javax.accessibility.AccessibleStateSet;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -39,7 +38,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ComponentPerformDefaultAccessibleActionTask#performDefaultAccessibleAction(Component)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -96,12 +95,7 @@ public class ComponentPerformDefaultAccessibleActionTask_performDefaultAccessibl
 
     @RunsInEDT
     static MyWindow createNew(final AccessibleContext accessibleContext) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(accessibleContext);
-        }
-      });
+      return execute(() -> new MyWindow(accessibleContext));
     }
 
     private MyWindow(AccessibleContext accessibleContext) {
@@ -133,7 +127,7 @@ public class ComponentPerformDefaultAccessibleActionTask_performDefaultAccessibl
     }
 
     void accessibleAction(AccessibleAction newAccessibleAction) {
-      this.accessibleAction = newAccessibleAction;
+      accessibleAction = newAccessibleAction;
     }
 
     @Override

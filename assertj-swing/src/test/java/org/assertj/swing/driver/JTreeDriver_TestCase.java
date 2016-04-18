@@ -79,12 +79,7 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static String textOf(final TreePath path, final String separator) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return pathText(path, separator);
-      }
-    });
+    return execute(() -> pathText(path, separator));
   }
 
   @RunsInCurrentThread
@@ -133,12 +128,7 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static DefaultMutableTreeNode firstChildOf(final TreeNode node) {
-    return execute(new GuiQuery<DefaultMutableTreeNode>() {
-      @Override
-      protected DefaultMutableTreeNode executeInEDT() {
-        return (DefaultMutableTreeNode) node.getChildAt(0);
-      }
-    });
+    return execute(() -> (DefaultMutableTreeNode) node.getChildAt(0));
   }
 
   @RunsInEDT
@@ -154,22 +144,12 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static String textOf(final DefaultMutableTreeNode node) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return (String) node.getUserObject();
-      }
-    });
+    return execute(() -> (String) node.getUserObject());
   }
 
   @RunsInEDT
   static DefaultMutableTreeNode rootOf(final JTree tree) {
-    return execute(new GuiQuery<DefaultMutableTreeNode>() {
-      @Override
-      protected DefaultMutableTreeNode executeInEDT() {
-        return (DefaultMutableTreeNode) tree.getModel().getRoot();
-      }
-    });
+    return execute(() -> (DefaultMutableTreeNode) tree.getModel().getRoot());
   }
 
   static class MyWindow extends TestWindow {
@@ -177,12 +157,7 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     final TestTree tree = new TestTree(nodes());

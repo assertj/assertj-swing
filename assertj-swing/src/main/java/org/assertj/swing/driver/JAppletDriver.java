@@ -29,7 +29,6 @@ import javax.swing.JApplet;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.internal.annotation.InternalApi;
 
@@ -87,22 +86,12 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
 
   @RunsInEDT
   private static @Nullable URL documentBase(final @Nonnull JApplet applet) {
-    return execute(new GuiQuery<URL>() {
-      @Override
-      protected URL executeInEDT() {
-        return applet.getDocumentBase();
-      }
-    });
+    return execute(() -> applet.getDocumentBase());
   }
 
   @RunsInEDT
   private static @Nullable String parameter(final @Nonnull JApplet applet, final @Nullable String parameterName) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return applet.getParameter(parameterName);
-      }
-    });
+    return execute(() -> applet.getParameter(parameterName));
   }
 
   @RunsInEDT

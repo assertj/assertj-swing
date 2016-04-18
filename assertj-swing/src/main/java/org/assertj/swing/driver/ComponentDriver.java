@@ -36,7 +36,6 @@ import java.awt.Font;
 import java.awt.Point;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JMenu;
 import javax.swing.JPopupMenu;
 
@@ -50,7 +49,6 @@ import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.Settings;
 import org.assertj.swing.edt.GuiLazyLoadingDescription;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.timing.Timeout;
@@ -650,12 +648,7 @@ public class ComponentDriver {
    */
   @RunsInEDT
   public @Nonnull Font fontOf(final @Nonnull Component c) {
-    Font result = execute(new GuiQuery<Font>() {
-      @Override
-      protected @Nullable Font executeInEDT() {
-        return c.getFont();
-      }
-    });
+    Font result = execute(() -> c.getFont());
     return checkNotNull(result);
   }
 
@@ -679,12 +672,7 @@ public class ComponentDriver {
    */
   @RunsInEDT
   public @Nonnull Color foregroundOf(final @Nonnull Component c) {
-    Color result = execute(new GuiQuery<Color>() {
-      @Override
-      protected @Nullable Color executeInEDT() {
-        return c.getForeground();
-      }
-    });
+    Color result = execute(() -> c.getForeground());
     return checkNotNull(result);
   }
 }

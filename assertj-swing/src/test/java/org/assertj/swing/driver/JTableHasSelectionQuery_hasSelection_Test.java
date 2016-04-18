@@ -65,23 +65,13 @@ public class JTableHasSelectionQuery_hasSelection_Test extends RobotBasedTestCas
 
   @RunsInEDT
   private static boolean hasSelection(final TestTable table) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return JTableHasSelectionQuery.hasSelection(table);
-      }
-    });
+    return execute(() -> JTableHasSelectionQuery.hasSelection(table));
   }
 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final TestTable table = new TestTable(2, 4);

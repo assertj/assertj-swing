@@ -843,14 +843,7 @@ public class BasicRobot implements Robot {
 
   @RunsInEDT
   private boolean isWindowAncestorReadyForInput(final JPopupMenu popup) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        Window ancestor = checkNotNull(getWindowAncestor(popup));
-        return isReadyForInput(ancestor);
-      }
-    });
-    return checkNotNull(result);
+    return checkNotNull(execute(() -> isReadyForInput(checkNotNull(getWindowAncestor(popup)))));
   }
 
   /**

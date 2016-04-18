@@ -12,67 +12,63 @@
  */
 package org.assertj.swing.jide.components.driver;
 
-import javax.swing.*;
-import com.jidesoft.pane.CollapsiblePane;
-import static org.assertj.swing.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+
+import javax.swing.JButton;
+
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.matcher.JButtonMatcher;
 import org.assertj.swing.driver.JComponentDriver;
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
+
+import com.jidesoft.pane.CollapsiblePane;
 
 /**
  * TODO
- * 
+ *
  * @author Peter Murray
  */
 public class CollapsiblePaneDriver extends JComponentDriver {
 
   public CollapsiblePaneDriver(Robot robot) {
-	super(robot);
+    super(robot);
   }
 
   public void expand(final CollapsiblePane pane) {
-	if (isExpanded(pane)) {
-	  return;
-	}
-	clickExpandCollapseButton(pane);
+    if (isExpanded(pane)) {
+      return;
+    }
+    clickExpandCollapseButton(pane);
   }
 
   public void collapse(final CollapsiblePane pane) {
-	if (!isExpanded(pane)) {
-	  return;
-	}
-	clickExpandCollapseButton(pane);
-	robot.waitForIdle();
+    if (!isExpanded(pane)) {
+      return;
+    }
+    clickExpandCollapseButton(pane);
+    robot.waitForIdle();
   }
 
   public boolean isExpanded(final CollapsiblePane pane) {
-	GuiQuery<Boolean> query = new GuiQuery<Boolean>() {
-	  @Override
-	  protected Boolean executeInEDT() throws Throwable {
-		return pane.isExpanded();
-	  }
-	};
-	return GuiActionRunner.execute(query);
+    return execute(() -> pane.isExpanded());
   }
 
   public void requireExpanded(CollapsiblePane pane) {
-	assertThat(isExpanded(pane)).as("Expanded Property").isTrue();
+    assertThat(isExpanded(pane)).as("Expanded Property").isTrue();
   }
 
   public void requireCollapsed(CollapsiblePane pane) {
-	assertThat(isExpanded(pane)).as("Expanded Property").isFalse();
+    assertThat(isExpanded(pane)).as("Expanded Property").isFalse();
   }
 
   // @RunsInEDT
   private void clickExpandCollapseButton(CollapsiblePane pane) {
-	final JButton button = robot.finder().find(pane,
-	                                           JButtonMatcher.withName("Collapse/Expand"));
-	robot.focus(pane);
-	robot.moveMouse(button);
-	robot.click(button);
-	// Pause.pause(500);
-	robot.waitForIdle();
+    final JButton button = robot.finder().find(pane,
+                                               JButtonMatcher.withName("Collapse/Expand"));
+    robot.focus(pane);
+    robot.moveMouse(button);
+    robot.click(button);
+    // Pause.pause(500);
+    robot.waitForIdle();
   }
 }

@@ -19,17 +19,15 @@ import java.awt.Component;
 import java.awt.Point;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the location of an AWT or Swing {@code Component} on screen. This query is executed in the event dispatch
  * thread (EDT.)
- * 
+ *
  * @see Component#getLocationOnScreen()
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -37,19 +35,14 @@ public final class ComponentLocationOnScreenQuery {
   /**
    * Returns the location of the given AWT or Swing {@code Component} on screen. This query is executed in the event
    * dispatch thread (EDT.)
-   * 
+   *
    * @param component the given {@code Component}.
    * @return the location of the given {@code Component} on screen.
    * @see Component#getLocationOnScreen()
    */
   @RunsInEDT
   public static @Nonnull Point locationOnScreen(final @Nonnull Component component) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected @Nullable Point executeInEDT() {
-        return component.getLocationOnScreen();
-      }
-    });
+    Point result = execute(() -> component.getLocationOnScreen());
     return checkNotNull(result);
   }
 

@@ -57,12 +57,7 @@ public class JToggleButtonFixture_constructor_withRobotAndName_Test extends Robo
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JToggleButton toggleButton = new JToggleButton("Check Me");

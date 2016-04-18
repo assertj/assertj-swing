@@ -14,19 +14,18 @@ package org.assertj.swing.fixture;
 
 import static org.assertj.core.util.Arrays.array;
 import static org.assertj.swing.data.TableCell.row;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-299" target="_blank">FEST-299</a>.
- * 
+ *
  * @author Rahel Luethy
  * @author Alex Ruiz
  */
@@ -52,12 +51,7 @@ public class FEST299_ColumnHeaderSort_Test extends RobotBasedTestCase {
     private static final long serialVersionUID = 1L;
 
     static MyWindow createNew() {
-      return GuiActionRunner.execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() throws Throwable {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

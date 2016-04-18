@@ -58,12 +58,7 @@ public class JScrollBarFixture_constructor_withRobotAndName_Test extends RobotBa
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JScrollBar scrollBar = new JScrollBar(VERTICAL, 8, 1, 6, 10);

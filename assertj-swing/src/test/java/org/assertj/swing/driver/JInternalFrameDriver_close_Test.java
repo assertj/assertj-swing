@@ -38,12 +38,7 @@ public class JInternalFrameDriver_close_Test extends JInternalFrameDriver_TestCa
 
   @RunsInEDT
   private static boolean isClosed(final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return internalFrame.isClosed();
-      }
-    });
+    return execute(() -> internalFrame.isClosed());
   }
 
   @Test

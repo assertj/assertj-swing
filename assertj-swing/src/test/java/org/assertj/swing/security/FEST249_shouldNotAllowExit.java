@@ -12,6 +12,7 @@
  */
 package org.assertj.swing.security;
 
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.security.NoExitSecurityManagerInstaller.installNoExitSecurityManager;
 
 import java.awt.event.ActionEvent;
@@ -19,8 +20,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -28,7 +27,7 @@ import org.junit.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-249" target="_blank">FEST-249</a>
- * 
+ *
  * @author Alex Ruiz
  */
 public class FEST249_shouldNotAllowExit extends RobotBasedTestCase {
@@ -57,12 +56,7 @@ public class FEST249_shouldNotAllowExit extends RobotBasedTestCase {
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return GuiActionRunner.execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private final JButton button = new JButton("Exit");

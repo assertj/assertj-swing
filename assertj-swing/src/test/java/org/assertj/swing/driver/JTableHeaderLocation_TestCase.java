@@ -20,11 +20,10 @@ import java.awt.Rectangle;
 import javax.swing.table.JTableHeader;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Base test case for {@link JTableHeaderLocation}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -43,12 +42,7 @@ public abstract class JTableHeaderLocation_TestCase extends JTableHeaderBasedTes
 
   @RunsInEDT
   private static Point pointAt(final JTableHeaderLocation location, final JTableHeader tableHeader, final int index) {
-    return execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() throws Throwable {
-        return location.pointAt(tableHeader, index);
-      }
-    });
+    return execute(() -> location.pointAt(tableHeader, index));
   }
 
   @RunsInEDT
@@ -59,11 +53,6 @@ public abstract class JTableHeaderLocation_TestCase extends JTableHeaderBasedTes
 
   @RunsInEDT
   private static Rectangle rectOf(final JTableHeader tableHeader, final int index) {
-    return execute(new GuiQuery<Rectangle>() {
-      @Override
-      protected Rectangle executeInEDT() {
-        return tableHeader.getHeaderRect(index);
-      }
-    });
+    return execute(() -> tableHeader.getHeaderRect(index));
   }
 }

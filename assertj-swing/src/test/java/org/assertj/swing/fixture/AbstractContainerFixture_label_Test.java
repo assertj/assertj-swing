@@ -99,12 +99,7 @@ public class AbstractContainerFixture_label_Test extends RobotBasedTestCase {
     final JLabel label = new JLabel("Read Me");
 
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

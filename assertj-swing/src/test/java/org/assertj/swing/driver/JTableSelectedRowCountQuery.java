@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiQuery;
  */
 final class JTableSelectedRowCountQuery {
   static int selectedRowCountOf(final @Nonnull JTable table) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return table.getSelectedRowCount();
-      }
-    });
+    Integer result = execute(() -> table.getSelectedRowCount());
     return checkNotNull(result);
   }
 

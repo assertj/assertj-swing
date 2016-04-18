@@ -65,12 +65,7 @@ public class Bug197_clickVisibleAreaInComponent_Test extends RobotBasedTestCase 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JButton button = new JButton("Click Me");

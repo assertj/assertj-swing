@@ -32,12 +32,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JTableHeaderQuery {
   @RunsInEDT
   static @Nullable JTableHeader tableHeader(final @Nonnull JTable table) {
-    return execute(new GuiQuery<JTableHeader>() {
-      @Override
-      protected @Nullable JTableHeader executeInEDT() {
-        return table.getTableHeader();
-      }
-    });
+    return execute(() -> table.getTableHeader());
   }
 
   private JTableHeaderQuery() {

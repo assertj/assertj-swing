@@ -59,12 +59,7 @@ public class FEST227_expandJTreePathMayCauseNPE_Test extends RobotBasedTestCase 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final TestTree tree = new TestTree(nodes());

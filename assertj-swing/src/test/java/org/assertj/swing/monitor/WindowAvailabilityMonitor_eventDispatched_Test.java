@@ -85,12 +85,7 @@ public class WindowAvailabilityMonitor_eventDispatched_Test extends WindowAvaila
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     final JTextField textField = new JTextField("Hello");

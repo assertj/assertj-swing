@@ -67,12 +67,7 @@ public class BasicRobot_rotateMouseWheelTest extends BasicRobot_TestCase {
 
   @RunsInEDT
   private static int firstVisibleIndexOf(final JList list) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return list.getFirstVisibleIndex();
-      }
-    });
+    Integer result = execute(() -> list.getFirstVisibleIndex());
     return checkNotNull(result);
   }
 

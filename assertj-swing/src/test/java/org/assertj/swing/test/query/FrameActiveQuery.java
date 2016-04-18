@@ -33,12 +33,7 @@ public final class FrameActiveQuery {
    */
   @RunsInEDT
   public static @Nonnull Boolean isActive(final @Nonnull Frame frame) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return frame.isActive();
-      }
-    });
+    return execute(() -> frame.isActive());
   }
 
   private FrameActiveQuery() {

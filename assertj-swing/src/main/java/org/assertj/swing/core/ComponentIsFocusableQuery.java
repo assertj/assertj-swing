@@ -32,12 +32,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class ComponentIsFocusableQuery {
   @RunsInEDT
   static boolean isFocusable(final @Nonnull Component component) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return component.isFocusable();
-      }
-    });
+    Boolean result = execute(() -> component.isFocusable());
     return Preconditions.checkNotNull(result);
   }
 

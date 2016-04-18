@@ -64,11 +64,6 @@ public abstract class WindowDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static boolean isActive(final Window w) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return w.isActive();
-      }
-    });
+    return execute(() -> w.isActive());
   }
 }

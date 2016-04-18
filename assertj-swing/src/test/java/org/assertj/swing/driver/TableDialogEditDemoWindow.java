@@ -17,13 +17,12 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.swing.TableDialogEditDemo;
 import org.assertj.swing.test.swing.TestWindow;
 
 /**
  * A frame hosting {@link TableDialogEditDemo}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -32,12 +31,7 @@ class TableDialogEditDemoWindow extends TestWindow {
 
   @RunsInEDT
   public static TableDialogEditDemoWindow createNew(final Class<?> testClass) {
-    return execute(new GuiQuery<TableDialogEditDemoWindow>() {
-      @Override
-      protected TableDialogEditDemoWindow executeInEDT() {
-        return new TableDialogEditDemoWindow(testClass);
-      }
-    });
+    return execute(() -> new TableDialogEditDemoWindow(testClass));
   }
 
   private TableDialogEditDemoWindow(Class<?> testClass) {

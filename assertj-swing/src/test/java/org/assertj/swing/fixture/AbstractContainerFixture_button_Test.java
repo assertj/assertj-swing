@@ -99,12 +99,7 @@ public class AbstractContainerFixture_button_Test extends RobotBasedTestCase {
     final JButton button = new JButton("Click Me");
 
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

@@ -55,12 +55,7 @@ public class JFileChooserFormatter_format_Test extends SequentialEDTSafeTestCase
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JFileChooser fileChooser = new JFileChooser();

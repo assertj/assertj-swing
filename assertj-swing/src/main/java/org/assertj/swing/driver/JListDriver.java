@@ -832,12 +832,7 @@ public class JListDriver extends JComponentDriver {
   @RunsInEDT
   private static int itemIndex(final @Nonnull JList<?> list, final @Nonnull TextMatcher matcher,
                                final @Nonnull JListCellReader cellReader) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return matchingItemIndex(list, matcher, cellReader);
-      }
-    });
+    Integer result = execute(() -> matchingItemIndex(list, matcher, cellReader));
     return checkNotNull(result);
   }
 

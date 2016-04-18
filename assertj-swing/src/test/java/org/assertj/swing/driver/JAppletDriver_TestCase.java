@@ -27,7 +27,6 @@ import javax.swing.JApplet;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Before;
 
@@ -66,12 +65,7 @@ public class JAppletDriver_TestCase extends EDTSafeTestCase {
 
     @RunsInEDT
     static JAppletStub createNew() {
-      return execute(new GuiQuery<JAppletStub>() {
-        @Override
-        protected JAppletStub executeInEDT() {
-          return new JAppletStub();
-        }
-      });
+      return execute(() -> new JAppletStub());
     }
 
     @RunsInCurrentThread

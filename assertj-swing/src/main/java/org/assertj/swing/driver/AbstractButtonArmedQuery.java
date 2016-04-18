@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class AbstractButtonArmedQuery {
   @RunsInEDT
   static boolean isArmed(final @Nonnull AbstractButton button) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return button.getModel().isArmed();
-      }
-    });
+    Boolean result = execute(() -> button.getModel().isArmed());
     return checkNotNull(result);
   }
 

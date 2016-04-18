@@ -32,12 +32,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JOptionPaneTitleQuery {
   @RunsInEDT
   static @Nullable String titleOf(final @Nonnull JOptionPane optionPane) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return ((Dialog) optionPane.getRootPane().getParent()).getTitle();
-      }
-    });
+    return execute(() -> ((Dialog) optionPane.getRootPane().getParent()).getTitle());
   }
 
   private JOptionPaneTitleQuery() {

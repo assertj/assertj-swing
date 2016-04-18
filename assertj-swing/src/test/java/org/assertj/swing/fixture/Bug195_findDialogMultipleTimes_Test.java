@@ -71,12 +71,7 @@ public class Bug195_findDialogMultipleTimes_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     private static boolean isShowing(final Dialog dialog) {
-      return execute(new GuiQuery<Boolean>() {
-        @Override
-        protected Boolean executeInEDT() {
-          return dialog.isShowing();
-        }
-      });
+      return execute(() -> dialog.isShowing());
     }
 
     @Override
@@ -90,12 +85,7 @@ public class Bug195_findDialogMultipleTimes_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static TestDialog createNew(final String title) {
-      return execute(new GuiQuery<TestDialog>() {
-        @Override
-        protected TestDialog executeInEDT() {
-          return new TestDialog(title);
-        }
-      });
+      return execute(() -> new TestDialog(title));
     }
 
     private TestDialog(String title) {

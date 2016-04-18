@@ -61,12 +61,7 @@ public class TestMdiWindow extends TestWindow {
    */
   @RunsInEDT
   public static TestMdiWindow createNewWindow(final Class<?> testClass) {
-    return execute(new GuiQuery<TestMdiWindow>() {
-      @Override
-      protected TestMdiWindow executeInEDT() {
-        return createInCurrentThread(testClass);
-      }
-    });
+    return execute(() -> createInCurrentThread(testClass));
   }
 
   private final JDesktopPane desktop;

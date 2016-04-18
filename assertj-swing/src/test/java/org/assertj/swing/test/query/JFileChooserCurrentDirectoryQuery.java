@@ -39,12 +39,7 @@ public final class JFileChooserCurrentDirectoryQuery {
    */
   @RunsInEDT
   public static @Nonnull File currentDirectoryOf(final @Nonnull JFileChooser fileChooser) {
-    File result = execute(new GuiQuery<File>() {
-      @Override
-      protected File executeInEDT() {
-        return fileChooser.getCurrentDirectory();
-      }
-    });
+    File result = execute(() -> fileChooser.getCurrentDirectory());
     return checkNotNull(result);
   }
 

@@ -68,12 +68,7 @@ public class TestDialog extends JDialog {
    */
   @RunsInEDT
   public static TestDialog createNewDialog(final Frame owner) {
-    return execute(new GuiQuery<TestDialog>() {
-      @Override
-      protected TestDialog executeInEDT() {
-        return createInCurrentThread(owner);
-      }
-    });
+    return execute(() -> createInCurrentThread(owner));
   }
 
   @RunsInCurrentThread

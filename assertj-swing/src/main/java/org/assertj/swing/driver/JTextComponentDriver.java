@@ -230,12 +230,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   @RunsInEDT
   private static @Nonnull Point scrollToPosition(final @Nonnull JTextComponent textBox, final int index) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        return scrollToVisible(textBox, index);
-      }
-    });
+    Point result = execute(() -> scrollToVisible(textBox, index));
     return checkNotNull(result);
   }
 

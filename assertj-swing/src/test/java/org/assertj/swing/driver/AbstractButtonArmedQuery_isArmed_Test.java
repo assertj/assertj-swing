@@ -14,6 +14,7 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.task.AbstractButtonSetArmedTask.setArmed;
 
 import java.util.Collection;
@@ -22,8 +23,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JCheckBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.data.BooleanProvider;
 import org.assertj.swing.test.swing.TestWindow;
@@ -69,12 +68,7 @@ public class AbstractButtonArmedQuery_isArmed_Test extends RobotBasedTestCase {
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return GuiActionRunner.execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JCheckBox checkBox = new JCheckBox("A Button");

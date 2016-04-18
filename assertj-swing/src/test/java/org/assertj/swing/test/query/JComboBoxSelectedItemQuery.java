@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiQuery;
 public final class JComboBoxSelectedItemQuery {
   @RunsInEDT
   public static @Nullable Object selectedItemOf(final @Nonnull JComboBox comboBox) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected Object executeInEDT() {
-        return comboBox.getSelectedItem();
-      }
-    });
+    return execute(() -> comboBox.getSelectedItem());
   }
 
   private JComboBoxSelectedItemQuery() {

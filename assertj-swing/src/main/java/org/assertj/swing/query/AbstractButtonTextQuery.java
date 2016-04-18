@@ -38,12 +38,7 @@ public final class AbstractButtonTextQuery {
    */
   @RunsInEDT
   public static @Nullable String textOf(final @Nonnull AbstractButton button) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return button.getText();
-      }
-    });
+    return execute(() -> button.getText());
   }
 
   private AbstractButtonTextQuery() {

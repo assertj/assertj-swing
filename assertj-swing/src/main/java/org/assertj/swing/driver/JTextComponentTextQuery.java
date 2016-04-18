@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JTextComponentTextQuery {
   @RunsInEDT
   static @Nullable String textOf(final @Nonnull JTextComponent textComponent) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return textComponent.getText();
-      }
-    });
+    return execute(() -> textComponent.getText());
   }
 
   private JTextComponentTextQuery() {

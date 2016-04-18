@@ -136,11 +136,6 @@ public class BasicJTableCellReader_valueAt_Test extends BasicJTableCellReader_Te
 
   @RunsInEDT
   private static String valueAt(final BasicJTableCellReader reader, final JTable table, final int row, final int column) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return reader.valueAt(table, row, column);
-      }
-    });
+    return execute(() -> reader.valueAt(table, row, column));
   }
 }

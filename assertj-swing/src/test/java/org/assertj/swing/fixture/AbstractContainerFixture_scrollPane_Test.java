@@ -105,13 +105,7 @@ public class AbstractContainerFixture_scrollPane_Test extends RobotBasedTestCase
     final JScrollPane scrollPane = new JScrollPane(new JList(array("One", "Two")));
 
     static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
-      MyWindow result = execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
-      return checkNotNull(result);
+      return checkNotNull(execute(() -> new MyWindow(testClass)));
     }
 
     private MyWindow(@Nonnull Class<?> testClass) {

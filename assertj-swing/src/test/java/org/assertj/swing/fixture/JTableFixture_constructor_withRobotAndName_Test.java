@@ -62,12 +62,7 @@ public class JTableFixture_constructor_withRobotAndName_Test extends RobotBasedT
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTable table = new JTable(8, 6);

@@ -44,11 +44,6 @@ public abstract class JTreeDriver_toggleCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static boolean isRowExpanded(final JTree tree, final int row) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return tree.isExpanded(row);
-      }
-    });
+    return execute(() -> tree.isExpanded(row));
   }
 }

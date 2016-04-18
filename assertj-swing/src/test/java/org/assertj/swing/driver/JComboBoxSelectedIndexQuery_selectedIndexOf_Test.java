@@ -15,14 +15,13 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.swing.driver.JComboBoxSetSelectedIndexTask.setSelectedIndex;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.util.Collection;
 
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -33,7 +32,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * Tests for {@link JComboBoxSelectedIndexQuery#selectedIndexOf(JComboBox)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -72,12 +71,7 @@ public class JComboBoxSelectedIndexQuery_selectedIndexOf_Test extends RobotBased
 
     @RunsInEDT
     static MyWindow createNew() {
-      return GuiActionRunner.execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() throws Throwable {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

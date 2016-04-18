@@ -29,7 +29,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link BasicJListCellReader#valueAt(JList, int)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -80,12 +80,7 @@ public class BasicJListCellReader_valueAt_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static String firstItemValue(final BasicJListCellReader reader, final JList list) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return reader.valueAt(list, 0);
-      }
-    });
+    return execute(() -> reader.valueAt(list, 0));
   }
 
   private static class MyWindow extends TestWindow {
@@ -93,12 +88,7 @@ public class BasicJListCellReader_valueAt_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

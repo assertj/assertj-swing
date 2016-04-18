@@ -57,12 +57,7 @@ public class JButtonFixture_constructor_withRobotAndName_Test extends RobotBased
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JButton button = new JButton("Click Me");

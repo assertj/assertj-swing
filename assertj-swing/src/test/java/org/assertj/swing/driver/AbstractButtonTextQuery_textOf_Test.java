@@ -18,7 +18,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -26,7 +25,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link AbstractButtonTextQuery#textOf(javax.swing.AbstractButton)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class AbstractButtonTextQuery_textOf_Test extends RobotBasedTestCase {
@@ -48,12 +47,7 @@ public class AbstractButtonTextQuery_textOf_Test extends RobotBasedTestCase {
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final MyButton button = new MyButton("A Button");

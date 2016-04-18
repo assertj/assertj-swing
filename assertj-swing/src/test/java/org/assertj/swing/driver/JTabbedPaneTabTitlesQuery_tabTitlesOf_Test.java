@@ -49,12 +49,7 @@ public class JTabbedPaneTabTitlesQuery_tabTitlesOf_Test extends RobotBasedTestCa
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

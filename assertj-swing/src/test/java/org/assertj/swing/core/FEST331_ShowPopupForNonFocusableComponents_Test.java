@@ -22,14 +22,13 @@ import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for bug <a href="http://jira.codehaus.org/browse/FEST-331" target="_blank">FEST_331</a>.
- * 
+ *
  * @author Yvonne Wang
  */
 public class FEST331_ShowPopupForNonFocusableComponents_Test extends RobotBasedTestCase {
@@ -50,12 +49,7 @@ public class FEST331_ShowPopupForNonFocusableComponents_Test extends RobotBasedT
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTextField nonFocusableTextField = new JTextField(20);

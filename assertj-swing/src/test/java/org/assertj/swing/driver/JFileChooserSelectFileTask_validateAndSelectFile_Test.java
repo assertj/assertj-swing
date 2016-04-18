@@ -63,23 +63,13 @@ public class JFileChooserSelectFileTask_validateAndSelectFile_Test extends Robot
 
   @RunsInEDT
   private static File selectedFileOf(final JFileChooser fileChooser) {
-    return execute(new GuiQuery<File>() {
-      @Override
-      protected File executeInEDT() {
-        return fileChooser.getSelectedFile();
-      }
-    });
+    return execute(() -> fileChooser.getSelectedFile());
   }
 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JFileChooser fileChooser = new JFileChooser(temporaryFolder());

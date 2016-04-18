@@ -32,12 +32,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JLabelTextQuery {
   @RunsInEDT
   static @Nullable String textOf(final @Nonnull JLabel label) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return label.getText();
-      }
-    });
+    return execute(() -> label.getText());
   }
 
   private JLabelTextQuery() {
