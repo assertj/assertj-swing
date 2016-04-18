@@ -19,7 +19,7 @@ import org.assertj.swing.test.swing.TestApplet;
 import org.junit.Test;
 
 /**
- * Tests for {@link AppletLauncher#withParameters(AppletParameter..).}.
+ * Tests for {@link AppletLauncher#withParameters(AppletParameter...)}.
  * 
  * @author Yvonne Wang
  */

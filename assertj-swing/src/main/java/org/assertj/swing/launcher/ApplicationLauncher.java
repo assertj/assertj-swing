@@ -44,11 +44,11 @@ import org.assertj.swing.exception.UnexpectedException;
  * </p>
  *
  * <pre>
- * ApplicationLauncher.{@link #application(Class) application}(JavaApp.class).{@link #withArgs(String..). withArgs}(&quot;arg1&quot;, &quot;arg2&quot;).{@link #start() start}();
+ * ApplicationLauncher.{@link #application(Class) application}(JavaApp.class).{@link #withArgs(String...) withArgs}(&quot;arg1&quot;, &quot;arg2&quot;).{@link #start() start}();
  *
  * // or
  *
- * ApplicationLauncher.{@link #application(String) application}(&quot;org.assertj.swing.application.JavaApp&quot;).{@link #withArgs(String..). withArgs}(&quot;arg1&quot;, &quot;arg2&quot;).{@link #start() start}();
+ * ApplicationLauncher.{@link #application(String) application}(&quot;org.assertj.swing.application.JavaApp&quot;).{@link #withArgs(String...) withArgs}(&quot;arg1&quot;, &quot;arg2&quot;).{@link #start() start}();
  * </pre>
  *
  * @author Yvonne Wang

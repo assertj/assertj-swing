@@ -32,7 +32,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 /**
- * Tests for {@link JPopupMenuFixture#menuItemWithPath(String..).}.
+ * Tests for {@link JPopupMenuFixture#menuItemWithPath(String...)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 
 /**
- * Tests for {@link InputModifiers#unify(int..).}.
+ * Tests for {@link InputModifiers#unify(int...)}.
  * 
  * @author Alex Ruiz
  */

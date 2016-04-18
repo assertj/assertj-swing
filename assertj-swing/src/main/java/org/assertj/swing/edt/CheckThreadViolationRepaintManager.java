@@ -26,14 +26,14 @@ import javax.swing.RepaintManager;
  * This class is used to detect Event Dispatch Thread rule violations<br>
  * See <a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/threads.html">How to Use Threads</a> for more info
  * </p>
- * 
+ *
  * <p>
  * This is a modification of original idea of Scott Delap.<br>
  * </p>
- * 
+ *
  * @author Scott Delap
  * @author Alexander Potochkin
- * 
+ *
  *         https://swinghelper.dev.java.net/
  */
 abstract class CheckThreadViolationRepaintManager extends RepaintManager {
@@ -81,7 +81,7 @@ abstract class CheckThreadViolationRepaintManager extends RepaintManager {
         }
       }
       if (imageUpdate) {
-        // assuming it is java.awt.image.ImageObserver.imageUpdate(..).
+        // assuming it is java.awt.image.ImageObserver.imageUpdate(...)
         // image was asynchronously updated, that's ok
         return;
       }

@@ -15,7 +15,7 @@ package org.assertj.swing.driver;
 import org.junit.Test;
 
 /**
- * Tests for {@link JListDriver#requireSelectedItems(javax.swing.JList, String..).}.
+ * Tests for {@link JListDriver#requireSelectedItems(javax.swing.JList, String...)}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

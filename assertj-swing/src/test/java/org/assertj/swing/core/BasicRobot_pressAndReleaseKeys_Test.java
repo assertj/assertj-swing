@@ -27,7 +27,7 @@ import org.assertj.swing.timing.Condition;
 import org.junit.Test;
 
 /**
- * Tests for {@link BasicRobot#pressAndReleaseKeys(int..).}.
+ * Tests for {@link BasicRobot#pressAndReleaseKeys(int...)}.
  * 
  * @author Yvonne Wang
  * @author Alex Ruiz

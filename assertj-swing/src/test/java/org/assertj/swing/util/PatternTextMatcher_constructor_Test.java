@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 import org.junit.Test;
 
 /**
- * Tests for {@link PatternTextMatcher#PatternTextMatcher(java.util.regex.Pattern..).}.
+ * Tests for {@link PatternTextMatcher#PatternTextMatcher(java.util.regex.Pattern...)}.
  * 
  * @author Alex Ruiz
  */

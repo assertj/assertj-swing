@@ -159,7 +159,7 @@ public class AppletLauncher {
 
   /**
    * Sets the parameters for the {@code Applet} to launch, as an alternative to
-   * {@link #withParameters(AppletParameter..).}.
+   * {@link #withParameters(AppletParameter...)}.
    *
    * @param newParameters the parameters for the {@code Applet} to launch.
    * @return this launcher.
