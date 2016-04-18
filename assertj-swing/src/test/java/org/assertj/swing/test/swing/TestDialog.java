@@ -45,7 +45,7 @@ public class TestDialog extends JDialog {
   /**
    * Creates a new {@link TestDialog} and displays it on the screen with the given frame as its owner. This constructor
    * will set the title of the dialog to be the same as its owner. This method is executed in the event dispatch thread
-   * (EDT.)
+   * (EDT).
    *
    * @param owner the owner of the dialog to create.
    * @return the created window.
@@ -59,7 +59,7 @@ public class TestDialog extends JDialog {
 
   /**
    * Creates a new {@link TestDialog} with the given frame as its owner. This constructor will set the title of the
-   * dialog to be the same as its owner. This method is executed in the event dispatch thread (EDT.)
+   * dialog to be the same as its owner. This method is executed in the event dispatch thread (EDT).
    *
    * @param owner the owner of the dialog to create.
    * @return the created window.
@@ -89,7 +89,7 @@ public class TestDialog extends JDialog {
 
   /**
    * Adds the given GUI components to this dialog. This method is <b>not</b> executed in the event dispatch thread
-   * (EDT.)
+   * (EDT).
    *
    * @param components the components to add.
    */
@@ -101,7 +101,7 @@ public class TestDialog extends JDialog {
   }
 
   /**
-   * Displays this dialog on the screen. This method is executed in the event dispatch thread (EDT.)
+   * Displays this dialog on the screen. This method is executed in the event dispatch thread (EDT).
    */
   @RunsInEDT
   public void display() {
@@ -120,7 +120,7 @@ public class TestDialog extends JDialog {
 
   /**
    * Displays this dialog on the screen using the given dimension as its preferred size. This method is executed in the
-   * event dispatch thread (EDT.)
+   * event dispatch thread (EDT).
    *
    * @param preferredSize the preferred size to set to this dialog before displaying it on the screen.
    */
@@ -165,7 +165,7 @@ public class TestDialog extends JDialog {
   }
 
   /**
-   * Hides and disposes this dialog. This method is executed in the event dispatch thread (EDT.)
+   * Hides and disposes this dialog. This method is executed in the event dispatch thread (EDT).
    */
   @RunsInEDT
   public void destroy() {

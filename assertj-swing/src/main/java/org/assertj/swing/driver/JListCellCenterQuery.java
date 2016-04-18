@@ -33,7 +33,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 final class JListCellCenterQuery {
   /*
    * Sometimes the cell can be a lot longer than the JList (e.g. when a list item has long text and the JList is in a
-   * JScrollPane.) In this case, we return the centre of visible rectangle of the JList (issue FEST-65.)
+   * JScrollPane). In this case, we return the centre of visible rectangle of the JList (issue FEST-65).
    */
   @RunsInCurrentThread
   static @Nonnull Point cellCenter(@Nonnull JList<?> list, @Nonnull Rectangle cellBounds) {

@@ -23,7 +23,7 @@ import org.assertj.swing.util.Pair;
 
 /**
  * Returns the minimum and maximum values of a {@code JProgressBar}. This query is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  *
  * @author Alex Ruiz
  */

@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
 /**
- * Returns the number of selected rows in a {@code JTable}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the number of selected rows in a {@code JTable}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -21,7 +21,7 @@ import javax.swing.JComboBox;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Makes a {@code JComboBox} editable and selects an item. This task is executed in the event dispatch thread (EDT.)
+ * Makes a {@code JComboBox} editable and selects an item. This task is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

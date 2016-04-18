@@ -24,7 +24,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Returns the location of an AWT or Swing {@code Component} on screen. This query is executed in the event dispatch
- * thread (EDT.)
+ * thread (EDT).
  *
  * @see Component#getLocationOnScreen()
  *
@@ -34,7 +34,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 public final class ComponentLocationOnScreenQuery {
   /**
    * Returns the location of the given AWT or Swing {@code Component} on screen. This query is executed in the event
-   * dispatch thread (EDT.)
+   * dispatch thread (EDT).
    *
    * @param component the given {@code Component}.
    * @return the location of the given {@code Component} on screen.

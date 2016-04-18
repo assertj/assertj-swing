@@ -33,7 +33,7 @@ import javax.swing.JTextField;
 import org.junit.Test;
 
 /**
- * Tests for {@link BasicRobot#pressAndReleaseKey(int, int...)}.
+ * Tests for {@link BasicRobot#pressAndReleaseKey(int, int..).}.
  * 
  * @author Yvonne Wang
  * @author Alex Ruiz

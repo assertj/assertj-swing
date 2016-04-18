@@ -21,7 +21,7 @@ import javax.swing.JList;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the smallest selection index in a {@code JList}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the smallest selection index in a {@code JList}. This query is executed in the event dispatch thread (EDT).
  *
  * @author Yvonne Wang
  * @author Alex Ruiz

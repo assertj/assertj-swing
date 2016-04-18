@@ -67,7 +67,7 @@ public class TextReaders {
   /**
    * Indicates whether the given {@code Container} or any of its subcomponents contains the given text.
    *
-   * @param container the given {@code Container}. This method is executed in the event dispatch thread (EDT.)
+   * @param container the given {@code Container}. This method is executed in the event dispatch thread (EDT).
    * @param text the text to look for.
    * @return {@code true} if the given {@code Container} or any of its subcomponents contains the given text;
    *         {@code false} otherwise.

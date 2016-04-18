@@ -23,14 +23,14 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} has input focus. This query is executed in the event dispatch
- * thread (EDT.)
+ * thread (EDT).
  * 
  * @author Yvonne Wang
  */
 public final class ComponentHasFocusQuery {
   /**
    * Indicates whether the given AWT or Swing {@code Component} has input focus. This query is executed in the event
-   * dispatch thread (EDT.)
+   * dispatch thread (EDT).
    * 
    * @param component the given {@code Component}.
    * @return {@code true} if the given {@code Component} has input focus, {@code false} otherwise.

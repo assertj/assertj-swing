@@ -21,7 +21,7 @@ import javax.swing.JComponent;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the toolTip text of a given {@code JComponent}. This task is executed in the event dispatch thread (EDT.)
+ * Returns the toolTip text of a given {@code JComponent}. This task is executed in the event dispatch thread (EDT).
  * 
  * @see JComponent#getToolTipText()
  * 

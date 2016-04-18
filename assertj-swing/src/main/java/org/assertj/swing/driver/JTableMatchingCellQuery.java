@@ -28,7 +28,7 @@ import org.assertj.swing.util.TextMatcher;
 
 /**
  * Returns the first cell in a {@code JTable} whose value matches the given one. This query is executed in the event
- * dispatch thread (EDT.)
+ * dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

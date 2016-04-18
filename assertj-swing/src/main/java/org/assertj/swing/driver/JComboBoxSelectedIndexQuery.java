@@ -21,7 +21,7 @@ import javax.swing.JComboBox;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the selected index in a {@code JComboBox}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the selected index in a {@code JComboBox}. This query is executed in the event dispatch thread (EDT).
  *
  * @see JComboBox#getSelectedIndex()
  *

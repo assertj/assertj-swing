@@ -23,7 +23,7 @@ import com.jidesoft.combobox.AbstractComboBox;
  * Understands verification that a given number is a valid index of an item in a
  * <code>{@link com.jidesoft.combobox.AbstractComboBox}</code>.
  * <p>
- * <b>Note:</b> Methods in this class are <b>not</b> executed in the event dispatch thread (EDT.) Clients are
+ * <b>Note:</b> Methods in this class are <b>not</b> executed in the event dispatch thread (EDT). Clients are
  * responsible for invoking them in the EDT.
  * </p>
  */

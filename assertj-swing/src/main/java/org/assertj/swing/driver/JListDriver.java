@@ -349,7 +349,7 @@ public class JListDriver extends JComponentDriver {
    *
    * @param list the target {@code JList}.
    * @param start the starting point of the selection.
-   * @param end the last item to select (inclusive.)
+   * @param end the last item to select (inclusive).
    * @throws IllegalStateException if the {@code JList} is disabled.
    * @throws IllegalStateException if the {@code JList} is not showing on the screen.
    * @throws IndexOutOfBoundsException if the any index is negative or greater than the index of the last item in the

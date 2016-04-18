@@ -20,7 +20,7 @@ import javax.swing.JTree;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Shows/hides the root node of a {@code JTree}. This task is executed in the event dispatch thread (EDT.)
+ * Shows/hides the root node of a {@code JTree}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

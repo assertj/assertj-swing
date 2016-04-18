@@ -22,7 +22,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Makes an AWT or Swing {@code Component} visible or invisible. This task is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  * 
  * @author Alex Ruiz
  */

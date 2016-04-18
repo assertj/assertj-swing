@@ -27,7 +27,7 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Finds a path in a {@code JTree} that matches a given {@code String}. This query is executed in the event dispatch
- * thread (EDT.)
+ * thread (EDT).
  *
  * @author Alex Ruiz
  *

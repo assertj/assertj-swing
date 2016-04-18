@@ -81,7 +81,7 @@ public class NoExitSecurityManager extends SecurityManager {
 
   /**
    * Throws an {@link ExitException} if an application tries to terminate the current JVM (through
-   * {@link Runtime#exit(int)} or {@link Runtime#halt(int)}.)
+   * {@link Runtime#exit(int)} or {@link Runtime#halt(int)}).
    * 
    * @param status the exit status.
    * @throws ExitException if an application tries to terminate the current JVM.

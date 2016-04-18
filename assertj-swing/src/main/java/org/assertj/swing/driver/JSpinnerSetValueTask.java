@@ -21,7 +21,7 @@ import javax.swing.JSpinner;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Sets a value in a {@code JSpinner}. This task is executed in the event dispatch thread (EDT.)
+ * Sets a value in a {@code JSpinner}. This task is executed in the event dispatch thread (EDT).
  *
  * @see JSpinner#setValue(Object)
  *

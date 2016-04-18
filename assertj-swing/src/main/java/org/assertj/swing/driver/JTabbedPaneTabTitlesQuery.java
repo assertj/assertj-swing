@@ -22,7 +22,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the titles of the tabs in a {@code JTabbedPane}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the titles of the tabs in a {@code JTabbedPane}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

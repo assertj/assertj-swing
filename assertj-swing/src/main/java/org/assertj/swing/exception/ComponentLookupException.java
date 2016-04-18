@@ -34,7 +34,7 @@ public class ComponentLookupException extends RuntimeException {
    * Creates a new {@link ComponentLookupException}.
    *
    * @param message the detail message.
-   * @param found the AWT and Swing {@code Component}s found by the lookup (if any.)
+   * @param found the AWT and Swing {@code Component}s found by the lookup (if any).
    */
   public ComponentLookupException(@Nonnull String message, @Nonnull Collection<? extends Component> found) {
     this(message);
@@ -51,7 +51,7 @@ public class ComponentLookupException extends RuntimeException {
   }
 
   /**
-   * @return the AWT and Swing {@code Component}s found by the lookup (if any.)
+   * @return the AWT and Swing {@code Component}s found by the lookup (if any).
    */
   public final @Nonnull Collection<Component> found() {
     return unmodifiableCollection(found);

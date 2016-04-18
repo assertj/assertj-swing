@@ -33,7 +33,7 @@ public class TestMdiWindow extends TestWindow {
 
   /**
    * Creates a new {@link TestMdiWindow} and displays it on the screen. The default size of the created window is 500 x
-   * 300. This method is executed in the event dispatch thread (EDT.)
+   * 300. This method is executed in the event dispatch thread (EDT).
    *
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
@@ -49,7 +49,7 @@ public class TestMdiWindow extends TestWindow {
   }
 
   /**
-   * Creates a new {@link TestMdiWindow}. This method is executed in the event dispatch thread (EDT.)
+   * Creates a new {@link TestMdiWindow}. This method is executed in the event dispatch thread (EDT).
    *
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
@@ -87,7 +87,7 @@ public class TestMdiWindow extends TestWindow {
   /**
    * Creates a new {@code JInternalFrame} with a size of 200 x 100. The title of the created internal frame includes the
    * value of a counter that is automatically increased every time a new internal frame is created. This method is
-   * {@code not} executed in the event dispatch thread (EDT.)
+   * {@code not} executed in the event dispatch thread (EDT).
    *
    * @return the created frame.
    */
@@ -104,9 +104,9 @@ public class TestMdiWindow extends TestWindow {
   }
 
   /**
-   * Returns the container containing multiple documents (internal frames.)
+   * Returns the container containing multiple documents (internal frames).
    *
-   * @return the container containing multiple documents (internal frames.)
+   * @return the container containing multiple documents (internal frames).
    */
   public JDesktopPane desktop() {
     return desktop;

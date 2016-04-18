@@ -23,7 +23,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.timing.Condition;
 
 /**
- * Iconifies a given {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT.)
+ * Iconifies a given {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

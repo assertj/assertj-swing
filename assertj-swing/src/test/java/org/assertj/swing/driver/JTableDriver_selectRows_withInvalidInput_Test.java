@@ -24,7 +24,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 /**
- * Tests for {@link JTableDriver#selectRows(javax.swing.JTable, int...)} using invalid input.
+ * Tests for {@link JTableDriver#selectRows(javax.swing.JTable, int..).} using invalid input.
  * 
  * @author Alex Ruiz
  */

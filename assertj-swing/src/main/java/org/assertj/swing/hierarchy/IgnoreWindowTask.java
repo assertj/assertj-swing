@@ -20,7 +20,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Task that given a {@link WindowFilter}, marks a given {@code Window} as "ignored" if it is already implicitly ignored
- * by such filter. This task should be executed in the event dispatch thread (EDT.)
+ * by such filter. This task should be executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

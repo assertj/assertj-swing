@@ -21,7 +21,7 @@ import javax.swing.JSpinner;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the value of a {@code JSpinner}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the value of a {@code JSpinner}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

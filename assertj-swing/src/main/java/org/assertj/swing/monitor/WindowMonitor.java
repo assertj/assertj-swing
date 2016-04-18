@@ -31,7 +31,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.util.ToolkitProvider;
 
 /**
- * Monitor that keeps track of all known root AWT or Swing {@code Window}s (showing, hidden, closed.)
+ * Monitor that keeps track of all known root AWT or Swing {@code Window}s (showing, hidden, closed).
  *
  * @author Alex Ruiz
  */

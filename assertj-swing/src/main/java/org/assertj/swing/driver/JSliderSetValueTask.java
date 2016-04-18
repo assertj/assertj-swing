@@ -20,7 +20,7 @@ import javax.swing.JSlider;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Sets the value of a {@code JSlider}. This task is executed in the event dispatch thread (EDT.)
+ * Sets the value of a {@code JSlider}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

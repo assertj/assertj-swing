@@ -112,7 +112,7 @@ public final class Containers {
 
   /**
    * Creates a new {@code JFrame} and uses the given {@code Container} as its content pane. The created {@code JFrame}
-   * has the name specified by {@link #CREATED_FRAME_NAME}. This method is executed in the Event Dispatch Thread (EDT.)
+   * has the name specified by {@link #CREATED_FRAME_NAME}. This method is executed in the Event Dispatch Thread (EDT).
    * 
    * @param contentPane the {@code Container} to use as content pane for the {@code JFrame} to create.
    * @return the created {@code JFrame}.

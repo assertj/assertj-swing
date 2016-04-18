@@ -24,7 +24,7 @@ import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.TextMatcher;
 
 /**
- * Location of a {@code JTableHeader} (a coordinate, column index or value.)
+ * Location of a {@code JTableHeader} (a coordinate, column index or value).
  *
  * @author Yvonne Wang
  * @author Alex Ruiz
@@ -37,7 +37,7 @@ public class JTableHeaderLocation {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param tableHeader the target {@code JTableHeader}.
@@ -69,7 +69,7 @@ public class JTableHeaderLocation {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param tableHeader the target {@code JTableHeader}.
@@ -106,7 +106,7 @@ public class JTableHeaderLocation {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param tableHeader the target {@code JTableHeader}.

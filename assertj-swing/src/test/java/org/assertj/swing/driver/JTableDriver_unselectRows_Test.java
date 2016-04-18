@@ -15,7 +15,7 @@ package org.assertj.swing.driver;
 import org.junit.Test;
 
 /**
- * Tests for {@link JTableDriver#unselectRows(javax.swing.JTable, int...)}.
+ * Tests for {@link JTableDriver#unselectRows(javax.swing.JTable, int..).}.
  *
  * @author Christian Rösch
  */

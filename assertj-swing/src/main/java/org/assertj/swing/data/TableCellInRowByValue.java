@@ -37,7 +37,7 @@ import org.assertj.swing.cell.JTableCellReader;
  *
  * <pre>
  * // import static org.assertj.swing.data.TableCellInRowByValue.rowWithValue;
- * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("Sue", "Black", "Knitting").column(2));
+ * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String..). rowWithValue}("Sue", "Black", "Knitting").column(2));
  * </pre>
  *
  * @author Alex Ruiz
@@ -84,7 +84,7 @@ public class TableCellInRowByValue implements TableCellFinder {
 
     /**
      * Creates a new table cell finder using the row cell values specified in
-     * {@link TableCellInRowByValue#rowWithValue(String...)} and the column index specified as the argument in this
+     * {@link TableCellInRowByValue#rowWithValue(String..).} and the column index specified as the argument in this
      * method.
      *
      * @param column the index of the column in the table cell to find.

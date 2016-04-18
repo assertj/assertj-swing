@@ -23,7 +23,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Indicates whether the node (in a {@code JTree}) identified by the given path is expanded. This query is executed in
- * the event dispatch thread (EDT.)
+ * the event dispatch thread (EDT).
  * 
  * @author Yvonne Wang
  * @author Alex Ruiz

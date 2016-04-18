@@ -20,7 +20,7 @@ import javax.swing.JTable;
 import org.assertj.swing.data.TableCell;
 
 /**
- * Selects multiple cells in a {@code JTable}. This task is executed in the event dispatch thread (EDT.)
+ * Selects multiple cells in a {@code JTable}. This task is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

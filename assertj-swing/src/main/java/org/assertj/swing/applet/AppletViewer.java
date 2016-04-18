@@ -75,7 +75,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
    * </p>
    *
    * <p>
-   * <b>Note:</b> This method is executed in the event dispatch thread (EDT.)
+   * <b>Note:</b> This method is executed in the event dispatch thread (EDT).
    * </p>
    *
    * @param applet the {@code Applet} to view.
@@ -96,7 +96,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
    * </p>
    *
    * <p>
-   * <b>Note:</b> This method is executed in the event dispatch thread (EDT.)
+   * <b>Note:</b> This method is executed in the event dispatch thread (EDT).
    * </p>
    *
    * @param applet the {@code Applet} to view.
@@ -115,7 +115,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
   /**
    * Creates a new {@link AppletViewer}.
    * <p>
-   * <b>Note:</b> This method is executed in the event dispatch thread (EDT.)
+   * <b>Note:</b> This method is executed in the event dispatch thread (EDT).
    * </p>
    *
    * @param applet the {@code Applet} to view.
@@ -204,7 +204,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
   }
 
   /**
-   * Displays the given status message. This method is executed in the event dispatch thread (EDT.)
+   * Displays the given status message. This method is executed in the event dispatch thread (EDT).
    *
    * @param status the status to display.
    */

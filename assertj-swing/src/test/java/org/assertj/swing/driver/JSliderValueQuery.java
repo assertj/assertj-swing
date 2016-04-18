@@ -21,7 +21,7 @@ import javax.swing.JSlider;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the value of a {@code JSlider}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the value of a {@code JSlider}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

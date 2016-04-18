@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * Action executed in the event dispatch thread (EDT.)
+ * Action executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

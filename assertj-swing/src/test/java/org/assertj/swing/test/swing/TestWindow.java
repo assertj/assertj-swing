@@ -39,7 +39,7 @@ public class TestWindow extends JFrame {
 
   /**
    * Creates a new {@link TestWindow} and displays it on the screen. This method is executed in the event dispatch
-   * thread (EDT.)
+   * thread (EDT).
    *
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
@@ -58,7 +58,7 @@ public class TestWindow extends JFrame {
   }
 
   /**
-   * Creates a new {@link TestWindow}. This method is executed in the event dispatch thread (EDT.)
+   * Creates a new {@link TestWindow}. This method is executed in the event dispatch thread (EDT).
    *
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
@@ -81,7 +81,7 @@ public class TestWindow extends JFrame {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
@@ -101,7 +101,7 @@ public class TestWindow extends JFrame {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param components the components to add.
@@ -114,7 +114,7 @@ public class TestWindow extends JFrame {
   }
 
   /**
-   * Displays this window on the screen. This method is executed in the event dispatch thread (EDT.)
+   * Displays this window on the screen. This method is executed in the event dispatch thread (EDT).
    */
   @RunsInEDT
   public void display() {
@@ -129,7 +129,7 @@ public class TestWindow extends JFrame {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param w the window to display on the screen.
@@ -144,7 +144,7 @@ public class TestWindow extends JFrame {
 
   /**
    * Displays this window on the screen using the given dimension as its preferred size. This method is executed in the
-   * event dispatch thread (EDT.)
+   * event dispatch thread (EDT).
    *
    * @param preferredSize the preferred size to set to this window before displaying it on the screen.
    */
@@ -160,7 +160,7 @@ public class TestWindow extends JFrame {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param window the window to display on the screen.
@@ -179,7 +179,7 @@ public class TestWindow extends JFrame {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    */
   @RunsInCurrentThread
@@ -187,7 +187,7 @@ public class TestWindow extends JFrame {
   }
 
   /**
-   * Hides and disposes this window. This method is executed in the event dispatch thread (EDT.)
+   * Hides and disposes this window. This method is executed in the event dispatch thread (EDT).
    */
   @RunsInEDT
   public void destroy() {
@@ -201,7 +201,7 @@ public class TestWindow extends JFrame {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param window the window to destroy.

@@ -26,7 +26,7 @@ import org.assertj.swing.cell.JTableCellReader;
 public interface TableCellFinder {
   /**
    * Finds a cell in the given {@code JTable} based on some search criteria specified by this finder. Implementations of
-   * this method <strong>should</strong> access the given {@code JTable} in the event dispatch thread (EDT.)
+   * this method <strong>should</strong> access the given {@code JTable} in the event dispatch thread (EDT).
    *
    * @param table the target {@code JTable}.
    * @param cellReader knows how to read the contents of a cell in a {@code JTable}.

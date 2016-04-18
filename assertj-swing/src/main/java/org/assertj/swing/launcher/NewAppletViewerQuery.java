@@ -26,7 +26,7 @@ import org.assertj.swing.applet.AppletViewer;
 import org.assertj.swing.timing.Condition;
 
 /**
- * Creates and shows a new {@link AppletViewer}. This task is executed in the event dispatch thread (EDT.)
+ * Creates and shows a new {@link AppletViewer}. This task is executed in the event dispatch thread (EDT).
  *
  * @author Yvonne Wang
  * @author Alex Ruiz

@@ -27,7 +27,7 @@ import org.assertj.swing.timing.Timeout;
 
 /**
  * Waits until the value of a {@code JProgressBar} is equal to the given expected value. This task is executed in the
- * event dispatch thread (EDT.)
+ * event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

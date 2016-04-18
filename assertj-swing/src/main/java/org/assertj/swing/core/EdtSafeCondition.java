@@ -23,7 +23,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.timing.Condition;
 
 /**
- * {@link Condition} that is evaluated in the event dispatch thread (EDT.)
+ * {@link Condition} that is evaluated in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
@@ -59,7 +59,7 @@ public abstract class EdtSafeCondition extends Condition {
 
   /**
    * Checks if the condition has been satisfied. This method is guaranteed to be executed in the event dispatch thread
-   * (EDT.)
+   * (EDT).
    * 
    * @return {@code true} if the condition has been satisfied, otherwise {@code false}.
    */

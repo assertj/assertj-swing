@@ -22,7 +22,7 @@ import javax.swing.tree.TreePath;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns how many children a node in a {@code JTree} has. This query is executed in the event dispatch thread (EDT.)
+ * Returns how many children a node in a {@code JTree} has. This query is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

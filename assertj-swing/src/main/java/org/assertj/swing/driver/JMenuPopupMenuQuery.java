@@ -22,7 +22,7 @@ import javax.swing.JPopupMenu;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the pop-up menu associated with a {@link JMenu}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the pop-up menu associated with a {@link JMenu}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

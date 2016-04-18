@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JScrollBar;
 
 /**
- * Sets the value of a {@code JScrollBar}. This task is executed in the event dispatch thread (EDT.)
+ * Sets the value of a {@code JScrollBar}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

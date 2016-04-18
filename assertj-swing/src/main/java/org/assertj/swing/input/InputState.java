@@ -44,7 +44,7 @@ import org.assertj.swing.listener.EventDispatchThreadedEventListener;
  * </p>
  * 
  * <p>
- * Synchronization assumes that any given instance might be called from more than one event dispatch thread (EDT.)
+ * Synchronization assumes that any given instance might be called from more than one event dispatch thread (EDT).
  * </p>
  */
 // TODO: add a BitSet with the full keyboard key press state
@@ -180,7 +180,7 @@ public class InputState {
    * 
    * <p>
    * The default {@code Component.getComponentAt} can return invisible {@code Component}s ({@code JRootPane} has an
-   * invisible {@code JPanel} (glass pane?) which will otherwise swallow everything).
+   * invisible {@code JPanel} (glass pane)? which will otherwise swallow everything).
    * </p>
    * 
    * <p>

@@ -23,7 +23,7 @@ import org.assertj.swing.cell.JComboBoxCellReader;
 
 /**
  * Returns an array of {@code String}s that represents the contents of a given {@code JComboBox}. This action is
- * executed in the event dispatch thread (EDT.)
+ * executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

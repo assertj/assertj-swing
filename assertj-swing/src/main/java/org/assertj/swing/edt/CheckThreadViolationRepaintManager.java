@@ -81,7 +81,7 @@ abstract class CheckThreadViolationRepaintManager extends RepaintManager {
         }
       }
       if (imageUpdate) {
-        // assuming it is java.awt.image.ImageObserver.imageUpdate(...)
+        // assuming it is java.awt.image.ImageObserver.imageUpdate(..).
         // image was asynchronously updated, that's ok
         return;
       }

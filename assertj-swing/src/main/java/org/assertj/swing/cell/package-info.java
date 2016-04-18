@@ -12,7 +12,7 @@
  */
 /**
  * Support for reading from and writing to cells in {@code JComponent}s (for example: {@code JList}s, {@code JTable}s,
- * etc.)
+ * etc).
  * 
  * @author Alex Ruiz
  */

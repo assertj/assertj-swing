@@ -20,7 +20,7 @@ import javax.swing.AbstractButton;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Selects/deselects a Swing {@code AbstractButton}. This task is executed in the event dispatch thread (EDT.)
+ * Selects/deselects a Swing {@code AbstractButton}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

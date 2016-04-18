@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the type of message of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the type of message of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -69,7 +69,7 @@ public final class Pause {
    * Waits until the given condition is satisfied.
    * 
    * @param condition the condition to verify.
-   * @param timeout the timeout (in milliseconds.)
+   * @param timeout the timeout (in milliseconds).
    * @throws NullPointerException if the given condition is {@code null}.
    * @throws WaitTimedOutError if the wait times out.
    */
@@ -141,7 +141,7 @@ public final class Pause {
    * Waits until the given conditions are satisfied.
    * 
    * @param conditions the conditions to verify.
-   * @param timeout the timeout (in milliseconds.)
+   * @param timeout the timeout (in milliseconds).
    * @throws NullPointerException if the array of conditions is {@code null}.
    * @throws IllegalArgumentException if the array of conditions is empty.
    * @throws NullPointerException if the array of conditions has one or more {@code null} values.

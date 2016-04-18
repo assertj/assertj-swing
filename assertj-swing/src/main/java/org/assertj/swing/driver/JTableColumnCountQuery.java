@@ -21,7 +21,7 @@ import javax.swing.JTable;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the number of columns in a {@code JTable}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the number of columns in a {@code JTable}. This query is executed in the event dispatch thread (EDT).
  *
  * @author Yvonne Wang
  * @author Alex Ruiz

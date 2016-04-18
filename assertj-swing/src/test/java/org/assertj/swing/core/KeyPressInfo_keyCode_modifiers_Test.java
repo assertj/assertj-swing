@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 
 /**
- * Tests for {@link KeyPressInfo#keyCode(int)}, {@link KeyPressInfo#modifiers(int...)} {@link KeyPressInfo#keyCode()}
+ * Tests for {@link KeyPressInfo#keyCode(int)}, {@link KeyPressInfo#modifiers(int..).} {@link KeyPressInfo#keyCode()}
  * and {@link KeyPressInfo#modifiers()}.
  * 
  * @author Alex Ruiz

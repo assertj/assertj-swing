@@ -58,7 +58,7 @@ public final class KeyPressInfo {
   private int[] modifiers;
 
   /**
-   * Specifies the code of the key to press, without any modifiers (e.g. {@code java.awt.event.KeyEvent.VK_C}.)
+   * Specifies the code of the key to press, without any modifiers (e.g. {@code java.awt.event.KeyEvent.VK_C}).
    *
    * @param keyCode the code of the key to press.
    * @return the created {@code KeyPressInfo}.
@@ -89,7 +89,7 @@ public final class KeyPressInfo {
   /**
    * <p>
    * Specifies the modifiers to use when pressing {@link #keyCode() the specified key} (e.g.
-   * {@code java.awt.Event.CTRL_MASK}.)
+   * {@code java.awt.Event.CTRL_MASK}).
    * </p>
    *
    * <p>

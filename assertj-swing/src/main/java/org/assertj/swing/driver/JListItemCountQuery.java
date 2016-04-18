@@ -21,7 +21,7 @@ import javax.swing.JList;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the number of items in a given {@code JList}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the number of items in a given {@code JList}. This query is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

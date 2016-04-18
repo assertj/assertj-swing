@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the title of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the title of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

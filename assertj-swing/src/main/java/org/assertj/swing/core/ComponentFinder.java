@@ -484,8 +484,8 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} using the given {@link ComponentMatcher}. The given matcher will be
-   * evaluated in the event dispatch thread (EDT.) Implementations of {@code ComponentMatcher} do not need to be
-   * concerned about the event dispatch thread (EDT.)
+   * evaluated in the event dispatch thread (EDT). Implementations of {@code ComponentMatcher} do not need to be
+   * concerned about the event dispatch thread (EDT).
    *
    * @param m the matcher to use to find the component of interest.
    * @return the found component.
@@ -497,8 +497,8 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} using the given {@link GenericTypeMatcher}. The given matcher will be
-   * evaluated in the event dispatch thread (EDT.) Implementations of {@code GenericTypeMatcher} do not need to be
-   * concerned about the event dispatch thread (EDT.)
+   * evaluated in the event dispatch thread (EDT). Implementations of {@code GenericTypeMatcher} do not need to be
+   * concerned about the event dispatch thread (EDT).
    *
    * @param <T> the type of the component to find.
    * @param m the matcher to use to find the component of interest.
@@ -511,8 +511,8 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} using the given {@link GenericTypeMatcher} in the hierarchy under the given
-   * root. The given matcher will be evaluated in the event dispatch thread (EDT.) Implementations of
-   * {@code GenericTypeMatcher} do not need to be concerned about the event dispatch thread (EDT.)
+   * root. The given matcher will be evaluated in the event dispatch thread (EDT). Implementations of
+   * {@code GenericTypeMatcher} do not need to be concerned about the event dispatch thread (EDT).
    *
    * @param root the root used as the starting point of the search.
    * @param <T> the type of the component to find.
@@ -526,8 +526,8 @@ public interface ComponentFinder {
 
   /**
    * Finds an AWT or Swing {@code Component} using the given {@link ComponentMatcher} in the hierarchy under the given
-   * root. The given matcher will be evaluated in the event dispatch thread (EDT.) Implementations of
-   * {@code ComponentMatcher} do not need to be concerned about the event dispatch thread (EDT.)
+   * root. The given matcher will be evaluated in the event dispatch thread (EDT). Implementations of
+   * {@code ComponentMatcher} do not need to be concerned about the event dispatch thread (EDT).
    *
    * @param root the root used as the starting point of the search.
    * @param m the matcher to use to find the component.

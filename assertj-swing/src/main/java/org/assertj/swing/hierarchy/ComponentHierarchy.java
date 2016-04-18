@@ -29,7 +29,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * 
  * <p>
  * <b>Note:</b> Methods in this interface are accessed in the current executing thread. Such thread may or may not be
- * the event dispatch thread (EDT.) Client code must call methods in this interface from the EDT.
+ * the event dispatch thread (EDT). Client code must call methods in this interface from the EDT.
  * </p>
  * 
  * @author Alex Ruiz

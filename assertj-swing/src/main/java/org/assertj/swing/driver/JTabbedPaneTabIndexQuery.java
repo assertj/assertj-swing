@@ -23,7 +23,7 @@ import org.assertj.swing.util.TextMatcher;
 
 /**
  * Returns the index of a tab (in a {@code JTabbedPane}) whose title matches the given text. This query is executed in
- * the event dispatch thread (EDT.)
+ * the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

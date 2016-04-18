@@ -258,7 +258,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 
   /**
    * Returns the editor of this fixture's table cell. To manipulate the editor (e.g. wrapping it with a
-   * {@code ComponentFixture},) the method {@link #startEditing()} should be called first. To apply any changes back to
+   * {@code ComponentFixture}), the method {@link #startEditing()} should be called first. To apply any changes back to
    * the table cell(), the method {@link #stopEditing()} should be called. This method uses the
    * {@link org.assertj.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created this fixture.
    * <p>

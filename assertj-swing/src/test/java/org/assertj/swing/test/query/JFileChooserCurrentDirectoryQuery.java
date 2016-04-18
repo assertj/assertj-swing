@@ -23,7 +23,7 @@ import javax.swing.JFileChooser;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the current directory of a {@code JFileChooser}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the current directory of a {@code JFileChooser}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -31,7 +31,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 public final class JFileChooserCurrentDirectoryQuery {
   /**
    * Returns the current directory of the given {@code JFileChooser}. This query is executed in the event dispatch
-   * thread (EDT.)
+   * thread (EDT).
    * 
    * @param fileChooser the given {@code JFileChooser}.
    * @return the current directory of the given {@code JFileChooser}.

@@ -19,7 +19,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 /**
- * Tests for {@link JTableDriver#selectRows(javax.swing.JTable, int...)}.
+ * Tests for {@link JTableDriver#selectRows(javax.swing.JTable, int..).}.
  * 
  * @author Alex Ruiz
  */

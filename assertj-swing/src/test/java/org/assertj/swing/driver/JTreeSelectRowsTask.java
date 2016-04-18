@@ -20,7 +20,7 @@ import javax.swing.JTree;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Selects rows in a {@code JTree}. This task is executed in the event dispatch thread (EDT.)
+ * Selects rows in a {@code JTree}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

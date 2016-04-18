@@ -69,7 +69,7 @@ public interface Robot {
    * <p>
    * Safely display an AWT or Swing {@code Window} with proper EDT synchronization. This method blocks until the
    * {@code Window} is showing. This method will return even when the window is a modal dialog, since the show method is
-   * called on the event dispatch thread (EDT.) The {@code Window} will be packed if the pack flag is set, and set to
+   * called on the event dispatch thread (EDT). The {@code Window} will be packed if the pack flag is set, and set to
    * the given size if it is non-{@code null}.
    * </p>
    *
@@ -407,7 +407,7 @@ public interface Robot {
    * use this method if there are animations or other continual refreshes happening, since in that case it may never
    * return.
    *
-   * @throws IllegalThreadStateException if this method is called from the event dispatch thread (EDT.)
+   * @throws IllegalThreadStateException if this method is called from the event dispatch thread (EDT).
    */
   void waitForIdle();
 

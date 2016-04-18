@@ -26,7 +26,7 @@ import org.assertj.swing.util.Pair;
 
 /**
  * Returns the selected value of a {@code JComboBox} as plain text. This query is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  *
  * @author Alex Ruiz
  */

@@ -23,7 +23,7 @@ import javax.swing.JFrame;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the content pane object of a given {@code JFrame}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the content pane object of a given {@code JFrame}. This query is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

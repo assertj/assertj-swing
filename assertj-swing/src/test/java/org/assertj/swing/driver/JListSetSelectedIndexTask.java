@@ -19,7 +19,7 @@ import javax.swing.JList;
 
 /**
  * Selects a single cell at the given index in a {@code JList} editable. This task is executed in the event dispatch
- * thread (EDT.)
+ * thread (EDT).
  * 
  * @author Yvonne Wang
  */

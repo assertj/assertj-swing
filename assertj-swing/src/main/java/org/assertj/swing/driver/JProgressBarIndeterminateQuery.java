@@ -22,7 +22,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Returns the value of the property "indeterminate" in a {@code JProgressBar}. This query is executed in the event
- * dispatch thread (EDT.)
+ * dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

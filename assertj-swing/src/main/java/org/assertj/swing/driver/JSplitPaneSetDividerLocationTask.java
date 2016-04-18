@@ -20,7 +20,7 @@ import javax.swing.JSplitPane;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Sets the location of the divider of a {@code JSplitPane}. This task is executed in the event dispatch thread (EDT.)
+ * Sets the location of the divider of a {@code JSplitPane}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

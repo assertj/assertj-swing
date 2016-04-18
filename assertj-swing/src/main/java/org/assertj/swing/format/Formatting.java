@@ -133,7 +133,7 @@ public class Formatting {
 
   /**
    * Returns a {@code String} representation of the given AWT or Swing {@code Component}. This method is invoked in the
-   * event dispatch thread (EDT.)
+   * event dispatch thread (EDT).
    *
    * @param c the given {@code Component}.
    * @return a {@code String} representation of the given {@code Component}.
@@ -150,7 +150,7 @@ public class Formatting {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param c the given {@code Component}.

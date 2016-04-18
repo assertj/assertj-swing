@@ -22,7 +22,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Returns the choices the user can make in a {@code JOptionPane}. This query is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

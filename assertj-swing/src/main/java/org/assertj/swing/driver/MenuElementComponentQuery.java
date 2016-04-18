@@ -24,7 +24,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Returns the AWT or Swing {@code Component} used to paint a Swing {@code MenuElement}. This query is executed in the
- * event dispatch thread (EDT.)
+ * event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

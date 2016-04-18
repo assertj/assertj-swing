@@ -71,7 +71,7 @@ public class JScrollBarDriver extends JComponentDriver {
   }
 
   /**
-   * Scrolls up (or left) one unit (usually a line,) the given number of times.
+   * Scrolls up (or left) one unit (usually a line), the given number of times.
    * 
    * @param scrollBar the target {@code JScrollBar}.
    * @param times the number of times to scroll up one unit.
@@ -95,7 +95,7 @@ public class JScrollBarDriver extends JComponentDriver {
   }
 
   /**
-   * Scrolls down (or right) one unit (usually a line,) the given number of times.
+   * Scrolls down (or right) one unit (usually a line), the given number of times.
    * 
    * @param scrollBar the target {@code JScrollBar}.
    * @param times the number of times to scroll down one unit.
@@ -141,7 +141,7 @@ public class JScrollBarDriver extends JComponentDriver {
   }
 
   /**
-   * Scrolls up (or left) one block (usually a page,) the given number of times.
+   * Scrolls up (or left) one block (usually a page), the given number of times.
    * 
    * @param scrollBar the target {@code JScrollBar}.
    * @param times the number of times to scroll up one block.
@@ -167,7 +167,7 @@ public class JScrollBarDriver extends JComponentDriver {
   }
 
   /**
-   * Scrolls down (or right) one block (usually a page,) the given number of times.
+   * Scrolls down (or right) one block (usually a page), the given number of times.
    * 
    * @param scrollBar the target {@code JScrollBar}.
    * @param times the number of times to scroll down one block.

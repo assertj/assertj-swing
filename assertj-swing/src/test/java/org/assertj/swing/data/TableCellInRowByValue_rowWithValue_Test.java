@@ -15,7 +15,7 @@ package org.assertj.swing.data;
 import org.junit.Test;
 
 /**
- * Tests for {@link TableCellInRowByValue#rowWithValue(String...)}.
+ * Tests for {@link TableCellInRowByValue#rowWithValue(String..).}.
  * 
  * @author Alex Ruiz
  */

@@ -37,9 +37,9 @@ public class GuiActionRunner {
 
   /**
    * Indicates {@link GuiActionRunner} whether instances of {@link GuiQuery} and {@link GuiTask} should be executed in
-   * the event dispatch thread (EDT.)
+   * the event dispatch thread (EDT).
    *
-   * @param b if {@code true}, GUI actions are executed in the event dispatch thread (EDT.) If {@code false}, GUI
+   * @param b if {@code true}, GUI actions are executed in the event dispatch thread (EDT). If {@code false}, GUI
    *          actions are executed in the current thread.
    */
   public static synchronized void executeInEDT(boolean b) {
@@ -48,7 +48,7 @@ public class GuiActionRunner {
 
   /**
    * Indicates whether instances of {@link GuiQuery} and {@link GuiTask} should be executed in the event dispatch thread
-   * (EDT.)
+   * (EDT).
    *
    * @return {@code true} if GUI actions are executed in the event dispatch thread, {@code false} otherwise.
    */
@@ -78,7 +78,7 @@ public class GuiActionRunner {
   }
 
   /**
-   * Executes the given query in the event dispatch thread (EDT.) This method waits until the query has finished its
+   * Executes the given query in the event dispatch thread (EDT). This method waits until the query has finished its
    * execution.
    *
    * @param query the query to execute.
@@ -86,7 +86,7 @@ public class GuiActionRunner {
    * @return the result of the query executed in the main thread.
    * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
    *           the given query in the
-   *           event dispatch thread (EDT.) Unchecked exceptions are re-thrown without any wrapping.
+   *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
    * @see #executeInEDT()
    * @see #execute(Callable)
    */
@@ -127,13 +127,13 @@ public class GuiActionRunner {
   }
 
   /**
-   * Executes the given task in the event dispatch thread (EDT.) This method waits until the task has finished its
+   * Executes the given task in the event dispatch thread (EDT). This method waits until the task has finished its
    * execution.
    *
    * @param task the task to execute.
    * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
    *           the given query in the
-   *           event dispatch thread (EDT.) Unchecked exceptions are re-thrown without any wrapping.
+   *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
    * @see #executeInEDT()
    * @see #execute(Runnable)
    */
@@ -181,7 +181,7 @@ public class GuiActionRunner {
    *
    * @param action the given action that may have a caught exception during its execution.
    * @throws UnexpectedException wrapping any <b>checked</b> exception thrown when executing the given query in the
-   *           event dispatch thread (EDT.) Unchecked exceptions are re-thrown without any wrapping.
+   *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
    */
   private static void rethrowCaughtExceptionIn(@Nonnull GuiAction action) {
     Throwable caughtException = action.catchedException();

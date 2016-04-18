@@ -22,7 +22,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Indicates whether a Swing {@code AbstractButton} is selected. This action is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  * 
  * @author Yvonne Wang
  * @author Alex Ruiz

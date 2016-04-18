@@ -303,7 +303,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
    * Simulates a user selecting the items (in the specified range) in this fixture's {@code JList}.
    *
    * @param from the starting point of the selection.
-   * @param to the last item to select (inclusive.)
+   * @param to the last item to select (inclusive).
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.

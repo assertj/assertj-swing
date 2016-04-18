@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the text of a {@code JLabel}. This task is executed in the event dispatch thread (EDT.)
+ * Returns the text of a {@code JLabel}. This task is executed in the event dispatch thread (EDT).
  * 
  * @see JLabel#getText()
  * 

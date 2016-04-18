@@ -17,13 +17,13 @@ import static javax.swing.SwingUtilities.isEventDispatchThread;
 import org.assertj.swing.exception.ActionFailedException;
 
 /**
- * Task that should be executed in the event dispatch thread (EDT.)
+ * Task that should be executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 public abstract class GuiTask extends GuiAction {
   /**
-   * Runs this task action and verifies that it is executed in the event dispatch thread (EDT.)
+   * Runs this task action and verifies that it is executed in the event dispatch thread (EDT).
    * 
    * @throws ActionFailedException if this task was not executed in the EDT.
    */
@@ -42,9 +42,9 @@ public abstract class GuiTask extends GuiAction {
   }
 
   /**
-   * Specifies the action to execute in the event dispatch thread (EDT.)
+   * Specifies the action to execute in the event dispatch thread (EDT).
    * 
-   * @throws Throwable any error thrown when executing an action in the event dispatch thread (EDT.)
+   * @throws Throwable any error thrown when executing an action in the event dispatch thread (EDT).
    */
   protected abstract void executeInEDT() throws Throwable;
 }

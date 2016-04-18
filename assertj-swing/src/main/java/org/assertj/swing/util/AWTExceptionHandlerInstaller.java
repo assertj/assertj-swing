@@ -25,11 +25,11 @@ import org.assertj.core.util.VisibleForTesting;
  * 
  * <p>
  * An exception handler is passed to the JVM using the system property "sun.awt.exception.handler" to override the
- * default exception handling behavior of the event dispatch thread (EDT.)
+ * default exception handling behavior of the event dispatch thread (EDT).
  * </p>
  * 
  * <p>
- * This is a Sun-specific feature (or "bug".) See <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4714232"
+ * This is a Sun-specific feature (or "bug"). See <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4714232"
  * target="_blank">bug 4714232</a>.
  * </p>
  * 

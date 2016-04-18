@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Enables or disables an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT.)
+ * Enables or disables an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

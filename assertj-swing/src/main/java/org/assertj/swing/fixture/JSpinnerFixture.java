@@ -110,7 +110,7 @@ public class JSpinnerFixture extends AbstractJPopupMenuInvokerFixture<JSpinnerFi
 
   /**
    * Simulates a user entering the given text in this fixture's {@code JSpinner} (assuming its editor has a
-   * {@code JTextComponent} under it.) This method does not commit the value to the {@code JSpinner}.
+   * {@code JTextComponent} under it). This method does not commit the value to the {@code JSpinner}.
    * 
    * @param text the text to enter.
    * @return this fixture.
@@ -127,7 +127,7 @@ public class JSpinnerFixture extends AbstractJPopupMenuInvokerFixture<JSpinnerFi
 
   /**
    * Simulates a user entering and committing the given text in this fixture's {@code JSpinner} (assuming its editor has
-   * a {@code JTextComponent} under it.)
+   * a {@code JTextComponent} under it).
    * 
    * @param text the text to enter.
    * @return this fixture.

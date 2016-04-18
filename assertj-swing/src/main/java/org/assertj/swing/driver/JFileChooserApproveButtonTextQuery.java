@@ -23,7 +23,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Returns the text used in the "approve button" of a {@code JFileChooser}. This action is executed in the event
- * dispatch thread (EDT.)
+ * dispatch thread (EDT).
  *
  * @see JFileChooser#getApproveButtonText()
  * @see javax.swing.plaf.FileChooserUI#getApproveButtonText(JFileChooser)

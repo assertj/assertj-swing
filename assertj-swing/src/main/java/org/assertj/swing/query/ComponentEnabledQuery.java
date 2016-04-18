@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} is enabled or not. This query is executed in the event dispatch
- * thread (EDT.)
+ * thread (EDT).
  *
  * @see Component#isEnabled()
  *
@@ -31,7 +31,7 @@ import javax.annotation.Nonnull;
 public final class ComponentEnabledQuery {
   /**
    * Indicates whether the given AWT or Swing {@code Component} is enabled or not. This query is executed in the event
-   * dispatch thread (EDT.)
+   * dispatch thread (EDT).
    *
    * @param component the given {@code Component}.
    * @return {@code true} if the given {@code Component} is enabled, {@code false} otherwise.

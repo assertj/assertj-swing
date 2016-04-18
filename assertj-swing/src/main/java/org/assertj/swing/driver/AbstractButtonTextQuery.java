@@ -20,7 +20,7 @@ import javax.swing.AbstractButton;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the text of a Swing {@code AbstractButton}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the text of a Swing {@code AbstractButton}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

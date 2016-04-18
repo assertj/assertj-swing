@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 import org.junit.Test;
 
 /**
- * Tests for {@link JListDriver#requireSelectedItems(javax.swing.JList, java.util.regex.Pattern...)}.
+ * Tests for {@link JListDriver#requireSelectedItems(javax.swing.JList, java.util.regex.Pattern..).}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Makes a {@code Frame} resizable. This task is executed in the event dispatch thread (EDT.)
+ * Makes a {@code Frame} resizable. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

@@ -21,7 +21,7 @@ import javax.swing.text.JTextComponent;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the selected text of a {@code JTextComponent}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the selected text of a {@code JTextComponent}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

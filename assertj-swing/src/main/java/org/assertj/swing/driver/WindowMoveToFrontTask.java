@@ -22,7 +22,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Moves a {@code Window} to the front and gives it input focus. This task is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

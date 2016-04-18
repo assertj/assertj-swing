@@ -20,7 +20,7 @@ import javax.swing.JTree;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Makes a {@code JTree} editable. This task is executed in the event dispatch thread (EDT.)
+ * Makes a {@code JTree} editable. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

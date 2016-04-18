@@ -21,7 +21,7 @@ import javax.swing.text.JTextComponent;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Indicates whether a {@code JTextComponent} is editable. This query is executed in the event dispatch thread (EDT.)
+ * Indicates whether a {@code JTextComponent} is editable. This query is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

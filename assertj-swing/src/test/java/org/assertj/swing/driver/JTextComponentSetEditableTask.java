@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Makes a {@code JTextComponent} editable. This task is executed in the event dispatch thread (EDT.)
+ * Makes a {@code JTextComponent} editable. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

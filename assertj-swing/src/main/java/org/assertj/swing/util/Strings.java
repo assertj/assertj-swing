@@ -60,7 +60,7 @@ public final class Strings {
    * <li>{@code s} matches the regular expression in {@code pattern}</li>
    * </ul>
    * 
-   * @param pattern a {@code String} to match (it can be a regular expression.)
+   * @param pattern a {@code String} to match (it can be a regular expression).
    * @param s the {@code String} to verify.
    * @return {@code true} if the given {@code String}s match, {@code false} otherwise.
    */

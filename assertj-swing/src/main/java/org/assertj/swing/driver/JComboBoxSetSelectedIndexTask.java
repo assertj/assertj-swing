@@ -21,7 +21,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Selects the element in the given index in the given {@code JComboBox}. This task is executed in the event dispatch
- * thread (EDT.)
+ * thread (EDT).
  *
  * @see JComboBox#setSelectedIndex(int)
  *

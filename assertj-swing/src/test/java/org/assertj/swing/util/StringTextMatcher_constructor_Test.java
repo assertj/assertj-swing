@@ -15,7 +15,7 @@ package org.assertj.swing.util;
 import org.junit.Test;
 
 /**
- * Tests for {@link StringTextMatcher#StringTextMatcher(String...)}.
+ * Tests for {@link StringTextMatcher#StringTextMatcher(String..).}.
  * 
  * @author Alex Ruiz
  */

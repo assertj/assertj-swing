@@ -21,7 +21,7 @@ import org.assertj.core.util.Preconditions;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Indicates whether a {@code JComboBox} is editable or not. This action is executed in the event dispatch thread (EDT.)
+ * Indicates whether a {@code JComboBox} is editable or not. This action is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

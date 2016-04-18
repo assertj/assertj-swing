@@ -23,7 +23,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} is showing on the screen. This query is executed in the event
- * dispatch thread (EDT.)
+ * dispatch thread (EDT).
  *
  * @see Component#isShowing()
  *
@@ -33,7 +33,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 public final class ComponentShowingQuery {
   /**
    * Indicates whether the given AWT or Swing {@code Component} is showing or not. This query is executed in the event
-   * dispatch thread (EDT.)
+   * dispatch thread (EDT).
    *
    * @param component the given {@code Component}.
    * @return {@code true} if the given {@code Component} is showing, {@code false} otherwise.

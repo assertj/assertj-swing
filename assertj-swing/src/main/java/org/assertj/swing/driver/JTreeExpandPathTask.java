@@ -23,7 +23,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Ensures that the node identified by the specified path is expanded and viewable. This task is executed in the event
- * dispatch thread (EDT.)
+ * dispatch thread (EDT).
  *
  * @author Yvonne Wang
  * @author Alex Ruiz

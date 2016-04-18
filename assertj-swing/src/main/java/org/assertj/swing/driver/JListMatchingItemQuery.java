@@ -38,7 +38,7 @@ import org.assertj.swing.util.TextMatcher;
 
 /**
  * Looks up the first item in a {@code JList} whose value matches a given one. This query is executed in the event
- * dispatch thread (EDT.)
+ * dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

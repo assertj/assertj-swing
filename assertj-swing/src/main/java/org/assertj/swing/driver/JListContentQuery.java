@@ -23,7 +23,7 @@ import org.assertj.swing.cell.JListCellReader;
 
 /**
  * Returns an array of {@code String}s that represents the contents of a given {@code JList}. This query is executed in
- * the event dispatch thread (EDT.)
+ * the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

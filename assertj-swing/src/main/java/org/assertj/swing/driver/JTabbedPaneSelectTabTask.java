@@ -21,7 +21,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Selects the tab with the given index in a {@code JTabbedPane}. This task is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

@@ -25,7 +25,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Stops editing of a cell in a {@code JTable}. This task is executed in the event dispatch thread (EDT.)
+ * Stops editing of a cell in a {@code JTable}. This task is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

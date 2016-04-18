@@ -16,7 +16,7 @@ import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Test;
 
 /**
- * Tests for {@link IntrospectionComponentFormatter#IntrospectionComponentFormatter(Class, String...)}.
+ * Tests for {@link IntrospectionComponentFormatter#IntrospectionComponentFormatter(Class, String..).}.
  * 
  * @author Alex Ruiz
  */

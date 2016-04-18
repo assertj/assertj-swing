@@ -49,7 +49,7 @@ public final class Platform {
 
   /**
    * Return the modifier key for the appropriate accelerator key for menu shortcuts: {@link KeyEvent#VK_CONTROL}
-   * (default) or {@link KeyEvent#VK_META} (MacOS.)
+   * (default) or {@link KeyEvent#VK_META} (MacOS).
    * 
    * @return the modifier key for the appropriate accelerator key for menu shortcuts.
    * @throws AssertionError if unable to find the appropriate key.
@@ -64,7 +64,7 @@ public final class Platform {
 
   /**
    * Return the modifier mask for the appropriate accelerator key for menu shortcuts: {@link Event#CTRL_MASK} (default)
-   * or {@link Event#META_MASK} (MacOS.)
+   * or {@link Event#META_MASK} (MacOS).
    * 
    * @return the modifier mask for the appropriate accelerator key for menu shortcuts.
    * @throws HeadlessException if {@code GraphicsEnvironment.isHeadless()}.
@@ -105,9 +105,9 @@ public final class Platform {
   }
 
   /**
-   * Indicates whether the operating system is Windows 9x (95, 98 or ME.)
+   * Indicates whether the operating system is Windows 9x (95, 98 or ME).
    * 
-   * @return {@code true} if the operating system is Windows 9x (95, 98 or ME,) {@code false} otherwise.
+   * @return {@code true} if the operating system is Windows 9x (95, 98 or ME), {@code false} otherwise.
    */
   public static boolean isWindows9x() {
     return osIdentifier.isWindows9x();

@@ -19,7 +19,7 @@
  * AssertJ-Swing provides default component formatters for all the Swing components in the JDK. Unlike the '
  * {@code toString} ' method in Swing components, the provided component formatters display only the information that
  * can help developers solve problems in functional tests, excluding any information related to the appearance of GUI
- * components (e.g. colors, layouts, sizes, etc.)
+ * components (e.g. colors, layouts, sizes, etc).
  * </p>
  *
  * <p>

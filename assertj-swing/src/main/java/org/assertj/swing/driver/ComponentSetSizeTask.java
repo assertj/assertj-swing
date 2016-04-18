@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Sets the size of an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT.)
+ * Sets the size of an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the size of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the size of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT).
  * 
  * @see Component#getSize()
  * 
@@ -33,7 +33,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 public final class ComponentSizeQuery {
   /**
    * Returns the size of the given AWT or Swing {@code Component}. This query is executed in the event dispatch thread
-   * (EDT.)
+   * (EDT).
    * 
    * @param component the given {@code Component}.
    * @return the size of the given {@code Component}.

@@ -20,7 +20,7 @@ import javax.swing.JTree;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Clears the selection in a given {@code JTree}. This task is executed in the event dispatch thread (EDT.)
+ * Clears the selection in a given {@code JTree}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

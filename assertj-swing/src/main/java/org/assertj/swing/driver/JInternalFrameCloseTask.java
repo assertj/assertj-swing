@@ -20,7 +20,7 @@ import javax.swing.JInternalFrame;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Closes a {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT.)
+ * Closes a {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Yvonne Wang
  */

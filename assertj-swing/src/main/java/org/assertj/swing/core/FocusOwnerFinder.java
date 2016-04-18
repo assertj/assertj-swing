@@ -56,7 +56,7 @@ public final class FocusOwnerFinder {
   }
 
   /**
-   * @return the focus owner. This method is executed in the event dispatch thread (EDT.)
+   * @return the focus owner. This method is executed in the event dispatch thread (EDT).
    */
   @RunsInEDT
   public static @Nullable Component inEdtFocusOwner() {
@@ -70,7 +70,7 @@ public final class FocusOwnerFinder {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @return the focus owner.

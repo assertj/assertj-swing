@@ -23,7 +23,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JListCellReader;
 
 /**
- * Returns the value, as text, of an item in a {@code JList}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the value, as text, of an item in a {@code JList}. This query is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

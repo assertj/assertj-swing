@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Makes an AWT or Swing {@code Dialog} modal. This task is {@code not} executed in the event dispatch thread (EDT.)
+ * Makes an AWT or Swing {@code Dialog} modal. This task is {@code not} executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

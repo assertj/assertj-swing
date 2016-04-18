@@ -59,7 +59,7 @@ public final class TypeMatcher extends AbstractComponentMatcher {
    * 
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    * 
    * @return {@code true} if the type and visibility of the given {@code Component} matches the values specified in this

@@ -21,7 +21,7 @@ import javax.swing.JComboBox;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the number of items in a given {@code JComboBox}. This action is executed in the event dispatch thread (EDT.)
+ * Returns the number of items in a given {@code JComboBox}. This action is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

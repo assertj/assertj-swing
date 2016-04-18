@@ -159,7 +159,7 @@ public class AppletLauncher {
 
   /**
    * Sets the parameters for the {@code Applet} to launch, as an alternative to
-   * {@link #withParameters(AppletParameter...)}.
+   * {@link #withParameters(AppletParameter..).}.
    *
    * @param newParameters the parameters for the {@code Applet} to launch.
    * @return this launcher.
@@ -196,7 +196,7 @@ public class AppletLauncher {
    * Launches the {@code Applet} in a {@link AppletViewer} (using implementations of
    * {@link org.assertj.swing.applet.BasicAppletStub} and {@link org.assertj.swing.applet.BasicAppletContext}. To
    * provide your own {@code AppletStub} create a new {@link AppletViewer} directly. The {@code AppletViewer} is created
-   * and launched in the event dispatch thread (EDT.)
+   * and launched in the event dispatch thread (EDT).
    *
    * @return the created {@code AppletViewer}.
    */

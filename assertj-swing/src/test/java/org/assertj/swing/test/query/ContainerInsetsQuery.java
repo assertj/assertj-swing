@@ -23,14 +23,14 @@ import javax.annotation.Nonnull;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the insets of a {@code Container}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the insets of a {@code Container}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 public final class ContainerInsetsQuery {
   /**
-   * Returns the insets of the given {@code Container}. This query is executed in the event dispatch thread (EDT.)
+   * Returns the insets of the given {@code Container}. This query is executed in the event dispatch thread (EDT).
    * 
    * @param container the given {@code Container}.
    * @return the insets of the given {@code Container}.

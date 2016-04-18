@@ -24,7 +24,7 @@ import javax.swing.table.TableCellEditor;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Cancels editing of a cell in a {@code JTable}. This task is executed in the event dispatch thread (EDT.)
+ * Cancels editing of a cell in a {@code JTable}. This task is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

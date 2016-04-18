@@ -23,7 +23,7 @@ import org.assertj.swing.cell.JListCellReader;
 
 /**
  * Returns the {@code String} that represents the single selection of a given {@code JList}. This query is executed in
- * the event dispatch thread (EDT.)
+ * the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

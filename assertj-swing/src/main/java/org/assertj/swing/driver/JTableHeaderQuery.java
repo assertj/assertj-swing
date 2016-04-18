@@ -22,7 +22,7 @@ import javax.swing.table.JTableHeader;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the {@code JTableHeader} in a {@code JTable}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the {@code JTableHeader} in a {@code JTable}. This query is executed in the event dispatch thread (EDT).
  * 
  * @see JTable#getTableHeader()
  * 

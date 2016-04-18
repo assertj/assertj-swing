@@ -71,7 +71,7 @@ public class BasicAppletContext implements AppletContext {
    * If the {@link StatusDisplay} passed to this context is an instance of {@link AppletViewer}, this method will return
    * the {@code Applet} of such {@code AppletViewer}. Otherwise this method returns {@code null}.
    *
-   * @return the {@code Applet} in this context's {@link StatusDisplay} (if any.)
+   * @return the {@code Applet} in this context's {@link StatusDisplay} (if any).
    * @see AppletContext#getApplet(String)
    */
   @Override
@@ -83,7 +83,7 @@ public class BasicAppletContext implements AppletContext {
    * Returns an enumeration containing the {@code Applet} returned by {@link #getApplet(String)}. If
    * {@link #getApplet(String)} returns {@code null}, this method will return an empty enumeration.
    *
-   * @return an enumeration containing the {@code Applet} in this context's {@code StatusDisplay} (if any.)
+   * @return an enumeration containing the {@code Applet} in this context's {@code StatusDisplay} (if any).
    * @see #getApplet(String)
    * @see AppletContext#getApplets()
    */

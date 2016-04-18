@@ -19,7 +19,7 @@ import static java.awt.event.KeyEvent.VK_E;
 import org.junit.Test;
 
 /**
- * Tests for {@link ComponentDriver#pressAndReleaseKeys(java.awt.Component, int...)}.
+ * Tests for {@link ComponentDriver#pressAndReleaseKeys(java.awt.Component, int..).}.
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

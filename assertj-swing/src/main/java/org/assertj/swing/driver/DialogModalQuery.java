@@ -23,7 +23,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 
 /**
  * Indicates whether an AWT or Swing {@code Dialog} is modal. This action is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  *
  * @author Alex Ruiz
  * @author Yvonne Wang

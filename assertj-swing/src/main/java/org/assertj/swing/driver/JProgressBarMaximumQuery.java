@@ -21,7 +21,7 @@ import javax.swing.JProgressBar;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Returns the maximum value of a {@code JProgressBar}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the maximum value of a {@code JProgressBar}. This query is executed in the event dispatch thread (EDT).
  *
  * @author Alex Ruiz
  */

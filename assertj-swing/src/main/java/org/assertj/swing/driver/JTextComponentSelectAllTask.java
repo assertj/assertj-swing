@@ -20,7 +20,7 @@ import javax.swing.text.JTextComponent;
 import org.assertj.swing.annotation.RunsInEDT;
 
 /**
- * Selects all the text in a {@code JTextComponent}. This task is executed in the event dispatch thread (EDT.)
+ * Selects all the text in a {@code JTextComponent}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
