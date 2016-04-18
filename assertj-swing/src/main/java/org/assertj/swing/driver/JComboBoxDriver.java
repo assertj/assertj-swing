@@ -326,12 +326,7 @@ public class JComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private void dropDownVisibleThroughUIDelegate(@Nonnull final JComboBox<?> comboBox, final boolean visible) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setPopupVisible(visible);
-      }
-    });
+    execute(() -> comboBox.setPopupVisible(visible));
     robot.waitForIdle();
   }
 
@@ -416,12 +411,7 @@ public class JComboBoxDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void enterText(final @Nonnull JComboBox<?> comboBox, @Nonnull String text) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkAccessibleEditor(comboBox);
-      }
-    });
+    execute(() -> checkAccessibleEditor(comboBox));
     Component editor = editorComponentOf(comboBox);
     // this will never happen...at least in Sun's JVM
     if (editor == null) {

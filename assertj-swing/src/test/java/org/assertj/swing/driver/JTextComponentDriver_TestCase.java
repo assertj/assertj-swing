@@ -96,12 +96,7 @@ public abstract class JTextComponentDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static void setText(final JTextField textField, final String text) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        textField.setText(text);
-      }
-    });
+    execute(() -> textField.setText(text));
   }
 
   @RunsInEDT

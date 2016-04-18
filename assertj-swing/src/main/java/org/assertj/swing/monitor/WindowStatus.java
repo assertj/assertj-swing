@@ -91,12 +91,7 @@ class WindowStatus {
     if (!windows.isShowingButNotReady(w)) {
       return;
     }
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        makeLargeEnoughToReceiveEvents(w);
-      }
-    });
+    execute(() -> makeLargeEnoughToReceiveEvents(w));
     mouseMove(w, centerOf(w));
   }
 

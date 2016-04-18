@@ -123,12 +123,7 @@ public class TestWindow extends JFrame {
    */
   @RunsInEDT
   public void display() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        display(TestWindow.this);
-      }
-    });
+    execute(() -> display(TestWindow.this));
     waitForShowing(TestWindow.this);
   }
 
@@ -160,12 +155,7 @@ public class TestWindow extends JFrame {
    */
   @RunsInEDT
   public void display(final @Nonnull Dimension preferredSize) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        display(TestWindow.this, preferredSize);
-      }
-    });
+    execute(() -> display(TestWindow.this, preferredSize));
   }
 
   /**
@@ -206,12 +196,7 @@ public class TestWindow extends JFrame {
    */
   @RunsInEDT
   public void destroy() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        destroy(TestWindow.this);
-      }
-    });
+    execute(() -> destroy(TestWindow.this));
   }
 
   /**

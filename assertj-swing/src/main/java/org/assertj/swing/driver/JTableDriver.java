@@ -783,12 +783,7 @@ public class JTableDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void checkCellIndicesInBounds(final @Nonnull JTable table, final @Nonnull TableCell cell) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
-      }
-    });
+    execute(() -> JTableCellPreconditions.checkCellIndicesInBounds(table, cell));
   }
 
   /**

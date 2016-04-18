@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiTask;
 public final class JComboBoxSetSelectedItemTask {
   @RunsInEDT
   public static void setSelectedItem(final @Nonnull JComboBox comboBox, final @Nullable Object item) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setSelectedItem(item);
-      }
-    });
+    execute(() -> comboBox.setSelectedItem(item));
   }
 
   private JComboBoxSetSelectedItemTask() {

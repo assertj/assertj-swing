@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JProgressBarSetValueTask {
   @RunsInEDT
   static void setValue(final @Nonnull JProgressBar progressBar, final int value) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        progressBar.setValue(value);
-      }
-    });
+    execute(() -> progressBar.setValue(value));
   }
 
   private JProgressBarSetValueTask() {

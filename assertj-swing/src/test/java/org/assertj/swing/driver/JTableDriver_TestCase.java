@@ -121,12 +121,7 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setMultipleIntervalSelectionTo(final JTable table) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.setSelectionMode(MULTIPLE_INTERVAL_SELECTION);
-      }
-    });
+    execute(() -> table.setSelectionMode(MULTIPLE_INTERVAL_SELECTION));
   }
 
   @RunsInEDT
@@ -137,12 +132,7 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void selectCell(final JTable table, final int row, final int column) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.changeSelection(row, column, false, false);
-      }
-    });
+    execute(() -> table.changeSelection(row, column, false, false));
   }
 
   @RunsInEDT

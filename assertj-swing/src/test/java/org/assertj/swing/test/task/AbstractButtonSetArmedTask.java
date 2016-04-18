@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 public final class AbstractButtonSetArmedTask {
   @RunsInEDT
   public static void setArmed(final @Nonnull AbstractButton button, final boolean armed) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        button.getModel().setArmed(armed);
-      }
-    });
+    execute(() -> button.getModel().setArmed(armed));
   }
 
   private AbstractButtonSetArmedTask() {

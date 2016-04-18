@@ -174,12 +174,7 @@ public class TestDialog extends JDialog {
    */
   @RunsInEDT
   public void destroy() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        destroy(TestDialog.this);
-      }
-    });
+    execute(() -> destroy(TestDialog.this));
   }
 
   /**

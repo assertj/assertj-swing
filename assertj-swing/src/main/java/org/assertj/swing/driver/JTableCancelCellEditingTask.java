@@ -26,7 +26,7 @@ import org.assertj.swing.edt.GuiTask;
 
 /**
  * Cancels editing of a cell in a {@code JTable}. This task is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -46,12 +46,7 @@ final class JTableCancelCellEditingTask {
 
   @RunsInEDT
   static void cancelEditing(final @Nonnull TableCellEditor cellEditor) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        doCancelEditing(cellEditor);
-      }
-    });
+    execute(() -> doCancelEditing(cellEditor));
   }
 
   private static void doCancelEditing(@Nullable TableCellEditor cellEditor) {

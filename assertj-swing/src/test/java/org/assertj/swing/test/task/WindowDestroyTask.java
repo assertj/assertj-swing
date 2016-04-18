@@ -39,12 +39,7 @@ public final class WindowDestroyTask {
     if (w == null) {
       return;
     }
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        hideAndDispose(w);
-      }
-    });
+    execute(() -> hideAndDispose(w));
   }
 
   /**

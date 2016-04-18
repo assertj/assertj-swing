@@ -40,12 +40,7 @@ final class JTreeVerifySelectionTask {
   @RunsInEDT
   static void checkHasSelection(final @Nonnull JTree tree, final @Nonnull int[] selection,
       final @Nonnull Description errMsg) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkSelection(tree, selection, errMsg);
-      }
-    });
+    execute(() -> checkSelection(tree, selection, errMsg));
   }
 
   @RunsInCurrentThread
@@ -71,12 +66,7 @@ final class JTreeVerifySelectionTask {
   @RunsInEDT
   static void checkHasSelection(final @Nonnull JTree tree, final @Nonnull String[] selection,
       final @Nonnull JTreePathFinder pathFinder, final @Nonnull Description errMsg) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkSelection(tree, selection, pathFinder, errMsg);
-      }
-    });
+    execute(() -> checkSelection(tree, selection, pathFinder, errMsg));
   }
 
   @RunsInCurrentThread

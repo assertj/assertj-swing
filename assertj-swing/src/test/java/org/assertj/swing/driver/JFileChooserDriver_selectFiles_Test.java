@@ -121,12 +121,7 @@ public class JFileChooserDriver_selectFiles_Test extends JFileChooserDriver_Test
 
   @RunsInEDT
   private static void setMultipleSelectionEnabled(final JFileChooser fileChooser, final boolean b) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        fileChooser.setMultiSelectionEnabled(b);
-      }
-    });
+    execute(() -> fileChooser.setMultiSelectionEnabled(b));
   }
 
   @RunsInEDT

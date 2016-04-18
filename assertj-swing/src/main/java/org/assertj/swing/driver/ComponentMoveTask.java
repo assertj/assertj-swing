@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiTask;
 final class ComponentMoveTask {
   @RunsInEDT
   static void moveComponent(final @Nonnull Component c, final @Nonnull Point location) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.setLocation(location);
-      }
-    });
+    execute(() -> c.setLocation(location));
   }
 
   private ComponentMoveTask() {

@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTreeClearSelectionTask {
   @RunsInEDT
   static void clearSelectionOf(final @Nonnull JTree tree) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.clearSelection();
-      }
-    });
+    execute(() -> tree.clearSelection());
   }
 
   private JTreeClearSelectionTask() {

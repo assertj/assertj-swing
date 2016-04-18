@@ -39,12 +39,7 @@ public final class ComponentSetEnabledTask {
 
   @RunsInEDT
   public static void setEnabled(final @Nonnull Component component, final boolean enabled) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        component.setEnabled(enabled);
-      }
-    });
+    execute(() -> component.setEnabled(enabled));
   }
 
   private ComponentSetEnabledTask() {

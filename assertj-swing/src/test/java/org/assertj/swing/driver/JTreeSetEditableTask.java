@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTreeSetEditableTask {
   @RunsInEDT
   static void setEditable(final @Nonnull JTree tree, final boolean editable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setEditable(editable);
-      }
-    });
+    execute(() -> tree.setEditable(editable));
   }
 
   private JTreeSetEditableTask() {

@@ -30,12 +30,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTabbedPaneSelectTabTask {
   @RunsInEDT
   static void setSelectedTab(final @Nonnull JTabbedPane tabbedPane, final int index) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tabbedPane.setSelectedIndex(index);
-      }
-    });
+    execute(() -> tabbedPane.setSelectedIndex(index));
   }
 
   private JTabbedPaneSelectTabTask() {

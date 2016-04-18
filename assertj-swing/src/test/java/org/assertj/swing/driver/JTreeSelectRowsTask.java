@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTreeSelectRowsTask {
   @RunsInEDT
   static void selectRows(final @Nonnull JTree tree, final int... rows) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setSelectionRows(rows);
-      }
-    });
+    execute(() -> tree.setSelectionRows(rows));
   }
 
   private JTreeSelectRowsTask() {

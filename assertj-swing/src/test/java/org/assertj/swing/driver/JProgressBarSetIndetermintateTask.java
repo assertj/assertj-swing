@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JProgressBarSetIndetermintateTask {
   @RunsInEDT
   static void setIntedeterminate(final @Nonnull JProgressBar progressBar, final boolean indeterminate) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        progressBar.setIndeterminate(indeterminate);
-      }
-    });
+    execute(() -> progressBar.setIndeterminate(indeterminate));
   }
 
   private JProgressBarSetIndetermintateTask() {

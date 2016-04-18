@@ -97,12 +97,6 @@ public class DateComboBoxDriver extends JComponentDriver {
 
   @RunsInCurrentThread
   private static void selectDateOnPanel(final DateChooserPanel panel, final Date d) {
-    GuiTask task = new GuiTask() {
-      @Override
-      protected void executeInEDT() throws Throwable {
-        panel.setSelectedDate(d);
-      }
-    };
-    GuiActionRunner.execute(task);
+    execute(() -> panel.setSelectedDate(d));
   }
 }

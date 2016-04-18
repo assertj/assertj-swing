@@ -55,12 +55,7 @@ public class JTableHasSelectionQuery_hasSelection_Test extends RobotBasedTestCas
 
   @RunsInEDT
   private static void selectAllIn(final TestTable table) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.selectAll();
-      }
-    });
+    execute(() -> table.selectAll());
   }
 
   @RunsInEDT

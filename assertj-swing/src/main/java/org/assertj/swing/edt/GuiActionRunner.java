@@ -107,6 +107,26 @@ public class GuiActionRunner {
   }
 
   /**
+   * Executes the given runnable in the event dispatch thread (EDT). This method waits until the task has finished its
+   * execution.
+   *
+   * @param task the task to execute.
+   * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing
+   *           the given query in the event dispatch thread (EDT). Unchecked exceptions are re-thrown without any
+   *           wrapping.
+   * @see #executeInEDT()
+   * @see #execute(GuiTask)
+   */
+  public static void execute(@Nonnull GuiActionRunnable task) {
+    execute(new GuiTask() {
+      @Override
+      protected void executeInEDT() throws Throwable {
+        task.run();
+      }
+    });
+  }
+
+  /**
    * Executes the given task in the event dispatch thread (EDT.) This method waits until the task has finished its
    * execution.
    *
@@ -115,6 +135,7 @@ public class GuiActionRunner {
    *           the given query in the
    *           event dispatch thread (EDT.) Unchecked exceptions are re-thrown without any wrapping.
    * @see #executeInEDT()
+   * @see #execute(Runnable)
    */
   public static void execute(@Nonnull GuiTask task) {
     if (!executeInEDT) {

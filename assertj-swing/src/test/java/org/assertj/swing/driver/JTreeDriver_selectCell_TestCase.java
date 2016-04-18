@@ -56,12 +56,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static void clearSelectionOf(final JTree tree) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.clearSelection();
-      }
-    });
+    execute(() -> tree.clearSelection());
   }
 
   @RunsInEDT
@@ -73,12 +68,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
   @RunsInEDT
   private static void setDefaultSelectionModelTo(final JTree tree) {
     final DefaultTreeSelectionModel selectionModel = new DefaultTreeSelectionModel();
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setSelectionModel(selectionModel);
-      }
-    });
+    execute(() -> tree.setSelectionModel(selectionModel));
   }
 
   @RunsInEDT
@@ -126,12 +116,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static void setSelectionPath(final JTree tree, final TreePath[] paths) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setSelectionPaths(paths);
-      }
-    });
+    execute(() -> tree.setSelectionPaths(paths));
   }
 
   @RunsInEDT

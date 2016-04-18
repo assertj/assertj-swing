@@ -247,12 +247,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void inEdtValidateEditorIsAccessible(final AbstractComboBox comboBox) {
-    org.assertj.swing.edt.GuiActionRunner.execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox);
-      }
-    });
+    org.assertj.swing.edt.GuiActionRunner.execute(() -> AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox));
   }
 
   /**

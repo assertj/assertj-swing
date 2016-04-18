@@ -71,12 +71,7 @@ public class JAppletDriver extends ComponentDriver implements AppletStub {
 
   @RunsInEDT
   private static void doResize(final @Nonnull JApplet applet, final int width, final int height) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        applet.resize(width, height);
-      }
-    });
+    execute(() -> applet.resize(width, height));
   }
 
   @RunsInEDT

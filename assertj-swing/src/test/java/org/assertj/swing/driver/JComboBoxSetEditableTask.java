@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JComboBoxSetEditableTask {
   @RunsInEDT
   static void setEditable(final @Nonnull JComboBox comboBox, final boolean editable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setEditable(editable);
-      }
-    });
+    execute(() -> comboBox.setEditable(editable));
   }
 
   private JComboBoxSetEditableTask() {

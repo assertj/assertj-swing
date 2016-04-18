@@ -25,7 +25,6 @@ import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.format.Formatting.format;
 
 import java.awt.Component;
-import java.text.ParseException;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -242,12 +241,7 @@ public class JSpinnerDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void commit(final @Nonnull JSpinner spinner) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() throws ParseException {
-        spinner.commitEdit();
-      }
-    });
+    execute(() -> spinner.commitEdit());
   }
 
   /**

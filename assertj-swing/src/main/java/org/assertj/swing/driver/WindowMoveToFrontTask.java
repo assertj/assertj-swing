@@ -31,12 +31,7 @@ import org.assertj.swing.edt.GuiTask;
 final class WindowMoveToFrontTask {
   @RunsInEDT
   static void toFront(final @Nonnull Window w) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        w.toFront();
-      }
-    });
+    execute(() -> w.toFront());
   }
 
   private WindowMoveToFrontTask() {

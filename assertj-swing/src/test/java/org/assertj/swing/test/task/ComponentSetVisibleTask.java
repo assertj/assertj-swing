@@ -40,12 +40,7 @@ public final class ComponentSetVisibleTask {
 
   @RunsInEDT
   public static void setVisible(final @Nonnull Component c, final boolean visible) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.setVisible(visible);
-      }
-    });
+    execute(() -> c.setVisible(visible));
   }
 
   private ComponentSetVisibleTask() {

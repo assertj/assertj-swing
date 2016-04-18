@@ -59,12 +59,7 @@ public class TableCellInSelectedRow_findCell_Test extends TableCellFinder_TestCa
 
   @RunsInEDT
   private static void selectRow(final JTable table, final int row) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.setRowSelectionInterval(row, row);
-      }
-    });
+    execute(() -> table.setRowSelectionInterval(row, row));
   }
 
   @Test

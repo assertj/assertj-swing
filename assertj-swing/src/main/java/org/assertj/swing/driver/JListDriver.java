@@ -327,12 +327,7 @@ public class JListDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void clearSelectionOf(final @Nonnull JList<?> list) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        list.clearSelection();
-      }
-    });
+    execute(() -> list.clearSelection());
   }
 
   /**

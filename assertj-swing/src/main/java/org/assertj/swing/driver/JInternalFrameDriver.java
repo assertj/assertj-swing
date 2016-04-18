@@ -80,13 +80,8 @@ public class JInternalFrameDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void moveToFront(final @Nonnull JInternalFrame internalFrame) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        // it seems that moving to front always works, regardless if the internal frame is invisible and/or disabled.
-        internalFrame.toFront();
-      }
-    });
+    execute(() -> // it seems that moving to front always works, regardless if the internal frame is invisible and/or disabled.
+        internalFrame.toFront());
   }
 
   /**
@@ -96,13 +91,8 @@ public class JInternalFrameDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void moveToBack(final @Nonnull JInternalFrame internalFrame) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        // it seems that moving to back always works, regardless if the internal frame is invisible and/or disabled.
-        internalFrame.moveToBack();
-      }
-    });
+    execute(() -> // it seems that moving to back always works, regardless if the internal frame is invisible and/or disabled.
+        internalFrame.moveToBack());
   }
 
   /**

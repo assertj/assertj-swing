@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiTask;
 public final class JTreeSetSelectionModelTask {
   @RunsInEDT
   public static void setSelectionModel(final @Nonnull JTree tree, final @Nonnull TreeSelectionModel selectionModel) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setSelectionModel(selectionModel);
-      }
-    });
+    execute(() -> tree.setSelectionModel(selectionModel));
   }
 
   private JTreeSetSelectionModelTask() {

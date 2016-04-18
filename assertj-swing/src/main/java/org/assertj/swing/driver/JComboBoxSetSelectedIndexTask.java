@@ -31,12 +31,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JComboBoxSetSelectedIndexTask {
   @RunsInEDT
   static void setSelectedIndex(final @Nonnull JComboBox<?> comboBox, final int index) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setSelectedIndex(index);
-      }
-    });
+    execute(() -> comboBox.setSelectedIndex(index));
   }
 
   private JComboBoxSetSelectedIndexTask() {

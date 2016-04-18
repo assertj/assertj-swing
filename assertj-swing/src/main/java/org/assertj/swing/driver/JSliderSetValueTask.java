@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JSliderSetValueTask {
   @RunsInEDT
   static void setValue(final @Nonnull JSlider slider, final int newValue) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        slider.setValue(newValue);
-      }
-    });
+    execute(() -> slider.setValue(newValue));
   }
 
   private JSliderSetValueTask() {

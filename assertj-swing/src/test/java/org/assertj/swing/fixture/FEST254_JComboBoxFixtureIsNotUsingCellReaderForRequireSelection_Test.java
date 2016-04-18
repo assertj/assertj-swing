@@ -57,12 +57,7 @@ public class FEST254_JComboBoxFixtureIsNotUsingCellReaderForRequireSelection_Tes
 
   @RunsInEDT
   private static void selectIndex(final JComboBox comboBox, final int index) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setSelectedIndex(index);
-      }
-    });
+    execute(() -> comboBox.setSelectedIndex(index));
   }
 
   private static class MyWindow extends TestWindow {

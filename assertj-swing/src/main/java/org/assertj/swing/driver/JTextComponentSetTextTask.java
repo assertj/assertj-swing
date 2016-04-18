@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTextComponentSetTextTask {
   @RunsInEDT
   static void setTextIn(final @Nonnull JTextComponent textBox, final String text) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        textBox.setText(text);
-      }
-    });
+    execute(() -> textBox.setText(text));
   }
 
   private JTextComponentSetTextTask() {

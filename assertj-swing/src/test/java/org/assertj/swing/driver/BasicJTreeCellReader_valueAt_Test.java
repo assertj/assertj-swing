@@ -81,22 +81,12 @@ public class BasicJTreeCellReader_valueAt_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setRootInTree(final JTree tree, final DefaultMutableTreeNode root) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        ((DefaultTreeModel) tree.getModel()).setRoot(root);
-      }
-    });
+    execute(() -> ((DefaultTreeModel) tree.getModel()).setRoot(root));
   }
 
   @RunsInEDT
   private static void setCellRendererComponent(final JTree tree, final Component renderer) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setCellRenderer(new CustomCellRenderer(renderer));
-      }
-    });
+    execute(() -> tree.setCellRenderer(new CustomCellRenderer(renderer)));
   }
 
   @RunsInEDT

@@ -166,12 +166,7 @@ public class WindowDriver extends ContainerDriver {
 
   @RunsInEDT
   private static void doMoveToFront(final @Nonnull Window w) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        w.toFront();
-      }
-    });
+    execute(() -> w.toFront());
   }
 
   /**
@@ -188,11 +183,6 @@ public class WindowDriver extends ContainerDriver {
 
   @RunsInEDT
   private static void doMoveToBack(final @Nonnull Window w) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        w.toBack();
-      }
-    });
+    execute(() -> w.toBack());
   }
 }

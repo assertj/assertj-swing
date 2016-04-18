@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiTask;
 final class ComponentSetSizeTask {
   @RunsInEDT
   static void setComponentSize(final @Nonnull Component c, final int width, final int height) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.setSize(width, height);
-      }
-    });
+    execute(() -> c.setSize(width, height));
   }
 
   private ComponentSetSizeTask() {

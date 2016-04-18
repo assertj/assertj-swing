@@ -58,11 +58,6 @@ public class JInternalFrameDriver_close_Test extends JInternalFrameDriver_TestCa
 
   @RunsInEDT
   private static void setClosable(final JInternalFrame internalFrame, final boolean closeable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        internalFrame.setClosable(closeable);
-      }
-    });
+    execute(() -> internalFrame.setClosable(closeable));
   }
 }

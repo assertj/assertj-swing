@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 public final class AbstractButtonSetSelectedTask {
   @RunsInEDT
   public static void setSelected(final @Nonnull AbstractButton button, final boolean selected) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        button.setSelected(selected);
-      }
-    });
+    execute(() -> button.setSelected(selected));
   }
 
   private AbstractButtonSetSelectedTask() {

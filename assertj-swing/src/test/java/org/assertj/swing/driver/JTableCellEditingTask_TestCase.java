@@ -44,12 +44,7 @@ public abstract class JTableCellEditingTask_TestCase extends RobotBasedTestCase 
 
   @RunsInEDT
   final void editTableCellAt(final int row, final int col) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        window.table.editCellAt(row, col);
-      }
-    });
+    execute(() -> window.table.editCellAt(row, col));
     robot.waitForIdle();
     assertThat(isTableEditing()).isTrue();
   }

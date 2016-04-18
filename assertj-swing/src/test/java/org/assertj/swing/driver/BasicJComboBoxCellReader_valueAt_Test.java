@@ -71,22 +71,12 @@ public class BasicJComboBoxCellReader_valueAt_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setModelValues(final JComboBox comboBox, final Object[] values) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setModel(new DefaultComboBoxModel(values));
-      }
-    });
+    execute(() -> comboBox.setModel(new DefaultComboBoxModel(values)));
   }
 
   @RunsInEDT
   private static void setNotRecognizedRendererComponent(final JComboBox comboBox) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setRenderer(new CustomCellRenderer(new JToolBar()));
-      }
-    });
+    execute(() -> comboBox.setRenderer(new CustomCellRenderer(new JToolBar())));
   }
 
   @RunsInEDT

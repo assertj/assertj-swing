@@ -60,12 +60,7 @@ public class BasicJTableCellReader_valueAt_Test extends BasicJTableCellReader_Te
 
   @RunsInEDT
   private static void setNotRecognizedCellRendererTo(final JTable table) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        setCellRendererComponent(table, new JToolBar());
-      }
-    });
+    execute(() -> setCellRendererComponent(table, new JToolBar()));
   }
 
   @Test

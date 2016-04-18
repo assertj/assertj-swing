@@ -27,12 +27,7 @@ import org.assertj.swing.edt.GuiTask;
  */
 final class JScrollBarSetValueTask {
   static void setValue(final @Nonnull JScrollBar scrollBar, final int value) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        scrollBar.setValue(value);
-      }
-    });
+    execute(() -> scrollBar.setValue(value));
   }
 
   private JScrollBarSetValueTask() {

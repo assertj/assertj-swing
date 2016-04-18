@@ -67,12 +67,7 @@ public class JListSelectionValuesQuery_selectionValues_Test extends RobotBasedTe
     for (int i = 0; i < count; i++) {
       toSelect[i] = indices[i];
     }
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        list.setSelectedIndices(toSelect);
-      }
-    });
+    execute(() -> list.setSelectedIndices(toSelect));
   }
 
   private static class MyWindow extends TestWindow {

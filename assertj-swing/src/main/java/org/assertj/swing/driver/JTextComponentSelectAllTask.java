@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTextComponentSelectAllTask {
   @RunsInEDT
   static void selectAllText(final @Nonnull JTextComponent textBox) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        textBox.selectAll();
-      }
-    });
+    execute(() -> textBox.selectAll());
   }
 
   private JTextComponentSelectAllTask() {

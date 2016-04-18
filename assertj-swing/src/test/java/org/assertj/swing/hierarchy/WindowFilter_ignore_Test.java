@@ -63,11 +63,6 @@ public class WindowFilter_ignore_Test extends WindowFilter_TestCase {
 
   @RunsInEDT
   private static void ignore(final WindowFilter filter, final Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        filter.ignore(c);
-      }
-    });
+    execute(() -> filter.ignore(c));
   }
 }

@@ -77,12 +77,7 @@ public class JComboBoxDropDownListFinder_findDropDownList_Test extends RobotBase
 
   @RunsInEDT
   private void showJComboBoxDropDownList() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        window.comboBox.showPopup();
-      }
-    });
+    execute(() -> window.comboBox.showPopup());
     robot.waitForIdle();
   }
 

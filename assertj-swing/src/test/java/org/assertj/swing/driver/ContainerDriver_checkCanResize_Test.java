@@ -144,12 +144,7 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void makeNotResizable(final JInternalFrame internalFrame) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        internalFrame.setResizable(false);
-      }
-    });
+    execute(() -> internalFrame.setResizable(false));
   }
 
   @Test
@@ -167,11 +162,6 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private void checkCanResize(final Container c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        driver.checkCanResize(c);
-      }
-    });
+    execute(() -> driver.checkCanResize(c));
   }
 }

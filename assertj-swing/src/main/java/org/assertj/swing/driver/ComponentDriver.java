@@ -549,12 +549,7 @@ public class ComponentDriver {
    */
   @RunsInEDT
   protected static void checkInEdtEnabledAndShowing(final @Nonnull Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(c);
-      }
-    });
+    execute(() -> checkEnabledAndShowing(c));
   }
 
   /**
@@ -565,12 +560,7 @@ public class ComponentDriver {
    */
   @RunsInEDT
   protected static void checkInEdtShowing(final @Nonnull Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkShowing(c);
-      }
-    });
+    execute(() -> checkShowing(c));
   }
 
   /**

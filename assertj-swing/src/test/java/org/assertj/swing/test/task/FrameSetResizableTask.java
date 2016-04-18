@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiTask;
 public final class FrameSetResizableTask {
   @RunsInEDT
   public static void setResizable(final @Nonnull Frame frame, final boolean resizable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        frame.setResizable(resizable);
-      }
-    });
+    execute(() -> frame.setResizable(resizable));
   }
 
   private FrameSetResizableTask() {

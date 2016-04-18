@@ -34,22 +34,12 @@ import org.assertj.swing.edt.GuiTask;
 final class JTableStopCellEditingTask {
   @RunsInEDT
   static void stopEditing(final @Nonnull TableCellEditor cellEditor) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        doStopCellEditing(cellEditor);
-      }
-    });
+    execute(() -> doStopCellEditing(cellEditor));
   }
 
   @RunsInEDT
   static void stopEditing(final @Nonnull JTable table, final int row, final int column) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        doStopCellEditing(table, row, column);
-      }
-    });
+    execute(() -> doStopCellEditing(table, row, column));
   }
 
   @RunsInEDT

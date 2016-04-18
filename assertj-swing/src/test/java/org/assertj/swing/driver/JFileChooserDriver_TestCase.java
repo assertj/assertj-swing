@@ -84,12 +84,7 @@ public abstract class JFileChooserDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setFileSelectionMode(final JFileChooser fileChooser, final int mode) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        fileChooser.setFileSelectionMode(mode);
-      }
-    });
+    execute(() -> fileChooser.setFileSelectionMode(mode));
   }
 
   @RunsInEDT

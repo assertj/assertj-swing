@@ -52,11 +52,6 @@ public class WindowFilter_recognize_Test extends WindowFilter_TestCase {
 
   @RunsInEDT
   private static void recognize(final WindowFilter filter, final Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        filter.recognize(c);
-      }
-    });
+    execute(() -> filter.recognize(c));
   }
 }

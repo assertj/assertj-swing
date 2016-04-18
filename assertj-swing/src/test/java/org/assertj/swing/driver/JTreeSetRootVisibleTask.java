@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTreeSetRootVisibleTask {
   @RunsInEDT
   static void setRootVisible(final @Nonnull JTree tree, final boolean visible) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setRootVisible(visible);
-      }
-    });
+    execute(() -> tree.setRootVisible(visible));
   }
 
   private JTreeSetRootVisibleTask() {

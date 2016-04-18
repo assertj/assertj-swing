@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JInternalFrameCloseTask {
   @RunsInEDT
   static void close(final @Nonnull JInternalFrame internalFrame) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        internalFrame.doDefaultCloseAction();
-      }
-    });
+    execute(() -> internalFrame.doDefaultCloseAction());
   }
 
   private JInternalFrameCloseTask() {

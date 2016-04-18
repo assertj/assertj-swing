@@ -32,12 +32,7 @@ import org.assertj.swing.edt.GuiTask;
 public final class ComponentRequestFocusAndWaitForFocusGainTask {
   @RunsInEDT
   public static void giveFocusAndWaitTillIsFocused(final @Nonnull Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.requestFocus();
-      }
-    });
+    execute(() -> c.requestFocus());
     waitTillHasFocus(c);
   }
 

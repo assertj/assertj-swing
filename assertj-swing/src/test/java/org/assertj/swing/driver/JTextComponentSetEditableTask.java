@@ -28,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTextComponentSetEditableTask {
   @RunsInEDT
   static void setTextFieldEditable(final @Nonnull JTextField textField, final boolean editable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        textField.setEditable(editable);
-      }
-    });
+    execute(() -> textField.setEditable(editable));
   }
 
   private JTextComponentSetEditableTask() {

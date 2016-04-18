@@ -27,12 +27,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTableClearSelectionTask {
   @RunsInEDT
   static void clearSelectionOf(final JTable table) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.clearSelection();
-      }
-    });
+    execute(() -> table.clearSelection());
   }
 
   private JTableClearSelectionTask() {

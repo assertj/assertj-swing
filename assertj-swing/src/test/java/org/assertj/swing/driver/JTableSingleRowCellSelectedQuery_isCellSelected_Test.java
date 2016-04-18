@@ -64,12 +64,7 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
 
   @RunsInEDT
   private static void selectRow(final JTable table, final int row) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.setRowSelectionInterval(row, row);
-      }
-    });
+    execute(() -> table.setRowSelectionInterval(row, row));
   }
 
   @Test

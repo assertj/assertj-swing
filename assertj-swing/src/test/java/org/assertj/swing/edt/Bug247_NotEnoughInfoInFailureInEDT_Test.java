@@ -21,7 +21,7 @@ import org.junit.Test;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=247" target="_blank">Bug 247</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Bug247_NotEnoughInfoInFailureInEDT_Test {
@@ -31,11 +31,8 @@ public class Bug247_NotEnoughInfoInFailureInEDT_Test {
   public void should_Show_Method_Call_In_Current_Thread_When_Failing_In_EDT() {
     boolean testClassInStackTrace = false;
     try {
-      execute(new GuiTask() {
-        @Override
-        protected void executeInEDT() {
-          throw new RuntimeException("Thrown on purpose");
-        }
+      execute(() -> {
+        throw new RuntimeException("Thrown on purpose");
       });
       fail("Expecting exception");
     } catch (RuntimeException e) {

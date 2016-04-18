@@ -27,12 +27,7 @@ import org.assertj.swing.edt.GuiTask;
  */
 final class JListSetSelectedIndexTask {
   static void setSelectedIndex(final @Nonnull JList list, final int index) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        list.setSelectedIndex(index);
-      }
-    });
+    execute(() -> list.setSelectedIndex(index));
   }
 
   private JListSetSelectedIndexTask() {

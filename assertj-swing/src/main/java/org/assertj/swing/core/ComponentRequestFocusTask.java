@@ -29,12 +29,7 @@ import org.assertj.swing.edt.GuiTask;
 final class ComponentRequestFocusTask {
   @RunsInEDT
   static void giveFocusTo(final @Nonnull Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.requestFocusInWindow();
-      }
-    });
+    execute(() -> c.requestFocusInWindow());
   }
 
   private ComponentRequestFocusTask() {

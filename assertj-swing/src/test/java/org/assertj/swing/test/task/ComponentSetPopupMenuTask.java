@@ -32,12 +32,7 @@ import org.assertj.swing.edt.GuiTask;
 public final class ComponentSetPopupMenuTask {
   @RunsInEDT
   public static void setPopupMenu(final @Nonnull JComponent c, final @Nonnull JPopupMenu popupMenu) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.setComponentPopupMenu(popupMenu);
-      }
-    });
+    execute(() -> c.setComponentPopupMenu(popupMenu));
   }
 
   @RunsInEDT
