@@ -21,7 +21,6 @@ import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JListCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the value, as text, of an item in a {@code JList}. This query is executed in the event dispatch thread (EDT.)
@@ -32,12 +31,9 @@ final class JListItemValueQuery {
   @RunsInEDT
   static @Nullable String itemValue(final @Nonnull JList<?> list, final int index,
                                     final @Nonnull JListCellReader cellReader) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        checkIndexInBounds(list, index);
-        return cellReader.valueAt(list, index);
-      }
+    return execute(() -> {
+      checkIndexInBounds(list, index);
+      return cellReader.valueAt(list, index);
     });
   }
 

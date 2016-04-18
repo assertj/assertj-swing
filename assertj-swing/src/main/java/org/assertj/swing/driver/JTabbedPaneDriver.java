@@ -184,13 +184,10 @@ public class JTabbedPaneDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nonnull Point pointAtTabWhenShowing(final @Nonnull JTabbedPaneLocation location,
                                                       final @Nonnull JTabbedPane tabbedPane, final int index) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        location.checkIndexInBounds(tabbedPane, index);
-        checkEnabledAndShowing(tabbedPane);
-        return location.pointAt(tabbedPane, index);
-      }
+    Point result = execute(() -> {
+      location.checkIndexInBounds(tabbedPane, index);
+      checkEnabledAndShowing(tabbedPane);
+      return location.pointAt(tabbedPane, index);
     });
     return checkNotNull(result);
   }
@@ -305,16 +302,13 @@ public class JTabbedPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull String[] allTabTitlesIn(final @Nonnull JTabbedPane tabbedPane) {
-    String[] result = execute(new GuiQuery<String[]>() {
-      @Override
-      protected String[] executeInEDT() {
-        List<String> allTitles = newArrayList();
-        int tabCount = tabbedPane.getTabCount();
-        for (int i = 0; i < tabCount; i++) {
-          allTitles.add(tabbedPane.getTitleAt(i));
-        }
-        return allTitles.toArray(new String[allTitles.size()]);
+    String[] result = execute(() -> {
+      List<String> allTitles = newArrayList();
+      int tabCount = tabbedPane.getTabCount();
+      for (int i = 0; i < tabCount; i++) {
+        allTitles.add(tabbedPane.getTitleAt(i));
       }
+      return allTitles.toArray(new String[allTitles.size()]);
     });
     return checkNotNull(result);
   }

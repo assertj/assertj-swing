@@ -27,12 +27,11 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
  * Tests for {@link BasicRobot#rotateMouseWheel(java.awt.Component, int)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -43,14 +42,11 @@ public class BasicRobot_rotateMouseWheelTest extends BasicRobot_TestCase {
   @RunsInEDT
   @Override
   void beforeShowingWindow() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        list = new JList(array("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"));
-        scrollPane = new JScrollPane(list);
-        scrollPane.setPreferredSize(new Dimension(300, 100));
-        window().add(scrollPane);
-      }
+    execute(() -> {
+      list = new JList(array("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"));
+      scrollPane = new JScrollPane(list);
+      scrollPane.setPreferredSize(new Dimension(300, 100));
+      window().add(scrollPane);
     });
   }
 

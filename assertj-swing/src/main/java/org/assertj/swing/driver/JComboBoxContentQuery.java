@@ -16,12 +16,10 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JComboBoxCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns an array of {@code String}s that represents the contents of a given {@code JComboBox}. This action is
@@ -32,16 +30,13 @@ import org.assertj.swing.edt.GuiQuery;
 final class JComboBoxContentQuery {
   @RunsInEDT
   static @Nonnull String[] contents(final @Nonnull JComboBox<?> comboBox, final @Nonnull JComboBoxCellReader cellReader) {
-    String[] result = execute(new GuiQuery<String[]>() {
-      @Override
-      protected @Nullable String[] executeInEDT() {
-        int itemCount = comboBox.getItemCount();
-        String[] values = new String[itemCount];
-        for (int i = 0; i < itemCount; i++) {
-          values[i] = cellReader.valueAt(comboBox, i);
-        }
-        return values;
+    String[] result = execute(() -> {
+      int itemCount = comboBox.getItemCount();
+      String[] values = new String[itemCount];
+      for (int i = 0; i < itemCount; i++) {
+        values[i] = cellReader.valueAt(comboBox, i);
       }
+      return values;
     });
     return checkNotNull(result);
   }

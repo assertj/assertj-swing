@@ -19,12 +19,11 @@ import java.util.regex.Pattern;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
  * Tests for {@link JComboBoxDriver#requireSelection(javax.swing.JComboBox, String)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -82,12 +81,9 @@ public class JComboBoxDriver_requireSelectionByText_Test extends JComboBoxDriver
 
   @RunsInEDT
   private static void makeEditableAndClearSelection(final JComboBox comboBox) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setSelectedIndex(-1);
-        comboBox.setEditable(true);
-      }
+    execute(() -> {
+      comboBox.setSelectedIndex(-1);
+      comboBox.setEditable(true);
     });
   }
 }

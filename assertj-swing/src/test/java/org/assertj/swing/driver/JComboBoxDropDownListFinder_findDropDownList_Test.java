@@ -27,14 +27,13 @@ import javax.swing.JTextField;
 import javax.swing.ListModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link JComboBoxDropDownListFinder#findDropDownList()}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JComboBoxDropDownListFinder_findDropDownList_Test extends RobotBasedTestCase {
@@ -81,15 +80,12 @@ public class JComboBoxDropDownListFinder_findDropDownList_Test extends RobotBase
   }
 
   private void assertThatListContains(final JList list, final String... expectedElements) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        ListModel model = list.getModel();
-        int elementCount = model.getSize();
-        assertThat(elementCount).isEqualTo(expectedElements.length);
-        for (int i = 0; i < elementCount; i++) {
-          assertThat(model.getElementAt(i)).isEqualTo(expectedElements[i]);
-        }
+    execute(() -> {
+      ListModel model = list.getModel();
+      int elementCount = model.getSize();
+      assertThat(elementCount).isEqualTo(expectedElements.length);
+      for (int i = 0; i < elementCount; i++) {
+        assertThat(model.getElementAt(i)).isEqualTo(expectedElements[i]);
       }
     });
   }

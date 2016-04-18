@@ -19,23 +19,19 @@ import java.awt.Window;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Activates an AWT {@code Window}. "Activate" means that the given window is brought to the front and then gets the
  * keyboard focus.
- * 
+ *
  * @author Alex Ruiz
  */
 class ActivateWindowTask {
   @RunsInEDT
   static void activateWindow(final @Nonnull Window w) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        w.toFront();
-        w.requestFocusInWindow();
-      }
+    execute(() -> {
+      w.toFront();
+      w.requestFocusInWindow();
     });
   }
 

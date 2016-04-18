@@ -36,7 +36,6 @@ import javax.swing.JPopupMenu;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
@@ -145,12 +144,9 @@ public class JMenuItemDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void validateAndDoClick(final @Nonnull JMenuItem menuItem) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(menuItem);
-        menuItem.doClick();
-      }
+    execute(() -> {
+      checkEnabledAndShowing(menuItem);
+      menuItem.doClick();
     });
   }
 

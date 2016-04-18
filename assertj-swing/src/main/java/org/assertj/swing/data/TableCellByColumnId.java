@@ -21,12 +21,10 @@ import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.query.JTableColumnByIdentifierQuery.columnIndexByIdentifier;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ActionFailedException;
 
 /**
@@ -112,16 +110,13 @@ public class TableCellByColumnId implements TableCellFinder {
 
   @RunsInEDT
   private static @Nonnull TableCell findCell(final @Nonnull JTable table, final int row, final @Nonnull Object columnId) {
-    TableCell result = execute(new GuiQuery<TableCell>() {
-      @Override
-      protected @Nullable TableCell executeInEDT() {
-        int column = columnIndexByIdentifier(table, columnId);
-        if (column == -1) {
-          failColumnIndexNotFound(columnId);
-        }
-        table.convertColumnIndexToView(table.getColumn(columnId).getModelIndex());
-        return new TableCell(row, column);
+    TableCell result = execute(() -> {
+      int column = columnIndexByIdentifier(table, columnId);
+      if (column == -1) {
+        failColumnIndexNotFound(columnId);
       }
+      table.convertColumnIndexToView(table.getColumn(columnId).getModelIndex());
+      return new TableCell(row, column);
     });
     return checkNotNull(result);
   }

@@ -59,7 +59,6 @@ import org.assertj.swing.core.Robot;
 import org.assertj.swing.data.TableCell;
 import org.assertj.swing.data.TableCellFinder;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Arrays;
@@ -129,14 +128,11 @@ public class JTableDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nullable String selectionValue(final @Nonnull JTable table, final @Nonnull JTableCellReader cellReader) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        if (table.getSelectedRowCount() == 0) {
-          return null;
-        }
-        return cellReader.valueAt(table, table.getSelectedRow(), table.getSelectedColumn());
+    return execute(() -> {
+      if (table.getSelectedRowCount() == 0) {
+        return null;
       }
+      return cellReader.valueAt(table, table.getSelectedRow(), table.getSelectedColumn());
     });
   }
 
@@ -205,12 +201,9 @@ public class JTableDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nullable String cellValue(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                             final @Nonnull JTableCellReader cellReader) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
-        return cellReader.valueAt(table, cell.row, cell.column);
-      }
+    return execute(() -> {
+      JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
+      return cellReader.valueAt(table, cell.row, cell.column);
     });
   }
 
@@ -233,12 +226,9 @@ public class JTableDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nullable String cellValue(final @Nonnull JTable table, final int row, final int column,
                                             final @Nonnull JTableCellReader cellReader) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        JTableCellPreconditions.checkCellIndicesInBounds(table, row, column);
-        return cellReader.valueAt(table, row, column);
-      }
+    return execute(() -> {
+      JTableCellPreconditions.checkCellIndicesInBounds(table, row, column);
+      return cellReader.valueAt(table, row, column);
     });
   }
 
@@ -260,12 +250,9 @@ public class JTableDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nullable Font cellFont(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                          final @Nonnull JTableCellReader cellReader) {
-    return execute(new GuiQuery<Font>() {
-      @Override
-      protected Font executeInEDT() {
-        JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
-        return cellReader.fontAt(table, cell.row, cell.column);
-      }
+    return execute(() -> {
+      JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
+      return cellReader.fontAt(table, cell.row, cell.column);
     });
   }
 
@@ -287,12 +274,9 @@ public class JTableDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nullable Color cellBackground(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                                 final @Nonnull JTableCellReader cellReader) {
-    return execute(new GuiQuery<Color>() {
-      @Override
-      protected Color executeInEDT() {
-        JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
-        return cellReader.backgroundAt(table, cell.row, cell.column);
-      }
+    return execute(() -> {
+      JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
+      return cellReader.backgroundAt(table, cell.row, cell.column);
     });
   }
 
@@ -314,12 +298,9 @@ public class JTableDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nullable Color cellForeground(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                                 final @Nonnull JTableCellReader cellReader) {
-    return execute(new GuiQuery<Color>() {
-      @Override
-      protected Color executeInEDT() {
-        JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
-        return cellReader.foregroundAt(table, cell.row, cell.column);
-      }
+    return execute(() -> {
+      JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
+      return cellReader.foregroundAt(table, cell.row, cell.column);
     });
   }
 
@@ -391,17 +372,14 @@ public class JTableDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void assertNoSelection(final @Nonnull JTable table) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        if (!hasSelection(table)) {
-          return;
-        }
-        String format = "[%s] expected no selection but was:<rows=%s, columns=%s>";
-        String msg = String.format(format, propertyName(table, SELECTION_PROPERTY).value(),
-                                   format(selectedRowsOf(table)), format(table.getSelectedColumns()));
-        fail(msg);
+    execute(() -> {
+      if (!hasSelection(table)) {
+        return;
       }
+      String format = "[%s] expected no selection but was:<rows=%s, columns=%s>";
+      String msg = String.format(format, propertyName(table, SELECTION_PROPERTY).value(),
+                                 format(selectedRowsOf(table)), format(table.getSelectedColumns()));
+      fail(msg);
     });
   }
 
@@ -518,12 +496,9 @@ public class JTableDriver extends JComponentDriver {
   private static @Nonnull Point scrollToPointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                                     final @Nonnull JTableLocation location) {
     checkNotNull(cell);
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        scrollToCell(table, cell, location);
-        return location.pointAt(table, cell.row, cell.column);
-      }
+    Point result = execute(() -> {
+      scrollToCell(table, cell, location);
+      return location.pointAt(table, cell.row, cell.column);
     });
     return checkNotNull(result);
   }
@@ -552,12 +527,9 @@ public class JTableDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nonnull Point pointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                             final @Nonnull JTableLocation location) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
-        return location.pointAt(table, cell.row, cell.column);
-      }
+    Point result = execute(() -> {
+      JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
+      return location.pointAt(table, cell.row, cell.column);
     });
     return checkNotNull(result);
   }
@@ -834,15 +806,12 @@ public class JTableDriver extends JComponentDriver {
 
   @RunsInEDT
   private static int findColumnIndex(final @Nonnull JTable table, final @Nonnull Object columnId) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        int index = columnIndexByIdentifier(table, columnId);
-        if (index < 0) {
-          failColumnIndexNotFound(columnId);
-        }
-        return index;
+    Integer result = execute(() -> {
+      int index = columnIndexByIdentifier(table, columnId);
+      if (index < 0) {
+        failColumnIndexNotFound(columnId);
       }
+      return index;
     });
     return checkNotNull(result);
   }

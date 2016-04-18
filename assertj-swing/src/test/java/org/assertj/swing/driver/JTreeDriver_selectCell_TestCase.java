@@ -23,11 +23,10 @@ import javax.swing.tree.DefaultTreeSelectionModel;
 import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Test case for {@link JTreeDriver} that involves selecting cells in a {@code JTree}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCase {
@@ -98,12 +97,9 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static void setSelectionPath(final JTree tree, final TreePath path) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.expandPath(path);
-        tree.setSelectionPath(path);
-      }
+    execute(() -> {
+      tree.expandPath(path);
+      tree.setSelectionPath(path);
     });
   }
 

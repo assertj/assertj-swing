@@ -32,7 +32,6 @@ import org.assertj.swing.driver.ComponentPreconditions;
 import org.assertj.swing.driver.JListDriver;
 import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.LocationUnavailableException;
 
 import com.jidesoft.combobox.AbstractComboBox;
@@ -203,12 +202,9 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
 
   @RunsInEDT
   private static void validateCanSelectItem(final AbstractComboBox comboBox, final int index) {
-    GuiActionRunner.execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        ComponentPreconditions.checkEnabledAndShowing(comboBox);
-        AbstractComboBoxItemIndexValidator.validateIndex(comboBox, index);
-      }
+    execute(() -> {
+      ComponentPreconditions.checkEnabledAndShowing(comboBox);
+      AbstractComboBoxItemIndexValidator.validateIndex(comboBox, index);
     });
   }
 

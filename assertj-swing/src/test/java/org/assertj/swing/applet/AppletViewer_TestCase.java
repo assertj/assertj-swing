@@ -18,7 +18,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.timing.Pause.pause;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestApplet;
@@ -57,12 +56,9 @@ public abstract class AppletViewer_TestCase extends EDTSafeTestCase {
 
   @RunsInEDT
   private static void assertThatIsInitializedAndStarted(final TestApplet applet) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        assertThat(applet.initialized()).isTrue();
-        assertThat(applet.started()).isTrue();
-      }
+    execute(() -> {
+      assertThat(applet.initialized()).isTrue();
+      assertThat(applet.started()).isTrue();
     });
   }
 

@@ -29,7 +29,6 @@ import org.assertj.core.util.Strings;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.KeyPressInfo;
 import org.assertj.swing.driver.JComponentDriver;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.query.ComponentEnabledQuery;
 
@@ -121,12 +120,9 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static Component accessibleEditorOf(final AbstractComboBox comboBox) {
-    return org.assertj.swing.edt.GuiActionRunner.execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox);
-        return comboBox.getEditor().getEditorComponent();
-      }
+    return org.assertj.swing.edt.GuiActionRunner.execute(() -> {
+      AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox);
+      return comboBox.getEditor().getEditorComponent();
     });
   }
 

@@ -16,28 +16,23 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JProgressBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Increments the value in a {@code JProgressBar}. This task is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JProgressBarIncrementValueTask {
   @RunsInEDT
   static int incrementValue(final @Nonnull JProgressBar progressBar, final int increment) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        int value = progressBar.getValue();
-        value += increment;
-        progressBar.setValue(value);
-        return value;
-      }
+    Integer result = execute(() -> {
+      int value = progressBar.getValue();
+      value += increment;
+      progressBar.setValue(value);
+      return value;
     });
     return checkNotNull(result);
   }

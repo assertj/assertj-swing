@@ -37,7 +37,6 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.ComponentFinder;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.TypeMatcher;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * <p>
@@ -83,12 +82,9 @@ public class JSpinnerDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void validateAndIncrementValue(final @Nonnull JSpinner spinner, final int times) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(spinner);
-        incrementValue(spinner, times);
-      }
+    execute(() -> {
+      checkEnabledAndShowing(spinner);
+      incrementValue(spinner, times);
     });
   }
 
@@ -118,14 +114,11 @@ public class JSpinnerDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void validateAndIncrementValue(final @Nonnull JSpinner spinner) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(spinner);
-        Object newValue = spinner.getNextValue();
-        if (newValue != null) {
-          spinner.setValue(newValue);
-        }
+    execute(() -> {
+      checkEnabledAndShowing(spinner);
+      Object newValue = spinner.getNextValue();
+      if (newValue != null) {
+        spinner.setValue(newValue);
       }
     });
   }
@@ -156,12 +149,9 @@ public class JSpinnerDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void validateAndDecrementValue(final @Nonnull JSpinner spinner, final int times) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(spinner);
-        decrementValue(spinner, times);
-      }
+    execute(() -> {
+      checkEnabledAndShowing(spinner);
+      decrementValue(spinner, times);
     });
   }
 
@@ -191,14 +181,11 @@ public class JSpinnerDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void validateAndDecrementValue(final @Nonnull JSpinner spinner) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(spinner);
-        Object newValue = spinner.getPreviousValue();
-        if (newValue != null) {
-          spinner.setValue(newValue);
-        }
+    execute(() -> {
+      checkEnabledAndShowing(spinner);
+      Object newValue = spinner.getPreviousValue();
+      if (newValue != null) {
+        spinner.setValue(newValue);
       }
     });
   }
@@ -287,12 +274,9 @@ public class JSpinnerDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void checkEditorNotNull(final @Nonnull JSpinner spinner, final @Nullable JTextComponent editor) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        if (editor == null) {
-          throw actionFailure(concat("Unable to find editor for ", format(spinner)));
-        }
+    execute(() -> {
+      if (editor == null) {
+        throw actionFailure(concat("Unable to find editor for ", format(spinner)));
       }
     });
   }

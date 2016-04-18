@@ -29,7 +29,6 @@ import javax.swing.JDialog;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.task.FrameShowTask;
 
 /**
@@ -139,13 +138,10 @@ public class TestDialog extends JDialog {
    */
   @RunsInEDT
   protected static void display(final TestDialog dialog, final Dimension preferredSize) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        showOwnerIfPossible(dialog.getOwner());
-        dialog.setLocation(DEFAULT_DIALOG_LOCATION);
-        packAndShow(dialog, preferredSize);
-      }
+    execute(() -> {
+      showOwnerIfPossible(dialog.getOwner());
+      dialog.setLocation(DEFAULT_DIALOG_LOCATION);
+      packAndShow(dialog, preferredSize);
     });
     waitForShowing(dialog);
   }

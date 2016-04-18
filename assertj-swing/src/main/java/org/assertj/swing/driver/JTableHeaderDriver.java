@@ -29,7 +29,6 @@ import javax.swing.table.JTableHeader;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
 import org.assertj.swing.util.PatternTextMatcher;
@@ -185,14 +184,11 @@ public class JTableHeaderDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nonnull Point pointAtIndex(final @Nonnull JTableHeader tableHeader, final int columnIndex,
                                              final JTableHeaderLocation location) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        Point p = location.pointAt(tableHeader, columnIndex);
-        checkEnabledAndShowing(tableHeader);
-        tableHeader.getTable().scrollRectToVisible(tableHeader.getHeaderRect(columnIndex));
-        return p;
-      }
+    Point result = execute(() -> {
+      Point p = location.pointAt(tableHeader, columnIndex);
+      checkEnabledAndShowing(tableHeader);
+      tableHeader.getTable().scrollRectToVisible(tableHeader.getHeaderRect(columnIndex));
+      return p;
     });
     return checkNotNull(result);
   }
@@ -232,14 +228,11 @@ public class JTableHeaderDriver extends JComponentDriver {
   private static @Nonnull Point pointAtName(final @Nonnull JTableHeader tableHeader,
                                             final @Nonnull TextMatcher matcher,
                                             final @Nonnull JTableHeaderLocation location) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        Pair<Integer, Point> indexAndLocation = location.pointAt(tableHeader, matcher);
-        checkEnabledAndShowing(tableHeader);
-        tableHeader.getTable().scrollRectToVisible(tableHeader.getHeaderRect(indexAndLocation.first));
-        return indexAndLocation.second;
-      }
+    Point result = execute(() -> {
+      Pair<Integer, Point> indexAndLocation = location.pointAt(tableHeader, matcher);
+      checkEnabledAndShowing(tableHeader);
+      tableHeader.getTable().scrollRectToVisible(tableHeader.getHeaderRect(indexAndLocation.first));
+      return indexAndLocation.second;
     });
     return checkNotNull(result);
   }

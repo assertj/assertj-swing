@@ -24,18 +24,17 @@ import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * <p>
  * {@code JList} that requires a name and supports drag and drop.
  * </p>
- * 
+ *
  * <p>
  * Adapted from the tutorial <a href="http://java.sun.com/docs/books/tutorial/uiswing/dnd/intro.html"
  * target="_blank">Introduction to Drag and Drop and Data Transfer</a>.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -61,16 +60,13 @@ public final class TestList extends JList {
 
   @RunsInEDT
   public String[] elements() {
-    return execute(new GuiQuery<String[]>() {
-      @Override
-      protected String[] executeInEDT() {
-        int count = model.getSize();
-        String[] elements = new String[count];
-        for (int i = 0; i < count; i++) {
-          elements[i] = (String) model.get(i);
-        }
-        return elements;
+    return execute(() -> {
+      int count = model.getSize();
+      String[] elements = new String[count];
+      for (int i = 0; i < count; i++) {
+        elements[i] = (String) model.get(i);
       }
+      return elements;
     });
   }
 

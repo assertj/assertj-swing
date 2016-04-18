@@ -31,7 +31,6 @@ import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTree;
@@ -112,12 +111,9 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static DefaultMutableTreeNode firstChildInRootOf(final JTree tree) {
-    return execute(new GuiQuery<DefaultMutableTreeNode>() {
-      @Override
-      protected DefaultMutableTreeNode executeInEDT() {
-        TreeNode root = (TreeNode) tree.getModel().getRoot();
-        return (DefaultMutableTreeNode) root.getChildAt(0);
-      }
+    return execute(() -> {
+      TreeNode root = (TreeNode) tree.getModel().getRoot();
+      return (DefaultMutableTreeNode) root.getChildAt(0);
     });
   }
 
@@ -133,12 +129,9 @@ public abstract class JTreeDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static DefaultMutableTreeNode firstChildOfRootIn(final JTree tree) {
-    return execute(new GuiQuery<DefaultMutableTreeNode>() {
-      @Override
-      protected DefaultMutableTreeNode executeInEDT() {
-        TreeNode root = (TreeNode) tree.getModel().getRoot();
-        return (DefaultMutableTreeNode) root.getChildAt(0);
-      }
+    return execute(() -> {
+      TreeNode root = (TreeNode) tree.getModel().getRoot();
+      return (DefaultMutableTreeNode) root.getChildAt(0);
     });
   }
 

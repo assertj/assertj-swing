@@ -25,7 +25,6 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.timing.Condition;
 import org.junit.Rule;
@@ -33,7 +32,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link BasicRobot#requireNoJOptionPaneIsShowing()}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -45,18 +44,15 @@ public class BasicRobot_requireNoJOptionPaneIsShowing_Test extends BasicRobot_Te
   @RunsInEDT
   @Override
   void beforeShowingWindow() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        button = new JButton("Click Me");
-        button.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(window(), "A Message");
-          }
-        });
-        window().add(button);
-      }
+    execute(() -> {
+      button = new JButton("Click Me");
+      button.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          JOptionPane.showMessageDialog(window(), "A Message");
+        }
+      });
+      window().add(button);
     });
   }
 

@@ -19,12 +19,11 @@ import static org.assertj.swing.test.swing.TreeNodeFactory.node;
 import javax.swing.tree.DefaultTreeModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.swing.TestTree;
 
 /**
  * Base test case related to drag and drop in a {@code JTree} using {@link JTreeDriver}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class JTreeDriver_dragAndDrop_TestCase extends JTreeDriver_TestCase {
@@ -33,12 +32,9 @@ public abstract class JTreeDriver_dragAndDrop_TestCase extends JTreeDriver_TestC
   @RunsInEDT
   @Override
   final void extraSetUp() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        dropTree = new TestTree(new DefaultTreeModel(node("root")));
-        window.add(decorate(dropTree));
-      }
+    execute(() -> {
+      dropTree = new TestTree(new DefaultTreeModel(node("root")));
+      window.add(decorate(dropTree));
     });
   }
 }

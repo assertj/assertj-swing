@@ -37,14 +37,12 @@ import javax.swing.text.JTextComponent;
 import org.assertj.core.util.Preconditions;
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.internal.annotation.IORuntimeException;
 import org.assertj.swing.util.RobotFactory;
 
 /**
  * Takes screenshots of the desktop and AWT or Swing {@code Component}s.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -54,7 +52,7 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
 
   /**
    * Creates a new {@link ScreenshotTaker}.
-   * 
+   *
    * @throws ImageException if an AWT Robot (the responsible for taking screenshots) cannot be instantiated.
    */
   public ScreenshotTaker() {
@@ -107,21 +105,18 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
 
   @RunsInEDT
   private static JTextComponent findFocusOwnerAndHideItsCaret() {
-    return execute(new GuiQuery<JTextComponent>() {
-      @Override
-      protected JTextComponent executeInEDT() {
-        Component focusOwner = focusOwner();
-        if (!(focusOwner instanceof JTextComponent)) {
-          return null;
-        }
-        JTextComponent textComponent = (JTextComponent) focusOwner;
-        Caret caret = textComponent.getCaret();
-        if (caret == null || !caret.isVisible()) {
-          return null;
-        }
-        caret.setVisible(false);
-        return textComponent;
+    return execute(() -> {
+      Component focusOwner = focusOwner();
+      if (!(focusOwner instanceof JTextComponent)) {
+        return null;
       }
+      JTextComponent textComponent = (JTextComponent) focusOwner;
+      Caret caret = textComponent.getCaret();
+      if (caret == null || !caret.isVisible()) {
+        return null;
+      }
+      caret.setVisible(false);
+      return textComponent;
     });
   }
 
@@ -141,13 +136,10 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
 
   @RunsInEDT
   private static void showCaretOf(final @Nonnull JTextComponent textComponent) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        Caret caret = textComponent.getCaret();
-        if (caret != null) {
-          caret.setVisible(true);
-        }
+    execute(() -> {
+      Caret caret = textComponent.getCaret();
+      if (caret != null) {
+        caret.setVisible(true);
       }
     });
   }

@@ -22,7 +22,6 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Cancels editing of a cell in a {@code JTable}. This task is executed in the event dispatch thread (EDT.)
@@ -33,14 +32,11 @@ import org.assertj.swing.edt.GuiTask;
 final class JTableCancelCellEditingTask {
   @RunsInEDT
   static void cancelEditing(final @Nonnull JTable table, final int row, final int column) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkCellIndicesInBounds(table, row, column);
-        validateCellIsEditable(table, row, column);
-        TableCellEditor cellEditor = table.getCellEditor(row, column);
-        doCancelEditing(cellEditor);
-      }
+    execute(() -> {
+      checkCellIndicesInBounds(table, row, column);
+      validateCellIsEditable(table, row, column);
+      TableCellEditor cellEditor = table.getCellEditor(row, column);
+      doCancelEditing(cellEditor);
     });
   }
 

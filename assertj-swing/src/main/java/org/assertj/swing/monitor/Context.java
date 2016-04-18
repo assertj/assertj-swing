@@ -30,11 +30,10 @@ import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Monitor that maps event queues to GUI components and GUI components to event event queues.
- * 
+ *
  * @author Alex Ruiz
  */
 @ThreadSafe
@@ -54,7 +53,7 @@ class Context {
   }
 
   Context(@Nonnull Toolkit toolkit, @Nonnull WindowEventQueueMapping windowEventQueueMapping,
-      @Nonnull EventQueueMapping eventQueueMapping) {
+          @Nonnull EventQueueMapping eventQueueMapping) {
     this.windowEventQueueMapping = windowEventQueueMapping;
     this.eventQueueMapping = eventQueueMapping;
     this.windowEventQueueMapping.addQueueFor(toolkit);
@@ -64,7 +63,7 @@ class Context {
    * Return all available root {@code Window}s. A root {@code Window} is one that has a {@code null} parent. Nominally
    * this means a list similar to that returned by {@code Frame.getFrames()}, but in the case of an {@code Applet} may
    * return a few dialogs as well.
-   * 
+   *
    * @return all available root {@code Window}s.
    */
   @Nonnull
@@ -102,7 +101,7 @@ class Context {
    * Return the event queue corresponding to the given AWT or Swing {@code Component}. In most cases, this is the same
    * as {@link java.awt.Toolkit#getSystemEventQueue()}, but in the case of applets will bypass the {@code AppContext}
    * and provide the real event queue.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the event queue corresponding to the given {@code Component}.
    */
@@ -120,16 +119,13 @@ class Context {
 
   @RunsInEDT
   private static @Nullable Component topParentOf(final @Nonnull Component c) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected @Nullable Component executeInEDT() {
-        Component parent = c;
-        // Components above the applet in the hierarchy may or may not share the same context with the applet itself.
-        while (!(parent instanceof java.applet.Applet) && parent.getParent() != null) {
-          parent = parent.getParent();
-        }
-        return parent;
+    return execute(() -> {
+      Component parent = c;
+      // Components above the applet in the hierarchy may or may not share the same context with the applet itself.
+      while (!(parent instanceof java.applet.Applet) && parent.getParent() != null) {
+        parent = parent.getParent();
       }
+      return parent;
     });
   }
 

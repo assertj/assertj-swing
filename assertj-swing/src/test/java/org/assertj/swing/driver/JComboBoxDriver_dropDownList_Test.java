@@ -20,12 +20,11 @@ import javax.swing.JList;
 import javax.swing.ListModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
 
 /**
  * Tests for {@link JComboBoxDriver#dropDownList()}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -40,17 +39,14 @@ public class JComboBoxDriver_dropDownList_Test extends JComboBoxDriver_TestCase 
 
   @RunsInEDT
   private Object[] contentsOf(final JList list) {
-    return execute(new GuiQuery<Object[]>() {
-      @Override
-      protected Object[] executeInEDT() {
-        ListModel model = list.getModel();
-        int elementCount = model.getSize();
-        Object[] elements = new Object[elementCount];
-        for (int i = 0; i < elementCount; i++) {
-          elements[i] = model.getElementAt(i);
-        }
-        return elements;
+    return execute(() -> {
+      ListModel model = list.getModel();
+      int elementCount = model.getSize();
+      Object[] elements = new Object[elementCount];
+      for (int i = 0; i < elementCount; i++) {
+        elements[i] = model.getElementAt(i);
       }
+      return elements;
     });
   }
 }

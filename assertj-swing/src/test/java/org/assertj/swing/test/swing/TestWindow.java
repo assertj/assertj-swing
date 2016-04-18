@@ -28,11 +28,10 @@ import javax.swing.JFrame;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * The base {@code Window} for all GUI tests.
- * 
+ *
  * @author Alex Ruiz
  */
 public class TestWindow extends JFrame {
@@ -41,20 +40,17 @@ public class TestWindow extends JFrame {
   /**
    * Creates a new {@link TestWindow} and displays it on the screen. This method is executed in the event dispatch
    * thread (EDT.)
-   * 
+   *
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
    * @return the created window.
    */
   @RunsInEDT
   public static @Nonnull TestWindow createAndShowNewWindow(final @Nonnull Class<?> testClass) {
-    TestWindow result = execute(new GuiQuery<TestWindow>() {
-      @Override
-      protected TestWindow executeInEDT() {
-        TestWindow window = createInCurrentThread(testClass);
-        TestWindow.display(window);
-        return window;
-      }
+    TestWindow result = execute(() -> {
+      TestWindow window = createInCurrentThread(testClass);
+      TestWindow.display(window);
+      return window;
     });
     result = checkNotNull(result);
     waitForShowing(result);
@@ -63,7 +59,7 @@ public class TestWindow extends JFrame {
 
   /**
    * Creates a new {@link TestWindow}. This method is executed in the event dispatch thread (EDT.)
-   * 
+   *
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
    * @return the created window.
@@ -82,12 +78,12 @@ public class TestWindow extends JFrame {
    * <p>
    * Creates a new {@link TestWindow}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param testClass the class of the test where the window to create will be used. The simple name of the given class
    *          will be used as the title of the created window.
    */
@@ -102,12 +98,12 @@ public class TestWindow extends JFrame {
    * <p>
    * Adds the given GUI components to this window.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param components the components to add.
    */
   @RunsInCurrentThread
@@ -130,12 +126,12 @@ public class TestWindow extends JFrame {
    * <p>
    * Displays the given window on the screen.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param w the window to display on the screen.
    * @return the displayed window.
    */
@@ -149,7 +145,7 @@ public class TestWindow extends JFrame {
   /**
    * Displays this window on the screen using the given dimension as its preferred size. This method is executed in the
    * event dispatch thread (EDT.)
-   * 
+   *
    * @param preferredSize the preferred size to set to this window before displaying it on the screen.
    */
   @RunsInEDT
@@ -161,12 +157,12 @@ public class TestWindow extends JFrame {
    * <p>
    * Displays the given window on the screen using the given dimension as its preferred size.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param window the window to display on the screen.
    * @param preferredSize the preferred size to set to the given window before displaying it on the screen.
    */
@@ -180,7 +176,7 @@ public class TestWindow extends JFrame {
    * <p>
    * Chooses the look and feel.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
@@ -202,12 +198,12 @@ public class TestWindow extends JFrame {
    * <p>
    * Hides and disposes the given window.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param window the window to destroy.
    */
   @RunsInCurrentThread

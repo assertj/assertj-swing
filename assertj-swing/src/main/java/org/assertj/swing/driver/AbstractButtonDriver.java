@@ -29,7 +29,6 @@ import javax.swing.AbstractButton;
 import org.assertj.core.description.Description;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
@@ -132,12 +131,9 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
 
   @RunsInEDT
   private static boolean checkSelected(final @Nonnull AbstractButton button) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected @Nullable Boolean executeInEDT() {
-        checkEnabledAndShowing(button);
-        return button.isSelected();
-      }
+    Boolean result = execute(() -> {
+      checkEnabledAndShowing(button);
+      return button.isSelected();
     });
     return checkNotNull(result);
   }

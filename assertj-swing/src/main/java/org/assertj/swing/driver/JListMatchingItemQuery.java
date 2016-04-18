@@ -46,13 +46,10 @@ final class JListMatchingItemQuery {
   @RunsInEDT
   static @Nonnull Point centerOfMatchingItemCell(final @Nonnull JList<?> list, final @Nullable String value,
                                                  final @Nonnull JListCellReader cellReader) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        int itemIndex = matchingItemIndex(list, new StringTextMatcher(value), cellReader);
-        Rectangle cellBounds = checkNotNull(cellBounds(list, itemIndex));
-        return cellCenter(list, cellBounds);
-      }
+    Point result = execute(() -> {
+      int itemIndex = matchingItemIndex(list, new StringTextMatcher(value), cellReader);
+      Rectangle cellBounds = checkNotNull(cellBounds(list, itemIndex));
+      return cellCenter(list, cellBounds);
     });
     return checkNotNull(result);
   }

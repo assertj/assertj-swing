@@ -20,13 +20,12 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
  * Tests for {@link JTreeDriver#drag(javax.swing.JTree, String)} and {@link JTreeDriver#drop(javax.swing.JTree, String)}
  * .
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTreeDriver_dragPath_dropPath_Test extends JTreeDriver_dragAndDrop_TestCase {
@@ -65,14 +64,11 @@ public class JTreeDriver_dragPath_dropPath_Test extends JTreeDriver_dragAndDrop_
 
   @RunsInEDT
   private static void addNodeToRootAndHideRoot(final JTree tree) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        Object root = tree.getModel().getRoot();
-        DefaultMutableTreeNode rootNode = (DefaultMutableTreeNode) root;
-        rootNode.add(node("child"));
-        tree.setRootVisible(false);
-      }
+    execute(() -> {
+      Object root = tree.getModel().getRoot();
+      DefaultMutableTreeNode rootNode = (DefaultMutableTreeNode) root;
+      rootNode.add(node("child"));
+      tree.setRootVisible(false);
     });
   }
 }

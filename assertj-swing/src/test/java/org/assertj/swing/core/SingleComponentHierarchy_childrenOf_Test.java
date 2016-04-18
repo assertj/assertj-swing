@@ -24,7 +24,6 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import org.assertj.swing.edt.GuiTask;
 import org.junit.After;
 import org.junit.Test;
 
@@ -43,12 +42,9 @@ public class SingleComponentHierarchy_childrenOf_Test extends SingleComponentHie
 
   @After
   public void tearDown() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        parent.setVisible(false);
-        parent.dispose();
-      }
+    execute(() -> {
+      parent.setVisible(false);
+      parent.dispose();
     });
   }
 

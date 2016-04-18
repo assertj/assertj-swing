@@ -27,41 +27,34 @@ import javax.swing.JFileChooser;
 import org.assertj.core.presentation.StandardRepresentation;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Selects a file in a {@code JFileChooser}. This task is executed in the event dispatch thread (EDT.)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JFileChooserSelectFileTask {
   @RunsInEDT
   static void setSelectedFile(final @Nonnull JFileChooser fileChooser, final @Nonnull File file) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(fileChooser);
-        checkSelectionMode(fileChooser, file);
-        fileChooser.setSelectedFile(file);
-      }
+    execute(() -> {
+      checkEnabledAndShowing(fileChooser);
+      checkSelectionMode(fileChooser, file);
+      fileChooser.setSelectedFile(file);
     });
   }
 
   @RunsInEDT
   static void setSelectedFiles(final @Nonnull JFileChooser fileChooser, final @Nonnull File[] files) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(fileChooser);
-        if (files.length > 1 && !fileChooser.isMultiSelectionEnabled()) {
-          throw new IllegalStateException(concat("Expecting file chooser ", format(fileChooser),
-              " to handle multiple selection"));
-        }
-        for (File file : files) {
-          checkSelectionMode(fileChooser, file);
-        }
-        fileChooser.setSelectedFiles(files);
+    execute(() -> {
+      checkEnabledAndShowing(fileChooser);
+      if (files.length > 1 && !fileChooser.isMultiSelectionEnabled()) {
+        throw new IllegalStateException(concat("Expecting file chooser ", format(fileChooser),
+                                               " to handle multiple selection"));
       }
+      for (File file : files) {
+        checkSelectionMode(fileChooser, file);
+      }
+      fileChooser.setSelectedFiles(files);
     });
   }
 

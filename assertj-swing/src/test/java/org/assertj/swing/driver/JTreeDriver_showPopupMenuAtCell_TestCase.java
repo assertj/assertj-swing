@@ -23,11 +23,10 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTree;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Base test case in {@link JTreeDriver} related to showing a pop-up menu at any cell in a {@code JTree}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class JTreeDriver_showPopupMenuAtCell_TestCase extends JTreeDriver_TestCase {
@@ -36,13 +35,10 @@ public abstract class JTreeDriver_showPopupMenuAtCell_TestCase extends JTreeDriv
   @RunsInEDT
   @Override
   void extraSetUp() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        popupMenu = new JPopupMenu();
-        popupMenu.add(new JMenuItem("Hello"));
-        tree.addMouseListener(new Listener(popupMenu));
-      }
+    execute(() -> {
+      popupMenu = new JPopupMenu();
+      popupMenu.add(new JMenuItem("Hello"));
+      tree.addMouseListener(new Listener(popupMenu));
     });
   }
 

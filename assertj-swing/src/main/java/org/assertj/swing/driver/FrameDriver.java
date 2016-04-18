@@ -27,12 +27,10 @@ import java.awt.Point;
 import java.awt.Toolkit;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.annotation.ThreadSafeAction;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.ToolkitProvider;
 
@@ -76,12 +74,9 @@ public class FrameDriver extends WindowDriver {
 
   @RunsInEDT
   private static Point iconifyInfo(final @Nonnull Frame frame) {
-    return execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        checkEnabledAndShowing(frame);
-        return iconifyButtonLocation(frame);
-      }
+    return execute(() -> {
+      checkEnabledAndShowing(frame);
+      return iconifyButtonLocation(frame);
     });
   }
 
@@ -131,12 +126,9 @@ public class FrameDriver extends WindowDriver {
 
   @RunsInEDT
   private @Nonnull static Point maximizeInfo(final @Nonnull Frame frame) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected @Nullable Point executeInEDT() {
-        checkEnabledAndShowing(frame);
-        return maximizeButtonLocation(frame);
-      }
+    Point result = execute(() -> {
+      checkEnabledAndShowing(frame);
+      return maximizeButtonLocation(frame);
     });
     return checkNotNull(result);
   }

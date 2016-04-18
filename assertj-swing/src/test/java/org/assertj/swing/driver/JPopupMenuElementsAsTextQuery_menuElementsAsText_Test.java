@@ -20,14 +20,13 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Tests for {@link JPopupMenuElementsAsTextQuery#menuElementsAsText(javax.swing.JPopupMenu)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JPopupMenuElementsAsTextQuery_menuElementsAsText_Test extends EDTSafeTestCase {
@@ -40,16 +39,13 @@ public class JPopupMenuElementsAsTextQuery_menuElementsAsText_Test extends EDTSa
 
   @RunsInEDT
   private static JPopupMenu popupMenu() {
-    return execute(new GuiQuery<JPopupMenu>() {
-      @Override
-      protected JPopupMenu executeInEDT() {
-        JPopupMenu popupMenu = new JPopupMenu();
-        popupMenu.add(new JMenuItem("Anakin"));
-        popupMenu.addSeparator();
-        popupMenu.add(new JMenuItem("Luke"));
-        popupMenu.add(new JMenuItem("Leia"));
-        return popupMenu;
-      }
+    return execute(() -> {
+      JPopupMenu popupMenu = new JPopupMenu();
+      popupMenu.add(new JMenuItem("Anakin"));
+      popupMenu.addSeparator();
+      popupMenu.add(new JMenuItem("Luke"));
+      popupMenu.add(new JMenuItem("Leia"));
+      return popupMenu;
     });
   }
 

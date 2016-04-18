@@ -18,12 +18,11 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
  * Tests for {@link JTableDriver#requireSelectedRows(javax.swing.JTable, int[])}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTableDriver_requireSelectedRows_Test extends JTableDriver_TestCase {
@@ -62,14 +61,11 @@ public class JTableDriver_requireSelectedRows_Test extends JTableDriver_TestCase
 
   @RunsInEDT
   private static void selectRows(final JTable table, final int from, final int to) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        if (from != to) {
-          table.setSelectionMode(MULTIPLE_INTERVAL_SELECTION);
-        }
-        table.setRowSelectionInterval(from, to);
+    execute(() -> {
+      if (from != to) {
+        table.setSelectionMode(MULTIPLE_INTERVAL_SELECTION);
       }
+      table.setRowSelectionInterval(from, to);
     });
   }
 }

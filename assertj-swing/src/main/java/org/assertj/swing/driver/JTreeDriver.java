@@ -54,7 +54,6 @@ import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.internal.annotation.InternalApi;
@@ -465,15 +464,12 @@ public class JTreeDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void toggleRowThroughTreeUI(final @Nonnull JTree tree, final @Nonnull Point p) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        TreeUI treeUI = tree.getUI();
-        if (!(treeUI instanceof BasicTreeUI)) {
-          throw actionFailure(concat("Can't toggle row for ", treeUI));
-        }
-        toggleExpandState(tree, p);
+    execute(() -> {
+      TreeUI treeUI = tree.getUI();
+      if (!(treeUI instanceof BasicTreeUI)) {
+        throw actionFailure(concat("Can't toggle row for ", treeUI));
       }
+      toggleExpandState(tree, p);
     });
   }
 

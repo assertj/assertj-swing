@@ -17,11 +17,10 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import java.awt.Frame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Disposes all available AWT or Swing {@code Frame}s.
- * 
+ *
  * @author Alex Ruiz
  */
 class FrameDisposer {
@@ -32,12 +31,9 @@ class FrameDisposer {
 
   @RunsInEDT
   private static void doDisposeFrames() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        for (Frame f : Frame.getFrames()) {
-          f.dispose();
-        }
+    execute(() -> {
+      for (Frame f : Frame.getFrames()) {
+        f.dispose();
       }
     });
   }

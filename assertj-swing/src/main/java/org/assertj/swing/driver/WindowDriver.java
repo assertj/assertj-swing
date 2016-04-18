@@ -25,7 +25,6 @@ import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
@@ -121,12 +120,9 @@ public class WindowDriver extends ContainerDriver {
 
   @RunsInEDT
   private static @Nonnull Point closeInfo(final @Nonnull Window w) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        checkEnabledAndShowing(w);
-        return closeButtonLocation(w);
-      }
+    Point result = execute(() -> {
+      checkEnabledAndShowing(w);
+      return closeButtonLocation(w);
     });
     return checkNotNull(result);
   }

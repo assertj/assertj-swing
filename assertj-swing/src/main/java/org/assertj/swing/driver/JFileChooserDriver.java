@@ -32,7 +32,6 @@ import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
@@ -109,12 +108,9 @@ public class JFileChooserDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void setCurrentDirectory(@Nonnull final JFileChooser fileChooser, @Nonnull final File dir) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(fileChooser);
-        fileChooser.setCurrentDirectory(dir);
-      }
+    execute(() -> {
+      checkEnabledAndShowing(fileChooser);
+      fileChooser.setCurrentDirectory(dir);
     });
   }
 

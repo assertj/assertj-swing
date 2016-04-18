@@ -22,35 +22,28 @@ import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the text of a node in a {@code JTree}.
- * 
+ *
  * @author Alex Ruiz
  */
 final class JTreeNodeTextQuery {
   @RunsInEDT
   static @Nullable String nodeText(final @Nonnull JTree tree, final int row, final @Nonnull JTreeLocation location,
-      final @Nonnull JTreePathFinder pathFinder) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        TreePath matchingPath = location.pathFor(tree, row);
-        return pathFinder.cellReader().valueAt(tree, checkNotNull(matchingPath.getLastPathComponent()));
-      }
+                                   final @Nonnull JTreePathFinder pathFinder) {
+    return execute(() -> {
+      TreePath matchingPath = location.pathFor(tree, row);
+      return pathFinder.cellReader().valueAt(tree, checkNotNull(matchingPath.getLastPathComponent()));
     });
   }
 
   @RunsInEDT
   static @Nullable String nodeText(final @Nonnull JTree tree, final @Nonnull String path,
-      final @Nonnull JTreePathFinder pathFinder) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        TreePath matchingPath = matchingPathWithRootIfInvisible(tree, path, pathFinder);
-        return pathFinder.cellReader().valueAt(tree, checkNotNull(matchingPath.getLastPathComponent()));
-      }
+                                   final @Nonnull JTreePathFinder pathFinder) {
+    return execute(() -> {
+      TreePath matchingPath = matchingPathWithRootIfInvisible(tree, path, pathFinder);
+      return pathFinder.cellReader().valueAt(tree, checkNotNull(matchingPath.getLastPathComponent()));
     });
   }
 

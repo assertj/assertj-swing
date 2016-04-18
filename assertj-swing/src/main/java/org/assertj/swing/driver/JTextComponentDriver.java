@@ -49,8 +49,6 @@ import org.assertj.core.description.Description;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
@@ -185,16 +183,13 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   @RunsInEDT
   private static int indexOfText(final @Nonnull JTextComponent textBox, final @Nonnull String text) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        checkEnabledAndShowing(textBox);
-        String actualText = textBox.getText();
-        if (isNullOrEmpty(actualText)) {
-          return -1;
-        }
-        return actualText.indexOf(text);
+    Integer result = execute(() -> {
+      checkEnabledAndShowing(textBox);
+      String actualText = textBox.getText();
+      if (isNullOrEmpty(actualText)) {
+        return -1;
       }
+      return actualText.indexOf(text);
     });
     return checkNotNull(result);
   }
@@ -218,12 +213,9 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   @RunsInEDT
   private static @Nonnull Point checkStateAndScrollToPosition(final @Nonnull JTextComponent textBox, final int index) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        checkEnabledAndShowing(textBox);
-        return scrollToVisible(textBox, index);
-      }
+    Point result = execute(() -> {
+      checkEnabledAndShowing(textBox);
+      return scrollToVisible(textBox, index);
     });
     return checkNotNull(result);
   }
@@ -326,12 +318,9 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
   @RunsInEDT
   private static void performAndValidateTextSelection(final @Nonnull JTextComponent textBox, final int start,
                                                       final int end) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        selectTextInRange(textBox, start, end);
-        verifyTextWasSelected(textBox, start, end);
-      }
+    execute(() -> {
+      selectTextInRange(textBox, start, end);
+      verifyTextWasSelected(textBox, start, end);
     });
   }
 

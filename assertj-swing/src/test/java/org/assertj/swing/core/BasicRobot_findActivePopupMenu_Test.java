@@ -20,7 +20,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
 
 /**
@@ -38,22 +37,19 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
   @RunsInEDT
   public static JPopupMenu createAndSetPopupMenuWithCascade(final JComponent c, final String itemOne,
                                                             final String itemTwo) {
-    return execute(new GuiQuery<JPopupMenu>() {
-      @Override
-      protected JPopupMenu executeInEDT() {
-        JPopupMenu popupMenu = new JPopupMenu();
+    return execute(() -> {
+      JPopupMenu popupMenu = new JPopupMenu();
 
-        JPopupMenu innerMenu = new JPopupMenu("cascade test");
-        innerMenu.add(new JMenuItem("cascade line 1"));
-        innerMenu.add(new JMenuItem("cascade line 2"));
+      JPopupMenu innerMenu = new JPopupMenu("cascade test");
+      innerMenu.add(new JMenuItem("cascade line 1"));
+      innerMenu.add(new JMenuItem("cascade line 2"));
 
-        popupMenu.add(new JMenuItem(itemOne));
-        popupMenu.add(innerMenu);
-        popupMenu.add(new JMenuItem(itemTwo));
+      popupMenu.add(new JMenuItem(itemOne));
+      popupMenu.add(innerMenu);
+      popupMenu.add(new JMenuItem(itemTwo));
 
-        c.setComponentPopupMenu(popupMenu);
-        return popupMenu;
-      }
+      c.setComponentPopupMenu(popupMenu);
+      return popupMenu;
     });
   }
 

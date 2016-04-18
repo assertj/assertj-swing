@@ -21,12 +21,11 @@ import javax.swing.JComboBox;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
 
 /**
  * Tests for {@link JComboBoxDriver#selectAllText(javax.swing.JComboBox)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -67,13 +66,10 @@ public class JComboBoxDriver_selectAllText_Test extends JComboBoxDriver_TestCase
 
   @RunsInEDT
   private static String selectedTextOf(final JComboBox comboBox) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        Component editor = comboBox.getEditor().getEditorComponent();
-        assertThat(editor).isInstanceOf(JTextComponent.class);
-        return ((JTextComponent) editor).getSelectedText();
-      }
+    return execute(() -> {
+      Component editor = comboBox.getEditor().getEditorComponent();
+      assertThat(editor).isInstanceOf(JTextComponent.class);
+      return ((JTextComponent) editor).getSelectedText();
     });
   }
 }

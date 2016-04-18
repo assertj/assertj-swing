@@ -26,7 +26,6 @@ import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.hierarchy.ComponentHierarchy;
 import org.assertj.swing.hierarchy.ExistingHierarchy;
 import org.assertj.swing.hierarchy.SingleComponentHierarchy;
@@ -133,12 +132,9 @@ public final class BasicComponentPrinter implements ComponentPrinter {
   @RunsInEDT
   private static void print(@Nonnull final ComponentHierarchy hierarchy, @Nonnull final ComponentMatcher matcher,
                             @Nonnull final PrintStream out) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        for (Component c : hierarchy.roots()) {
-          print(checkNotNull(c), hierarchy, matcher, 0, out);
-        }
+    execute(() -> {
+      for (Component c : hierarchy.roots()) {
+        print(checkNotNull(c), hierarchy, matcher, 0, out);
       }
     });
   }

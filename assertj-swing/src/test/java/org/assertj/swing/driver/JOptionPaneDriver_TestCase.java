@@ -32,7 +32,6 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Rule;
@@ -73,26 +72,20 @@ public abstract class JOptionPaneDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static JOptionPane inputMessage() {
-    return execute(new GuiQuery<JOptionPane>() {
-      @Override
-      protected JOptionPane executeInEDT() {
-        JOptionPane optionPane = new JOptionPane(MESSAGE, QUESTION_MESSAGE, OK_CANCEL_OPTION);
-        optionPane.setWantsInput(true);
-        return optionPane;
-      }
+    return execute(() -> {
+      JOptionPane optionPane = new JOptionPane(MESSAGE, QUESTION_MESSAGE, OK_CANCEL_OPTION);
+      optionPane.setWantsInput(true);
+      return optionPane;
     });
   }
 
   @RunsInEDT
   static JOptionPane messageWithOptions(final Object... options) {
-    return execute(new GuiQuery<JOptionPane>() {
-      @Override
-      protected JOptionPane executeInEDT() {
-        Object initialValue = options[0];
-        JOptionPane optionPane = new JOptionPane(MESSAGE, QUESTION_MESSAGE, YES_NO_OPTION, ICON, options, initialValue);
-        optionPane.setInitialValue(initialValue);
-        return optionPane;
-      }
+    return execute(() -> {
+      Object initialValue = options[0];
+      JOptionPane optionPane = new JOptionPane(MESSAGE, QUESTION_MESSAGE, YES_NO_OPTION, ICON, options, initialValue);
+      optionPane.setInitialValue(initialValue);
+      return optionPane;
     });
   }
 

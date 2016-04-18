@@ -17,11 +17,9 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-import org.assertj.swing.edt.GuiQuery;
-
 /**
  * Base test case for methods in {@link JTableHeaderDriver} that invoke a {@code JPopupMenu}.
- * 
+ *
  * @author Yvonne Wang
  */
 public abstract class JTableHeaderDriver_showPopupMenu_TestCase extends JTableHeaderDriver_TestCase {
@@ -29,14 +27,11 @@ public abstract class JTableHeaderDriver_showPopupMenu_TestCase extends JTableHe
 
   @Override
   final void extraSetUp() {
-    popupMenu = execute(new GuiQuery<JPopupMenu>() {
-      @Override
-      protected JPopupMenu executeInEDT() {
-        JPopupMenu p = new JPopupMenu();
-        p.add(new JMenuItem("Frodo"));
-        tableHeader.setComponentPopupMenu(p);
-        return p;
-      }
+    popupMenu = execute(() -> {
+      JPopupMenu p = new JPopupMenu();
+      p.add(new JMenuItem("Frodo"));
+      tableHeader.setComponentPopupMenu(p);
+      return p;
     });
     robot.waitForIdle();
   }

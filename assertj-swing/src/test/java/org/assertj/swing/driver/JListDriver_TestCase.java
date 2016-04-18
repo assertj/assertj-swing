@@ -26,7 +26,6 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -36,7 +35,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link JListDriver}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -129,12 +128,9 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setSelectedIndices(final JList list, final int... indices) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        list.setSelectionMode(MULTIPLE_INTERVAL_SELECTION);
-        list.setSelectedIndices(indices);
-      }
+    execute(() -> {
+      list.setSelectionMode(MULTIPLE_INTERVAL_SELECTION);
+      list.setSelectedIndices(indices);
     });
   }
 

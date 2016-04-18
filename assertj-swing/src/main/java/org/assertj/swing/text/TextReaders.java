@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Registry of {@link TextReader}s.
@@ -79,14 +78,11 @@ public class TextReaders {
   public boolean containsText(final @Nonnull Container container, final @Nonnull String text) {
     checkNotNull(container);
     checkNotNull(text);
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected @Nullable Boolean executeInEDT() {
-        if (componentContainsText(container, text)) {
-          return true;
-        }
-        return anyComponentContainsText(container.getComponents(), text);
+    Boolean result = execute(() -> {
+      if (componentContainsText(container, text)) {
+        return true;
       }
+      return anyComponentContainsText(container.getComponents(), text);
     });
     return checkNotNull(result);
   }

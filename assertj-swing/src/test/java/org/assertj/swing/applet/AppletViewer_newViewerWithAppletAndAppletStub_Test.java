@@ -17,24 +17,20 @@ import static org.assertj.swing.test.awt.TestApplets.singletonAppletMock;
 
 import java.applet.AppletStub;
 
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Test;
 
 /**
  * Tests for {@link AppletViewer#newViewer(Applet, AppletStub)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class AppletViewer_newViewerWithAppletAndAppletStub_Test extends EDTSafeTestCase {
   @Test(expected = NullPointerException.class)
   public void should_Throw_Error_If_AppletStub_Is_Null() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        AppletStub appletStub = null;
-        AppletViewer.newViewer(singletonAppletMock(), appletStub);
-      }
+    execute(() -> {
+      AppletStub appletStub = null;
+      AppletViewer.newViewer(singletonAppletMock(), appletStub);
     });
   }
 }

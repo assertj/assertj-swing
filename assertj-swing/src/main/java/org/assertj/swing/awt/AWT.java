@@ -36,12 +36,11 @@ import javax.swing.SwingUtilities;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.ToolkitProvider;
 
 /**
  * Utility methods related to AWT.
- * 
+ *
  * @author Alex Ruiz
  */
 public class AWT {
@@ -50,7 +49,7 @@ public class AWT {
 
   /**
    * Indicates whether the given point, relative to the given {@code JComponent}, is inside the screen boundaries.
-   * 
+   *
    * @param c the given {@code JComponent}.
    * @param p the point to verify.
    * @return {@code true} if the point is inside the screen boundaries; {@code false} otherwise.
@@ -63,7 +62,7 @@ public class AWT {
 
   /**
    * Indicates whether the given point is inside the screen boundaries.
-   * 
+   *
    * @param p the point to verify.
    * @return {@code true} if the point is inside the screen boundaries; {@code false} otherwise.
    */
@@ -76,12 +75,12 @@ public class AWT {
    * <p>
    * Translates the given coordinates to the location on screen of the given AWT or Swing {@code Component}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code Component}.
    * @param x X coordinate.
    * @param y Y coordinate.
@@ -99,20 +98,17 @@ public class AWT {
 
   /**
    * Returns a point at the center of the visible area of the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return a point at the center of the visible area of the given {@code Component}.
    */
   @RunsInEDT
   public static @Nonnull Point visibleCenterOf(@Nonnull final Component c) {
-    Point center = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        if (c instanceof JComponent) {
-          return centerOfVisibleRect((JComponent) c);
-        }
-        return centerOf(c);
+    Point center = execute(() -> {
+      if (c instanceof JComponent) {
+        return centerOfVisibleRect((JComponent) c);
       }
+      return centerOf(c);
     });
     return checkNotNull(center);
   }
@@ -121,12 +117,12 @@ public class AWT {
    * <p>
    * Returns a point at the center of the given AWT or Swing {@code Component}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code Component}.
    * @return a point at the center of the given {@code Component}.
    */
@@ -140,12 +136,12 @@ public class AWT {
    * <p>
    * Returns a point at the center of the visible rectangle of the given {@code JComponent}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code JComponent}.
    * @return a point at the center of the visible rectangle of the given {@code JComponent}.
    */
@@ -159,12 +155,12 @@ public class AWT {
    * <p>
    * Returns a point at the center of the given {@code Rectangle}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param r the given {@code Rectangle}.
    * @return a point at the center of the given {@code Rectangle}.
    */
@@ -177,12 +173,12 @@ public class AWT {
    * <p>
    * Returns the insets of the given AWT or Swing {@code Container}, or an empty one if no insets can be found.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code Container}.
    * @return the insets of the given {@code Container}, or an empty one if no insets can be found.
    */
@@ -200,7 +196,7 @@ public class AWT {
 
   /**
    * Returns {@code true} if the given component is an Applet viewer.
-   * 
+   *
    * @param c the component to check.
    * @return {@code true} if the given component is an Applet viewer, {@code false} otherwise.
    */
@@ -210,7 +206,7 @@ public class AWT {
 
   /**
    * Returns whether the given component is the default Swing hidden frame.
-   * 
+   *
    * @param c the component to check.
    * @return {@code true} if the given component is the default hidden frame, {@code false} otherwise.
    */
@@ -220,7 +216,7 @@ public class AWT {
     }
     // Must perform an additional check, since applets may have their own version in their AppContext
     return c instanceof Frame
-        && (c == JOptionPane.getRootFrame() || c.getClass().getName().startsWith(ROOT_FRAME_CLASSNAME));
+           && (c == JOptionPane.getRootFrame() || c.getClass().getName().startsWith(ROOT_FRAME_CLASSNAME));
   }
 
   /**
@@ -228,12 +224,12 @@ public class AWT {
    * Returns whether the given AWT or Swing {@code Component} is a heavy-weight pop-up, that is, a container for a
    * {@code JPopupMenu} that is implemented with a heavy-weight component (usually an AWT or Swing {@code Window}).
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code Component}.
    * @return {@code true} if the given {@code Component} is a heavy-weight pop-up; {@code false} otherwise.
    */
@@ -265,12 +261,12 @@ public class AWT {
    * Returns the invoker, if any, of the given AWT or Swing {@code Component}; or {@code null}, if the {@code Component}
    * is not on a pop-up of any sort.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the invoker, if any, of the given {@code Component}; or {@code null}, if the {@code Component} is not on a
    *         pop-up of any sort.
@@ -288,12 +284,12 @@ public class AWT {
    * <p>
    * Wrapper for {@code Component.getLocationOnScreen}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
    * dispatch thread (EDT.) Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given AWT or Swing {@code Component}.
    * @return the a point specifying the {@code Component}'s top-left corner in the screen's coordinate space.
    */
@@ -304,7 +300,7 @@ public class AWT {
 
   /**
    * Returns whether the platform registers a pop-up on mouse press.
-   * 
+   *
    * @return {@code true} if the platform registers a pop-up on mouse press, {@code false} otherwise.
    */
   public static boolean popupOnPress() {

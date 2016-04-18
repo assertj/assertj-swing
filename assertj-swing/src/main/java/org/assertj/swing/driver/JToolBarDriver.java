@@ -33,7 +33,6 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.GenericRange;
 import org.assertj.swing.util.Pair;
@@ -147,12 +146,9 @@ public class JToolBarDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void checkFloated(final @Nonnull JToolBar toolBar) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        if (!isJToolBarFloating(toolBar)) {
-          throw actionFailure(String.format("Unable to float JToolbar <%s>", format(toolBar)));
-        }
+    execute(() -> {
+      if (!isJToolBarFloating(toolBar)) {
+        throw actionFailure(String.format("Unable to float JToolbar <%s>", format(toolBar)));
       }
     });
   }
@@ -197,13 +193,10 @@ public class JToolBarDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void validateIsNotFloating(final @Nonnull JToolBar toolBar, final @Nonnull String constraint) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        if (isJToolBarFloating(toolBar)) {
-          String msg = String.format("Failed to dock <%s> using constraint ''", format(toolBar), constraint);
-          throw actionFailure(msg);
-        }
+    execute(() -> {
+      if (isJToolBarFloating(toolBar)) {
+        String msg = String.format("Failed to dock <%s> using constraint ''", format(toolBar), constraint);
+        throw actionFailure(msg);
       }
     });
   }
@@ -234,12 +227,9 @@ public class JToolBarDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nullable Window windowAncestorOf(final @Nonnull JToolBar toolBar) {
-    return execute(new GuiQuery<Window>() {
-      @Override
-      protected Window executeInEDT() {
-        checkEnabledAndShowing(toolBar);
-        return getWindowAncestor(toolBar);
-      }
+    return execute(() -> {
+      checkEnabledAndShowing(toolBar);
+      return getWindowAncestor(toolBar);
     });
   }
 

@@ -78,7 +78,6 @@ import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.exception.WaitTimedOutError;
@@ -378,13 +377,10 @@ public class BasicRobot implements Robot {
 
   @RunsInEDT
   private static void disposeWindows(final @Nonnull ComponentHierarchy hierarchy) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        for (Container c : hierarchy.roots()) {
-          if (c instanceof Window) {
-            dispose(hierarchy, (Window) c);
-          }
+    execute(() -> {
+      for (Container c : hierarchy.roots()) {
+        if (c instanceof Window) {
+          dispose(hierarchy, (Window) c);
         }
       }
     });
@@ -927,12 +923,9 @@ public class BasicRobot implements Robot {
 
   @RunsInEDT
   private static void appendComponents(final @Nonnull StringBuilder message, final @Nonnull Collection<Component> found) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        for (Component c : found) {
-          message.append(String.format("%n%s", format(c)));
-        }
+    execute(() -> {
+      for (Component c : found) {
+        message.append(String.format("%n%s", format(c)));
       }
     });
   }

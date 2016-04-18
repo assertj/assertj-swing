@@ -20,7 +20,6 @@ import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JListCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the {@code String} that represents the single selection of a given {@code JList}. This query is executed in
@@ -33,12 +32,9 @@ final class JListSelectionValueQuery {
 
   @RunsInEDT
   static @Nullable Object singleSelectionValue(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected Object executeInEDT() {
-        int selectedIndex = list.getSelectedIndex();
-        return (selectedIndex >= 0) ? cellReader.valueAt(list, selectedIndex) : NO_SELECTION_VALUE;
-      }
+    return execute(() -> {
+      int selectedIndex = list.getSelectedIndex();
+      return (selectedIndex >= 0) ? cellReader.valueAt(list, selectedIndex) : NO_SELECTION_VALUE;
     });
   }
 

@@ -54,7 +54,6 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JListCellReader;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
@@ -370,12 +369,9 @@ public class JListDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void validateIndicesAndClearSelection(final @Nonnull JList<?> list, final @Nonnull int... indices) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkIndicesInBounds(list, indices);
-        list.clearSelection();
-      }
+    execute(() -> {
+      checkIndicesInBounds(list, indices);
+      list.clearSelection();
     });
   }
 

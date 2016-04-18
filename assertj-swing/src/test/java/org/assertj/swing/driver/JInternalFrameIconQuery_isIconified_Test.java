@@ -15,19 +15,16 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
-import java.beans.PropertyVetoException;
-
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestMdiWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link JInternalFrameIconQuery#isIconified(JInternalFrame)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -83,12 +80,9 @@ public class JInternalFrameIconQuery_isIconified_Test extends RobotBasedTestCase
 
   @RunsInEDT
   private static void setIconAndMaximum(final JInternalFrame internalFrame, final boolean icon, final boolean maximum) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() throws PropertyVetoException {
-        internalFrame.setIcon(icon);
-        internalFrame.setMaximum(maximum);
-      }
+    execute(() -> {
+      internalFrame.setIcon(icon);
+      internalFrame.setMaximum(maximum);
     });
   }
 }

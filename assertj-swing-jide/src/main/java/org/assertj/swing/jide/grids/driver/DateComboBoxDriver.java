@@ -26,7 +26,6 @@ import org.assertj.swing.core.ComponentFinder;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
 import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiTask;
 
 import com.jidesoft.combobox.DateChooserPanel;
 import com.jidesoft.combobox.DateComboBox;
@@ -83,16 +82,12 @@ public class DateComboBoxDriver extends JComponentDriver {
 
   @RunsInCurrentThread
   private static void showPopup(final DateComboBox combo) {
-    GuiTask task = new GuiTask() {
-      @Override
-      protected void executeInEDT() throws Throwable {
-        if (!combo.isPopupVisible()) {
-          combo.showPopup();
-        }
-        assertTrue("The popup should be visible", combo.isPopupVisible());
+    GuiActionRunner.execute(() -> {
+      if (!combo.isPopupVisible()) {
+        combo.showPopup();
       }
-    };
-    GuiActionRunner.execute(task);
+      assertTrue("The popup should be visible", combo.isPopupVisible());
+    });
   }
 
   @RunsInCurrentThread

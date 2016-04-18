@@ -19,14 +19,13 @@ import javax.swing.table.TableColumnModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.data.TableCellByColumnId;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Fix for <a href="http://code.google.com/p/fest/issues/detail?id=232" target="_blank">issue 232</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Bug232_wrongColumnIndexInJTable_Test extends RobotBasedTestCase {
@@ -47,12 +46,9 @@ public class Bug232_wrongColumnIndexInJTable_Test extends RobotBasedTestCase {
   }
 
   private static void removeFirstColumn(final JTable table) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        TableColumnModel columnModel = table.getColumnModel();
-        columnModel.removeColumn(columnModel.getColumn(0));
-      }
+    execute(() -> {
+      TableColumnModel columnModel = table.getColumnModel();
+      columnModel.removeColumn(columnModel.getColumn(0));
     });
   }
 

@@ -26,12 +26,11 @@ import javax.swing.JTextField;
 import javax.swing.JViewport;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
  * Tests for {@link JTextComponentDriver#selectText(javax.swing.text.JTextComponent, String)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -41,17 +40,14 @@ public class JTextComponentDriver_selectText_Test extends JTextComponentDriver_T
   @RunsInEDT
   @Override
   void extraSetUp() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        scrollToViewTextField = new JTextField(10);
-        JScrollPane scrollPane = new JScrollPane(VERTICAL_SCROLLBAR_ALWAYS, HORIZONTAL_SCROLLBAR_ALWAYS);
-        JViewport viewport = scrollPane.getViewport();
-        viewport.add(new JLabel("A Label"));
-        viewport.add(scrollToViewTextField);
-        scrollPane.setPreferredSize(new Dimension(50, 50));
-        window.add(scrollPane);
-      }
+    execute(() -> {
+      scrollToViewTextField = new JTextField(10);
+      JScrollPane scrollPane = new JScrollPane(VERTICAL_SCROLLBAR_ALWAYS, HORIZONTAL_SCROLLBAR_ALWAYS);
+      JViewport viewport = scrollPane.getViewport();
+      viewport.add(new JLabel("A Label"));
+      viewport.add(scrollToViewTextField);
+      scrollPane.setPreferredSize(new Dimension(50, 50));
+      window.add(scrollPane);
     });
   }
 

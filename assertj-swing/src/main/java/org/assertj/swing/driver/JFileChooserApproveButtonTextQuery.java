@@ -20,7 +20,6 @@ import javax.swing.JFileChooser;
 
 import org.assertj.core.util.Strings;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the text used in the "approve button" of a {@code JFileChooser}. This action is executed in the event
@@ -35,15 +34,12 @@ import org.assertj.swing.edt.GuiQuery;
 final class JFileChooserApproveButtonTextQuery {
   @RunsInEDT
   static @Nullable String approveButtonTextFrom(final @Nonnull JFileChooser fileChooser) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        String text = fileChooser.getApproveButtonText();
-        if (!Strings.isNullOrEmpty(text)) {
-          return text;
-        }
-        return fileChooser.getUI().getApproveButtonText(fileChooser);
+    return execute(() -> {
+      String text = fileChooser.getApproveButtonText();
+      if (!Strings.isNullOrEmpty(text)) {
+        return text;
       }
+      return fileChooser.getUI().getApproveButtonText(fileChooser);
     });
   }
 

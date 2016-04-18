@@ -22,14 +22,13 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.swing.TestTable.columnNames;
 import static org.assertj.swing.test.swing.TestTable.createCellValueFrom;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.swing.TestTable;
 import org.junit.Test;
 
 /**
  * Tests for {@link JTableDriver#drag(javax.swing.JTable, org.assertj.swing.data.TableCell)} and
  * {@link JTableDriver#drop(javax.swing.JTable, org.assertj.swing.data.TableCell)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -40,13 +39,10 @@ public class JTableDriver_drag_drop_Test extends JTableDriver_TestCase {
 
   @Override
   void extraSetUp() {
-    dropTable = execute(new GuiQuery<TestTable>() {
-      @Override
-      protected TestTable executeInEDT() {
-        TestTable t = new TestTable(dropTableData(DROP_TABLE_ROW_COUNT, COLUMN_COUNT), columnNames(COLUMN_COUNT));
-        window.addTable(t);
-        return t;
-      }
+    dropTable = execute(() -> {
+      TestTable t = new TestTable(dropTableData(DROP_TABLE_ROW_COUNT, COLUMN_COUNT), columnNames(COLUMN_COUNT));
+      window.addTable(t);
+      return t;
     });
   }
 

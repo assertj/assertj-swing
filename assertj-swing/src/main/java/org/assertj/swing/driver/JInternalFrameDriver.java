@@ -79,8 +79,9 @@ public class JInternalFrameDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void moveToFront(final @Nonnull JInternalFrame internalFrame) {
-    execute(() -> // it seems that moving to front always works, regardless if the internal frame is invisible and/or disabled.
-        internalFrame.toFront());
+    execute(() -> // it seems that moving to front always works, regardless if the internal frame is invisible and/or
+                  // disabled.
+    internalFrame.toFront());
   }
 
   /**
@@ -90,8 +91,9 @@ public class JInternalFrameDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void moveToBack(final @Nonnull JInternalFrame internalFrame) {
-    execute(() -> // it seems that moving to back always works, regardless if the internal frame is invisible and/or disabled.
-        internalFrame.moveToBack());
+    execute(() -> // it seems that moving to back always works, regardless if the internal frame is invisible and/or
+                  // disabled.
+    internalFrame.moveToBack());
   }
 
   /**
@@ -373,19 +375,16 @@ public class JInternalFrameDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nullable Point findCloseButtonLocation(final @Nonnull JInternalFrame internalFrame) {
-    return execute(new GuiQuery<Point>() {
-      @Override
-      protected @Nullable Point executeInEDT() {
-        checkShowing(internalFrame);
-        if (!internalFrame.isClosable()) {
-          String msg = String.format("The JInternalFrame <%s> is not closable", format(internalFrame));
-          throw new IllegalStateException(msg);
-        }
-        if (internalFrame.isClosed()) {
-          return null;
-        }
-        return closeButtonLocation(internalFrame);
+    return execute(() -> {
+      checkShowing(internalFrame);
+      if (!internalFrame.isClosable()) {
+        String msg = String.format("The JInternalFrame <%s> is not closable", format(internalFrame));
+        throw new IllegalStateException(msg);
       }
+      if (internalFrame.isClosed()) {
+        return null;
+      }
+      return closeButtonLocation(internalFrame);
     });
   }
 }

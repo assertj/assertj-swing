@@ -49,8 +49,6 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JComboBoxCellReader;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.internal.annotation.InternalApi;
@@ -248,12 +246,9 @@ public class JComboBoxDriver extends JComponentDriver {
   @RunsInEDT
   private static @Nullable String valueAsText(final @Nonnull JComboBox<?> comboBox, final int index,
                                               final @Nonnull JComboBoxCellReader cellReader) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        checkItemIndexInBounds(comboBox, index);
-        return cellReader.valueAt(comboBox, index);
-      }
+    return execute(() -> {
+      checkItemIndexInBounds(comboBox, index);
+      return cellReader.valueAt(comboBox, index);
     });
   }
 
@@ -292,12 +287,9 @@ public class JComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void validateCanSelectItem(final @Nonnull JComboBox<?> comboBox, final int index) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(comboBox);
-        checkItemIndexInBounds(comboBox, index);
-      }
+    execute(() -> {
+      checkEnabledAndShowing(comboBox);
+      checkItemIndexInBounds(comboBox, index);
     });
   }
 
@@ -389,12 +381,9 @@ public class JComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nullable Component accessibleEditorOf(final @Nonnull JComboBox<?> comboBox) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected @Nullable Component executeInEDT() {
-        checkAccessibleEditor(comboBox);
-        return editorComponentOf(comboBox);
-      }
+    return execute(() -> {
+      checkAccessibleEditor(comboBox);
+      return editorComponentOf(comboBox);
     });
   }
 
@@ -446,14 +435,11 @@ public class JComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static Component editorIfEditable(final JComboBox<?> comboBox) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        if (!comboBox.isEditable()) {
-          return null;
-        }
-        return editorComponent(comboBox);
+    return execute(() -> {
+      if (!comboBox.isEditable()) {
+        return null;
       }
+      return editorComponent(comboBox);
     });
   }
 

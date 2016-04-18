@@ -26,13 +26,12 @@ import javax.swing.table.DefaultTableModel;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.swing.CustomCellRenderer;
 import org.junit.Test;
 
 /**
  * Tests for {@link BasicJTableCellReader#valueAt(JTable, int, int)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -48,12 +47,9 @@ public class BasicJTableCellReader_valueAt_Test extends BasicJTableCellReader_Te
 
   @RunsInEDT
   private static void setModelData(final JTable table, final Object[][] data, final Object[] columnNames) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        table.setModel(model);
-      }
+    execute(() -> {
+      DefaultTableModel model = new DefaultTableModel(data, columnNames);
+      table.setModel(model);
     });
   }
 
@@ -93,13 +89,10 @@ public class BasicJTableCellReader_valueAt_Test extends BasicJTableCellReader_Te
 
   @RunsInEDT
   private static void setJComboBoxAsCellRenderer(final JTable table, final int itemIndex) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        JComboBox comboBox = new JComboBox(array("One", "Two"));
-        comboBox.setSelectedIndex(itemIndex);
-        setCellRendererComponent(table, comboBox);
-      }
+    execute(() -> {
+      JComboBox comboBox = new JComboBox(array("One", "Two"));
+      comboBox.setSelectedIndex(itemIndex);
+      setCellRendererComponent(table, comboBox);
     });
   }
 
@@ -113,12 +106,9 @@ public class BasicJTableCellReader_valueAt_Test extends BasicJTableCellReader_Te
 
   @RunsInEDT
   private static void setJCheckBoxAsCellRenderer(final JTable table, final String text, final boolean selected) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        JCheckBox checkBox = new JCheckBox(text, selected);
-        setCellRendererComponent(table, checkBox);
-      }
+    execute(() -> {
+      JCheckBox checkBox = new JCheckBox(text, selected);
+      setCellRendererComponent(table, checkBox);
     });
   }
 
