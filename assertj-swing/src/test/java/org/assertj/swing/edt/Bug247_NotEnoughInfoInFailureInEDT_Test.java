@@ -31,8 +31,11 @@ public class Bug247_NotEnoughInfoInFailureInEDT_Test {
   public void should_Show_Method_Call_In_Current_Thread_When_Failing_In_EDT() {
     boolean testClassInStackTrace = false;
     try {
-      execute(() -> {
-        throw new RuntimeException("Thrown on purpose");
+      execute(new GuiTask() {
+        @Override
+        protected void executeInEDT() throws Throwable {
+          throw new RuntimeException("Thrown on purpose");
+        }
       });
       fail("Expecting exception");
     } catch (RuntimeException e) {
