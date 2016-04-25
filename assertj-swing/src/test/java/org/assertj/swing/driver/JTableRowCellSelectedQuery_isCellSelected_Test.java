@@ -27,11 +27,11 @@ import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
- * Tests for {@link JTableSingleRowCellSelectedQuery#isCellSelected(JTable, int, int)}.
- * 
+ * Tests for {@link JTableRowCellSelectedQuery#isCellSelected(JTable, int, int)}.
+ *
  * @author Alex Ruiz
  */
-public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotBasedTestCase {
+public class JTableRowCellSelectedQuery_isCellSelected_Test extends RobotBasedTestCase {
   private JTable table;
 
   @Override
@@ -54,10 +54,10 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
   }
 
   @Test
-  public void should_Return_False_If_Whole_Row_Is_Selected() {
+  public void should_Return_True_If_Whole_Row_Is_Selected() {
     selectRow(table, 0);
     robot.waitForIdle();
-    assertThat(isCellSelected(table, 0, 2)).isFalse();
+    assertThat(isCellSelected(table, 0, 2)).isTrue();
   }
 
   @RunsInEDT
@@ -66,15 +66,15 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
   }
 
   @Test
-  public void should_False_If_Multiple_Row_Are_Selected() {
+  public void should_Return_True_If_Multiple_Row_Are_Selected() {
     selectCells(table, row(0).column(2), row(0).column(4));
     robot.waitForIdle();
-    assertThat(isCellSelected(table, 0, 2)).isFalse();
+    assertThat(isCellSelected(table, 0, 2)).isTrue();
   }
 
   @RunsInEDT
   private static boolean isCellSelected(final JTable table, final int row, final int column) {
-    return execute(() -> JTableSingleRowCellSelectedQuery.isCellSelected(table, row, column));
+    return execute(() -> JTableRowCellSelectedQuery.isCellSelected(table, row, column));
   }
 
   private static class MyWindow extends TestWindow {
@@ -86,7 +86,7 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
     }
 
     private MyWindow() {
-      super(JTableSingleRowCellSelectedQuery_isCellSelected_Test.class);
+      super(JTableRowCellSelectedQuery_isCellSelected_Test.class);
       addComponents(table);
     }
   }

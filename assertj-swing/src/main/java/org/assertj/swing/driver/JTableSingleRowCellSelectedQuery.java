@@ -28,13 +28,14 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * </p>
  *
  * @author Alex Ruiz
+ * @author Christian Rösch
  */
-final class JTableSingleRowCellSelectedQuery {
+final class JTableRowCellSelectedQuery {
   @RunsInCurrentThread
   static boolean isCellSelected(final @Nonnull JTable table, final int row, final int column) {
     return table.isCellSelected(row, column);
   }
 
-  private JTableSingleRowCellSelectedQuery() {
+  private JTableRowCellSelectedQuery() {
   }
 }

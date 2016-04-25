@@ -25,7 +25,7 @@ import static org.assertj.swing.driver.JTableContentsQuery.tableContents;
 import static org.assertj.swing.driver.JTableHasSelectionQuery.hasSelection;
 import static org.assertj.swing.driver.JTableHeaderQuery.tableHeader;
 import static org.assertj.swing.driver.JTableMatchingCellQuery.cellWithValue;
-import static org.assertj.swing.driver.JTableSingleRowCellSelectedQuery.isCellSelected;
+import static org.assertj.swing.driver.JTableRowCellSelectedQuery.isCellSelected;
 import static org.assertj.swing.driver.TextAssert.verifyThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
