@@ -95,6 +95,7 @@ import org.assertj.swing.util.ToolkitProvider;
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author Christian Rösch
  *
  * @see Robot
  */
@@ -454,7 +455,12 @@ public class BasicRobot implements Robot {
     int mask = button.mask;
     int modifierMask = mask & ~BUTTON_MASK;
     mask &= BUTTON_MASK;
-    pressModifiers(modifierMask);
+    final int finalMask = mask;
+    pressModifiersWhileRunning(modifierMask, () -> doClickWhileModifiersPressed(c, where, times, finalMask));
+    waitForIdle();
+  }
+
+  private void doClickWhileModifiersPressed(Component c, Point where, int times, int mask) {
     // From Abbot: Adjust the auto-delay to ensure we actually get a multiple click
     // In general clicks have to be less than 200ms apart, although the actual setting is not readable by Java.
     int delayBetweenEvents = settings.delayBetweenEvents();
@@ -476,8 +482,6 @@ public class BasicRobot implements Robot {
     }
     settings.delayBetweenEvents(delayBetweenEvents);
     eventGenerator.releaseMouse(mask);
-    releaseModifiers(modifierMask);
-    waitForIdle();
   }
 
   private boolean shouldSetDelayBetweenEventsToZeroWhenClicking(int times) {
@@ -488,6 +492,16 @@ public class BasicRobot implements Robot {
   public void pressModifiers(int modifierMask) {
     for (int modifierKey : keysFor(modifierMask)) {
       pressKey(modifierKey);
+    }
+  }
+
+  @Override
+  public void pressModifiersWhileRunning(int modifierMask, Runnable runnable) {
+    pressModifiers(modifierMask);
+    try {
+      runnable.run();
+    } finally {
+      releaseModifiers(modifierMask);
     }
   }
 
@@ -724,12 +738,12 @@ public class BasicRobot implements Robot {
   @RunsInEDT
   private void keyPressAndRelease(int keyCode, int modifiers) {
     int updatedModifiers = updateModifierWithKeyCode(keyCode, modifiers);
-    pressModifiers(updatedModifiers);
     if (updatedModifiers == modifiers) {
-      doPressKey(keyCode);
-      eventGenerator.releaseKey(keyCode);
+      pressModifiersWhileRunning(updatedModifiers, () -> {
+        doPressKey(keyCode);
+        eventGenerator.releaseKey(keyCode);
+      });
     }
-    releaseModifiers(updatedModifiers);
   }
 
   @RunsInEDT

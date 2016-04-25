@@ -450,9 +450,21 @@ public interface Robot {
    * {@code java.awt.event.InputEvent}.
    *
    * @param modifierMask the given mask.
+   * @see #pressModifiersWhileRunning(int, Runnable)
    * @see java.awt.event.InputEvent
    */
   void pressModifiers(int modifierMask);
+
+  /**
+   * Presses the appropriate modifiers corresponding to the given mask. Use mask values from
+   * {@code java.awt.event.InputEvent}. Runs the given runnable and then releases the modifiers again.
+   *
+   * @param modifierMask the given mask.
+   * @param runnable the runnable being run while pressing the given button
+   * @see #pressModifiers(int)
+   * @see java.awt.event.InputEvent
+   */
+  void pressModifiersWhileRunning(int modifierMask, @Nonnull Runnable runnable);
 
   /**
    * Releases the appropriate modifiers corresponding to the given mask. Use mask values from
