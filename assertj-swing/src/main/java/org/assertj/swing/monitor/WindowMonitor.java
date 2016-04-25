@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.ToolkitProvider;
 
 /**
@@ -144,6 +145,11 @@ public class WindowMonitor {
 
   @RunsInEDT
   private static class SingletonLazyLoader {
-    static final WindowMonitor INSTANCE = execute(() -> new WindowMonitor(ToolkitProvider.instance().defaultToolkit()));
+    static final WindowMonitor INSTANCE = execute(new GuiQuery<WindowMonitor>() {
+      @Override
+      protected WindowMonitor executeInEDT() {
+        return new WindowMonitor(ToolkitProvider.instance().defaultToolkit());
+      };
+    });
   }
 }
