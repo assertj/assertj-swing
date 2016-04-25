@@ -179,21 +179,17 @@ public class AbstractComboBoxDriver extends JComponentDriver {
     super.pressAndReleaseKey(interactionComponent, keyCode, modifiers);
   }
 
-  /**
-   * Simulates a user pressing given key on the <code>{@link Component}</code>.
-   *
-   * @param c the target component.
-   * @param keyCode the code of the key to press.
-   * @throws IllegalArgumentException if the given code is not a valid key code.
-   * @throws IllegalStateException if the <code>Component</code> is disabled, or is not
-   *           showing on the screen.
-   * @see java.awt.event.KeyEvent
-   */
   @Override
   @RunsInEDT
   public void pressKey(Component c, int keyCode) {
     Component interactionComponent = getInteractionComponent(c);
     super.pressKey(interactionComponent, keyCode);
+  }
+
+  @Override
+  public void pressKeyWhileRunning(Component c, int keyCode, Runnable runnable) {
+    Component interactionComponent = getInteractionComponent(c);
+    super.pressKeyWhileRunning(interactionComponent, keyCode, runnable);
   }
 
   /**

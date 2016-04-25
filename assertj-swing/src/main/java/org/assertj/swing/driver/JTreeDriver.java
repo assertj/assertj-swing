@@ -566,12 +566,7 @@ public class JTreeDriver extends JComponentDriver {
   @RunsInEDT
   public void unselectRow(@Nonnull JTree tree, int row) {
     int key = controlOrCommandKey();
-    robot.pressKey(key);
-    try {
-      scrollAndSelectRow(tree, row, false, false);
-    } finally {
-      robot.releaseKey(key);
-    }
+    robot.pressKeyWhileRunning(key, () -> scrollAndSelectRow(tree, row, false, false));
   }
 
   /**
@@ -658,12 +653,7 @@ public class JTreeDriver extends JComponentDriver {
   @RunsInEDT
   public void unselectPath(@Nonnull JTree tree, @Nonnull String path) {
     int key = controlOrCommandKey();
-    robot.pressKey(key);
-    try {
-      selectMatchingPath(tree, path, false, false);
-    } finally {
-      robot.releaseKey(key);
-    }
+    robot.pressKeyWhileRunning(key, () -> selectMatchingPath(tree, path, false, false));
   }
 
   /**

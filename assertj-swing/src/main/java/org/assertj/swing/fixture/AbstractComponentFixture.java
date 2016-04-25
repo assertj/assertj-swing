@@ -261,10 +261,28 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @throws IllegalArgumentException if any of the given code is not a valid key code.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
+   * @see #pressKeyWhileRunning(int, Runnable)
    * @see java.awt.event.KeyEvent
    */
   public final @Nonnull S pressKey(int keyCode) {
     driver.pressKey(target(), keyCode);
+    return myself();
+  }
+
+  /**
+   * Simulates a user pressing the given key on this fixture's {@code Component}, running the given runnable and
+   * releasing the key again.
+   *
+   * @param keyCode the code of the key to press.
+   * @return this fixture.
+   * @throws IllegalArgumentException if any of the given code is not a valid key code.
+   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
+   * @see #pressKey(int)
+   * @see java.awt.event.KeyEvent
+   */
+  public final @Nonnull S pressKeyWhileRunning(int keyCode, @Nonnull Runnable runnable) {
+    driver.pressKeyWhileRunning(target(), keyCode, runnable);
     return myself();
   }
 

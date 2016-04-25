@@ -739,6 +739,16 @@ public class BasicRobot implements Robot {
     waitForIdle();
   }
 
+  @Override
+  public void pressKeyWhileRunning(int keyCode, Runnable runnable) {
+    pressKey(keyCode);
+    try {
+      runnable.run();
+    } finally {
+      releaseKey(keyCode);
+    }
+  }
+
   @RunsInEDT
   private void doPressKey(int keyCode) {
     eventGenerator.pressKey(keyCode, CHAR_UNDEFINED);

@@ -359,12 +359,7 @@ public class JListDriver extends JComponentDriver {
   public void selectItems(@Nonnull JList<?> list, int start, int end) {
     validateIndicesAndClearSelection(list, start, end);
     selectItem(list, start);
-    robot.pressKey(VK_SHIFT);
-    try {
-      clickItem(list, end, LEFT_BUTTON, 1);
-    } finally {
-      robot.releaseKey(VK_SHIFT);
-    }
+    robot.pressKeyWhileRunning(VK_SHIFT, () -> clickItem(list, end, LEFT_BUTTON, 1));
   }
 
   @RunsInEDT

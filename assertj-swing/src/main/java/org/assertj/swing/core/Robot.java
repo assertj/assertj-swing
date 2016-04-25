@@ -420,9 +420,21 @@ public interface Robot {
    *
    * @param keyCode the code of the key to press.
    * @see java.awt.event.KeyEvent
+   * @see #pressKeyWhileRunning(int, Runnable)
    * @throws IllegalArgumentException if the given code is not a valid key code.
    */
   void pressKey(int keyCode);
+
+  /**
+   * Simulates a user pressing given key, running the given runnable and releasing the key again. This method does not
+   * affect the current focus.
+   *
+   * @param keyCode the code of the key to press.
+   * @see java.awt.event.KeyEvent
+   * @see #pressKey(int)
+   * @throws IllegalArgumentException if the given code is not a valid key code.
+   */
+  void pressKeyWhileRunning(int keyCode, @Nonnull Runnable runnable);
 
   /**
    * Simulates a user releasing the given key. This method does not affect the current focus.

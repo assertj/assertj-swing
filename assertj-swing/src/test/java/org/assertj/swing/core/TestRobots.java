@@ -12,11 +12,16 @@
  */
 package org.assertj.swing.core;
 
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
+
+import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 /**
  * Implementations of {@link Robot} to be used for testing.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class TestRobots {
@@ -29,7 +34,16 @@ public final class TestRobots {
   }
 
   public static Robot newRobotMock() {
-    return mock(Robot.class);
+    Robot mock = mock(Robot.class);
+    doAnswer(new Answer<Object>() {
+      @Override
+      public Object answer(InvocationOnMock invocation) throws Throwable {
+        invocation.getArgumentAt(1, Runnable.class).run();
+        return null;
+      }
+    }).when(mock).pressKeyWhileRunning(Mockito.anyInt(), Mockito.anyObject());
+
+    return mock;
   }
 
   private TestRobots() {

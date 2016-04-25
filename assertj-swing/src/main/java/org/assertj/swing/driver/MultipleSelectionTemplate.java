@@ -57,14 +57,11 @@ abstract class MultipleSelectionTemplate {
       }
     }
     int key = controlOrCommandKey();
-    robot.pressKey(key);
-    try {
+    robot.pressKeyWhileRunning(key, () -> {
       for (int i = firstWithoutCommandKey ? 1 : 0; i < elementCount; i++) {
         action.accept(i);
       }
-    } finally {
-      robot.releaseKey(key);
-    }
+    });
   }
 
   void selectElement(int index) {

@@ -38,7 +38,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link AbstractComponentFixture}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class AbstractComponentFixture_withMocks_Test {
@@ -104,6 +104,13 @@ public class AbstractComponentFixture_withMocks_Test {
   public void should_Call_PressKey_In_Driver_And_Return_Self() {
     assertThat(fixture.pressKey(VK_C)).isSameAs(fixture);
     verify(fixture.driver()).pressKey(fixture.target(), VK_C);
+  }
+
+  @Test
+  public void should_Call_PressKeyWhileRunning_In_Driver_And_Return_Self() {
+    Runnable runnable = mock(Runnable.class);
+    assertThat(fixture.pressKeyWhileRunning(VK_C, runnable)).isSameAs(fixture);
+    verify(fixture.driver()).pressKeyWhileRunning(fixture.target(), VK_C, runnable);
   }
 
   @Test

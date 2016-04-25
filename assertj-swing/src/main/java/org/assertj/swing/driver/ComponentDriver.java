@@ -356,12 +356,31 @@ public class ComponentDriver {
    * @throws IllegalArgumentException if the given code is not a valid key code.
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   * @see #pressKeyWhileRunning(Component, int)
    * @see java.awt.event.KeyEvent
    */
   @RunsInEDT
   public void pressKey(@Nonnull Component c, int keyCode) {
     focusAndWaitForFocusGain(c);
     robot.pressKey(keyCode);
+  }
+
+  /**
+   * Simulates a user pressing given key on the AWT or Swing {@code Component}, running the given runnable and releasing
+   * the key again.
+   *
+   * @param c the target {@code Component}.
+   * @param keyCode the code of the key to press.
+   * @throws IllegalArgumentException if the given code is not a valid key code.
+   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   * @see #pressKey(Component, int)
+   * @see java.awt.event.KeyEvent
+   */
+  @RunsInEDT
+  public void pressKeyWhileRunning(@Nonnull Component c, int keyCode, @Nonnull Runnable runnable) {
+    focusAndWaitForFocusGain(c);
+    robot.pressKeyWhileRunning(keyCode, runnable);
   }
 
   /**

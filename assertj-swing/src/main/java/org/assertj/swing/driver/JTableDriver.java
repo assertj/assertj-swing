@@ -413,12 +413,7 @@ public class JTableDriver extends JComponentDriver {
   public void unselectCell(@Nonnull JTable table, @Nonnull TableCell cell) {
     checkNotNull(cell);
     int key = controlOrCommandKey();
-    robot.pressKey(key);
-    try {
-      selectCell(table, cell.row, cell.column, false);
-    } finally {
-      robot.releaseKey(key);
-    }
+    robot.pressKeyWhileRunning(key, () -> selectCell(table, cell.row, cell.column, false));
   }
 
   /**
