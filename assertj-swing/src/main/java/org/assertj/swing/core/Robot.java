@@ -211,16 +211,38 @@ public interface Robot {
    * Simulates a user pressing a mouse button.
    *
    * @param button the mouse button to press.
+   * @see #pressMouseWhileRunning(MouseButton, Runnable)
    */
   void pressMouse(@Nonnull MouseButton button);
+
+  /**
+   * Simulates a user pressing a mouse button, running the given runnable and releasing the mouse button again.
+   *
+   * @param button the mouse button to press.
+   * @param runnable the runnable being run while pressing the given button
+   * @see #pressMouse(MouseButton)
+   * @see #releaseMouse(MouseButton)
+   */
+  void pressMouseWhileRunning(@Nonnull MouseButton button, @Nonnull Runnable runnable);
 
   /**
    * Simulates a user pressing the left mouse button on the given AWT or Swing {@code Component}.
    *
    * @param c the {@code Component} to click on.
    * @param where the given coordinates, relative to the given {@code Component}.
+   * @see #pressMouseWhileRunning(Component, Point, Runnable)
    */
   void pressMouse(@Nonnull Component c, @Nonnull Point where);
+
+  /**
+   * Simulates a user pressing the left mouse button on the given AWT or Swing {@code Component}, running the given
+   * runnable and releasing the mouse button again.
+   *
+   * @param c the {@code Component} to click on.
+   * @param where the given coordinates, relative to the given {@code Component}.
+   * @see #pressMouse(Component, Point)
+   */
+  void pressMouseWhileRunning(@Nonnull Component c, @Nonnull Point where, @Nonnull Runnable runnable);
 
   /**
    * Simulates a user pressing the given mouse button on the given AWT or Swing {@code Component}.
@@ -228,16 +250,40 @@ public interface Robot {
    * @param c the {@code Component} to click on.
    * @param where the given coordinates, relative to the given {@code Component}.
    * @param button the mouse button to press.
+   * @see #pressMouseWhileRunning(Component, Point, MouseButton, Runnable)
    */
   void pressMouse(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button);
+
+  /**
+   * Simulates a user pressing the given mouse button on the given AWT or Swing {@code Component}, running the given
+   * runnable and releasing the mouse button again.
+   *
+   * @param c the {@code Component} to click on.
+   * @param where the given coordinates, relative to the given {@code Component}.
+   * @param button the mouse button to press.
+   * @see #pressMouse(Component, Point, MouseButton)
+   */
+  void pressMouseWhileRunning(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button,
+                              @Nonnull Runnable runnable);
 
   /**
    * Simulates a user pressing the given mouse button on the given coordinates.
    *
    * @param where the position where to press the given mouse button.
    * @param button the mouse button to press.
+   * @see #pressMouseWhileRunning(Point, MouseButton, Runnable)
    */
   void pressMouse(@Nonnull Point where, @Nonnull MouseButton button);
+
+  /**
+   * Simulates a user pressing the given mouse button on the given coordinates, running the given
+   * runnable and releasing the mouse button again.
+   *
+   * @param where the position where to press the given mouse button.
+   * @param button the mouse button to press.
+   * @see #pressMouse(Point, MouseButton)
+   */
+  void pressMouseWhileRunning(@Nonnull Point where, @Nonnull MouseButton button, @Nonnull Runnable runnable);
 
   /**
    * Simulates a user moving the mouse pointer to the center of the given AWT or Swing {@code Component}.
@@ -288,6 +334,10 @@ public interface Robot {
    * Releases the given mouse button.
    *
    * @param button the mouse button to release.
+   * @see #pressMouseWhileRunning(MouseButton, Runnable)
+   * @see #pressMouseWhileRunning(Component, Point, Runnable)
+   * @see #pressMouseWhileRunning(Point, MouseButton, Runnable)
+   * @see #pressMouseWhileRunning(Component, Point, MouseButton, Runnable)
    */
   void releaseMouse(@Nonnull MouseButton button);
 

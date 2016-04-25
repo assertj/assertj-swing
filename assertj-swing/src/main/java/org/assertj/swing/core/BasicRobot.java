@@ -538,8 +538,23 @@ public class BasicRobot implements Robot {
   }
 
   @Override
+  public void pressMouseWhileRunning(@Nonnull MouseButton button, @Nonnull Runnable runnable) {
+    pressMouse(button);
+    try {
+      runnable.run();
+    } finally {
+      releaseMouse(button);
+    }
+  }
+
+  @Override
   public void pressMouse(@Nonnull Component c, @Nonnull Point where) {
     pressMouse(c, where, LEFT_BUTTON);
+  }
+
+  @Override
+  public void pressMouseWhileRunning(@Nonnull Component c, @Nonnull Point where, @Nonnull Runnable runnable) {
+    pressMouseWhileRunning(c, where, LEFT_BUTTON, runnable);
   }
 
   @Override
@@ -550,8 +565,29 @@ public class BasicRobot implements Robot {
   }
 
   @Override
+  public void pressMouseWhileRunning(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button,
+                                     @Nonnull Runnable runnable) {
+    pressMouse(c, where, button);
+    try {
+      runnable.run();
+    } finally {
+      releaseMouse(button);
+    }
+  }
+
+  @Override
   public void pressMouse(@Nonnull Point where, @Nonnull MouseButton button) {
     eventGenerator.pressMouse(where, button.mask);
+  }
+
+  @Override
+  public void pressMouseWhileRunning(@Nonnull Point where, @Nonnull MouseButton button, @Nonnull Runnable runnable) {
+    pressMouse(where, button);
+    try {
+      runnable.run();
+    } finally {
+      releaseMouse(button);
+    }
   }
 
   @RunsInEDT
