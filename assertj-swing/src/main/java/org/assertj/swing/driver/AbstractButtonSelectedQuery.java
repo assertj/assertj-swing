@@ -19,11 +19,10 @@ import javax.annotation.Nonnull;
 import javax.swing.AbstractButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Indicates whether a Swing {@code AbstractButton} is selected. This action is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  * 
  * @author Yvonne Wang
  * @author Alex Ruiz
@@ -31,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class AbstractButtonSelectedQuery {
   @RunsInEDT
   static boolean isSelected(final @Nonnull AbstractButton button) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return button.isSelected();
-      }
-    });
+    Boolean result = execute(() -> button.isSelected());
     return checkNotNull(result);
   }
 

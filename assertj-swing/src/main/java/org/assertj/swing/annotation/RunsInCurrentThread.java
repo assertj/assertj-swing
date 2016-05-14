@@ -21,7 +21,7 @@ import java.lang.annotation.Target;
 
 /**
  * Indicates that a method is accessing GUI components in the current executing thread. Such thread may or may not be
- * the event dispatch thread (EDT.)
+ * the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

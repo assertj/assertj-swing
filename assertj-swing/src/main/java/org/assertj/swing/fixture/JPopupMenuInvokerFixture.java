@@ -16,8 +16,6 @@ import java.awt.Point;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.exception.ComponentLookupException;
-
 /**
  * Simulates user input on {@code JComponent}s capable of invoking {@code JPopupMenu}s.
  * 

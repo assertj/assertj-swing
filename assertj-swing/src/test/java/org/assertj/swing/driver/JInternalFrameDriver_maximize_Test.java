@@ -18,7 +18,6 @@ import static org.assertj.swing.test.task.ComponentSetVisibleTask.hide;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
@@ -86,11 +85,6 @@ public class JInternalFrameDriver_maximize_Test extends JInternalFrameDriver_Tes
 
   @RunsInEDT
   private static void setMaximizable(final JInternalFrame internalFrame, final boolean maximizable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        internalFrame.setMaximizable(maximizable);
-      }
-    });
+    execute(() -> internalFrame.setMaximizable(maximizable));
   }
 }

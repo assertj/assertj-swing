@@ -20,25 +20,21 @@ import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JListCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the {@code String} that represents the single selection of a given {@code JList}. This query is executed in
- * the event dispatch thread (EDT.)
- * 
+ * the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 final class JListSelectionValueQuery {
   static final Object NO_SELECTION_VALUE = new Object();
 
   @RunsInEDT
-  static @Nullable Object singleSelectionValue(final @Nonnull JList list, final @Nonnull JListCellReader cellReader) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected Object executeInEDT() {
-        int selectedIndex = list.getSelectedIndex();
-        return (selectedIndex >= 0) ? cellReader.valueAt(list, selectedIndex) : NO_SELECTION_VALUE;
-      }
+  static @Nullable Object singleSelectionValue(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
+    return execute(() -> {
+      int selectedIndex = list.getSelectedIndex();
+      return (selectedIndex >= 0) ? cellReader.valueAt(list, selectedIndex) : NO_SELECTION_VALUE;
     });
   }
 

@@ -12,10 +12,10 @@
  */
 package org.assertj.swing.text;
 
-import static org.assertj.core.util.Maps.newConcurrentHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.util.Maps.newConcurrentHashMap;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -27,11 +27,10 @@ import javax.annotation.Nullable;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Registry of {@link TextReader}s.
- * 
+ *
  * @author Alex Ruiz
  */
 public class TextReaders {
@@ -50,7 +49,7 @@ public class TextReaders {
 
   /**
    * Adds the given {@code TextReader} to this registry.
-   * 
+   *
    * @param reader the {@code TextReader} to add.
    * @throws NullPointerException if the given {@code TextReader} is {@code null}.
    * @throws NullPointerException if the supported {@code Component} type in the given {@code TextReader} is
@@ -67,8 +66,8 @@ public class TextReaders {
 
   /**
    * Indicates whether the given {@code Container} or any of its subcomponents contains the given text.
-   * 
-   * @param container the given {@code Container}. This method is executed in the event dispatch thread (EDT.)
+   *
+   * @param container the given {@code Container}. This method is executed in the event dispatch thread (EDT).
    * @param text the text to look for.
    * @return {@code true} if the given {@code Container} or any of its subcomponents contains the given text;
    *         {@code false} otherwise.
@@ -79,14 +78,11 @@ public class TextReaders {
   public boolean containsText(final @Nonnull Container container, final @Nonnull String text) {
     checkNotNull(container);
     checkNotNull(text);
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected @Nullable Boolean executeInEDT() {
-        if (componentContainsText(container, text)) {
-          return true;
-        }
-        return anyComponentContainsText(container.getComponents(), text);
+    Boolean result = execute(() -> {
+      if (componentContainsText(container, text)) {
+        return true;
       }
+      return anyComponentContainsText(container.getComponents(), text);
     });
     return checkNotNull(result);
   }

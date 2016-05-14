@@ -20,7 +20,6 @@ import javax.swing.JFileChooser;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JFileChooserDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JFileChooser}s.

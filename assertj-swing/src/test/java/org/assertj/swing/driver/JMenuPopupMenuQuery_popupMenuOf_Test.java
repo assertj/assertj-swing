@@ -20,7 +20,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JPopupMenu;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -52,12 +51,7 @@ public class JMenuPopupMenuQuery_popupMenuOf_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static JPopupMenu popupMenuOf(final MyMenu menu) {
-    return execute(new GuiQuery<JPopupMenu>() {
-      @Override
-      protected JPopupMenu executeInEDT() {
-        return menu.getPopupMenu();
-      }
-    });
+    return execute(() -> menu.getPopupMenu());
   }
 
   private static class MyWindow extends TestWindow {
@@ -65,12 +59,7 @@ public class JMenuPopupMenuQuery_popupMenuOf_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

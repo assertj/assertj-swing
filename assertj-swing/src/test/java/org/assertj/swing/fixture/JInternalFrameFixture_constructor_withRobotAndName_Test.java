@@ -15,7 +15,6 @@ package org.assertj.swing.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestMdiWindow;
@@ -55,12 +54,7 @@ public class JInternalFrameFixture_constructor_withRobotAndName_Test extends Rob
 
   private static class MyWindow extends TestMdiWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

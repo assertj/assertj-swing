@@ -12,6 +12,7 @@
  */
 package org.assertj.swing.jide.grids.driver;
 
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Calendar;
@@ -25,96 +26,72 @@ import org.assertj.swing.core.ComponentFinder;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JComponentDriver;
 import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 
 import com.jidesoft.combobox.DateChooserPanel;
 import com.jidesoft.combobox.DateComboBox;
 
 /**
  * A basic rudimentary Driver for the {@link com.jidesoft.combobox.DateComboBox} class.
- * 
+ *
  * @author Peter Murray
  */
 public class DateComboBoxDriver extends JComponentDriver {
 
   public DateComboBoxDriver(Robot robot) {
-	super(robot);
+    super(robot);
   }
 
   @RunsInCurrentThread
   public Date getSelectedDate(final DateComboBox combo) {
-	GuiQuery<Date> query = new GuiQuery<Date>() {
-	  @Override
-	  protected Date executeInEDT() throws Throwable {
-		return combo.getDate();
-	  }
-	};
-	return GuiActionRunner.execute(query);
+    return execute(() -> combo.getDate());
   }
 
   @RunsInCurrentThread
   public Calendar getSelectedCalendar(final DateComboBox combo) {
-	GuiQuery<Calendar> query = new GuiQuery<Calendar>() {
-	  @Override
-	  protected Calendar executeInEDT() throws Throwable {
-		return combo.getCalendar();
-	  }
-	};
-	return GuiActionRunner.execute(query);
+    return execute(() -> combo.getCalendar());
   }
 
   @RunsInCurrentThread
   public void selectToday(final DateComboBox combo) {
-	showPopup(combo);
-	String buttonName = combo.isTimeDisplayed() ? "Date.now" : "Date.today";
+    showPopup(combo);
+    String buttonName = combo.isTimeDisplayed() ? "Date.now" : "Date.today";
 
-	ComponentFinder finder = BasicComponentFinder.finderWithCurrentAwtHierarchy();
-	final JButton btn = finder.findByName(buttonName, JButton.class);
-	if (btn == null) {
-	  throw new IllegalStateException("Could not find the today/now button to click.");
-	}
-	robot.click(btn);
+    ComponentFinder finder = BasicComponentFinder.finderWithCurrentAwtHierarchy();
+    final JButton btn = finder.findByName(buttonName, JButton.class);
+    if (btn == null) {
+      throw new IllegalStateException("Could not find the today/now button to click.");
+    }
+    robot.click(btn);
   }
 
   @RunsInCurrentThread
   public void selectDate(DateComboBox combo, final Date d) {
-	Date current = combo.getDate();
-	if (current == null && d == null || current != null && current.equals(d)) {
-	  return;
-	}
-	showPopup(combo);
-	DateChooserPanel panel = (DateChooserPanel) combo.getPopupPanel();
-	selectDateOnPanel(panel, d);
+    Date current = combo.getDate();
+    if (current == null && d == null || current != null && current.equals(d)) {
+      return;
+    }
+    showPopup(combo);
+    DateChooserPanel panel = (DateChooserPanel) combo.getPopupPanel();
+    selectDateOnPanel(panel, d);
   }
 
   @RunsInCurrentThread
   public void selectCalendar(DateComboBox combo, final Calendar cal) {
-	selectDate(combo, cal.getTime());
+    selectDate(combo, cal.getTime());
   }
 
   @RunsInCurrentThread
   private static void showPopup(final DateComboBox combo) {
-	GuiTask task = new GuiTask() {
-	  @Override
-	  protected void executeInEDT() throws Throwable {
-		if (!combo.isPopupVisible()) {
-		  combo.showPopup();
-		}
-		assertTrue("The popup should be visible", combo.isPopupVisible());
-	  }
-	};
-	GuiActionRunner.execute(task);
+    GuiActionRunner.execute(() -> {
+      if (!combo.isPopupVisible()) {
+        combo.showPopup();
+      }
+      assertTrue("The popup should be visible", combo.isPopupVisible());
+    });
   }
 
   @RunsInCurrentThread
   private static void selectDateOnPanel(final DateChooserPanel panel, final Date d) {
-	GuiTask task = new GuiTask() {
-	  @Override
-	  protected void executeInEDT() throws Throwable {
-		panel.setSelectedDate(d);
-	  }
-	};
-	GuiActionRunner.execute(task);
+    execute(() -> panel.setSelectedDate(d));
   }
 }

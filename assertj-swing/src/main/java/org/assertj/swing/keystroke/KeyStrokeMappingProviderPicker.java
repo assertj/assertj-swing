@@ -19,8 +19,8 @@ import java.util.Locale;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.util.OSFamily;
 import org.assertj.core.util.VisibleForTesting;
+import org.assertj.swing.util.OSFamily;
 
 /**
  * Chooses a {@link KeyStrokeMappingProvider} based on OS family and locale.

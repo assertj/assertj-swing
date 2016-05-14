@@ -19,7 +19,6 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Task that request input focus for an AWT or Swing {@code Component}.
@@ -29,12 +28,7 @@ import org.assertj.swing.edt.GuiTask;
 final class ComponentRequestFocusTask {
   @RunsInEDT
   static void giveFocusTo(final @Nonnull Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.requestFocusInWindow();
-      }
-    });
+    execute(() -> c.requestFocusInWindow());
   }
 
   private ComponentRequestFocusTask() {

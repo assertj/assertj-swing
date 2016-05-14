@@ -17,22 +17,15 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.annotation.Nonnull;
 import javax.swing.JList;
 
-import org.assertj.swing.edt.GuiTask;
-
 /**
  * Selects a single cell at the given index in a {@code JList} editable. This task is executed in the event dispatch
- * thread (EDT.)
+ * thread (EDT).
  * 
  * @author Yvonne Wang
  */
 final class JListSetSelectedIndexTask {
   static void setSelectedIndex(final @Nonnull JList list, final int index) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        list.setSelectedIndex(index);
-      }
-    });
+    execute(() -> list.setSelectedIndex(index));
   }
 
   private JListSetSelectedIndexTask() {

@@ -31,8 +31,6 @@ import javax.swing.table.JTableHeader;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.data.TableCell;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -42,7 +40,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link JTableDriver}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -99,18 +97,18 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
   }
 
   @RunsInEDT
+  final void requireCellNotSelected(int row, int column) {
+    assertThat(isCellSelected(row, column)).isFalse();
+  }
+
+  @RunsInEDT
   final boolean isCellSelected(int row, int column) {
     return isCellSelected(table, row, column);
   }
 
   @RunsInEDT
   private static boolean isCellSelected(final JTable table, final int row, final int column) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return table.isCellSelected(row, column);
-      }
-    });
+    return execute(() -> table.isCellSelected(row, column));
   }
 
   @RunsInEDT
@@ -121,12 +119,7 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setMultipleIntervalSelectionTo(final JTable table) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.setSelectionMode(MULTIPLE_INTERVAL_SELECTION);
-      }
-    });
+    execute(() -> table.setSelectionMode(MULTIPLE_INTERVAL_SELECTION));
   }
 
   @RunsInEDT
@@ -137,12 +130,7 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void selectCell(final JTable table, final int row, final int column) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.changeSelection(row, column, false, false);
-      }
-    });
+    execute(() -> table.changeSelection(row, column, false, false));
   }
 
   @RunsInEDT
@@ -184,12 +172,7 @@ public abstract class JTableDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

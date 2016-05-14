@@ -22,19 +22,18 @@ import javax.swing.JPopupMenu;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.GenericTypeMatcher;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>
  * Supports functional testing of {@code JPopupMenu}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -42,7 +41,7 @@ import org.assertj.swing.internal.annotation.InternalApi;
 public class JPopupMenuDriver extends JComponentDriver {
   /**
    * Creates a new {@link JPopupMenuDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JPopupMenuDriver(@Nonnull Robot robot) {
@@ -51,7 +50,7 @@ public class JPopupMenuDriver extends JComponentDriver {
 
   /**
    * Returns the contents of the pop-up menu as a {@code String} array.
-   * 
+   *
    * @param popupMenu the target {@code JPopupMenu}.
    * @return the contents of the pop-up menu as a {@code String} array.
    */
@@ -62,12 +61,14 @@ public class JPopupMenuDriver extends JComponentDriver {
 
   /**
    * Finds a {@code JMenuItem}, contained in the {@code Container}, which name matches the specified one.
-   * 
+   *
    * @param popupMenu the target {@code JPopupMenu}.
    * @param name the name to match.
    * @return the {@code JMenuItem} found.
-   * @throws ComponentLookupException if a {@code JMenuItem} having a matching name could not be found.
-   * @throws ComponentLookupException if more than one {@code JMenuItem} having a matching name is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} having a matching name could
+   *           not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JMenuItem} having a matching
+   *           name is found.
    */
   @RunsInEDT
   public @Nonnull JMenuItem menuItem(@Nonnull JPopupMenu popupMenu, @Nullable String name) {
@@ -76,16 +77,16 @@ public class JPopupMenuDriver extends JComponentDriver {
 
   /**
    * Finds a {@code JMenuItem}, contained in the {@code Container}, that matches the specified search criteria.
-   * 
+   *
    * @param popupMenu the target {@code JPopupMenu}.
    * @param matcher contains the search criteria for finding a {@code JMenuItem}.
    * @return the {@code JMenuItem} found.
-   * @throws ComponentLookupException if a {@code JMenuItem} that matches the given search criteria could not be found.
-   * @throws ComponentLookupException if more than one {@code JMenuItem} that matches the given search criteria is
-   *           found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JMenuItem} that matches the given search
+   *           criteria could not be found. Or if more than one {@code JMenuItem} that matches the given search criteria
+   *           is found.
    */
   public @Nonnull JMenuItem menuItem(@Nonnull JPopupMenu popupMenu,
-      @Nonnull GenericTypeMatcher<? extends JMenuItem> matcher) {
+                                     @Nonnull GenericTypeMatcher<? extends JMenuItem> matcher) {
     return robot.finder().find(popupMenu, matcher);
   }
 }

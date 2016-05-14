@@ -22,7 +22,6 @@ import java.awt.Component;
 import javax.swing.JDialog;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.swing.TestDialog;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
@@ -63,11 +62,6 @@ public class WindowFilter_ignore_Test extends WindowFilter_TestCase {
 
   @RunsInEDT
   private static void ignore(final WindowFilter filter, final Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        filter.ignore(c);
-      }
-    });
+    execute(() -> filter.ignore(c));
   }
 }

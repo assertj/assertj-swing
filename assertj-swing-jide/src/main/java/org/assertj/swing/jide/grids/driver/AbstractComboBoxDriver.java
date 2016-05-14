@@ -12,8 +12,11 @@
  */
 package org.assertj.swing.jide.grids.driver;
 
+import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
+import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 
@@ -26,9 +29,6 @@ import org.assertj.core.util.Strings;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.KeyPressInfo;
 import org.assertj.swing.driver.JComponentDriver;
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.query.ComponentEnabledQuery;
 
@@ -40,7 +40,7 @@ import com.jidesoft.converter.ObjectConverter;
 /**
  * A driver for an {@link com.jidesoft.combobox.AbstractComboBox}. This is loosely based
  * on the {@link org.assertj.swing.driver.JComboBoxDriver} class so a familiar usage pattern
- * will exist between Swing combo boxes and Jide combo boxes.
+ * will exist between Swing combo boxes and JIDE combo boxes.
  *
  * @author Peter Murray
  */
@@ -58,6 +58,24 @@ public class AbstractComboBoxDriver extends JComponentDriver {
   }
 
   /**
+   * Deletes the text of the {@code AbstractComboBox}.
+   *
+   * @param comboBox the target {@code AbstractComboBox}.
+   * @throws IllegalStateException if the {@code AbstractComboBox} is disabled.
+   * @throws IllegalStateException if the {@code AbstractComboBox} is not showing on the screen.
+   */
+  @RunsInEDT
+  public void deleteText(AbstractComboBox comboBox) {
+    selectAllText(comboBox);
+    Component editor = accessibleEditorOf(comboBox);
+    if (!(editor instanceof JComponent)) {
+      return;
+    }
+    focus(editor);
+    invokeAction((JComponent) editor, deletePrevCharAction);
+  }
+
+  /**
    * Simulates a user entering the specified text in the <code>{@link com.jidesoft.combobox.AbstractComboBox}</code>,
    * replacing any text. This action is executed only if the <code>{@link
    * com.jidesoft.combobox.AbstractComboBox}</code> is editable.
@@ -71,8 +89,13 @@ public class AbstractComboBoxDriver extends JComponentDriver {
    */
   @RunsInEDT
   public void replaceText(AbstractComboBox comboBox, String text) {
-    selectAllText(comboBox);
-    enterText(comboBox, text);
+    checkNotNull(text);
+    if (text.isEmpty()) {
+      deleteText(comboBox);
+    } else {
+      selectAllText(comboBox);
+      enterText(comboBox, text);
+    }
   }
 
   /**
@@ -97,12 +120,9 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static Component accessibleEditorOf(final AbstractComboBox comboBox) {
-    return org.assertj.swing.edt.GuiActionRunner.execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox);
-        return comboBox.getEditor().getEditorComponent();
-      }
+    return org.assertj.swing.edt.GuiActionRunner.execute(() -> {
+      AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox);
+      return comboBox.getEditor().getEditorComponent();
     });
   }
 
@@ -159,21 +179,17 @@ public class AbstractComboBoxDriver extends JComponentDriver {
     super.pressAndReleaseKey(interactionComponent, keyCode, modifiers);
   }
 
-  /**
-   * Simulates a user pressing given key on the <code>{@link Component}</code>.
-   *
-   * @param c the target component.
-   * @param keyCode the code of the key to press.
-   * @throws IllegalArgumentException if the given code is not a valid key code.
-   * @throws IllegalStateException if the <code>Component</code> is disabled, or is not
-   *           showing on the screen.
-   * @see java.awt.event.KeyEvent
-   */
   @Override
   @RunsInEDT
   public void pressKey(Component c, int keyCode) {
     Component interactionComponent = getInteractionComponent(c);
     super.pressKey(interactionComponent, keyCode);
+  }
+
+  @Override
+  public void pressKeyWhileRunning(Component c, int keyCode, Runnable runnable) {
+    Component interactionComponent = getInteractionComponent(c);
+    super.pressKeyWhileRunning(interactionComponent, keyCode, runnable);
   }
 
   /**
@@ -222,12 +238,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   @RunsInEDT
   private static void inEdtValidateEditorIsAccessible(final AbstractComboBox comboBox) {
-    org.assertj.swing.edt.GuiActionRunner.execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox);
-      }
-    });
+    org.assertj.swing.edt.GuiActionRunner.execute(() -> AbstractComboBoxAccessibleEditorValidator.validateEditorIsAccessible(comboBox));
   }
 
   /**
@@ -290,25 +301,11 @@ public class AbstractComboBoxDriver extends JComponentDriver {
   }
 
   AbstractComboBox.EditorComponent getEditor(final AbstractComboBox comboBox) {
-    GuiQuery<AbstractComboBox.EditorComponent> query = new GuiQuery<AbstractComboBox.EditorComponent>() {
-      @Override
-      protected AbstractComboBox.EditorComponent executeInEDT() throws Throwable {
-        return (AbstractComboBox.EditorComponent) comboBox.getEditor();
-      }
-    };
-    return GuiActionRunner.execute(query);
+    return execute(() -> (AbstractComboBox.EditorComponent) comboBox.getEditor());
   }
 
   public String getEditorText(final AbstractComboBox comboBox) {
-    GuiQuery<String> query = new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() throws Throwable {
-        AbstractComboBox.EditorComponent editorComp =
-            (AbstractComboBox.EditorComponent) comboBox.getEditor();
-        return editorComp.getText();
-      }
-    };
-    return GuiActionRunner.execute(query);
+    return execute(() -> ((AbstractComboBox.EditorComponent) comboBox.getEditor()).getText());
   }
 
   public void requireEditorText(final AbstractComboBox comboBox, String requiredText) {
@@ -430,7 +427,7 @@ public class AbstractComboBoxDriver extends JComponentDriver {
 
   /**
    * Obtains the component that the user will interact with, which could be the actual
-   * combo box, or the editor component, depending upon the state of the combobox.
+   * combo box, or the editor component, depending upon the state of the combo box.
    *
    * @param c The Component to obtain the interactive component from.
    * @return The {@link java.awt.Component} that the user is to interact with.
@@ -447,14 +444,9 @@ public class AbstractComboBoxDriver extends JComponentDriver {
     return c;
   }
 
+  @RunsInEDT
   public void requirePopupVisible(final AbstractComboBox target, boolean visible) {
-    GuiQuery<Boolean> query = new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() throws Throwable {
-        return target.isPopupVisible();
-      }
-    };
-    Boolean isVisible = GuiActionRunner.execute(query);
+    Boolean isVisible = execute(() -> target.isPopupVisible());
     assertThat(isVisible).as("Popup Visibility").isEqualTo(visible);
   }
 }

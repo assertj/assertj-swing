@@ -28,11 +28,10 @@ import javax.swing.Timer;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * {@code JFrame} that launches another {@code JFrame} and a {@link JDialog} using a configurable delay.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -44,12 +43,7 @@ public class WindowLauncher extends TestWindow {
 
   @RunsInEDT
   public static WindowLauncher createNew(final Class<?> testClass) {
-    return execute(new GuiQuery<WindowLauncher>() {
-      @Override
-      protected WindowLauncher executeInEDT() {
-        return new WindowLauncher(testClass);
-      }
-    });
+    return execute(() -> new WindowLauncher(testClass));
   }
 
   private WindowLauncher(Class<?> testClass) {
@@ -123,11 +117,11 @@ public class WindowLauncher extends TestWindow {
   }
 
   public void windowLaunchDelay(int newWindowLaunchDelay) {
-    this.windowLaunchDelay = newWindowLaunchDelay;
+    windowLaunchDelay = newWindowLaunchDelay;
   }
 
   public void dialogLaunchDelay(int newDialogLaunchDelay) {
-    this.dialogLaunchDelay = newDialogLaunchDelay;
+    dialogLaunchDelay = newDialogLaunchDelay;
   }
 
   public static class WindowToLaunch extends JFrame {

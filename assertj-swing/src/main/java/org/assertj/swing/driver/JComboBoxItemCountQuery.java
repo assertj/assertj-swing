@@ -16,26 +16,19 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the number of items in a given {@code JComboBox}. This action is executed in the event dispatch thread (EDT.)
- * 
+ * Returns the number of items in a given {@code JComboBox}. This action is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 @RunsInEDT
 final class JComboBoxItemCountQuery {
-  static int itemCountIn(final @Nonnull JComboBox comboBox) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return comboBox.getItemCount();
-      }
-    });
+  static int itemCountIn(final @Nonnull JComboBox<?> comboBox) {
+    Integer result = execute(() -> comboBox.getItemCount());
     return checkNotNull(result);
   }
 

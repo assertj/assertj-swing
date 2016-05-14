@@ -18,9 +18,6 @@ import javax.swing.JSpinner;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JSpinnerDriver;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.UnexpectedException;
 
 /**
  * Supports functional testing of {@code JSpinner}s:
@@ -113,7 +110,7 @@ public class JSpinnerFixture extends AbstractJPopupMenuInvokerFixture<JSpinnerFi
 
   /**
    * Simulates a user entering the given text in this fixture's {@code JSpinner} (assuming its editor has a
-   * {@code JTextComponent} under it.) This method does not commit the value to the {@code JSpinner}.
+   * {@code JTextComponent} under it). This method does not commit the value to the {@code JSpinner}.
    * 
    * @param text the text to enter.
    * @return this fixture.
@@ -130,7 +127,7 @@ public class JSpinnerFixture extends AbstractJPopupMenuInvokerFixture<JSpinnerFi
 
   /**
    * Simulates a user entering and committing the given text in this fixture's {@code JSpinner} (assuming its editor has
-   * a {@code JTextComponent} under it.)
+   * a {@code JTextComponent} under it).
    * 
    * @param text the text to enter.
    * @return this fixture.

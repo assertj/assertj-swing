@@ -18,11 +18,10 @@ import javax.annotation.Nonnull;
 import javax.swing.JTabbedPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Selects the tab with the given index in a {@code JTabbedPane}. This task is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -30,12 +29,7 @@ import org.assertj.swing.edt.GuiTask;
 final class JTabbedPaneSelectTabTask {
   @RunsInEDT
   static void setSelectedTab(final @Nonnull JTabbedPane tabbedPane, final int index) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tabbedPane.setSelectedIndex(index);
-      }
-    });
+    execute(() -> tabbedPane.setSelectedIndex(index));
   }
 
   private JTabbedPaneSelectTabTask() {

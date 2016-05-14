@@ -12,11 +12,14 @@
  */
 package org.assertj.swing.testng.listener;
 
+import java.util.Set;
+
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 
 /**
  * Understands an <code>{@link ITestResult}</code> stub for testing purposes.
- * 
+ *
  * @author Alex Ruiz
  */
 public class TestResultStub implements ITestResult {
@@ -107,6 +110,60 @@ public class TestResultStub implements ITestResult {
   /** @see org.testng.ITestResult#setThrowable(java.lang.Throwable) */
   @Override
   public void setThrowable(Throwable throwable) {
+  }
+
+  @Override
+  public Object getAttribute(String name) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void setAttribute(String name, Object value) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public Set<String> getAttributeNames() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Object removeAttribute(String name) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public int compareTo(ITestResult o) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public Object getInstance() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public String getTestName() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public String getInstanceName() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public ITestContext getTestContext() {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

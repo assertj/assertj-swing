@@ -19,10 +19,9 @@ import javax.annotation.Nullable;
 import javax.swing.JSpinner;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the value of a {@code JSpinner}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the value of a {@code JSpinner}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -30,12 +29,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JSpinnerValueQuery {
   @RunsInEDT
   static @Nullable Object valueOf(final @Nonnull JSpinner spinner) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected @Nullable Object executeInEDT() {
-        return spinner.getValue();
-      }
-    });
+    return execute(() -> spinner.getValue());
   }
 
   private JSpinnerValueQuery() {

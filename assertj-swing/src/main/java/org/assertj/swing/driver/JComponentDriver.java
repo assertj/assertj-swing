@@ -33,20 +33,18 @@ import javax.swing.KeyStroke;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>
  * Supports functional testing of {@code JComponent}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -56,7 +54,7 @@ public class JComponentDriver extends ContainerDriver {
 
   /**
    * Creates a new {@link JComponentDriver}.
-   * 
+   *
    * @param robot the robot the robot to use to simulate user input.
    */
   public JComponentDriver(@Nonnull Robot robot) {
@@ -67,12 +65,12 @@ public class JComponentDriver extends ContainerDriver {
    * <p>
    * Invokes {@code JComponent.scrollRectToVisible(Rectangle)} on the given {@code JComponent}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code JComponent}.
    * @param r the visible {@code Rectangle}.
    */
@@ -90,12 +88,12 @@ public class JComponentDriver extends ContainerDriver {
    * <p>
    * Indicates whether the given {@code JComponent}'s visible {@link Rectangle} contains the given one.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code JComponent}.
    * @param r the {@code Rectangle} to verify.
    * @return {@code true} if the given {@code Rectangle} is contained in the given {@code JComponent}'s visible
@@ -110,12 +108,12 @@ public class JComponentDriver extends ContainerDriver {
    * <p>
    * Indicates whether the given {@code JComponent}'s visible {@link Rectangle} contains the given {@link Point}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code JComponent}.
    * @param p the {@code Point} to verify.
    * @return {@code true} if the given {@code Point} is contained in the given {@code JComponent}'s visible
@@ -128,12 +126,12 @@ public class JComponentDriver extends ContainerDriver {
 
   /**
    * Invokes an {@code javax.swing.Action} from the {@code JComponent}'s {@code javax.swing.ActionMap}.
-   * 
+   *
    * @param c the given {@code JComponent}.
    * @param name the name of the {@code Action} to invoke.
-   * @throws ActionFailedException if an {@code Action} cannot be found under the given name.
-   * @throws ActionFailedException if a {@code KeyStroke} cannot be found for the {@code Action} under the given name.
-   * @throws ActionFailedException if it is not possible to type any of the found {@code KeyStroke}s.
+   * @throws org.assertj.swing.exception.ActionFailedException if an {@code Action} cannot be found under the given
+   *           name. Or if a {@code KeyStroke} cannot be found for the {@code Action} under the given name. Or if it is
+   *           not possible to type any of the found {@code KeyStroke}s.
    */
   @RunsInEDT
   protected final void invokeAction(@Nonnull JComponent c, @Nonnull String name) {
@@ -165,7 +163,7 @@ public class JComponentDriver extends ContainerDriver {
 
   /**
    * Asserts that the toolTip in the given {@code JComponent} matches the given value.
-   * 
+   *
    * @param c the given {@code JComponent}.
    * @param expected the expected toolTip. It can be a regular expression.
    * @throws AssertionError if the toolTip of the given {@code JComponent} does not match the given value.
@@ -177,7 +175,7 @@ public class JComponentDriver extends ContainerDriver {
 
   /**
    * Asserts that the toolTip in the given {@code JComponent} matches the given regular expression pattern.
-   * 
+   *
    * @param c the given {@code JComponent}.
    * @param pattern the regular expression pattern to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
@@ -190,7 +188,7 @@ public class JComponentDriver extends ContainerDriver {
 
   /**
    * Returns the client property stored in the given {@code JComponent}, under the given key.
-   * 
+   *
    * @param c the given {@code JComponent}.
    * @param key the key to use to retrieve the client property.
    * @return the value of the client property stored under the given key, or {@code null} if the property was not found.
@@ -202,11 +200,6 @@ public class JComponentDriver extends ContainerDriver {
   }
 
   private static @Nullable Object clientPropertyIn(final @Nonnull JComponent c, final @Nonnull Object key) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected @Nullable Object executeInEDT() {
-        return c.getClientProperty(key);
-      }
-    });
+    return execute(() -> c.getClientProperty(key));
   }
 }

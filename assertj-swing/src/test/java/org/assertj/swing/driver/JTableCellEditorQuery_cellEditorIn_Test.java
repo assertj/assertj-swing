@@ -25,7 +25,6 @@ import javax.swing.JTable;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TableRenderDemo;
 import org.assertj.swing.test.swing.TestWindow;
@@ -36,7 +35,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * Tests for {@link JTableCellEditorQuery#cellEditorIn(JTable, int, int)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -72,12 +71,7 @@ public class JTableCellEditorQuery_cellEditorIn_Test extends RobotBasedTestCase 
 
   @RunsInEDT
   private static Component cellEditorIn(final JTable table, final int row, final int column) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        return JTableCellEditorQuery.cellEditorIn(table, row, column);
-      }
-    });
+    return execute(() -> JTableCellEditorQuery.cellEditorIn(table, row, column));
   }
 
   private static class MyWindow extends TestWindow {
@@ -85,12 +79,7 @@ public class JTableCellEditorQuery_cellEditorIn_Test extends RobotBasedTestCase 
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

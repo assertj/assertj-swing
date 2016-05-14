@@ -16,7 +16,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JToggleButton;
 
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JToggleButton}s.

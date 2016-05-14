@@ -23,13 +23,12 @@ import java.awt.Insets;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link AWT#insetsFrom(java.awt.Container)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class AWT_insetsFromContainer_Test {
@@ -63,23 +62,13 @@ public class AWT_insetsFromContainer_Test {
 
   @RunsInEDT
   private static Insets insetsFrom(final Container c) {
-    return execute(new GuiQuery<Insets>() {
-      @Override
-      protected Insets executeInEDT() {
-        return AWT.insetsFrom(c);
-      }
-    });
+    return execute(() -> AWT.insetsFrom(c));
   }
 
   private static class WindowWithNullInsets extends TestWindow {
     @RunsInEDT
     static WindowWithNullInsets createNew() {
-      return execute(new GuiQuery<WindowWithNullInsets>() {
-        @Override
-        protected WindowWithNullInsets executeInEDT() {
-          return new WindowWithNullInsets();
-        }
-      });
+      return execute(() -> new WindowWithNullInsets());
     }
 
     private WindowWithNullInsets() {

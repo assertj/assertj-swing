@@ -17,7 +17,6 @@ import static org.mockito.Mockito.verify;
 
 import javax.swing.JFrame;
 
-import org.assertj.swing.hierarchy.SingleComponentHierarchy;
 import org.junit.Test;
 
 /**

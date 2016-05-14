@@ -28,7 +28,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.After;
@@ -36,7 +35,7 @@ import org.junit.Before;
 
 /**
  * Base case for tests for {@link BasicRobot}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -81,12 +80,7 @@ public abstract class BasicRobot_TestCase extends EDTSafeTestCase {
 
     @RunsInEDT
     static @Nonnull MyWindow createAndShow(final @Nonnull Class<?> testClass) {
-      MyWindow result = execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return display(new MyWindow(testClass));
-        }
-      });
+      MyWindow result = execute(() -> display(new MyWindow(testClass)));
       return checkNotNull(result);
     }
 

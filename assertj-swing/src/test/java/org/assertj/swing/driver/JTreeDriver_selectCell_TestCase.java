@@ -23,12 +23,10 @@ import javax.swing.tree.DefaultTreeSelectionModel;
 import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Test case for {@link JTreeDriver} that involves selecting cells in a {@code JTree}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCase {
@@ -44,12 +42,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static int[] selectedRowsOf(final JTree tree) {
-    return execute(new GuiQuery<int[]>() {
-      @Override
-      protected int[] executeInEDT() {
-        return tree.getSelectionRows();
-      }
-    });
+    return execute(() -> tree.getSelectionRows());
   }
 
   @RunsInEDT
@@ -61,12 +54,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static void clearSelectionOf(final JTree tree) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.clearSelection();
-      }
-    });
+    execute(() -> tree.clearSelection());
   }
 
   @RunsInEDT
@@ -78,12 +66,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
   @RunsInEDT
   private static void setDefaultSelectionModelTo(final JTree tree) {
     final DefaultTreeSelectionModel selectionModel = new DefaultTreeSelectionModel();
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setSelectionModel(selectionModel);
-      }
-    });
+    execute(() -> tree.setSelectionModel(selectionModel));
   }
 
   @RunsInEDT
@@ -97,12 +80,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static TreePath[] selectionPathsOf(final JTree tree) {
-    return execute(new GuiQuery<TreePath[]>() {
-      @Override
-      protected TreePath[] executeInEDT() {
-        return tree.getSelectionPaths();
-      }
-    });
+    return execute(() -> tree.getSelectionPaths());
   }
 
   @RunsInEDT
@@ -119,12 +97,9 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static void setSelectionPath(final JTree tree, final TreePath path) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.expandPath(path);
-        tree.setSelectionPath(path);
-      }
+    execute(() -> {
+      tree.expandPath(path);
+      tree.setSelectionPath(path);
     });
   }
 
@@ -136,12 +111,7 @@ public abstract class JTreeDriver_selectCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static void setSelectionPath(final JTree tree, final TreePath[] paths) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setSelectionPaths(paths);
-      }
-    });
+    execute(() -> tree.setSelectionPaths(paths));
   }
 
   @RunsInEDT

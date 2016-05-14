@@ -18,22 +18,16 @@ import javax.annotation.Nonnull;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Makes a {@code JTextComponent} editable. This task is executed in the event dispatch thread (EDT.)
+ * Makes a {@code JTextComponent} editable. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JTextComponentSetEditableTask {
   @RunsInEDT
   static void setTextFieldEditable(final @Nonnull JTextField textField, final boolean editable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        textField.setEditable(editable);
-      }
-    });
+    execute(() -> textField.setEditable(editable));
   }
 
   private JTextComponentSetEditableTask() {

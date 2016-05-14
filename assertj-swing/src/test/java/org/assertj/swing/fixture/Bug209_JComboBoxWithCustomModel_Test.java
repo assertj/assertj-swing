@@ -24,7 +24,6 @@ import javax.swing.JDialog;
 import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 
@@ -34,7 +33,7 @@ import org.junit.Test;
  * Demonstrate bug when testing {@code JComboBox}es. If a custom model is used the {@code JComboBox} must be click
  * before {@code JComboBoxDriver} can find the pop-up list for it. (FEST 1.0b1, Java 1.5)
  * </p>
- * 
+ *
  * @author Ewan McDougall
  * @author Alex Ruiz
  */
@@ -63,12 +62,7 @@ public class Bug209_JComboBoxWithCustomModel_Test extends RobotBasedTestCase {
   private static class MyDialog extends JDialog {
     @RunsInEDT
     static MyDialog createNew(final NamedObject[] items) {
-      return execute(new GuiQuery<MyDialog>() {
-        @Override
-        protected MyDialog executeInEDT() {
-          return new MyDialog(items);
-        }
-      });
+      return execute(() -> new MyDialog(items));
     }
 
     private MyDialog(NamedObject[] items) {
@@ -88,7 +82,7 @@ public class Bug209_JComboBoxWithCustomModel_Test extends RobotBasedTestCase {
 
     @Override
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
-        boolean cellHasFocus) {
+                                                  boolean cellHasFocus) {
       String v = value.toString();
       if (value instanceof NamedObject) {
         v = ((NamedObject) value).name();

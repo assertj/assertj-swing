@@ -26,7 +26,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link AbstractTwoStateButtonFixture}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -84,6 +84,30 @@ public class AbstractTwoStateButtonFixture_withMocks_Test {
   public void should_Call_RequireNotSelected_In_Driver_And_Return_Self_If_Selected_Is_False() {
     assertThat(fixture.requireSelected(false)).isSameAs(fixture);
     verify(fixture.driver()).requireNotSelected(fixture.target());
+  }
+
+  @Test
+  public void should_Call_RequireArmed_In_Driver_And_Return_Self() {
+    assertThat(fixture.requireArmed()).isSameAs(fixture);
+    verify(fixture.driver()).requireArmed(fixture.target());
+  }
+
+  @Test
+  public void should_Call_RequireNotArmed_In_Driver_And_Return_Self() {
+    assertThat(fixture.requireNotArmed()).isSameAs(fixture);
+    verify(fixture.driver()).requireNotArmed(fixture.target());
+  }
+
+  @Test
+  public void should_Call_RequireArmed_In_Driver_And_Return_Self_If_Armed_Is_True() {
+    assertThat(fixture.requireArmed(true)).isSameAs(fixture);
+    verify(fixture.driver()).requireArmed(fixture.target());
+  }
+
+  @Test
+  public void should_Call_RequireNotArmed_In_Driver_And_Return_Self_If_Armed_Is_False() {
+    assertThat(fixture.requireArmed(false)).isSameAs(fixture);
+    verify(fixture.driver()).requireNotArmed(fixture.target());
   }
 
   private static class TwoStateButtonFixture extends

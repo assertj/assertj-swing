@@ -14,8 +14,8 @@ package org.assertj.swing.driver;
 
 import static java.awt.Adjustable.HORIZONTAL;
 import static java.awt.Adjustable.VERTICAL;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.awt.Point;
 import java.util.Map;
@@ -27,7 +27,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * A location in a {@code JScrollBar}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -47,12 +47,12 @@ public final class JScrollBarLocation {
    * <p>
    * Returns the location where to move the mouse pointer to scroll to the given position.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param scrollBar the target {@code JScrollBar}.
    * @param position the position to scroll to.
    * @return the location where to move the mouse pointer to scroll to the given position.
@@ -70,16 +70,16 @@ public final class JScrollBarLocation {
 
   /**
    * <p>
-   * Returns the location where to move the mouse pointer to scroll one block up (or right.)
+   * Returns the location where to move the mouse pointer to scroll one block up (or right).
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param scrollBar the target {@code JScrollBar}.
-   * @return the location where to move the mouse pointer to scroll one block up (or right.)
+   * @return the location where to move the mouse pointer to scroll one block up (or right).
    */
   @RunsInCurrentThread
   public @Nonnull Point blockLocationToScrollUp(@Nonnull JScrollBar scrollBar) {
@@ -90,16 +90,16 @@ public final class JScrollBarLocation {
 
   /**
    * <p>
-   * Returns the location where to move the mouse pointer to scroll one block down (or left.)
+   * Returns the location where to move the mouse pointer to scroll one block down (or left).
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param scrollBar the target {@code JScrollBar}.
-   * @return the location where to move the mouse pointer to scroll one block down (or left.)
+   * @return the location where to move the mouse pointer to scroll one block down (or left).
    */
   @RunsInCurrentThread
   public @Nonnull Point blockLocationToScrollDown(@Nonnull JScrollBar scrollBar) {
@@ -115,16 +115,16 @@ public final class JScrollBarLocation {
 
   /**
    * <p>
-   * Returns the location where to move the mouse pointer to scroll one unit up (or right.)
+   * Returns the location where to move the mouse pointer to scroll one unit up (or right).
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param scrollBar the target {@code JScrollBar}.
-   * @return the location where to move the mouse pointer to scroll one unit up (or right.)
+   * @return the location where to move the mouse pointer to scroll one unit up (or right).
    */
   @RunsInCurrentThread
   public @Nonnull Point unitLocationToScrollUp(@Nonnull JScrollBar scrollBar) {
@@ -134,16 +134,16 @@ public final class JScrollBarLocation {
 
   /**
    * <p>
-   * Returns the location where to move the mouse pointer to scroll one unit down (or left.)
+   * Returns the location where to move the mouse pointer to scroll one unit down (or left).
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param scrollBar the target {@code JScrollBar}.
-   * @return the location where to move the mouse pointer to scroll one unit down (or left.)
+   * @return the location where to move the mouse pointer to scroll one unit down (or left).
    */
   @RunsInCurrentThread
   public @Nonnull Point unitLocationToScrollDown(@Nonnull JScrollBar scrollBar) {

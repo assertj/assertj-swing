@@ -22,22 +22,16 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Requests input focus for a {@code Component}. This task is executed in the event dispatch thread (EDT.)
+ * Requests input focus for a {@code Component}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 public final class ComponentRequestFocusAndWaitForFocusGainTask {
   @RunsInEDT
   public static void giveFocusAndWaitTillIsFocused(final @Nonnull Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.requestFocus();
-      }
-    });
+    execute(() -> c.requestFocus());
     waitTillHasFocus(c);
   }
 

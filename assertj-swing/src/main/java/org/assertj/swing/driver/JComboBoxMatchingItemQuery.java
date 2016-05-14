@@ -15,36 +15,31 @@ package org.assertj.swing.driver;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
 import org.assertj.core.util.Preconditions;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JComboBoxCellReader;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.TextMatcher;
 
 /**
  * Looks up the first item in a {@code JComboBox} whose value matches a given one.
- * 
+ *
  * @author Alex Ruiz
  */
 final class JComboBoxMatchingItemQuery {
   @RunsInEDT
-  static int matchingItemIndex(final @Nonnull JComboBox comboBox, final @Nonnull TextMatcher matcher,
-      final @Nonnull JComboBoxCellReader cellReader) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        int itemCount = comboBox.getItemCount();
-        for (int i = 0; i < itemCount; i++) {
-          String value = cellReader.valueAt(comboBox, i);
-          if (value != null && matcher.isMatching(value)) {
-            return i;
-          }
+  static int matchingItemIndex(final @Nonnull JComboBox<?> comboBox, final @Nonnull TextMatcher matcher,
+                               final @Nonnull JComboBoxCellReader cellReader) {
+    Integer result = execute(() -> {
+      int itemCount = comboBox.getItemCount();
+      for (int i = 0; i < itemCount; i++) {
+        String value = cellReader.valueAt(comboBox, i);
+        if (value != null && matcher.isMatching(value)) {
+          return i;
         }
-        return -1;
       }
+      return -1;
     });
     return Preconditions.checkNotNull(result);
   }

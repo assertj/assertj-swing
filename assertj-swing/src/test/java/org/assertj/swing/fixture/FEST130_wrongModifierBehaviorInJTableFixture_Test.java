@@ -25,14 +25,13 @@ import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-130" target="_blank">FEST-130</a>.
- * 
+ *
  * @author neals01
  * @author Alex Ruiz
  */
@@ -82,22 +81,12 @@ public class FEST130_wrongModifierBehaviorInJTableFixture_Test extends RobotBase
 
   @RunsInEDT
   private static int[] selectedRowsIn(final JTable table) {
-    return execute(new GuiQuery<int[]>() {
-      @Override
-      protected int[] executeInEDT() throws Throwable {
-        return table.getSelectedRows();
-      }
-    });
+    return execute(() -> table.getSelectedRows());
   }
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTable table = new JTable();

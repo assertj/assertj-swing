@@ -12,7 +12,6 @@
  */
 package org.assertj.swing.driver;
 
-import org.assertj.swing.cell.JTableCellWriter;
 import org.junit.Test;
 
 /**

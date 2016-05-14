@@ -15,8 +15,6 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.JInternalFrameIconQuery.isIconified;
 
-import javax.swing.JInternalFrame;
-
 import org.junit.Test;
 
 /**

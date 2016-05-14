@@ -17,15 +17,13 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.io.PrintStreamStub;
 import org.assertj.swing.test.swing.TestWindow;
 
 /**
  * Base test case for {@link BasicComponentPrinter}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -56,12 +54,7 @@ public abstract class BasicComponentPrinter_TestCase extends SequentialEDTSafeTe
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {
@@ -70,12 +63,7 @@ public abstract class BasicComponentPrinter_TestCase extends SequentialEDTSafeTe
     }
 
     void buttonName(final String buttonName) {
-      execute(new GuiTask() {
-        @Override
-        protected void executeInEDT() {
-          button.setName(buttonName);
-        }
-      });
+      execute(() -> button.setName(buttonName));
     }
   }
 }

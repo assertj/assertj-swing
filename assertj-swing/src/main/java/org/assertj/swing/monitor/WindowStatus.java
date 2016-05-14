@@ -29,13 +29,11 @@ import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.util.RobotFactory;
 
 /**
  * Verification of the state of a window.
- * 
+ *
  * @author Alex Ruiz
  */
 class WindowStatus {
@@ -70,7 +68,7 @@ class WindowStatus {
 
   /**
    * Checks whether the given window is ready for input.
-   * 
+   *
    * @param w the given window.
    */
   @RunsInEDT
@@ -92,23 +90,13 @@ class WindowStatus {
     if (!windows.isShowingButNotReady(w)) {
       return;
     }
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        makeLargeEnoughToReceiveEvents(w);
-      }
-    });
+    execute(() -> makeLargeEnoughToReceiveEvents(w));
     mouseMove(w, centerOf(w));
   }
 
   @RunsInEDT
   private static Point centerOf(final @Nonnull Window w) {
-    return execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        return absoluteCenterOf(w);
-      }
-    });
+    return execute(() -> absoluteCenterOf(w));
   }
 
   @RunsInEDT

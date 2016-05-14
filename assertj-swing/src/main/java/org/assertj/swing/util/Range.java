@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 
 /**
  * <p>
- * A range (from, to.)
+ * A range (from, to).
  * </p>
  *
  * <p>

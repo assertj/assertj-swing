@@ -17,8 +17,6 @@ import static org.assertj.swing.driver.JInternalFrameAction.DEICONIFY;
 import static org.assertj.swing.driver.JInternalFrameIconQuery.isIconified;
 import static org.assertj.swing.driver.JInternalFrameSetIconTask.setIcon;
 
-import javax.swing.JInternalFrame;
-
 import org.assertj.swing.annotation.RunsInEDT;
 import org.junit.Test;
 

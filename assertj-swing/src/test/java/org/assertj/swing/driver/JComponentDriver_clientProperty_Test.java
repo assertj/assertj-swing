@@ -18,7 +18,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
@@ -45,11 +44,6 @@ public class JComponentDriver_clientProperty_Test extends JComponentDriver_TestC
 
   @RunsInEDT
   private static void putClientProperty(final JComponent c, final Object key, final Object value) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.putClientProperty(key, value);
-      }
-    });
+    execute(() -> c.putClientProperty(key, value));
   }
 }

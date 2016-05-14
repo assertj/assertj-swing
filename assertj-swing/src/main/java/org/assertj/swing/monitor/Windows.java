@@ -12,7 +12,7 @@
  */
 package org.assertj.swing.monitor;
 
-import static org.assertj.core.util.Maps.newWeakHashMap;
+import static org.assertj.swing.util.Maps.newWeakHashMap;
 
 import java.awt.Component;
 import java.awt.Window;
@@ -29,7 +29,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Information collected by the monitors in this package.
- * 
+ *
  * @author Alex Ruiz
  */
 @ThreadSafe
@@ -63,7 +63,7 @@ class Windows {
 
   /**
    * Creates a new {@link WindowVisibilityMonitor} and attaches it to the given {@code Window}.
-   * 
+   *
    * @param target the {@code Window} to attach the new monitor to.
    */
   void attachNewWindowVisibilityMonitor(Window target) {
@@ -74,7 +74,7 @@ class Windows {
 
   /**
    * Marks the given window as "ready to use" and if not showing, as "hidden."
-   * 
+   *
    * @param w the given window.
    */
   @RunsInCurrentThread
@@ -89,7 +89,7 @@ class Windows {
 
   /**
    * Marks the given window as "hidden."
-   * 
+   *
    * @param w the given window.
    */
   void markAsHidden(@Nonnull Window w) {
@@ -101,7 +101,7 @@ class Windows {
 
   /**
    * Marks the given window as "showing."
-   * 
+   *
    * @param w the given window.
    */
   void markAsShowing(final @Nonnull Window w) {
@@ -119,7 +119,7 @@ class Windows {
 
   /**
    * Marks the given window as "ready to receive OS-level event input."
-   * 
+   *
    * @param w the given window.
    */
   void markAsReady(@Nonnull Window w) {
@@ -134,7 +134,7 @@ class Windows {
 
   /**
    * Marks the given window as "closed."
-   * 
+   *
    * @param w the given window.
    */
   void markAsClosed(@Nonnull Window w) {
@@ -152,7 +152,7 @@ class Windows {
 
   /**
    * Indicates whether the given AWT or Swing {@code Component} is a closed {@code Window}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return {@code true} if the given {@code Component} is a closed {@code Window}, {@code false} otherwise.
    */
@@ -164,7 +164,7 @@ class Windows {
 
   /**
    * Indicates whether the given {@code Window} is ready to receive OS-level event input.
-   * 
+   *
    * @param w the given {@code Window}.
    * @return {@code true} if the given {@code Window} is ready to receive OS-level event input, {@code false} otherwise.
    */
@@ -176,7 +176,7 @@ class Windows {
 
   /**
    * Indicates whether the given {@code Window} is hidden.
-   * 
+   *
    * @param w the given {@code Window}.
    * @return {@code true} if the given {@code Window} is hidden, {@code false} otherwise.
    */
@@ -188,7 +188,7 @@ class Windows {
 
   /**
    * Indicates the given {@code Window} is showing but not ready to receive OS-level event input.
-   * 
+   *
    * @param w the given {@code Window}.
    * @return {@code true} if the given {@code Window} is showing but not not ready to receive OS-level event input,
    *         {@code false} otherwise.

@@ -38,19 +38,18 @@ import org.assertj.core.description.Description;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.matcher.JButtonMatcher;
-import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>
  * Supports functional testing of {@code JOptionPane}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 @InternalApi
@@ -62,7 +61,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Creates a new {@link JOptionPaneDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JOptionPaneDriver(@Nonnull Robot robot) {
@@ -71,7 +70,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the title in the given {@code JOptionPane} matches the given value.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @param title the title to match. It can be a regular expression.
    * @throws AssertionError if the {@code JOptionPane} does not have the given title.
@@ -83,7 +82,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the title in the given {@code JOptionPane} matches the given regular expression pattern.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @param pattern the regular expression pattern to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
@@ -96,7 +95,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Returns the title of the given {@code JOptionPane}.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @return the title of the given {@code JOptionPane}.
    */
@@ -110,7 +109,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * expression and the message in the {@code JOptionPane} is not a {@code String}, this method will use the
    * {@code toString} representation of such message. message in the {@code JOptionPane} is not a {@code String}, this
    * method will use the {@code toString} representation of such message.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @param message the message to verify. If it is a {@code String}, it can be specified as a regular expression.
    * @throws AssertionError if the message in the {@code JOptionPane} is not equal to or does not match the given
@@ -135,7 +134,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * Asserts that the title of the {@code JOptionPane} matches the given regular expression pattern. If the message in
    * the {@code JOptionPane} is not a {@code String}, this method will use the {@code toString} representation of such
    * message.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @param pattern the regular expression to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
@@ -155,7 +154,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the {@code JOptionPane} has the given options.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @param options the options to verify.
    * @throws AssertionError if the {@code JOptionPane} does not have the given options.
@@ -167,10 +166,10 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Finds the "OK" button in the {@code JOptionPane}. This method is independent of locale and platform.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @return the "OK" button.
-   * @throws ComponentLookupException if the a "OK" button cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the a "OK" button cannot be found.
    */
   @RunsInEDT
   public @Nonnull JButton okButton(@Nonnull JOptionPane optionPane) {
@@ -179,10 +178,10 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Finds the "Cancel" button in the {@code JOptionPane}. This method is independent of locale and platform.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @return the "Cancel" button.
-   * @throws ComponentLookupException if the a "Cancel" button cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the a "Cancel" button cannot be found.
    */
   @RunsInEDT
   public @Nonnull JButton cancelButton(@Nonnull JOptionPane optionPane) {
@@ -191,10 +190,10 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Finds the "Yes" button in the {@code JOptionPane}. This method is independent of locale and platform.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @return the "Yes" button.
-   * @throws ComponentLookupException if the a "Yes" button cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the a "Yes" button cannot be found.
    */
   @RunsInEDT
   public @Nonnull JButton yesButton(@Nonnull JOptionPane optionPane) {
@@ -203,10 +202,10 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Finds the "No" button in the {@code JOptionPane}. This method is independent of locale and platform.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @return the "No" button.
-   * @throws ComponentLookupException if the a "No" button cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the a "No" button cannot be found.
    */
   @RunsInEDT
   public @Nonnull JButton noButton(@Nonnull JOptionPane optionPane) {
@@ -220,11 +219,11 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Finds a button in the {@code JOptionPane} containing the given text.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @param text the text of the button to find and return. It can be a regular expression.
    * @return a button containing the given text.
-   * @throws ComponentLookupException if the a button with the given text cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
    */
   @RunsInEDT
   public @Nonnull JButton buttonWithText(@Nonnull JOptionPane optionPane, @Nullable String text) {
@@ -233,12 +232,12 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Finds a button in the {@code JOptionPane} whose text matches the given regular expression pattern.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    * @param pattern the regular expression pattern to match.
    * @return a button containing the given text.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws ComponentLookupException if the a button with the given text cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
    */
   @RunsInEDT
   public @Nonnull JButton buttonWithText(@Nonnull JOptionPane optionPane, @Nonnull Pattern pattern) {
@@ -247,7 +246,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the {@code JOptionPane} is displaying an error message.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    */
   @RunsInEDT
@@ -257,7 +256,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the {@code JOptionPane} is displaying an information message.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    */
   @RunsInEDT
@@ -267,7 +266,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the {@code JOptionPane} is displaying a warning message.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    */
   @RunsInEDT
@@ -277,7 +276,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the {@code JOptionPane} is displaying a question.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    */
   @RunsInEDT
@@ -287,7 +286,7 @@ public class JOptionPaneDriver extends JComponentDriver {
 
   /**
    * Asserts that the {@code JOptionPane} is displaying a plain message.
-   * 
+   *
    * @param optionPane the target {@code JOptionPane}.
    */
   @RunsInEDT

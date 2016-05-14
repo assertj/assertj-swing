@@ -19,7 +19,6 @@ import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 import java.awt.Component;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -65,11 +64,6 @@ public class ComponentStateValidator_validateIsEnabledAndShowing_Test extends Ro
 
   @RunsInEDT
   private static void validateWindowIsEnabledAndShowing(final Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        ComponentPreconditions.checkEnabledAndShowing(c);
-      }
-    });
+    execute(() -> ComponentPreconditions.checkEnabledAndShowing(c));
   }
 }

@@ -34,7 +34,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JListFixture}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -127,6 +127,12 @@ public class JListFixture_withMocks_Test {
   }
 
   @Test
+  public void should_Call_UnselectItem_With_Index_In_Driver_And_Return_Self() {
+    assertThat(fixture.unselectItem(6)).isSameAs(fixture);
+    verify(driver).unselectItem(target, 6);
+  }
+
+  @Test
   public void should_Call_RequireSelection_In_Driver_And_Return_Self() {
     assertThat(fixture.requireSelection(6)).isSameAs(fixture);
     verify(driver).requireSelection(target, 6);
@@ -155,6 +161,13 @@ public class JListFixture_withMocks_Test {
     int[] indices = { 6, 7, 8 };
     assertThat(fixture.selectItems(indices)).isSameAs(fixture);
     verify(driver).selectItems(target, indices);
+  }
+
+  @Test
+  public void should_Call_UnselectItems_With_Indices_In_Driver_And_Return_Self() {
+    int[] indices = { 6, 7, 8 };
+    assertThat(fixture.unselectItems(indices)).isSameAs(fixture);
+    verify(driver).unselectItems(target, indices);
   }
 
   @Test

@@ -17,7 +17,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.core.MethodInvocations.Args.args;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.MethodInvocations.Args;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -51,12 +50,7 @@ public class JTableCellValueQuery_cellValueOf_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

@@ -21,19 +21,17 @@ import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.data.TableCell;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTable;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
- * Tests for {@link JTableSingleRowCellSelectedQuery#isCellSelected(JTable, int, int)}.
- * 
+ * Tests for {@link JTableRowCellSelectedQuery#isCellSelected(JTable, int, int)}.
+ *
  * @author Alex Ruiz
  */
-public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotBasedTestCase {
+public class JTableRowCellSelectedQuery_isCellSelected_Test extends RobotBasedTestCase {
   private JTable table;
 
   @Override
@@ -56,37 +54,27 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
   }
 
   @Test
-  public void should_Return_False_If_Whole_Row_Is_Selected() {
+  public void should_Return_True_If_Whole_Row_Is_Selected() {
     selectRow(table, 0);
     robot.waitForIdle();
-    assertThat(isCellSelected(table, 0, 2)).isFalse();
+    assertThat(isCellSelected(table, 0, 2)).isTrue();
   }
 
   @RunsInEDT
   private static void selectRow(final JTable table, final int row) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.setRowSelectionInterval(row, row);
-      }
-    });
+    execute(() -> table.setRowSelectionInterval(row, row));
   }
 
   @Test
-  public void should_False_If_Multiple_Row_Are_Selected() {
+  public void should_Return_True_If_Multiple_Row_Are_Selected() {
     selectCells(table, row(0).column(2), row(0).column(4));
     robot.waitForIdle();
-    assertThat(isCellSelected(table, 0, 2)).isFalse();
+    assertThat(isCellSelected(table, 0, 2)).isTrue();
   }
 
   @RunsInEDT
   private static boolean isCellSelected(final JTable table, final int row, final int column) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return JTableSingleRowCellSelectedQuery.isCellSelected(table, row, column);
-      }
-    });
+    return execute(() -> JTableRowCellSelectedQuery.isCellSelected(table, row, column));
   }
 
   private static class MyWindow extends TestWindow {
@@ -94,16 +82,11 @@ public class JTableSingleRowCellSelectedQuery_isCellSelected_Test extends RobotB
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {
-      super(JTableSingleRowCellSelectedQuery_isCellSelected_Test.class);
+      super(JTableRowCellSelectedQuery_isCellSelected_Test.class);
       addComponents(table);
     }
   }

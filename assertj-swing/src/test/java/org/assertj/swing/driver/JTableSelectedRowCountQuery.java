@@ -18,22 +18,15 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
-import org.assertj.swing.edt.GuiQuery;
-
 /**
- * Returns the number of selected rows in a {@code JTable}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the number of selected rows in a {@code JTable}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JTableSelectedRowCountQuery {
   static int selectedRowCountOf(final @Nonnull JTable table) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return table.getSelectedRowCount();
-      }
-    });
+    Integer result = execute(() -> table.getSelectedRowCount());
     return checkNotNull(result);
   }
 

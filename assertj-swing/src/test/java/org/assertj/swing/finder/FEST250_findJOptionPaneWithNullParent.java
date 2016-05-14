@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
 
 import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.fixture.JOptionPaneFixture;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.JOptionPaneLauncher;
@@ -37,12 +36,7 @@ public class FEST250_findJOptionPaneWithNullParent extends EDTSafeTestCase {
 
   @Before
   public void setUp() {
-    JOptionPane optionPane = execute(new GuiQuery<JOptionPane>() {
-      @Override
-      protected JOptionPane executeInEDT() {
-        return new JOptionPane("Hello World!");
-      }
-    });
+    JOptionPane optionPane = execute(() -> new JOptionPane("Hello World!"));
     JOptionPaneLauncher.launch(optionPane);
     robot = BasicRobot.robotWithCurrentAwtHierarchy();
   }

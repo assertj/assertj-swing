@@ -21,10 +21,9 @@ import javax.annotation.Nullable;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the title of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the title of a {@code JOptionPane}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -32,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JOptionPaneTitleQuery {
   @RunsInEDT
   static @Nullable String titleOf(final @Nonnull JOptionPane optionPane) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return ((Dialog) optionPane.getRootPane().getParent()).getTitle();
-      }
-    });
+    return execute(() -> ((Dialog) optionPane.getRootPane().getParent()).getTitle());
   }
 
   private JOptionPaneTitleQuery() {

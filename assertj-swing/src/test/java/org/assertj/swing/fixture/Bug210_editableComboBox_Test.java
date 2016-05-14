@@ -22,7 +22,6 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 
@@ -62,12 +61,7 @@ public class Bug210_editableComboBox_Test extends RobotBasedTestCase {
   private static class MyDialog extends JDialog {
     @RunsInEDT
     static MyDialog createNew(final String[] items) {
-      return execute(new GuiQuery<MyDialog>() {
-        @Override
-        protected MyDialog executeInEDT() {
-          return new MyDialog(items);
-        }
-      });
+      return execute(() -> new MyDialog(items));
     }
 
     private MyDialog(String[] items) {

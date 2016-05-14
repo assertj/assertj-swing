@@ -14,8 +14,8 @@ package org.assertj.swing.driver;
 
 import static javax.swing.SwingConstants.HORIZONTAL;
 import static javax.swing.SwingConstants.VERTICAL;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.awt.Insets;
 import java.awt.Point;
@@ -28,7 +28,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * A location in a {@code JSlider}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -44,12 +44,12 @@ public final class JSliderLocation {
    * <p>
    * Returns the coordinates of the given value in the given {@code JSlider}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param slider the given {@code JSlider}.
    * @param value the given value.
    * @return the coordinates of the given value in the given {@code JSlider}.

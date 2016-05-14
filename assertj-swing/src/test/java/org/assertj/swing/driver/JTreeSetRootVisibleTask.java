@@ -18,22 +18,16 @@ import javax.annotation.Nonnull;
 import javax.swing.JTree;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Shows/hides the root node of a {@code JTree}. This task is executed in the event dispatch thread (EDT.)
+ * Shows/hides the root node of a {@code JTree}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JTreeSetRootVisibleTask {
   @RunsInEDT
   static void setRootVisible(final @Nonnull JTree tree, final boolean visible) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setRootVisible(visible);
-      }
-    });
+    execute(() -> tree.setRootVisible(visible));
   }
 
   private JTreeSetRootVisibleTask() {

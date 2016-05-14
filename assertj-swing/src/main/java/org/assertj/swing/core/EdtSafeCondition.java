@@ -20,11 +20,10 @@ import javax.annotation.Nullable;
 
 import org.assertj.core.description.Description;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.timing.Condition;
 
 /**
- * {@link Condition} that is evaluated in the event dispatch thread (EDT.)
+ * {@link Condition} that is evaluated in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
@@ -54,18 +53,13 @@ public abstract class EdtSafeCondition extends Condition {
    */
   @Override
   public final boolean test() {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return testInEDT();
-      }
-    });
+    Boolean result = execute(() -> testInEDT());
     return checkNotNull(result);
   }
 
   /**
    * Checks if the condition has been satisfied. This method is guaranteed to be executed in the event dispatch thread
-   * (EDT.)
+   * (EDT).
    * 
    * @return {@code true} if the condition has been satisfied, otherwise {@code false}.
    */

@@ -21,14 +21,13 @@ import static org.assertj.swing.timing.Pause.pause;
 import javax.swing.JButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link ComponentRequestFocusTask#giveFocusTo(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -57,12 +56,7 @@ public class ComponentRequestFocusTask_giveFocusTo_Test extends SequentialEDTSaf
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JButton buttonOne = new JButton("One");

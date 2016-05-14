@@ -21,7 +21,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JLabel;
 
 import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -99,12 +98,7 @@ public class AbstractContainerFixture_label_Test extends RobotBasedTestCase {
     final JLabel label = new JLabel("Read Me");
 
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

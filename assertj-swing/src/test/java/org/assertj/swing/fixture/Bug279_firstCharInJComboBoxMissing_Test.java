@@ -14,13 +14,12 @@ package org.assertj.swing.fixture;
 
 import static java.awt.event.KeyEvent.VK_ENTER;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.core.util.Arrays.array;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
@@ -49,12 +48,7 @@ public class Bug279_firstCharInJComboBoxMissing_Test extends RobotBasedTestCase 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JComboBox comboBox = new JComboBox(array("One", "Two", "Three"));

@@ -23,8 +23,6 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
@@ -121,22 +119,12 @@ public class JFileChooserDriver_selectFiles_Test extends JFileChooserDriver_Test
 
   @RunsInEDT
   private static void setMultipleSelectionEnabled(final JFileChooser fileChooser, final boolean b) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        fileChooser.setMultiSelectionEnabled(b);
-      }
-    });
+    execute(() -> fileChooser.setMultiSelectionEnabled(b));
   }
 
   @RunsInEDT
   private static File[] selectedFilesIn(final JFileChooser fileChooser) {
-    return execute(new GuiQuery<File[]>() {
-      @Override
-      protected File[] executeInEDT() {
-        return fileChooser.getSelectedFiles();
-      }
-    });
+    return execute(() -> fileChooser.getSelectedFiles());
   }
 
   private static class TemporaryFolderAndFile {

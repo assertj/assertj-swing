@@ -46,6 +46,7 @@ import org.assertj.swing.driver.JTableDriver;
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author Christian Rösch
  *
  * @see TableCell
  */
@@ -86,6 +87,18 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
   @Override
   public @Nonnull JTableCellFixture select() {
     table.selectCell(cell());
+    return this;
+  }
+
+  /**
+   * Simulates a user unselecting this fixture's table cell.
+   *
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code JTable} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
+   */
+  public @Nonnull JTableCellFixture unselect() {
+    table.unselectCell(cell());
     return this;
   }
 
@@ -245,7 +258,7 @@ public class JTableCellFixture implements ItemFixture<JTableCellFixture> {
 
   /**
    * Returns the editor of this fixture's table cell. To manipulate the editor (e.g. wrapping it with a
-   * {@code ComponentFixture},) the method {@link #startEditing()} should be called first. To apply any changes back to
+   * {@code ComponentFixture}), the method {@link #startEditing()} should be called first. To apply any changes back to
    * the table cell(), the method {@link #stopEditing()} should be called. This method uses the
    * {@link org.assertj.swing.cell.JTableCellWriter} from the {@link JTableFixture} that created this fixture.
    * <p>

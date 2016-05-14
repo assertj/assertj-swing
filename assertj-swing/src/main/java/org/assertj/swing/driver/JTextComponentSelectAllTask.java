@@ -18,22 +18,16 @@ import javax.annotation.Nonnull;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Selects all the text in a {@code JTextComponent}. This task is executed in the event dispatch thread (EDT.)
+ * Selects all the text in a {@code JTextComponent}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JTextComponentSelectAllTask {
   @RunsInEDT
   static void selectAllText(final @Nonnull JTextComponent textBox) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        textBox.selectAll();
-      }
-    });
+    execute(() -> textBox.selectAll());
   }
 
   private JTextComponentSelectAllTask() {

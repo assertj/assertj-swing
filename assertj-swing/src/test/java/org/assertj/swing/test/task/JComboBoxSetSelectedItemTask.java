@@ -19,22 +19,16 @@ import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Selects an element in a {@code JComboBox}. This task is executed in the event dispatch thread (EDT.)
+ * Selects an element in a {@code JComboBox}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 public final class JComboBoxSetSelectedItemTask {
   @RunsInEDT
   public static void setSelectedItem(final @Nonnull JComboBox comboBox, final @Nullable Object item) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setSelectedItem(item);
-      }
-    });
+    execute(() -> comboBox.setSelectedItem(item));
   }
 
   private JComboBoxSetSelectedItemTask() {

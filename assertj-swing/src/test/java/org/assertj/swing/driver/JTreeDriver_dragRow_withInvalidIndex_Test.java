@@ -16,8 +16,6 @@ import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.Collection;
 
-import javax.swing.JTree;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

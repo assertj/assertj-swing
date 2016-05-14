@@ -12,21 +12,19 @@
  */
 package org.assertj.swing.launcher;
 
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.launcher.NewAppletViewerQuery.showAppletViewerWith;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.applet.Applet;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.applet.AppletViewer;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.UnexpectedException;
 
 /**
@@ -110,8 +108,6 @@ public class AppletLauncher {
   private static @Nonnull Class<?> load(@Nonnull String typeName) {
     try {
       return Class.forName(typeName);
-    } catch (ClassNotFoundException e) {
-      throw cannotLoadType(typeName, e);
     } catch (Exception e) {
       throw cannotLoadType(typeName, e);
     }
@@ -138,12 +134,7 @@ public class AppletLauncher {
 
   private static @Nonnull AppletLauncher instantiate(final @Nonnull Class<?> appletType) {
     try {
-      Object applet = execute(new GuiQuery<Object>() {
-        @Override
-        protected @Nullable Object executeInEDT() throws Exception {
-          return appletType.newInstance();
-        }
-      });
+      Object applet = execute(() -> appletType.newInstance());
       return launcherFor(checkNotNull((Applet) applet));
     } catch (Exception e) {
       String msg = String.format("Unable to create a new instance of %s", appletType.getName());
@@ -205,7 +196,7 @@ public class AppletLauncher {
    * Launches the {@code Applet} in a {@link AppletViewer} (using implementations of
    * {@link org.assertj.swing.applet.BasicAppletStub} and {@link org.assertj.swing.applet.BasicAppletContext}. To
    * provide your own {@code AppletStub} create a new {@link AppletViewer} directly. The {@code AppletViewer} is created
-   * and launched in the event dispatch thread (EDT.)
+   * and launched in the event dispatch thread (EDT).
    *
    * @return the created {@code AppletViewer}.
    */

@@ -14,13 +14,15 @@ package org.assertj.swing.util;
 
 import static java.awt.Color.RED;
 import static org.assertj.swing.test.ExpectedException.none;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import org.assertj.swing.test.ExpectedException;
-import org.junit.*;
+import org.junit.Rule;
+import org.junit.Test;
 
 /**
  * Tests for <code>{@link ImageReader#readImageFrom(String)}</code>.

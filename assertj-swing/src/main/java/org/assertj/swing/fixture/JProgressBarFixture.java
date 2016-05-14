@@ -20,8 +20,6 @@ import javax.swing.JProgressBar;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JProgressBarDriver;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.timing.Timeout;
 
 /**

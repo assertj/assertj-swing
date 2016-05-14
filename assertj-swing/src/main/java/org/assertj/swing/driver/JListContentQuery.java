@@ -20,26 +20,22 @@ import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JListCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns an array of {@code String}s that represents the contents of a given {@code JList}. This query is executed in
- * the event dispatch thread (EDT.)
- * 
+ * the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 final class JListContentQuery {
   @RunsInEDT
-  static @Nonnull String[] contents(final @Nonnull JList list, final @Nonnull JListCellReader cellReader) {
-    String[] result = execute(new GuiQuery<String[]>() {
-      @Override
-      protected String[] executeInEDT() {
-        String[] values = new String[list.getModel().getSize()];
-        for (int i = 0; i < values.length; i++) {
-          values[i] = cellReader.valueAt(list, i);
-        }
-        return values;
+  static @Nonnull String[] contents(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
+    String[] result = execute(() -> {
+      String[] values = new String[list.getModel().getSize()];
+      for (int i = 0; i < values.length; i++) {
+        values[i] = cellReader.valueAt(list, i);
       }
+      return values;
     });
     return checkNotNull(result);
   }

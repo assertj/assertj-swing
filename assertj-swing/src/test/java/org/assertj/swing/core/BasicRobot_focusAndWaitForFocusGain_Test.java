@@ -21,12 +21,11 @@ import javax.annotation.Nonnull;
 import javax.swing.JButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
  * Tests for {@link BasicRobot#focusAndWaitForFocusGain(Component)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -36,12 +35,9 @@ public class BasicRobot_focusAndWaitForFocusGain_Test extends BasicRobot_TestCas
   @RunsInEDT
   @Override
   void beforeShowingWindow() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        button = new JButton("Click Me");
-        window().add(button);
-      }
+    execute(() -> {
+      button = new JButton("Click Me");
+      window().add(button);
     });
   }
 

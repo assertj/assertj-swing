@@ -14,28 +14,22 @@ package org.assertj.swing.driver;
 
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
-import java.beans.PropertyVetoException;
-
 import javax.annotation.Nonnull;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Iconifies or deiconifies a {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT.)
- * 
+ * Iconifies or deiconifies a {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT).
+ *
  * @author Yvonne Wang
  */
 final class JInternalFrameSetIconTask {
   @RunsInEDT
   static void setIcon(final @Nonnull JInternalFrame internalFrame, final @Nonnull JInternalFrameAction action) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() throws PropertyVetoException {
-        internalFrame.setMaximum(false);
-        internalFrame.setIcon(action.value);
-      }
+    execute(() -> {
+      internalFrame.setMaximum(false);
+      internalFrame.setIcon(action.value);
     });
   }
 

@@ -19,7 +19,6 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -58,12 +57,7 @@ public class JTreeClearSelectionTask_clearSelectionOf_Test extends RobotBasedTes
 
   @RunsInEDT
   private static int selectionCountOf(final MyTree tree) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return tree.getSelectionCount();
-      }
-    });
+    return execute(() -> tree.getSelectionCount());
   }
 
   private static class MyWindow extends TestWindow {
@@ -71,12 +65,7 @@ public class JTreeClearSelectionTask_clearSelectionOf_Test extends RobotBasedTes
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

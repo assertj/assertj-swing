@@ -25,11 +25,10 @@ import javax.annotation.Nullable;
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Finds the AWT or Swing {@code Component} owning the input focus.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -57,28 +56,23 @@ public final class FocusOwnerFinder {
   }
 
   /**
-   * @return the focus owner. This method is executed in the event dispatch thread (EDT.)
+   * @return the focus owner. This method is executed in the event dispatch thread (EDT).
    */
   @RunsInEDT
   public static @Nullable Component inEdtFocusOwner() {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected @Nullable Component executeInEDT() {
-        return focusOwner();
-      }
-    });
+    return execute(() -> focusOwner());
   }
 
   /**
    * <p>
    * Returns the focus owner.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @return the focus owner.
    */
   @RunsInCurrentThread

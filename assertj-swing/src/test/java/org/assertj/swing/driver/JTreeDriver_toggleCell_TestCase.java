@@ -19,7 +19,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JTree;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Base test case in {@link JTreeDriver} related to expanding/collapsing cells in a {@code JTree}.
@@ -44,11 +43,6 @@ public abstract class JTreeDriver_toggleCell_TestCase extends JTreeDriver_TestCa
 
   @RunsInEDT
   private static boolean isRowExpanded(final JTree tree, final int row) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return tree.isExpanded(row);
-      }
-    });
+    return execute(() -> tree.isExpanded(row));
   }
 }

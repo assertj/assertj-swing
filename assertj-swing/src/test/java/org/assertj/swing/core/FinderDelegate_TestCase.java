@@ -17,7 +17,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.hierarchy.ComponentHierarchy;
 import org.assertj.swing.hierarchy.NewHierarchy;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
@@ -50,12 +49,7 @@ public abstract class FinderDelegate_TestCase extends SequentialEDTSafeTestCase 
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

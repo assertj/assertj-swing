@@ -21,12 +21,11 @@ import java.awt.Point;
 import javax.swing.table.JTableHeader;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.recorder.ClickRecorder;
 
 /**
  * Base test case for {@link JTableHeaderDriver}.
- * 
+ *
  * @author Yvonne Wang
  */
 public abstract class JTableHeaderDriver_TestCase extends JTableHeaderBasedTestCase {
@@ -51,11 +50,6 @@ public abstract class JTableHeaderDriver_TestCase extends JTableHeaderBasedTestC
 
   @RunsInEDT
   private static int columnAtPoint(final JTableHeader header, final Point point) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return header.getTable().columnAtPoint(point);
-      }
-    });
+    return execute(() -> header.getTable().columnAtPoint(point));
   }
 }

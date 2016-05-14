@@ -25,7 +25,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -104,13 +103,7 @@ public class AbstractContainerFixture_tabbedPane_Test extends RobotBasedTestCase
     final JTabbedPane tabbedPane = new JTabbedPane();
 
     static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
-      MyWindow result = execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
-      return checkNotNull(result);
+      return checkNotNull(execute(() -> new MyWindow(testClass)));
     }
 
     private MyWindow(@Nonnull Class<?> testClass) {

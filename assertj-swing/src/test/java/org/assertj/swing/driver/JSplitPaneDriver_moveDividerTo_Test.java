@@ -27,7 +27,6 @@ import javax.swing.JList;
 import javax.swing.JSplitPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -39,7 +38,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * Tests for {@link JSplitPaneDriver#moveDividerTo(JSplitPane, int)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -105,12 +104,7 @@ public class JSplitPaneDriver_moveDividerTo_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final int orientation, final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(orientation, testClass);
-        }
-      });
+      return execute(() -> new MyWindow(orientation, testClass));
     }
 
     private MyWindow(int orientation, Class<?> testClass) {

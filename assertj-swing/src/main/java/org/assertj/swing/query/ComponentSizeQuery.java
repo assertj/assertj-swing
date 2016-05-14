@@ -19,13 +19,11 @@ import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the size of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the size of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT).
  * 
  * @see Component#getSize()
  * 
@@ -35,7 +33,7 @@ import org.assertj.swing.edt.GuiQuery;
 public final class ComponentSizeQuery {
   /**
    * Returns the size of the given AWT or Swing {@code Component}. This query is executed in the event dispatch thread
-   * (EDT.)
+   * (EDT).
    * 
    * @param component the given {@code Component}.
    * @return the size of the given {@code Component}.
@@ -43,12 +41,7 @@ public final class ComponentSizeQuery {
    */
   @RunsInEDT
   public static @Nonnull Dimension sizeOf(final @Nonnull Component component) {
-    Dimension result = execute(new GuiQuery<Dimension>() {
-      @Override
-      protected @Nullable Dimension executeInEDT() {
-        return component.getSize();
-      }
-    });
+    Dimension result = execute(() -> component.getSize());
     return checkNotNull(result);
   }
 

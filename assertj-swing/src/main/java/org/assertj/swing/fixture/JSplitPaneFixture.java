@@ -18,7 +18,6 @@ import javax.swing.JSplitPane;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JSplitPaneDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JSplitPane}s.

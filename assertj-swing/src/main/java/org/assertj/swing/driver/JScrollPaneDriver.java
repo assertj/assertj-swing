@@ -21,7 +21,6 @@ import javax.swing.JScrollPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
@@ -60,12 +59,7 @@ public class JScrollPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull JScrollBar horizontalScrollBar(final @Nonnull JScrollPane scrollPane) {
-    JScrollBar result = execute(new GuiQuery<JScrollBar>() {
-      @Override
-      protected JScrollBar executeInEDT() {
-        return scrollPane.getHorizontalScrollBar();
-      }
-    });
+    JScrollBar result = execute(() -> scrollPane.getHorizontalScrollBar());
     return checkNotNull(result);
   }
 
@@ -82,12 +76,7 @@ public class JScrollPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull JScrollBar verticalScrollBar(final @Nonnull JScrollPane scrollPane) {
-    JScrollBar result = execute(new GuiQuery<JScrollBar>() {
-      @Override
-      protected JScrollBar executeInEDT() {
-        return scrollPane.getVerticalScrollBar();
-      }
-    });
+    JScrollBar result = execute(() -> scrollPane.getVerticalScrollBar());
     return checkNotNull(result);
   }
 }

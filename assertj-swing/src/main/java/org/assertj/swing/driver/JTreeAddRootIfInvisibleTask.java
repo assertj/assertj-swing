@@ -29,7 +29,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * 
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
- * event dispatch thread (EDT.) Client code must call methods in this class from the EDT.
+ * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
  * 
  * @author Alex Ruiz
@@ -37,7 +37,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 final class JTreeAddRootIfInvisibleTask {
   /*
    * Adds the root node to the path, only if the JTree has an invisible root. If this is not done, a path missing the
-   * root node cannot be expanded (issue 293.)
+   * root node cannot be expanded (issue 293).
    */
   @RunsInCurrentThread
   static @Nonnull TreePath addRootIfInvisible(@Nonnull JTree tree, @Nonnull TreePath path) {

@@ -17,7 +17,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.swing.JTable;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
@@ -44,12 +43,7 @@ public class FEST150_cannotTypeDashInTableCell_Test extends RobotBasedTestCase {
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTable table = new JTable(6, 8);

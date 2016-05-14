@@ -21,18 +21,17 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * <p>
  * {@code JTable} that requires a name and supports drag and drop.
  * </p>
- * 
+ *
  * <p>
  * Adapted from the tutorial <a href="http://java.sun.com/docs/books/tutorial/uiswing/dnd/intro.html"
  * target="_blank">Introduction to Drag and Drop and Data Transfer</a>.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -89,12 +88,7 @@ public class TestTable extends JTable {
 
   @RunsInEDT
   private static void cellEditable(final CustomModel model, final int row, final int column, final boolean editable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        model.cellEditable(row, column, editable);
-      }
-    });
+    execute(() -> model.cellEditable(row, column, editable));
   }
 
   private static class CustomModel extends DefaultTableModel {

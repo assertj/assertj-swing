@@ -75,7 +75,7 @@ public class BasicJTableCellReader implements JTableCellReader {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param table the given {@code JTable}.
@@ -98,12 +98,12 @@ public class BasicJTableCellReader implements JTableCellReader {
       return valueOf(((JCheckBox) c).isSelected());
     }
     if (c instanceof JComboBox) {
-      return valueAsText((JComboBox) c);
+      return valueAsText((JComboBox<?>) c);
     }
     return asText(table.getValueAt(row, column));
   }
 
-  private @Nullable String valueAsText(@Nonnull JComboBox comboBox) {
+  private @Nullable String valueAsText(@Nonnull JComboBox<?> comboBox) {
     int selectedIndex = comboBox.getSelectedIndex();
     if (selectedIndex == -1) {
       return null;
@@ -118,7 +118,7 @@ public class BasicJTableCellReader implements JTableCellReader {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param table the given {@code JTable}.
@@ -157,7 +157,7 @@ public class BasicJTableCellReader implements JTableCellReader {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param table the given {@code JTable}.

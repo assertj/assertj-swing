@@ -19,22 +19,16 @@ import javax.annotation.Nullable;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the selected text of a {@code JTextComponent}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the selected text of a {@code JTextComponent}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JTextComponentSelectedTextQuery {
   @RunsInEDT
   static @Nullable String selectedTextOf(final @Nonnull JTextComponent textBox) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return textBox.getSelectedText();
-      }
-    });
+    return execute(() -> textBox.getSelectedText());
   }
 
   private JTextComponentSelectedTextQuery() {

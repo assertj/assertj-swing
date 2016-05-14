@@ -18,27 +18,20 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import java.awt.Dialog;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Indicates whether an AWT or Swing {@code Dialog} is modal. This action is executed in the event dispatch thread
- * (EDT.)
- * 
+ * (EDT).
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class DialogModalQuery {
   @RunsInEDT
   static boolean isModal(final @Nonnull Dialog dialog) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected @Nullable Boolean executeInEDT() {
-        return dialog.isModal();
-      }
-    });
+    Boolean result = execute(() -> dialog.isModal());
     return checkNotNull(result);
   }
 

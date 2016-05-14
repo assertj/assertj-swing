@@ -28,7 +28,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.recorder.ClickRecorder;
 import org.assertj.swing.test.recorder.ClickRecorderManager;
@@ -95,12 +94,7 @@ public class Bug159_moveParentToFrontWhenClickingMenuItem_Test extends RobotBase
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JMenuItem menuItemFromMenuBar = new JMenuItem("New");

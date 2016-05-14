@@ -13,7 +13,7 @@
 package org.assertj.swing.format;
 
 import static java.lang.String.valueOf;
-import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.util.Map;
 
@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 
 /**
  * Workaround to obtain a {@code String} representation of an {@code int} enumeration.
- * 
+ *
  * @author Alex Ruiz
  */
 final class IntEnum {

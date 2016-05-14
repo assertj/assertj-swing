@@ -22,7 +22,6 @@ import java.awt.Component;
 import java.awt.Container;
 import java.util.Collection;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestMdiWindow;
@@ -31,7 +30,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JDesktopPaneChildrenFinder#nonExplicitChildrenOf(Container)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JDesktopPaneChildrenFinder_nonExplicitChildrenOf_Test extends EDTSafeTestCase {
@@ -58,12 +57,7 @@ public class JDesktopPaneChildrenFinder_nonExplicitChildrenOf_Test extends EDTSa
     ScreenLock.instance().acquire(this);
     final TestMdiWindow window = createAndShowNewWindow(getClass());
     iconify(window.internalFrame());
-    Collection<Component> children = execute(new GuiQuery<Collection<Component>>() {
-      @Override
-      protected Collection<Component> executeInEDT() {
-        return finder.nonExplicitChildrenOf(window.desktop());
-      }
-    });
+    Collection<Component> children = execute(() -> finder.nonExplicitChildrenOf(window.desktop()));
     try {
       assertThat(children).containsOnly(window.internalFrame());
     } finally {

@@ -19,7 +19,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns whether a {@code JInternalFrame} is currently iconified. This query is executed in the event dispatch thread
@@ -34,12 +33,7 @@ public final class JInternalFrameIconifiedQuery {
    */
   @RunsInEDT
   public static @Nonnull Boolean isIconified(final @Nonnull JInternalFrame internalFrame) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return internalFrame.isIcon();
-      }
-    });
+    Boolean result = execute(() -> internalFrame.isIcon());
     return checkNotNull(result);
   }
 

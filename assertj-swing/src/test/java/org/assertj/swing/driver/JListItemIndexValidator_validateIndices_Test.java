@@ -17,7 +17,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
@@ -50,11 +49,6 @@ public class JListItemIndexValidator_validateIndices_Test extends JListItemIndex
 
   @RunsInEDT
   private static void validateIndices(final JList list, final int... indices) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        JListItemPreconditions.checkIndicesInBounds(list, indices);
-      }
-    });
+    execute(() -> JListItemPreconditions.checkIndicesInBounds(list, indices));
   }
 }

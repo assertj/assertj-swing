@@ -20,11 +20,10 @@ import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Indicates whether the node (in a {@code JTree}) identified by the given path is expanded. This query is executed in
- * the event dispatch thread (EDT.)
+ * the event dispatch thread (EDT).
  * 
  * @author Yvonne Wang
  * @author Alex Ruiz
@@ -32,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JTreeExpandedPathQuery {
   @RunsInEDT
   static boolean isExpanded(final @Nonnull JTree tree, final @Nonnull TreePath path) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return tree.isExpanded(path);
-      }
-    });
+    Boolean result = execute(() -> tree.isExpanded(path));
     return checkNotNull(result);
   }
 

@@ -19,14 +19,13 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 
 /**
  * Tests for {@link JOptionPaneMessageTypeQuery#messageTypeOf(JOptionPane)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -51,12 +50,7 @@ public class JOptionPaneMessageTypeQuery_messageTypeOf_Test extends RobotBasedTe
 
     @RunsInEDT
     static MyOptionPane createNew() {
-      return execute(new GuiQuery<MyOptionPane>() {
-        @Override
-        protected MyOptionPane executeInEDT() {
-          return new MyOptionPane();
-        }
-      });
+      return execute(() -> new MyOptionPane());
     }
 
     private MyOptionPane() {

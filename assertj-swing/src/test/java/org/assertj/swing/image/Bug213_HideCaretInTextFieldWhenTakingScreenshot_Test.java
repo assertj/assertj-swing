@@ -21,14 +21,13 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Test case for <a href="http://code.google.com/p/fest/issues/detail?id=213">Bug 213</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Bug213_HideCaretInTextFieldWhenTakingScreenshot_Test extends SequentialEDTSafeTestCase {
@@ -58,12 +57,7 @@ public class Bug213_HideCaretInTextFieldWhenTakingScreenshot_Test extends Sequen
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createAndShow() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return display(new MyWindow());
-        }
-      });
+      return execute(() -> display(new MyWindow()));
     }
 
     final JTextField textField = new JTextField(20);

@@ -20,13 +20,12 @@ import static org.easymock.EasyMock.expectLastCall;
 
 import java.net.UnknownHostException;
 
-import org.assertj.swing.junit.xml.XmlNode;
 import org.fest.mocks.EasyMockTemplate;
 import org.junit.Test;
 
 /**
  * Tests for <code>{@link EnvironmentXmlNodeWriter#writeHostName(XmlNode)}</code>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class EnvironmentXmlNodeWriter_writeHostName_Test extends EnvironmentXmlNodeWriter_TestCase {

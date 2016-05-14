@@ -22,7 +22,6 @@ import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -61,11 +60,6 @@ public class JTreeDriver_selectPath_withManyPaths_Test extends JTreeDriver_selec
 
   @RunsInEDT
   private static TreePath selectionPathOf(final JTree tree) {
-    return execute(new GuiQuery<TreePath>() {
-      @Override
-      protected TreePath executeInEDT() {
-        return tree.getSelectionPath();
-      }
-    });
+    return execute(() -> tree.getSelectionPath());
   }
 }

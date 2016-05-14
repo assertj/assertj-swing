@@ -24,8 +24,6 @@ import javax.swing.JTextField;
 import javax.swing.table.AbstractTableModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 
@@ -44,24 +42,14 @@ public abstract class JTableCellEditingTask_TestCase extends RobotBasedTestCase 
 
   @RunsInEDT
   final void editTableCellAt(final int row, final int col) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        window.table.editCellAt(row, col);
-      }
-    });
+    execute(() -> window.table.editCellAt(row, col));
     robot.waitForIdle();
     assertThat(isTableEditing()).isTrue();
   }
 
   @RunsInEDT
   final boolean isTableEditing() {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return window.table.isEditing();
-      }
-    });
+    return execute(() -> window.table.isEditing());
   }
 
   final void assertCellEditingStopped() {
@@ -75,12 +63,7 @@ public abstract class JTableCellEditingTask_TestCase extends RobotBasedTestCase 
     final MyTable table = new MyTable();
 
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

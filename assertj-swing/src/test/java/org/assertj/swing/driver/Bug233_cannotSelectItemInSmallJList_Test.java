@@ -21,14 +21,13 @@ import java.awt.Dimension;
 import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=233" target="_blank">Bug 233</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Bug233_cannotSelectItemInSmallJList_Test extends RobotBasedTestCase {
@@ -52,12 +51,7 @@ public class Bug233_cannotSelectItemInSmallJList_Test extends RobotBasedTestCase
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JList list = new JList(array("One", superLongText()));

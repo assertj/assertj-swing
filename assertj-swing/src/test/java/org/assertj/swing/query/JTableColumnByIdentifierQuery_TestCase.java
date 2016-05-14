@@ -18,7 +18,6 @@ import static org.assertj.swing.test.core.MethodInvocations.Args.args;
 import javax.swing.table.TableColumn;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.MethodInvocations.Args;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -27,7 +26,7 @@ import org.assertj.swing.test.swing.TestWindow;
 
 /**
  * Base test case for {@link JTableColumnByIdentifierQuery}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class JTableColumnByIdentifierQuery_TestCase extends RobotBasedTestCase {
@@ -46,12 +45,7 @@ public abstract class JTableColumnByIdentifierQuery_TestCase extends RobotBasedT
 
   @RunsInEDT
   private static int columnIndexByIdentifier(final MyTable table, final String identifier) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return JTableColumnByIdentifierQuery.columnIndexByIdentifier(table, identifier);
-      }
-    });
+    return execute(() -> JTableColumnByIdentifierQuery.columnIndexByIdentifier(table, identifier));
   }
 
   static class MyWindow extends TestWindow {
@@ -59,12 +53,7 @@ public abstract class JTableColumnByIdentifierQuery_TestCase extends RobotBasedT
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

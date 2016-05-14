@@ -24,13 +24,12 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 
 /**
  * Test case for <a href="http://code.google.com/p/fest/issues/detail?id=289">Bug 289</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Bug289_robotShouldFocusWindowBeforeClosing_Test extends RobotBasedTestCase {
@@ -54,12 +53,7 @@ public class Bug289_robotShouldFocusWindowBeforeClosing_Test extends RobotBasedT
     private static int instanceCounter;
 
     static MyWindow createNew() {
-      return GuiActionRunner.execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return GuiActionRunner.execute(() -> new MyWindow());
     }
 
     private MyWindow() {

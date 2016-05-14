@@ -19,8 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.assertj.swing.util.StringTextMatcher;
@@ -28,7 +26,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTabbedPaneTabIndexQuery#indexOfTab(JTabbedPane, org.assertj.swing.util.TextMatcher)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -63,22 +61,12 @@ public class JTabbedPaneTabIndexQuery_indexOfTab_Test extends RobotBasedTestCase
 
   @RunsInEDT
   private static int indexOfTab(final JTabbedPane tabbedPane, final String title) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return JTabbedPaneTabIndexQuery.indexOfTab(tabbedPane, new StringTextMatcher(title));
-      }
-    });
+    return execute(() -> JTabbedPaneTabIndexQuery.indexOfTab(tabbedPane, new StringTextMatcher(title)));
   }
 
   @RunsInEDT
   private static void removeAllTabsIn(final JTabbedPane tabbedPane) {
-    execute(new GuiTask() {
-      @Override
-      public void executeInEDT() {
-        tabbedPane.removeAll();
-      }
-    });
+    execute(tabbedPane::removeAll);
   }
 
   private static class MyWindow extends TestWindow {
@@ -86,12 +74,7 @@ public class JTabbedPaneTabIndexQuery_indexOfTab_Test extends RobotBasedTestCase
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

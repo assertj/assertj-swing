@@ -19,14 +19,13 @@ import static org.assertj.swing.test.builder.JLabels.label;
 import javax.swing.JLabel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link JLabelMatcher#matches(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JLabelMatcher_matches_byTextAndShowing_Test extends SequentialEDTSafeTestCase {
@@ -61,12 +60,7 @@ public class JLabelMatcher_matches_byTextAndShowing_Test extends SequentialEDTSa
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createAndShow() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return display(new MyWindow());
-        }
-      });
+      return execute(() -> display(new MyWindow()));
     }
 
     final JLabel label = new JLabel("Hello");

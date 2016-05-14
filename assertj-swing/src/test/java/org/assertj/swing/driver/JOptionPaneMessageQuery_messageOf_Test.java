@@ -18,7 +18,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
@@ -52,12 +51,7 @@ public class JOptionPaneMessageQuery_messageOf_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyOptionPane createNew(final String message) {
-      return execute(new GuiQuery<MyOptionPane>() {
-        @Override
-        protected MyOptionPane executeInEDT() {
-          return new MyOptionPane(message);
-        }
-      });
+      return execute(() -> new MyOptionPane(message));
     }
 
     private MyOptionPane(String message) {

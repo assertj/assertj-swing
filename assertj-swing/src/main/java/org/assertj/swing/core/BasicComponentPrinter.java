@@ -26,19 +26,17 @@ import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.format.Formatting;
 import org.assertj.swing.hierarchy.ComponentHierarchy;
 import org.assertj.swing.hierarchy.ExistingHierarchy;
 import org.assertj.swing.hierarchy.SingleComponentHierarchy;
 
 /**
  * Default implementation of {@link ComponentPrinter}.
- * 
+ *
  * @author Alex Ruiz
- * 
+ *
  * @see ComponentPrinter
- * @see Formatting#format(Component)
+ * @see org.assertj.swing.format.Formatting#format(Component)
  */
 public final class BasicComponentPrinter implements ComponentPrinter {
   private static final String INDENTATION = "  ";
@@ -59,7 +57,7 @@ public final class BasicComponentPrinter implements ComponentPrinter {
   /**
    * Creates a new {@link BasicComponentPrinter} with a new AWT hierarchy. AWT and Swing {@code Component}s created
    * before the created {@link BasicComponentPrinter} cannot be accessed by the created {@link BasicComponentPrinter}.
-   * 
+   *
    * @return the created finder.
    */
   public static @Nonnull ComponentPrinter printerWithNewAwtHierarchy() {
@@ -69,7 +67,7 @@ public final class BasicComponentPrinter implements ComponentPrinter {
   /**
    * Creates a new {@link BasicComponentPrinter} that has access to all the AWT and Swing {@code Component}s in the AWT
    * hierarchy.
-   * 
+   *
    * @return the created printer.
    */
   public static @Nonnull ComponentPrinter printerWithCurrentAwtHierarchy() {
@@ -78,7 +76,7 @@ public final class BasicComponentPrinter implements ComponentPrinter {
 
   /**
    * Creates a new {@link BasicComponentPrinter}.
-   * 
+   *
    * @param hierarchy the component hierarchy to use.
    */
   protected BasicComponentPrinter(@Nonnull ComponentHierarchy hierarchy) {
@@ -113,7 +111,7 @@ public final class BasicComponentPrinter implements ComponentPrinter {
   @RunsInEDT
   @Override
   public void printComponents(@Nonnull PrintStream out, @Nonnull Class<? extends Component> type,
-      @Nullable Container root) {
+                              @Nullable Container root) {
     print(hierarchy(root), new TypeMatcher(checkNotNull(type)), checkNotNull(out));
   }
 
@@ -133,20 +131,17 @@ public final class BasicComponentPrinter implements ComponentPrinter {
 
   @RunsInEDT
   private static void print(@Nonnull final ComponentHierarchy hierarchy, @Nonnull final ComponentMatcher matcher,
-      @Nonnull final PrintStream out) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        for (Component c : hierarchy.roots()) {
-          print(checkNotNull(c), hierarchy, matcher, 0, out);
-        }
+                            @Nonnull final PrintStream out) {
+    execute(() -> {
+      for (Component c : hierarchy.roots()) {
+        print(checkNotNull(c), hierarchy, matcher, 0, out);
       }
     });
   }
 
   @RunsInCurrentThread
   private static void print(@Nonnull Component c, @Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher matcher,
-      int level, @Nonnull PrintStream out) {
+                            int level, @Nonnull PrintStream out) {
     if (matcher.matches(c)) {
       print(c, level, out);
     }

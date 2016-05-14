@@ -23,7 +23,6 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestDialog;
 import org.assertj.swing.test.swing.TestWindow;
@@ -31,7 +30,7 @@ import org.junit.Test;
 
 /**
  * Test case for implementations of {@link FocusOwnerFinderStrategy#focusOwner()}.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends SequentialEDTSafeTestCase {
@@ -56,12 +55,7 @@ public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends Seque
   @Test
   public final void should_Find_Focus_Owner() {
     giveFocusAndWaitTillIsFocused(textField);
-    Component focusOwner = execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        return finder.focusOwner();
-      }
-    });
+    Component focusOwner = execute(() -> finder.focusOwner());
     assertThat(focusOwner).isSameAs(textField);
   }
 
@@ -82,12 +76,7 @@ public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends Seque
 
     @RunsInEDT
     static MyDialog createAndShow(final Frame owner) {
-      MyDialog dialog = execute(new GuiQuery<MyDialog>() {
-        @Override
-        protected MyDialog executeInEDT() {
-          return new MyDialog(owner);
-        }
-      });
+      MyDialog dialog = execute(() -> new MyDialog(owner));
       dialog.display();
       return dialog;
     }
@@ -103,12 +92,7 @@ public abstract class FocusOwnerFinderStrategy_focusOwner_TestCase extends Seque
 
     @RunsInEDT
     static MyWindow createAndShow(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return display(new MyWindow(testClass));
-        }
-      });
+      return execute(() -> display(new MyWindow(testClass)));
     }
 
     private MyWindow(Class<?> testClass) {

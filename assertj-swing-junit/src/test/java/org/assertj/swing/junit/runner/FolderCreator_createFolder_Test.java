@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.junit.runner;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
-import static org.assertj.core.api.StrictAssertions.assertThat;
 import static org.assertj.core.util.Files.newTemporaryFolder;
 import static org.easymock.classextension.EasyMock.createMock;
 
@@ -47,7 +47,7 @@ public class FolderCreator_createFolder_Test {
     try {
       parent = newTemporaryFolder();
       String childName = "child";
-      child = creator.createFolder(parent, childName);
+      child = creator.createFolder(parent, childName, true);
       assertThat(child).isDirectory();
       assertThat(child.getName()).isEqualTo(childName);
       assertThat(pathOf(child.getParentFile())).isEqualTo(pathOf(parent));
@@ -79,7 +79,7 @@ public class FolderCreator_createFolder_Test {
       @Override
       protected void codeToTest() {
         try {
-          creator.createFolder(f, "hello");
+          creator.createFolder(f, "hello", true);
           fail("expecting exception");
         } catch (RuntimeIOException e) {
           assertThat(e).hasMessage("Unable to create directory 'hello'");

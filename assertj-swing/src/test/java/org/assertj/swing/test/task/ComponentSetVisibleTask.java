@@ -19,11 +19,10 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Makes an AWT or Swing {@code Component} visible or invisible. This task is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  * 
  * @author Alex Ruiz
  */
@@ -40,12 +39,7 @@ public final class ComponentSetVisibleTask {
 
   @RunsInEDT
   public static void setVisible(final @Nonnull Component c, final boolean visible) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.setVisible(visible);
-      }
-    });
+    execute(() -> c.setVisible(visible));
   }
 
   private ComponentSetVisibleTask() {

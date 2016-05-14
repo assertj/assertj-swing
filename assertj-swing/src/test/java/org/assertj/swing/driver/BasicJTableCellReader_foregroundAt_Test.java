@@ -20,17 +20,15 @@ import java.awt.Color;
 import java.awt.Component;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
 
 /**
  * Tests for {@link BasicJTableCellReader#foregroundAt(JTable, int, int)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -45,23 +43,13 @@ public class BasicJTableCellReader_foregroundAt_Test extends BasicJTableCellRead
 
   @RunsInEDT
   private static Color foregroundAt(final BasicJTableCellReader reader, final JTable table, final int row,
-      final int column) {
-    return execute(new GuiQuery<Color>() {
-      @Override
-      protected Color executeInEDT() {
-        return reader.foregroundAt(table, row, column);
-      }
-    });
+                                    final int column) {
+    return execute(() -> reader.foregroundAt(table, row, column));
   }
 
   @RunsInEDT
   private static @Nonnull Color foregroundOf(final @Nonnull Component component) {
-    Color result = execute(new GuiQuery<Color>() {
-      @Override
-      protected @Nullable Color executeInEDT() {
-        return component.getForeground();
-      }
-    });
+    Color result = execute(() -> component.getForeground());
     return checkNotNull(result);
   }
 }

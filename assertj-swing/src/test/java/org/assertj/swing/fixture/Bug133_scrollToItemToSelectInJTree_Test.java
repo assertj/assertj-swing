@@ -26,7 +26,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -37,7 +36,7 @@ import org.junit.Test;
 
 /**
  * Test case for <a href="http://code.google.com/p/fest/issues/detail?id=133">Bug 133</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Bug133_scrollToItemToSelectInJTree_Test extends RobotBasedTestCase {
@@ -91,13 +90,10 @@ public class Bug133_scrollToItemToSelectInJTree_Test extends RobotBasedTestCase 
 
   @RunsInEDT
   private static Object selectionOf(final JTree tree) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected Object executeInEDT() {
-        Object lastPathComponent = tree.getSelectionPath().getLastPathComponent();
-        DefaultMutableTreeNode node = (DefaultMutableTreeNode) lastPathComponent;
-        return node.getUserObject();
-      }
+    return execute(() -> {
+      Object lastPathComponent = tree.getSelectionPath().getLastPathComponent();
+      DefaultMutableTreeNode node = (DefaultMutableTreeNode) lastPathComponent;
+      return node.getUserObject();
     });
   }
 
@@ -107,12 +103,7 @@ public class Bug133_scrollToItemToSelectInJTree_Test extends RobotBasedTestCase 
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

@@ -22,7 +22,6 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -101,12 +100,7 @@ public class AbstractContainerFixture_tree_Test extends RobotBasedTestCase {
     final JTree tree = new JTree(new DefaultMutableTreeNode("root"));
 
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

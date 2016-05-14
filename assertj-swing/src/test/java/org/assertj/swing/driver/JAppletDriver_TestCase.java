@@ -13,11 +13,11 @@
 package org.assertj.swing.driver;
 
 import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.core.TestRobots.singletonRobotMock;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.applet.AppletContext;
 import java.net.URL;
@@ -27,13 +27,12 @@ import javax.swing.JApplet;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Before;
 
 /**
  * Base test case for {@link JAppletDriver}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JAppletDriver_TestCase extends EDTSafeTestCase {
@@ -66,12 +65,7 @@ public class JAppletDriver_TestCase extends EDTSafeTestCase {
 
     @RunsInEDT
     static JAppletStub createNew() {
-      return execute(new GuiQuery<JAppletStub>() {
-        @Override
-        protected JAppletStub executeInEDT() {
-          return new JAppletStub();
-        }
-      });
+      return execute(() -> new JAppletStub());
     }
 
     @RunsInCurrentThread

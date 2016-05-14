@@ -28,7 +28,6 @@ import static org.mockito.Mockito.verify;
 import java.awt.image.BufferedImage;
 
 import org.assertj.core.api.AssertionInfo;
-import org.assertj.swing.internal.assertions.Images;
 import org.assertj.swing.internal.assertions.ImagesBaseTest;
 import org.junit.Test;
 

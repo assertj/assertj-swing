@@ -29,7 +29,7 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the contents of a {@code JPopupMenu} as a {@code String} array. This query is executed in the event dispatch
- * thread (EDT.)
+ * thread (EDT).
  * 
  * @author Alex Ruiz
  */

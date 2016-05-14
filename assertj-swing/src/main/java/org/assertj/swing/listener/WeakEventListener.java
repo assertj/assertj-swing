@@ -68,7 +68,7 @@ public final class WeakEventListener implements AWTEventListener {
 
   /**
    * Dispatches the given event to the wrapped event listener. If the wrapped listener is {@code null}
-   * (garbage-collected,) this listener will remove itself from the default toolkit.
+   * (garbage-collected), this listener will remove itself from the default toolkit.
    * 
    * @param e the event dispatched in the AWT.
    */

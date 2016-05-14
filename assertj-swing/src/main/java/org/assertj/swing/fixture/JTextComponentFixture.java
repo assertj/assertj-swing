@@ -20,8 +20,6 @@ import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JTextComponentDriver;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JTextComponent}s.

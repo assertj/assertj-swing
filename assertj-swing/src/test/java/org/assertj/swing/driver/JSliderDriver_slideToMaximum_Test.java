@@ -20,7 +20,6 @@ import java.util.Collection;
 import javax.swing.JSlider;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
 import org.junit.runners.Parameterized.Parameters;
 
@@ -49,12 +48,7 @@ public class JSliderDriver_slideToMaximum_Test extends JSliderDriver_TestCase {
 
   @RunsInEDT
   private static int maximumOf(final JSlider slider) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return slider.getMaximum();
-      }
-    });
+    return execute(() -> slider.getMaximum());
   }
 
   @Test

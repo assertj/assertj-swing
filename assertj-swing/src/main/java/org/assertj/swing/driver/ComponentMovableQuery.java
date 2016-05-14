@@ -23,7 +23,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Indicates whether it is possible for the user to move the given AWT or Swing {{@code Component}. This query is
- * <b>not</b> guaranteed to be executed in the event dispatch thread (EDT.)
+ * <b>not</b> guaranteed to be executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

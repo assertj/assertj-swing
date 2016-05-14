@@ -20,7 +20,6 @@ import static org.assertj.swing.driver.JProgressBarMakeDeterminateAsyncTask.make
 import static org.assertj.swing.timing.Timeout.timeout;
 
 import org.assertj.swing.exception.WaitTimedOutError;
-import org.assertj.swing.timing.Timeout;
 import org.junit.Test;
 
 /**

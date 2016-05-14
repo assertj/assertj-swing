@@ -13,7 +13,7 @@
 package org.assertj.swing.testng.listener;
 
 import static java.io.File.separator;
-import static org.assertj.core.api.StrictAssertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Files.newFolder;
 import static org.assertj.core.util.Files.newTemporaryFolder;
 import static org.assertj.core.util.Strings.concat;

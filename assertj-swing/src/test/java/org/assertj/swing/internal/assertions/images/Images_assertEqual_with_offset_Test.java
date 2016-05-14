@@ -30,8 +30,6 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import org.assertj.core.api.AssertionInfo;
-import org.assertj.core.data.Offset;
-import org.assertj.swing.internal.assertions.Images;
 import org.assertj.swing.internal.assertions.ImagesBaseTest;
 import org.junit.Before;
 import org.junit.Test;

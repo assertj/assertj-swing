@@ -14,8 +14,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import javax.swing.JProgressBar;
-
 import org.junit.Test;
 
 /**

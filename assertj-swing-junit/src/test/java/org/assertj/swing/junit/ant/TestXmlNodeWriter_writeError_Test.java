@@ -18,13 +18,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.junit.xml.XmlAttribute.name;
 import static org.easymock.EasyMock.expectLastCall;
 
-import org.assertj.swing.junit.xml.XmlNode;
 import org.fest.mocks.EasyMockTemplate;
 import org.junit.Test;
 
 /**
  * Tests for <code>{@link TestXmlNodeWriter#writeError(XmlNode, Throwable)}</code>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class TestXmlNodeWriter_writeError_Test extends TestXmlNodeWriter_TestCase {

@@ -167,7 +167,7 @@ public interface ComponentContainerFixture {
   JComboBoxFixture comboBox(@Nullable String name);
 
   /**
-   * Returns the only {@code Dialog} currently available (if any.) This method uses the value defined in
+   * Returns the only {@code Dialog} currently available (if any). This method uses the value defined in
    * {@link #defaultDialogLookupTimeout()} as the default lookup timeout.
    *
    * @return a fixture that manages the {@code Dialog} found.
@@ -179,7 +179,7 @@ public interface ComponentContainerFixture {
   DialogFixture dialog();
 
   /**
-   * Returns the only {@code Dialog} currently available (if any.)
+   * Returns the only {@code Dialog} currently available (if any).
    *
    * @param timeout the amount of time to wait for a {@code Dialog} to be found.
    * @return a fixture that manages the {@code Dialog} found.
@@ -242,7 +242,7 @@ public interface ComponentContainerFixture {
   DialogFixture dialog(@Nullable String name, @Nonnull Timeout timeout);
 
   /**
-   * Returns the only {@code JFileChooser} currently available (if any.) This method uses the value defined in
+   * Returns the only {@code JFileChooser} currently available (if any). This method uses the value defined in
    * {@link #defaultDialogLookupTimeout()} as the default lookup timeout.
    *
    * @return a fixture that manages the {@code JFileChooser} found.
@@ -254,7 +254,7 @@ public interface ComponentContainerFixture {
   JFileChooserFixture fileChooser();
 
   /**
-   * Returns the only {@code JFileChooser} currently available (if any.)
+   * Returns the only {@code JFileChooser} currently available (if any).
    *
    * @param timeout the amount of time to wait for a {@code JFileChooser} to be found.
    * @return a fixture that manages the {@code JFileChooser} found.
@@ -444,7 +444,7 @@ public interface ComponentContainerFixture {
   JMenuItemFixture menuItem(@Nonnull GenericTypeMatcher<? extends JMenuItem> matcher);
 
   /**
-   * Returns the only {@code JOptionPane} currently available (if any.) This method uses the value defined in
+   * Returns the only {@code JOptionPane} currently available (if any). This method uses the value defined in
    * {@link #defaultDialogLookupTimeout()} as the default lookup timeout.
    *
    * @return a fixture that manages the {@code JOptionPane} found.
@@ -456,7 +456,7 @@ public interface ComponentContainerFixture {
   JOptionPaneFixture optionPane();
 
   /**
-   * Returns the only {@code JOptionPane} currently available (if any.)
+   * Returns the only {@code JOptionPane} currently available (if any).
    *
    * @param timeout the amount of time to wait for a {@code JOptionPane} to be found.
    * @return a fixture that manages the {@code JOptionPane} found.

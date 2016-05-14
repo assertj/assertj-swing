@@ -16,14 +16,12 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JScrollBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the value of a {@code JScrollBar}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the value of a {@code JScrollBar}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -31,12 +29,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JScrollBarValueQuery {
   @RunsInEDT
   static int valueOf(final @Nonnull JScrollBar scrollBar) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return scrollBar.getValue();
-      }
-    });
+    Integer result = execute(() -> scrollBar.getValue());
     return checkNotNull(result);
   }
 

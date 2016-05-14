@@ -30,7 +30,7 @@
  *
  * <p>
  * The &quot;tricky&quot; part here is step 4. Authentication/authorization can take some time (depending on network
- * traffic, etc.) and we need to wait for the main window to appear in order to continue our test. It is possible to
+ * traffic, etc). and we need to wait for the main window to appear in order to continue our test. It is possible to
  * test this scenario with AssertJ-Swing:
  * </p>
  *

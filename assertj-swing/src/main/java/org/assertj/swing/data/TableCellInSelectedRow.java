@@ -21,7 +21,6 @@ import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * <p>
@@ -34,7 +33,7 @@ import org.assertj.swing.edt.GuiQuery;
  *
  * <pre>
  * // import static org.assertj.swing.data.TableCellInSelectedRow.selectedRow;
- * {@link JTableCellFixture} cell = window.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
+ * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInSelectedRow#selectedRow() selectedRow}().column(2));
  * </pre>
  *
  * @author Alex Ruiz
@@ -102,12 +101,7 @@ public class TableCellInSelectedRow implements TableCellFinder {
 
   @RunsInEDT
   private static int selectedRowOf(final JTable table) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return table.getSelectedRow();
-      }
-    });
+    Integer result = execute(() -> table.getSelectedRow());
     return checkNotNull(result);
   }
 

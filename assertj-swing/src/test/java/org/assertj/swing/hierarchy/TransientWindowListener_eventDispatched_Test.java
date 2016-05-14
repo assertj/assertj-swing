@@ -17,7 +17,6 @@ import static org.assertj.swing.timing.Pause.pause;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.awt.AWTEvent;
 import java.awt.event.WindowEvent;
 
 import org.junit.Test;

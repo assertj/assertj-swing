@@ -23,44 +23,30 @@ import javax.swing.table.TableCellEditor;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Stops editing of a cell in a {@code JTable}. This task is executed in the event dispatch thread (EDT.)
- * 
+ * Stops editing of a cell in a {@code JTable}. This task is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JTableStopCellEditingTask {
   @RunsInEDT
   static void stopEditing(final @Nonnull TableCellEditor cellEditor) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        doStopCellEditing(cellEditor);
-      }
-    });
+    execute(() -> doStopCellEditing(cellEditor));
   }
 
   @RunsInEDT
   static void stopEditing(final @Nonnull JTable table, final int row, final int column) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        doStopCellEditing(table, row, column);
-      }
-    });
+    execute(() -> doStopCellEditing(table, row, column));
   }
 
   @RunsInEDT
   static void checkStateAndStopEditing(final @Nonnull JTable table, final int row, final int column) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkCellIndicesInBounds(table, row, column);
-        validateCellIsEditable(table, row, column);
-        doStopCellEditing(table, row, column);
-      }
+    execute(() -> {
+      checkCellIndicesInBounds(table, row, column);
+      validateCellIsEditable(table, row, column);
+      doStopCellEditing(table, row, column);
     });
   }
 

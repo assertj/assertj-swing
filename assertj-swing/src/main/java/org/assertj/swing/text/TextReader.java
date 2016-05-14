@@ -38,7 +38,7 @@ public abstract class TextReader<T extends Component> {
    * @param text the given text.
    * @return {@code true} if the given {@code Component} contains or displays the given text; {@code false} otherwise.
    * @throws IllegalArgumentException if this reader does not support the type of the given {@code Component} (e.g. this
-   *           reader supports {@code JButton}s and a {@code JLabel} is passed.)
+   *           reader supports {@code JButton}s and a {@code JLabel} is passed).
    * @see #supportedComponent()
    */
   @RunsInCurrentThread

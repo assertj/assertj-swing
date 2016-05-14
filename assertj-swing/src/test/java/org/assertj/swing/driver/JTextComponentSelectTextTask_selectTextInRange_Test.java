@@ -24,8 +24,6 @@ import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
@@ -75,12 +73,7 @@ public class JTextComponentSelectTextTask_selectTextInRange_Test extends RobotBa
 
   @RunsInEDT
   private static void selectTextInRange(final JTextComponent textBox, final int start, final int end) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        JTextComponentSelectTextTask.selectTextInRange(textBox, start, end);
-      }
-    });
+    execute(() -> JTextComponentSelectTextTask.selectTextInRange(textBox, start, end));
   }
 
   private static class MyWindow extends TestWindow {
@@ -88,12 +81,7 @@ public class JTextComponentSelectTextTask_selectTextInRange_Test extends RobotBa
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

@@ -24,7 +24,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.After;
@@ -33,7 +32,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link WindowAncestorFinder#windowAncestorOf(java.awt.Component)}.
- * 
+ *
  * @author Yvonne Wang
  */
 public class WindowAncestorFinder_windowAncestorOf_Test extends EDTSafeTestCase {
@@ -92,12 +91,7 @@ public class WindowAncestorFinder_windowAncestorOf_Test extends EDTSafeTestCase 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JButton button = new JButton("Click Me");

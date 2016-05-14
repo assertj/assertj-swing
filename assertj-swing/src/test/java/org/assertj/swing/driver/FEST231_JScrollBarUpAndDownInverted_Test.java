@@ -24,14 +24,13 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-231" target="_blank">FEST-231</a>
- * 
+ *
  * @author Alex Ruiz
  */
 public class FEST231_JScrollBarUpAndDownInverted_Test extends RobotBasedTestCase {
@@ -88,12 +87,7 @@ public class FEST231_JScrollBarUpAndDownInverted_Test extends RobotBasedTestCase
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JScrollPane scrollPane = new JScrollPane(newList(), VERTICAL_SCROLLBAR_ALWAYS, HORIZONTAL_SCROLLBAR_ALWAYS);

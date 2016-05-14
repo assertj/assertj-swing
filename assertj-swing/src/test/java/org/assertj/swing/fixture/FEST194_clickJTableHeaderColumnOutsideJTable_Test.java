@@ -27,14 +27,13 @@ import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-194" target="_blank">FEST-194</a>
- * 
+ *
  * @author Andriy Tsykholyas
  * @author Alex Ruiz
  */
@@ -62,12 +61,7 @@ public class FEST194_clickJTableHeaderColumnOutsideJTable_Test extends RobotBase
 
   @RunsInEDT
   static int columnCountOf(final JTable table) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return table.getColumnCount();
-      }
-    });
+    return execute(() -> table.getColumnCount());
   }
 
   private static class MyWindow extends TestWindow {
@@ -75,12 +69,7 @@ public class FEST194_clickJTableHeaderColumnOutsideJTable_Test extends RobotBase
     private static final Dimension FRAME_SIZE = new Dimension((int) (COLUMN_WIDTH * 1.3), 200);
 
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTable table = table();

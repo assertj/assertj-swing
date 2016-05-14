@@ -13,11 +13,11 @@
 package org.assertj.swing.format;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.awt.Component;
 import java.beans.BeanInfo;
@@ -37,7 +37,7 @@ import org.assertj.swing.util.Arrays;
  * Formatter that uses <a href="http://docs.oracle.com/javase/tutorial/javabeans/index.html"
  * target="_blank">introspection</a> to display property values of an AWT or Swing {@code Component}. This formatter
  * does not support nested properties.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class IntrospectionComponentFormatter extends ComponentFormatterTemplate {
@@ -48,13 +48,13 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
 
   /**
    * Creates a new {@link IntrospectionComponentFormatter}.
-   * 
+   *
    * @param targetType the type of AWT or Swing {@code Component} that this formatter supports.
    * @param propertyNames the property names to show as the {@code String} representation of a given {@code Component}.
    * @throws NullPointerException if {@code targetType} is {@code null}.
    */
   public IntrospectionComponentFormatter(@Nonnull Class<? extends Component> targetType,
-      @Nonnull String... propertyNames) {
+                                         @Nonnull String... propertyNames) {
     this.targetType = checkNotNull(targetType);
     this.propertyNames = newArrayList(propertyNames);
     populate();
@@ -83,7 +83,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
   /**
    * Returns a {@code String} representation of the given AWT or Swing {@code Component}, showing only the properties
    * specified in this formatter's {@link #IntrospectionComponentFormatter(Class, String[]) constructor}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return a {@code String} representation of the given {@code Component}.
    * @throws NullPointerException if the given {@code Component} is {@code null}.
@@ -142,6 +142,6 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
   @Override
   public String toString() {
     return String.format("%s[propertyNames=%s", getClass().getName(),
-        new StandardRepresentation().toStringOf(propertyNames));
+                         new StandardRepresentation().toStringOf(propertyNames));
   }
 }

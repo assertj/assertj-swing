@@ -19,22 +19,16 @@ import javax.swing.JTree;
 import javax.swing.tree.TreeSelectionModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Sets a {@link TreeSelectionModel} in a {@code JTree}. This task is executed in the event dispatch thread (EDT.)
+ * Sets a {@link TreeSelectionModel} in a {@code JTree}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 public final class JTreeSetSelectionModelTask {
   @RunsInEDT
   public static void setSelectionModel(final @Nonnull JTree tree, final @Nonnull TreeSelectionModel selectionModel) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setSelectionModel(selectionModel);
-      }
-    });
+    execute(() -> tree.setSelectionModel(selectionModel));
   }
 
   private JTreeSetSelectionModelTask() {

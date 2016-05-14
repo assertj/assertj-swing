@@ -14,12 +14,11 @@ package org.assertj.swing.junit.xml;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.swing.junit.xml.XmlAttribute.XmlAttributeBuilder;
 import org.junit.Test;
 
 /**
- * Tests for <code>{@link XmlAttributeBuilder#value(double)}</code>.
- * 
+ * Tests for <code>{@link org.assertj.swing.junit.xml.XmlAttribute.XmlAttributeBuilder#value(double)}</code>.
+ *
  * @author Alex Ruiz
  */
 public class XmlAttributeBuilder_value_withDouble_Test {

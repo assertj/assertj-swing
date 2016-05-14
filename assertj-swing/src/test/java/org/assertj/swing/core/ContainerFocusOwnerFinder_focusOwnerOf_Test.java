@@ -25,7 +25,6 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestDialog;
 import org.assertj.swing.test.swing.TestWindow;
@@ -33,7 +32,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ContainerFocusOwnerFinder#focusOwnerOf(Container)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ContainerFocusOwnerFinder_focusOwnerOf_Test extends SequentialEDTSafeTestCase {
@@ -90,12 +89,7 @@ public class ContainerFocusOwnerFinder_focusOwnerOf_Test extends SequentialEDTSa
 
   @RunsInEDT
   private Component focusOwnerOf(final Container c) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected Component executeInEDT() {
-        return finder.focusOwnerOf(c);
-      }
-    });
+    return execute(() -> finder.focusOwnerOf(c));
   }
 
   private static class MyDialog extends TestDialog {
@@ -103,12 +97,7 @@ public class ContainerFocusOwnerFinder_focusOwnerOf_Test extends SequentialEDTSa
 
     @RunsInEDT
     static MyDialog createAndShow(final Frame owner) {
-      MyDialog dialog = execute(new GuiQuery<MyDialog>() {
-        @Override
-        protected MyDialog executeInEDT() {
-          return new MyDialog(owner);
-        }
-      });
+      MyDialog dialog = execute(() -> new MyDialog(owner));
       dialog.display();
       return dialog;
     }
@@ -124,12 +113,7 @@ public class ContainerFocusOwnerFinder_focusOwnerOf_Test extends SequentialEDTSa
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

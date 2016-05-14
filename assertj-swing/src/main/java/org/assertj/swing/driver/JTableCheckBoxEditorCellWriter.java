@@ -23,14 +23,13 @@ import javax.swing.JCheckBox;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JTableCellWriter;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.Pair;
 
 /**
- * {@link JTableCellWriter} that knows how to use {@code JTextComponent}s as cell editors.
- * 
+ * {@link org.assertj.swing.cell.JTableCellWriter} that knows how to use {@code JTextComponent}s as cell editors.
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -58,7 +57,8 @@ public class JTableCheckBoxEditorCellWriter extends AbstractJTableCellWriter {
 
   @RunsInEDT
   private static @Nonnull Pair<Boolean, Point> doStartCellEditing(final @Nonnull JTable table, final int row,
-      final int column, final @Nonnull JTableLocation location) {
+                                                                  final int column,
+                                                                  final @Nonnull JTableLocation location) {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
       @Override
       protected Pair<Boolean, Point> executeInEDT() {

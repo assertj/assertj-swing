@@ -21,7 +21,6 @@ import java.awt.Dimension;
 
 import javax.swing.JWindow;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.After;
 import org.junit.Before;
@@ -50,12 +49,7 @@ public class BasicRobot_showWindowBySizeAndPacking_Test extends EDTSafeTestCase 
   public void should_Not_Pack_Window_As_Specified() {
     // TODO split this test case in 2+
     Dimension size = new Dimension(100, 100);
-    WindowToShow result = execute(new GuiQuery<WindowToShow>() {
-      @Override
-      protected WindowToShow executeInEDT() {
-        return new WindowToShow();
-      }
-    });
+    WindowToShow result = execute(() -> new WindowToShow());
     WindowToShow w = checkNotNull(result);
     robot.showWindow(w, size, false);
     assertThat(sizeOf(w)).isEqualTo(size);

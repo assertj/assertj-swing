@@ -26,8 +26,6 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -37,7 +35,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link JListDriver}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -94,12 +92,7 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static int locationToIndex(final JList list, final Point p) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return list.locationToIndex(p);
-      }
-    });
+    return execute(() -> list.locationToIndex(p));
   }
 
   @RunsInEDT
@@ -109,12 +102,7 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static Object selectedValue(final JList list) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected Object executeInEDT() {
-        return list.getSelectedValue();
-      }
-    });
+    return execute(() -> list.getSelectedValue());
   }
 
   @RunsInEDT
@@ -124,12 +112,7 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static Object[] selectedValues(final JList list) {
-    return execute(new GuiQuery<Object[]>() {
-      @Override
-      protected Object[] executeInEDT() {
-        return list.getSelectedValues();
-      }
-    });
+    return execute(() -> list.getSelectedValues());
   }
 
   @RunsInEDT
@@ -145,12 +128,9 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setSelectedIndices(final JList list, final int... indices) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        list.setSelectionMode(MULTIPLE_INTERVAL_SELECTION);
-        list.setSelectedIndices(indices);
-      }
+    execute(() -> {
+      list.setSelectionMode(MULTIPLE_INTERVAL_SELECTION);
+      list.setSelectedIndices(indices);
     });
   }
 
@@ -161,12 +141,7 @@ public abstract class JListDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

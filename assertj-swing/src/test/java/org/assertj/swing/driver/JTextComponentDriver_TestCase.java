@@ -25,8 +25,6 @@ import java.awt.Dimension;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -96,12 +94,7 @@ public abstract class JTextComponentDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static void setText(final JTextField textField, final String text) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        textField.setText(text);
-      }
-    });
+    execute(() -> textField.setText(text));
   }
 
   @RunsInEDT
@@ -121,12 +114,7 @@ public abstract class JTextComponentDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

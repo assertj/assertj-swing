@@ -32,8 +32,8 @@ import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.ToolkitProvider;
 
 /**
- * Monitor that keeps track of all known root AWT or Swing {@code Window}s (showing, hidden, closed.)
- * 
+ * Monitor that keeps track of all known root AWT or Swing {@code Window}s (showing, hidden, closed).
+ *
  * @author Alex Ruiz
  */
 public class WindowMonitor {
@@ -48,11 +48,11 @@ public class WindowMonitor {
    * Create an instance of WindowTracker which will track all windows coming and going on the current and subsequent
    * {@code AppContext}s.
    * </p>
-   * 
+   *
    * <p>
    * <strong>WARNING:</strong> if an applet loads this class, it will only ever see stuff in its own {@code AppContext}.
    * </p>
-   * 
+   *
    * @param toolkit the {@code Toolkit} to use.
    */
   @RunsInCurrentThread
@@ -93,7 +93,7 @@ public class WindowMonitor {
    * Returns whether the AWT or Swing {@code Window} is ready to receive OS-level event input. A {@code Window}'s
    * "isShowing" flag may be set {@code true} before the {@code WINDOW_OPENED} event is generated, and even after the
    * {@code WINDOW_OPENED} event is sent, the {@code Window} peer is not guaranteed to be ready.
-   * 
+   *
    * @param w the given {@code Window}.
    * @return whether the {@code Window} is ready to receive OS-level event input.
    */
@@ -109,7 +109,7 @@ public class WindowMonitor {
    * Returns the event queue corresponding to the given AWT or Swing {@code Compoenent}. In most cases, this is the same
    * as {@code Component.getToolkit().getSystemEventQueue()}, but in the case of applets will bypass the
    * {@code AppContext} and provide the real event queue.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the event queue corresponding to the given component.
    */
@@ -128,7 +128,7 @@ public class WindowMonitor {
    * Return all available root {@code Window}s. A root {@code Window} is one that has a {@code null} parent. Nominally
    * this means a list similar to that returned by {@code Frame.getFrames()}, but in the case of an {@code Applet} may
    * return a few dialogs as well.
-   * 
+   *
    * @return all available root {@code Window}s.
    */
   public @Nonnull Collection<Window> rootWindows() {
@@ -147,9 +147,9 @@ public class WindowMonitor {
   private static class SingletonLazyLoader {
     static final WindowMonitor INSTANCE = execute(new GuiQuery<WindowMonitor>() {
       @Override
-      protected @Nullable WindowMonitor executeInEDT() {
+      protected WindowMonitor executeInEDT() {
         return new WindowMonitor(ToolkitProvider.instance().defaultToolkit());
-      }
+      };
     });
   }
 }

@@ -27,15 +27,13 @@ import javax.swing.JTextField;
 import javax.swing.ListModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link JComboBoxDropDownListFinder#findDropDownList()}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JComboBoxDropDownListFinder_findDropDownList_Test extends RobotBasedTestCase {
@@ -77,25 +75,17 @@ public class JComboBoxDropDownListFinder_findDropDownList_Test extends RobotBase
 
   @RunsInEDT
   private void showJComboBoxDropDownList() {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        window.comboBox.showPopup();
-      }
-    });
+    execute(() -> window.comboBox.showPopup());
     robot.waitForIdle();
   }
 
   private void assertThatListContains(final JList list, final String... expectedElements) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        ListModel model = list.getModel();
-        int elementCount = model.getSize();
-        assertThat(elementCount).isEqualTo(expectedElements.length);
-        for (int i = 0; i < elementCount; i++) {
-          assertThat(model.getElementAt(i)).isEqualTo(expectedElements[i]);
-        }
+    execute(() -> {
+      ListModel model = list.getModel();
+      int elementCount = model.getSize();
+      assertThat(elementCount).isEqualTo(expectedElements.length);
+      for (int i = 0; i < elementCount; i++) {
+        assertThat(model.getElementAt(i)).isEqualTo(expectedElements[i]);
       }
     });
   }
@@ -119,12 +109,7 @@ public class JComboBoxDropDownListFinder_findDropDownList_Test extends RobotBase
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

@@ -21,37 +21,27 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Sets the {@code JPopupMenu} for a {@code JComponent}. This task is executed in the event dispatch thread (EDT.)
- * 
+ * Sets the {@code JPopupMenu} for a {@code JComponent}. This task is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 public final class ComponentSetPopupMenuTask {
   @RunsInEDT
   public static void setPopupMenu(final @Nonnull JComponent c, final @Nonnull JPopupMenu popupMenu) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.setComponentPopupMenu(popupMenu);
-      }
-    });
+    execute(() -> c.setComponentPopupMenu(popupMenu));
   }
 
   @RunsInEDT
   public static @Nonnull JPopupMenu createAndSetPopupMenu(final @Nonnull JComponent c, final String... items) {
-    JPopupMenu result = execute(new GuiQuery<JPopupMenu>() {
-      @Override
-      protected JPopupMenu executeInEDT() {
-        JPopupMenu popupMenu = new JPopupMenu();
-        for (String item : items) {
-          popupMenu.add(new JMenuItem(item));
-        }
-        c.setComponentPopupMenu(popupMenu);
-        return popupMenu;
+    JPopupMenu result = execute(() -> {
+      JPopupMenu popupMenu = new JPopupMenu();
+      for (String item : items) {
+        popupMenu.add(new JMenuItem(item));
       }
+      c.setComponentPopupMenu(popupMenu);
+      return popupMenu;
     });
     return checkNotNull(result);
   }

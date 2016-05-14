@@ -17,11 +17,10 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.table.JTableHeader;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Factory of {@code JTableHeader}.
- * 
+ *
  * @author Alex Ruiz
  */
 public final class JTableHeaders {
@@ -35,12 +34,7 @@ public final class JTableHeaders {
   public static class JTableHeaderFactory {
     @RunsInEDT
     public JTableHeader createNew() {
-      return execute(new GuiQuery<JTableHeader>() {
-        @Override
-        protected JTableHeader executeInEDT() {
-          return new JTableHeader();
-        }
-      });
+      return execute(() -> new JTableHeader());
     }
   }
 }

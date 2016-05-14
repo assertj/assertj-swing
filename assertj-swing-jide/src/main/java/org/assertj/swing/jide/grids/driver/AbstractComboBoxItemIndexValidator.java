@@ -13,15 +13,17 @@
 package org.assertj.swing.jide.grids.driver;
 
 import static java.lang.String.valueOf;
-import com.jidesoft.combobox.AbstractComboBox;
-import org.assertj.swing.annotation.RunsInCurrentThread;
 import static org.assertj.core.util.Strings.concat;
+
+import org.assertj.swing.annotation.RunsInCurrentThread;
+
+import com.jidesoft.combobox.AbstractComboBox;
 
 /**
  * Understands verification that a given number is a valid index of an item in a
  * <code>{@link com.jidesoft.combobox.AbstractComboBox}</code>.
  * <p>
- * <b>Note:</b> Methods in this class are <b>not</b> executed in the event dispatch thread (EDT.) Clients are
+ * <b>Note:</b> Methods in this class are <b>not</b> executed in the event dispatch thread (EDT). Clients are
  * responsible for invoking them in the EDT.
  * </p>
  */

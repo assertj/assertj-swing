@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.hierarchy;
 
-import static org.assertj.core.util.Maps.newWeakHashMap;
 import static org.assertj.swing.awt.AWT.isSharedInvisibleFrame;
+import static org.assertj.swing.util.Maps.newWeakHashMap;
 
 import java.awt.Component;
 import java.awt.Window;
@@ -27,7 +27,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * A filter of windows to ignore in a component hierarchy.
- * 
+ *
  * @author Alex Ruiz
  */
 class WindowFilter {

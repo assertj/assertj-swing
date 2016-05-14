@@ -18,7 +18,6 @@ import java.awt.Toolkit;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.After;
@@ -55,12 +54,7 @@ public abstract class WindowEventQueueMapping_withWindow_TestCase extends Window
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Toolkit toolkit, final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(toolkit, testClass);
-        }
-      });
+      return execute(() -> new MyWindow(toolkit, testClass));
     }
 
     private final Toolkit toolkit;

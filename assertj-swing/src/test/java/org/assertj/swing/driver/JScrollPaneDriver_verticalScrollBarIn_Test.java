@@ -15,7 +15,6 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
 
 import org.junit.Test;
 

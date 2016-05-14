@@ -20,18 +20,17 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} has input focus. This query is executed in the event dispatch
- * thread (EDT.)
+ * thread (EDT).
  * 
  * @author Yvonne Wang
  */
 public final class ComponentHasFocusQuery {
   /**
    * Indicates whether the given AWT or Swing {@code Component} has input focus. This query is executed in the event
-   * dispatch thread (EDT.)
+   * dispatch thread (EDT).
    * 
    * @param component the given {@code Component}.
    * @return {@code true} if the given {@code Component} has input focus, {@code false} otherwise.
@@ -39,12 +38,7 @@ public final class ComponentHasFocusQuery {
    */
   @RunsInEDT
   public static boolean hasFocus(final @Nonnull Component component) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return component.hasFocus();
-      }
-    });
+    Boolean result = execute(() -> component.hasFocus());
     return checkNotNull(result);
   }
 

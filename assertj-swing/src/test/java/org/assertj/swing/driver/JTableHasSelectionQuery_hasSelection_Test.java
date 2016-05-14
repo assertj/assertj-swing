@@ -17,8 +17,6 @@ import static org.assertj.swing.driver.JTableClearSelectionTask.clearSelectionOf
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTable;
 import org.assertj.swing.test.swing.TestWindow;
@@ -55,33 +53,18 @@ public class JTableHasSelectionQuery_hasSelection_Test extends RobotBasedTestCas
 
   @RunsInEDT
   private static void selectAllIn(final TestTable table) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.selectAll();
-      }
-    });
+    execute(() -> table.selectAll());
   }
 
   @RunsInEDT
   private static boolean hasSelection(final TestTable table) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return JTableHasSelectionQuery.hasSelection(table);
-      }
-    });
+    return execute(() -> JTableHasSelectionQuery.hasSelection(table));
   }
 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final TestTable table = new TestTable(2, 4);

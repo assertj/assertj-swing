@@ -19,8 +19,6 @@ import static org.assertj.swing.test.ExpectedException.none;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.Rule;
@@ -59,12 +57,7 @@ public class TableCellInSelectedRow_findCell_Test extends TableCellFinder_TestCa
 
   @RunsInEDT
   private static void selectRow(final JTable table, final int row) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.setRowSelectionInterval(row, row);
-      }
-    });
+    execute(() -> table.setRowSelectionInterval(row, row));
   }
 
   @Test

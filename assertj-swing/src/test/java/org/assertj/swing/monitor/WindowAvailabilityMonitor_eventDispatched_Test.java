@@ -24,7 +24,6 @@ import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.lock.ScreenLock;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.After;
@@ -85,12 +84,7 @@ public class WindowAvailabilityMonitor_eventDispatched_Test extends WindowAvaila
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     final JTextField textField = new JTextField("Hello");

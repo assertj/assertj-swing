@@ -13,7 +13,7 @@
 package org.assertj.swing.launcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.util.Map;
 
@@ -22,7 +22,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link AppletLauncher#withParameters(Map)}.
- * 
+ *
  * @author Yvonne Wang
  */
 public class AppletLauncher_withParametersAsMap_Test extends AppletLauncher_TestCase {

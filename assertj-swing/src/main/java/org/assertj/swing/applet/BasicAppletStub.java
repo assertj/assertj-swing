@@ -12,8 +12,8 @@
  */
 package org.assertj.swing.applet;
 
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.applet.AppletContext;
 import java.applet.AppletStub;
@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 
 /**
  * Basic (and limited) implementation of {@code AppletStub}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -37,7 +37,7 @@ public class BasicAppletStub implements AppletStub {
 
   /**
    * Creates a new {@link BasicAppletStub}.
-   * 
+   *
    * @param viewer the window to host the {@code Applet}.
    * @param context the {@code Applet} enviroment.
    * @param parameters the parameters included in an "applet" HTML tag.
@@ -50,7 +50,7 @@ public class BasicAppletStub implements AppletStub {
 
   /**
    * Creates a new {@link BasicAppletStub}.
-   * 
+   *
    * @param viewer the window to host the {@code Applet}.
    * @param context the {@code Applet} environment.
    * @throws NullPointerException if {@code viewer} or {@code context} are {@code null}.
@@ -62,7 +62,7 @@ public class BasicAppletStub implements AppletStub {
 
   /**
    * Not implemented. Returns {@code true}.
-   * 
+   *
    * @see AppletStub#isActive()
    */
   @Override
@@ -72,7 +72,7 @@ public class BasicAppletStub implements AppletStub {
 
   /**
    * Resizes this stub's viewer when the {@code Applet} wants to be resized.
-   * 
+   *
    * @param width the new requested width for the {@code Applet}.
    * @param height the new requested height for the {@code Applet}.
    */
@@ -91,7 +91,7 @@ public class BasicAppletStub implements AppletStub {
 
   /**
    * Not implemented. Returns {@link #getDocumentBase()}.
-   * 
+   *
    * @see AppletStub#getCodeBase()
    */
   @Override
@@ -101,7 +101,7 @@ public class BasicAppletStub implements AppletStub {
 
   /**
    * Not implemented. Returns {@code getClass().getResource(".")}.
-   * 
+   *
    * @see AppletStub#getDocumentBase()
    */
   @Override
@@ -111,7 +111,7 @@ public class BasicAppletStub implements AppletStub {
 
   /**
    * Returns the value of the named parameter in the "applet" HTML tag.
-   * 
+   *
    * @param name a parameter name.
    * @return the value of the named parameter, or {@code null} if not set.
    */

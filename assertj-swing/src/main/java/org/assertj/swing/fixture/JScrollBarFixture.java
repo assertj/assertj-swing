@@ -18,7 +18,6 @@ import javax.swing.JScrollBar;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JScrollBarDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JScrollBar}s.
@@ -58,7 +57,7 @@ public class JScrollBarFixture extends
   }
 
   /**
-   * Simulates a user scrolling down one block (usually a page.)
+   * Simulates a user scrolling down one block (usually a page).
    * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JScrollBar} is disabled.
@@ -70,7 +69,7 @@ public class JScrollBarFixture extends
   }
 
   /**
-   * Simulates a user scrolling down one block (usually a page,) the given number of times.
+   * Simulates a user scrolling down one block (usually a page), the given number of times.
    * 
    * @param times the number of times to scroll down one block.
    * @return this fixture.
@@ -84,7 +83,7 @@ public class JScrollBarFixture extends
   }
 
   /**
-   * Simulates a user scrolling up one block (usually a page.)
+   * Simulates a user scrolling up one block (usually a page).
    * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JScrollBar} is disabled.
@@ -96,7 +95,7 @@ public class JScrollBarFixture extends
   }
 
   /**
-   * Simulates a user scrolling up one block (usually a page,) the given number of times.
+   * Simulates a user scrolling up one block (usually a page), the given number of times.
    * 
    * @param times the number of times to scroll up one block.
    * @return this fixture.
@@ -148,7 +147,7 @@ public class JScrollBarFixture extends
   }
 
   /**
-   * Simulates a user scrolling down one unit (usually a line.)
+   * Simulates a user scrolling down one unit (usually a line).
    * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JScrollBar} is disabled.
@@ -160,7 +159,7 @@ public class JScrollBarFixture extends
   }
 
   /**
-   * Simulates a user scrolling down one unit (usually a line,) the given number of times.
+   * Simulates a user scrolling down one unit (usually a line), the given number of times.
    * 
    * @param times the number of times to scroll down one unit.
    * @return this fixture.
@@ -174,7 +173,7 @@ public class JScrollBarFixture extends
   }
 
   /**
-   * Simulates a user scrolling up one unit (usually a line.)
+   * Simulates a user scrolling up one unit (usually a line).
    * 
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JScrollBar} is disabled.
@@ -186,7 +185,7 @@ public class JScrollBarFixture extends
   }
 
   /**
-   * Simulates a user scrolling up one unit (usually a line,) the given number of times.
+   * Simulates a user scrolling up one unit (usually a line), the given number of times.
    * 
    * @param times the number of times to scroll up one unit.
    * @return this fixture.

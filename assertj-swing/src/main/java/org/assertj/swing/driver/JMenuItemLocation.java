@@ -44,7 +44,7 @@ public final class JMenuItemLocation {
    * 
    * <p>
    * <b>Note:</b> This constructor is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this constructor from the EDT.
+   * dispatch thread (EDT). Client code must call this constructor from the EDT.
    * </p>
    * 
    * @param menuItem the target {@code JMenuItem}.
@@ -82,7 +82,7 @@ public final class JMenuItemLocation {
   }
 
   /**
-   * @return the parent or the invoker of the {@code JMenuItem}, or its invoker (if it is in a pop-up.)
+   * @return the parent or the invoker of the {@code JMenuItem}, or its invoker (if it is in a pop-up).
    */
   public @Nonnull Component parentOrInvoker() {
     return parentOrInvoker;

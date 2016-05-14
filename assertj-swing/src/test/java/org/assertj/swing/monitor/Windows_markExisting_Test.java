@@ -15,7 +15,6 @@ package org.assertj.swing.monitor;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
@@ -41,21 +40,11 @@ public class Windows_markExisting_Test extends Windows_TestCase {
 
   @RunsInEDT
   private static void markExisting(final Windows windows, final TestWindow window) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        windows.markExisting(window);
-      }
-    });
+    execute(() -> windows.markExisting(window));
   }
 
   @RunsInEDT
   private static void pack(final TestWindow window) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        window.pack();
-      }
-    });
+    execute(() -> window.pack());
   }
 }

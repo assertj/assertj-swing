@@ -14,8 +14,8 @@ package org.assertj.swing.applet;
 
 import static java.util.Collections.enumeration;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.applet.Applet;
 import java.applet.AppletContext;
@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
 
 /**
  * Basic (and limited) implementation of {@code AppletContext}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -59,7 +59,7 @@ public class BasicAppletContext implements AppletContext {
 
   /**
    * Creates a new {@link BasicAppletContext}.
-   * 
+   *
    * @param statusDisplay where the application can inform users of its current state.
    * @throws NullPointerException if {@code statusDisplay} is {@code null}.
    */
@@ -70,8 +70,8 @@ public class BasicAppletContext implements AppletContext {
   /**
    * If the {@link StatusDisplay} passed to this context is an instance of {@link AppletViewer}, this method will return
    * the {@code Applet} of such {@code AppletViewer}. Otherwise this method returns {@code null}.
-   * 
-   * @return the {@code Applet} in this context's {@link StatusDisplay} (if any.)
+   *
+   * @return the {@code Applet} in this context's {@link StatusDisplay} (if any).
    * @see AppletContext#getApplet(String)
    */
   @Override
@@ -82,8 +82,8 @@ public class BasicAppletContext implements AppletContext {
   /**
    * Returns an enumeration containing the {@code Applet} returned by {@link #getApplet(String)}. If
    * {@link #getApplet(String)} returns {@code null}, this method will return an empty enumeration.
-   * 
-   * @return an enumeration containing the {@code Applet} in this context's {@code StatusDisplay} (if any.)
+   *
+   * @return an enumeration containing the {@code Applet} in this context's {@code StatusDisplay} (if any).
    * @see #getApplet(String)
    * @see AppletContext#getApplets()
    */
@@ -103,7 +103,7 @@ public class BasicAppletContext implements AppletContext {
 
   /**
    * Not implemented. Returns {@code null}.
-   * 
+   *
    * @see AppletContext#getAudioClip(URL)
    */
   @Override
@@ -113,7 +113,7 @@ public class BasicAppletContext implements AppletContext {
 
   /**
    * Not implemented. Returns {@code null}.
-   * 
+   *
    * @see AppletContext#getImage(URL)
    */
   @Override
@@ -124,7 +124,7 @@ public class BasicAppletContext implements AppletContext {
   /**
    * Returns the stream to which specified key is associated within this {@code AppletContext}. Returns {@code null} if
    * the {@code AppletContext} contains no stream for this key.
-   * 
+   *
    * @return the stream to which this {@code AppletContext} maps the key.
    * @param key key whose associated stream is to be returned.
    */
@@ -135,7 +135,7 @@ public class BasicAppletContext implements AppletContext {
 
   /**
    * Finds all the keys of the streams in this {@code AppletContext}.
-   * 
+   *
    * @return an iterator of all the names of the streams in this {@code AppletContext}.
    */
   @Override
@@ -145,7 +145,7 @@ public class BasicAppletContext implements AppletContext {
 
   /**
    * Associates the specified stream with the specified key in this {@code AppletContext}.
-   * 
+   *
    * @param key key with which the specified value is to be associated.
    * @param stream stream to be associated with the specified key. If this parameter is {@code null}, the specified key
    *          is removed in this {@code AppletContext}.
@@ -161,7 +161,7 @@ public class BasicAppletContext implements AppletContext {
 
   /**
    * Not implemented.
-   * 
+   *
    * @see AppletContext#showDocument(URL)
    */
   @Override
@@ -170,7 +170,7 @@ public class BasicAppletContext implements AppletContext {
 
   /**
    * Not implemented.
-   * 
+   *
    * @see AppletContext#showDocument(URL, String)
    */
   @Override
@@ -179,7 +179,7 @@ public class BasicAppletContext implements AppletContext {
 
   /**
    * Requests that the given status be displayed in this context's {@link StatusDisplay}.
-   * 
+   *
    * @param status a message to display.
    */
   @Override

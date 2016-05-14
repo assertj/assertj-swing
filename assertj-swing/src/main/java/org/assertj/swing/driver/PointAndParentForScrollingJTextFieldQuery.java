@@ -33,7 +33,7 @@ import org.assertj.swing.util.Pair;
  * 
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
- * event dispatch thread (EDT.) Client code must call methods in this class from the EDT.
+ * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
  * 
  * @author Alex Ruiz

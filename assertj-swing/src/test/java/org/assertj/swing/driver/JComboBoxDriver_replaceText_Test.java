@@ -18,7 +18,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JComboBoxDriver#replaceText(javax.swing.JComboBox, String)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -29,6 +29,14 @@ public class JComboBoxDriver_replaceText_Test extends JComboBoxDriver_TestCase {
     makeEditableAndSelectFirstItem();
     driver.replaceText(comboBox, "Hello");
     assertThat(textIn(comboBox)).isEqualTo("Hello");
+  }
+
+  @Test
+  public void should_Replace_Text_With_Empty_String() {
+    showWindow();
+    makeEditableAndSelectFirstItem();
+    driver.replaceText(comboBox, "");
+    assertThat(textIn(comboBox)).isEqualTo("");
   }
 
   @Test

@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.assertj</groupId>
     <artifactId>assertj-swing-parent-pom</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
+    <version>3.3.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>assertj-swing-testng</artifactId>
@@ -50,14 +50,25 @@
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>5.7</version>
-      <classifier>jdk15</classifier>
+      <version>6.9.10</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>4.0</version>
+      <classifier>no_aop</classifier>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-swing</artifactId>
-      <version>3.0.0-SNAPSHOT</version>
+      <version>3.3.1-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -65,6 +76,10 @@
       <artifactId>fest-mocks</artifactId>
       <version>1.1</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.easytesting</groupId>
+      <artifactId>fest-reflect</artifactId>
     </dependency>
   </dependencies>
   <reporting>

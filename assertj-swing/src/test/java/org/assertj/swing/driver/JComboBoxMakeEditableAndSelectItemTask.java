@@ -19,33 +19,26 @@ import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Makes a {@code JComboBox} editable and selects an item. This task is executed in the event dispatch thread (EDT.)
- * 
+ * Makes a {@code JComboBox} editable and selects an item. This task is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 final class JComboBoxMakeEditableAndSelectItemTask {
   @RunsInEDT
   static void makeEditableAndSelectItem(final @Nonnull JComboBox comboBox, final @Nullable Object itemToSelect) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setEditable(true);
-        comboBox.setSelectedItem(itemToSelect);
-      }
+    execute(() -> {
+      comboBox.setEditable(true);
+      comboBox.setSelectedItem(itemToSelect);
     });
   }
 
   @RunsInEDT
   static void makeEditableAndSelectIndex(final @Nonnull JComboBox comboBox, final int index) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setEditable(true);
-        comboBox.setSelectedIndex(index);
-      }
+    execute(() -> {
+      comboBox.setEditable(true);
+      comboBox.setSelectedIndex(index);
     });
   }
 

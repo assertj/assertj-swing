@@ -17,22 +17,21 @@ import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 
 import javax.annotation.Nullable;
 
-import org.assertj.swing.exception.ActionFailedException;
-
 /**
  * Executes in the event dispatch thread (EDT) an action that returns a value.
- * 
+ *
  * @param <T> the return type of the action to execute.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class GuiQuery<T> extends GuiAction {
   private T result;
 
   /**
-   * Executes the query in the event dispatch thread (EDT.) This method waits until the action has finish its execution.
-   * 
-   * @throws ActionFailedException if this task is not executed in the event dispatch thread (EDT.)
+   * Executes the query in the event dispatch thread (EDT). This method waits until the action has finish its execution.
+   *
+   * @throws org.assertj.swing.exception.ActionFailedException if this task is not executed in the event dispatch thread
+   *           (EDT).
    */
   @Override
   public final void run() {
@@ -49,10 +48,10 @@ public abstract class GuiQuery<T> extends GuiAction {
   }
 
   /**
-   * Specifies the action to execute in the event dispatch thread (EDT.)
-   * 
+   * Specifies the action to execute in the event dispatch thread (EDT).
+   *
    * @return the result of the execution of the action.
-   * @throws Throwable any error thrown when executing an action in the event dispatch thread (EDT.)
+   * @throws Throwable any error thrown when executing an action in the event dispatch thread (EDT).
    */
   protected abstract @Nullable T executeInEDT() throws Throwable;
 

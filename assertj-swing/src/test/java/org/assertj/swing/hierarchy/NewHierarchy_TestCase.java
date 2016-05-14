@@ -22,7 +22,6 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.awt.ToolkitStub;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -57,12 +56,7 @@ public abstract class NewHierarchy_TestCase extends SequentialEDTSafeTestCase {
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     final JComboBox comboBox = new JComboBox(array("One", "Two"));

@@ -14,6 +14,7 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.driver.AbstractButtonArmedQuery.isArmed;
 import static org.assertj.swing.driver.AbstractButtonSelectedQuery.isSelected;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.assertj.swing.driver.TextAssert.verifyThat;
@@ -28,30 +29,30 @@ import javax.swing.AbstractButton;
 import org.assertj.core.description.Description;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>
  * Supports functional testing of Swing {@code AbstractButton}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 @InternalApi
 public class AbstractButtonDriver extends JComponentDriver implements TextDisplayDriver<AbstractButton> {
   private static final String SELECTED_PROPERTY = "selected";
+  private static final String ARMED_PROPERTY = "armed";
   private static final String TEXT_PROPERTY = "text";
 
   /**
    * Creates a new {@link AbstractButtonDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public AbstractButtonDriver(@Nonnull Robot robot) {
@@ -59,12 +60,12 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
   }
 
   /**
-   * Asserts that the text in the given Swing {@code AbstractBuffon} is equal to or matches the specified {@code String}
+   * Asserts that the text in the given Swing {@code AbstractButton} is equal to or matches the specified {@code String}
    * .
-   * 
-   * @param button the given {@code AbstractBuffon}.
+   *
+   * @param button the given {@code AbstractButton}.
    * @param expected the text to match. It can be a regular expression.
-   * @throws AssertionError if the text of the {@code AbstractBuffon} is not equal to or does not match the given one.
+   * @throws AssertionError if the text of the {@code AbstractButton} is not equal to or does not match the given one.
    */
   @RunsInEDT
   @Override
@@ -73,12 +74,12 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
   }
 
   /**
-   * Asserts that the text in the given Swing {@code AbstractBuffon} matches the given regular expression pattern.
-   * 
-   * @param button the given {@code AbstractBuffon}.
+   * Asserts that the text in the given Swing {@code AbstractButton} matches the given regular expression pattern.
+   *
+   * @param button the given {@code AbstractButton}.
    * @param pattern the regular expression pattern to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws AssertionError if the text of the {@code AbstractBuffon} does not match the given regular expression
+   * @throws AssertionError if the text of the {@code AbstractButton} does not match the given regular expression
    *           pattern.
    */
   @Override
@@ -87,10 +88,10 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
   }
 
   /**
-   * Returns the text of the given Swing {@code AbstractBuffon}.
-   * 
-   * @param button the given {@code AbstractBuffon}.
-   * @return the text of the given {@code AbstractBuffon}.
+   * Returns the text of the given Swing {@code AbstractButton}.
+   *
+   * @param button the given {@code AbstractButton}.
+   * @return the text of the given {@code AbstractButton}.
    */
   @RunsInEDT
   @Override
@@ -99,11 +100,11 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
   }
 
   /**
-   * Selects the given Swing {@code AbstractBuffon} only it is not already selected.
-   * 
-   * @param button the target {@code AbstractBuffon}.
-   * @throws IllegalStateException if the {@code AbstractBuffon} is disabled.
-   * @throws IllegalStateException if the {@code AbstractBuffon} is not showing on the screen.
+   * Selects the given Swing {@code AbstractButton} only it is not already selected.
+   *
+   * @param button the target {@code AbstractButton}.
+   * @throws IllegalStateException if the {@code AbstractButton} is disabled.
+   * @throws IllegalStateException if the {@code AbstractButton} is not showing on the screen.
    */
   @RunsInEDT
   public void select(@Nonnull AbstractButton button) {
@@ -114,11 +115,11 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
   }
 
   /**
-   * Deselects the given Swing {@code AbstractBuffon} only if it is selected.
-   * 
-   * @param button the target {@code AbstractBuffon}.
-   * @throws IllegalStateException if the {@code AbstractBuffon} is disabled.
-   * @throws IllegalStateException if the {@code AbstractBuffon} is not showing on the screen.
+   * Deselects the given Swing {@code AbstractButton} only if it is selected.
+   *
+   * @param button the target {@code AbstractButton}.
+   * @throws IllegalStateException if the {@code AbstractButton} is disabled.
+   * @throws IllegalStateException if the {@code AbstractButton} is not showing on the screen.
    */
   @RunsInEDT
   public void deselect(@Nonnull AbstractButton button) {
@@ -130,20 +131,17 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
 
   @RunsInEDT
   private static boolean checkSelected(final @Nonnull AbstractButton button) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected @Nullable Boolean executeInEDT() {
-        checkEnabledAndShowing(button);
-        return button.isSelected();
-      }
+    Boolean result = execute(() -> {
+      checkEnabledAndShowing(button);
+      return button.isSelected();
     });
     return checkNotNull(result);
   }
 
   /**
-   * Verifies that the Swing {@code AbstractBuffon} is selected.
-   * 
-   * @param button the given {@code AbstractBuffon}.
+   * Verifies that the Swing {@code AbstractButton} is selected.
+   *
+   * @param button the given {@code AbstractButton}.
    * @throws AssertionError if the button is not selected.
    */
   @RunsInEDT
@@ -152,10 +150,10 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
   }
 
   /**
-   * Verifies that the {@code AbstractBuffon} is not selected.
-   * 
-   * @param button the given {@code AbstractBuffon}.
-   * @throws AssertionError if the {@code AbstractBuffon} is selected.
+   * Verifies that the {@code AbstractButton} is not selected.
+   *
+   * @param button the given {@code AbstractButton}.
+   * @throws AssertionError if the {@code AbstractButton} is selected.
    */
   @RunsInEDT
   public void requireNotSelected(@Nonnull AbstractButton button) {
@@ -170,5 +168,37 @@ public class AbstractButtonDriver extends JComponentDriver implements TextDispla
   @RunsInEDT
   private static @Nonnull Description selectedProperty(@Nonnull AbstractButton button) {
     return propertyName(button, SELECTED_PROPERTY);
+  }
+
+  /**
+   * Verifies that the Swing {@code AbstractButton} is armed.
+   *
+   * @param button the given {@code AbstractButton}.
+   * @throws AssertionError if the button is not armed.
+   */
+  @RunsInEDT
+  public void requireArmed(@Nonnull AbstractButton button) {
+    assertThatButtonIsArmed(button, true);
+  }
+
+  /**
+   * Verifies that the {@code AbstractButton} is not armed.
+   *
+   * @param button the given {@code AbstractButton}.
+   * @throws AssertionError if the {@code AbstractButton} is armed.
+   */
+  @RunsInEDT
+  public void requireNotArmed(@Nonnull AbstractButton button) {
+    assertThatButtonIsArmed(button, false);
+  }
+
+  @RunsInEDT
+  private void assertThatButtonIsArmed(@Nonnull AbstractButton button, boolean armed) {
+    assertThat(isArmed(button)).as(armedProperty(button)).isEqualTo(armed);
+  }
+
+  @RunsInEDT
+  private static @Nonnull Description armedProperty(@Nonnull AbstractButton button) {
+    return propertyName(button, ARMED_PROPERTY);
   }
 }

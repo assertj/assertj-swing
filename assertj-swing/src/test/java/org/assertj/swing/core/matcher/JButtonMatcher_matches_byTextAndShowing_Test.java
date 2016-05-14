@@ -19,14 +19,13 @@ import static org.assertj.swing.test.builder.JButtons.button;
 import javax.swing.JButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link JButtonMatcher#matches(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -62,12 +61,7 @@ public class JButtonMatcher_matches_byTextAndShowing_Test extends SequentialEDTS
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createAndShow() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return display(new MyWindow());
-        }
-      });
+      return execute(() -> display(new MyWindow()));
     }
 
     final JButton button = new JButton("Hello");

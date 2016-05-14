@@ -34,7 +34,6 @@ import javax.swing.JLabel;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * <p>
@@ -59,6 +58,9 @@ import org.assertj.swing.edt.GuiQuery;
  * @author Yvonne Wang
  */
 public class AppletViewer extends JFrame implements StatusDisplay {
+  /** Generated serial version UID. */
+  private static final long serialVersionUID = 5187805904213837898L;
+
   private static final Dimension DEFAULT_SIZE = new Dimension(100, 100);
 
   private final JLabel statusLabel = new JLabel();
@@ -73,7 +75,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
    * </p>
    *
    * <p>
-   * <b>Note:</b> This method is executed in the event dispatch thread (EDT.)
+   * <b>Note:</b> This method is executed in the event dispatch thread (EDT).
    * </p>
    *
    * @param applet the {@code Applet} to view.
@@ -94,7 +96,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
    * </p>
    *
    * <p>
-   * <b>Note:</b> This method is executed in the event dispatch thread (EDT.)
+   * <b>Note:</b> This method is executed in the event dispatch thread (EDT).
    * </p>
    *
    * @param applet the {@code Applet} to view.
@@ -113,7 +115,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
   /**
    * Creates a new {@link AppletViewer}.
    * <p>
-   * <b>Note:</b> This method is executed in the event dispatch thread (EDT.)
+   * <b>Note:</b> This method is executed in the event dispatch thread (EDT).
    * </p>
    *
    * @param applet the {@code Applet} to view.
@@ -132,12 +134,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
 
   @RunsInEDT
   private static AppletViewer createInEDT(@Nonnull final Applet applet) {
-    return execute(new GuiQuery<AppletViewer>() {
-      @Override
-      protected AppletViewer executeInEDT() {
-        return new AppletViewer(applet);
-      }
-    });
+    return execute(() -> new AppletViewer(applet));
   }
 
   private AppletViewer(@Nonnull Applet applet) {
@@ -207,7 +204,7 @@ public class AppletViewer extends JFrame implements StatusDisplay {
   }
 
   /**
-   * Displays the given status message. This method is executed in the event dispatch thread (EDT.)
+   * Displays the given status message. This method is executed in the event dispatch thread (EDT).
    *
    * @param status the status to display.
    */

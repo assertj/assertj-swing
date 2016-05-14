@@ -16,8 +16,6 @@ import static org.assertj.core.util.Arrays.array;
 
 import java.io.File;
 
-import javax.swing.JFileChooser;
-
 import org.junit.Test;
 
 /**

@@ -19,6 +19,7 @@ import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.driver.ComponentEnabledCondition.untilIsEnabled;
 import static org.assertj.swing.driver.ComponentPerformDefaultAccessibleActionTask.performDefaultAccessibleAction;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
+import static org.assertj.swing.driver.ComponentPreconditions.checkShowing;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.format.Formatting.format;
 import static org.assertj.swing.query.ComponentEnabledQuery.isEnabled;
@@ -35,7 +36,6 @@ import java.awt.Font;
 import java.awt.Point;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JMenu;
 import javax.swing.JPopupMenu;
 
@@ -49,13 +49,6 @@ import org.assertj.swing.core.MouseClickInfo;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.Settings;
 import org.assertj.swing.edt.GuiLazyLoadingDescription;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.WaitTimedOutError;
-import org.assertj.swing.format.ComponentFormatter;
-import org.assertj.swing.format.Formatting;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.timing.Timeout;
 import org.assertj.swing.util.TimeoutWatch;
@@ -64,12 +57,12 @@ import org.assertj.swing.util.TimeoutWatch;
  * <p>
  * Supports functional testing of AWT or Swing {@code Component}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 @InternalApi
@@ -84,34 +77,36 @@ public class ComponentDriver {
 
   /**
    * Creates a new {@link ComponentDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public ComponentDriver(@Nonnull Robot robot) {
     this.robot = robot;
-    this.dragAndDrop = new ComponentDragAndDrop(robot);
+    dragAndDrop = new ComponentDragAndDrop(robot);
   }
 
   /**
    * Simulates a user clicking once the given AWT or Swing {@code Component} using the left mouse button.
-   * 
+   *
    * @param c the {@code Component} to click on.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
   public void click(@Nonnull Component c) {
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     robot.click(c);
   }
 
   /**
    * Simulates a user clicking once the given AWT or Swing {@code Component} using the given mouse button.
-   * 
+   *
    * @param c the {@code Component} to click on.
    * @param button the mouse button to use.
    * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
@@ -121,11 +116,12 @@ public class ComponentDriver {
 
   /**
    * Simulates a user clicking the given mouse button, the given times on the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the {@code Component} to click on.
    * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
@@ -136,9 +132,10 @@ public class ComponentDriver {
 
   /**
    * Simulates a user double-clicking the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the {@code Component} to click on.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
@@ -148,9 +145,10 @@ public class ComponentDriver {
 
   /**
    * Simulates a user right-clicking the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the {@code Component} to click on.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
@@ -160,32 +158,34 @@ public class ComponentDriver {
 
   /**
    * Simulates a user clicking the given mouse button, the given times on the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the {@code Component} to click on.
    * @param button the mouse button to click.
    * @param times the number of times to click the given mouse button.
    * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
   public void click(@Nonnull Component c, @Nonnull MouseButton button, int times) {
     checkNotNull(button);
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     robot.click(c, button, times);
   }
 
   /**
    * Simulates a user clicking at the given position on the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the {@code Component} to click on.
    * @param where the position where to click.
-   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
   public void click(@Nonnull Component c, @Nonnull Point where) {
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     robot.click(c, where);
   }
 
@@ -195,7 +195,7 @@ public class ComponentDriver {
 
   /**
    * Asserts that the size of the AWT or Swing {@code Component} is equal to given one.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param size the given size to match.
    * @throws AssertionError if the size of the {@code Component} is not equal to the given size.
@@ -207,7 +207,7 @@ public class ComponentDriver {
 
   /**
    * Asserts that the AWT or Swing {@code Component} is visible.
-   * 
+   *
    * @param c the target {@code Component}.
    * @throws AssertionError if the {@code Component} is not visible.
    */
@@ -218,7 +218,7 @@ public class ComponentDriver {
 
   /**
    * Asserts that the AWT or Swing {@code Component} is not visible.
-   * 
+   *
    * @param c the target {@code Component}.
    * @throws AssertionError if the {@code Component} is visible.
    */
@@ -234,7 +234,7 @@ public class ComponentDriver {
 
   /**
    * Asserts that the AWT or Swing {@code Component} has input focus.
-   * 
+   *
    * @param c the target {@code Component}.
    * @throws AssertionError if the {@code Component} does not have input focus.
    */
@@ -254,7 +254,7 @@ public class ComponentDriver {
 
   /**
    * Asserts that the AWT or Swing {@code Component} is enabled.
-   * 
+   *
    * @param c the target {@code Component}.
    * @throws AssertionError if the {@code Component} is disabled.
    */
@@ -265,10 +265,10 @@ public class ComponentDriver {
 
   /**
    * Asserts that the AWT or Swing {@code Component} is enabled.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param timeout the time this fixture will wait for the {@code Component} to be enabled.
-   * @throws WaitTimedOutError if the {@code Component} is never enabled.
+   * @throws org.assertj.swing.exception.WaitTimedOutError if the {@code Component} is never enabled.
    */
   @RunsInEDT
   public void requireEnabled(@Nonnull Component c, @Nonnull Timeout timeout) {
@@ -277,7 +277,7 @@ public class ComponentDriver {
 
   /**
    * Asserts that the AWT or Swing {@code Component} is disabled.
-   * 
+   *
    * @param c the target {@code Component}.
    * @throws AssertionError if the {@code Component} is enabled.
    */
@@ -293,7 +293,7 @@ public class ComponentDriver {
 
   /**
    * Simulates a user pressing and releasing the given keys on the AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param keyCodes one or more codes of the keys to press.
    * @throws NullPointerException if the given array of codes is {@code null}.
@@ -313,7 +313,7 @@ public class ComponentDriver {
   /**
    * Simulates a user pressing and releasing the given key on the AWT or Swing {@code Component}. Modifiers is a mask
    * from the available AWT {@code InputEvent} masks.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param keyPressInfo specifies the key and modifiers to press.
    * @throws NullPointerException if the given {@code KeyPressInfo} is {@code null}.
@@ -332,7 +332,7 @@ public class ComponentDriver {
   /**
    * Simulates a user pressing and releasing the given key on the AWT or Swing {@code Component}. Modifiers is a mask
    * from the available AWT {@code InputEvent} masks.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param keyCode the code of the key to press.
    * @param modifiers the given modifiers.
@@ -350,12 +350,13 @@ public class ComponentDriver {
 
   /**
    * Simulates a user pressing given key on the AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param keyCode the code of the key to press.
    * @throws IllegalArgumentException if the given code is not a valid key code.
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   * @see #pressKeyWhileRunning(Component, int)
    * @see java.awt.event.KeyEvent
    */
   @RunsInEDT
@@ -365,8 +366,26 @@ public class ComponentDriver {
   }
 
   /**
+   * Simulates a user pressing given key on the AWT or Swing {@code Component}, running the given runnable and releasing
+   * the key again.
+   *
+   * @param c the target {@code Component}.
+   * @param keyCode the code of the key to press.
+   * @throws IllegalArgumentException if the given code is not a valid key code.
+   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   * @see #pressKey(Component, int)
+   * @see java.awt.event.KeyEvent
+   */
+  @RunsInEDT
+  public void pressKeyWhileRunning(@Nonnull Component c, int keyCode, @Nonnull Runnable runnable) {
+    focusAndWaitForFocusGain(c);
+    robot.pressKeyWhileRunning(keyCode, runnable);
+  }
+
+  /**
    * Simulates a user releasing the given key on the AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param keyCode the code of the key to release.
    * @throws IllegalArgumentException if the given code is not a valid key code.
@@ -382,7 +401,7 @@ public class ComponentDriver {
 
   /**
    * Gives input focus to the given AWT or Swing {@code Component} and waits until the {@code Component} has focus.
-   * 
+   *
    * @param c the {@code Component} to give focus to.
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
@@ -396,7 +415,7 @@ public class ComponentDriver {
   /**
    * Gives input focus to the given AWT or Swing {@code Component}. Note that the {@code Component} may not yet have
    * focus when this method returns.
-   * 
+   *
    * @param c the {@code Component} to give focus to.
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
@@ -409,7 +428,7 @@ public class ComponentDriver {
 
   /**
    * Performs a drag action at the given point.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param where the point where to start the drag action.
    */
@@ -425,10 +444,10 @@ public class ComponentDriver {
    * <p>
    * This method is tuned for native drag/drop operations, so if you get odd behavior, you might try using a simple
    * {@link Robot#moveMouse(Component, int, int)} and {@link Robot#releaseMouseButtons()}.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param where the point where the drag operation ends.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @RunsInEDT
   protected final void drop(@Nonnull Component c, @Nonnull Point where) {
@@ -438,7 +457,7 @@ public class ComponentDriver {
   /**
    * Move the mouse appropriately to get from the source to the destination. Enter/exit events will be generated where
    * appropriate.
-   * 
+   *
    * @param c the target {@code Component}.
    * @param where the point to drag over.
    */
@@ -450,14 +469,14 @@ public class ComponentDriver {
    * <p>
    * Performs the {@code AccessibleAction} in the given AWT or Swing {@code Component}'s event queue.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code Component}.
-   * @throws ActionFailedException if something goes wrong.
+   * @throws org.assertj.swing.exception.ActionFailedException if something goes wrong.
    */
   @RunsInCurrentThread
   protected final void performAccessibleActionOf(@Nonnull Component c) {
@@ -470,12 +489,12 @@ public class ComponentDriver {
    * Wait the given number of milliseconds for the AWT or Swing {@code Component} to be showing and ready. Returns
    * {@code false} if the operation times out.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code Component}.
    * @param timeout the time in milliseconds to wait for the {@code Component} to be showing and ready.
    * @return {@code true} if the {@code Component} is showing and ready, {@code false} otherwise.
@@ -505,65 +524,89 @@ public class ComponentDriver {
 
   /**
    * Shows a pop-up menu using the given AWT or Swing {@code Component} as the invoker of the pop-up menu.
-   * 
+   *
    * @param c the invoker of the {@code JPopupMenu}.
    * @return the displayed pop-up menu.
-   * @throws IllegalStateException if the given {@code Component} is disabled.
-   * @throws IllegalStateException if the given {@code Component} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   public @Nonnull JPopupMenu invokePopupMenu(@Nonnull Component c) {
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     return robot.showPopupMenu(c);
   }
 
   /**
    * Shows a pop-up menu at the given point using the given AWT or Swing {@code Component} as the invoker of the pop-up
    * menu.
-   * 
+   *
    * @param c the invoker of the {@code JPopupMenu}.
    * @param p the given point where to show the pop-up menu.
    * @return the displayed pop-up menu.
    * @throws NullPointerException if the given point is {@code null}.
-   * @throws IllegalStateException if the given {@code Component} is disabled.
-   * @throws IllegalStateException if the given {@code Component} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
   public @Nonnull JPopupMenu invokePopupMenu(@Nonnull Component c, @Nonnull Point p) {
     checkNotNull(p);
-    checkInEdtEnabledAndShowing(c);
+    checkClickAllowed(c);
     return robot.showPopupMenu(c, p);
   }
 
   /**
-   * Verifies that the given AWT or Swing {@code Component} is enabled and showing on the screen. This method is
-   * executed in the event dispatch thread (EDT.)
-   * 
+   * Verifies that the given AWT or Swing {@code Component} is enabled and showing on the screen.
+   *
    * @param c the {@code Component} to check.
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
    */
   @RunsInEDT
   protected static void checkInEdtEnabledAndShowing(final @Nonnull Component c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(c);
-      }
-    });
+    execute(() -> checkEnabledAndShowing(c));
+  }
+
+  /**
+   * Verifies that the given AWT or Swing {@code Component} is showing on the screen.
+   *
+   * @param c the {@code Component} to check.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   */
+  @RunsInEDT
+  protected static void checkInEdtShowing(final @Nonnull Component c) {
+    execute(() -> checkShowing(c));
+  }
+
+  /**
+   * Verifies that the given AWT or Swing {@code Component} is enabled and showing on the screen.
+   *
+   * @param c the {@code Component} to check.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           {@code Component} is disabled.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   */
+  @RunsInEDT
+  protected void checkClickAllowed(final @Nonnull Component c) {
+    if (robot.settings().clickOnDisabledComponentsAllowed()) {
+      checkInEdtShowing(c);
+    } else {
+      checkInEdtEnabledAndShowing(c);
+    }
   }
 
   /**
    * Formats the name of a property of the given AWT or Swing {@code Component} by concatenating the value obtained from
-   * {@link Formatting#format(Component)} with the given property name.
-   * 
+   * {@link org.assertj.swing.format.Formatting#format(Component)} with the given property name.
+   *
    * @param c the given {@code Component}.
    * @param propertyName the name of the property.
    * @return the description of a property belonging to a {@code Component}.
-   * @see ComponentFormatter
-   * @see Formatting#format(Component)
+   * @see org.assertj.swing.format.ComponentFormatter
+   * @see org.assertj.swing.format.Formatting#format(Component)
    */
   @RunsInEDT
   public static @Nonnull Description propertyName(final @Nonnull Component c, final @Nonnull String propertyName) {
@@ -579,7 +622,7 @@ public class ComponentDriver {
    * Simulates a user moving the mouse pointer to the given coordinates relative to the given AWT or Swing
    * {@code Component}. This method will <b>not</b> throw any exceptions if the it was not possible to move the mouse
    * pointer.
-   * 
+   *
    * @param c the given {@code Component}.
    * @param p coordinates relative to the given {@code Component}.
    */
@@ -592,7 +635,7 @@ public class ComponentDriver {
    * Simulates a user moving the mouse pointer to the given coordinates relative to the given AWT or Swing
    * {@code Component}. This method will <b>not</b> throw any exceptions if the it was not possible to move the mouse
    * pointer.
-   * 
+   *
    * @param c the given {@code Component}.
    * @param x horizontal coordinate relative to the given {@code Component}.
    * @param y vertical coordinate relative to the given {@code Component}.
@@ -607,52 +650,37 @@ public class ComponentDriver {
 
   /**
    * Returns the font of the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the font of the given {@code Component}.
    */
   @RunsInEDT
   public @Nonnull Font fontOf(final @Nonnull Component c) {
-    Font result = execute(new GuiQuery<Font>() {
-      @Override
-      protected @Nullable Font executeInEDT() {
-        return c.getFont();
-      }
-    });
+    Font result = execute(() -> c.getFont());
     return checkNotNull(result);
   }
 
   /**
    * Returns the background color of the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the background color of the given {@code Component}.
    */
   @RunsInEDT
   public @Nonnull Color backgroundOf(final @Nonnull Component c) {
-    Color result = execute(new GuiQuery<Color>() {
-      @Override
-      protected @Nullable Color executeInEDT() {
-        return c.getBackground();
-      }
-    });
+    Color result = execute(() -> c.getBackground());
     return checkNotNull(result);
   }
 
   /**
    * Returns the foreground color of the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the foreground color of the given {@code Component}.
    */
   @RunsInEDT
   public @Nonnull Color foregroundOf(final @Nonnull Component c) {
-    Color result = execute(new GuiQuery<Color>() {
-      @Override
-      protected @Nullable Color executeInEDT() {
-        return c.getForeground();
-      }
-    });
+    Color result = execute(() -> c.getForeground());
     return checkNotNull(result);
   }
 }

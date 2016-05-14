@@ -12,27 +12,23 @@
  */
 package org.assertj.swing.jide.grids.driver;
 
-import com.jidesoft.combobox.ListComboBox;
-import org.assertj.swing.annotation.RunsInEDT;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
-import org.assertj.swing.edt.GuiTask;
+
+import org.assertj.swing.annotation.RunsInEDT;
+
+import com.jidesoft.combobox.ListComboBox;
 
 /**
  * Understands a task that selects the element in the given index in the given <code>{@link ListComboBox}</code>. This
  * task is executed in the event dispatch thread.
- * 
+ *
  * @see ListComboBox#setSelectedIndex(int)
  */
 final class ListComboBoxSetSelectedIndexTask {
 
   @RunsInEDT
   static void setSelectedIndex(final ListComboBox comboBox, final int index) {
-	execute(new GuiTask() {
-	  @Override
-	  protected void executeInEDT() {
-		comboBox.setSelectedIndex(index);
-	  }
-	});
+    execute(() -> comboBox.setSelectedIndex(index));
   }
 
   private ListComboBoxSetSelectedIndexTask() {

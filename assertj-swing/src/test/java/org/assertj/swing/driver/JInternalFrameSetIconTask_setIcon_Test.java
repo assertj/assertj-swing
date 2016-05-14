@@ -20,7 +20,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestMdiWindow;
 import org.junit.Test;
@@ -64,11 +63,6 @@ public class JInternalFrameSetIconTask_setIcon_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static boolean isIcon(final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return internalFrame.isIcon() && !internalFrame.isMaximum();
-      }
-    });
+    return execute(() -> internalFrame.isIcon() && !internalFrame.isMaximum());
   }
 }

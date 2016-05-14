@@ -19,7 +19,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import java.awt.Font;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -27,7 +26,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ComponentDriver#fontOf(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -53,12 +52,7 @@ public class ComponentDriver_fontOf_Test extends RobotBasedTestCase {
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private boolean recording;

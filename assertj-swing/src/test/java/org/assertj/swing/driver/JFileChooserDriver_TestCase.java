@@ -26,8 +26,6 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -84,12 +82,7 @@ public abstract class JFileChooserDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setFileSelectionMode(final JFileChooser fileChooser, final int mode) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        fileChooser.setFileSelectionMode(mode);
-      }
-    });
+    execute(() -> fileChooser.setFileSelectionMode(mode));
   }
 
   @RunsInEDT
@@ -103,12 +96,7 @@ public abstract class JFileChooserDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

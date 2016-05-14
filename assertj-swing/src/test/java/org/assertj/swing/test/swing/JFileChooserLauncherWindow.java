@@ -25,22 +25,16 @@ import javax.swing.Timer;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * {@code JFrame} that launches a {@code JFileChooser} using a configurable delay.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JFileChooserLauncherWindow extends TestWindow {
   @RunsInEDT
   public static JFileChooserLauncherWindow createNew(final Class<?> testClass) {
-    return execute(new GuiQuery<JFileChooserLauncherWindow>() {
-      @Override
-      protected JFileChooserLauncherWindow executeInEDT() {
-        return new JFileChooserLauncherWindow(testClass);
-      }
-    });
+    return execute(() -> new JFileChooserLauncherWindow(testClass));
   }
 
   private int launchDelay;
@@ -97,7 +91,7 @@ public class JFileChooserLauncherWindow extends TestWindow {
   }
 
   public void launchDelay(int newLaunchDelay) {
-    this.launchDelay = newLaunchDelay;
+    launchDelay = newLaunchDelay;
   }
 
   public JFileChooser fileChooser() {

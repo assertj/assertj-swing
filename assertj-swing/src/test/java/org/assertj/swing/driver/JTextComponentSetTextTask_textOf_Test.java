@@ -19,7 +19,6 @@ import static org.assertj.swing.test.core.MethodInvocations.Args.args;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.MethodInvocations.Args;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -52,12 +51,7 @@ public class JTextComponentSetTextTask_textOf_Test extends RobotBasedTestCase {
   }
 
   private static String textOf(final MyTextField textField) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return textField.getText();
-      }
-    });
+    return execute(() -> textField.getText());
   }
 
   private static class MyWindow extends TestWindow {
@@ -65,12 +59,7 @@ public class JTextComponentSetTextTask_textOf_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

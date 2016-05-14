@@ -21,8 +21,6 @@ import javax.swing.JComboBox;
 import javax.swing.JToolBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.CustomCellRenderer;
 import org.assertj.swing.test.swing.TestWindow;
@@ -30,7 +28,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link BasicJComboBoxCellReader#valueAt(JComboBox, int)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -71,32 +69,17 @@ public class BasicJComboBoxCellReader_valueAt_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setModelValues(final JComboBox comboBox, final Object[] values) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setModel(new DefaultComboBoxModel(values));
-      }
-    });
+    execute(() -> comboBox.setModel(new DefaultComboBoxModel(values)));
   }
 
   @RunsInEDT
   private static void setNotRecognizedRendererComponent(final JComboBox comboBox) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setRenderer(new CustomCellRenderer(new JToolBar()));
-      }
-    });
+    execute(() -> comboBox.setRenderer(new CustomCellRenderer(new JToolBar())));
   }
 
   @RunsInEDT
   private static String firstItemValue(final BasicJComboBoxCellReader reader, final JComboBox comboBox) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return reader.valueAt(comboBox, 0);
-      }
-    });
+    return execute(() -> reader.valueAt(comboBox, 0));
   }
 
   private static class MyWindow extends TestWindow {
@@ -104,12 +87,7 @@ public class BasicJComboBoxCellReader_valueAt_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

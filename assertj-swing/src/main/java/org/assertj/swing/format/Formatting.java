@@ -12,10 +12,10 @@
  */
 package org.assertj.swing.format;
 
-import static org.assertj.core.util.Maps.newConcurrentHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.isNullOrEmpty;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
+import static org.assertj.swing.util.Maps.newConcurrentHashMap;
 
 import java.awt.Component;
 import java.awt.Dialog;
@@ -45,11 +45,10 @@ import javax.swing.text.JTextComponent;
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Utility methods related to formatting.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -85,7 +84,7 @@ public class Formatting {
     register(nameOnly(JPanel.class));
     register(instrospect(JPopupMenu.class, NAME, "label", ENABLED, VISIBLE, SHOWING));
     register(instrospect(JProgressBar.class, NAME, VALUE, MINIMUM, MAXIMUM, "string", "stringPainted", ENABLED,
-        VISIBLE, SHOWING));
+                         VISIBLE, SHOWING));
     register(empty(JRootPane.class));
     register(instrospect(JScrollBar.class, NAME, VALUE, "blockIncrement", MINIMUM, MAXIMUM, ENABLED, VISIBLE, SHOWING));
     register(instrospect(JScrollPane.class, NAME, ENABLED, VISIBLE, SHOWING));
@@ -100,7 +99,7 @@ public class Formatting {
   }
 
   private static @Nonnull ComponentFormatter instrospect(@Nonnull Class<? extends Component> targetType,
-      @Nonnull String... propertyNames) {
+                                                         @Nonnull String... propertyNames) {
     return new IntrospectionComponentFormatter(targetType, propertyNames);
   }
 
@@ -115,7 +114,7 @@ public class Formatting {
   /**
    * Registers the given {@link ComponentFormatter}, replacing any other one previously registered for the same
    * supported component type.
-   * 
+   *
    * @param formatter the formatter to register.
    */
   public static void register(@Nonnull ComponentFormatter formatter) {
@@ -134,32 +133,26 @@ public class Formatting {
 
   /**
    * Returns a {@code String} representation of the given AWT or Swing {@code Component}. This method is invoked in the
-   * event dispatch thread (EDT.)
-   * 
+   * event dispatch thread (EDT).
+   *
    * @param c the given {@code Component}.
    * @return a {@code String} representation of the given {@code Component}.
    */
   @RunsInEDT
   public static @Nonnull String inEdtFormat(final @Nonnull Component c) {
-    String result = execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return format(c);
-      }
-    });
-    return checkNotNull(result);
+    return checkNotNull(execute(() -> format(c)));
   }
 
   /**
    * <p>
    * Returns a {@code String} representation of the given AWT or Swing {@code Component}.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param c the given {@code Component}.
    * @return a {@code String} representation of the given {@code Component}.
    */

@@ -26,22 +26,16 @@ import javax.swing.Timer;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * {@code JFrame} that launches a {@code JOptionPane} using a configurable delay.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JOptionPaneLauncherWindow extends TestWindow {
   @RunsInEDT
   public static JOptionPaneLauncherWindow createNew(final Class<?> testClass) {
-    return execute(new GuiQuery<JOptionPaneLauncherWindow>() {
-      @Override
-      protected JOptionPaneLauncherWindow executeInEDT() {
-        return new JOptionPaneLauncherWindow(testClass);
-      }
-    });
+    return execute(() -> new JOptionPaneLauncherWindow(testClass));
   }
 
   private int launchDelay;
@@ -94,6 +88,6 @@ public class JOptionPaneLauncherWindow extends TestWindow {
   }
 
   public void launchDelay(int newLaunchDelay) {
-    this.launchDelay = newLaunchDelay;
+    launchDelay = newLaunchDelay;
   }
 }

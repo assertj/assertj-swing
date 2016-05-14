@@ -18,8 +18,6 @@ import static org.assertj.swing.driver.ComponentLocationQuery.locationOf;
 import java.awt.Point;
 import java.awt.Window;
 
-import javax.swing.JToolBar;
-
 import org.junit.Test;
 
 /**

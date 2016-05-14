@@ -17,8 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.awt.Point;
 import java.awt.Window;
 
-import javax.swing.JToolBar;
-
 import org.junit.Test;
 
 /**

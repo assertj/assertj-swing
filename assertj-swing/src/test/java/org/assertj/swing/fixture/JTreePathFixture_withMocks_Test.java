@@ -25,7 +25,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTreePathFixture}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTreePathFixture_withMocks_Test {
@@ -57,6 +57,12 @@ public class JTreePathFixture_withMocks_Test {
   public void should_Call_SelectPath_In_JTreeFixture_And_Return_Self() {
     assertThat(fixture.select()).isSameAs(fixture);
     verify(treeFixture).selectPath(path);
+  }
+
+  @Test
+  public void should_Call_UnselectPath_In_JTreeFixture_And_Return_Self() {
+    assertThat(fixture.unselect()).isSameAs(fixture);
+    verify(treeFixture).unselectPath(path);
   }
 
   @Test

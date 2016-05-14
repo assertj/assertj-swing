@@ -18,22 +18,16 @@ import javax.annotation.Nonnull;
 import javax.swing.JTree;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Makes a {@code JTree} editable. This task is executed in the event dispatch thread (EDT.)
+ * Makes a {@code JTree} editable. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JTreeSetEditableTask {
   @RunsInEDT
   static void setEditable(final @Nonnull JTree tree, final boolean editable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setEditable(editable);
-      }
-    });
+    execute(() -> tree.setEditable(editable));
   }
 
   private JTreeSetEditableTask() {

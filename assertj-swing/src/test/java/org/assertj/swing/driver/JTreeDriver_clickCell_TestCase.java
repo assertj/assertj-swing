@@ -20,11 +20,10 @@ import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Test case for {@link JTreeDriver} that involves clicking/double-clicking a cell.
- * 
+ *
  * @author Alex Ruiz
  */
 public abstract class JTreeDriver_clickCell_TestCase extends JTreeDriver_TestCase {
@@ -35,22 +34,14 @@ public abstract class JTreeDriver_clickCell_TestCase extends JTreeDriver_TestCas
 
   @RunsInEDT
   private static int rowAtPoint(final JTree tree, final Point p) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return tree.getRowForLocation(p.x, p.y);
-      }
-    });
+    return execute(() -> tree.getRowForLocation(p.x, p.y));
   }
 
   @RunsInEDT
   static String pathAtPoint(final JTree tree, final Point p, final String separator) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        TreePath path = tree.getPathForLocation(p.x, p.y);
-        return pathText(path, separator);
-      }
+    return execute(() -> {
+      TreePath path = tree.getPathForLocation(p.x, p.y);
+      return pathText(path, separator);
     });
   }
 }

@@ -22,7 +22,6 @@ import java.awt.Frame;
 import java.awt.Window;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -64,11 +63,6 @@ public abstract class WindowDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   static boolean isActive(final Window w) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return w.isActive();
-      }
-    });
+    return execute(() -> w.isActive());
   }
 }

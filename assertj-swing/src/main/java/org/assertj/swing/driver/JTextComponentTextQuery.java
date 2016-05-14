@@ -19,10 +19,9 @@ import javax.annotation.Nullable;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the text of a {@code JTextComponent}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the text of a {@code JTextComponent}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Yvonne Wang
  * @author Alex Ruiz
@@ -30,12 +29,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JTextComponentTextQuery {
   @RunsInEDT
   static @Nullable String textOf(final @Nonnull JTextComponent textComponent) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return textComponent.getText();
-      }
-    });
+    return execute(() -> textComponent.getText());
   }
 
   private JTextComponentTextQuery() {

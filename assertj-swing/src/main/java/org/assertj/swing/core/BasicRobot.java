@@ -20,10 +20,12 @@ import static java.awt.event.KeyEvent.KEY_TYPED;
 import static java.awt.event.KeyEvent.VK_UNDEFINED;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static java.lang.System.currentTimeMillis;
+import static java.lang.System.lineSeparator;
 import static javax.swing.SwingUtilities.getWindowAncestor;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.core.util.Sets.newHashSet;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.awt.AWT.centerOf;
 import static org.assertj.swing.awt.AWT.visibleCenterOf;
@@ -62,6 +64,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -75,7 +78,6 @@ import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.exception.UnexpectedException;
 import org.assertj.swing.exception.WaitTimedOutError;
@@ -93,6 +95,7 @@ import org.assertj.swing.util.ToolkitProvider;
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author Christian Rösch
  *
  * @see Robot
  */
@@ -375,13 +378,10 @@ public class BasicRobot implements Robot {
 
   @RunsInEDT
   private static void disposeWindows(final @Nonnull ComponentHierarchy hierarchy) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        for (Container c : hierarchy.roots()) {
-          if (c instanceof Window) {
-            dispose(hierarchy, (Window) c);
-          }
+    execute(() -> {
+      for (Container c : hierarchy.roots()) {
+        if (c instanceof Window) {
+          dispose(hierarchy, (Window) c);
         }
       }
     });
@@ -455,7 +455,12 @@ public class BasicRobot implements Robot {
     int mask = button.mask;
     int modifierMask = mask & ~BUTTON_MASK;
     mask &= BUTTON_MASK;
-    pressModifiers(modifierMask);
+    final int finalMask = mask;
+    pressModifiersWhileRunning(modifierMask, () -> doClickWhileModifiersPressed(c, where, times, finalMask));
+    waitForIdle();
+  }
+
+  private void doClickWhileModifiersPressed(Component c, Point where, int times, int mask) {
     // From Abbot: Adjust the auto-delay to ensure we actually get a multiple click
     // In general clicks have to be less than 200ms apart, although the actual setting is not readable by Java.
     int delayBetweenEvents = settings.delayBetweenEvents();
@@ -477,8 +482,6 @@ public class BasicRobot implements Robot {
     }
     settings.delayBetweenEvents(delayBetweenEvents);
     eventGenerator.releaseMouse(mask);
-    releaseModifiers(modifierMask);
-    waitForIdle();
   }
 
   private boolean shouldSetDelayBetweenEventsToZeroWhenClicking(int times) {
@@ -489,6 +492,16 @@ public class BasicRobot implements Robot {
   public void pressModifiers(int modifierMask) {
     for (int modifierKey : keysFor(modifierMask)) {
       pressKey(modifierKey);
+    }
+  }
+
+  @Override
+  public void pressModifiersWhileRunning(int modifierMask, Runnable runnable) {
+    pressModifiers(modifierMask);
+    try {
+      runnable.run();
+    } finally {
+      releaseModifiers(modifierMask);
     }
   }
 
@@ -539,8 +552,23 @@ public class BasicRobot implements Robot {
   }
 
   @Override
+  public void pressMouseWhileRunning(@Nonnull MouseButton button, @Nonnull Runnable runnable) {
+    pressMouse(button);
+    try {
+      runnable.run();
+    } finally {
+      releaseMouse(button);
+    }
+  }
+
+  @Override
   public void pressMouse(@Nonnull Component c, @Nonnull Point where) {
     pressMouse(c, where, LEFT_BUTTON);
+  }
+
+  @Override
+  public void pressMouseWhileRunning(@Nonnull Component c, @Nonnull Point where, @Nonnull Runnable runnable) {
+    pressMouseWhileRunning(c, where, LEFT_BUTTON, runnable);
   }
 
   @Override
@@ -551,8 +579,29 @@ public class BasicRobot implements Robot {
   }
 
   @Override
+  public void pressMouseWhileRunning(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button,
+                                     @Nonnull Runnable runnable) {
+    pressMouse(c, where, button);
+    try {
+      runnable.run();
+    } finally {
+      releaseMouse(button);
+    }
+  }
+
+  @Override
   public void pressMouse(@Nonnull Point where, @Nonnull MouseButton button) {
     eventGenerator.pressMouse(where, button.mask);
+  }
+
+  @Override
+  public void pressMouseWhileRunning(@Nonnull Point where, @Nonnull MouseButton button, @Nonnull Runnable runnable) {
+    pressMouse(where, button);
+    try {
+      runnable.run();
+    } finally {
+      releaseMouse(button);
+    }
   }
 
   @RunsInEDT
@@ -689,12 +738,12 @@ public class BasicRobot implements Robot {
   @RunsInEDT
   private void keyPressAndRelease(int keyCode, int modifiers) {
     int updatedModifiers = updateModifierWithKeyCode(keyCode, modifiers);
-    pressModifiers(updatedModifiers);
     if (updatedModifiers == modifiers) {
-      doPressKey(keyCode);
-      eventGenerator.releaseKey(keyCode);
+      pressModifiersWhileRunning(updatedModifiers, () -> {
+        doPressKey(keyCode);
+        eventGenerator.releaseKey(keyCode);
+      });
     }
-    releaseModifiers(updatedModifiers);
   }
 
   @RunsInEDT
@@ -702,6 +751,16 @@ public class BasicRobot implements Robot {
   public void pressKey(int keyCode) {
     doPressKey(keyCode);
     waitForIdle();
+  }
+
+  @Override
+  public void pressKeyWhileRunning(int keyCode, Runnable runnable) {
+    pressKey(keyCode);
+    try {
+      runnable.run();
+    } finally {
+      releaseKey(keyCode);
+    }
   }
 
   @RunsInEDT
@@ -768,7 +827,6 @@ public class BasicRobot implements Robot {
     // returns.
     // We always post at least one idle event to allow any current event dispatch processing to finish.
     long start = currentTimeMillis();
-    int count = 0;
     do {
       // Timed out waiting for idle
       int idleTimeout = settings.idleTimeout();
@@ -779,7 +837,6 @@ public class BasicRobot implements Robot {
       if (currentTimeMillis() - start > idleTimeout) {
         break;
       }
-      ++count;
       // Force a yield
       pause();
       // Abbot: this does not detect invocation events (i.e. what gets posted with EventQueue.invokeLater), so if
@@ -842,14 +899,7 @@ public class BasicRobot implements Robot {
 
   @RunsInEDT
   private boolean isWindowAncestorReadyForInput(final JPopupMenu popup) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        Window ancestor = checkNotNull(getWindowAncestor(popup));
-        return isReadyForInput(ancestor);
-      }
-    });
-    return checkNotNull(result);
+    return checkNotNull(execute(() -> isReadyForInput(checkNotNull(getWindowAncestor(popup)))));
   }
 
   /**
@@ -859,12 +909,13 @@ public class BasicRobot implements Robot {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param c the given {@code Component}.
    * @return {@code true} if the given {@code Component} is ready for input, {@code false} otherwise.
-   * @throws ActionFailedException if the given {@code Component} does not have a {@code Window} ancestor.
+   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code Component} does not have a
+   *           {@code Window} ancestor.
    */
   @Override
   @RunsInCurrentThread
@@ -896,10 +947,58 @@ public class BasicRobot implements Robot {
   @RunsInEDT
   private @Nullable JPopupMenu activePopupMenu() {
     List<Component> found = newArrayList(finder().findAll(POPUP_MATCHER));
+    if (found.size() >= 1) {
+      return findOuterPopupMenu(found);
+    }
+    return null;
+  }
+
+  @RunsInEDT
+  private JPopupMenu findOuterPopupMenu(List<Component> found) {
     if (found.size() == 1) {
       return (JPopupMenu) found.get(0);
     }
-    return null;
+    List<JPopupMenu> innerMenus = newArrayList();
+    for (Component component : found) {
+      innerMenus.addAll(popupMenus(((JPopupMenu) component).getComponents()));
+    }
+    found.removeAll(innerMenus);
+    if (found.size() == 1) {
+      return (JPopupMenu) found.get(0);
+    }
+    throw multiplePopupMenusFound(found);
+  }
+
+  @RunsInEDT
+  private static @Nonnull ComponentLookupException multiplePopupMenusFound(@Nonnull Collection<Component> found) {
+    StringBuilder message = new StringBuilder();
+    String format = "Found more than one popup menu.%n%nFound:";
+    message.append(String.format(format));
+    appendComponents(message, found);
+    if (!found.isEmpty()) {
+      message.append(lineSeparator());
+    }
+    throw new ComponentLookupException(message.toString(), found);
+  }
+
+  @RunsInEDT
+  private static void appendComponents(final @Nonnull StringBuilder message, final @Nonnull Collection<Component> found) {
+    execute(() -> {
+      for (Component c : found) {
+        message.append(String.format("%n%s", format(c)));
+      }
+    });
+  }
+
+  @RunsInEDT
+  private Collection<? extends JPopupMenu> popupMenus(Component[] components) {
+    Set<JPopupMenu> menus = newHashSet();
+    for (Component component : components) {
+      if (component instanceof JPopupMenu) {
+        menus.add((JPopupMenu) component);
+      }
+    }
+    return menus;
   }
 
   @RunsInEDT

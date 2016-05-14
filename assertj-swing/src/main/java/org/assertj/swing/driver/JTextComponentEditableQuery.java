@@ -16,26 +16,19 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Indicates whether a {@code JTextComponent} is editable. This query is executed in the event dispatch thread (EDT.)
- * 
+ * Indicates whether a {@code JTextComponent} is editable. This query is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 final class JTextComponentEditableQuery {
   @RunsInEDT
   static boolean isEditable(final @Nonnull JTextComponent textBox) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected @Nullable Boolean executeInEDT() {
-        return textBox.isEditable();
-      }
-    });
+    Boolean result = execute(() -> textBox.isEditable());
     return checkNotNull(result);
   }
 

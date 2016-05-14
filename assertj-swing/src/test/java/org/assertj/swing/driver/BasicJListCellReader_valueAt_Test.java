@@ -19,8 +19,6 @@ import javax.swing.JList;
 import javax.swing.JToolBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.CustomCellRenderer;
 import org.assertj.swing.test.swing.TestListModel;
@@ -29,7 +27,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link BasicJListCellReader#valueAt(JList, int)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -70,22 +68,12 @@ public class BasicJListCellReader_valueAt_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setNotRecognizedRendererComponent(final JList list) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        list.setCellRenderer(new CustomCellRenderer(new JToolBar()));
-      }
-    });
+    execute(() -> list.setCellRenderer(new CustomCellRenderer(new JToolBar())));
   }
 
   @RunsInEDT
   private static String firstItemValue(final BasicJListCellReader reader, final JList list) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return reader.valueAt(list, 0);
-      }
-    });
+    return execute(() -> reader.valueAt(list, 0));
   }
 
   private static class MyWindow extends TestWindow {
@@ -93,12 +81,7 @@ public class BasicJListCellReader_valueAt_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {
@@ -116,12 +99,7 @@ public class BasicJListCellReader_valueAt_Test extends RobotBasedTestCase {
     }
 
     void setElements(final Object... elements) {
-      execute(new GuiTask() {
-        @Override
-        protected void executeInEDT() {
-          model.setElements(elements);
-        }
-      });
+      execute(() -> model.setElements(elements));
     }
 
     @Override

@@ -18,23 +18,17 @@ import javax.annotation.Nonnull;
 import javax.swing.JProgressBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Sets the property "indeterminate" in a {@code JProgressBar}. This task is executed in the event dispatch thread
- * (EDT.)
+ * (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JProgressBarSetIndetermintateTask {
   @RunsInEDT
   static void setIntedeterminate(final @Nonnull JProgressBar progressBar, final boolean indeterminate) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        progressBar.setIndeterminate(indeterminate);
-      }
-    });
+    execute(() -> progressBar.setIndeterminate(indeterminate));
   }
 
   private JProgressBarSetIndetermintateTask() {

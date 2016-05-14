@@ -27,7 +27,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -41,12 +40,7 @@ public class Containers_Test {
 
   @Before
   public void setUp() {
-    panel = execute(new GuiQuery<MyPanel>() {
-      @Override
-      protected MyPanel executeInEDT() {
-        return new MyPanel();
-      }
-    });
+    panel = execute(() -> new MyPanel());
   }
 
   @Test

@@ -24,31 +24,25 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
 import org.assertj.swing.data.TableCell;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.TextMatcher;
 
 /**
  * Returns the first cell in a {@code JTable} whose value matches the given one. This query is executed in the event
- * dispatch thread (EDT.)
- * 
+ * dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 final class JTableMatchingCellQuery {
   @RunsInEDT
   static @Nonnull TableCell cellWithValue(final @Nonnull JTable table, final @Nonnull TextMatcher matcher,
-      final @Nonnull JTableCellReader cellReader) {
-    TableCell result = execute(new GuiQuery<TableCell>() {
-      @Override
-      protected TableCell executeInEDT() {
-        return findMatchingCell(table, matcher, cellReader);
-      }
-    });
+                                          final @Nonnull JTableCellReader cellReader) {
+    TableCell result = execute(() -> findMatchingCell(table, matcher, cellReader));
     return checkNotNull(result);
   }
 
   @RunsInCurrentThread
   private static @Nonnull TableCell findMatchingCell(@Nonnull JTable table, @Nonnull TextMatcher matcher,
-      @Nonnull JTableCellReader cellReader) {
+                                                     @Nonnull JTableCellReader cellReader) {
     int rCount = table.getRowCount();
     int cCount = table.getColumnCount();
     for (int r = 0; r < rCount; r++) {
@@ -64,7 +58,7 @@ final class JTableMatchingCellQuery {
 
   @RunsInCurrentThread
   private static boolean cellHasValue(@Nonnull JTable table, int row, int column, @Nonnull TextMatcher matcher,
-      @Nonnull JTableCellReader cellReader) {
+                                      @Nonnull JTableCellReader cellReader) {
     return matcher.isMatching(cellReader.valueAt(table, row, column));
   }
 

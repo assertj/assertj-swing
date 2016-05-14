@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
 import javax.swing.AbstractButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the text of a Swing {@code AbstractButton}.
@@ -38,12 +37,7 @@ public final class AbstractButtonTextQuery {
    */
   @RunsInEDT
   public static @Nullable String textOf(final @Nonnull AbstractButton button) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return button.getText();
-      }
-    });
+    return execute(() -> button.getText());
   }
 
   private AbstractButtonTextQuery() {

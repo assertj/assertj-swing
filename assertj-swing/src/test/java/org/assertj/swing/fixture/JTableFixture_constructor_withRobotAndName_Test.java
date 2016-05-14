@@ -22,7 +22,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -62,12 +61,7 @@ public class JTableFixture_constructor_withRobotAndName_Test extends RobotBasedT
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTable table = new JTable(8, 6);

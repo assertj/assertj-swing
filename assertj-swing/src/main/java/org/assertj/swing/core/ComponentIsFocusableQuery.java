@@ -20,7 +20,6 @@ import javax.annotation.Nonnull;
 
 import org.assertj.core.util.Preconditions;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Indicates whether an AWT or Swing {@code Component} is focusable or not.
@@ -32,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class ComponentIsFocusableQuery {
   @RunsInEDT
   static boolean isFocusable(final @Nonnull Component component) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return component.isFocusable();
-      }
-    });
+    Boolean result = execute(() -> component.isFocusable());
     return Preconditions.checkNotNull(result);
   }
 

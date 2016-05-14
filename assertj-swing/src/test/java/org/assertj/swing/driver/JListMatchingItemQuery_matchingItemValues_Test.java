@@ -17,9 +17,6 @@ import static org.mockito.Mockito.when;
 
 import java.util.List;
 
-import javax.swing.JList;
-
-import org.assertj.swing.cell.JListCellReader;
 import org.assertj.swing.util.TextMatcher;
 import org.junit.Test;
 

@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
  * Hides and disposes a {@code Window}.
@@ -30,7 +29,7 @@ import org.assertj.swing.edt.GuiTask;
  */
 public final class WindowDestroyTask {
   /**
-   * Hides and disposes the given {@code Window}. This action is executed in the event dispatch thread (EDT.)
+   * Hides and disposes the given {@code Window}. This action is executed in the event dispatch thread (EDT).
    * 
    * @param w the {@code Window} to hide and dispose.
    */
@@ -39,12 +38,7 @@ public final class WindowDestroyTask {
     if (w == null) {
       return;
     }
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        hideAndDispose(w);
-      }
-    });
+    execute(() -> hideAndDispose(w));
   }
 
   /**
@@ -54,7 +48,7 @@ public final class WindowDestroyTask {
    * 
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    * 
    * @param w the {@code Window} to hide and dispose.

@@ -19,7 +19,6 @@ import static org.assertj.swing.assertions.data.RgbColor.color;
 import static org.assertj.swing.test.ErrorMessages.offsetIsNull;
 import static org.assertj.swing.test.ExpectedException.none;
 
-import org.assertj.core.data.Offset;
 import org.assertj.swing.test.ExpectedException;
 import org.junit.BeforeClass;
 import org.junit.Rule;

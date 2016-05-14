@@ -20,22 +20,16 @@ import java.awt.Point;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Sets the location of an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT.)
+ * Sets the location of an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class ComponentMoveTask {
   @RunsInEDT
   static void moveComponent(final @Nonnull Component c, final @Nonnull Point location) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.setLocation(location);
-      }
-    });
+    execute(() -> c.setLocation(location));
   }
 
   private ComponentMoveTask() {

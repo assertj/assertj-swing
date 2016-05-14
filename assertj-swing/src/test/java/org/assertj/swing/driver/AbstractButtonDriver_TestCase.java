@@ -16,13 +16,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.driver.AbstractButtonSelectedQuery.isSelected;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.ExpectedException.none;
+import static org.assertj.swing.test.task.AbstractButtonSetArmedTask.setArmed;
 import static org.assertj.swing.test.task.AbstractButtonSetSelectedTask.setSelected;
 import static org.assertj.swing.test.task.ComponentSetEnabledTask.disable;
 
 import javax.swing.JCheckBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -31,7 +31,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link AbstractButtonDriver}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -83,15 +83,22 @@ public abstract class AbstractButtonDriver_TestCase extends RobotBasedTestCase {
     robot.waitForIdle();
   }
 
+  @RunsInEDT
+  final void armCheckBox() {
+    setArmed(checkBox, true);
+    robot.waitForIdle();
+  }
+
+  @RunsInEDT
+  final void unarmCheckBox() {
+    setArmed(checkBox, false);
+    robot.waitForIdle();
+  }
+
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     final JCheckBox checkBox = new JCheckBox("Hello", true);

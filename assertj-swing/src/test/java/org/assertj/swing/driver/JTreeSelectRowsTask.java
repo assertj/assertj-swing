@@ -18,22 +18,16 @@ import javax.annotation.Nonnull;
 import javax.swing.JTree;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Selects rows in a {@code JTree}. This task is executed in the event dispatch thread (EDT.)
+ * Selects rows in a {@code JTree}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JTreeSelectRowsTask {
   @RunsInEDT
   static void selectRows(final @Nonnull JTree tree, final int... rows) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.setSelectionRows(rows);
-      }
-    });
+    execute(() -> tree.setSelectionRows(rows));
   }
 
   private JTreeSelectRowsTask() {

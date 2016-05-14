@@ -25,7 +25,7 @@ import org.junit.Test;
 
 /**
  * Tests for <code>{@link ImageFolderCreator#createImageFolder()}</code>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ImageFolderCreator_createImageFolder_Test {
@@ -45,7 +45,7 @@ public class ImageFolderCreator_createImageFolder_Test {
     new EasyMockTemplate(folderCreator) {
       @Override
       protected void expectations() {
-        expect(folderCreator.createFolder(currentFolder(), "failed-gui-tests")).andReturn(createdFolder);
+        expect(folderCreator.createFolder(currentFolder(), "failed-gui-tests", true)).andReturn(createdFolder);
       }
 
       @Override

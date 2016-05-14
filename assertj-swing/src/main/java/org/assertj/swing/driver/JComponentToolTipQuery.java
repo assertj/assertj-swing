@@ -19,10 +19,9 @@ import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the toolTip text of a given {@code JComponent}. This task is executed in the event dispatch thread (EDT.)
+ * Returns the toolTip text of a given {@code JComponent}. This task is executed in the event dispatch thread (EDT).
  * 
  * @see JComponent#getToolTipText()
  * 
@@ -31,12 +30,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JComponentToolTipQuery {
   @RunsInEDT
   static @Nullable String toolTipOf(final @Nonnull JComponent c) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return c.getToolTipText();
-      }
-    });
+    return execute(() -> c.getToolTipText());
   }
 
   private JComponentToolTipQuery() {

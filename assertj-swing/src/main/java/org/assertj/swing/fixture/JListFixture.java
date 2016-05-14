@@ -23,32 +23,29 @@ import javax.swing.JList;
 import org.assertj.swing.cell.JListCellReader;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.driver.BasicJListCellReader;
 import org.assertj.swing.driver.JListDriver;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.LocationUnavailableException;
 import org.assertj.swing.util.Range;
 
 /**
  * <p>
  * Supports functional testing of {@code JList}s.
  * </p>
- * 
+ *
  * <p>
  * The conversion between the values given in tests and the values being displayed by a {@code JList} renderer is
  * performed by a {@link JListCellReader}. This fixture uses a {@link BasicJListCellReader} by default.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  * @author Fabien Barbero
+ * @author Christian Rösch
  */
 public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture, JList, JListDriver> implements
     ItemGroupFixture<JListFixture> {
   /**
    * Creates a new {@link JListFixture}.
-   * 
+   *
    * @param robot performs simulation of user events on a {@code JList}.
    * @param listName the name of the {@code JList} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
@@ -61,7 +58,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Creates a new {@link JListFixture}.
-   * 
+   *
    * @param robot performs simulation of user events on the given {@code JList}.
    * @param target the {@code JList} to be managed by this fixture.
    * @throws NullPointerException if {@code robot} is {@code null}.
@@ -79,7 +76,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Returns the {@code String} representation of the value of an item in this fixture's {@code JList}, using this
    * fixture's {@link JListCellReader}.
-   * 
+   *
    * @param index the index of the item to return.
    * @return the {@code String} representation of the value of an item in this fixture's {@code JList}.
    * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
@@ -94,7 +91,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Returns the {@code String} representation of the elements in this fixture's {@code JList}, using this fixture's
    * {@link JListCellReader}.
-   * 
+   *
    * @return the {@code String} representation of the elements in this fixture's {@code JList}.
    * @see #replaceCellReader(JListCellReader)
    */
@@ -106,7 +103,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Returns the {@code String} representation of the selected elements in this fixture's {@code JList}, using this
    * fixture's {@link JListCellReader}.
-   * 
+   *
    * @return the {@code String} representation of the selected elements in this fixture's {@code JList}.
    * @see #replaceCellReader(JListCellReader)
    */
@@ -116,7 +113,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Returns a fixture that manages the list item specified by the given index.
-   * 
+   *
    * @param index of the item.
    * @return a fixture that manages the list item specified by the given index.
    * @throws IndexOutOfBoundsException if the index is out of bounds.
@@ -127,7 +124,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Returns a fixture that manages the list item specified by the given text.
-   * 
+   *
    * @param text the text of the item. It can be a regular expression.
    * @return a fixture that manages the list item specified by the given text.
    * @throws LocationUnavailableException if an element matching the given text cannot be found.
@@ -138,7 +135,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Returns a fixture that manages the list item whose text matches the given regular expression pattern.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return a fixture that manages the list item whose text matches the given regular expression pattern.
    * @throws LocationUnavailableException if an element matching the given text cannot be found.
@@ -151,7 +148,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Clears the selection in this fixture's {@code JList}. Since this method does not simulate user input, it does not
    * verifies that this fixture's {@code JList} is enabled and showing.
-   * 
+   *
    * @return this fixture.
    */
   @Override
@@ -162,7 +159,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Simulates a user selecting an item in this fixture's {@code JList}.
-   * 
+   *
    * @param index the index of the item to select.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -180,7 +177,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Simulates a user selecting an item in this fixture's {@code JList}.
-   * 
+   *
    * @param text the text of the item to select. It can be a regular expression.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -199,7 +196,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Simulates a user selecting an item in this fixture's {@code JList}. The value of the item to select must match the
    * given regular expression pattern.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -217,9 +214,26 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   }
 
   /**
+   * Simulates a user unselecting an item in this fixture's {@code JList}.
+   *
+   * @param index the index of the item to unselect.
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code JList} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
+   *           {@code JList}.
+   * @see #item(int)
+   * @see JListItemFixture#unselect()
+   */
+  public @Nonnull JListFixture unselectItem(int index) {
+    driver().unselectItem(target(), index);
+    return this;
+  }
+
+  /**
    * Verifies that the {@code String} representation of the selected item in this fixture's {@code JList} matches the
    * given text.
-   * 
+   *
    * @param text the text to match. It can be a regular expression pattern.
    * @return this fixture.
    * @throws AssertionError if the selected item does not match the given text.
@@ -234,7 +248,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Verifies that the {@code String} representation of the selected item in this fixture's {@code JList} matches the
    * given regular expression pattern.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws AssertionError if the selected item does not match the given regular expression pattern.
@@ -249,7 +263,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Verifies that the index of the selected item in this fixture's {@code JList} is equal to the given value.
-   * 
+   *
    * @param index the expected selection index.
    * @return this fixture.
    * @throws AssertionError if the selected index is not equal to the given one.
@@ -262,7 +276,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Verifies that this fixture's {@code JList} does not have any selection.
-   * 
+   *
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code JList} has a selection.
    */
@@ -274,7 +288,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Verifies that this fixture's {@code JList} has the expected number of items
-   * 
+   *
    * @param expected the expected number of items.
    * @return this fixture.
    * @throws AssertionError if the number of items in this fixture's {@code JList} is not equal to the expected one.
@@ -287,9 +301,9 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Simulates a user selecting the items (in the specified range) in this fixture's {@code JList}.
-   * 
+   *
    * @param from the starting point of the selection.
-   * @param to the last item to select (inclusive.)
+   * @param to the last item to select (inclusive).
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
@@ -303,7 +317,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Simulates a user selecting the specified items in this fixture's {@code JList}.
-   * 
+   *
    * @param indices the indices of the items to select.
    * @return this fixture.
    * @throws NullPointerException if the given array is {@code null}.
@@ -319,9 +333,26 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   }
 
   /**
+   * Simulates a user unselecting the specified items in this fixture's {@code JList}.
+   *
+   * @param indices the indices of the items to unselect.
+   * @return this fixture.
+   * @throws NullPointerException if the given array is {@code null}.
+   * @throws IllegalArgumentException if the given array is empty.
+   * @throws IndexOutOfBoundsException if any of the indices is negative or greater than the index of the last item in
+   *           the {@code JList}.
+   * @throws IllegalStateException if this fixture's {@code JList} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
+   */
+  public @Nonnull JListFixture unselectItems(@Nonnull int... indices) {
+    driver().unselectItems(target(), indices);
+    return this;
+  }
+
+  /**
    * Simulates a user selecting the specified items in this fixture's {@code JList}. The items to select should match
    * the given values.
-   * 
+   *
    * @param items the text of the items to select. Each {@code String} can be a regular expression.
    * @return this fixture.
    * @throws NullPointerException if the given array is {@code null}.
@@ -339,7 +370,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Simulates a user selecting the specified items in this fixture's {@code JList}. The items to select should select
    * the given regular expression patterns.
-   * 
+   *
    * @param patterns the regular expression patterns to match.
    * @return this fixture.
    * @throws NullPointerException if the given array is {@code null}.
@@ -358,7 +389,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Simulates a user clicking an item in this fixture's {@code JList}.
-   * 
+   *
    * @param index the index of the item to clicking.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -375,7 +406,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Simulates a user clicking an item in this fixture's {@code JList}.
-   * 
+   *
    * @param text the text of the item to select. It can be a regular expression.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -393,7 +424,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Simulates a user clicking an item in this fixture's {@code JList}. The value of the item to select must match the
    * given regular expression pattern.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -415,7 +446,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Verifies that the given item indices are selected in this fixture's {@code JList}.
-   * 
+   *
    * @param indices the expected indices of the selected items.
    * @return this fixture.
    * @throws NullPointerException if the given array is {@code null}.
@@ -430,7 +461,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Verifies that the {@code String} representations of the selected items in this fixture's {@code JList} match the
    * given text items.
-   * 
+   *
    * @param items text items to match. Each {@code String} can be a regular expression.
    * @return this fixture.
    * @throws NullPointerException if the given array is {@code null}.
@@ -446,7 +477,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Verifies that the {@code String} representations of the selected items in this fixture's {@code JList} match the
    * given regular expression patterns.
-   * 
+   *
    * @param patterns the regular expression patterns to match.
    * @return this fixture.
    * @throws NullPointerException if the given array is {@code null}.
@@ -462,7 +493,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Simulates a user dragging an item from this fixture's {@code JList}.
-   * 
+   *
    * @param index the index of the item to drag.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -477,7 +508,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Simulates a user dropping an item to this fixture's {@code JList}.
-   * 
+   *
    * @param index the index of the item to drop.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -494,7 +525,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Simulates a drag operation at the location of the first item in this fixture's {@code JList} matching the given
    * value.
-   * 
+   *
    * @param text the text of the item to drag. It can be a regular expression.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
@@ -508,7 +539,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Ends a drag operation at the location of the first item matching the given value.
-   * 
+   *
    * @param text the text of the item to drop. It can be a regular expression.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -524,7 +555,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Simulates a drag operation at the location of the first item in this fixture's {@code JList} matching the given
    * regular expression pattern.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -539,7 +570,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Ends a drag operation at the location of the first item matching the given regular expression pattern.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -555,7 +586,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Shows a pop-up menu at the location of the specified item in this fixture's {@code JList}.
-   * 
+   *
    * @param index the index of the item.
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -570,7 +601,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
 
   /**
    * Shows a pop-up menu at the location of the first item matching the given value in this fixture's {@code JList}.
-   * 
+   *
    * @param text the text of the item. It can be a regular expression.
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.
@@ -585,7 +616,7 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   /**
    * Shows a pop-up menu at the location of the first item matching the given regular expression pattern in this
    * fixture's {@code JList}.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code JList} is disabled.

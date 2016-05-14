@@ -13,7 +13,7 @@
 package org.assertj.swing.applet;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.util.Map;
 
@@ -21,7 +21,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link BasicAppletStub#getParameter(String)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Price
  */

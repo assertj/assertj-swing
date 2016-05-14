@@ -27,7 +27,6 @@ import java.util.Collection;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -67,11 +66,6 @@ public abstract class InputEventGenerator_pressKey_TestCase extends InputEventGe
 
   @RunsInEDT
   private static String textOf(final JTextComponent textComponent) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        return textComponent.getText();
-      }
-    });
+    return execute(() -> textComponent.getText());
   }
 }

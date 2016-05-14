@@ -36,12 +36,12 @@ import org.assertj.swing.util.GenericRange;
  * <p>
  * Supports functional testing of {@code JSplitPane}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -49,7 +49,7 @@ import org.assertj.swing.util.GenericRange;
 public class JSplitPaneDriver extends JComponentDriver {
   /**
    * Creates a new {@link JSplitPaneDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JSplitPaneDriver(@Nonnull Robot robot) {
@@ -62,7 +62,7 @@ public class JSplitPaneDriver extends JComponentDriver {
    * Since 1.2, this method respects the minimum and maximum values of the left and right components inside the given
    * {@code JSplitPane}.
    * </p>
-   * 
+   *
    * @param splitPane the target {@code JSplitPane}.
    * @param location the location to move the divider to.
    * @throws IllegalStateException if the {@code JSplitPane} is disabled.
@@ -93,7 +93,7 @@ public class JSplitPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull GenericRange<Point> findWhereToMoveDividerVertically(final @Nonnull JSplitPane splitPane,
-      final int location) {
+                                                                               final int location) {
     GenericRange<Point> result = execute(new GuiQuery<GenericRange<Point>>() {
       @Override
       protected GenericRange<Point> executeInEDT() {
@@ -118,7 +118,7 @@ public class JSplitPaneDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull GenericRange<Point> findWhereToMoveDividerHorizontally(final @Nonnull JSplitPane splitPane,
-      final int location) {
+                                                                                 final int location) {
     GenericRange<Point> result = execute(new GuiQuery<GenericRange<Point>>() {
       @Override
       protected GenericRange<Point> executeInEDT() {
@@ -140,9 +140,7 @@ public class JSplitPaneDriver extends JComponentDriver {
   private void simulateMovingDivider(@Nonnull JSplitPane splitPane, @Nonnull GenericRange<Point> range) {
     try {
       robot.moveMouse(splitPane, range.from());
-      robot.pressMouse(LEFT_BUTTON);
-      robot.moveMouse(splitPane, range.to());
-      robot.releaseMouse(LEFT_BUTTON);
+      robot.pressMouseWhileRunning(LEFT_BUTTON, () -> robot.moveMouse(splitPane, range.to()));
     } catch (RuntimeException ignored) {
     }
   }

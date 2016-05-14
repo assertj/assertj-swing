@@ -19,14 +19,13 @@ import static org.assertj.swing.test.builder.JTextFields.textField;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link JTextComponentMatcher#matches(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -62,12 +61,7 @@ public class JTextComponentMatcher_matches_byTextAndShowing_Test extends Sequent
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createAndShow() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return display(new MyWindow());
-        }
-      });
+      return execute(() -> display(new MyWindow()));
     }
 
     final JTextField textField = new JTextField("Hello");

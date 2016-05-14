@@ -38,7 +38,7 @@ import org.apache.tools.ant.util.FileUtils;
 /**
  * Transforms a JUnit XML report. The default transformation generates an HTML report in either framed or non-framed
  * style.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ReportTransformer extends AggregateTransformer {
@@ -58,7 +58,7 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Creates a new <code>{@link ReportTransformer}</code>.
-   * 
+   *
    * @param task task delegating to this class.
    */
   public ReportTransformer(Task task) {
@@ -68,7 +68,7 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Create an instance of an XSL parameter for configuration by Ant.
-   * 
+   *
    * @return an instance of the <code>Param</code> class to be configured.
    */
   @Override
@@ -80,7 +80,7 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Performs the XSLT transformation to generate the HTML report.
-   * 
+   *
    * @throws BuildException thrown if something goes wrong with the transformation.
    */
   @Override
@@ -114,7 +114,7 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Access the stylesheet to be used as a resource.
-   * 
+   *
    * @return stylesheet as a resource
    */
   @Override
@@ -185,7 +185,7 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Sets an additional classpath.
-   * 
+   *
    * @param classpath the additional classpath to append to the current one.
    */
   public void setClasspath(Path classpath) {
@@ -194,7 +194,7 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Sets a reference to a classpath.
-   * 
+   *
    * @param r the reference to set.
    */
   public void setClasspathRef(Reference r) {
@@ -203,9 +203,10 @@ public class ReportTransformer extends AggregateTransformer {
 
   /**
    * Creates the current classpath.
-   * 
+   *
    * @return the created classpath.
    */
+  @Override
   public Path createClasspath() {
     if (classpath == null)
       classpath = new Path(task.getProject());

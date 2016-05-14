@@ -16,26 +16,19 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JProgressBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the maximum value of a {@code JProgressBar}. This query is executed in the event dispatch thread (EDT.)
- * 
+ * Returns the maximum value of a {@code JProgressBar}. This query is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 final class JProgressBarMaximumQuery {
   @RunsInEDT
   static int maximumOf(final @Nonnull JProgressBar progressBar) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return progressBar.getMaximum();
-      }
-    });
+    Integer result = execute(() -> progressBar.getMaximum());
     return checkNotNull(result);
   }
 

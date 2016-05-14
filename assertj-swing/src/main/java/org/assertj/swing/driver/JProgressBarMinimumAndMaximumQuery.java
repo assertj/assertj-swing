@@ -19,24 +19,18 @@ import javax.annotation.Nonnull;
 import javax.swing.JProgressBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.Pair;
 
 /**
  * Returns the minimum and maximum values of a {@code JProgressBar}. This query is executed in the event dispatch thread
- * (EDT.)
- * 
+ * (EDT).
+ *
  * @author Alex Ruiz
  */
 final class JProgressBarMinimumAndMaximumQuery {
   @RunsInEDT
   static @Nonnull Pair<Integer, Integer> minimumAndMaximumOf(final @Nonnull JProgressBar progressBar) {
-    Pair<Integer, Integer> result = execute(new GuiQuery<Pair<Integer, Integer>>() {
-      @Override
-      protected Pair<Integer, Integer> executeInEDT() {
-        return Pair.of(progressBar.getMinimum(), progressBar.getMaximum());
-      }
-    });
+    Pair<Integer, Integer> result = execute(() -> Pair.of(progressBar.getMinimum(), progressBar.getMaximum()));
     return checkNotNull(result);
   }
 

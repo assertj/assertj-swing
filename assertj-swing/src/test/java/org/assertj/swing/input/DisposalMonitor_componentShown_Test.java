@@ -13,7 +13,7 @@
 package org.assertj.swing.input;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Maps.newHashMap;
+import static org.assertj.swing.util.Maps.newHashMap;
 
 import java.awt.Window;
 import java.awt.event.ComponentEvent;
@@ -27,7 +27,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link DisposalMonitor#componentShown(ComponentEvent)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class DisposalMonitor_componentShown_Test {

@@ -22,7 +22,6 @@ import javax.swing.JApplet;
 import javax.swing.JButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * @author Alex Ruiz
@@ -39,12 +38,7 @@ public class TestApplet extends JApplet {
 
   @RunsInEDT
   public static TestApplet createNew() {
-    return execute(new GuiQuery<TestApplet>() {
-      @Override
-      protected TestApplet executeInEDT() {
-        return new TestApplet();
-      }
-    });
+    return execute(() -> new TestApplet());
   }
 
   public TestApplet() {

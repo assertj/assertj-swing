@@ -30,20 +30,21 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Default implementation of {@link JComboBoxCellReader}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 public class BasicJComboBoxCellReader implements JComboBoxCellReader {
-  private static final JList REFERENCE_JLIST = newJList();
+  private static final JList<?> REFERENCE_JLIST = newJList();
 
-  private static @Nonnull JList newJList() {
-    JList result = execute(new GuiQuery<JList>() {
+  private static @Nonnull <T> JList<T> newJList() {
+    JList<T> result = execute(new GuiQuery<JList<T>>() {
       @Override
-      protected @Nullable JList executeInEDT() {
-        return new JList();
-      }
+      protected JList<T> executeInEDT() {
+        return new JList<T>();
+      };
     });
+    ;
     return checkNotNull(result);
   }
 
@@ -59,7 +60,7 @@ public class BasicJComboBoxCellReader implements JComboBoxCellReader {
 
   /**
    * Creates a new {@link BasicJComboBoxCellReader}.
-   * 
+   *
    * @param rendererReader knows how to read values from the cell renderer {@code Component} in a {@code JComboBox}.
    * @throws NullPointerException if the given {@link CellRendererReader} is {@code null}.
    */
@@ -71,12 +72,12 @@ public class BasicJComboBoxCellReader implements JComboBoxCellReader {
    * <p>
    * Returns the internal value of a cell in a {@code JComboBox} as expected in a test.
    * </p>
-   * 
+   *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
-   * 
+   *
    * @param comboBox the given {@code JComboBox}.
    * @param index the index of the cell.
    * @return the internal value of a cell in a {@code JComboBox} as expected in a test.
@@ -84,7 +85,7 @@ public class BasicJComboBoxCellReader implements JComboBoxCellReader {
    */
   @Override
   @RunsInCurrentThread
-  public @Nullable String valueAt(@Nonnull JComboBox comboBox, int index) {
+  public @Nullable String valueAt(@Nonnull JComboBox<?> comboBox, int index) {
     Component c = cellRendererComponent(comboBox, index);
     String value = (c != null) ? rendererReader.valueFrom(c) : null;
     if (value != null) {

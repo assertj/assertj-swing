@@ -24,13 +24,12 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 
 /**
  * Test for <a href="http://code.google.com/p/fest/issues/detail?id=80">Bug 80</a>.
- * 
+ *
  * @author Wim Deblauwe
  * @author Yvonne Wang
  */
@@ -63,12 +62,7 @@ public class Bug80_JDialogLookup_Test extends RobotBasedTestCase {
 
   static class JDialogStarter extends JDialog {
     static JDialogStarter createNew() {
-      return execute(new GuiQuery<JDialogStarter>() {
-        @Override
-        protected JDialogStarter executeInEDT() {
-          return new JDialogStarter();
-        }
-      });
+      return execute(() -> new JDialogStarter());
     }
 
     private JDialogStarter() {

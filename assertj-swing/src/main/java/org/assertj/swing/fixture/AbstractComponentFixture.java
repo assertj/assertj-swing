@@ -138,7 +138,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Simulates a user clicking this fixture's {@code Component}.
    *
    * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override
@@ -153,7 +154,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @param button the button to click.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override
@@ -168,7 +170,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override
@@ -181,7 +184,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Simulates a user double-clicking this fixture's {@code Component}.
    *
    * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override
@@ -194,7 +198,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Simulates a user right-clicking this fixture's {@code Component}.
    *
    * @return this fixture.
-   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
   @Override
@@ -256,10 +261,28 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @throws IllegalArgumentException if any of the given code is not a valid key code.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
+   * @see #pressKeyWhileRunning(int, Runnable)
    * @see java.awt.event.KeyEvent
    */
   public final @Nonnull S pressKey(int keyCode) {
     driver.pressKey(target(), keyCode);
+    return myself();
+  }
+
+  /**
+   * Simulates a user pressing the given key on this fixture's {@code Component}, running the given runnable and
+   * releasing the key again.
+   *
+   * @param keyCode the code of the key to press.
+   * @return this fixture.
+   * @throws IllegalArgumentException if any of the given code is not a valid key code.
+   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
+   * @see #pressKey(int)
+   * @see java.awt.event.KeyEvent
+   */
+  public final @Nonnull S pressKeyWhileRunning(int keyCode, @Nonnull Runnable runnable) {
+    driver.pressKeyWhileRunning(target(), keyCode, runnable);
     return myself();
   }
 
@@ -412,8 +435,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * </p>
    * <p>
    * <strong>Note:</strong> Access to the GUI component returned by this method <em>must</em> be executed in the event
-   * dispatch thread (EDT.) To do so, please execute a {@link org.assertj.swing.edt.GuiQuery GuiQuery} or
-   * {@link org.assertj.swing.edt.GuiTask GuiTask} (depending on what you need to do,) inside a
+   * dispatch thread (EDT). To do so, please execute a {@link org.assertj.swing.edt.GuiQuery GuiQuery} or
+   * {@link org.assertj.swing.edt.GuiTask GuiTask} (depending on what you need to do), inside a
    * {@link org.assertj.swing.edt.GuiActionRunner}. To learn more about Swing threading, please read the <a
    * href="http://java.sun.com/javase/6/docs/api/javax/swing/package-summary.html#threading" target="_blank">Swing
    * Threading Policy</a>.

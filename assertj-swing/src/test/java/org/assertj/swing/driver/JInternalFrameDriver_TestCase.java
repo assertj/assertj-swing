@@ -27,7 +27,6 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -85,12 +84,7 @@ public abstract class JInternalFrameDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static boolean isMaximized(final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return internalFrame.isMaximum();
-      }
-    });
+    return execute(() -> internalFrame.isMaximum());
   }
 
   @RunsInEDT
@@ -100,12 +94,7 @@ public abstract class JInternalFrameDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static int zOrder(final JDesktopPane desktopPane, final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return desktopPane.getComponentZOrder(internalFrame);
-      }
-    });
+    return execute(() -> desktopPane.getComponentZOrder(internalFrame));
   }
 
   static class MyWindow extends TestWindow {
@@ -114,12 +103,7 @@ public abstract class JInternalFrameDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

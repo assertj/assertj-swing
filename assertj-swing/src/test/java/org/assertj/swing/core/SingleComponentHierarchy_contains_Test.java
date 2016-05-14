@@ -18,7 +18,6 @@ import static org.mockito.Mockito.when;
 
 import javax.swing.JButton;
 
-import org.assertj.swing.hierarchy.SingleComponentHierarchy;
 import org.junit.Test;
 
 /**

@@ -20,7 +20,6 @@ import java.awt.Component;
 import java.awt.Point;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.junit.Test;
 
@@ -41,11 +40,6 @@ public class AWT_centerOfComponent_Test extends EDTSafeTestCase {
 
   @RunsInEDT
   private static void setComponentSize(final Component c, final int width, final int height) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.setSize(width, height);
-      }
-    });
+    execute(() -> c.setSize(width, height));
   }
 }

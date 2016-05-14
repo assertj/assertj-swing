@@ -19,10 +19,9 @@ import javax.annotation.Nullable;
 import javax.swing.JLabel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the text of a {@code JLabel}. This task is executed in the event dispatch thread (EDT.)
+ * Returns the text of a {@code JLabel}. This task is executed in the event dispatch thread (EDT).
  * 
  * @see JLabel#getText()
  * 
@@ -32,12 +31,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JLabelTextQuery {
   @RunsInEDT
   static @Nullable String textOf(final @Nonnull JLabel label) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return label.getText();
-      }
-    });
+    return execute(() -> label.getText());
   }
 
   private JLabelTextQuery() {

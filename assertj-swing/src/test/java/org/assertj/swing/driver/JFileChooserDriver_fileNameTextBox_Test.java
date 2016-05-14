@@ -14,7 +14,6 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 
 import org.junit.Test;

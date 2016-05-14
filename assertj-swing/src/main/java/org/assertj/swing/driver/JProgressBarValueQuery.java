@@ -15,26 +15,19 @@ package org.assertj.swing.driver;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
-import javax.annotation.Nullable;
 import javax.swing.JProgressBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the value of a {@code JProgressBar}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the value of a {@code JProgressBar}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JProgressBarValueQuery {
   @RunsInEDT
   static int valueOf(final JProgressBar progressBar) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return progressBar.getValue();
-      }
-    });
+    Integer result = execute(() -> progressBar.getValue());
     return checkNotNull(result);
   }
 

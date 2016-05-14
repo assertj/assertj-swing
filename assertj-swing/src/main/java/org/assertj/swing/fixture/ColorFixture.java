@@ -69,7 +69,7 @@ public class ColorFixture {
 
   /**
    * Verifies that this fixture's {@code Color} is equal to the given color represented by the given hexadecimal value
-   * (e.g. "82A9FF".)
+   * (e.g. "82A9FF").
    * 
    * @param hexValue the value representing the color to compare to.
    * @return this fixture.
@@ -104,7 +104,7 @@ public class ColorFixture {
 
   /**
    * Verifies that this fixture's {@code Color} is not equal to the given color represented by the given hexadecimal
-   * value (e.g. "82A9FF".)
+   * value (e.g. "82A9FF").
    * 
    * @param hexValue the value representing the color to compare to.
    * @return this fixture.

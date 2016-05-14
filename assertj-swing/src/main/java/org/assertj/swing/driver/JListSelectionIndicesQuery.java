@@ -16,26 +16,19 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the selected indices in a {@code JList}. This query is executed in the event dispatch thread (EDT.)
- * 
+ * Returns the selected indices in a {@code JList}. This query is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 final class JListSelectionIndicesQuery {
   @RunsInEDT
-  static @Nonnull int[] selectedIndices(final @Nonnull JList list) {
-    int[] result = execute(new GuiQuery<int[]>() {
-      @Override
-      protected @Nullable int[] executeInEDT() {
-        return list.getSelectedIndices();
-      }
-    });
+  static @Nonnull int[] selectedIndices(final @Nonnull JList<?> list) {
+    int[] result = execute(() -> list.getSelectedIndices());
     return checkNotNull(result);
   }
 

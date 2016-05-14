@@ -24,7 +24,6 @@ import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestMdiWindow;
 import org.assertj.swing.test.swing.TestWindow;
@@ -58,12 +57,7 @@ public class ParentFinder_parentOf_Test extends SequentialEDTSafeTestCase {
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTextField textField = new JTextField();
@@ -87,21 +81,11 @@ public class ParentFinder_parentOf_Test extends SequentialEDTSafeTestCase {
 
   @RunsInEDT
   private static Container findParent(final ParentFinder finder, final Component c) {
-    return execute(new GuiQuery<Container>() {
-      @Override
-      protected Container executeInEDT() {
-        return finder.parentOf(c);
-      }
-    });
+    return execute(() -> finder.parentOf(c));
   }
 
   @RunsInEDT
   private static JDesktopPane desktopPaneOf(final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<JDesktopPane>() {
-      @Override
-      protected JDesktopPane executeInEDT() {
-        return internalFrame.getDesktopIcon().getDesktopPane();
-      }
-    });
+    return execute(() -> internalFrame.getDesktopIcon().getDesktopPane());
   }
 }

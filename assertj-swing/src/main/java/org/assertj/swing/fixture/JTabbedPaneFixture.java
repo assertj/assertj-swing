@@ -21,12 +21,10 @@ import javax.swing.JTabbedPane;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.data.Index;
 import org.assertj.swing.driver.JTabbedPaneDriver;
-import org.assertj.swing.exception.ComponentLookupException;
-import org.assertj.swing.exception.LocationUnavailableException;
 
 /**
  * Supports functional testing of {@code JTabbedPane}s.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -34,7 +32,7 @@ public class JTabbedPaneFixture extends
     AbstractJPopupMenuInvokerFixture<JTabbedPaneFixture, JTabbedPane, JTabbedPaneDriver> {
   /**
    * Creates a new {@link JTabbedPaneFixture}.
-   * 
+   *
    * @param robot performs simulation of user events on the given {@code JTabbedPane}.
    * @param target the {@code JTabbedPane} to be managed by this fixture.
    * @throws NullPointerException if {@code robot} is {@code null}.
@@ -46,7 +44,7 @@ public class JTabbedPaneFixture extends
 
   /**
    * Creates a new {@link JTabbedPaneFixture}.
-   * 
+   *
    * @param robot performs simulation of user events on a {@code JTabbedPane}.
    * @param tabbedPaneName the name of the {@code JTabbedPane} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
@@ -64,7 +62,7 @@ public class JTabbedPaneFixture extends
 
   /**
    * Returns the titles of all the tabs in this fixture's {@code JTabbedPane}.
-   * 
+   *
    * @return the titles of all the tabs.
    */
   public String[] tabTitles() {
@@ -73,7 +71,7 @@ public class JTabbedPaneFixture extends
 
   /**
    * Simulates a user selecting the tab located at the given index.
-   * 
+   *
    * @param index the index of the tab to select.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTabbedPane} is disabled.
@@ -87,7 +85,7 @@ public class JTabbedPaneFixture extends
 
   /**
    * Simulates a user selecting the tab whose title matches the given value.
-   * 
+   *
    * @param title the title to match. It can be a regular expression.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTabbedPane} is disabled.
@@ -101,7 +99,7 @@ public class JTabbedPaneFixture extends
 
   /**
    * Simulates a user selecting the tab whose title matches the given regular expression pattern.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTabbedPane} is disabled.
@@ -116,7 +114,7 @@ public class JTabbedPaneFixture extends
 
   /**
    * Asserts that the title of the tab at the given index matches the given value.
-   * 
+   *
    * @param title the expected title. It can be a regular expression.
    * @param index the index of the tab.
    * @return this fixture.
@@ -130,7 +128,7 @@ public class JTabbedPaneFixture extends
 
   /**
    * Asserts that the title of the tab at the given index matches the given regular expression pattern.
-   * 
+   *
    * @param pattern the regular expression pattern to match.
    * @param index the index of the tab.
    * @return this fixture.
@@ -146,13 +144,25 @@ public class JTabbedPaneFixture extends
   /**
    * Asserts that the tabs of this fixture's {@code JTabbedPane} have the given titles. The tab titles are evaluated by
    * index order, for example, the first tab is expected to have the first title in the given array, and so on.
-   * 
+   *
    * @param titles the expected titles.
    * @return this fixture.
    * @throws AssertionError if the title of any of the tabs is not equal to the expected titles.
    */
   public @Nonnull JTabbedPaneFixture requireTabTitles(@Nonnull String... titles) {
     driver().requireTabTitles(target(), titles);
+    return this;
+  }
+
+  /**
+   * Asserts that this fixture's {@code JTabbedPane} has the tab at the given index selected.
+   *
+   * @param expected the expected index of the selected tab.
+   * @return this fixture.
+   * @throws AssertionError if this fixture's {@code JTabbedPane}'s selected tab does not have the given index.
+   */
+  public @Nonnull JTabbedPaneFixture requireSelectedTab(@Nonnull Index expected) {
+    driver().requireSelectedTab(target(), expected);
     return this;
   }
 }

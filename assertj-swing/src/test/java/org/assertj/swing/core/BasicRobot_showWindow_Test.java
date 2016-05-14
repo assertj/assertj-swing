@@ -21,7 +21,6 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.EDTSafeTestCase;
@@ -32,7 +31,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link BasicRobot#showWindow(java.awt.Window)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -65,12 +64,7 @@ public class BasicRobot_showWindow_Test extends EDTSafeTestCase {
   private static class AlwaysInvisibleFrame extends JFrame {
     @RunsInEDT
     static AlwaysInvisibleFrame createNew() {
-      return execute(new GuiQuery<AlwaysInvisibleFrame>() {
-        @Override
-        protected AlwaysInvisibleFrame executeInEDT() {
-          return new AlwaysInvisibleFrame();
-        }
-      });
+      return execute(() -> new AlwaysInvisibleFrame());
     }
 
     @Override

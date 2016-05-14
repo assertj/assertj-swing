@@ -16,26 +16,19 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the number of items in a given {@code JList}. This query is executed in the event dispatch thread (EDT.)
- * 
+ * Returns the number of items in a given {@code JList}. This query is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 @RunsInEDT
 final class JListItemCountQuery {
-  static int itemCountIn(final @Nonnull JList list) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return list.getModel().getSize();
-      }
-    });
+  static int itemCountIn(final @Nonnull JList<?> list) {
+    Integer result = execute(() -> list.getModel().getSize());
     return checkNotNull(result);
   }
 

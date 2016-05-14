@@ -36,21 +36,18 @@ import javax.swing.JPopupMenu;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
-import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 
 /**
  * <p>
  * Supports functional testing of {@code JMenuItem}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -58,7 +55,7 @@ import org.assertj.swing.internal.annotation.InternalApi;
 public class JMenuItemDriver extends JComponentDriver {
   /**
    * Creates a new {@link JMenuItemDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JMenuItemDriver(@Nonnull Robot robot) {
@@ -80,11 +77,12 @@ public class JMenuItemDriver extends JComponentDriver {
 
   /**
    * Finds and selects the given {@code JMenuItem}.
-   * 
+   *
    * @param menuItem the {@code JMenuItem} to select.
-   * @throws IllegalStateException if the menu to select is disabled.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and the
+   *           menu to select is disabled.
    * @throws IllegalStateException if the menu to select is not showing on the screen.
-   * @throws ActionFailedException if the menu has a pop-up and it fails to show up.
+   * @throws org.assertj.swing.exception.ActionFailedException if the menu has a pop-up and it fails to show up.
    */
   @RunsInEDT
   public void click(@Nonnull JMenuItem menuItem) {
@@ -105,12 +103,7 @@ public class JMenuItemDriver extends JComponentDriver {
 
   @RunsInEDT
   private static @Nonnull JMenuItemLocation locationOf(final @Nonnull JMenuItem menuItem) {
-    JMenuItemLocation result = execute(new GuiQuery<JMenuItemLocation>() {
-      @Override
-      protected JMenuItemLocation executeInEDT() {
-        return new JMenuItemLocation(menuItem);
-      }
-    });
+    JMenuItemLocation result = execute(() -> new JMenuItemLocation(menuItem));
     return checkNotNull(result);
   }
 
@@ -136,7 +129,7 @@ public class JMenuItemDriver extends JComponentDriver {
 
   @RunsInEDT
   private void doClick(@Nonnull JMenuItem menuItem) {
-    if (isMacOSMenuBar()) {
+    if (isMacOSMenuBar(menuItem)) {
       validateAndDoClick(menuItem);
       return;
     }
@@ -144,18 +137,16 @@ public class JMenuItemDriver extends JComponentDriver {
     robot.waitForIdle();
   }
 
-  private boolean isMacOSMenuBar() {
-    return isOSX() && (getBoolean("apple.laf.useScreenMenuBar") || getBoolean("com.apple.macos.useScreenMenuBar"));
+  private boolean isMacOSMenuBar(@Nonnull JMenuItem menuItem) {
+    return menuItem instanceof JMenu && locationOf(menuItem).inMenuBar() && isOSX()
+           && (getBoolean("apple.laf.useScreenMenuBar") || getBoolean("com.apple.macos.useScreenMenuBar"));
   }
 
   @RunsInEDT
   private static void validateAndDoClick(final @Nonnull JMenuItem menuItem) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(menuItem);
-        menuItem.doClick();
-      }
+    execute(() -> {
+      checkEnabledAndShowing(menuItem);
+      menuItem.doClick();
     });
   }
 

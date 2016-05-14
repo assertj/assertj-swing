@@ -21,7 +21,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JCheckBox;
 
 import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -99,12 +98,7 @@ public class AbstractContainerFixture_checkBox_Test extends RobotBasedTestCase {
     final JCheckBox checkBox = new JCheckBox("Check Me");
 
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

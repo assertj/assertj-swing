@@ -29,7 +29,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * </p>
  * 
  * <p>
- * This task is <b>not</b> guaranteed to be executed in the event dispatch thread (EDT.)
+ * This task is <b>not</b> guaranteed to be executed in the event dispatch thread (EDT).
  * </p>
  * 
  * @author Alex Ruiz

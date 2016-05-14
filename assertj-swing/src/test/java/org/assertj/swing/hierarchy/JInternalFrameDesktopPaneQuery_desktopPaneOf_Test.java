@@ -19,14 +19,13 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestMdiWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link JInternalFrameDesktopPaneQuery#desktopPaneOf(JInternalFrame)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -53,12 +52,9 @@ public class JInternalFrameDesktopPaneQuery_desktopPaneOf_Test extends Sequentia
 
   @RunsInEDT
   private static JDesktopPane setNullIconAndReturnDesktopPane(final JInternalFrame internalFrame) {
-    JDesktopPane desktopPane = execute(new GuiQuery<JDesktopPane>() {
-      @Override
-      protected JDesktopPane executeInEDT() {
-        internalFrame.setDesktopIcon(null);
-        return JInternalFrameDesktopPaneQuery.desktopPaneOf(internalFrame);
-      }
+    JDesktopPane desktopPane = execute(() -> {
+      internalFrame.setDesktopIcon(null);
+      return JInternalFrameDesktopPaneQuery.desktopPaneOf(internalFrame);
     });
     return desktopPane;
   }
@@ -71,11 +67,6 @@ public class JInternalFrameDesktopPaneQuery_desktopPaneOf_Test extends Sequentia
 
   @RunsInEDT
   private static JDesktopPane desktopPaneOf(final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<JDesktopPane>() {
-      @Override
-      protected JDesktopPane executeInEDT() {
-        return JInternalFrameDesktopPaneQuery.desktopPaneOf(internalFrame);
-      }
-    });
+    return execute(() -> JInternalFrameDesktopPaneQuery.desktopPaneOf(internalFrame));
   }
 }

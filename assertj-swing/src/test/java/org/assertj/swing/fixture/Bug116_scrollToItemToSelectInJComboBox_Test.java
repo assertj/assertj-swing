@@ -19,7 +19,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
@@ -49,23 +48,13 @@ public class Bug116_scrollToItemToSelectInJComboBox_Test extends RobotBasedTestC
 
   @RunsInEDT
   private static int selectedIndexOf(final JComboBox comboBox) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return comboBox.getSelectedIndex();
-      }
-    });
+    return execute(() -> comboBox.getSelectedIndex());
   }
 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JComboBox comboBox = new JComboBox();

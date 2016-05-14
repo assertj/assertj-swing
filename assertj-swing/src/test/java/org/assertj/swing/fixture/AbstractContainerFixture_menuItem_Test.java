@@ -27,7 +27,6 @@ import javax.swing.JMenuItem;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -37,7 +36,7 @@ import org.junit.Test;
 
 /**
  * Tests lookup of {@code JMenuItem}s in {@link AbstractContainerFixture}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class AbstractContainerFixture_menuItem_Test extends RobotBasedTestCase {
@@ -78,7 +77,7 @@ public class AbstractContainerFixture_menuItem_Test extends RobotBasedTestCase {
   public void should_Fail_If_Visible_JMenuItem_Not_Found_By_Name() {
     thrown.expect(ComponentLookupException.class);
     thrown.expectMessageToContain("Unable to find component using matcher",
-        "name='myMenuNew', type=javax.swing.JMenuItem, requireShowing=false");
+                                  "name='myMenuNew', type=javax.swing.JMenuItem, requireShowing=false");
     fixture.menuItem("myMenuNew");
   }
 
@@ -106,13 +105,7 @@ public class AbstractContainerFixture_menuItem_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
-      MyWindow result = execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
-      return checkNotNull(result);
+      return checkNotNull(execute(() -> new MyWindow(testClass)));
     }
 
     private MyWindow(@Nonnull Class<?> testClass) {

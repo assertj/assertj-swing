@@ -27,7 +27,6 @@ import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTree;
 import org.assertj.swing.test.swing.TestWindow;
@@ -56,12 +55,7 @@ public class JTreeAddRootIfInvisibleTask_addRootIfInvisible_Test extends RobotBa
   static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     final MutableTreeNode root = createRoot();

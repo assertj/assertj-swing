@@ -12,8 +12,6 @@
  */
 package org.assertj.swing.fixture;
 
-import java.awt.Font;
-
 import org.junit.Test;
 
 /**

@@ -13,6 +13,7 @@
 package org.assertj.swing.query;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Container;
 
@@ -20,8 +21,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -29,7 +28,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ComponentParentQuery#parentOf(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -54,12 +53,7 @@ public class ComponentParentQuery_parentOf_Test extends SequentialEDTSafeTestCas
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return GuiActionRunner.execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final MyButton button = new MyButton("A button");

@@ -12,10 +12,11 @@
  */
 package org.assertj.swing.jide.components;
 
-import com.jidesoft.pane.CollapsiblePane;
-import org.assertj.swing.jide.components.driver.CollapsiblePaneDriver;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.fixture.AbstractContainerFixture;
+import org.assertj.swing.jide.components.driver.CollapsiblePaneDriver;
+
+import com.jidesoft.pane.CollapsiblePane;
 
 /**
  * TODO

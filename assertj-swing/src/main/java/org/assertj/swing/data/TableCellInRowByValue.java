@@ -25,7 +25,6 @@ import javax.swing.JTable;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.cell.JTableCellReader;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * <p>
@@ -38,7 +37,7 @@ import org.assertj.swing.edt.GuiQuery;
  *
  * <pre>
  * // import static org.assertj.swing.data.TableCellInRowByValue.rowWithValue;
- * {@link JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("Sue", "Black", "Knitting").column(2));
+ * {@link org.assertj.swing.fixture.JTableCellFixture JTableCellFixture} cell = window.table("records").cell({@link TableCellInRowByValue#rowWithValue(String...) rowWithValue}("Sue", "Black", "Knitting").column(2));
  * </pre>
  *
  * @author Alex Ruiz
@@ -137,18 +136,15 @@ public class TableCellInRowByValue implements TableCellFinder {
   @RunsInEDT
   private static int findRowIndex(final @Nonnull JTable table, final @Nonnull JTableCellReader cellReader,
                                   final @Nonnull String[] values) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        validateEqualSize(table, values);
-        int rowCount = table.getRowCount();
-        for (int row = 0; row < rowCount; row++) {
-          if (matchingRow(table, cellReader, values, row)) {
-            return row;
-          }
+    Integer result = execute(() -> {
+      validateEqualSize(table, values);
+      int rowCount = table.getRowCount();
+      for (int row = 0; row < rowCount; row++) {
+        if (matchingRow(table, cellReader, values, row)) {
+          return row;
         }
-        return -1;
       }
+      return -1;
     });
     return checkNotNull(result);
   }

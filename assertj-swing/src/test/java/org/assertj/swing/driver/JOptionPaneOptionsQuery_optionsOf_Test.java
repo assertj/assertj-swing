@@ -20,14 +20,13 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 
 /**
  * Tests for {@link JOptionPaneOptionsQuery#optionsOf(JOptionPane)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -54,12 +53,7 @@ public class JOptionPaneOptionsQuery_optionsOf_Test extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyOptionPane createNew() {
-      return execute(new GuiQuery<MyOptionPane>() {
-        @Override
-        protected MyOptionPane executeInEDT() {
-          return new MyOptionPane();
-        }
-      });
+      return execute(() -> new MyOptionPane());
     }
 
     private MyOptionPane() {

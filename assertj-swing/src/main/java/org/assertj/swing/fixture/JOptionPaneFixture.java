@@ -22,7 +22,6 @@ import javax.swing.JOptionPane;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JOptionPaneDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JOptionPane}s.

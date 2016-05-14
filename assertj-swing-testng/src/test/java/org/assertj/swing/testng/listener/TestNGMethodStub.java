@@ -13,15 +13,19 @@
 package org.assertj.swing.testng.listener;
 
 import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Map;
 
 import org.testng.IClass;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestClass;
 import org.testng.ITestNGMethod;
+import org.testng.internal.ConstructorOrMethod;
+import org.testng.xml.XmlTest;
 
 /**
  * Understands an <code>{@link ITestNGMethod}</code> stub for testing purposes.
- * 
+ *
  * @author Alex Ruiz
  */
 public class TestNGMethodStub implements ITestNGMethod {
@@ -319,5 +323,107 @@ public class TestNGMethodStub implements ITestNGMethod {
   @Override
   public boolean skipFailedInvocations() {
     return false;
+  }
+
+  @Override
+  public Object getInstance() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void setTimeOut(long timeOut) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public int getTotalInvocationCount() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public boolean getEnabled() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+  @Override
+  public void setDescription(String description) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public long getInvocationTimeOut() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public boolean ignoreMissingDependencies() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+  @Override
+  public void setIgnoreMissingDependencies(boolean ignore) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public List<Integer> getInvocationNumbers() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void setInvocationNumbers(List<Integer> numbers) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void addFailedInvocationNumber(int number) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public List<Integer> getFailedInvocationNumbers() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public int getPriority() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public void setPriority(int priority) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public XmlTest getXmlTest() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public ConstructorOrMethod getConstructorOrMethod() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Map<String, String> findMethodParameters(XmlTest test) {
+    // TODO Auto-generated method stub
+    return null;
   }
 }

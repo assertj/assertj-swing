@@ -21,7 +21,7 @@ import org.junit.Test;
 
 /**
  * Tests for <a href="http://code.google.com/p/fest/issues/detail?id=247" target="_blank">Bug 247</a>.
- * 
+ *
  * @author Alex Ruiz
  */
 public class Bug247_NotEnoughInfoInFailureInEDT_Test {
@@ -33,7 +33,7 @@ public class Bug247_NotEnoughInfoInFailureInEDT_Test {
     try {
       execute(new GuiTask() {
         @Override
-        protected void executeInEDT() {
+        protected void executeInEDT() throws Throwable {
           throw new RuntimeException("Thrown on purpose");
         }
       });

@@ -19,24 +19,20 @@ import javax.annotation.Nonnull;
 import javax.swing.JSpinner;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Sets a value in a {@code JSpinner}. This task is executed in the event dispatch thread (EDT.)
- * 
+ * Sets a value in a {@code JSpinner}. This task is executed in the event dispatch thread (EDT).
+ *
  * @see JSpinner#setValue(Object)
- * 
+ *
  * @author Alex Ruiz
  */
 final class JSpinnerSetValueTask {
   @RunsInEDT
   static void setValue(final @Nonnull JSpinner spinner, final @Nonnull Object value) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        checkEnabledAndShowing(spinner);
-        spinner.setValue(value);
-      }
+    execute(() -> {
+      checkEnabledAndShowing(spinner);
+      spinner.setValue(value);
     });
   }
 

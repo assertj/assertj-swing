@@ -16,27 +16,20 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JList;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the smallest selection index in a {@code JList}. This query is executed in the event dispatch thread (EDT.)
- * 
+ * Returns the smallest selection index in a {@code JList}. This query is executed in the event dispatch thread (EDT).
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
 final class JListSelectedIndexQuery {
   @RunsInEDT
-  static int selectedIndexOf(final @Nonnull JList list) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return list.getSelectedIndex();
-      }
-    });
+  static int selectedIndexOf(final @Nonnull JList<?> list) {
+    Integer result = execute(() -> list.getSelectedIndex());
     return checkNotNull(result);
   }
 

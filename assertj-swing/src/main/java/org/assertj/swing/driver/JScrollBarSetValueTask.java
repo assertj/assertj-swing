@@ -17,22 +17,15 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.annotation.Nonnull;
 import javax.swing.JScrollBar;
 
-import org.assertj.swing.edt.GuiTask;
-
 /**
- * Sets the value of a {@code JScrollBar}. This task is executed in the event dispatch thread (EDT.)
+ * Sets the value of a {@code JScrollBar}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JScrollBarSetValueTask {
   static void setValue(final @Nonnull JScrollBar scrollBar, final int value) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        scrollBar.setValue(value);
-      }
-    });
+    execute(() -> scrollBar.setValue(value));
   }
 
   private JScrollBarSetValueTask() {

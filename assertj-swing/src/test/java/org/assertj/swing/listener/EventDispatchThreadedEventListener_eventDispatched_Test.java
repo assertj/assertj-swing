@@ -22,7 +22,6 @@ import java.awt.AWTEvent;
 
 import javax.annotation.Nonnull;
 
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.timing.Condition;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,12 +54,7 @@ public class EventDispatchThreadedEventListener_eventDispatched_Test {
 
   @Test
   public void should_Process_Event_Directly_If_Called_In_EDT() throws Exception {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        listener.eventDispatched(event);
-      }
-    });
+    execute(() -> listener.eventDispatched(event));
     assertThat(listener.event).isSameAs(event);
     assertThat(listener.wasProcessedInEventDispatchThread).isTrue();
   }

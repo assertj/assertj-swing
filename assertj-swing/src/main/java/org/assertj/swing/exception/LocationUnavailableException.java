@@ -16,13 +16,16 @@ import javax.annotation.Nonnull;
 
 /**
  * Error raised when the location of an AWT or Swing {@code Component} cannot be provided.
- * 
+ *
  * @author Alex Ruiz
  */
 public class LocationUnavailableException extends RuntimeException {
+  /** Generated serial version UID. */
+  private static final long serialVersionUID = 8659958720164983120L;
+
   /**
    * Creates a new {@link LocationUnavailableException}.
-   * 
+   *
    * @param message the detail message.
    */
   public LocationUnavailableException(@Nonnull String message) {
@@ -31,7 +34,7 @@ public class LocationUnavailableException extends RuntimeException {
 
   /**
    * Creates a new {@link LocationUnavailableException}.
-   * 
+   *
    * @param message the detail message.
    * @param cause the cause of the error.
    */

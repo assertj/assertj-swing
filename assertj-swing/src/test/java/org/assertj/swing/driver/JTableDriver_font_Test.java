@@ -19,9 +19,6 @@ import static org.mockito.Mockito.when;
 
 import java.awt.Font;
 
-import javax.swing.JTable;
-
-import org.assertj.swing.data.TableCell;
 import org.junit.Test;
 
 /**

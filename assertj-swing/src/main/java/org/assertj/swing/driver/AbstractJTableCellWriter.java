@@ -41,7 +41,6 @@ import org.assertj.swing.core.ComponentFoundCondition;
 import org.assertj.swing.core.ComponentMatcher;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.TypeMatcher;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.exception.WaitTimedOutError;
 
@@ -117,12 +116,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    */
   @RunsInEDT
   protected static @Nullable TableCellEditor cellEditor(final @Nonnull JTable table, final int row, final int column) {
-    return execute(new GuiQuery<TableCellEditor>() {
-      @Override
-      protected @Nullable TableCellEditor executeInEDT() throws Throwable {
-        return table.getCellEditor(row, column);
-      }
-    });
+    return execute(() -> table.getCellEditor(row, column));
   }
 
   /**
@@ -132,7 +126,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param table the given {@code JTable}.
@@ -153,12 +147,9 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
 
   @RunsInEDT
   private static @Nullable Component cellEditorComponent(final @Nonnull JTable table, final int row, final int column) {
-    return execute(new GuiQuery<Component>() {
-      @Override
-      protected @Nullable Component executeInEDT() {
-        checkCellIndicesInBounds(table, row, column);
-        return cellEditorIn(table, row, column);
-      }
+    return execute(() -> {
+      checkCellIndicesInBounds(table, row, column);
+      return cellEditorIn(table, row, column);
     });
   }
 
@@ -169,7 +160,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param table the given {@code JTable}.
@@ -215,13 +206,10 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
   @RunsInEDT
   protected static @Nonnull Point cellLocation(final @Nonnull JTable table, final int row, final int column,
                                                final @Nonnull JTableLocation location) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected @Nullable Point executeInEDT() {
-        validate(table, row, column);
-        scrollToCell(table, row, column, location);
-        return location.pointAt(table, row, column);
-      }
+    Point result = execute(() -> {
+      validate(table, row, column);
+      scrollToCell(table, row, column, location);
+      return location.pointAt(table, row, column);
     });
     return checkNotNull(result);
   }
@@ -238,7 +226,7 @@ public abstract class AbstractJTableCellWriter implements JTableCellWriter {
    *
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    *
    * @param table the given {@code JTable}.

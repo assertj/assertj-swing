@@ -23,7 +23,6 @@ import java.awt.event.ComponentListener;
 import java.awt.event.WindowListener;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.MethodInvocations.Args;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
@@ -70,12 +69,7 @@ public abstract class WindowVisibilityMonitor_TestCase extends SequentialEDTSafe
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

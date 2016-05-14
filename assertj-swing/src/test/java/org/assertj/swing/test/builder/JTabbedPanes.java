@@ -96,12 +96,7 @@ public final class JTabbedPanes {
 
     @RunsInEDT
     private static JPanel createPanel() {
-      return execute(new GuiQuery<JPanel>() {
-        @Override
-        protected JPanel executeInEDT() {
-          return new JPanel();
-        }
-      });
+      return execute(() -> new JPanel());
     }
 
     public static Tab tab(String title, Component component) {

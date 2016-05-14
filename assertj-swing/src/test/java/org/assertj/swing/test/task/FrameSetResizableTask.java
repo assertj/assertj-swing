@@ -19,22 +19,16 @@ import java.awt.Frame;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Makes a {@code Frame} resizable. This task is executed in the event dispatch thread (EDT.)
+ * Makes a {@code Frame} resizable. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 public final class FrameSetResizableTask {
   @RunsInEDT
   public static void setResizable(final @Nonnull Frame frame, final boolean resizable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        frame.setResizable(resizable);
-      }
-    });
+    execute(() -> frame.setResizable(resizable));
   }
 
   private FrameSetResizableTask() {

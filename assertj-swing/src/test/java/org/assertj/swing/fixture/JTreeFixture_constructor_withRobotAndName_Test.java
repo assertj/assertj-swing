@@ -26,7 +26,6 @@ import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeModel;
 
 import org.assertj.swing.annotation.RunsInCurrentThread;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestTree;
@@ -67,12 +66,7 @@ public class JTreeFixture_constructor_withRobotAndName_Test extends RobotBasedTe
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final TestTree tree = new TestTree(nodes());

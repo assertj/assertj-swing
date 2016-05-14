@@ -19,7 +19,6 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerListModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
@@ -47,12 +46,7 @@ public class Bug303_JSpinnerDoesNotSelectExistingTextBeforeEnteringNewText_Test 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JSpinner spinner1 = new JSpinner(new SpinnerListModel(array("Anakin", "Leia", "Han")));

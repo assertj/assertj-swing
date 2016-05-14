@@ -18,22 +18,18 @@ import javax.annotation.Nonnull;
 import javax.swing.JTable;
 
 import org.assertj.swing.data.TableCell;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Selects multiple cells in a {@code JTable}. This task is executed in the event dispatch thread (EDT.)
- * 
+ * Selects multiple cells in a {@code JTable}. This task is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JTableSelectCellsTask {
   static void selectCells(final @Nonnull JTable table, final @Nonnull TableCell from, final @Nonnull TableCell to) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        table.setColumnSelectionInterval(from.column, to.column);
-        table.setRowSelectionInterval(from.row, to.row);
-      }
+    execute(() -> {
+      table.setColumnSelectionInterval(from.column, to.column);
+      table.setRowSelectionInterval(from.row, to.row);
     });
   }
 

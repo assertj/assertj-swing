@@ -15,6 +15,8 @@ package org.assertj.swing.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.core.TestRobots.newRobotMock;
 import static org.assertj.swing.util.Platform.controlOrCommandKey;
+import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 
@@ -24,7 +26,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link MultipleSelectionTemplate#multiSelect()}.
- * 
+ *
  * @author Yvonne Wang
  */
 public class MultipleSelectionTemplate_multiSelect_Test {
@@ -50,8 +52,7 @@ public class MultipleSelectionTemplate_multiSelect_Test {
     int key = controlOrCommandKey();
     template.multiSelect();
     assertThat(template.timesSelected).isEqualTo(2);
-    verify(robot).pressKey(key);
-    verify(robot).releaseKey(key);
+    verify(robot).pressKeyWhileRunning(eq(key), anyObject());
   }
 
   private static class MultipleSelection extends MultipleSelectionTemplate {
@@ -72,6 +73,11 @@ public class MultipleSelectionTemplate_multiSelect_Test {
     @Override
     void selectElement(int index) {
       timesSelected++;
+    }
+
+    @Override
+    void unselectElement(int index) {
+      throw new AssertionError("unexpected method call");
     }
   }
 }

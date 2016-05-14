@@ -22,7 +22,6 @@ import javax.annotation.Nonnull;
 import javax.swing.JRadioButton;
 
 import org.assertj.swing.core.GenericTypeMatcher;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -101,13 +100,7 @@ public class AbstractContainerFixture_radioButton_Test extends RobotBasedTestCas
     final JRadioButton radioButton = new JRadioButton("Select Me");
 
     static @Nonnull MyWindow createNew(final @Nonnull Class<?> testClass) {
-      MyWindow result = execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
-      return checkNotNull(result);
+      return checkNotNull(execute(() -> new MyWindow(testClass)));
     }
 
     private MyWindow(@Nonnull Class<?> testClass) {

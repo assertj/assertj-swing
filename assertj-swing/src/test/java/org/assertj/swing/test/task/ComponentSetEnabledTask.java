@@ -19,10 +19,9 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Enables or disables an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT.)
+ * Enables or disables an AWT or Swing {@code Component}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
@@ -39,12 +38,7 @@ public final class ComponentSetEnabledTask {
 
   @RunsInEDT
   public static void setEnabled(final @Nonnull Component component, final boolean enabled) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        component.setEnabled(enabled);
-      }
-    });
+    execute(() -> component.setEnabled(enabled));
   }
 
   private ComponentSetEnabledTask() {

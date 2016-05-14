@@ -17,7 +17,6 @@ import javax.annotation.Nullable;
 import javax.swing.JRadioButton;
 
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JRadioButton}s.

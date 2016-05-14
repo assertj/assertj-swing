@@ -16,14 +16,12 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JTable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the number of rows in a {@code JTable}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the number of rows in a {@code JTable}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -31,12 +29,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class JTableRowCountQuery {
   @RunsInEDT
   static int rowCountOf(final @Nonnull JTable table) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected @Nullable Integer executeInEDT() {
-        return table.getRowCount();
-      }
-    });
+    Integer result = execute(() -> table.getRowCount());
     return checkNotNull(result);
   }
 

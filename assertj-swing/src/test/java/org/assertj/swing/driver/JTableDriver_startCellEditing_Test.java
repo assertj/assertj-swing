@@ -15,9 +15,6 @@ package org.assertj.swing.driver;
 import static org.assertj.swing.data.TableCell.row;
 import static org.mockito.Mockito.verify;
 
-import javax.swing.JTable;
-
-import org.assertj.swing.data.TableCell;
 import org.junit.Test;
 
 /**

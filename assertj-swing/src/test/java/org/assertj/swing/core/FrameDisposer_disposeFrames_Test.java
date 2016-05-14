@@ -19,14 +19,13 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import java.util.List;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link FrameDisposer#disposeFrames()}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class FrameDisposer_disposeFrames_Test extends SequentialEDTSafeTestCase {
@@ -58,14 +57,11 @@ public class FrameDisposer_disposeFrames_Test extends SequentialEDTSafeTestCase 
     @RunsInEDT
     static MyWindow[] windows() {
       final List<MyWindow> windows = newArrayList();
-      execute(new GuiTask() {
-        @Override
-        protected void executeInEDT() {
-          for (int i = 0; i < 3; i++) {
-            MyWindow w = new MyWindow();
-            display(w);
-            windows.add(w);
-          }
+      execute(() -> {
+        for (int i = 0; i < 3; i++) {
+          MyWindow w = new MyWindow();
+          display(w);
+          windows.add(w);
         }
       });
       return windows.toArray(new MyWindow[windows.size()]);

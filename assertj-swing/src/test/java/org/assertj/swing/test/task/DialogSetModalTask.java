@@ -19,22 +19,16 @@ import java.awt.Dialog;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Makes an AWT or Swing {@code Dialog} modal. This task is {@code not} executed in the event dispatch thread (EDT.)
+ * Makes an AWT or Swing {@code Dialog} modal. This task is {@code not} executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 public final class DialogSetModalTask {
   @RunsInEDT
   public static void makeModal(final @Nonnull Dialog d, final boolean modal) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        d.setModal(modal);
-      }
-    });
+    execute(() -> d.setModal(modal));
   }
 
   private DialogSetModalTask() {

@@ -23,13 +23,12 @@ import java.util.Set;
 import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.hierarchy.ComponentHierarchy;
 
 /**
  * Finds all the AWT and Swing {@code Components} in a {@link ComponentHierarchy} that match the search criteria
  * specified in a {@link ComponentMatcher}.
- * 
+ *
  * @author Alex Ruiz
  */
 final class FinderDelegate {
@@ -45,7 +44,7 @@ final class FinderDelegate {
 
   @RunsInEDT
   private void find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m, @Nonnull Component root,
-      @Nonnull Set<Component> found) {
+                    @Nonnull Set<Component> found) {
     for (Component c : childrenOfComponent(root, h)) {
       find(h, m, checkNotNull(c), found);
     }
@@ -56,24 +55,14 @@ final class FinderDelegate {
 
   @RunsInEDT
   private static @Nonnull Collection<Component> childrenOfComponent(final @Nonnull Component c,
-      final @Nonnull ComponentHierarchy h) {
-    Collection<Component> children = execute(new GuiQuery<Collection<Component>>() {
-      @Override
-      protected Collection<Component> executeInEDT() {
-        return h.childrenOf(c);
-      }
-    });
+                                                                    final @Nonnull ComponentHierarchy h) {
+    Collection<Component> children = execute(() -> h.childrenOf(c));
     return checkNotNull(children);
   }
 
   @RunsInEDT
   private static boolean isMatching(@Nonnull final Component c, @Nonnull final ComponentMatcher m) {
-    Boolean matching = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return m.matches(c);
-      }
-    });
+    Boolean matching = execute(() -> m.matches(c));
     return checkNotNull(matching);
   }
 
@@ -89,18 +78,12 @@ final class FinderDelegate {
 
   @RunsInEDT
   private static @Nonnull Collection<? extends Component> rootsOf(final @Nonnull ComponentHierarchy h) {
-    Collection<? extends Component> roots = execute(new GuiQuery<Collection<? extends Component>>() {
-      @Override
-      protected Collection<? extends Component> executeInEDT() {
-        return h.roots();
-      }
-    });
-    return checkNotNull(roots);
+    return checkNotNull(execute(() -> h.roots()));
   }
 
   @RunsInEDT
   private <T extends Component> void find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m,
-      @Nonnull Component root, Set<T> found) {
+                                          @Nonnull Component root, Set<T> found) {
     for (Component c : childrenOfComponent(root, h)) {
       find(h, m, checkNotNull(c), found);
     }
@@ -111,13 +94,8 @@ final class FinderDelegate {
 
   @RunsInEDT
   private static <T extends Component> boolean isMatching(final @Nonnull Component c,
-      final @Nonnull GenericTypeMatcher<T> m) {
-    Boolean matching = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return m.matches(c);
-      }
-    });
+                                                          final @Nonnull GenericTypeMatcher<T> m) {
+    Boolean matching = execute(() -> m.matches(c));
     return checkNotNull(matching);
   }
 }

@@ -18,22 +18,16 @@ import javax.annotation.Nonnull;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Closes a {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT.)
+ * Closes a {@code JInternalFrame}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Yvonne Wang
  */
 final class JInternalFrameCloseTask {
   @RunsInEDT
   static void close(final @Nonnull JInternalFrame internalFrame) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        internalFrame.doDefaultCloseAction();
-      }
-    });
+    execute(() -> internalFrame.doDefaultCloseAction());
   }
 
   private JInternalFrameCloseTask() {

@@ -14,15 +14,22 @@ package org.assertj.swing.testng.listener;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
+import org.testng.IClass;
 import org.testng.IResultMap;
 import org.testng.ISuite;
 import org.testng.ITestContext;
 import org.testng.ITestNGMethod;
+import org.testng.xml.XmlTest;
+
+import com.google.inject.Injector;
+import com.google.inject.Module;
 
 /**
  * Understands an <code>{@link ITestContext}</code> stub for testing purposes.
- * 
+ *
  * @author Alex Ruiz
  */
 public class TestContextStub implements ITestContext {
@@ -146,5 +153,47 @@ public class TestContextStub implements ITestContext {
   /** @see org.testng.ITestContext#setAttribute(java.lang.String, java.lang.Object) */
   @Override
   public void setAttribute(String arg0, Object arg1) {
+  }
+
+  @Override
+  public Set<String> getAttributeNames() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Object removeAttribute(String name) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public XmlTest getCurrentXmlTest() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public List<Module> getGuiceModules(Class<? extends Module> cls) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Injector getInjector(List<Module> moduleInstances) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Injector getInjector(IClass iClass) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void addInjector(List<Module> moduleInstances, Injector injector) {
+    // TODO Auto-generated method stub
+
   }
 }

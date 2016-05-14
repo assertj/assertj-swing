@@ -16,11 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.mockito.Mockito.when;
 
-import javax.swing.JList;
-
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.cell.JListCellReader;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.TextMatcher;
 import org.junit.Test;
 
@@ -48,11 +44,6 @@ public class JListMatchingItemQuery_matchingItemIndex_Test extends JListMatching
 
   @RunsInEDT
   private int matchingItemIndex(final TextMatcher matcher) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return JListMatchingItemQuery.matchingItemIndex(list, matcher, cellReader);
-      }
-    });
+    return execute(() -> JListMatchingItemQuery.matchingItemIndex(list, matcher, cellReader));
   }
 }

@@ -21,14 +21,13 @@ import java.awt.Component;
 import javax.swing.JButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.swing.TestDialog;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link WindowFilter#isIgnored(Component)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class WindowFilter_isIgnored_Test extends WindowFilter_TestCase {
@@ -62,23 +61,13 @@ public class WindowFilter_isIgnored_Test extends WindowFilter_TestCase {
 
   @RunsInEDT
   private static boolean isComponentIgnored(final WindowFilter filter, final Component c) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return filter.isIgnored(c);
-      }
-    });
+    return execute(() -> filter.isIgnored(c));
   }
 
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() throws Throwable {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JButton button = new JButton("Press Me");

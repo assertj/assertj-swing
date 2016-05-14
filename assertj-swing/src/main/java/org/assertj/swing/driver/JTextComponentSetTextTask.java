@@ -18,22 +18,16 @@ import javax.annotation.Nonnull;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Sets text in a given {@code JTextComponent}. This task is executed in the event dispatch thread (EDT.)
+ * Sets text in a given {@code JTextComponent}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JTextComponentSetTextTask {
   @RunsInEDT
   static void setTextIn(final @Nonnull JTextComponent textBox, final String text) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        textBox.setText(text);
-      }
-    });
+    execute(() -> textBox.setText(text));
   }
 
   private JTextComponentSetTextTask() {

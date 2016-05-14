@@ -20,29 +20,28 @@ import org.assertj.swing.format.Formatting;
 import com.jidesoft.combobox.AbstractComboBox;
 
 /**
- * Understands an action that validates that the editor of a <code>{@link
- * ListComboBox}</code> is accessible or not. To be accessible, a <code>ListComboBox</code> needs to be enabled and
- * editable.
+ * Understands an action that validates that the editor of a <code>{@link com.jidesoft.combobox.ListComboBox}</code> is
+ * accessible or not. To be accessible, a <code>ListComboBox</code> needs to be enabled and editable.
  * <p>
- * <b>Note:</b> Methods in this class are <b>not</b> executed in the event dispatch thread (EDT.) Clients are
+ * <b>Note:</b> Methods in this class are <b>not</b> executed in the event dispatch thread (EDT). Clients are
  * responsible for invoking them in the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
- * @see ListComboBox#isEditable()
+ * @see com.jidesoft.combobox.ListComboBox#isEditable()
  * @see java.awt.Component#isEnabled()
  */
 public class AbstractComboBoxAccessibleEditorValidator {
 
   @RunsInCurrentThread
   public static void validateEditorIsAccessible(AbstractComboBox comboBox) {
-	ComponentPreconditions.checkEnabledAndShowing(comboBox);
-	if (!comboBox.isEditable()) {
-	  throw new IllegalStateException(Strings.concat("Expecting component ",
-		                                             Formatting.format(comboBox),
-		                                             " to be editable"));
-	}
+    ComponentPreconditions.checkEnabledAndShowing(comboBox);
+    if (!comboBox.isEditable()) {
+      throw new IllegalStateException(Strings.concat("Expecting component ",
+                                                     Formatting.format(comboBox),
+                                                     " to be editable"));
+    }
   }
 
   private AbstractComboBoxAccessibleEditorValidator() {

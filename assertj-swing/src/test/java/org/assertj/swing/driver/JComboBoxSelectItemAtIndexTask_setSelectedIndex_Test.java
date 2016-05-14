@@ -19,7 +19,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
@@ -51,12 +50,7 @@ public class JComboBoxSelectItemAtIndexTask_setSelectedIndex_Test extends RobotB
 
   @RunsInEDT
   private static int selectedIndexOf(final JComboBox comboBox) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return comboBox.getSelectedIndex();
-      }
-    });
+    return execute(() -> comboBox.getSelectedIndex());
   }
 
   private static class MyWindow extends TestWindow {
@@ -64,12 +58,7 @@ public class JComboBoxSelectItemAtIndexTask_setSelectedIndex_Test extends RobotB
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

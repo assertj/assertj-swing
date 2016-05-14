@@ -26,8 +26,6 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerListModel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -69,12 +67,7 @@ public abstract class JSpinnerDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setJLabelAsEditorIn(final JSpinner spinner) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        spinner.setEditor(new JLabel());
-      }
-    });
+    execute(() -> spinner.setEditor(new JLabel()));
   }
 
   @RunsInEDT
@@ -91,12 +84,7 @@ public abstract class JSpinnerDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setValue(final JSpinner spinner, final Object value) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        spinner.setValue(value);
-      }
-    });
+    execute(() -> spinner.setValue(value));
   }
 
   @RunsInEDT
@@ -120,12 +108,7 @@ public abstract class JSpinnerDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

@@ -26,15 +26,13 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Tests for {@link JTreeToggleExpandStateTask#toggleExpandState(JTree, Point)}.
- * 
+ *
  * @author Yvonne Wang
  */
 public class JTreeToggleExpandStateTask_toggleExpandState_Test extends RobotBasedTestCase {
@@ -58,13 +56,10 @@ public class JTreeToggleExpandStateTask_toggleExpandState_Test extends RobotBase
 
   @RunsInEDT
   private static void toggleExpandState(final JTree tree, final TreePath rootPath) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        Rectangle pathBounds = tree.getPathBounds(rootPath);
-        Point p = new Point(pathBounds.x + pathBounds.width / 2, pathBounds.y + pathBounds.height / 2);
-        JTreeToggleExpandStateTask.toggleExpandState(tree, p);
-      }
+    execute(() -> {
+      Rectangle pathBounds = tree.getPathBounds(rootPath);
+      Point p = new Point(pathBounds.x + pathBounds.width / 2, pathBounds.y + pathBounds.height / 2);
+      JTreeToggleExpandStateTask.toggleExpandState(tree, p);
     });
   }
 
@@ -79,12 +74,7 @@ public class JTreeToggleExpandStateTask_toggleExpandState_Test extends RobotBase
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

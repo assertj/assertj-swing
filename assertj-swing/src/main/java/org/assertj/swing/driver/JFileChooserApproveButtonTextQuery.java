@@ -17,34 +17,29 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JFileChooser;
-import javax.swing.plaf.FileChooserUI;
 
 import org.assertj.core.util.Strings;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the text used in the "approve button" of a {@code JFileChooser}. This action is executed in the event
- * dispatch thread (EDT.)
- * 
+ * dispatch thread (EDT).
+ *
  * @see JFileChooser#getApproveButtonText()
- * @see FileChooserUI#getApproveButtonText(JFileChooser)
- * 
+ * @see javax.swing.plaf.FileChooserUI#getApproveButtonText(JFileChooser)
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JFileChooserApproveButtonTextQuery {
   @RunsInEDT
   static @Nullable String approveButtonTextFrom(final @Nonnull JFileChooser fileChooser) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        String text = fileChooser.getApproveButtonText();
-        if (!Strings.isNullOrEmpty(text)) {
-          return text;
-        }
-        return fileChooser.getUI().getApproveButtonText(fileChooser);
+    return execute(() -> {
+      String text = fileChooser.getApproveButtonText();
+      if (!Strings.isNullOrEmpty(text)) {
+        return text;
       }
+      return fileChooser.getUI().getApproveButtonText(fileChooser);
     });
   }
 

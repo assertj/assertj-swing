@@ -15,7 +15,7 @@ package org.assertj.swing.junit.ant;
 import static org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.getFilteredTrace;
 
 /**
- * Understands how to filter a stack trace (by removing all <code>junit.runner.BaseTestRunner</code>.)
+ * Understands how to filter a stack trace (by removing all <code>junit.runner.BaseTestRunner</code>).
  * 
  * @author Alex Ruiz
  */

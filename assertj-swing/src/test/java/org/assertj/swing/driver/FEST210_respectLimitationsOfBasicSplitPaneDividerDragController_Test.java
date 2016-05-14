@@ -25,7 +25,6 @@ import java.util.Collection;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
@@ -35,7 +34,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-210" target="_blank">FEST-210</a>
- * 
+ *
  * @author Alex Ruiz
  */
 @RunWith(Parameterized.class)
@@ -77,12 +76,7 @@ public class FEST210_respectLimitationsOfBasicSplitPaneDividerDragController_Tes
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew(final int orientation) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(orientation);
-        }
-      });
+      return execute(() -> new MyWindow(orientation));
     }
 
     final JPanel leftPanel = newPanel();

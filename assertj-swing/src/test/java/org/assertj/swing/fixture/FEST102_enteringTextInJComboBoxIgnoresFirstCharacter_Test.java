@@ -23,14 +23,13 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
 
 /**
  * Test case for bug <a href="http://jira.codehaus.org/browse/FEST-102" target="_blank">FEST-102</a>
- * 
+ *
  * @author Alex Ruiz
  */
 public class FEST102_enteringTextInJComboBoxIgnoresFirstCharacter_Test extends RobotBasedTestCase {
@@ -62,13 +61,7 @@ public class FEST102_enteringTextInJComboBoxIgnoresFirstCharacter_Test extends R
   @RunsInEDT
   private static String textOf(JComboBoxFixture comboBox) {
     final JComboBox c = comboBox.target();
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        JTextField editor = (JTextField) c.getEditor().getEditorComponent();
-        return editor.getText();
-      }
-    });
+    return execute(() -> ((JTextField) c.getEditor().getEditorComponent()).getText());
   }
 
   private static class MyWindow extends TestWindow {
@@ -76,12 +69,7 @@ public class FEST102_enteringTextInJComboBoxIgnoresFirstCharacter_Test extends R
 
     @RunsInEDT
     static MyWindow createNew(final Vector<?> comboBoxItems) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(comboBoxItems);
-        }
-      });
+      return execute(() -> new MyWindow(comboBoxItems));
     }
 
     private MyWindow(Vector<?> comboBoxItems) {

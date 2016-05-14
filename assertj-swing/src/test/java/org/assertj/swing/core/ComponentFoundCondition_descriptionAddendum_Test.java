@@ -23,7 +23,6 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.WaitTimedOutError;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.swing.TestWindow;
@@ -34,7 +33,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ComponentFoundCondition#descriptionAddendum()}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class ComponentFoundCondition_descriptionAddendum_Test {
@@ -54,8 +53,8 @@ public class ComponentFoundCondition_descriptionAddendum_Test {
     Condition condition = new ComponentFoundCondition("JButton to be found", finder, byType(JButton.class));
     thrown.expect(WaitTimedOutError.class);
     thrown.expectMessageToContain("Timed out waiting for JButton to be found",
-        "Unable to find component using matcher", "MyWindow[name='myWindow'",
-        "javax.swing.JLabel[name=null, text='Hello'");
+                                  "Unable to find component using matcher", "MyWindow[name='myWindow'",
+                                  "javax.swing.JLabel[name=null, text='Hello'");
     pause(condition, 1000);
   }
 
@@ -64,8 +63,9 @@ public class ComponentFoundCondition_descriptionAddendum_Test {
     ComponentFoundCondition condition = new ComponentFoundCondition("JLabel to be found", finder, byType(JLabel.class));
     thrown.expect(WaitTimedOutError.class);
     thrown.expectMessageToContain("Timed out waiting for JLabel to be found",
-        "Found more than one component using matcher", "javax.swing.JLabel[name=null, text='Hello'",
-        "javax.swing.JLabel[name=null, text='World'");
+                                  "Found more than one component using matcher",
+                                  "javax.swing.JLabel[name=null, text='Hello'",
+                                  "javax.swing.JLabel[name=null, text='World'");
     try {
       pause(condition, 1000);
     } finally {
@@ -80,12 +80,7 @@ public class ComponentFoundCondition_descriptionAddendum_Test {
   private static class MyWindow extends TestWindow {
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JLabel helloLabel = new JLabel("Hello");

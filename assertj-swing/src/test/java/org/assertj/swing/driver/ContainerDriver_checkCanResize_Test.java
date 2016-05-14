@@ -27,7 +27,6 @@ import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestMdiWindow;
@@ -144,12 +143,7 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void makeNotResizable(final JInternalFrame internalFrame) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        internalFrame.setResizable(false);
-      }
-    });
+    execute(() -> internalFrame.setResizable(false));
   }
 
   @Test
@@ -167,11 +161,6 @@ public class ContainerDriver_checkCanResize_Test extends RobotBasedTestCase {
 
   @RunsInEDT
   private void checkCanResize(final Container c) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        driver.checkCanResize(c);
-      }
-    });
+    execute(() -> driver.checkCanResize(c));
   }
 }

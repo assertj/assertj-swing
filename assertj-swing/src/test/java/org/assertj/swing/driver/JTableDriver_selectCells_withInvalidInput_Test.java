@@ -12,8 +12,6 @@
  */
 package org.assertj.swing.driver;
 
-import javax.swing.JTable;
-
 import org.assertj.swing.data.TableCell;
 import org.junit.Test;
 

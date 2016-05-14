@@ -26,17 +26,17 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * <p>
  * Returns the bounding rectangle for the cell specified by the given index.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
- * event dispatch thread (EDT.) Client code must call methods in this class from the EDT.
+ * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 final class JListCellBoundsQuery {
   @RunsInCurrentThread
-  static @Nullable Rectangle cellBounds(@Nonnull JList list, int index) {
+  static @Nullable Rectangle cellBounds(@Nonnull JList<?> list, int index) {
     checkIndexInBounds(list, index);
     return list.getCellBounds(index, index);
   }

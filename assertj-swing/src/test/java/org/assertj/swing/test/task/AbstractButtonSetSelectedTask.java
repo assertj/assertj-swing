@@ -18,22 +18,16 @@ import javax.annotation.Nonnull;
 import javax.swing.AbstractButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Selects/deselects a Swing {@code AbstractButton}. This task is executed in the event dispatch thread (EDT.)
+ * Selects/deselects a Swing {@code AbstractButton}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 public final class AbstractButtonSetSelectedTask {
   @RunsInEDT
   public static void setSelected(final @Nonnull AbstractButton button, final boolean selected) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        button.setSelected(selected);
-      }
-    });
+    execute(() -> button.setSelected(selected));
   }
 
   private AbstractButtonSetSelectedTask() {

@@ -26,7 +26,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JListItemFixture}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JListItemFixture_withMocks_Test {
@@ -46,6 +46,12 @@ public class JListItemFixture_withMocks_Test {
   public void should_Call_SelectItem_In_JListFixture_And_Return_Self() {
     assertThat(fixture.select()).isSameAs(fixture);
     verify(list).selectItem(index);
+  }
+
+  @Test
+  public void should_Call_UnselectItem_In_JListFixture_And_Return_Self() {
+    assertThat(fixture.unselect()).isSameAs(fixture);
+    verify(list).unselectItem(index);
   }
 
   @Test

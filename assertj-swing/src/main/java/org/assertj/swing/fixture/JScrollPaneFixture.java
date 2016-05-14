@@ -19,7 +19,6 @@ import javax.swing.JScrollPane;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JScrollPaneDriver;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JScrollPane}s.

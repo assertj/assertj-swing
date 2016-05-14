@@ -18,13 +18,12 @@ import javax.annotation.Nullable;
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.core.MouseButton;
 import org.assertj.swing.core.MouseClickInfo;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of single nodes, referenced by their row indices, in {@code JTree}s.
- * 
+ *
  * @author Alex Ruiz
+ * @author Christian Rösch
  */
 public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
   private final int index;
@@ -32,7 +31,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Creates a new {@link JTreeRowFixture}.
-   * 
+   *
    * @param tree handles the {@code JTree} containing the node with the given row index.
    * @param index the given row index.
    */
@@ -43,7 +42,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Simulates a user expanding this fixture's tree node.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
@@ -57,7 +56,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Simulates a user collapsing this fixture's tree node.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
@@ -72,7 +71,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
   /**
    * Selects the this fixture's tree node, expanding parent nodes if necessary. This method will not click the node if
    * it is already selected.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
@@ -84,8 +83,21 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
   }
 
   /**
+   * Unselects the this fixture's tree node, expanding parent nodes if necessary. This method will not click the node if
+   * it is not selected.
+   *
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
+   */
+  public @Nonnull JTreeRowFixture unselect() {
+    tree.unselectRow(index);
+    return this;
+  }
+
+  /**
    * Simulates a user clicking this fixture's tree node.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
@@ -98,7 +110,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Simulates a user clicking this fixture's tree node.
-   * 
+   *
    * @param button the button to click.
    * @return this fixture.
    * @throws NullPointerException if the given button is {@code null}.
@@ -113,7 +125,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Simulates a user clicking this fixture's tree node.
-   * 
+   *
    * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
@@ -128,7 +140,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Simulates a user double-clicking this fixture's tree node.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
@@ -141,7 +153,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Simulates a user right-clicking this fixture's tree node.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
@@ -154,7 +166,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Simulates a user dragging this fixture's tree node.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
@@ -167,7 +179,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Simulates a user dropping relative to this fixture's tree node.
-   * 
+   *
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
@@ -181,7 +193,7 @@ public class JTreeRowFixture implements JTreeNodeFixture<JTreeRowFixture> {
 
   /**
    * Shows a pop-up menu using this fixture's tree node as the invoker of the pop-up menu.
-   * 
+   *
    * @return a fixture that handles functional testing of the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.

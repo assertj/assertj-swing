@@ -23,7 +23,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link ComponentDriver#click(java.awt.Component, java.awt.Point)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -43,9 +43,21 @@ public class ComponentDriver_clickComponentAtPoint_Test extends ComponentDriver_
   }
 
   @Test
-  public void should_Throw_Error_If_Component_Is_Disabled() {
-    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
+  public void should_Click_Disabled_Component() {
+    showWindow();
     disableButton();
+    Point center = centerOf(window.button);
+    Point where = new Point(center.x + 1, center.y + 1);
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
+    driver.click(window.button, where);
+    recorder.wasClicked().clickedAt(where).timesClicked(1);
+  }
+
+  @Test
+  public void should_Throw_Error_If_Component_Is_Disabled_And_ClickOnDisabledAllowd_Is_False() {
+    robot.settings().clickOnDisabledComponentsAllowed(false);
+    disableButton();
+    ClickRecorder recorder = clickRecorder.attachDirectlyTo(window.button);
     thrown.expectIllegalStateIsDisabledComponent();
     try {
       driver.click(window.button, new Point(10, 10));

@@ -25,7 +25,6 @@ import java.awt.Frame;
 import java.awt.Window;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.awt.ToolkitStub;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -56,12 +55,7 @@ public abstract class WindowMonitor_TestCase extends SequentialEDTSafeTestCase {
 
   private void createWindowMonitor() {
     when(windowStatus.windows()).thenReturn(windows);
-    monitor = execute(new GuiQuery<WindowMonitor>() {
-      @Override
-      protected WindowMonitor executeInEDT() {
-        return new WindowMonitor(toolkit, context, windowStatus);
-      }
-    });
+    monitor = execute(() -> new WindowMonitor(toolkit, context, windowStatus));
     for (Frame f : Frame.getFrames()) {
       verifyWasExamined(f);
     }
@@ -79,12 +73,7 @@ public abstract class WindowMonitor_TestCase extends SequentialEDTSafeTestCase {
 
   @RunsInEDT
   private static Window[] ownedWindowsOf(final Window w) {
-    return execute(new GuiQuery<Window[]>() {
-      @Override
-      protected Window[] executeInEDT() {
-        return w.getOwnedWindows();
-      }
-    });
+    return execute(() -> w.getOwnedWindows());
   }
 
   @Override

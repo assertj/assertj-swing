@@ -26,7 +26,7 @@ import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.timing.Condition;
 
 /**
- * Makes an AWT or Swing {@code Frame} visible. This task is <b>not</b> executed in the event dispatch thread (EDT.)
+ * Makes an AWT or Swing {@code Frame} visible. This task is <b>not</b> executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang

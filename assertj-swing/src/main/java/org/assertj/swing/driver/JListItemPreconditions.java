@@ -21,22 +21,22 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * <p>
  * Verifies correct state of items in a {@code JList}.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> Methods in this class are accessed in the current executing thread. Such thread may or may not be the
- * event dispatch thread (EDT.) Client code must call methods in this class from the EDT.
+ * event dispatch thread (EDT). Client code must call methods in this class from the EDT.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 final class JListItemPreconditions {
   @RunsInCurrentThread
-  static void checkIndexInBounds(@Nonnull JList list, int index) {
+  static void checkIndexInBounds(@Nonnull JList<?> list, int index) {
     checkIndexInBounds(index, list.getModel().getSize());
   }
 
   @RunsInCurrentThread
-  static void checkIndicesInBounds(@Nonnull JList list, @Nonnull int... indices) {
+  static void checkIndicesInBounds(@Nonnull JList<?> list, @Nonnull int... indices) {
     int itemCount = list.getModel().getSize();
     for (int index : indices) {
       checkIndexInBounds(index, itemCount);

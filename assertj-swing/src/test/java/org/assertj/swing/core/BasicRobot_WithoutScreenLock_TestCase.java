@@ -25,7 +25,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.EDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.After;
@@ -76,12 +75,7 @@ public class BasicRobot_WithoutScreenLock_TestCase extends EDTSafeTestCase {
 
     @RunsInEDT
     static MyWindow createAndShow(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return display(new MyWindow(testClass));
-        }
-      });
+      return execute(() -> display(new MyWindow(testClass)));
     }
 
     private MyWindow(Class<?> testClass) {

@@ -24,7 +24,7 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the contents of a {@code JTable} as a two-dimensional {@code String} array. This query is executed in the
- * event dispatch thread (EDT.)
+ * event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */

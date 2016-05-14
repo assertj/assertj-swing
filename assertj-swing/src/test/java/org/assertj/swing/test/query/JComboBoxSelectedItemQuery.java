@@ -19,22 +19,16 @@ import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the selected item in a {@code JComboBox}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the selected item in a {@code JComboBox}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 public final class JComboBoxSelectedItemQuery {
   @RunsInEDT
   public static @Nullable Object selectedItemOf(final @Nonnull JComboBox comboBox) {
-    return execute(new GuiQuery<Object>() {
-      @Override
-      protected Object executeInEDT() {
-        return comboBox.getSelectedItem();
-      }
-    });
+    return execute(() -> comboBox.getSelectedItem());
   }
 
   private JComboBoxSelectedItemQuery() {

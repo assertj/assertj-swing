@@ -26,8 +26,6 @@ import javax.swing.JComponent;
 import javax.swing.JInternalFrame;
 import javax.swing.JViewport;
 
-import org.assertj.swing.edt.GuiTask;
-
 /**
  * Utility methods related to scrolling.
  * 
@@ -97,12 +95,7 @@ public final class Scrolling {
    */
   private static void scrollToVisible(@Nonnull Robot robot, final @Nonnull JComponent c,
       final @Nonnull Rectangle rectangle) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        c.scrollRectToVisible(rectangle);
-      }
-    });
+    execute(() -> c.scrollRectToVisible(rectangle));
     robot.waitForIdle();
   }
 

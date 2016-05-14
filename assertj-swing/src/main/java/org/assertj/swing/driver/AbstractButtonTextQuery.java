@@ -15,14 +15,12 @@ package org.assertj.swing.driver;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.AbstractButton;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the text of a Swing {@code AbstractButton}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the text of a Swing {@code AbstractButton}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -30,12 +28,7 @@ import org.assertj.swing.edt.GuiQuery;
 final class AbstractButtonTextQuery {
   @RunsInEDT
   static @Nonnull String textOf(final @Nonnull AbstractButton button) {
-    String result = execute(new GuiQuery<String>() {
-      @Override
-      protected @Nullable String executeInEDT() {
-        return button.getText();
-      }
-    });
+    String result = execute(() -> button.getText());
     return result == null ? "" : result;
   }
 

@@ -30,8 +30,6 @@ import javax.swing.JLabel;
 import javax.swing.text.JTextComponent;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.MethodInvocations;
 import org.assertj.swing.test.core.RobotBasedTestCase;
@@ -40,7 +38,7 @@ import org.junit.Rule;
 
 /**
  * Base test case for {@link JComboBoxDriver}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -114,29 +112,23 @@ public abstract class JComboBoxDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static void setEditableAndSelectFirstItem(final JComboBox comboBox, final boolean editable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        comboBox.setSelectedIndex(0);
-        comboBox.setEditable(editable);
-      }
+    execute(() -> {
+      comboBox.setSelectedIndex(0);
+      comboBox.setEditable(editable);
     });
   }
 
   @RunsInEDT
   final static String textIn(final JComboBox comboBox) {
-    return execute(new GuiQuery<String>() {
-      @Override
-      protected String executeInEDT() {
-        Component editor = comboBox.getEditor().getEditorComponent();
-        if (editor instanceof JLabel) {
-          return ((JLabel) editor).getText();
-        }
-        if (editor instanceof JTextComponent) {
-          return ((JTextComponent) editor).getText();
-        }
-        return null;
+    return execute(() -> {
+      Component editor = comboBox.getEditor().getEditorComponent();
+      if (editor instanceof JLabel) {
+        return ((JLabel) editor).getText();
       }
+      if (editor instanceof JTextComponent) {
+        return ((JTextComponent) editor).getText();
+      }
+      return null;
     });
   }
 
@@ -155,12 +147,7 @@ public abstract class JComboBoxDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final @Nonnull Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(@Nonnull Class<?> testClass) {
@@ -176,7 +163,7 @@ public abstract class JComboBoxDriver_TestCase extends RobotBasedTestCase {
     }
 
     @Override
-    public String valueAt(@Nonnull JComboBox comboBox, int index) {
+    public String valueAt(@Nonnull JComboBox<?> comboBox, int index) {
       methodInvocations.invoked("valueAt");
       return super.valueAt(comboBox, index);
     }

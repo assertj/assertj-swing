@@ -27,13 +27,13 @@ import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns an array of {@code String}s that represents the selection of a given {@code JList}. This query is executed in
- * the event dispatch thread (EDT.)
- * 
+ * the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  */
 final class JListSelectionValuesQuery {
   @RunsInEDT
-  static @Nonnull List<String> selectionValues(final @Nonnull JList list, final @Nonnull JListCellReader cellReader) {
+  static @Nonnull List<String> selectionValues(final @Nonnull JList<?> list, final @Nonnull JListCellReader cellReader) {
     List<String> result = execute(new GuiQuery<List<String>>() {
       @Override
       protected List<String> executeInEDT() {

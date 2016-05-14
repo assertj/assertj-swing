@@ -20,7 +20,6 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -60,12 +59,7 @@ public class JTabbedPaneFixture_constructor_withRobotAndName_Test extends RobotB
 
   private static class MyWindow extends TestWindow {
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     final JTabbedPane tabbedPane = new JTabbedPane();

@@ -21,10 +21,9 @@ import javax.annotation.Nonnull;
 import javax.swing.JFileChooser;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the current directory of a {@code JFileChooser}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the current directory of a {@code JFileChooser}. This query is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -32,19 +31,14 @@ import org.assertj.swing.edt.GuiQuery;
 public final class JFileChooserCurrentDirectoryQuery {
   /**
    * Returns the current directory of the given {@code JFileChooser}. This query is executed in the event dispatch
-   * thread (EDT.)
+   * thread (EDT).
    * 
    * @param fileChooser the given {@code JFileChooser}.
    * @return the current directory of the given {@code JFileChooser}.
    */
   @RunsInEDT
   public static @Nonnull File currentDirectoryOf(final @Nonnull JFileChooser fileChooser) {
-    File result = execute(new GuiQuery<File>() {
-      @Override
-      protected File executeInEDT() {
-        return fileChooser.getCurrentDirectory();
-      }
-    });
+    File result = execute(() -> fileChooser.getCurrentDirectory());
     return checkNotNull(result);
   }
 

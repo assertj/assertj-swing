@@ -12,14 +12,14 @@
  */
 package org.assertj.swing.conditions;
 
+import java.awt.Component;
+
 import org.assertj.swing.core.BasicComponentFinder;
 import org.assertj.swing.core.ComponentFinder;
 import org.assertj.swing.core.ComponentMatcher;
 import org.assertj.swing.core.NameMatcher;
 import org.assertj.swing.exception.ComponentLookupException;
 import org.assertj.swing.timing.Condition;
-
-import java.awt.*;
 
 /**
  * A Condition that requires focus to be inside a component.

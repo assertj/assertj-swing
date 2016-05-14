@@ -22,7 +22,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTextComponentDriver#replaceText(javax.swing.text.JTextComponent, String)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -39,10 +39,5 @@ public class JTextComponentDriver_replaceText_withInvalidInput_Test {
   @Test(expected = NullPointerException.class)
   public void should_Throw_Error_If_Replacement_Text_Is_Null() {
     driver.replaceText(textField, null);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void should_Throw_Error_If_Replacement_Text_Is_Empty() {
-    driver.replaceText(textField, "");
   }
 }

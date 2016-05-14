@@ -21,10 +21,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Returns the parent of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT.)
+ * Returns the parent of an AWT or Swing {@code Component}. This query is executed in the event dispatch thread (EDT).
  * 
  * @see Component#getParent()
  * 
@@ -34,7 +33,7 @@ import org.assertj.swing.edt.GuiQuery;
 public final class ComponentParentQuery {
   /**
    * Returns the parent of the given AWT or Swing {@code Component}. This query is executed in the event dispatch thread
-   * (EDT.)
+   * (EDT).
    * 
    * @param component the given {@code Component}.
    * @return the parent of the given {@code Component}.
@@ -42,12 +41,7 @@ public final class ComponentParentQuery {
    */
   @RunsInEDT
   public static @Nullable Container parentOf(final @Nonnull Component component) {
-    return execute(new GuiQuery<Container>() {
-      @Override
-      protected @Nullable Container executeInEDT() {
-        return component.getParent();
-      }
-    });
+    return execute(() -> component.getParent());
   }
 
   private ComponentParentQuery() {

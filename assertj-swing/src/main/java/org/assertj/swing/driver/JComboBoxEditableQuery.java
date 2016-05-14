@@ -19,23 +19,17 @@ import javax.swing.JComboBox;
 
 import org.assertj.core.util.Preconditions;
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
- * Indicates whether a {@code JComboBox} is editable or not. This action is executed in the event dispatch thread (EDT.)
- * 
+ * Indicates whether a {@code JComboBox} is editable or not. This action is executed in the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JComboBoxEditableQuery {
   @RunsInEDT
-  static boolean isEditable(final @Nonnull JComboBox comboBox) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return comboBox.isEditable();
-      }
-    });
+  static boolean isEditable(final @Nonnull JComboBox<?> comboBox) {
+    Boolean result = execute(() -> comboBox.isEditable());
     return Preconditions.checkNotNull(result);
   }
 

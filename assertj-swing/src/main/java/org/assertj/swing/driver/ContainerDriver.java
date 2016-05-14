@@ -244,7 +244,7 @@ public abstract class ContainerDriver extends ComponentDriver {
     moveMouseIgnoringAnyError(c, p.x + x, p.y + y);
   }
 
-  // Returns where the mouse usually grabs to move a container (or window.) Center of the top of the frame is usually a
+  // Returns where the mouse usually grabs to move a container (or window). Center of the top of the frame is usually a
   // good choice.
   private @Nonnull Point moveLocation(@Nonnull Dimension size, @Nonnull Insets insets) {
     return new Point(size.width / 2, insets.top / 2);

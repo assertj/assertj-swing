@@ -21,7 +21,6 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.timing.Condition;
 
 /**
@@ -79,12 +78,7 @@ public final class JOptionPaneLauncher {
    */
   @RunsInEDT
   public static JDialog pack(final JOptionPane optionPane, final String title) {
-    final JDialog dialog = execute(new GuiQuery<JDialog>() {
-      @Override
-      protected JDialog executeInEDT() {
-        return host(optionPane, title);
-      }
-    });
+    final JDialog dialog = execute(() -> host(optionPane, title));
     return dialog;
   }
 

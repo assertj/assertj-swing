@@ -46,7 +46,7 @@ public final class JToolBarLocation {
    * 
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    * 
    * @param toolBar the target {@code JToolBar}.
@@ -78,7 +78,7 @@ public final class JToolBarLocation {
    * 
    * <p>
    * <b>Note:</b> This method is accessed in the current executing thread. Such thread may or may not be the event
-   * dispatch thread (EDT.) Client code must call this method from the EDT.
+   * dispatch thread (EDT). Client code must call this method from the EDT.
    * </p>
    * 
    * @param toolBar the target {@code JToolBar}.

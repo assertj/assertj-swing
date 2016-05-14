@@ -23,12 +23,11 @@ import javax.annotation.Nonnull;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.applet.AppletViewer;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.timing.Condition;
 
 /**
- * Creates and shows a new {@link AppletViewer}. This task is executed in the event dispatch thread (EDT.)
- * 
+ * Creates and shows a new {@link AppletViewer}. This task is executed in the event dispatch thread (EDT).
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -36,14 +35,11 @@ final class NewAppletViewerQuery {
   // TODO test
   @RunsInEDT
   static @Nonnull AppletViewer showAppletViewerWith(final @Nonnull Applet applet,
-      final @Nonnull Map<String, String> parameters) {
+                                                    final @Nonnull Map<String, String> parameters) {
     final AppletViewer viewer = newViewer(applet, parameters);
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        viewer.pack();
-        viewer.setVisible(true);
-      }
+    execute(() -> {
+      viewer.pack();
+      viewer.setVisible(true);
     });
     pause(new Condition("new AppletViewer to be showing") {
       @Override

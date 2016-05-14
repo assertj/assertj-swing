@@ -25,7 +25,6 @@ import javax.swing.JMenuItem;
 
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.ComponentFinder;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.core.SequentialEDTSafeTestCase;
 import org.assertj.swing.test.swing.TestWindow;
 import org.junit.Test;
@@ -63,12 +62,7 @@ public class JMenuItemMatcher_matches_Test extends SequentialEDTSafeTestCase {
 
     @RunsInEDT
     static MyWindow createNew() {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow();
-        }
-      });
+      return execute(() -> new MyWindow());
     }
 
     private MyWindow() {

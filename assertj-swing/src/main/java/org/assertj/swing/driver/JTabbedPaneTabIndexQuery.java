@@ -19,30 +19,26 @@ import javax.annotation.Nonnull;
 import javax.swing.JTabbedPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.TextMatcher;
 
 /**
  * Returns the index of a tab (in a {@code JTabbedPane}) whose title matches the given text. This query is executed in
- * the event dispatch thread (EDT.)
- * 
+ * the event dispatch thread (EDT).
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 final class JTabbedPaneTabIndexQuery {
   @RunsInEDT
   static int indexOfTab(final @Nonnull JTabbedPane tabbedPane, final @Nonnull TextMatcher matcher) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        int tabCount = tabbedPane.getTabCount();
-        for (int i = 0; i < tabCount; i++) {
-          if (matcher.isMatching(tabbedPane.getTitleAt(i))) {
-            return i;
-          }
+    Integer result = execute(() -> {
+      int tabCount = tabbedPane.getTabCount();
+      for (int i = 0; i < tabCount; i++) {
+        if (matcher.isMatching(tabbedPane.getTitleAt(i))) {
+          return i;
         }
-        return -1;
       }
+      return -1;
     });
     return checkNotNull(result);
   }

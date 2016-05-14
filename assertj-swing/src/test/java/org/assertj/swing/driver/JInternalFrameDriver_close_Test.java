@@ -18,8 +18,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.junit.Test;
 
 /**
@@ -38,12 +36,7 @@ public class JInternalFrameDriver_close_Test extends JInternalFrameDriver_TestCa
 
   @RunsInEDT
   private static boolean isClosed(final JInternalFrame internalFrame) {
-    return execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return internalFrame.isClosed();
-      }
-    });
+    return execute(() -> internalFrame.isClosed());
   }
 
   @Test
@@ -63,11 +56,6 @@ public class JInternalFrameDriver_close_Test extends JInternalFrameDriver_TestCa
 
   @RunsInEDT
   private static void setClosable(final JInternalFrame internalFrame, final boolean closeable) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        internalFrame.setClosable(closeable);
-      }
-    });
+    execute(() -> internalFrame.setClosable(closeable));
   }
 }

@@ -18,7 +18,6 @@ import static java.lang.String.valueOf;
 import static javax.swing.text.DefaultEditorKit.deletePrevCharAction;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.isNullOrEmpty;
 import static org.assertj.core.util.Strings.quote;
@@ -50,8 +49,6 @@ import org.assertj.core.description.Description;
 import org.assertj.swing.annotation.RunsInCurrentThread;
 import org.assertj.swing.annotation.RunsInEDT;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.edt.GuiQuery;
-import org.assertj.swing.edt.GuiTask;
 import org.assertj.swing.exception.ActionFailedException;
 import org.assertj.swing.internal.annotation.InternalApi;
 import org.assertj.swing.util.Pair;
@@ -61,12 +58,12 @@ import org.assertj.swing.util.Platform;
  * <p>
  * Supports functional testing of {@code JTextComponent}s.
  * </p>
- * 
+ *
  * <p>
  * <b>Note:</b> This class is intended for internal use only. Please use the classes in the package
  * {@link org.assertj.swing.fixture} in your tests.
  * </p>
- * 
+ *
  * @author Alex Ruiz
  */
 @InternalApi
@@ -76,7 +73,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Creates a new {@link JTextComponentDriver}.
-   * 
+   *
    * @param robot the robot to use to simulate user input.
    */
   public JTextComponentDriver(@Nonnull Robot robot) {
@@ -85,7 +82,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Deletes the text of the {@code JTextComponent}.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
    * @throws IllegalStateException if the {@code JTextComponent} is not showing on the screen.
@@ -98,9 +95,9 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Types the given text into the {@code JTextComponent}, replacing any existing text already there.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
-   * @param text the text to enter.
+   * @param text the text to enter. Uses {@link #deleteText(JTextComponent)} if this is an empty string.
    * @throws NullPointerException if the text to enter is {@code null}.
    * @throws IllegalArgumentException if the text to enter is empty.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
@@ -108,14 +105,18 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
    */
   @RunsInEDT
   public void replaceText(@Nonnull JTextComponent textBox, @Nonnull String text) {
-    checkNotNullOrEmpty(text);
-    selectAll(textBox);
-    enterText(textBox, text);
+    checkNotNull(text);
+    if (text.isEmpty()) {
+      deleteText(textBox);
+    } else {
+      selectAll(textBox);
+      enterText(textBox, text);
+    }
   }
 
   /**
    * Selects the text in the {@code JTextComponent}.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
    * @throws IllegalStateException if the {@code JTextComponent} is not showing on the screen.
@@ -128,7 +129,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Types the given text into the {@code JTextComponent}.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param text the text to enter.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
@@ -148,7 +149,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
    * <p>
    * Primarily desired for speeding up tests when precise user event fidelity isn't necessary.
    * </p>
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param text the text to enter.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
@@ -163,7 +164,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Select the given text range.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param text the text to select.
    * @throws IllegalStateException if the {@code JTextComponent} is disabled.
@@ -182,23 +183,20 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   @RunsInEDT
   private static int indexOfText(final @Nonnull JTextComponent textBox, final @Nonnull String text) {
-    Integer result = execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        checkEnabledAndShowing(textBox);
-        String actualText = textBox.getText();
-        if (isNullOrEmpty(actualText)) {
-          return -1;
-        }
-        return actualText.indexOf(text);
+    Integer result = execute(() -> {
+      checkEnabledAndShowing(textBox);
+      String actualText = textBox.getText();
+      if (isNullOrEmpty(actualText)) {
+        return -1;
       }
+      return actualText.indexOf(text);
     });
     return checkNotNull(result);
   }
 
   /**
    * Select the given text range.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param start the starting index of the selection.
    * @param end the ending index of the selection.
@@ -215,30 +213,22 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   @RunsInEDT
   private static @Nonnull Point checkStateAndScrollToPosition(final @Nonnull JTextComponent textBox, final int index) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        checkEnabledAndShowing(textBox);
-        return scrollToVisible(textBox, index);
-      }
+    Point result = execute(() -> {
+      checkEnabledAndShowing(textBox);
+      return scrollToVisible(textBox, index);
     });
     return checkNotNull(result);
   }
 
   @RunsInEDT
   private static @Nonnull Point scrollToPosition(final @Nonnull JTextComponent textBox, final int index) {
-    Point result = execute(new GuiQuery<Point>() {
-      @Override
-      protected Point executeInEDT() {
-        return scrollToVisible(textBox, index);
-      }
-    });
+    Point result = execute(() -> scrollToVisible(textBox, index));
     return checkNotNull(result);
   }
 
   /**
    * Move the pointer to the location of the given index. Takes care of auto-scrolling through text.
-   * 
+   *
    * @param textBox the target {@code JTextComponent}.
    * @param index the given location.
    * @return the position of the pointer after being moved.
@@ -327,13 +317,10 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   @RunsInEDT
   private static void performAndValidateTextSelection(final @Nonnull JTextComponent textBox, final int start,
-      final int end) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        selectTextInRange(textBox, start, end);
-        verifyTextWasSelected(textBox, start, end);
-      }
+                                                      final int end) {
+    execute(() -> {
+      selectTextInRange(textBox, start, end);
+      verifyTextWasSelected(textBox, start, end);
     });
   }
 
@@ -351,7 +338,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the text in the given {@code JTextComponent} is equal to the specified value.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @param expected the text to match. It can be a regular expression pattern.
    * @throws AssertionError if the text of the {@code JTextComponent} is not equal to the given one.
@@ -364,7 +351,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the text in the given {@code JTextComponent} matches the given regular expression pattern.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @param pattern the regular expression pattern to match.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
@@ -378,7 +365,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the given {@code JTextComponent} is empty.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @throws AssertionError if the {@code JTextComponent} is not empty.
    */
@@ -394,7 +381,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the given {@code JTextComponent} is editable.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @throws AssertionError if the {@code JTextComponent} is not editable.
    */
@@ -405,7 +392,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Asserts that the given {@code JTextComponent} is not editable.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @throws AssertionError if the {@code JTextComponent} is editable.
    */
@@ -426,7 +413,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
 
   /**
    * Returns the text of the given {@code JTextComponent}.
-   * 
+   *
    * @param textBox the given {@code JTextComponent}.
    * @return the text of the given {@code JTextComponent}.
    */

@@ -23,7 +23,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.test.ExpectedException;
 import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.assertj.swing.test.swing.TestWindow;
@@ -71,12 +70,7 @@ public abstract class JTabbedPaneDriver_TestCase extends RobotBasedTestCase {
 
   @RunsInEDT
   private static int selectedIndexIn(final JTabbedPane tabbedPane) {
-    return execute(new GuiQuery<Integer>() {
-      @Override
-      protected Integer executeInEDT() {
-        return tabbedPane.getSelectedIndex();
-      }
-    });
+    return execute(() -> tabbedPane.getSelectedIndex());
   }
 
   private static class MyWindow extends TestWindow {
@@ -84,12 +78,7 @@ public abstract class JTabbedPaneDriver_TestCase extends RobotBasedTestCase {
 
     @RunsInEDT
     static MyWindow createNew(final Class<?> testClass) {
-      return execute(new GuiQuery<MyWindow>() {
-        @Override
-        protected MyWindow executeInEDT() {
-          return new MyWindow(testClass);
-        }
-      });
+      return execute(() -> new MyWindow(testClass));
     }
 
     private MyWindow(Class<?> testClass) {

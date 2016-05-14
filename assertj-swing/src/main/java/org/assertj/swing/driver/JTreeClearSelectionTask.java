@@ -18,22 +18,16 @@ import javax.annotation.Nonnull;
 import javax.swing.JTree;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiTask;
 
 /**
- * Clears the selection in a given {@code JTree}. This task is executed in the event dispatch thread (EDT.)
+ * Clears the selection in a given {@code JTree}. This task is executed in the event dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JTreeClearSelectionTask {
   @RunsInEDT
   static void clearSelectionOf(final @Nonnull JTree tree) {
-    execute(new GuiTask() {
-      @Override
-      protected void executeInEDT() {
-        tree.clearSelection();
-      }
-    });
+    execute(() -> tree.clearSelection());
   }
 
   private JTreeClearSelectionTask() {

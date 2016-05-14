@@ -19,23 +19,17 @@ import javax.annotation.Nonnull;
 import javax.swing.JProgressBar;
 
 import org.assertj.swing.annotation.RunsInEDT;
-import org.assertj.swing.edt.GuiQuery;
 
 /**
  * Returns the value of the property "indeterminate" in a {@code JProgressBar}. This query is executed in the event
- * dispatch thread (EDT.)
+ * dispatch thread (EDT).
  * 
  * @author Alex Ruiz
  */
 final class JProgressBarIndeterminateQuery {
   @RunsInEDT
   static boolean isIndeterminate(final @Nonnull JProgressBar progressBar) {
-    Boolean result = execute(new GuiQuery<Boolean>() {
-      @Override
-      protected Boolean executeInEDT() {
-        return progressBar.isIndeterminate();
-      }
-    });
+    Boolean result = execute(() -> progressBar.isIndeterminate());
     return checkNotNull(result);
   }
 
