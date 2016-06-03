@@ -15,6 +15,7 @@ package org.assertj.swing.core;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.awt.AWT.isPointInScreenBoundaries;
 import static org.assertj.swing.awt.AWT.translate;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 import static org.assertj.swing.exception.UnexpectedException.unexpected;
 import static org.assertj.swing.timing.Pause.pause;
@@ -27,7 +28,11 @@ import java.awt.Point;
 import java.awt.Robot;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
+import org.assertj.core.api.filter.FilterOperator;
+import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.edt.GuiQuery;
 import org.assertj.swing.util.RobotFactory;
 
 /**
@@ -67,9 +72,16 @@ class RobotEventGenerator implements InputEventGenerator {
     return robot;
   }
 
+  @RunsInEDT
   @Override
-  public void pressMouse(@Nonnull Component c, @Nonnull Point where, int buttons) {
-    Point p = checkNotNull(translate(c, where.x, where.y));
+  public void pressMouse(@Nonnull final Component c, @Nonnull final Point where, int buttons) {
+    Point p = checkNotNull(
+      execute(new GuiQuery<Point>() {
+        @Nullable @Override protected Point executeInEDT() throws Throwable {
+          return translate(c, where.x, where.y);
+        }
+      }
+    ));
     if (!isPointInScreenBoundaries(p)) {
       throw actionFailure("The component to click is out of the boundaries of the screen");
     }
@@ -97,9 +109,16 @@ class RobotEventGenerator implements InputEventGenerator {
     robot.mouseWheel(amount);
   }
 
+  @RunsInEDT
   @Override
-  public void moveMouse(@Nonnull Component c, int x, int y) {
-    Point p = checkNotNull(translate(c, x, y));
+  public void moveMouse(@Nonnull final Component c, final int x, final int y) {
+    Point p = checkNotNull(
+      execute(new GuiQuery<Point>() {
+        @Nullable @Override protected Point executeInEDT() throws Throwable {
+          return translate(c, x, y);
+        }
+      }
+    ));
     moveMouse(p.x, p.y);
   }
 
