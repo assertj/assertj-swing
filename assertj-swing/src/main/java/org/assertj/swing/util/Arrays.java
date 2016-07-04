@@ -71,7 +71,7 @@ public final class Arrays {
 
   @InternalApi
   public static String format(Object object) {
-    return org.assertj.core.util.Arrays.format(new StandardRepresentation(), object);
+    return new StandardRepresentation().toStringOf(object);
   }
 
   /**
