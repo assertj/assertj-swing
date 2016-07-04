@@ -845,17 +845,18 @@ public class BasicRobot implements Robot {
     } while (eventQueue.peekEvent() != null);
   }
 
-  // Indicates whether we timed out waiting for the invocation to run
+  /** Indicates whether we timed out waiting for the invocation to run. */
   @RunsInEDT
   private boolean postInvocationEvent(@Nonnull EventQueue eventQueue, long timeout) {
     Object lock = new RobotIdleLock();
     synchronized (lock) {
-      eventQueue.postEvent(new InvocationEvent(toolkit, EMPTY_RUNNABLE, lock, true));
+      InvocationEvent event = new InvocationEvent(toolkit, EMPTY_RUNNABLE, lock, true);
+      eventQueue.postEvent(event);
       long start = currentTimeMillis();
       try {
-        // NOTE: on fast linux systems when showing a dialog, if we don't provide a timeout, we're never notified, and
-        // the test will wait forever (up through 1.5.0_05).
-        lock.wait(timeout);
+        while (!event.isDispatched() && currentTimeMillis() - start < timeout) {
+          lock.wait(timeout);
+        }
         return (currentTimeMillis() - start) >= settings.idleTimeout();
       } catch (InterruptedException e) {
       }
