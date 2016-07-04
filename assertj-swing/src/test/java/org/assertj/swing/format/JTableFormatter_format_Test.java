@@ -14,6 +14,7 @@ package org.assertj.swing.format;
 
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JTables.table;
 
 import javax.swing.JTable;
@@ -24,7 +25,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTableFormatter#format(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -35,7 +36,7 @@ public class JTableFormatter_format_Test extends EDTSafeTestCase {
   @Before
   public void setUp() {
     table = table().withRowCount(8).withColumnCount(6).withName("table").withSelectionMode(MULTIPLE_INTERVAL_SELECTION)
-        .createNew();
+                   .createNew();
     formatter = new JTableFormatter();
   }
 
@@ -43,6 +44,29 @@ public class JTableFormatter_format_Test extends EDTSafeTestCase {
   public void should_Format_JTable() {
     String formatted = formatter.format(table);
     assertThat(formatted).contains("javax.swing.JTable").contains("name='table'").contains("rowCount=8")
-        .contains("columnCount=6").contains("enabled=true").contains("visible=true").contains("showing=false");
+                         .contains("columnCount=6").contains("enabled=true").contains("visible=true")
+                         .contains("showing=false");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside() {
+    table = execute(() -> new JTable() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+    });
+    assertThat(formatter.format(table)).startsWith(getClass().getName()).contains("javax.swing.JTable");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside_Anonymous_Class() {
+    table = execute(() -> new JTable() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+      private JTable b = new JTable() {
+        /** Generated serial version UID. */
+        private static final long serialVersionUID = -8731420542549513675L;
+      };
+    }.b);
+    assertThat(formatter.format(table)).startsWith(getClass().getName()).contains("javax.swing.JTable");
   }
 }

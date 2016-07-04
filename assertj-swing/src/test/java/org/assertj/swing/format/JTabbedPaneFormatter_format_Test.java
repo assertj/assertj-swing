@@ -13,6 +13,7 @@
 package org.assertj.swing.format;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JTabbedPanes.tabbedPane;
 
 import javax.swing.JTabbedPane;
@@ -23,7 +24,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTabbedPaneFormatter#format(java.awt.Component)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -40,9 +41,9 @@ public class JTabbedPaneFormatter_format_Test extends EDTSafeTestCase {
     JTabbedPane tabbedPane = tabbedPane().withName("tabbedPane").withTabs("One", "Two").withSelection(1).createNew();
     String formatted = formatter.format(tabbedPane);
     assertThat(formatted).contains("javax.swing.JTabbedPane").contains("name='tabbedPane'")
-        .contains("selectedTabIndex=1").contains("selectedTabTitle='Two'").contains("tabCount=2")
-        .contains("tabTitles=[\"One\", \"Two\"]").contains("enabled=true").contains("visible=true")
-        .contains("showing=false");
+                         .contains("selectedTabIndex=1").contains("selectedTabTitle='Two'").contains("tabCount=2")
+                         .contains("tabTitles=[\"One\", \"Two\"]").contains("enabled=true").contains("visible=true")
+                         .contains("showing=false");
   }
 
   @Test
@@ -50,9 +51,10 @@ public class JTabbedPaneFormatter_format_Test extends EDTSafeTestCase {
     JTabbedPane tabbedPane = tabbedPane().withName("tabbedPane").withTabs("One", "Two").createNew();
     String formatted = formatter.format(tabbedPane);
     assertThat(formatted).contains("javax.swing.JTabbedPane").contains("name='tabbedPane'")
-        .contains("selectedTabIndex=-1").contains("selectedTabTitle=<No selection>").contains("tabCount=2")
-        .contains("tabTitles=[\"One\", \"Two\"]").contains("enabled=true").contains("visible=true")
-        .contains("showing=false");
+                         .contains("selectedTabIndex=-1").contains("selectedTabTitle=<No selection>")
+                         .contains("tabCount=2")
+                         .contains("tabTitles=[\"One\", \"Two\"]").contains("enabled=true").contains("visible=true")
+                         .contains("showing=false");
   }
 
   @Test
@@ -60,7 +62,31 @@ public class JTabbedPaneFormatter_format_Test extends EDTSafeTestCase {
     JTabbedPane tabbedPane = tabbedPane().withName("tabbedPane").createNew();
     String formatted = formatter.format(tabbedPane);
     assertThat(formatted).contains("javax.swing.JTabbedPane").contains("name='tabbedPane'")
-        .contains("selectedTabIndex=-1").contains("selectedTabTitle=<No selection>").contains("tabCount=0")
-        .contains("tabTitles=[]").contains("enabled=true").contains("visible=true").contains("showing=false");
+                         .contains("selectedTabIndex=-1").contains("selectedTabTitle=<No selection>")
+                         .contains("tabCount=0")
+                         .contains("tabTitles=[]").contains("enabled=true").contains("visible=true")
+                         .contains("showing=false");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside() {
+    JTabbedPane tabbedPane = execute(() -> new JTabbedPane() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+    });
+    assertThat(formatter.format(tabbedPane)).startsWith(getClass().getName()).contains("javax.swing.JTabbedPane");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside_Anonymous_Class() {
+    JTabbedPane tabbedPane = execute(() -> new JTabbedPane() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+      private JTabbedPane b = new JTabbedPane() {
+        /** Generated serial version UID. */
+        private static final long serialVersionUID = -8731420542549513675L;
+      };
+    }.b);
+    assertThat(formatter.format(tabbedPane)).startsWith(getClass().getName()).contains("javax.swing.JTabbedPane");
   }
 }

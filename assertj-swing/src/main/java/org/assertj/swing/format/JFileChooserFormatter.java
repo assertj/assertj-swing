@@ -27,7 +27,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Formatter for {@code JFileChooser}s.
- * 
+ *
  * @author Yvonne Wang
  */
 public class JFileChooserFormatter extends ComponentFormatterTemplate {
@@ -38,7 +38,7 @@ public class JFileChooserFormatter extends ComponentFormatterTemplate {
 
   /**
    * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JFileChooser}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the {@code String} representation of the given {@code JFileChooser}.
    */
@@ -47,10 +47,11 @@ public class JFileChooserFormatter extends ComponentFormatterTemplate {
   protected @Nonnull String doFormat(@Nonnull Component c) {
     JFileChooser fileChooser = (JFileChooser) c;
     String format = "%s[name=%s, dialogTitle=%s, dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
-    return String.format(format, fileChooser.getClass().getName(), quote(fileChooser.getName()),
-        quote(fileChooser.getDialogTitle()), DIALOG_TYPES.get(fileChooser.getDialogType()),
-        new StandardRepresentation().toStringOf(fileChooser.getCurrentDirectory()), fileChooser.isEnabled(),
-        fileChooser.isVisible(), fileChooser.isShowing());
+    return String.format(format, getRealClassName(c), quote(fileChooser.getName()),
+                         quote(fileChooser.getDialogTitle()), DIALOG_TYPES.get(fileChooser.getDialogType()),
+                         new StandardRepresentation().toStringOf(fileChooser.getCurrentDirectory()),
+                         fileChooser.isEnabled(),
+                         fileChooser.isVisible(), fileChooser.isShowing());
   }
 
   /**

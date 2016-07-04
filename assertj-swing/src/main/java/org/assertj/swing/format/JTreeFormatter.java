@@ -29,7 +29,7 @@ import org.assertj.swing.util.Arrays;
 
 /**
  * Formatter for {@code JTree}s.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTreeFormatter extends ComponentFormatterTemplate {
@@ -38,14 +38,14 @@ public class JTreeFormatter extends ComponentFormatterTemplate {
   private static final IntEnum SELECTION_MODES = new IntEnum();
   static {
     SELECTION_MODES.put(SINGLE_TREE_SELECTION, "SINGLE_TREE_SELECTION")
-        .put(CONTIGUOUS_TREE_SELECTION, "CONTIGUOUS_TREE_SELECTION")
-        .put(DISCONTIGUOUS_TREE_SELECTION, "DISCONTIGUOUS_TREE_SELECTION");
+                   .put(CONTIGUOUS_TREE_SELECTION, "CONTIGUOUS_TREE_SELECTION")
+                   .put(DISCONTIGUOUS_TREE_SELECTION, "DISCONTIGUOUS_TREE_SELECTION");
   }
 
   /**
    * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JTree} (or
    * subclass).
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the {@code String} representation of the given {@code JTree}.
    */
@@ -53,8 +53,9 @@ public class JTreeFormatter extends ComponentFormatterTemplate {
   protected @Nonnull String doFormat(@Nonnull Component c) {
     JTree tree = (JTree) c;
     String format = "%s[name=%s, selectionCount=%d, selectionPaths=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b";
-    return String.format(format, tree.getClass().getName(), quote(tree.getName()), tree.getSelectionCount(),
-        Arrays.format(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(), tree.isShowing());
+    return String.format(format, getRealClassName(c), quote(tree.getName()), tree.getSelectionCount(),
+                         Arrays.format(selectionPaths(tree)), selectionMode(tree), tree.isEnabled(), tree.isVisible(),
+                         tree.isShowing());
   }
 
   private @Nonnull String[] selectionPaths(@Nonnull JTree tree) {

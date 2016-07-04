@@ -15,6 +15,7 @@ package org.assertj.swing.format;
 import static javax.swing.JOptionPane.DEFAULT_OPTION;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JOptionPanes.optionPane;
 
 import javax.swing.JOptionPane;
@@ -25,7 +26,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JOptionPaneFormatter#format(java.awt.Component)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -36,7 +37,7 @@ public class JOptionPaneFormatter_format_Test extends EDTSafeTestCase {
   @Before
   public void setUp() {
     optionPane = optionPane().withMessage("A message").withMessageType(ERROR_MESSAGE).withOptionType(DEFAULT_OPTION)
-        .createNew();
+                             .createNew();
     formatter = new JOptionPaneFormatter();
   }
 
@@ -44,7 +45,30 @@ public class JOptionPaneFormatter_format_Test extends EDTSafeTestCase {
   public void should_Format_JOptionPane() {
     String formatted = formatter.format(optionPane);
     assertThat(formatted).contains("javax.swing.JOptionPane").contains("message='A message'")
-        .contains("messageType=ERROR_MESSAGE").contains("optionType=DEFAULT_OPTION").contains("enabled=true")
-        .contains("visible=true").contains("showing=false");
+                         .contains("messageType=ERROR_MESSAGE").contains("optionType=DEFAULT_OPTION")
+                         .contains("enabled=true")
+                         .contains("visible=true").contains("showing=false");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside() {
+    optionPane = execute(() -> new JOptionPane() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+    });
+    assertThat(formatter.format(optionPane)).startsWith(getClass().getName()).contains("javax.swing.JOptionPane");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside_Anonymous_Class() {
+    optionPane = execute(() -> new JOptionPane() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+      private JOptionPane b = new JOptionPane() {
+        /** Generated serial version UID. */
+        private static final long serialVersionUID = -8731420542549513675L;
+      };
+    }.b);
+    assertThat(formatter.format(optionPane)).startsWith(getClass().getName()).contains("javax.swing.JOptionPane");
   }
 }

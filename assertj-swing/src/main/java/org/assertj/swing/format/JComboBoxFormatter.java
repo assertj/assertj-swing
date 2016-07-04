@@ -26,28 +26,28 @@ import org.assertj.swing.util.Arrays;
 
 /**
  * Formatter for {@code JComboBox}es.
- * 
+ *
  * @author Yvonne Wang
  */
 public class JComboBoxFormatter extends ComponentFormatterTemplate {
   /**
    * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JComboBox}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the {@code String} representation of the given {@code JComboBox}.
    */
   @RunsInCurrentThread
   @Override
   protected @Nonnull String doFormat(@Nonnull Component c) {
-    JComboBox comboBox = (JComboBox) c;
+    JComboBox<?> comboBox = (JComboBox<?>) c;
     String format = "%s[name=%s, selectedItem=%s, contents=%s, editable=%b, enabled=%b, visible=%b, showing=%b]";
-    return String.format(format, comboBox.getClass().getName(), quote(comboBox.getName()),
-        quote(comboBox.getSelectedItem()), Arrays.format(contentsOf(comboBox)), comboBox.isEditable(),
-        comboBox.isEnabled(), comboBox.isVisible(), comboBox.isShowing());
+    return String.format(format, getRealClassName(c), quote(comboBox.getName()),
+                         quote(comboBox.getSelectedItem()), Arrays.format(contentsOf(comboBox)), comboBox.isEditable(),
+                         comboBox.isEnabled(), comboBox.isVisible(), comboBox.isShowing());
   }
 
   @RunsInCurrentThread
-  private @Nonnull Object[] contentsOf(@Nonnull JComboBox comboBox) {
+  private @Nonnull Object[] contentsOf(@Nonnull JComboBox<?> comboBox) {
     List<Object> contents = Lists.newArrayList();
     int count = comboBox.getItemCount();
     for (int i = 0; i < count; i++) {

@@ -28,29 +28,30 @@ import org.assertj.swing.util.Arrays;
 
 /**
  * Formatter for {@code JList}s.
- * 
+ *
  * @author Yvonne Wang
  */
 public class JListFormatter extends ComponentFormatterTemplate {
   /**
    * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JList}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the {@code String} representation of the given {@code JList}.
    */
   @RunsInCurrentThread
   @Override
   protected @Nonnull String doFormat(@Nonnull Component c) {
-    JList list = (JList) c;
+    JList<?> list = (JList<?>) c;
     String format = "%s[name=%s, selectedValues=%s, contents=%s, selectionMode=%s, enabled=%b, visible=%b, showing=%b]";
-    return String.format(format, list.getClass().getName(), quote(list.getName()),
-        Arrays.format(list.getSelectedValues()), Arrays.format(contentsOf(list)),
-        SELECTION_MODES.get(list.getSelectionMode()), list.isEnabled(), list.isVisible(), list.isShowing());
+    return String.format(format, getRealClassName(c), quote(list.getName()),
+                         Arrays.format(list.getSelectedValues()), Arrays.format(contentsOf(list)),
+                         SELECTION_MODES.get(list.getSelectionMode()), list.isEnabled(), list.isVisible(),
+                         list.isShowing());
   }
 
-  private @Nonnull Object[] contentsOf(JList list) {
+  private @Nonnull Object[] contentsOf(JList<?> list) {
     List<Object> contents = newArrayList();
-    ListModel model = list.getModel();
+    ListModel<?> model = list.getModel();
     int size = model.getSize();
     for (int i = 0; i < size; i++) {
       contents.add(model.getElementAt(i));

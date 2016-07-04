@@ -63,7 +63,34 @@ public class IntrospectionComponentFormatter_format_Test extends EDTSafeTestCase
     assertThat(formatted).contains("names=[\"Luke\", \"Leia\"]");
   }
 
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside() {
+    IntrospectionComponentFormatter formatter = new IntrospectionComponentFormatter(JButton.class, "text");
+    button = execute(() -> new JButton() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+    });
+    assertThat(formatter.format(button)).startsWith(getClass().getName()).contains("javax.swing.JButton");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside_Anonymous_Class() {
+    IntrospectionComponentFormatter formatter = new IntrospectionComponentFormatter(JButton.class, "text");
+    button = execute(() -> new JButton() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+      private JButton b = new JButton() {
+        /** Generated serial version UID. */
+        private static final long serialVersionUID = -8731420542549513675L;
+      };
+    }.b);
+    assertThat(formatter.format(button)).startsWith(getClass().getName()).contains("javax.swing.JButton");
+  }
+
   static class MyButton extends JButton {
+    /** Generated serial version UID. */
+    private static final long serialVersionUID = -2996550506597947057L;
+
     static MyButton newButton(final String[] names) {
       return execute(() -> new MyButton(names));
     }

@@ -94,7 +94,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
   @Override
   protected @Nonnull String doFormat(@Nonnull Component c) {
     StringBuilder b = new StringBuilder();
-    b.append(c.getClass().getName()).append("[");
+    b.append(getRealClassName(c)).append("[");
     int max = propertyNames.size() - 1;
     for (int i = 0; i <= max; i++) {
       appendProperty(b, checkNotNull(propertyNames.get(i)), c);

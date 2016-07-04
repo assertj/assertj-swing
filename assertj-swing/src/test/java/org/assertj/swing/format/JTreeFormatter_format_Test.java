@@ -14,6 +14,7 @@ package org.assertj.swing.format;
 
 import static javax.swing.tree.TreeSelectionModel.CONTIGUOUS_TREE_SELECTION;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.task.JTreeSelectRowTask.selectRow;
 import static org.assertj.swing.test.task.JTreeSetSelectionModelTask.setSelectionModel;
 
@@ -29,7 +30,7 @@ import org.junit.Test;
 
 /**
  * Base test case for {@link JTreeFormatter#format(java.awt.Component)}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -49,8 +50,9 @@ public class JTreeFormatter_format_Test extends EDTSafeTestCase {
     selectRow(tree, 1);
     String formatted = formatter.format(tree);
     assertThat(formatted).contains("javax.swing.JTree").contains("name='tree'").contains("selectionCount=1")
-        .contains("selectionPaths=[\"[root, Two]\"]").contains("selectionMode=CONTIGUOUS_TREE_SELECTION")
-        .contains("enabled=true").contains("visible=true").contains("showing=false");
+                         .contains("selectionPaths=[\"[root, Two]\"]")
+                         .contains("selectionMode=CONTIGUOUS_TREE_SELECTION")
+                         .contains("enabled=true").contains("visible=true").contains("showing=false");
   }
 
   @RunsInEDT
@@ -65,7 +67,30 @@ public class JTreeFormatter_format_Test extends EDTSafeTestCase {
     setSelectionModel(tree, null);
     String formatted = formatter.format(tree);
     assertThat(formatted).contains("javax.swing.JTree").contains("name='tree'").contains("selectionCount=0")
-        .contains("selectionPaths=[]").contains("selectionMode=DISCONTIGUOUS_TREE_SELECTION").contains("enabled=true")
-        .contains("visible=true").contains("showing=false");
+                         .contains("selectionPaths=[]").contains("selectionMode=DISCONTIGUOUS_TREE_SELECTION")
+                         .contains("enabled=true")
+                         .contains("visible=true").contains("showing=false");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside() {
+    tree = execute(() -> new JTree() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+    });
+    assertThat(formatter.format(tree)).startsWith(getClass().getName()).contains("javax.swing.JTree");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside_Anonymous_Class() {
+    tree = execute(() -> new JTree() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+      private JTree b = new JTree() {
+        /** Generated serial version UID. */
+        private static final long serialVersionUID = -8731420542549513675L;
+      };
+    }.b);
+    assertThat(formatter.format(tree)).startsWith(getClass().getName()).contains("javax.swing.JTree");
   }
 }

@@ -14,6 +14,7 @@ package org.assertj.swing.format;
 
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.test.builder.JLists.list;
 
 import javax.swing.JList;
@@ -24,7 +25,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JListFormatter#format(java.awt.Component)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -35,7 +36,7 @@ public class JListFormatter_format_Test extends EDTSafeTestCase {
   @Before
   public void setUp() {
     list = list().withItems("One", 2, "Three", 4).withName("list").withSelectedIndices(0, 1)
-        .withSelectionMode(MULTIPLE_INTERVAL_SELECTION).createNew();
+                 .withSelectionMode(MULTIPLE_INTERVAL_SELECTION).createNew();
     formatter = new JListFormatter();
   }
 
@@ -43,7 +44,30 @@ public class JListFormatter_format_Test extends EDTSafeTestCase {
   public void should_Format_JList() {
     String formatted = formatter.format(list);
     assertThat(formatted).contains("javax.swing.JList").contains("name='list'").contains("selectedValues=[\"One\", 2]")
-        .contains("contents=[\"One\", 2, \"Three\", 4]").contains("selectionMode=MULTIPLE_INTERVAL_SELECTION")
-        .contains("enabled=true").contains("visible=true").contains("showing=false");
+                         .contains("contents=[\"One\", 2, \"Three\", 4]")
+                         .contains("selectionMode=MULTIPLE_INTERVAL_SELECTION")
+                         .contains("enabled=true").contains("visible=true").contains("showing=false");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside() {
+    list = execute(() -> new JList() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+    });
+    assertThat(formatter.format(list)).startsWith(getClass().getName()).contains("javax.swing.JList");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside_Anonymous_Class() {
+    list = execute(() -> new JList() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+      private JList b = new JList() {
+        /** Generated serial version UID. */
+        private static final long serialVersionUID = -8731420542549513675L;
+      };
+    }.b);
+    assertThat(formatter.format(list)).startsWith(getClass().getName()).contains("javax.swing.JList");
   }
 }

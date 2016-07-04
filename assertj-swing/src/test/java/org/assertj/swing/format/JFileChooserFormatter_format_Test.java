@@ -27,7 +27,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JFileChooserFormatter#format(java.awt.Component)}.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */
@@ -46,9 +46,32 @@ public class JFileChooserFormatter_format_Test extends SequentialEDTSafeTestCase
   public void should_Format_JFileChooser() {
     String formatted = formatter.format(fileChooser);
     assertThat(formatted).contains("javax.swing.JFileChooser").contains("name='fileChooser'")
-        .contains("dialogTitle='A file chooser'").contains("dialogType=OPEN_DIALOG")
-        .contains(concat("currentDirectory=", currentDirectoryOf(fileChooser))).contains("enabled=true")
-        .contains("visible=true").contains("showing=false");
+                         .contains("dialogTitle='A file chooser'").contains("dialogType=OPEN_DIALOG")
+                         .contains(concat("currentDirectory=", currentDirectoryOf(fileChooser)))
+                         .contains("enabled=true")
+                         .contains("visible=true").contains("showing=false");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside() {
+    fileChooser = execute(() -> new JFileChooser() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+    });
+    assertThat(formatter.format(fileChooser)).startsWith(getClass().getName()).contains("javax.swing.JFileChooser");
+  }
+
+  @Test
+  public void should_Additionally_Show_Name_Of_Superclass_When_Having_Anynomous_Class_Inside_Anonymous_Class() {
+    fileChooser = execute(() -> new JFileChooser() {
+      /** Generated serial version UID. */
+      private static final long serialVersionUID = -6097882709760432679L;
+      private JFileChooser b = new JFileChooser() {
+        /** Generated serial version UID. */
+        private static final long serialVersionUID = -8731420542549513675L;
+      };
+    }.b);
+    assertThat(formatter.format(fileChooser)).startsWith(getClass().getName()).contains("javax.swing.JFileChooser");
   }
 
   private static class MyWindow extends TestWindow {

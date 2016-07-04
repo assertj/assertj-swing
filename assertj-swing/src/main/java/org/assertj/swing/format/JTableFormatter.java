@@ -21,14 +21,14 @@ import javax.swing.JTable;
 
 /**
  * Formatter for {@code JTable}s.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
 public class JTableFormatter extends ComponentFormatterTemplate {
   /**
    * Returns the {@code String} representation of the given {@code Component}, which should be a {@code JTable}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the {@code String} representation of the given {@code JTable}.
    */
@@ -36,8 +36,8 @@ public class JTableFormatter extends ComponentFormatterTemplate {
   protected @Nonnull String doFormat(@Nonnull Component c) {
     JTable table = (JTable) c;
     String format = "%s[name=%s, rowCount=%d, columnCount=%d, enabled=%b, visible=%b, showing=%b]";
-    return String.format(format, table.getClass().getName(), quote(table.getName()), table.getRowCount(),
-        table.getColumnCount(), table.isEnabled(), table.isVisible(), table.isShowing());
+    return String.format(format, getRealClassName(c), quote(table.getName()), table.getRowCount(),
+                         table.getColumnCount(), table.isEnabled(), table.isVisible(), table.isShowing());
   }
 
   /**

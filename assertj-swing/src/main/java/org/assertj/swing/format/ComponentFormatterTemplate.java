@@ -22,13 +22,13 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
 
 /**
  * Template for implementations of {@link ComponentFormatter}.
- * 
+ *
  * @author Yvonne Wang
  */
 public abstract class ComponentFormatterTemplate implements ComponentFormatter {
   /**
    * Returns the {@code String} representation of the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the {@code String} representation of the given {@code Component}.
    * @throws NullPointerException if the given {@code Component} is {@code null}.
@@ -43,7 +43,7 @@ public abstract class ComponentFormatterTemplate implements ComponentFormatter {
 
   /**
    * Returns the {@code String} representation of the given AWT or Swing {@code Component}.
-   * 
+   *
    * @param c the given {@code Component}.
    * @return the {@code String} representation of the given {@code Component}.
    */
@@ -56,5 +56,16 @@ public abstract class ComponentFormatterTemplate implements ComponentFormatter {
       String msg = String.format("This formatter only supports components of type %s", targetType().getName());
       throw new IllegalArgumentException(msg);
     }
+  }
+
+  protected String getRealClassName(Component c) {
+    return getRealClassName(c.getClass());
+  }
+
+  private String getRealClassName(Class<?> type) {
+    if (type.isAnonymousClass()) {
+      return type.getName() + "(" + getRealClassName(type.getSuperclass()) + ")";
+    }
+    return type.getName();
   }
 }
