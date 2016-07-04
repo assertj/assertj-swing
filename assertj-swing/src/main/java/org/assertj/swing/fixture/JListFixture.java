@@ -523,6 +523,38 @@ public class JListFixture extends AbstractJPopupMenuInvokerFixture<JListFixture,
   }
 
   /**
+   * Simulates a user dropping an item to this fixture's {@code JList}.
+   *
+   * @param index the index of the item below the item to drop.
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code JList} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
+   *           {@code JList}.
+   * @throws ActionFailedException if there is no drag action in effect.
+   * @see #drop(int)
+   */
+  public @Nonnull JListFixture dropAbove(int index) {
+    return drop(index - 1);
+  }
+
+  /**
+   * Simulates a user dropping an item to this fixture's {@code JList}.
+   *
+   * @param index the index of the item above the item to drop.
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code JList} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if the given index is negative or greater than the index of the last item in the
+   *           {@code JList}.
+   * @throws ActionFailedException if there is no drag action in effect.
+   * @see #drop(int)
+   */
+  public @Nonnull JListFixture dropBelow(int index) {
+    return drop(index + 1);
+  }
+
+  /**
    * Simulates a drag operation at the location of the first item in this fixture's {@code JList} matching the given
    * value.
    *

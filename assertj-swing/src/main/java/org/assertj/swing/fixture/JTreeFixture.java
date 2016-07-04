@@ -288,6 +288,40 @@ public class JTreeFixture extends AbstractJPopupMenuInvokerFixture<JTreeFixture,
   }
 
   /**
+   * Simulates a user dropping an item into this fixture's {@code JTree}.
+   *
+   * @param row the row to drop the item below the item to drop.
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
+   *           visible rows in the {@code JTree}.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @see #drop(int)
+   */
+  public @Nonnull JTreeFixture dropAbove(int row) {
+    return drop(row - 1);
+  }
+
+  /**
+   * Simulates a user dropping an item into this fixture's {@code JTree}.
+   *
+   * @param row the row to drop the item above the item to drop.
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
+   * @throws IndexOutOfBoundsException if the given row is less than zero or equal than or greater than the number of
+   *           visible rows in the {@code JTree}.
+   * @throws org.assertj.swing.exception.LocationUnavailableException if a tree path for the given row cannot be found.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   * @see #drop(int)
+   */
+  public @Nonnull JTreeFixture dropBelow(int row) {
+    return drop(row + 1);
+  }
+
+  /**
    * Simulates a user dragging an item from this fixture's {@code JTree}.
    *
    * @param path the path corresponding to the item to drag.
