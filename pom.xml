@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>assertj-swing-parent-pom</artifactId>
-  <version>3.4.0</version>
+  <version>3.4.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>AssertJ Swing: Fluent assertions for java unit testing</name>
   <description>Parent POM for all AssertJ-Swing modules</description>
@@ -47,7 +47,7 @@
     <developerConnection>scm:git:git@github.com:joel-costigliola/assertj-swing.git</developerConnection>
     <connection>git://github.com/joel-costigliola/assertj-swing.git</connection>
     <url>https://github.com/joel-costigliola/assertj-swing</url>
-    <tag>assertj-swing-parent-pom-3.4.0</tag>
+    <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>github</system>
