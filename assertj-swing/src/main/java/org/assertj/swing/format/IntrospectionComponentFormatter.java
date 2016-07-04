@@ -94,7 +94,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
   @Override
   protected @Nonnull String doFormat(@Nonnull Component c) {
     StringBuilder b = new StringBuilder();
-    b.append(c.getClass().getName()).append("[");
+    b.append(getRealClassName(c.getClass())).append("[");
     int max = propertyNames.size() - 1;
     for (int i = 0; i <= max; i++) {
       appendProperty(b, checkNotNull(propertyNames.get(i)), c);
@@ -143,5 +143,11 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
   public String toString() {
     return String.format("%s[propertyNames=%s", getClass().getName(),
                          new StandardRepresentation().toStringOf(propertyNames));
+  }
+
+  protected String getRealClassName(Class type) {
+    if(type.isAnonymousClass())
+      return getRealClassName(type.getSuperclass());
+    return type.getName();
   }
 }
