@@ -31,6 +31,7 @@ import org.junit.Test;
  *
  * @author Yvonne Wang
  * @author Alex Ruiz
+ * @author DaveBrad
  */
 public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
 
@@ -51,7 +52,6 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
    *
    * @return the built popup menu with the cascade inserted at the
    *         cascadePosition
-   *
    */
   @RunsInEDT
   public static JPopupMenu[] createAndSetPopupMenuWithCascade(
@@ -119,7 +119,6 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
    *
    * @return the built popup menu with the cascade inserted at the
    *         cascadeCascadePosition
-   *
    */
   @RunsInEDT
   public static JPopupMenu[] createAndSetPopupMenuWithCascadeWithCascade(
@@ -128,16 +127,15 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
                                                                          final String itemTwo) {
     return execute(() -> {
 
-      JMenu outerMenu = new JMenu("cascade2 test"); // outer
+      JMenu outerMenu = new JMenu("cascade2 test");
       outerMenu.add(new JMenuItem("cascade2 1"));
       outerMenu.add(new JMenuItem("cascade2 2"));
 
       // associate the outer with the inner1 for testing purposes at
       // the provided menu position
-      //
-      // although this may be done with set menuiyrm yo index, the comments
+      // although this may be done with set menu item to index, the comments
       // in Java source code suggest this is prone to error (OpenJDK 8 u77)
-      JMenu inner1Menu = new JMenu("cascade1 test"); // inner
+      JMenu inner1Menu = new JMenu("cascade1 test");
 
       // place the outer menu at different locations in popup menu order so
       // as to test for unknown boundaries(also because showPopupMenu positions
@@ -173,9 +171,12 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
       // record the positions of the popup in order of cascade-position
       ArrayList<JPopupMenu> popupArr = new ArrayList<>();
 
-      popupArr.add(popupMenu); // root popup, is inner
-      popupArr.add(inner1Menu.getPopupMenu()); // cascade 1 popup, is inner
-      popupArr.add(outerMenu.getPopupMenu()); // cascade 2 popup, is outer
+      // root popup, is inner
+      popupArr.add(popupMenu);
+      // cascade 1 popup, is inner
+      popupArr.add(inner1Menu.getPopupMenu());
+      // cascade 2 popup, is outer
+      popupArr.add(outerMenu.getPopupMenu());
 
       c.setComponentPopupMenu(popupMenu);
       return popupArr.toArray(new JPopupMenu[popupArr.size()]);
@@ -201,22 +202,13 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
     });
   }
 
-  /**
-   * Perform the single cascade test for the popup in the N position.
-   * <p>
-   * The N is calculated from the calling methods method-name, via use of extraction from the stack-trace. No check is
-   * done on the range of the N value for tests.
-   */
-  private void should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_N() {
-    // Android is different, but then its not Java-Java{
-    String myMethodName2 = Thread.currentThread().getStackTrace()[2].getMethodName();
-    String[] mthdNameSplit = myMethodName2.split("_");
-
-    int selectMenu = Integer.parseInt(mthdNameSplit[mthdNameSplit.length - 1]);
+  /** Perform the single cascade test for the popup in the N position. */
+  private void should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_N(int selectMenu)
+      throws InterruptedException {
     int selectMenuIdx = selectMenu - 1;
 
     // build the popup to be tested against
-    JPopupMenu[] popupMenuArr = addPopupMenuToTextFieldWithCascade(selectMenu);
+    JPopupMenu[] popupMenuArray = addPopupMenuToTextFieldWithCascade(selectMenu);
 
     // show-popup-menu will launch the popup and select the menu item that
     // is at the middle of the list
@@ -224,7 +216,7 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
     robot().showPopupMenu(window().textField());
     JPopupMenu found = robot().findActivePopupMenu();
 
-    assertThat(found).isSameAs(popupMenuArr[0]);
+    assertThat(found).isSameAs(popupMenuArray[0]);
 
     // crude but effect way to get the cascade
     Component o = found.getComponent(selectMenuIdx);
@@ -232,27 +224,18 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
 
     pauseYieldForFocusChange();
 
-    // after the HOWEVER will expect the cascadeto be presented
+    // after the HOWEVER will expect the cascade to be presented
     found = robot().findActivePopupMenu();
-    assertThat(found).isSameAs(popupMenuArr[1]);
+    assertThat(found).isSameAs(popupMenuArray[1]);
   }
 
-  /**
-   * Perform the cascade cascade test for the popup in the N position.
-   * <p>
-   * The N is calculated from the calling methods method-name, via use of extraction from the stack-trace. No check is
-   * done on the range of the N value for tests.
-   */
-  private void should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_N() {
-    // Android is different, but then its not Java-Java{
-    String myMethodName2 = Thread.currentThread().getStackTrace()[2].getMethodName();
-    String[] mthdNameSplit = myMethodName2.split("_");
-
-    int selectMenu = Integer.parseInt(mthdNameSplit[mthdNameSplit.length - 1]);
+  /** Perform the cascade cascade test for the popup in the N position. */
+  private void should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_N(int selectMenu)
+      throws InterruptedException {
     int selectMenuIdx = selectMenu - 1;
 
     // build the popup to be tested against
-    JPopupMenu[] popupMenuArr = addPopupMenuToTextFieldWithCascadeWithCascade(selectMenu);
+    JPopupMenu[] popupMenuArray = addPopupMenuToTextFieldWithCascadeWithCascade(selectMenu);
 
     // show-popup-menu will launch the popup and select the menu item that
     // is at the middle of the list
@@ -260,17 +243,16 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
     robot().showPopupMenu(window().textField());
 
     JPopupMenu found = robot().findActivePopupMenu();
-    assertThat(found).isSameAs(popupMenuArr[0]);
+    assertThat(found).isSameAs(popupMenuArray[0]);
 
     // crude but effect way to get the cascade
     Component o = found.getComponent(1);
     robot().focus(o);
 
-    // need a pause to allow the focus request to happen and new popup to
-    // be shown
+    // need a pause to allow the focus request to happen and new popup to be shown
     pauseYieldForFocusChange();
 
-    // after the HOWEVER will expect the cascadeto be presented
+    // after the HOWEVER will expect the cascade to be presented
     found = robot().findActivePopupMenu();
 
     // crude but effect way to get the cascade
@@ -281,67 +263,47 @@ public class BasicRobot_findActivePopupMenu_Test extends BasicRobot_TestCase {
 
     found = robot().findActivePopupMenu();
 
-    assertThat(found).isSameAs(popupMenuArr[2]);
+    assertThat(found).isSameAs(popupMenuArray[2]);
   }
 
-  /**
-   * Crude pause to allow the robot focus change event to propagate to a
-   * component.
-   */
-  private void pauseYieldForFocusChange() {
-    // need a pause to allow the focus request to happen and new popup to
-    // be shown
+  /** Crude pause to allow the robot focus change event to propagate to a component. */
+  private void pauseYieldForFocusChange() throws InterruptedException {
+    // need a pause to allow the focus request to happen and new popup to be shown
     // (focus and wait does not seem to happen, suspect the thread is not
     // yielding to allow the focus change to happen)
     // 300-500 works consistently, < 300 is if for test pass condition { 500
-    // is better choice for slower machinesthat may be farmed into testing
-    // vs. development)
-    int yieldAndPauseTimer = 500;
-
-    try {
-      Thread.sleep(yieldAndPauseTimer);
-
-    } catch (Exception e) {
-    }
+    // is better choice for slower machines that may be farmed into testing versus development)
+    Thread.sleep(500);
   }
 
-  // The actual test to be performed
-  @RunsInEDT
   @Test
-  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_3() {
-
-    should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_N();
+  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_3() throws InterruptedException {
+    should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_N(3);
   }
 
-  @RunsInEDT
   @Test
-  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_2() {
-    should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_N();
+  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_2() throws InterruptedException {
+    should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_N(2);
   }
 
-  @RunsInEDT
   @Test
-  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_1() {
-    should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_N();
+  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_1() throws InterruptedException {
+    should_Return_Outer_PopupMenu_When_Having_A_CascadingPopup_Select_N(1);
   }
 
-  @RunsInEDT
   @Test
-  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_3() {
-
-    should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_N();
+  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_3() throws InterruptedException {
+    should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_N(3);
   }
 
-  @RunsInEDT
   @Test
-  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_2() {
-    should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_N();
+  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_2() throws InterruptedException {
+    should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_N(2);
   }
 
-  @RunsInEDT
   @Test
-  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_1() {
-    should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_N();
+  public void should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_1() throws InterruptedException {
+    should_Return_Outer_PopupMenu_When_Having_A_CascadingCascadePopup_Select_N(1);
   }
 
   @Test
