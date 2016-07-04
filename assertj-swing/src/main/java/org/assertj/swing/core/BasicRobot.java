@@ -646,7 +646,7 @@ public class BasicRobot implements Robot {
     moveMouse(c, (x > 0 ? x - 1 : x + 1), y);
   }
 
-  // Wait the given number of milliseconds for the component to be showing and ready.
+  /** Wait the given number of milliseconds for the component to be showing and ready. */
   @RunsInEDT
   private boolean waitForComponentToBeReady(@Nonnull Component c, long timeout) {
     if (isReadyForInput(c)) {

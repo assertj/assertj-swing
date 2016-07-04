@@ -54,6 +54,7 @@ public class AWT {
    * @param p the point to verify.
    * @return {@code true} if the point is inside the screen boundaries; {@code false} otherwise.
    */
+  @RunsInCurrentThread
   public static boolean isPointInScreenBoundaries(@Nonnull JComponent c, @Nonnull Point p) {
     Point where = translate(c, p.x, p.y);
     Rectangle screen = new Rectangle(TOOLKIT_PROVIDER.defaultToolkit().getScreenSize());

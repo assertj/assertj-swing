@@ -34,7 +34,7 @@ import org.assertj.swing.util.RobotFactory;
 
 /**
  * Simulates user input by using an AWT {@code Robot}.
- * 
+ *
  * @author Alex Ruiz
  */
 class RobotEventGenerator implements InputEventGenerator {
