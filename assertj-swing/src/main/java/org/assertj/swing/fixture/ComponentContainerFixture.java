@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenuItem;
@@ -313,6 +314,45 @@ public interface ComponentContainerFixture {
   @RunsInEDT
   @Nonnull
   JFileChooserFixture fileChooser(@Nullable String name, @Nonnull Timeout timeout);
+
+  /**
+   * Returns a {@link JInternalFrame} found in this fixture's {@code Container}.
+   *
+   * @return a fixture that manages the {@code JInternalFrame} found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JInternalFrame} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JInternalFrame} is found.
+   */
+  @RunsInEDT
+  @Nonnull
+  JInternalFrameFixture internalFrame();
+
+  /**
+   * Finds a {@link JInternalFrame} in this fixture's {@code Container}, that matches the specified search criteria.
+   *
+   * @param matcher contains the search criteria for finding a {@code JInternalFrame}.
+   * @return a fixture that manages the {@code JInternalFrame} found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JInternalFrame} that matches the given
+   *           search criteria could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JInternalFrame} that matches
+   *           the given search criteria is found.
+   */
+  @RunsInEDT
+  @Nonnull
+  JInternalFrameFixture internalFrame(@Nonnull GenericTypeMatcher<? extends JInternalFrame> matcher);
+
+  /**
+   * Finds a {@link JInternalFrame} in this fixture's {@code Container} whose name matches the specified one.
+   *
+   * @param name the name to match.
+   * @return a fixture that manages the {@code JInternalFrame} found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code JInternalFrame} having a matching name
+   *           could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JInternalFrame} having a
+   *           matching name is found.
+   */
+  @RunsInEDT
+  @Nonnull
+  JInternalFrameFixture internalFrame(@Nullable String name);
 
   /**
    * Returns a {@code JLabel} found in this fixture's {@code Container}.
