@@ -14,13 +14,17 @@ package org.assertj.swing.fixture;
 
 import java.awt.Dimension;
 import java.awt.Point;
+import java.util.regex.Pattern;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.core.Robot;
+import org.assertj.swing.core.Settings;
 import org.assertj.swing.driver.JInternalFrameDriver;
+import org.assertj.swing.exception.ActionFailedException;
+import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JInternalFrame}s
@@ -29,8 +33,8 @@ import org.assertj.swing.driver.JInternalFrameDriver;
  * @author Christian Rösch
  */
 public class JInternalFrameFixture extends
-    AbstractJPopupMenuInvokerFixture<JInternalFrameFixture, JInternalFrame, JInternalFrameDriver> implements
-    FrameLikeFixture<JInternalFrameFixture> {
+    AbstractContainerFixture<JInternalFrameFixture, JInternalFrame, JInternalFrameDriver> implements
+    FrameLikeFixture<JInternalFrameFixture>, JComponentFixture<JInternalFrameFixture>, JPopupMenuInvokerFixture {
   /**
    * Creates a new {@link JInternalFrameFixture}.
    *
@@ -59,6 +63,45 @@ public class JInternalFrameFixture extends
   @Override
   protected @Nonnull JInternalFrameDriver createDriver(@Nonnull Robot robot) {
     return new JInternalFrameDriver(robot);
+  }
+
+  /**
+   * Asserts that the toolTip in this fixture's {@code JInternalFrame} matches the given value.
+   *
+   * @param expected the given value. It can be a regular expression.
+   * @return this fixture.
+   * @throws AssertionError if the toolTip in this fixture's {@code JInternalFrame} does not match the given value.
+   */
+  @Override
+  public @Nonnull JInternalFrameFixture requireToolTip(@Nullable String expected) {
+    driver().requireToolTip(target(), expected);
+    return this;
+  }
+
+  /**
+   * Asserts that the toolTip in this fixture's {@code JInternalFrame} matches the given regular expression pattern.
+   *
+   * @param pattern the regular expression pattern to match.
+   * @return this fixture.
+   * @throws NullPointerException if the given regular expression pattern is {@code null}.
+   * @throws AssertionError if the toolTip in this fixture's {@code JInternalFrame} does not match the given regular expression.
+   */
+  @Override
+  public @Nonnull JInternalFrameFixture requireToolTip(@Nonnull Pattern pattern) {
+    driver().requireToolTip(target(), pattern);
+    return this;
+  }
+
+  /**
+   * Returns the client property stored in this fixture's {@code JInternalFrame}, under the given key.
+   *
+   * @param key the key to use to retrieve the client property.
+   * @return the value of the client property stored under the given key, or {@code null} if the property was not found.
+   * @throws NullPointerException if the given key is {@code null}.
+   */
+  @Override
+  public @Nullable Object clientProperty(@Nonnull Object key) {
+    return driver().clientProperty(target(), key);
   }
 
   /**
@@ -208,5 +251,34 @@ public class JInternalFrameFixture extends
   public @Nonnull JInternalFrameFixture requireTitle(String expected) {
     driver().requireTitle(target(), expected);
     return this;
+  }
+
+  /**
+   * Shows a pop-up menu using this fixture's {@code JInternalFrame} as the invoker of the pop-up menu.
+   *
+   * @return a fixture that manages the displayed pop-up menu.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code JInternalFrame} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JInternalFrame} is not showing on the screen.
+   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   */
+  @Override
+  public @Nonnull JPopupMenuFixture showPopupMenu() {
+    return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target()));
+  }
+
+  /**
+   * Shows a pop-up menu at the given point using this fixture's {@code JInternalFrame} as the invoker of the pop-up menu.
+   *
+   * @param p the given point where to show the pop-up menu.
+   * @return a fixture that manages the displayed pop-up menu.
+   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   *           fixture's {@code JInternalFrame} is disabled.
+   * @throws IllegalStateException if this fixture's {@code JInternalFrame} is not showing on the screen.
+   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   */
+  @Override
+  public @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
+    return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target(), p));
   }
 }
