@@ -27,6 +27,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenuItem;
@@ -269,6 +270,24 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
     pause(condition, timeout);
     JFileChooser fileChooser = (JFileChooser) condition.found();
     return new JFileChooserFixture(robot(), checkNotNull(fileChooser));
+  }
+
+  @RunsInEDT
+  @Override
+  public @Nonnull JInternalFrameFixture internalFrame() {
+    return new JInternalFrameFixture(robot(), findByType(JInternalFrame.class));
+  }
+
+  @RunsInEDT
+  @Override
+  public @Nonnull JInternalFrameFixture internalFrame(@Nonnull GenericTypeMatcher<? extends JInternalFrame> matcher) {
+    return new JInternalFrameFixture(robot(), find(matcher));
+  }
+
+  @RunsInEDT
+  @Override
+  public @Nonnull JInternalFrameFixture internalFrame(@Nullable String name) {
+    return new JInternalFrameFixture(robot(), findByName(name, JInternalFrame.class));
   }
 
   @RunsInEDT
