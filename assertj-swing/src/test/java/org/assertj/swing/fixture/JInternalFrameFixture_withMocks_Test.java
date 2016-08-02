@@ -15,11 +15,14 @@ package org.assertj.swing.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.awt.Dimension;
 import java.awt.Point;
+import java.util.regex.Pattern;
 
 import javax.swing.JInternalFrame;
+import javax.swing.JPopupMenu;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.JInternalFrameDriver;
@@ -106,5 +109,51 @@ public class JInternalFrameFixture_withMocks_Test {
     Point p = new Point(6, 8);
     assertThat(fixture.moveTo(p)).isSameAs(fixture);
     verify(fixture.driver()).move(fixture.target(), p);
+  }
+
+  @Test
+  public void should_Call_RequireToolTip_With_Text_In_Driver_And_Return_Self() {
+    assertThat(fixture.requireToolTip("Hello")).isSameAs(fixture);
+    verify(fixture.driver()).requireToolTip(fixture.target(), "Hello");
+  }
+
+  @Test
+  public void should_Call_RequireToolTip_With_Pattern_In_Driver_And_Return_Self() {
+    Pattern pattern = Pattern.compile("Hello");
+    assertThat(fixture.requireToolTip(pattern)).isSameAs(fixture);
+    verify(fixture.driver()).requireToolTip(fixture.target(), pattern);
+  }
+
+  @Test
+  public void should_Return_Client_Property_Using_Driver() {
+    when(fixture.driver().clientProperty(fixture.target(), "name")).thenReturn("Yoda");
+    assertThat(fixture.clientProperty("name")).isEqualTo("Yoda");
+    verify(fixture.driver()).clientProperty(fixture.target(), "name");
+  }
+
+  @Test
+  public void should_Show_JPopupMenu_Using_Driver() {
+    JPopupMenu popupMenu = mock(JPopupMenu.class);
+    when(fixture.driver().invokePopupMenu(fixture.target())).thenReturn(popupMenu);
+    JPopupMenuFixture popupMenuFixture = fixture.showPopupMenu();
+    assertThat(popupMenuFixture.target()).isSameAs(popupMenu);
+    verify(fixture.driver()).invokePopupMenu(fixture.target());
+  }
+
+  @Test
+  public void should_Show_JPopupMenu_At_Location_Using_Driver() {
+    Point p = new Point(6, 8);
+    JPopupMenu popupMenu = mock(JPopupMenu.class);
+    when(fixture.driver().invokePopupMenu(fixture.target(), p)).thenReturn(popupMenu);
+    JPopupMenuFixture popupMenuFixture = fixture.showPopupMenuAt(p);
+    assertThat(popupMenuFixture.target()).isSameAs(popupMenu);
+    verify(fixture.driver()).invokePopupMenu(fixture.target(), p);
+  }
+
+  @Test
+  public void should_Call_ResizeTo_In_Driver_And_Return_Self() {
+    Dimension size = new Dimension(6, 8);
+    assertThat(fixture.resizeTo(size)).isSameAs(fixture);
+    verify(fixture.driver()).resizeTo(fixture.target(), size);
   }
 }
