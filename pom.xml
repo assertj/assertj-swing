@@ -19,7 +19,6 @@
     <module>assertj-swing</module>
     <module>assertj-swing-junit</module>
     <module>assertj-swing-testng</module>
-    <module>assertj-swing-jide</module>
   </modules>
 
   <build>
