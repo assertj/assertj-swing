@@ -15,6 +15,7 @@ package org.assertj.swing.testng.listener;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 import org.testng.IClass;
 import org.testng.IRetryAnalyzer;
@@ -423,6 +424,24 @@ public class TestNGMethodStub implements ITestNGMethod {
 
   @Override
   public Map<String, String> findMethodParameters(XmlTest test) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void setMoreInvocationChecker(Callable<Boolean> moreInvocationChecker) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public boolean hasMoreInvocation() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+  @Override
+  public String getQualifiedName() {
     // TODO Auto-generated method stub
     return null;
   }
