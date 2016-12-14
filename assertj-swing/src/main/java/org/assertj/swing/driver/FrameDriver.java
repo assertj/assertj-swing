@@ -15,8 +15,10 @@ package org.assertj.swing.driver;
 import static java.awt.Frame.ICONIFIED;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import static java.awt.Frame.NORMAL;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
+import static org.assertj.swing.driver.FrameTitleQuery.titleOf;
 import static org.assertj.swing.driver.WindowLikeContainers.iconifyButtonLocation;
 import static org.assertj.swing.driver.WindowLikeContainers.maximizeButtonLocation;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
@@ -46,6 +48,7 @@ import org.assertj.swing.util.ToolkitProvider;
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author Christian Rösch
  */
 @InternalApi
 public class FrameDriver extends WindowDriver {
@@ -141,5 +144,18 @@ public class FrameDriver extends WindowDriver {
 
   private static boolean supportsMaximize(@Nonnull Toolkit toolkit) {
     return toolkit.isFrameStateSupported(MAXIMIZED_BOTH);
+  }
+
+  /**
+   * Verifies that the title of the given {@code Frame} is equal to the expected one.
+   *
+   * @param frame the target {@code Frame}.
+   * @param expected the expected title.
+   * @throws AssertionError if the title of the given {@code Frame} is not equal to the expected one.
+   */
+  @RunsInEDT
+  public void requireTitle(@Nonnull Frame frame, String expected) {
+    String actual = titleOf(frame);
+    assertThat(actual).as(propertyName(frame, "title")).isEqualTo(expected);
   }
 }

@@ -16,17 +16,18 @@ import javax.annotation.Nonnull;
 
 /**
  * Supports functional testing of frame-like components (not necessarily subclasses of {@code java.awt.Frame}).
- * 
+ *
  * @param <S> used to simulate "self types." For more information please read &quot;<a href="http://goo.gl/fjgOM"
  *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>.&quot;
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
+ * @author Christian Rösch
  */
 public interface FrameLikeFixture<S> extends WindowLikeContainerFixture<S> {
   /**
    * Simulates a user iconifying this fixture's frame-like component.
-   * 
+   *
    * @return this fixture.
    */
   @Nonnull
@@ -34,7 +35,7 @@ public interface FrameLikeFixture<S> extends WindowLikeContainerFixture<S> {
 
   /**
    * Simulates a user deiconifying this fixture's frame-like component.
-   * 
+   *
    * @return this fixture.
    */
   @Nonnull
@@ -42,7 +43,7 @@ public interface FrameLikeFixture<S> extends WindowLikeContainerFixture<S> {
 
   /**
    * Simulates a user maximizing this fixture's frame-like component.
-   * 
+   *
    * @return this fixture.
    */
   @Nonnull
@@ -50,9 +51,17 @@ public interface FrameLikeFixture<S> extends WindowLikeContainerFixture<S> {
 
   /**
    * Simulates a user normalizing this fixture's frame-like component.
-   * 
+   *
    * @return this fixture.
    */
   @Nonnull
   S normalize();
+
+  /**
+   * Verifies that the title of the given frame is equal to the expected one.
+   *
+   * @param expected the expected title.
+   * @throws AssertionError if the title of the given frame is not equal to the expected one.
+   */
+  S requireTitle(String expected);
 }

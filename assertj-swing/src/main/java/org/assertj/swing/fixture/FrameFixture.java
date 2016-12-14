@@ -22,16 +22,17 @@ import org.assertj.swing.driver.FrameDriver;
 
 /**
  * Supports functional testing of {@code Frame}s.
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
+ * @author Christian Rösch
  */
 public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, FrameDriver> implements
     FrameLikeFixture<FrameFixture> {
   /**
    * Creates a new {@link FrameFixture}. This constructor creates a new {@link Robot} containing the current AWT
    * hierarchy.
-   * 
+   *
    * @param target the {@code Frame} to be managed by this fixture.
    * @throws NullPointerException if the given frame is {@code null}.
    * @see BasicRobot#robotWithCurrentAwtHierarchy()
@@ -42,7 +43,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
 
   /**
    * Creates a new {@link FrameFixture}.
-   * 
+   *
    * @param robot performs user events on the given window and verifies expected output.
    * @param target the {@code Frame} to be managed by this fixture.
    * @throws NullPointerException if the given robot is {@code null}.
@@ -54,7 +55,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
 
   /**
    * Creates a new {@link FrameFixture}.
-   * 
+   *
    * @param robot performs user events on the given window and verifies expected output.
    * @param name the name of the {@code Frame} to find using the given {@code Robot}.
    * @throws NullPointerException if the given robot is {@code null}.
@@ -68,7 +69,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
   /**
    * Creates a new {@link FrameFixture}. This constructor creates a new {@link Robot} containing the current AWT
    * hierarchy.
-   * 
+   *
    * @param name the name of the {@code Frame} to find.
    * @throws ComponentLookupException if a {@code Frame} having a matching name could not be found.
    * @throws ComponentLookupException if more than one {@code Frame} having a matching name is found.
@@ -84,7 +85,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
 
   /**
    * Simulates a user iconifying this fixture's {@code Frame}.
-   * 
+   *
    * @return this fixture.
    */
   @Override
@@ -95,7 +96,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
 
   /**
    * Simulates a user deiconifying this fixture's {@code Frame}.
-   * 
+   *
    * @return this fixture.
    */
   @Override
@@ -106,7 +107,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
 
   /**
    * Simulates a user maximizing this fixture's {@code Frame}.
-   * 
+   *
    * @return this fixture.
    * @throws ActionFailedException if the operating system does not support maximizing frames.
    */
@@ -118,12 +119,18 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
 
   /**
    * Simulates a user normalizing this fixture's {@code Frame}.
-   * 
+   *
    * @return this fixture.
    */
   @Override
   public @Nonnull FrameFixture normalize() {
     driver().normalize(target());
+    return this;
+  }
+
+  @Override
+  public @Nonnull FrameFixture requireTitle(String expected) {
+    driver().requireTitle(target(), expected);
     return this;
   }
 }

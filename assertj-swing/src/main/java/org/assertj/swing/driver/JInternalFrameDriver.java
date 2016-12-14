@@ -12,6 +12,7 @@
  */
 package org.assertj.swing.driver;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.driver.ComponentPreconditions.checkShowing;
 import static org.assertj.swing.driver.JInternalFrameAction.DEICONIFY;
@@ -21,6 +22,7 @@ import static org.assertj.swing.driver.JInternalFrameAction.NORMALIZE;
 import static org.assertj.swing.driver.JInternalFrameIconQuery.isIconified;
 import static org.assertj.swing.driver.JInternalFrameSetIconTask.setIcon;
 import static org.assertj.swing.driver.JInternalFrameSetMaximumTask.setMaximum;
+import static org.assertj.swing.driver.JInternalFrameTitleQuery.titleOf;
 import static org.assertj.swing.driver.WindowLikeContainers.closeButtonLocation;
 import static org.assertj.swing.driver.WindowLikeContainers.iconifyButtonLocation;
 import static org.assertj.swing.driver.WindowLikeContainers.maximizeButtonLocation;
@@ -60,6 +62,7 @@ import org.assertj.swing.util.Triple;
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author Christian Rösch
  */
 @InternalApi
 public class JInternalFrameDriver extends JComponentDriver {
@@ -386,5 +389,18 @@ public class JInternalFrameDriver extends JComponentDriver {
       }
       return closeButtonLocation(internalFrame);
     });
+  }
+
+  /**
+   * Verifies that the title of the given {@code JInternalFrame} is equal to the expected one.
+   *
+   * @param frame the target {@code JInternalFrame}.
+   * @param expected the expected title.
+   * @throws AssertionError if the title of the given {@code JInternalFrame} is not equal to the expected one.
+   */
+  @RunsInEDT
+  public void requireTitle(@Nonnull JInternalFrame frame, String expected) {
+    String actual = titleOf(frame);
+    assertThat(actual).as(propertyName(frame, "title")).isEqualTo(expected);
   }
 }
