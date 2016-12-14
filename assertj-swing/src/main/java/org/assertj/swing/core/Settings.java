@@ -96,7 +96,7 @@ public class Settings {
     }
     String property = p.getProperty(key);
     if (property != null) {
-      return convert.apply(systemProperty);
+      return convert.apply(property);
     }
     return defaultValue;
   }
