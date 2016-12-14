@@ -17,6 +17,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+/** Test for <a href="https://github.com/joel-costigliola/assertj-swing/issues/191">github.com - assertj-swing #191</a> */
 public class GitHub_191_FileChooser_Test extends RobotBasedTestCase {
   @Rule
   public TemporaryFolder temporaryFolder = new TemporaryFolder();
