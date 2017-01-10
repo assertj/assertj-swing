@@ -1,0 +1,39 @@
+package org.assertj.swing.core;
+
+import static org.assertj.swing.edt.GuiActionRunner.execute;
+
+import java.awt.EventQueue;
+
+import org.assertj.swing.annotation.RunsInEDT;
+import org.assertj.swing.edt.GuiTask;
+import org.junit.Assert;
+import org.junit.Test;
+
+public class BasicRobot_waitForIdle_Test extends BasicRobot_TestCase {
+  @Test
+  public final void test() {
+    this.robot().focusAndWaitForFocusGain(this.window().textField());
+    this.robot().enterText("Test");
+    Assert.assertEquals("Test", this.window().textField().getText());
+  }
+
+  @RunsInEDT
+  @Override
+  void beforeShowingWindow() {
+    execute(new GuiTask() {
+      @Override
+      protected void executeInEDT() {
+        BasicRobot_waitForIdle_Test.this.window().textField().setEnabled(false);
+        new Thread(() -> {
+          try {
+            Thread.sleep(2000); // Simulate fetching something from the DB
+            EventQueue.invokeAndWait(() -> BasicRobot_waitForIdle_Test.this.window().textField()
+                .setEnabled(true));
+          } catch (final Exception e) {
+            e.printStackTrace();
+          }
+        }).start();
+      }
+    });
+  }
+}
