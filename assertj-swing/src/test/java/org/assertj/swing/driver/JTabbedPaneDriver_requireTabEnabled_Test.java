@@ -12,19 +12,26 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Arrays.array;
-
 import org.junit.Test;
 
+import static org.assertj.swing.data.Index.atIndex;
+
 /**
- * Tests for {@link JTabbedPaneDriver#tabTitles(javax.swing.JTabbedPane)}.
+ * Tests for {@link JTabbedPaneDriver#requireTabEnabled(javax.swing.JTabbedPane, org.assertj.swing.data.Index)}.
  * 
- * @author Alex Ruiz
+ * @author William Bakker
  */
-public class JTabbedPaneDriver_tabTitles_Test extends JTabbedPaneDriver_TestCase {
+public class JTabbedPaneDriver_requireTabEnabled_Test extends JTabbedPaneDriver_TestCase {
   @Test
-  public void should_Return_Tab_Titles() {
-    assertThat(driver.tabTitles(tabbedPane)).isEqualTo(array("One", "Two", "Three"));
+  public void should_Fail_If_Tab_Is_Disabled() {
+    thrown.expectAssertionError("property:'enabledAt'");
+    thrown.expectMessageToContain("expected:<[tru]e> but was:<[fals]e>");
+
+    driver.requireTabEnabled(tabbedPane, atIndex(2));
+  }
+
+  @Test
+  public void should_Pass_If_Tab_Is_Enabled() {
+    driver.requireTabEnabled(tabbedPane, atIndex(0));
   }
 }

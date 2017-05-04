@@ -33,6 +33,7 @@ import org.junit.Rule;
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author William Bakker
  */
 public abstract class JTabbedPaneDriver_TestCase extends RobotBasedTestCase {
   JTabbedPaneDriver driver;
@@ -83,8 +84,10 @@ public abstract class JTabbedPaneDriver_TestCase extends RobotBasedTestCase {
 
     private MyWindow(Class<?> testClass) {
       super(testClass);
-      tabbedPane.addTab("One", panelWithName("panel1"));
-      tabbedPane.addTab("Two", panelWithName("panel2"));
+      tabbedPane.addTab("One", null, panelWithName("panel1"), "tip1");
+      tabbedPane.addTab("Two", null, panelWithName("panel2"), "tip2");
+      tabbedPane.addTab("Three", null, panelWithName("panel3"), "tip3");
+      tabbedPane.setEnabledAt(tabbedPane.indexOfTab("Three"), false);
       add(tabbedPane);
       setPreferredSize(new Dimension(100, 100));
     }

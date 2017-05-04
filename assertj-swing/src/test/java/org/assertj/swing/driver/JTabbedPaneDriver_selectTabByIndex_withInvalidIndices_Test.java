@@ -34,7 +34,7 @@ public class JTabbedPaneDriver_selectTabByIndex_withInvalidIndices_Test extends 
 
   @Parameters
   public static Collection<Object[]> indices() {
-    return newArrayList(new Object[][] { { -1 }, { 2 } });
+    return newArrayList(new Object[][] { { -1 }, { 3 } });
   }
 
   public JTabbedPaneDriver_selectTabByIndex_withInvalidIndices_Test(int index) {
@@ -44,7 +44,7 @@ public class JTabbedPaneDriver_selectTabByIndex_withInvalidIndices_Test extends 
   @Test
   public void should_Throw_Error_If_Index_Is_Out_Of_Bounds() {
     thrown.expectIndexOutOfBoundsException(concat("Index <", index,
-        "> is not within the JTabbedPane bounds of <0> and <1> (inclusive)"));
+        "> is not within the JTabbedPane bounds of <0> and <2> (inclusive)"));
     driver.selectTab(tabbedPane, index);
   }
 }
