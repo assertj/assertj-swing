@@ -24,12 +24,12 @@ import org.junit.Test;
 public class JTabbedPaneDriver_requireTabTitles_Test extends JTabbedPaneDriver_TestCase {
   @Test
   public void should_Fail_If_Titles_Are_Not_Equal_To_Expected() {
-    thrown.expectAssertionError("tabTitles", array("[Three", "Four]"), array("[One", "Two]"));
-    driver.requireTabTitles(tabbedPane, array("Three", "Four"));
+    thrown.expectAssertionError("tabTitles", array("[Four", "Fiv]e"), array("[One", "Two", "Thre]e"));
+    driver.requireTabTitles(tabbedPane, array("Four", "Five"));
   }
 
   @Test
   public void should_Pass_If_Titles_Are_Equal_To_Expected() {
-    driver.requireTabTitles(tabbedPane, array("One", "Two"));
+    driver.requireTabTitles(tabbedPane, array("One", "Two", "Three"));
   }
 }

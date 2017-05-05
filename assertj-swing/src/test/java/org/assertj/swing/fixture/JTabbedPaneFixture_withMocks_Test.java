@@ -32,6 +32,7 @@ import org.junit.Test;
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author William Bakker
  */
 public class JTabbedPaneFixture_withMocks_Test {
   private JTabbedPaneFixture fixture;
@@ -89,5 +90,36 @@ public class JTabbedPaneFixture_withMocks_Test {
     String[] titles = { "One", "Two" };
     assertThat(fixture.requireTabTitles(titles)).isSameAs(fixture);
     verify(fixture.driver()).requireTabTitles(fixture.target(), titles);
+  }
+
+  @Test
+  public void should_Call_RequireSelectedTab_In_Driver_And_Return_Self() {
+    assertThat(fixture.requireSelectedTab(atIndex(6))).isSameAs(fixture);
+    verify(fixture.driver()).requireSelectedTab(fixture.target(), atIndex(6));
+  }
+
+  @Test
+  public void should_Call_RequireToolTipText_With_Text_In_Driver_And_Return_Self() {
+    assertThat(fixture.requireToolTipText("Hello", atIndex(6))).isSameAs(fixture);
+    verify(fixture.driver()).requireTabToolTipText(fixture.target(), "Hello", atIndex(6));
+  }
+
+  @Test
+  public void should_Call_RequireToolTipText_With_Pattern_In_Driver_And_Return_Self() {
+    Pattern pattern = Pattern.compile("Hello");
+    assertThat(fixture.requireToolTipText(pattern, atIndex(6))).isSameAs(fixture);
+    verify(fixture.driver()).requireTabToolTipText(fixture.target(), pattern, atIndex(6));
+  }
+
+  @Test
+  public void should_Call_RequireEnabled_In_Driver_And_Return_Self() {
+    assertThat(fixture.requireEnabled(atIndex(6))).isSameAs(fixture);
+    verify(fixture.driver()).requireTabEnabled(fixture.target(), atIndex(6));
+  }
+
+  @Test
+  public void should_Call_RequireDisabled_In_Driver_And_Return_Self() {
+    assertThat(fixture.requireDisabled(atIndex(6))).isSameAs(fixture);
+    verify(fixture.driver()).requireTabDisabled(fixture.target(), atIndex(6));
   }
 }

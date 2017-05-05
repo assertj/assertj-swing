@@ -57,6 +57,7 @@ import org.assertj.swing.util.TextMatcher;
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author William Bakker
  */
 @InternalApi
 public class JTabbedPaneDriver extends JComponentDriver {
@@ -276,14 +277,93 @@ public class JTabbedPaneDriver extends JComponentDriver {
                                                     .isEqualTo(index.value);
   }
 
+  /**
+   * Asserts that the toolTipText of the tab at the given index matches the given value.
+   *
+   * @param tabbedPane the target {@code JTabbedPane}.
+   * @param toolTipText the expected toolTipText. It can be a regular expression.
+   * @param index the index of the tab.
+   * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
+   * @throws AssertionError if the toolTipText of the tab at the given index does not match the given one.
+   */
+  @RunsInEDT
+  public void requireTabToolTipText(@Nonnull JTabbedPane tabbedPane, @Nullable String toolTipText, @Nonnull Index index) {
+    String actualToolTipText = toolTipTextAt(tabbedPane, index);
+    verifyThat(actualToolTipText).as(toolTipTextAtProperty(tabbedPane)).isEqualOrMatches(toolTipText);
+  }
+
+  /**
+   * Asserts that the toolTipText of the tab at the given index matches the given regular expression pattern.
+   *
+   * @param tabbedPane the target {@code JTabbedPane}.
+   * @param pattern the regular expression pattern to match.
+   * @param index the index of the tab.
+   * @throws NullPointerException if the given regular expression pattern is {@code null}.
+   * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
+   * @throws AssertionError if the toolTipText of the tab at the given index does not match the given one.
+   */
+  @RunsInEDT
+  public void requireTabToolTipText(@Nonnull JTabbedPane tabbedPane, @Nonnull Pattern pattern, @Nonnull Index index) {
+    String actualToolTipText = toolTipTextAt(tabbedPane, index);
+    verifyThat(actualToolTipText).as(toolTipTextAtProperty(tabbedPane)).matches(pattern);
+  }
+
+  /**
+   * Asserts that the tab at the given index is enabled.
+   *
+   * @param tabbedPane the target {@code JTabbedPane}.
+   * @param index the index of the tab.
+   * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
+   * @throws AssertionError if the tab at the given index is not enabled.
+   */
+  @RunsInEDT
+  public void requireTabEnabled(@Nonnull JTabbedPane tabbedPane, @Nonnull Index index) {
+    boolean actualEnabled = isEnabledAt(tabbedPane, index);
+    assertThat(actualEnabled).as(enabledAtProperty(tabbedPane)).isTrue();
+  }
+
+  /**
+   * Asserts that the tab at the given index is disabled.
+   *
+   * @param tabbedPane the target {@code JTabbedPane}.
+   * @param index the index of the tab.
+   * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
+   * @throws AssertionError if the tab at the given index is not disabled.
+   */
+  @RunsInEDT
+  public void requireTabDisabled(@Nonnull JTabbedPane tabbedPane, @Nonnull Index index) {
+    boolean actualEnabled = isEnabledAt(tabbedPane, index);
+    assertThat(actualEnabled).as(enabledAtProperty(tabbedPane)).isFalse();
+  }
+
   @RunsInEDT
   private Description titleAtProperty(@Nonnull JTabbedPane tabbedPane) {
     return propertyName(tabbedPane, "titleAt");
   }
 
   @RunsInEDT
+  private Description toolTipTextAtProperty(@Nonnull JTabbedPane tabbedPane) {
+    return propertyName(tabbedPane, "toolTipTextAt");
+  }
+
+  @RunsInEDT
+  private Description enabledAtProperty(@Nonnull JTabbedPane tabbedPane) {
+    return propertyName(tabbedPane, "enabledAt");
+  }
+
+  @RunsInEDT
   private static @Nullable String titleAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
     return execute(() -> tabbedPane.getTitleAt(index.value));
+  }
+
+  @RunsInEDT
+  private static @Nullable String toolTipTextAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
+    return execute(() -> tabbedPane.getToolTipTextAt(index.value));
+  }
+
+  @RunsInEDT
+  private static @Nullable boolean isEnabledAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
+    return execute(() -> tabbedPane.isEnabledAt(index.value));
   }
 
   /**

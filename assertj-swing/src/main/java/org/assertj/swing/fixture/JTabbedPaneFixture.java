@@ -27,6 +27,7 @@ import org.assertj.swing.driver.JTabbedPaneDriver;
  *
  * @author Alex Ruiz
  * @author Yvonne Wang
+ * @author William Bakker
  */
 public class JTabbedPaneFixture extends
     AbstractJPopupMenuInvokerFixture<JTabbedPaneFixture, JTabbedPane, JTabbedPaneDriver> {
@@ -163,6 +164,61 @@ public class JTabbedPaneFixture extends
    */
   public @Nonnull JTabbedPaneFixture requireSelectedTab(@Nonnull Index expected) {
     driver().requireSelectedTab(target(), expected);
+    return this;
+  }
+
+  /**
+   * Asserts that the toolTipText of the tab at the given index matches the given value.
+   *
+   * @param toolTipText the expected toolTipText. It can be a regular expression.
+   * @param index the index of the tab.
+   * @return this fixture.
+   * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
+   * @throws AssertionError if the toolTipText of the tab at the given index does not match the given one.
+   */
+  public @Nonnull JTabbedPaneFixture requireToolTipText(@Nullable String toolTipText, @Nonnull Index index) {
+    driver().requireTabToolTipText(target(), toolTipText, index);
+    return this;
+  }
+
+  /**
+   * Asserts that the toolTipText of the tab at the given index matches the given regular expression pattern.
+   *
+   * @param pattern the regular expression pattern to match.
+   * @param index the index of the tab.
+   * @return this fixture.
+   * @throws NullPointerException if the given regular expression pattern is {@code null}.
+   * @throws AssertionError if the toolTipText of the tab at the given index does not match the given regular expression
+   *           pattern.
+   */
+  public @Nonnull JTabbedPaneFixture requireToolTipText(@Nonnull Pattern pattern, @Nonnull Index index) {
+    driver().requireTabToolTipText(target(), pattern, index);
+    return this;
+  }
+
+  /**
+   * Asserts that the tab at the given index is enabled.
+   *
+   * @param index the index of the tab.
+   * @return this fixture.
+   * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
+   * @throws AssertionError if the tab at the given index is not enabled.
+   */
+  public @Nonnull JTabbedPaneFixture requireEnabled(@Nonnull Index index) {
+    driver().requireTabEnabled(target(), index);
+    return this;
+  }
+
+  /**
+   * Asserts that the tab at the given index is disabled.
+   *
+   * @param index the index of the tab.
+   * @return this fixture.
+   * @throws IndexOutOfBoundsException if the given index is not within the {@code JTabbedPane} bounds.
+   * @throws AssertionError if the tab at the given index is not disabled.
+   */
+  public @Nonnull JTabbedPaneFixture requireDisabled(@Nonnull Index index) {
+    driver().requireTabDisabled(target(), index);
     return this;
   }
 }
