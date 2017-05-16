@@ -18,7 +18,6 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
-import static org.assertj.swing.driver.ComponentPreconditions.checkEnabledAndShowing;
 import static org.assertj.swing.driver.JTableCellEditableQuery.isCellEditable;
 import static org.assertj.swing.driver.JTableColumnCountQuery.columnCountOf;
 import static org.assertj.swing.driver.JTableContentsQuery.tableContents;
@@ -488,8 +487,8 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Point scrollToPointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
-                                                    final @Nonnull JTableLocation location) {
+  private @Nonnull Point scrollToPointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
+                                             final @Nonnull JTableLocation location) {
     checkNotNull(cell);
     Point result = execute(() -> {
       scrollToCell(table, cell, location);
@@ -499,8 +498,8 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static void scrollToCell(@Nonnull JTable table, @Nonnull TableCell cell, @Nonnull JTableLocation location) {
-    checkEnabledAndShowing(table);
+  private void scrollToCell(@Nonnull JTable table, @Nonnull TableCell cell, @Nonnull JTableLocation location) {
+    checkClickAllowed(table);
     JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
     table.scrollRectToVisible(location.cellBounds(table, cell));
   }
@@ -905,9 +904,9 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Pair<Boolean, Point> cellSelectionInfo(final @Nonnull JTable table, final int row,
-                                                                 final int column,
-                                                                 final @Nonnull JTableLocation location) {
+  private @Nonnull Pair<Boolean, Point> cellSelectionInfo(final @Nonnull JTable table, final int row,
+                                                          final int column,
+                                                          final @Nonnull JTableLocation location) {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
       @Override
       protected Pair<Boolean, Point> executeInEDT() {
@@ -920,9 +919,9 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static void scrollToCell(final @Nonnull JTable table, final int row, final int column,
-                                   final @Nonnull JTableLocation location) {
-    checkEnabledAndShowing(table);
+  private void scrollToCell(final @Nonnull JTable table, final int row, final int column,
+                            final @Nonnull JTableLocation location) {
+    checkClickAllowed(table);
     JTableCellPreconditions.checkCellIndicesInBounds(table, row, column);
     table.scrollRectToVisible(location.cellBounds(table, row, column));
   }
