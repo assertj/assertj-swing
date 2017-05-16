@@ -19,15 +19,20 @@ import java.util.Locale;
 
 import javax.annotation.Nonnull;
 
+import org.assertj.core.util.Strings;
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.util.OSFamily;
 
+
 /**
  * Chooses a {@link KeyStrokeMappingProvider} based on OS family and locale.
- * 
  * @author Alex Ruiz
  */
 class KeyStrokeMappingProviderPicker {
+  
+  /** JVM parameter to use with -D in order to override default strategy for choosing the provider */
+  public static final String KEY_STROKE_MAPPING_PROVIDER = "KeyStrokeMappingProvider";
+  
   private final KeyStrokeMappingProviderFactory factory;
 
   KeyStrokeMappingProviderPicker() {
@@ -40,6 +45,18 @@ class KeyStrokeMappingProviderPicker {
   }
 
   KeyStrokeMappingProvider providerFor(@Nonnull OSFamily osFamily, @Nonnull Locale locale) {
+    
+    String forcedProvider = System.getProperty(KEY_STROKE_MAPPING_PROVIDER);
+    if (!Strings.isNullOrEmpty(forcedProvider)) {
+      KeyStrokeMappingProvider provider = factory.createProvider(forcedProvider);
+      if (provider != null) {
+    	return provider;
+      } else {
+        // Unable to load forced provider => will use default strategy
+      }
+    }
+    
+    // default strategy to auto select provider
     for (String name : generateNamesFrom(osFamily, locale)) {
       String typeName = checkNotNull(name);
       KeyStrokeMappingProvider provider = factory.createProvider(typeName);
