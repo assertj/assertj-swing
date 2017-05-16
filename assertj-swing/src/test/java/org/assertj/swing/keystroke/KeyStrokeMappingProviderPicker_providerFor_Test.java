@@ -65,9 +65,9 @@ public class KeyStrokeMappingProviderPicker_providerFor_Test {
 
   @Test
   public void should_Return_Default_Provider_If_Provider_From_System_Settings_Was_Not_Found() {
-	  for (String name : generateNamesFrom(WINDOWS, US)) {
-		  when(factory.createProvider(name)).thenReturn(null);
-	  }
-	  assertThat(picker.providerFor(WINDOWS, US)).isInstanceOf(KeyStrokeMappingProvider_en.class);
+    for (String name : generateNamesFrom(WINDOWS, US)) {
+      when(factory.createProvider(name)).thenReturn(null);
+    }
+    assertThat(picker.providerFor(WINDOWS, US)).isInstanceOf(KeyStrokeMappingProvider_en.class);
   }
 }
