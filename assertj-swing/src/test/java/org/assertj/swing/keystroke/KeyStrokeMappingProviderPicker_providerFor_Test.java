@@ -46,11 +46,28 @@ public class KeyStrokeMappingProviderPicker_providerFor_Test {
     assertThat(picker.providerFor(WINDOWS, US)).isSameAs(provider);
   }
 
+  /** Warning: this test messes with a global JVM property and may interfere with the
+   * behavior of the providerFor method even if it tries to restore the previous value 
+   * of the setting. In case of parallel tests, it may cause problems. */
+  @Test
+  public void should_Return_Forced_Provider_If_Is_Defined() {
+    String previousPropertyValue = System.getProperty(KeyStrokeMappingProviderPicker.KEY_STROKE_MAPPING_PROVIDER);
+	System.setProperty(KeyStrokeMappingProviderPicker.KEY_STROKE_MAPPING_PROVIDER, KeyStrokeMappingProvider_fr.class.getName());
+	KeyStrokeMappingProviderPicker picker = new KeyStrokeMappingProviderPicker(new KeyStrokeMappingProviderFactory());
+    KeyStrokeMappingProvider provider = picker.providerFor(WINDOWS, US);
+	assertThat(provider).isInstanceOf(KeyStrokeMappingProvider_fr.class);
+	if (previousPropertyValue == null) {
+		System.clearProperty(KeyStrokeMappingProviderPicker.KEY_STROKE_MAPPING_PROVIDER);
+	} else {
+		System.setProperty(KeyStrokeMappingProviderPicker.KEY_STROKE_MAPPING_PROVIDER, previousPropertyValue);;
+	}
+  }
+
   @Test
   public void should_Return_Default_Provider_If_Provider_From_System_Settings_Was_Not_Found() {
-    for (String name : generateNamesFrom(WINDOWS, US)) {
-      when(factory.createProvider(name)).thenReturn(null);
-    }
-    assertThat(picker.providerFor(WINDOWS, US)).isInstanceOf(KeyStrokeMappingProvider_en.class);
+	  for (String name : generateNamesFrom(WINDOWS, US)) {
+		  when(factory.createProvider(name)).thenReturn(null);
+	  }
+	  assertThat(picker.providerFor(WINDOWS, US)).isInstanceOf(KeyStrokeMappingProvider_en.class);
   }
 }
