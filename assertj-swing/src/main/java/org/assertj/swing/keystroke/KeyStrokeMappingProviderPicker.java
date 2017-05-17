@@ -16,6 +16,7 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.keystroke.KeyStrokeMappingProviderNames.generateNamesFrom;
 
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import javax.annotation.Nonnull;
 
@@ -24,10 +25,11 @@ import org.assertj.swing.util.OSFamily;
 
 /**
  * Chooses a {@link KeyStrokeMappingProvider} based on OS family and locale.
- * 
+ *
  * @author Alex Ruiz
  */
 class KeyStrokeMappingProviderPicker {
+  private static Logger LOGGER = Logger.getLogger(KeyStrokeMappingProviderPicker.class.getName());
   private final KeyStrokeMappingProviderFactory factory;
 
   KeyStrokeMappingProviderPicker() {
@@ -40,10 +42,13 @@ class KeyStrokeMappingProviderPicker {
   }
 
   KeyStrokeMappingProvider providerFor(@Nonnull OSFamily osFamily, @Nonnull Locale locale) {
+    LOGGER.finer("providing keystroke mappings for OS=" + osFamily + ", locale=" + locale);
     for (String name : generateNamesFrom(osFamily, locale)) {
+      LOGGER.finer("trying >" + name + "<");
       String typeName = checkNotNull(name);
       KeyStrokeMappingProvider provider = factory.createProvider(typeName);
       if (provider != null) {
+        LOGGER.finer("created successfully.");
         return provider;
       }
     }
