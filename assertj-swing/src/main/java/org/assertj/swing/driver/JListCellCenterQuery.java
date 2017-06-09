@@ -12,10 +12,7 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.awt.AWT.centerOf;
-import static org.assertj.swing.awt.AWT.centerOfVisibleRect;
-import static org.assertj.swing.awt.AWT.translate;
 
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -32,19 +29,19 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  */
 final class JListCellCenterQuery {
   /*
-   * Sometimes the cell can be a lot longer than the JList (e.g. when a list item has long text and the JList is in a
-   * JScrollPane). In this case, we return the centre of visible rectangle of the JList (issue FEST-65).
+   * Sometimes the cell is not completely contained in the visible rectangle of the JList (e.g. when a list item
+   * has long text and the JList is in a JScrollPane). In this case, we return the center of the intersection of the
+   * visible rectangle of the JList and the cell bounds. (issue FEST-65).
    */
   @RunsInCurrentThread
   static @Nonnull Point cellCenter(@Nonnull JList<?> list, @Nonnull Rectangle cellBounds) {
     Point cellCenter = centerOf(cellBounds);
-    Point translated = checkNotNull(translate(list, cellCenter.x, cellCenter.y));
-    int listVisibleWidth = list.getVisibleRect().width;
-    if (translated.x < listVisibleWidth) {
+    Rectangle visibleRect = list.getVisibleRect();
+    if (visibleRect.contains(cellCenter)) {
       return cellCenter;
     }
-    Point listCenter = centerOfVisibleRect(list);
-    return new Point(listCenter.x, cellCenter.y);
+    Rectangle intersection = visibleRect.intersection(cellBounds);
+    return centerOf(intersection);
   }
 
   private JListCellCenterQuery() {
