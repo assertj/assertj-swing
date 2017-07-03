@@ -31,7 +31,7 @@ public abstract class AssertJSwingTestngTestCase extends AssertJSwingTestCaseTem
   /**
    * Installs a <code>{@link FailOnThreadViolationRepaintManager}</code> to catch violations of Swing threading rules.
    */
-  @BeforeClass
+  @BeforeClass(alwaysRun = true)
   public final void setUpOnce() {
     FailOnThreadViolationRepaintManager.install();
   }
@@ -42,7 +42,7 @@ public abstract class AssertJSwingTestngTestCase extends AssertJSwingTestCaseTem
    * @see #setUpRobot()
    * @see #onSetUp()
    */
-  @BeforeMethod
+  @BeforeMethod(alwaysRun = true)
   public final void setUp() {
     setUpRobot();
     onSetUp();
@@ -58,7 +58,7 @@ public abstract class AssertJSwingTestngTestCase extends AssertJSwingTestCaseTem
    * Removes the <code>{@link FailOnThreadViolationRepaintManager}</code> again to allow EDT violating and EDT safe
    * tests in the same suite.
    */
-  @AfterClass
+  @AfterClass(alwaysRun = true)
   public static final void tearDownOnce() {
     FailOnThreadViolationRepaintManager.uninstall();
   }
@@ -70,7 +70,7 @@ public abstract class AssertJSwingTestngTestCase extends AssertJSwingTestCaseTem
    * @see #cleanUp()
    * @see #onTearDown()
    */
-  @AfterMethod
+  @AfterMethod(alwaysRun = true)
   public final void tearDown() {
     try {
       onTearDown();
