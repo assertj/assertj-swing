@@ -21,10 +21,7 @@ import javax.annotation.Nullable;
 import javax.swing.JInternalFrame;
 
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.Settings;
 import org.assertj.swing.driver.JInternalFrameDriver;
-import org.assertj.swing.exception.ActionFailedException;
-import org.assertj.swing.exception.ComponentLookupException;
 
 /**
  * Supports functional testing of {@code JInternalFrame}s
@@ -84,7 +81,8 @@ public class JInternalFrameFixture extends
    * @param pattern the regular expression pattern to match.
    * @return this fixture.
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
-   * @throws AssertionError if the toolTip in this fixture's {@code JInternalFrame} does not match the given regular expression.
+   * @throws AssertionError if the toolTip in this fixture's {@code JInternalFrame} does not match the given regular
+   *           expression.
    */
   @Override
   public @Nonnull JInternalFrameFixture requireToolTip(@Nonnull Pattern pattern) {
@@ -268,7 +266,8 @@ public class JInternalFrameFixture extends
   }
 
   /**
-   * Shows a pop-up menu at the given point using this fixture's {@code JInternalFrame} as the invoker of the pop-up menu.
+   * Shows a pop-up menu at the given point using this fixture's {@code JInternalFrame} as the invoker of the pop-up
+   * menu.
    *
    * @param p the given point where to show the pop-up menu.
    * @return a fixture that manages the displayed pop-up menu.
