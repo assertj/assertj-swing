@@ -14,6 +14,7 @@ package org.assertj.swing.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Preconditions.checkNotNull;
+import static org.assertj.swing.awt.AWT.visibleCenterOf;
 import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
 import static org.assertj.swing.driver.ComponentEnabledCondition.untilIsEnabled;
@@ -435,6 +436,20 @@ public class ComponentDriver {
   @RunsInEDT
   protected final void drag(@Nonnull Component c, @Nonnull Point where) {
     dragAndDrop.drag(c, where);
+  }
+
+  /**
+   * Ends a drag operation at the centre of the {@code Component}.
+   *
+   * @param c the target {@code Component}.
+   * @throws IllegalStateException if the {@code Component} is disabled.
+   * @throws IllegalStateException if the {@code Component} is not showing on the screen.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
+   */
+  @RunsInEDT
+  public void drop(@Nonnull Component c) {
+    checkInEdtEnabledAndShowing(c);
+    drop(c, visibleCenterOf(c));
   }
 
   /**

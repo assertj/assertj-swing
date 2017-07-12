@@ -17,7 +17,6 @@ import static java.util.Arrays.sort;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.util.Preconditions.checkNotNull;
-import static org.assertj.swing.awt.AWT.visibleCenterOf;
 import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.driver.JListContentQuery.contents;
 import static org.assertj.swing.driver.JListItemCountQuery.itemCountIn;
@@ -685,20 +684,6 @@ public class JListDriver extends JComponentDriver {
     Point cellCenter = scrollToItem(list, index);
     robot.waitForIdle();
     super.drop(list, cellCenter);
-  }
-
-  /**
-   * Ends a drag operation at the centre of the {@code JList}.
-   *
-   * @param list the target {@code JList}.
-   * @throws IllegalStateException if the {@code JList} is disabled.
-   * @throws IllegalStateException if the {@code JList} is not showing on the screen.
-   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
-   */
-  @RunsInEDT
-  public void drop(@Nonnull JList<?> list) {
-    checkInEdtEnabledAndShowing(list);
-    super.drop(list, visibleCenterOf(list));
   }
 
   /**

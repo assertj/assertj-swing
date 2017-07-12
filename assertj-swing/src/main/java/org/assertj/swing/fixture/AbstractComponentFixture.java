@@ -216,6 +216,19 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
   }
 
   /**
+   * Simulates a user dropping an item to this fixture's {@code Component}.
+   *
+   * @return this fixture.
+   * @throws IllegalStateException if this fixture's {@code Component} is disabled.
+   * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
+   * @throws ActionFailedException if there is no drag action in effect.
+   */
+  public final @Nonnull S drop() {
+    driver().drop(target());
+    return myself();
+  }
+
+  /**
    * Simulates a user right-clicking this fixture's {@code Component}.
    *
    * @return this fixture.
