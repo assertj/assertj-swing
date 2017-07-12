@@ -293,12 +293,6 @@ public class TestNGMethodStub implements ITestNGMethod {
   public void setThreadPoolSize(int arg0) {
   }
 
-  /** @see java.lang.Comparable#compareTo(java.lang.Object) */
-  @Override
-  public int compareTo(Object o) {
-    return 0;
-  }
-
   @Override
   public ITestNGMethod clone() {
     return null;
