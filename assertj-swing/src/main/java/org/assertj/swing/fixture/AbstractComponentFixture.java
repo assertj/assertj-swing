@@ -20,6 +20,7 @@ import static org.assertj.swing.format.Formatting.format;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.util.Objects;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -122,6 +123,26 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
     this.robot = checkNotNull(robot);
     this.target = checkNotNull(target);
     replaceDriverWith(createDriver(robot));
+  }
+
+  @Override
+  public final int hashCode() {
+    return Objects.hash(target);
+  }
+
+  @Override
+  public final boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    AbstractComponentFixture<?, ?, ?> other = (AbstractComponentFixture<?, ?, ?>) obj;
+    return Objects.equals(target, other.target);
   }
 
   protected abstract @Nonnull D createDriver(@Nonnull Robot robot);
