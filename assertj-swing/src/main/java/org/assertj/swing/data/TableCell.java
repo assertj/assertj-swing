@@ -85,7 +85,7 @@ public class TableCell {
   }
 
   @Override
-  public boolean equals(Object obj) {
+  public final boolean equals(Object obj) {
     if (this == obj) {
       return true;
     }
@@ -103,7 +103,7 @@ public class TableCell {
   }
 
   @Override
-  public int hashCode() {
+  public final int hashCode() {
     int result = 1;
     result = HASH_CODE_PRIME * result + column;
     result = HASH_CODE_PRIME * result + row;

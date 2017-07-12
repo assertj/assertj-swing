@@ -12,75 +12,19 @@
  */
 package org.assertj.swing.junit.xml;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.swing.junit.xml.XmlAttribute.name;
-import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsReflexive;
-import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsSymmetric;
-import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsTransitive;
-import static org.fest.test.EqualsHashCodeContractAssert.assertMaintainsEqualsAndHashCodeContract;
+import nl.jqno.equalsverifier.EqualsVerifier;
 
-import org.fest.test.EqualsHashCodeContractTestCase;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Tests for <code>{@link XmlAttributes#equals(Object)}</code> and <code>{@link XmlAttributes#hashCode()}</code>.
- * 
- * @author Alex Ruiz
+ *
+ * @author Christian Rösch
  */
-public class XmlAttributes_equals_hashCode_Test implements EqualsHashCodeContractTestCase {
+public class XmlAttributes_equals_hashCode_Test {
 
-  private XmlAttributes attributes;
-
-  @Before
-  public void setUp() {
-    attributes = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
-  }
-
-  @Override
   @Test
-  public void equals_should_be_consistent() {
-    XmlAttributes other = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
-    assertThat(attributes.equals(other)).isTrue();
-  }
-
-  @Override
-  @Test
-  public void equals_should_be_reflexive() {
-    assertEqualsIsReflexive(attributes);
-  }
-
-  @Override
-  @Test
-  public void equals_should_be_symmetric() {
-    XmlAttributes other = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
-    assertEqualsIsSymmetric(attributes, other);
-  }
-
-  @Override
-  @Test
-  public void equals_should_be_transitive() {
-    XmlAttributes other1 = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
-    XmlAttributes other2 = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
-    assertEqualsIsTransitive(attributes, other1, other2);
-  }
-
-  @Override
-  @Test
-  public void should_maintain_equals_and_hashCode_contract() {
-    XmlAttributes other = XmlAttributes.attributes(name("firstName").value("Leia"), name("lastName").value("Organa"));
-    assertMaintainsEqualsAndHashCodeContract(attributes, other);
-  }
-
-  @Override
-  @Test
-  public void should_not_be_equal_to_null() {
-    assertThat(attributes.equals(null)).isFalse();
-  }
-
-  @Override
-  @Test
-  public void should_not_be_equal_to_Object_of_different_type() {
-    assertThat(attributes.equals("Hello")).isFalse();
+  public void should_Be_Correct() {
+    EqualsVerifier.forClass(XmlAttributes.class).usingGetClass().verify();
   }
 }

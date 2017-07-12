@@ -12,75 +12,19 @@
  */
 package org.assertj.swing.junit.xml;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsReflexive;
-import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsSymmetric;
-import static org.fest.test.EqualsHashCodeContractAssert.assertEqualsIsTransitive;
-import static org.fest.test.EqualsHashCodeContractAssert.assertIsNotEqualToNull;
-import static org.fest.test.EqualsHashCodeContractAssert.assertMaintainsEqualsAndHashCodeContract;
+import nl.jqno.equalsverifier.EqualsVerifier;
 
-import org.fest.test.EqualsHashCodeContractTestCase;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Tests for <code>{@link XmlAttribute#equals(Object)}</code> and <code>{@link XmlAttribute#hashCode()}</code>.
- * 
- * @author Alex Ruiz
+ *
+ * @author Christian Rösch
  */
-public class XmlAttribute_equals_hashCode_Test implements EqualsHashCodeContractTestCase {
+public class XmlAttribute_equals_hashCode_Test {
 
-  private XmlAttribute attribute;
-
-  @Before
-  public void setUp() {
-    attribute = XmlAttribute.name("firstName").value("Anakin");
-  }
-
-  @Override
   @Test
-  public void equals_should_be_consistent() {
-    XmlAttribute other = XmlAttribute.name("firstName").value("Anakin");
-    assertThat(attribute.equals(other)).isTrue();
-  }
-
-  @Override
-  @Test
-  public void equals_should_be_reflexive() {
-    assertEqualsIsReflexive(attribute);
-  }
-
-  @Override
-  @Test
-  public void equals_should_be_symmetric() {
-    XmlAttribute other = XmlAttribute.name("firstName").value("Anakin");
-    assertEqualsIsSymmetric(attribute, other);
-  }
-
-  @Override
-  @Test
-  public void equals_should_be_transitive() {
-    XmlAttribute other1 = XmlAttribute.name("firstName").value("Anakin");
-    XmlAttribute other2 = XmlAttribute.name("firstName").value("Anakin");
-    assertEqualsIsTransitive(attribute, other1, other2);
-  }
-
-  @Override
-  @Test
-  public void should_maintain_equals_and_hashCode_contract() {
-    XmlAttribute other = XmlAttribute.name("firstName").value("Anakin");
-    assertMaintainsEqualsAndHashCodeContract(attribute, other);
-  }
-
-  @Override
-  @Test
-  public void should_not_be_equal_to_null() {
-    assertIsNotEqualToNull(attribute);
-  }
-
-  @Override
-  @Test
-  public void should_not_be_equal_to_Object_of_different_type() {
-    assertThat(attribute.equals("Hello")).isFalse();
+  public void should_Be_Correct() {
+    EqualsVerifier.forClass(XmlAttribute.class).usingGetClass().verify();
   }
 }
