@@ -51,6 +51,7 @@ public class JTableDriver_unselectCells_Test extends JTableDriver_TestCase {
   public void should_Throw_Error_If_JTable_Is_Disabled() {
     disableTable();
     thrown.expectIllegalStateIsDisabledComponent();
+    robot.settings().clickOnDisabledComponentsAllowed(false);
     driver.unselectCells(table, array(row(0).column(0), row(2).column(0)));
   }
 

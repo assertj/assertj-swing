@@ -12,20 +12,14 @@
  */
 package org.assertj.swing.driver;
 
-import static org.assertj.swing.test.ExpectedException.none;
-
-import org.assertj.swing.test.ExpectedException;
-import org.junit.Rule;
 import org.junit.Test;
 
 /**
  * Tests for {@link JTableDriver#selectRows(javax.swing.JTable, int...)}.
- * 
+ *
  * @author Alex Ruiz
  */
 public class JTableDriver_selectRows_Test extends JTableDriver_TestCase {
-  @Rule
-  public ExpectedException thrown = none();
 
   @Test
   public void should_Throw_Error_If_Index_Is_Negative() {
@@ -62,6 +56,7 @@ public class JTableDriver_selectRows_Test extends JTableDriver_TestCase {
   public void should_Throw_Error_If_JTable_Is_Disabled() {
     disableTable();
     thrown.expectIllegalStateIsDisabledComponent();
+    robot.settings().clickOnDisabledComponentsAllowed(false);
     driver.selectRows(table, 0, 2);
   }
 

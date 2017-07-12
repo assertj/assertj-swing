@@ -19,7 +19,7 @@ import org.junit.Test;
 
 /**
  * Tests for {@link JTableDriver#selectCells(javax.swing.JTable, org.assertj.swing.data.TableCell[])}.
- * 
+ *
  * @author Alex Ruiz
  * @author Yvonne Wang
  */
@@ -45,6 +45,7 @@ public class JTableDriver_selectCells_Test extends JTableDriver_TestCase {
   public void should_Throw_Error_If_JTable_Is_Disabled() {
     disableTable();
     thrown.expectIllegalStateIsDisabledComponent();
+    robot.settings().clickOnDisabledComponentsAllowed(false);
     driver.selectCells(table, array(row(0).column(0), row(2).column(0)));
   }
 

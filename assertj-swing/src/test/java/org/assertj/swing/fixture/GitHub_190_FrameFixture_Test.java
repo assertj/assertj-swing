@@ -22,9 +22,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.edt.GuiActionRunner;
+import org.assertj.swing.test.core.RobotBasedTestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -32,7 +32,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 /** Test for <a href="https://github.com/joel-costigliola/assertj-swing/issues/190">github.com - assertj-swing #190</a> */
 @RunWith(Parameterized.class)
-public class GitHub_190_FrameFixture_Test {
+public class GitHub_190_FrameFixture_Test extends RobotBasedTestCase {
 
   @Parameters
   public static Collection<Object[]> data() {
@@ -49,7 +49,6 @@ public class GitHub_190_FrameFixture_Test {
 
   @Test
   public void test() {
-    Robot robot = BasicRobot.robotWithCurrentAwtHierarchy();
     setup(robot);
     FrameFixture fixture = new FrameFixture(robot, GuiActionRunner.execute(
                                                                   () -> new MainFrame()));
@@ -59,7 +58,6 @@ public class GitHub_190_FrameFixture_Test {
     fixture.button().click();
     fixture.textBox().requireText("Text: Acao");
     fixture.close();
-    robot.cleanUp();
   }
 
   public void setup(Robot robot) {
