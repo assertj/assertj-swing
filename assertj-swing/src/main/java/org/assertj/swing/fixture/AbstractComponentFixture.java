@@ -483,7 +483,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
   }
 
   /** @return the {@link Robot} that simulates user events on {@link #target()}. */
-  protected final @Nonnull Robot robot() {
+  public final @Nonnull Robot robot() {
     return robot;
   }
 
