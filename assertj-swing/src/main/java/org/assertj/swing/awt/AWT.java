@@ -12,6 +12,7 @@
  */
 package org.assertj.swing.awt;
 
+import static java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment;
 import static java.awt.event.InputEvent.BUTTON3_MASK;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
@@ -21,7 +22,11 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dialog;
 import java.awt.Dimension;
+import java.awt.DisplayMode;
 import java.awt.Frame;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Insets;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -68,8 +73,14 @@ public class AWT {
    * @return {@code true} if the point is inside the screen boundaries; {@code false} otherwise.
    */
   public static boolean isPointInScreenBoundaries(@Nonnull Point p) {
-    Rectangle screen = new Rectangle(TOOLKIT_PROVIDER.defaultToolkit().getScreenSize());
-    return screen.contains(p);
+    for(GraphicsDevice screen : getLocalGraphicsEnvironment().getScreenDevices()){
+        for(GraphicsConfiguration conf : screen.getConfigurations()){
+            if(conf.getBounds().contains(p)){
+                return true;
+            }
+        }
+    }
+    return false;
   }
 
   /**
