@@ -188,7 +188,7 @@ public class JTreeDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull Point scrollToRow(@Nonnull JTree tree, int row) {
+  @Nonnull private Point scrollToRow(@Nonnull JTree tree, int row) {
     Point p = scrollToRow(tree, row, location(), false).second;
     robot.waitForIdle();
     return checkNotNull(p);
@@ -263,7 +263,7 @@ public class JTreeDriver extends JComponentDriver {
     doubleClick(tree, p);
   }
 
-  private @Nonnull Point scrollToPath(@Nonnull JTree tree, @Nonnull String path) {
+  @Nonnull private Point scrollToPath(@Nonnull JTree tree, @Nonnull String path) {
     Point p = scrollToMatchingPath(tree, path, false).third;
     robot.waitForIdle();
     return checkNotNull(p);
@@ -371,7 +371,7 @@ public class JTreeDriver extends JComponentDriver {
    * Returns: 1. if the row is expanded 2. the location of the row 3. the number of mouse clicks to toggle a row
    */
   @RunsInEDT
-  private static @Nonnull Triple<Boolean, Point, Integer> scrollToRowAndGetToggleInfo(final @Nonnull JTree tree,
+  @Nonnull private static Triple<Boolean, Point, Integer> scrollToRowAndGetToggleInfo(final @Nonnull JTree tree,
                                                                                       final int row,
                                                                                       final @Nonnull JTreeLocation location) {
     Triple<Boolean, Point, Integer> result = execute(new GuiQuery<Triple<Boolean, Point, Integer>>() {
@@ -435,7 +435,7 @@ public class JTreeDriver extends JComponentDriver {
    * Returns: 1. if the node is expanded 2. the location of the node 3. the number of mouse clicks to toggle a node
    */
   @RunsInEDT
-  private static @Nonnull Triple<Boolean, Point, Integer> scrollToMatchingPathAndGetToggleInfo(
+  @Nonnull private static Triple<Boolean, Point, Integer> scrollToMatchingPathAndGetToggleInfo(
                                                                                                final @Nonnull JTree tree,
                                                                                                final @Nonnull String path,
                                                                                                final @Nonnull JTreePathFinder pathFinder,
@@ -670,7 +670,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTree tree, int row) {
+  @Nonnull public JPopupMenu showPopupMenu(@Nonnull JTree tree, int row) {
     Pair<Boolean, Point> info = scrollToRow(tree, row, location(), true);
     Point p = checkNotNull(info.second);
     return robot.showPopupMenu(tree, p);
@@ -690,7 +690,7 @@ public class JTreeDriver extends JComponentDriver {
    * @see #replaceSeparator(String)
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTree tree, @Nonnull String path) {
+  @Nonnull public JPopupMenu showPopupMenu(@Nonnull JTree tree, @Nonnull String path) {
     Triple<TreePath, Boolean, Point> info = scrollToMatchingPath(tree, path, true);
     robot.waitForIdle();
     Point where = checkNotNull(info.third);
@@ -715,7 +715,7 @@ public class JTreeDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull Point scrollAndSelectRow(@Nonnull JTree tree, int row, boolean select, boolean singleSelectRequired) {
+  @Nonnull private Point scrollAndSelectRow(@Nonnull JTree tree, int row, boolean select, boolean singleSelectRequired) {
     Pair<Boolean, Point> info = scrollToRow(tree, row, location(), singleSelectRequired);
     Point p = checkNotNull(info.second);
     if (info.first != select) {
@@ -746,7 +746,7 @@ public class JTreeDriver extends JComponentDriver {
    * Returns: 1. if the node is expanded 2. the location of the node
    */
   @RunsInEDT
-  private static @Nonnull Pair<Boolean, Point> scrollToRow(final @Nonnull JTree tree, final int row,
+  @Nonnull private static Pair<Boolean, Point> scrollToRow(final @Nonnull JTree tree, final int row,
                                                            final @Nonnull JTreeLocation location,
                                                            boolean singleSelectRequired) {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
@@ -762,7 +762,7 @@ public class JTreeDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Point scrollToVisible(@Nonnull JTree tree, int row, @Nonnull JTreeLocation location) {
+  @Nonnull private static Point scrollToVisible(@Nonnull JTree tree, int row, @Nonnull JTreeLocation location) {
     Pair<Rectangle, Point> boundsAndCoordinates = location.rowBoundsAndCoordinates(tree, row);
     tree.scrollRectToVisible(boundsAndCoordinates.first);
     return checkNotNull(boundsAndCoordinates.second);
@@ -785,7 +785,7 @@ public class JTreeDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull Point selectMatchingPath(@Nonnull JTree tree, @Nonnull String path, boolean select,
+  @Nonnull private Point selectMatchingPath(@Nonnull JTree tree, @Nonnull String path, boolean select,
                                             boolean singleSelectionRequired) {
     Triple<TreePath, Boolean, Point> info = scrollToMatchingPath(tree, path, singleSelectionRequired);
     robot.waitForIdle();
@@ -818,7 +818,7 @@ public class JTreeDriver extends JComponentDriver {
    * the JTree
    */
   @RunsInEDT
-  private @Nonnull Triple<TreePath, Boolean, Point> scrollToMatchingPath(@Nonnull JTree tree, @Nonnull String path,
+  @Nonnull private Triple<TreePath, Boolean, Point> scrollToMatchingPath(@Nonnull JTree tree, @Nonnull String path,
                                                                          boolean singleSelectionRequired) {
     TreePath matchingPath = verifyJTreeIsReadyAndFindMatchingPath(tree, path, pathFinder());
     makeVisible(tree, matchingPath, false);
@@ -830,7 +830,7 @@ public class JTreeDriver extends JComponentDriver {
    * returns: 1. whether the path is already selected 2. the location where the path is in the JTree
    */
   @RunsInEDT
-  private static @Nonnull Pair<Boolean, Point> scrollToPathToSelect(final @Nonnull JTree tree,
+  @Nonnull private static Pair<Boolean, Point> scrollToPathToSelect(final @Nonnull JTree tree,
                                                                     final @Nonnull TreePath path,
                                                                     final @Nonnull JTreeLocation location,
                                                                     boolean singleSelectionRequired) {
@@ -845,7 +845,7 @@ public class JTreeDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Point scrollToTreePath(@Nonnull JTree tree, @Nonnull TreePath path,
+  @Nonnull private static Point scrollToTreePath(@Nonnull JTree tree, @Nonnull TreePath path,
                                                  @Nonnull JTreeLocation location) {
     Pair<Rectangle, Point> boundsAndCoordinates = location.pathBoundsAndCoordinates(tree, path);
     tree.scrollRectToVisible(boundsAndCoordinates.first);
@@ -936,7 +936,7 @@ public class JTreeDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull Description selectionProperty(@Nonnull JTree tree) {
+  @Nonnull private Description selectionProperty(@Nonnull JTree tree) {
     return propertyName(tree, SELECTION_PROPERTY);
   }
 
@@ -968,14 +968,14 @@ public class JTreeDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Description editableProperty(@Nonnull JTree tree) {
+  @Nonnull private static Description editableProperty(@Nonnull JTree tree) {
     return propertyName(tree, EDITABLE_PROPERTY);
   }
 
   /**
    * @return the separator to use when converting {@code TreePath}s to {@code String}s.
    */
-  public @Nonnull String separator() {
+  @Nonnull public String separator() {
     return pathFinder.separator();
   }
 
@@ -1034,7 +1034,7 @@ public class JTreeDriver extends JComponentDriver {
    * @throws LocationUnavailableException if the given path cannot be found.
    */
   @RunsInEDT
-  public @Nullable String nodeValue(@Nonnull JTree tree, @Nonnull String path) {
+  @Nullable public String nodeValue(@Nonnull JTree tree, @Nonnull String path) {
     return nodeText(tree, path, pathFinder());
   }
 
@@ -1048,7 +1048,7 @@ public class JTreeDriver extends JComponentDriver {
    *           visible rows in the {@code JTree}.
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
    */
-  public @Nullable String nodeValue(@Nonnull JTree tree, int row) {
+  @Nullable public String nodeValue(@Nonnull JTree tree, int row) {
     return nodeText(tree, row, location(), pathFinder());
   }
 
@@ -1057,11 +1057,11 @@ public class JTreeDriver extends JComponentDriver {
     return pathFinder.cellReader();
   }
 
-  private @Nonnull JTreeLocation location() {
+  @Nonnull private JTreeLocation location() {
     return location;
   }
 
-  private @Nonnull JTreePathFinder pathFinder() {
+  @Nonnull private JTreePathFinder pathFinder() {
     return pathFinder;
   }
 }

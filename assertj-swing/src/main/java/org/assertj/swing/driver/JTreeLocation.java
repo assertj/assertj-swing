@@ -52,7 +52,7 @@ public final class JTreeLocation {
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
    */
   @RunsInCurrentThread
-  public @Nonnull Pair<Rectangle, Point> rowBoundsAndCoordinates(@Nonnull JTree tree, int row) {
+  @Nonnull public Pair<Rectangle, Point> rowBoundsAndCoordinates(@Nonnull JTree tree, int row) {
     Rectangle rowBounds = tree.getRowBounds(checkRowInBounds(tree, row));
     if (rowBounds != null) {
       return Pair.of(rowBounds, pointAt(rowBounds));
@@ -78,7 +78,7 @@ public final class JTreeLocation {
    * @throws LocationUnavailableException if a tree path for the given row cannot be found.
    */
   @RunsInCurrentThread
-  public @Nonnull TreePath pathFor(@Nonnull JTree tree, int row) {
+  @Nonnull public TreePath pathFor(@Nonnull JTree tree, int row) {
     TreePath path = tree.getPathForRow(checkRowInBounds(tree, row));
     if (path != null) {
       return path;
@@ -128,7 +128,7 @@ public final class JTreeLocation {
    * @throws LocationUnavailableException if any part of the path is not visible.
    */
   @RunsInCurrentThread
-  public @Nonnull Pair<Rectangle, Point> pathBoundsAndCoordinates(@Nonnull JTree tree, @Nonnull TreePath path) {
+  @Nonnull public Pair<Rectangle, Point> pathBoundsAndCoordinates(@Nonnull JTree tree, @Nonnull TreePath path) {
     Rectangle pathBounds = tree.getPathBounds(path);
     if (pathBounds != null) {
       return Pair.of(pathBounds, pointAt(pathBounds));
@@ -136,7 +136,7 @@ public final class JTreeLocation {
     throw new LocationUnavailableException(String.format("The tree path %s is not visible", format(path.getPath())));
   }
 
-  private @Nonnull Point pointAt(@Nonnull Rectangle cellBounds) {
+  @Nonnull private Point pointAt(@Nonnull Rectangle cellBounds) {
     return new Point(cellBounds.x + cellBounds.width / 2, cellBounds.y + cellBounds.height / 2);
   }
 }

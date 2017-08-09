@@ -27,7 +27,7 @@ import org.assertj.swing.annotation.RunsInEDT;
  */
 public final class JComboBoxSelectedItemQuery {
   @RunsInEDT
-  public static @Nullable Object selectedItemOf(final @Nonnull JComboBox comboBox) {
+  @Nullable public static Object selectedItemOf(final @Nonnull JComboBox comboBox) {
     return execute(() -> comboBox.getSelectedItem());
   }
 

@@ -27,7 +27,7 @@ public class AbstractButtonTextReader extends TextReader<AbstractButton> {
    * @return {@code AbstractButton.class}.
    */
   @Override
-  public @Nonnull Class<AbstractButton> supportedComponent() {
+  @Nonnull public Class<AbstractButton> supportedComponent() {
     return AbstractButton.class;
   }
 

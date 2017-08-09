@@ -118,7 +118,7 @@ class Context {
   }
 
   @RunsInEDT
-  private static @Nullable Component topParentOf(final @Nonnull Component c) {
+  @Nullable private static Component topParentOf(final @Nonnull Component c) {
     return execute(() -> {
       Component parent = c;
       // Components above the applet in the hierarchy may or may not share the same context with the applet itself.

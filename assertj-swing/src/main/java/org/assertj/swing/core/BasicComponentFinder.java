@@ -58,7 +58,7 @@ public final class BasicComponentFinder implements ComponentFinder {
    *
    * @return the created finder.
    */
-  public static @Nonnull ComponentFinder finderWithNewAwtHierarchy() {
+  @Nonnull public static ComponentFinder finderWithNewAwtHierarchy() {
     return new BasicComponentFinder(ignoreExistingComponents());
   }
 
@@ -68,7 +68,7 @@ public final class BasicComponentFinder implements ComponentFinder {
    *
    * @return the created finder.
    */
-  public static @Nonnull ComponentFinder finderWithCurrentAwtHierarchy() {
+  @Nonnull public static ComponentFinder finderWithCurrentAwtHierarchy() {
     return new BasicComponentFinder(new ExistingHierarchy());
   }
 
@@ -95,107 +95,107 @@ public final class BasicComponentFinder implements ComponentFinder {
   }
 
   @Override
-  public @Nonnull ComponentPrinter printer() {
+  @Nonnull public ComponentPrinter printer() {
     return printer;
   }
 
   @Override
-  public @Nonnull <T extends Component> T findByType(@Nonnull Class<T> type) {
+  @Nonnull public <T extends Component> T findByType(@Nonnull Class<T> type) {
     return findByType(type, requireShowing());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByType(@Nonnull Class<T> type, boolean showing) {
+  @Nonnull public <T extends Component> T findByType(@Nonnull Class<T> type, boolean showing) {
     return type.cast(find(new TypeMatcher(type, showing)));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByType(@Nonnull Container root, @Nonnull Class<T> type) {
+  @Nonnull public <T extends Component> T findByType(@Nonnull Container root, @Nonnull Class<T> type) {
     return findByType(root, type, requireShowing());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByType(@Nonnull Container root, @Nonnull Class<T> type, boolean showing) {
+  @Nonnull public <T extends Component> T findByType(@Nonnull Container root, @Nonnull Class<T> type, boolean showing) {
     return type.cast(find(root, new TypeMatcher(type, showing)));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByName(@Nullable String name, @Nonnull Class<T> type) {
+  @Nonnull public <T extends Component> T findByName(@Nullable String name, @Nonnull Class<T> type) {
     return findByName(name, type, requireShowing());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByName(@Nullable String name, @Nonnull Class<T> type, boolean showing) {
+  @Nonnull public <T extends Component> T findByName(@Nullable String name, @Nonnull Class<T> type, boolean showing) {
     Component found = find(new NameMatcher(name, type, showing));
     return type.cast(found);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull Component findByName(@Nullable String name) {
+  @Nonnull public Component findByName(@Nullable String name) {
     return findByName(name, requireShowing());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull Component findByName(@Nullable String name, boolean showing) {
+  @Nonnull public Component findByName(@Nullable String name, boolean showing) {
     return find(new NameMatcher(name, showing));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByLabel(@Nullable String label, @Nonnull Class<T> type) {
+  @Nonnull public <T extends Component> T findByLabel(@Nullable String label, @Nonnull Class<T> type) {
     return findByLabel(label, type, requireShowing());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByLabel(@Nullable String label, @Nonnull Class<T> type, boolean showing) {
+  @Nonnull public <T extends Component> T findByLabel(@Nullable String label, @Nonnull Class<T> type, boolean showing) {
     Component found = find(new LabelMatcher(label, type, showing));
     return labelFor(found, type);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull Component findByLabel(@Nullable String label) {
+  @Nonnull public Component findByLabel(@Nullable String label) {
     return findByLabel(label, requireShowing());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull Component findByLabel(@Nullable String label, boolean showing) {
+  @Nonnull public Component findByLabel(@Nullable String label, boolean showing) {
     Component found = find(new LabelMatcher(label, showing));
     return labelFor(found, Component.class);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T find(@Nonnull GenericTypeMatcher<T> m) {
+  @Nonnull public <T extends Component> T find(@Nonnull GenericTypeMatcher<T> m) {
     Component found = find((ComponentMatcher) m);
     return m.supportedType().cast(found);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull Component find(@Nonnull ComponentMatcher m) {
+  @Nonnull public Component find(@Nonnull ComponentMatcher m) {
     return find(hierarchy, m);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByName(@Nonnull Container root, @Nullable String name,
+  @Nonnull public <T extends Component> T findByName(@Nonnull Container root, @Nullable String name,
                                                      @Nonnull Class<T> type) {
     return findByName(root, name, type, requireShowing());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByName(@Nonnull Container root, @Nullable String name,
+  @Nonnull public <T extends Component> T findByName(@Nonnull Container root, @Nullable String name,
                                                      @Nonnull Class<T> type, boolean showing) {
     Component found = find(root, new NameMatcher(name, type, showing));
     return type.cast(found);
@@ -203,26 +203,26 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   @RunsInEDT
   @Override
-  public @Nonnull Component findByName(@Nonnull Container root, @Nullable String name) {
+  @Nonnull public Component findByName(@Nonnull Container root, @Nullable String name) {
     return findByName(root, name, requireShowing());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull Component findByName(@Nonnull Container root, @Nullable String name, boolean showing) {
+  @Nonnull public Component findByName(@Nonnull Container root, @Nullable String name, boolean showing) {
     return find(root, new NameMatcher(name, showing));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByLabel(@Nonnull Container root, @Nullable String label,
+  @Nonnull public <T extends Component> T findByLabel(@Nonnull Container root, @Nullable String label,
                                                       @Nonnull Class<T> type) {
     return findByLabel(root, label, type, requireShowing());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T findByLabel(@Nonnull Container root, @Nullable String label,
+  @Nonnull public <T extends Component> T findByLabel(@Nonnull Container root, @Nullable String label,
                                                       @Nonnull Class<T> type, boolean showing) {
     Component found = find(root, new LabelMatcher(label, type, showing));
     return labelFor(found, type);
@@ -230,7 +230,7 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   @RunsInEDT
   @Override
-  public @Nonnull Component findByLabel(@Nonnull Container root, @Nullable String label) {
+  @Nonnull public Component findByLabel(@Nonnull Container root, @Nullable String label) {
     return findByLabel(root, label, requireShowing());
   }
 
@@ -240,12 +240,12 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   @RunsInEDT
   @Override
-  public @Nonnull Component findByLabel(@Nonnull Container root, @Nullable String label, boolean showing) {
+  @Nonnull public Component findByLabel(@Nonnull Container root, @Nullable String label, boolean showing) {
     Component found = find(root, new LabelMatcher(label, showing));
     return labelFor(found, Component.class);
   }
 
-  private @Nonnull <T> T labelFor(@Nonnull Component label, @Nonnull Class<T> type) {
+  @Nonnull private <T> T labelFor(@Nonnull Component label, @Nonnull Class<T> type) {
     assertThat(label).isInstanceOf(JLabel.class);
     Component target = ((JLabel) label).getLabelFor();
     assertThat(target).isInstanceOf(type);
@@ -254,19 +254,19 @@ public final class BasicComponentFinder implements ComponentFinder {
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component> T find(@Nonnull Container root, @Nonnull GenericTypeMatcher<T> m) {
+  @Nonnull public <T extends Component> T find(@Nonnull Container root, @Nonnull GenericTypeMatcher<T> m) {
     Component found = find(root, (ComponentMatcher) m);
     return m.supportedType().cast(found);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull Component find(@Nullable Container root, @Nonnull ComponentMatcher m) {
+  @Nonnull public Component find(@Nullable Container root, @Nonnull ComponentMatcher m) {
     return find(hierarchy(root), m);
   }
 
   @RunsInEDT
-  private @Nonnull Component find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
+  @Nonnull private Component find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
     Collection<Component> found = finderDelegate.find(h, m);
     if (found.isEmpty()) {
       throw componentNotFound(h, m);
@@ -278,7 +278,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   }
 
   @RunsInEDT
-  private @Nonnull ComponentLookupException componentNotFound(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
+  @Nonnull private ComponentLookupException componentNotFound(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
     String message = concat("Unable to find component using matcher ", m, ".");
     if (includeHierarchyIfComponentNotFound()) {
       message = concat(message, lineSeparator(), lineSeparator(), "Component hierarchy:", lineSeparator(),
@@ -287,7 +287,7 @@ public final class BasicComponentFinder implements ComponentFinder {
     throw new ComponentLookupException(message);
   }
 
-  private static @Nullable Container root(@Nullable ComponentHierarchy h) {
+  @Nullable private static Container root(@Nullable ComponentHierarchy h) {
     if (h instanceof SingleComponentHierarchy) {
       return ((SingleComponentHierarchy) h).root();
     }
@@ -295,7 +295,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   }
 
   @RunsInEDT
-  private @Nonnull String formattedHierarchy(@Nullable Container root) {
+  @Nonnull private String formattedHierarchy(@Nullable Container root) {
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     PrintStream printStream = new PrintStream(out, true);
     printer.printComponents(printStream, root);
@@ -304,7 +304,7 @@ public final class BasicComponentFinder implements ComponentFinder {
   }
 
   @RunsInEDT
-  private static @Nonnull ComponentLookupException multipleComponentsFound(@Nonnull Collection<Component> found,
+  @Nonnull private static ComponentLookupException multipleComponentsFound(@Nonnull Collection<Component> found,
                                                                            @Nonnull ComponentMatcher m) {
     StringBuilder message = new StringBuilder();
     String format = "Found more than one component using matcher %s. %n%nFound:";
@@ -336,22 +336,22 @@ public final class BasicComponentFinder implements ComponentFinder {
   }
 
   @Override
-  public @Nonnull Collection<Component> findAll(@Nonnull ComponentMatcher m) {
+  @Nonnull public Collection<Component> findAll(@Nonnull ComponentMatcher m) {
     return finderDelegate.find(hierarchy, m);
   }
 
   @Override
-  public @Nonnull Collection<Component> findAll(@Nonnull Container root, @Nonnull ComponentMatcher m) {
+  @Nonnull public Collection<Component> findAll(@Nonnull Container root, @Nonnull ComponentMatcher m) {
     return finderDelegate.find(hierarchy(root), m);
   }
 
   @Override
-  public @Nonnull <T extends Component> Collection<T> findAll(@Nonnull GenericTypeMatcher<T> m) {
+  @Nonnull public <T extends Component> Collection<T> findAll(@Nonnull GenericTypeMatcher<T> m) {
     return finderDelegate.find(hierarchy, m);
   }
 
   @Override
-  public @Nonnull <T extends Component> Collection<T> findAll(@Nonnull Container root, @Nonnull GenericTypeMatcher<T> m) {
+  @Nonnull public <T extends Component> Collection<T> findAll(@Nonnull Container root, @Nonnull GenericTypeMatcher<T> m) {
     ComponentHierarchy h = hierarchy(root);
     return finderDelegate.find(h, m);
   }
@@ -371,7 +371,7 @@ public final class BasicComponentFinder implements ComponentFinder {
     return settings.componentLookupScope().requireShowing();
   }
 
-  private @Nonnull ComponentHierarchy hierarchy(@Nullable Container root) {
+  @Nonnull private ComponentHierarchy hierarchy(@Nullable Container root) {
     if (root == null) {
       return hierarchy;
     }

@@ -40,7 +40,7 @@ public final class ComponentParentQuery {
    * @see Component#getParent()
    */
   @RunsInEDT
-  public static @Nullable Container parentOf(final @Nonnull Component component) {
+  @Nullable public static Container parentOf(final @Nonnull Component component) {
     return execute(() -> component.getParent());
   }
 

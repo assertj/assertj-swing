@@ -91,7 +91,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
    * @return the titles of all the tabs.
    */
   @RunsInEDT
-  public @Nonnull String[] tabTitles(@Nonnull JTabbedPane tabbedPane) {
+  @Nonnull public String[] tabTitles(@Nonnull JTabbedPane tabbedPane) {
     return tabTitlesOf(tabbedPane);
   }
 
@@ -142,7 +142,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Pair<Integer, Point> tabToSelectInfo(final @Nonnull JTabbedPaneLocation location,
+  @Nonnull private static Pair<Integer, Point> tabToSelectInfo(final @Nonnull JTabbedPaneLocation location,
                                                                final @Nonnull JTabbedPane tabbedPane,
                                                                final @Nonnull TextMatcher matcher) {
     Pair<Integer, Point> result = execute(new GuiQuery<Pair<Integer, Point>>() {
@@ -183,7 +183,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Point pointAtTabWhenShowing(final @Nonnull JTabbedPaneLocation location,
+  @Nonnull private static Point pointAtTabWhenShowing(final @Nonnull JTabbedPaneLocation location,
                                                       final @Nonnull JTabbedPane tabbedPane, final int index) {
     Point result = execute(() -> {
       location.checkIndexInBounds(tabbedPane, index);
@@ -211,7 +211,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Point pointAtTab(final @Nonnull JTabbedPaneLocation location,
+  @Nonnull private static Point pointAtTab(final @Nonnull JTabbedPaneLocation location,
                                            final @Nonnull JTabbedPane tabbedPane, final int index) {
     Point result = execute(() -> location.pointAt(tabbedPane, index));
     return checkNotNull(result);
@@ -224,12 +224,12 @@ public class JTabbedPaneDriver extends JComponentDriver {
    * @return the currently selected component for the given {@code JTabbedPane}.
    */
   @RunsInEDT
-  public @Nullable Component selectedComponentOf(@Nonnull JTabbedPane tabbedPane) {
+  @Nullable public Component selectedComponentOf(@Nonnull JTabbedPane tabbedPane) {
     return selectedComponent(tabbedPane);
   }
 
   @RunsInEDT
-  private static @Nullable Component selectedComponent(final JTabbedPane tabbedPane) {
+  @Nullable private static Component selectedComponent(final JTabbedPane tabbedPane) {
     return execute(() -> tabbedPane.getSelectedComponent());
   }
 
@@ -352,17 +352,17 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nullable String titleAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
+  @Nullable private static String titleAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
     return execute(() -> tabbedPane.getTitleAt(index.value));
   }
 
   @RunsInEDT
-  private static @Nullable String toolTipTextAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
+  @Nullable private static String toolTipTextAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
     return execute(() -> tabbedPane.getToolTipTextAt(index.value));
   }
 
   @RunsInEDT
-  private static @Nullable boolean isEnabledAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
+  @Nullable private static boolean isEnabledAt(final @Nonnull JTabbedPane tabbedPane, final @Nonnull Index index) {
     return execute(() -> tabbedPane.isEnabledAt(index.value));
   }
 
@@ -381,7 +381,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull String[] allTabTitlesIn(final @Nonnull JTabbedPane tabbedPane) {
+  @Nonnull private static String[] allTabTitlesIn(final @Nonnull JTabbedPane tabbedPane) {
     String[] result = execute(() -> {
       List<String> allTitles = newArrayList();
       int tabCount = tabbedPane.getTabCount();
@@ -393,7 +393,7 @@ public class JTabbedPaneDriver extends JComponentDriver {
     return checkNotNull(result);
   }
 
-  private @Nonnull JTabbedPaneLocation location() {
+  @Nonnull private JTabbedPaneLocation location() {
     return location;
   }
 }

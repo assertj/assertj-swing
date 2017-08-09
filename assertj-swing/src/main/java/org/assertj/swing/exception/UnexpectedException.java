@@ -30,7 +30,7 @@ public class UnexpectedException extends RuntimeException {
    * @param cause the unexpected exception.
    * @return the created exception.
    */
-  public static @Nonnull UnexpectedException unexpected(@Nonnull Throwable cause) {
+  @Nonnull public static UnexpectedException unexpected(@Nonnull Throwable cause) {
     return new UnexpectedException(cause);
   }
 
@@ -39,7 +39,7 @@ public class UnexpectedException extends RuntimeException {
    *
    * @param cause the unexpected exception.
    */
-  public @Nonnull UnexpectedException(@Nonnull Throwable cause) {
+  @Nonnull public UnexpectedException(@Nonnull Throwable cause) {
     super(cause);
   }
 

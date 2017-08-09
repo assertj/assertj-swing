@@ -35,7 +35,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    *
    * @param target the {@code Frame} to be managed by this fixture.
    * @throws NullPointerException if the given frame is {@code null}.
-   * @see BasicRobot#robotWithCurrentAwtHierarchy()
+   * @see org.assertj.swing.core.BasicRobot#robotWithCurrentAwtHierarchy()
    */
   public FrameFixture(@Nonnull Frame target) {
     super(FrameFixture.class, target);
@@ -59,8 +59,8 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    * @param robot performs user events on the given window and verifies expected output.
    * @param name the name of the {@code Frame} to find using the given {@code Robot}.
    * @throws NullPointerException if the given robot is {@code null}.
-   * @throws ComponentLookupException if a {@code Frame} having a matching name could not be found.
-   * @throws ComponentLookupException if more than one {@code Frame} having a matching name is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Frame} having a matching name could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Frame} having a matching name is found.
    */
   public FrameFixture(@Nonnull Robot robot, @Nullable String name) {
     super(FrameFixture.class, robot, name, Frame.class);
@@ -71,15 +71,15 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    * hierarchy.
    *
    * @param name the name of the {@code Frame} to find.
-   * @throws ComponentLookupException if a {@code Frame} having a matching name could not be found.
-   * @throws ComponentLookupException if more than one {@code Frame} having a matching name is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a {@code Frame} having a matching name could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code Frame} having a matching name is found.
    */
   public FrameFixture(@Nullable String name) {
     super(FrameFixture.class, name, Frame.class);
   }
 
   @Override
-  protected @Nonnull FrameDriver createDriver(@Nonnull Robot robot) {
+  @Nonnull protected FrameDriver createDriver(@Nonnull Robot robot) {
     return new FrameDriver(robot);
   }
 
@@ -89,7 +89,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    * @return this fixture.
    */
   @Override
-  public @Nonnull FrameFixture iconify() {
+  @Nonnull public FrameFixture iconify() {
     driver().iconify(target());
     return this;
   }
@@ -100,7 +100,7 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    * @return this fixture.
    */
   @Override
-  public @Nonnull FrameFixture deiconify() {
+  @Nonnull public FrameFixture deiconify() {
     driver().deiconify(target());
     return this;
   }
@@ -109,10 +109,10 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    * Simulates a user maximizing this fixture's {@code Frame}.
    *
    * @return this fixture.
-   * @throws ActionFailedException if the operating system does not support maximizing frames.
+   * @throws org.assertj.swing.exception.ActionFailedException if the operating system does not support maximizing frames.
    */
   @Override
-  public @Nonnull FrameFixture maximize() {
+  @Nonnull public FrameFixture maximize() {
     driver().maximize(target());
     return this;
   }
@@ -123,13 +123,13 @@ public class FrameFixture extends AbstractWindowFixture<FrameFixture, Frame, Fra
    * @return this fixture.
    */
   @Override
-  public @Nonnull FrameFixture normalize() {
+  @Nonnull public FrameFixture normalize() {
     driver().normalize(target());
     return this;
   }
 
   @Override
-  public @Nonnull FrameFixture requireTitle(String expected) {
+  @Nonnull public FrameFixture requireTitle(String expected) {
     driver().requireTitle(target(), expected);
     return this;
   }

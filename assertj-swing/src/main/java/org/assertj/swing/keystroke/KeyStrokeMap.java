@@ -88,7 +88,7 @@ public class KeyStrokeMap {
    * @return the key code-based {@code KeyStroke} corresponding to the given character, or {@code null} if we cannot
    *         generate it.
    */
-  public static @Nullable
+  @Nullable public static
   KeyStroke keyStrokeFor(char character) {
     return maps.keyStrokeFor(character);
   }
@@ -113,7 +113,7 @@ public class KeyStrokeMap {
     return character;
   }
 
-  private static @Nullable
+  @Nullable private static
   Character charWithoutModifiersButShift(@Nonnull KeyStroke keyStroke) {
     int mask = keyStroke.getModifiers() & ~SHIFT_MASK;
     return maps.charFor(KeyStroke.getKeyStroke(keyStroke.getKeyCode(), mask));

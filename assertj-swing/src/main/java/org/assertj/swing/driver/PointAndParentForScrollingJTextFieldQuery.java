@@ -51,7 +51,7 @@ final class PointAndParentForScrollingJTextFieldQuery {
     return Pair.of(origin, parent);
   }
 
-  private static @Nonnull Point addRectangleToPoint(@Nonnull Rectangle r, @Nonnull Point p) {
+  @Nonnull private static Point addRectangleToPoint(@Nonnull Rectangle r, @Nonnull Point p) {
     Point newPoint = new Point(p);
     newPoint.x += r.x;
     newPoint.y += r.y;

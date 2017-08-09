@@ -41,7 +41,7 @@ public final class ComponentLocationOnScreenQuery {
    * @see Component#getLocationOnScreen()
    */
   @RunsInEDT
-  public static @Nonnull Point locationOnScreen(final @Nonnull Component component) {
+  @Nonnull public static Point locationOnScreen(final @Nonnull Component component) {
     Point result = execute(() -> component.getLocationOnScreen());
     return checkNotNull(result);
   }

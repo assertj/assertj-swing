@@ -128,7 +128,7 @@ public class FrameDriver extends WindowDriver {
   }
 
   @RunsInEDT
-  private @Nonnull static Point maximizeInfo(final @Nonnull Frame frame) {
+  @Nonnull private static Point maximizeInfo(final @Nonnull Frame frame) {
     Point result = execute(() -> {
       checkEnabledAndShowing(frame);
       return maximizeButtonLocation(frame);

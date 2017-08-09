@@ -48,7 +48,7 @@ public class BasicJTableCellReader_foregroundAt_Test extends BasicJTableCellRead
   }
 
   @RunsInEDT
-  private static @Nonnull Color foregroundOf(final @Nonnull Component component) {
+  @Nonnull private static Color foregroundOf(final @Nonnull Component component) {
     Color result = execute(() -> component.getForeground());
     return checkNotNull(result);
   }

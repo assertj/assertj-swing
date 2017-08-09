@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  */
 class ReflectionBasedFocusOwnerFinder implements FocusOwnerFinderStrategy {
   @Override
-  public @Nullable Component focusOwner() {
+  @Nullable public Component focusOwner() {
     return field("focusOwner").ofType(Component.class).in(KeyboardFocusManager.class).get();
   }
 }

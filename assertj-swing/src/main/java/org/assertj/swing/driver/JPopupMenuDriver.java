@@ -55,7 +55,7 @@ public class JPopupMenuDriver extends JComponentDriver {
    * @return the contents of the pop-up menu as a {@code String} array.
    */
   @RunsInEDT
-  public @Nonnull String[] menuLabelsOf(@Nonnull JPopupMenu popupMenu) {
+  @Nonnull public String[] menuLabelsOf(@Nonnull JPopupMenu popupMenu) {
     return menuElementsAsText(popupMenu);
   }
 
@@ -71,7 +71,7 @@ public class JPopupMenuDriver extends JComponentDriver {
    *           name is found.
    */
   @RunsInEDT
-  public @Nonnull JMenuItem menuItem(@Nonnull JPopupMenu popupMenu, @Nullable String name) {
+  @Nonnull public JMenuItem menuItem(@Nonnull JPopupMenu popupMenu, @Nullable String name) {
     return robot.finder().findByName(popupMenu, name, JMenuItem.class, false);
   }
 
@@ -85,7 +85,7 @@ public class JPopupMenuDriver extends JComponentDriver {
    *           criteria could not be found. Or if more than one {@code JMenuItem} that matches the given search criteria
    *           is found.
    */
-  public @Nonnull JMenuItem menuItem(@Nonnull JPopupMenu popupMenu,
+  @Nonnull public JMenuItem menuItem(@Nonnull JPopupMenu popupMenu,
                                      @Nonnull GenericTypeMatcher<? extends JMenuItem> matcher) {
     return robot.finder().find(popupMenu, matcher);
   }

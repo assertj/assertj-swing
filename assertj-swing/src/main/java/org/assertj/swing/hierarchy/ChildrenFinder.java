@@ -47,7 +47,7 @@ class ChildrenFinder {
     return children;
   }
 
-  private @Nonnull Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
+  @Nonnull private Collection<Component> nonExplicitChildrenOf(@Nonnull Container c) {
     Collection<Component> children = newArrayList();
     for (ChildrenFinderStrategy s : strategies) {
       children.addAll(s.nonExplicitChildrenOf(c));

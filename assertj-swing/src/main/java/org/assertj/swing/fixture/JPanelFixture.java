@@ -36,8 +36,8 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @param robot performs simulation of user events on a {@code JPanel}.
    * @param panelName the name of the {@code JPanel} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JPanel} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JPanel} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JPanel} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JPanel} is found.
    */
   public JPanelFixture(@Nonnull Robot robot, @Nonnull String panelName) {
     super(JPanelFixture.class, robot, panelName, JPanel.class);
@@ -56,7 +56,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
   }
 
   @Override
-  protected @Nonnull JComponentDriver createDriver(@Nonnull Robot robot) {
+  @Nonnull protected JComponentDriver createDriver(@Nonnull Robot robot) {
     return new JComponentDriver(robot);
   }
 
@@ -68,7 +68,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws AssertionError if the toolTip in this fixture's {@code JPanel} does not match the given value.
    */
   @Override
-  public @Nonnull JPanelFixture requireToolTip(@Nullable String expected) {
+  @Nonnull public JPanelFixture requireToolTip(@Nullable String expected) {
     driver().requireToolTip(target(), expected);
     return this;
   }
@@ -82,7 +82,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws AssertionError if the toolTip in this fixture's {@code JPanel} does not match the given regular expression.
    */
   @Override
-  public @Nonnull JPanelFixture requireToolTip(@Nonnull Pattern pattern) {
+  @Nonnull public JPanelFixture requireToolTip(@Nonnull Pattern pattern) {
     driver().requireToolTip(target(), pattern);
     return this;
   }
@@ -95,7 +95,7 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * @throws NullPointerException if the given key is {@code null}.
    */
   @Override
-  public @Nullable Object clientProperty(@Nonnull Object key) {
+  @Nullable public Object clientProperty(@Nonnull Object key) {
     return driver().clientProperty(target(), key);
   }
 
@@ -103,13 +103,13 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    * Shows a pop-up menu using this fixture's {@code JPanel} as the invoker of the pop-up menu.
    *
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JPanel} is disabled.
    * @throws IllegalStateException if this fixture's {@code JPanel} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull JPopupMenuFixture showPopupMenu() {
+  @Nonnull public JPopupMenuFixture showPopupMenu() {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target()));
   }
 
@@ -118,13 +118,13 @@ public class JPanelFixture extends AbstractContainerFixture<JPanelFixture, JPane
    *
    * @param p the given point where to show the pop-up menu.
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JPanel} is disabled.
    * @throws IllegalStateException if this fixture's {@code JPanel} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
+  @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target(), p));
   }
 }

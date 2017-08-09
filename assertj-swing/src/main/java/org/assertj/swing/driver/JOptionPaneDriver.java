@@ -100,7 +100,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @return the title of the given {@code JOptionPane}.
    */
   @RunsInEDT
-  public @Nullable String title(@Nonnull JOptionPane optionPane) {
+  @Nullable public String title(@Nonnull JOptionPane optionPane) {
     return titleOf(optionPane);
   }
 
@@ -172,7 +172,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if the a "OK" button cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JButton okButton(@Nonnull JOptionPane optionPane) {
+  @Nonnull public JButton okButton(@Nonnull JOptionPane optionPane) {
     return buttonWithTextFromUIManager(optionPane, "OptionPane.okButtonText");
   }
 
@@ -184,7 +184,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if the a "Cancel" button cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JButton cancelButton(@Nonnull JOptionPane optionPane) {
+  @Nonnull public JButton cancelButton(@Nonnull JOptionPane optionPane) {
     return buttonWithTextFromUIManager(optionPane, "OptionPane.cancelButtonText");
   }
 
@@ -196,7 +196,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if the a "Yes" button cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JButton yesButton(@Nonnull JOptionPane optionPane) {
+  @Nonnull public JButton yesButton(@Nonnull JOptionPane optionPane) {
     return buttonWithTextFromUIManager(optionPane, "OptionPane.yesButtonText");
   }
 
@@ -208,12 +208,12 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if the a "No" button cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JButton noButton(@Nonnull JOptionPane optionPane) {
+  @Nonnull public JButton noButton(@Nonnull JOptionPane optionPane) {
     return buttonWithTextFromUIManager(optionPane, "OptionPane.noButtonText");
   }
 
   @RunsInEDT
-  private @Nonnull JButton buttonWithTextFromUIManager(@Nonnull JOptionPane optionPane, @Nonnull String key) {
+  @Nonnull private JButton buttonWithTextFromUIManager(@Nonnull JOptionPane optionPane, @Nonnull String key) {
     return buttonWithText(optionPane, checkNotNull(UIManager.getString(key)));
   }
 
@@ -226,7 +226,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JButton buttonWithText(@Nonnull JOptionPane optionPane, @Nullable String text) {
+  @Nonnull public JButton buttonWithText(@Nonnull JOptionPane optionPane, @Nullable String text) {
     return robot.finder().find(optionPane, JButtonMatcher.withText(text).andShowing());
   }
 
@@ -240,7 +240,7 @@ public class JOptionPaneDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if the a button with the given text cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JButton buttonWithText(@Nonnull JOptionPane optionPane, @Nonnull Pattern pattern) {
+  @Nonnull public JButton buttonWithText(@Nonnull JOptionPane optionPane, @Nonnull Pattern pattern) {
     return robot.finder().find(optionPane, JButtonMatcher.withText(pattern).andShowing());
   }
 

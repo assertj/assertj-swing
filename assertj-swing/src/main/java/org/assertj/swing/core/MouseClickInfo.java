@@ -58,7 +58,7 @@ public final class MouseClickInfo {
    *
    * @return the created click info.
    */
-  public static @Nonnull MouseClickInfo leftButton() {
+  @Nonnull public static MouseClickInfo leftButton() {
     return button(LEFT_BUTTON);
   }
 
@@ -67,7 +67,7 @@ public final class MouseClickInfo {
    *
    * @return the created click info.
    */
-  public static @Nonnull MouseClickInfo middleButton() {
+  @Nonnull public static MouseClickInfo middleButton() {
     return button(MIDDLE_BUTTON);
   }
 
@@ -76,7 +76,7 @@ public final class MouseClickInfo {
    *
    * @return the created click info.
    */
-  public static @Nonnull MouseClickInfo rightButton() {
+  @Nonnull public static MouseClickInfo rightButton() {
     return button(RIGHT_BUTTON);
   }
 
@@ -87,7 +87,7 @@ public final class MouseClickInfo {
    * @return the created click info.
    * @throws NullPointerException if {@code button} is {@code null}.
    */
-  public static @Nonnull MouseClickInfo button(@Nonnull MouseButton button) {
+  @Nonnull public static MouseClickInfo button(@Nonnull MouseButton button) {
     return new MouseClickInfo(button, 1);
   }
 
@@ -99,7 +99,7 @@ public final class MouseClickInfo {
   /**
    * @return the button to click.
    */
-  public @Nonnull MouseButton button() {
+  @Nonnull public MouseButton button() {
     return button;
   }
 
@@ -122,7 +122,7 @@ public final class MouseClickInfo {
   }
 
   @Override
-  public @Nonnull String toString() {
+  @Nonnull public String toString() {
     return concat(String.format("%s[button=%s, times=%d]", getClass().getName(), button.toString(), times));
   }
 }

@@ -61,7 +61,7 @@ public class StringTextMatcher implements TextMatcher {
    * @return "value" if this matcher contains only one value, or "values" if this matcher contains more than one value.
    */
   @Override
-  public @Nonnull String description() {
+  @Nonnull public String description() {
     return onlyOneValue() ? "value" : "values";
   }
 
@@ -69,7 +69,7 @@ public class StringTextMatcher implements TextMatcher {
    * @return the {@code String} values in this matcher, formatted as a single {@code String}.
    */
   @Override
-  public @Nonnull String formattedValues() {
+  @Nonnull public String formattedValues() {
     String s = onlyOneValue() ? quote(values[0]) : format(values);
     return checkNotNull(s);
   }

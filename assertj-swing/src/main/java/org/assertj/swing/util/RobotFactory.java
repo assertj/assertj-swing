@@ -33,7 +33,7 @@ public class RobotFactory {
    *           thrown when {@code GraphicsEnvironment.isHeadless()} returns {@code true}.
    * @throws SecurityException if {@code createRobot} permission is not granted.
    */
-  public @Nonnull Robot newRobotInPrimaryScreen() throws AWTException {
+  @Nonnull public Robot newRobotInPrimaryScreen() throws AWTException {
     return new Robot();
   }
 
@@ -45,7 +45,7 @@ public class RobotFactory {
    *           thrown when {@code GraphicsEnvironment.isHeadless()} returns {@code true}.
    * @throws SecurityException if {@code createRobot} permission is not granted.
    */
-  public @Nonnull
+  @Nonnull public
   Robot newRobotInLeftScreen() throws AWTException {
     int lowestX = Integer.MAX_VALUE;
     GraphicsDevice lowestScreen = null;

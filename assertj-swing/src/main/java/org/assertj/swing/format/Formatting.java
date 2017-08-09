@@ -98,16 +98,16 @@ public class Formatting {
     register(new JTreeFormatter());
   }
 
-  private static @Nonnull ComponentFormatter instrospect(@Nonnull Class<? extends Component> targetType,
+  @Nonnull private static ComponentFormatter instrospect(@Nonnull Class<? extends Component> targetType,
                                                          @Nonnull String... propertyNames) {
     return new IntrospectionComponentFormatter(targetType, propertyNames);
   }
 
-  private static @Nonnull ComponentFormatter empty(@Nonnull Class<? extends Component> targetType) {
+  @Nonnull private static ComponentFormatter empty(@Nonnull Class<? extends Component> targetType) {
     return new IntrospectionComponentFormatter(targetType);
   }
 
-  private static @Nonnull ComponentFormatter nameOnly(@Nonnull Class<? extends Component> targetType) {
+  @Nonnull private static ComponentFormatter nameOnly(@Nonnull Class<? extends Component> targetType) {
     return new IntrospectionComponentFormatter(targetType, NAME);
   }
 
@@ -139,7 +139,7 @@ public class Formatting {
    * @return a {@code String} representation of the given {@code Component}.
    */
   @RunsInEDT
-  public static @Nonnull String inEdtFormat(final @Nonnull Component c) {
+  @Nonnull public static String inEdtFormat(final @Nonnull Component c) {
     return checkNotNull(execute(() -> format(c)));
   }
 
@@ -157,7 +157,7 @@ public class Formatting {
    * @return a {@code String} representation of the given {@code Component}.
    */
   @RunsInCurrentThread
-  public static @Nonnull String format(@Nullable Component c) {
+  @Nonnull public static String format(@Nullable Component c) {
     if (c == null) {
       return NULL_COMPONENT_MESSAGE;
     }
@@ -172,7 +172,7 @@ public class Formatting {
     return String.format("%s[name=%s]", c.getClass().getName(), name);
   }
 
-  private static @Nullable ComponentFormatter formatterFor(@Nonnull Class<?> type) {
+  @Nullable private static ComponentFormatter formatterFor(@Nonnull Class<?> type) {
     ComponentFormatter formatter = FORMATTERS.get(type);
     if (formatter != null) {
       return formatter;

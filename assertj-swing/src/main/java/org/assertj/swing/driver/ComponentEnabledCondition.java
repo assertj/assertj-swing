@@ -43,10 +43,10 @@ class ComponentEnabledCondition extends Condition {
     this.c = c;
   }
 
-  private static @Nonnull Description description(final @Nonnull Component c) {
+  @Nonnull private static Description description(final @Nonnull Component c) {
     return new GuiLazyLoadingDescription() {
       @Override
-      protected @Nonnull String loadDescription() {
+      @Nonnull protected String loadDescription() {
         return concat(format(c), " to be enabled");
       }
     };

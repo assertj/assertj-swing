@@ -37,7 +37,7 @@ import org.assertj.swing.edt.GuiQuery;
 public class BasicJComboBoxCellReader implements JComboBoxCellReader {
   private static final JList<?> REFERENCE_JLIST = newJList();
 
-  private static @Nonnull <T> JList<T> newJList() {
+  @Nonnull private static <T> JList<T> newJList() {
     JList<T> result = execute(new GuiQuery<JList<T>>() {
       @Override
       protected JList<T> executeInEDT() {
@@ -85,7 +85,7 @@ public class BasicJComboBoxCellReader implements JComboBoxCellReader {
    */
   @Override
   @RunsInCurrentThread
-  public @Nullable String valueAt(@Nonnull JComboBox<?> comboBox, int index) {
+  @Nullable public String valueAt(@Nonnull JComboBox<?> comboBox, int index) {
     Component c = cellRendererComponent(comboBox, index);
     String value = (c != null) ? rendererReader.valueFrom(c) : null;
     if (value != null) {
@@ -95,7 +95,7 @@ public class BasicJComboBoxCellReader implements JComboBoxCellReader {
   }
 
   @RunsInCurrentThread
-  private @Nullable Component cellRendererComponent(@Nonnull JComboBox comboBox, int index) {
+  @Nullable private Component cellRendererComponent(@Nonnull JComboBox comboBox, int index) {
     Object item = comboBox.getItemAt(index);
     ListCellRenderer renderer = comboBox.getRenderer();
     return renderer.getListCellRendererComponent(REFERENCE_JLIST, item, index, true, true);

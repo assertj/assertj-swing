@@ -40,7 +40,7 @@ public class DefaultKeyStrokeMappingProvider implements KeyStrokeMappingProvider
    * @return the default mapping of characters and {@code KeyStroke}s
    */
   @Override
-  public @Nonnull Collection<KeyStrokeMapping> keyStrokeMappings() {
+  @Nonnull public Collection<KeyStrokeMapping> keyStrokeMappings() {
     return LazyLoadingSingleton.instance;
   }
 

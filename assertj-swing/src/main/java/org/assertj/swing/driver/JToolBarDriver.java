@@ -107,7 +107,7 @@ public class JToolBarDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Pair<Point, Pair<Window, Point>> floatInfo(final @Nonnull JToolBar toolBar,
+  @Nonnull private static Pair<Point, Pair<Window, Point>> floatInfo(final @Nonnull JToolBar toolBar,
                                                                      final @Nonnull JToolBarLocation location) {
     Pair<Point, Pair<Window, Point>> result = execute(new GuiQuery<Pair<Point, Pair<Window, Point>>>() {
       @Override
@@ -130,7 +130,7 @@ public class JToolBarDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Pair<Window, Point> ancestorAndLocation(final @Nonnull JToolBar toolBar) {
+  @Nonnull private static Pair<Window, Point> ancestorAndLocation(final @Nonnull JToolBar toolBar) {
     Window window = getWindowAncestor(toolBar);
     return Pair.of(window, window.getLocation());
   }
@@ -175,7 +175,7 @@ public class JToolBarDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Pair<GenericRange<Point>, Container> unfloatInfo(final @Nonnull JToolBar toolBar,
+  @Nonnull private static Pair<GenericRange<Point>, Container> unfloatInfo(final @Nonnull JToolBar toolBar,
                                                                            final @Nonnull String constraint,
                                                                            final @Nonnull JToolBarLocation location) {
     Pair<GenericRange<Point>, Container> result = execute(new GuiQuery<Pair<GenericRange<Point>, Container>>() {
@@ -202,7 +202,7 @@ public class JToolBarDriver extends JComponentDriver {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Container dockFor(final @Nonnull JToolBar toolBar) {
+  @Nonnull private static Container dockFor(final @Nonnull JToolBar toolBar) {
     try {
       return checkNotNull(field("dockingSource").ofType(Container.class).in(toolBar.getUI()).get());
     } catch (RuntimeException e) {
@@ -226,14 +226,14 @@ public class JToolBarDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nullable Window windowAncestorOf(final @Nonnull JToolBar toolBar) {
+  @Nullable private static Window windowAncestorOf(final @Nonnull JToolBar toolBar) {
     return execute(() -> {
       checkEnabledAndShowing(toolBar);
       return getWindowAncestor(toolBar);
     });
   }
 
-  private @Nonnull JToolBarLocation location() {
+  @Nonnull private JToolBarLocation location() {
     return location;
   }
 }

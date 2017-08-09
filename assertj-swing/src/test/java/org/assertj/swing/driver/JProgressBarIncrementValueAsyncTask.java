@@ -59,7 +59,7 @@ class JProgressBarIncrementValueAsyncTask {
     task = createInnerTask();
   }
 
-  private @Nonnull Runnable createInnerTask() {
+  @Nonnull private Runnable createInnerTask() {
     return new Runnable() {
       @Override
       public void run() {

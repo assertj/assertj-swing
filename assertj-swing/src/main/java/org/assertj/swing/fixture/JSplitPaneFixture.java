@@ -44,15 +44,15 @@ public class JSplitPaneFixture extends
    * 
    * @param robot performs simulation of user events on a {@code JSplitPane}.
    * @param spinnerName the name of the {@code JSplitPane} to find using the given {@code Robot}.
-   * @throws ComponentLookupException if a matching {@code JSplitPane} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JSplitPane} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JSplitPane} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JSplitPane} is found.
    */
   public JSplitPaneFixture(@Nonnull Robot robot, @Nullable String spinnerName) {
     super(JSplitPaneFixture.class, robot, spinnerName, JSplitPane.class);
   }
 
   @Override
-  protected @Nonnull JSplitPaneDriver createDriver(@Nonnull Robot robot) {
+  @Nonnull protected JSplitPaneDriver createDriver(@Nonnull Robot robot) {
     return new JSplitPaneDriver(robot);
   }
 
@@ -70,7 +70,7 @@ public class JSplitPaneFixture extends
    * @throws IllegalStateException if this fixture's {@code JSplitPane} is disabled.
    * @throws IllegalStateException if this fixture's {@code JSplitPane} is not showing on the screen.
    */
-  public @Nonnull JSplitPaneFixture moveDividerTo(int location) {
+  @Nonnull public JSplitPaneFixture moveDividerTo(int location) {
     driver().moveDividerTo(target(), location);
     return this;
   }

@@ -68,7 +68,7 @@ public class GuiActionRunner {
    *           wrapping.
    * @see #execute(GuiQuery)
    */
-  public static @Nullable <T> T execute(@Nonnull Callable<T> query) {
+  @Nullable public static <T> T execute(@Nonnull Callable<T> query) {
     return execute(new GuiQuery<T>() {
       @Override
       protected T executeInEDT() throws Throwable {
@@ -90,7 +90,7 @@ public class GuiActionRunner {
    * @see #executeInEDT()
    * @see #execute(Callable)
    */
-  public static @Nullable <T> T execute(@Nonnull GuiQuery<T> query) {
+  @Nullable public static <T> T execute(@Nonnull GuiQuery<T> query) {
     if (!executeInEDT) {
       return executeInCurrentThread(query);
     }
@@ -98,7 +98,7 @@ public class GuiActionRunner {
     return resultOf(query);
   }
 
-  private static @Nullable <T> T executeInCurrentThread(@Nonnull GuiQuery<T> query) {
+  @Nullable private static <T> T executeInCurrentThread(@Nonnull GuiQuery<T> query) {
     try {
       return query.executeInEDT();
     } catch (Throwable e) {
@@ -135,7 +135,7 @@ public class GuiActionRunner {
    *           the given query in the
    *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
    * @see #executeInEDT()
-   * @see #execute(Runnable)
+   * @see #execute(GuiActionRunnable)
    */
   public static void execute(@Nonnull GuiTask task) {
     if (!executeInEDT) {
@@ -169,7 +169,7 @@ public class GuiActionRunner {
     }
   }
 
-  private static @Nullable <T> T resultOf(@Nonnull GuiQuery<T> query) {
+  @Nullable private static <T> T resultOf(@Nonnull GuiQuery<T> query) {
     T result = query.result();
     query.clearResult();
     rethrowCaughtExceptionIn(query);
@@ -177,10 +177,10 @@ public class GuiActionRunner {
   }
 
   /**
-   * Wraps, with a {@link UnexpectedException}, and re-throws any caught exception in the given action.
+   * Wraps, with a {@link org.assertj.swing.exception.UnexpectedException}, and re-throws any caught exception in the given action.
    *
    * @param action the given action that may have a caught exception during its execution.
-   * @throws UnexpectedException wrapping any <b>checked</b> exception thrown when executing the given query in the
+   * @throws org.assertj.swing.exception.UnexpectedException wrapping any <b>checked</b> exception thrown when executing the given query in the
    *           event dispatch thread (EDT). Unchecked exceptions are re-thrown without any wrapping.
    */
   private static void rethrowCaughtExceptionIn(@Nonnull GuiAction action) {

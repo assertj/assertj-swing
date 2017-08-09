@@ -61,7 +61,7 @@ public class ApplicationLauncher {
    * @return the created {@code ApplicationStarter}.
    * @throws UnexpectedException if the class specified in the given name cannot be loaded.
    */
-  public static @Nonnull ApplicationLauncher application(@Nonnull String applicationTypeName) {
+  @Nonnull public static ApplicationLauncher application(@Nonnull String applicationTypeName) {
     try {
       Class<?> applicationType = Thread.currentThread().getContextClassLoader().loadClass(applicationTypeName);
       return application(applicationType);
@@ -76,7 +76,7 @@ public class ApplicationLauncher {
    * @param applicationType the class containing the "main" method.
    * @return the created {@code ApplicationStarter}.
    */
-  public static @Nonnull ApplicationLauncher application(@Nonnull Class<?> applicationType) {
+  @Nonnull public static ApplicationLauncher application(@Nonnull Class<?> applicationType) {
     return new ApplicationLauncher(applicationType);
   }
 
@@ -95,7 +95,7 @@ public class ApplicationLauncher {
    * @return this {@code ApplicationStarter}.
    * @throws NullPointerException if {@code newArgs} is {@code null}.
    */
-  public @Nonnull ApplicationLauncher withArgs(@Nonnull String... newArgs) {
+  @Nonnull public ApplicationLauncher withArgs(@Nonnull String... newArgs) {
     args = copyOf(checkNotNull(newArgs));
     return this;
   }

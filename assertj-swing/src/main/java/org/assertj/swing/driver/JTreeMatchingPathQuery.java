@@ -39,7 +39,7 @@ final class JTreeMatchingPathQuery {
                                                                  final @Nonnull JTreePathFinder pathFinder) {
     TreePath result = execute(new GuiQuery<TreePath>() {
       @Override
-      protected @Nonnull TreePath executeInEDT() {
+      @Nonnull protected TreePath executeInEDT() {
         checkEnabledAndShowing(tree);
         return matchingPathWithRootIfInvisible(tree, path, pathFinder);
       }

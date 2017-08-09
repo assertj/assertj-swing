@@ -47,7 +47,7 @@ public final class JTableLocation {
    * @return the coordinates of the given row and column.
    */
   @RunsInCurrentThread
-  public @Nonnull Point pointAt(@Nonnull JTable table, int row, int column) {
+  @Nonnull public Point pointAt(@Nonnull JTable table, int row, int column) {
     Rectangle cellBounds = cellBounds(table, row, column);
     return new Point(cellBounds.x + cellBounds.width / 2, cellBounds.y + cellBounds.height / 2);
   }
@@ -67,7 +67,7 @@ public final class JTableLocation {
    * @return the bounds of the given cell.
    */
   @RunsInCurrentThread
-  public @Nonnull Rectangle cellBounds(@Nonnull JTable table, @Nonnull TableCell cell) {
+  @Nonnull public Rectangle cellBounds(@Nonnull JTable table, @Nonnull TableCell cell) {
     return cellBounds(table, cell.row, cell.column);
   }
 
@@ -87,7 +87,7 @@ public final class JTableLocation {
    * @return the bounds of the given row and column.
    */
   @RunsInCurrentThread
-  public @Nonnull Rectangle cellBounds(JTable table, int row, int column) {
+  @Nonnull public Rectangle cellBounds(JTable table, int row, int column) {
     return checkNotNull(table.getCellRect(row, column, false));
   }
 }

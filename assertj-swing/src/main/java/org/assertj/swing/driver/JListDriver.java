@@ -100,7 +100,7 @@ public class JListDriver extends JComponentDriver {
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public @Nonnull String[] contentsOf(@Nonnull JList<?> list) {
+  @Nonnull public String[] contentsOf(@Nonnull JList<?> list) {
     return contents(list, cellReader());
   }
 
@@ -456,7 +456,7 @@ public class JListDriver extends JComponentDriver {
     verifyThat(selection).as(selectedIndexProperty(list)).matches(pattern);
   }
 
-  private @Nullable String requiredSelection(final @Nonnull JList<?> list) {
+  @Nullable private String requiredSelection(final @Nonnull JList<?> list) {
     Object selection = singleSelectionValue(list, cellReader());
     if (NO_SELECTION_VALUE == selection) {
       failNoSelection(list);
@@ -489,7 +489,7 @@ public class JListDriver extends JComponentDriver {
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public @Nonnull String[] selectionOf(@Nonnull JList<?> list) {
+  @Nonnull public String[] selectionOf(@Nonnull JList<?> list) {
     List<String> selection = selectionValues(list, cellReader());
     return selection.toArray(new String[selection.size()]);
   }
@@ -720,14 +720,14 @@ public class JListDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull JPopupMenu showPopupMenu(@Nonnull JList<?> list, @Nonnull TextMatcher matcher) {
+  @Nonnull private JPopupMenu showPopupMenu(@Nonnull JList<?> list, @Nonnull TextMatcher matcher) {
     Pair<Integer, Point> scrollInfo = scrollToItem(list, matcher, cellReader());
     robot.waitForIdle();
     checkItemFound(list, scrollInfo, matcher);
     return robot.showPopupMenu(list, cellCenterIn(scrollInfo));
   }
 
-  private @Nonnull Point cellCenterIn(@Nonnull Pair<Integer, Point> scrollInfo) {
+  @Nonnull private Point cellCenterIn(@Nonnull Pair<Integer, Point> scrollInfo) {
     return checkNotNull(scrollInfo.second);
   }
 
@@ -744,7 +744,7 @@ public class JListDriver extends JComponentDriver {
    *           {@code JList}.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JList<?> list, int index) {
+  @Nonnull public JPopupMenu showPopupMenu(@Nonnull JList<?> list, int index) {
     Point cellCenter = scrollToItem(list, index);
     robot.waitForIdle();
     return robot.showPopupMenu(list, cellCenter);
@@ -759,7 +759,7 @@ public class JListDriver extends JComponentDriver {
    * @throws LocationUnavailableException if an element matching the given value cannot be found.
    */
   @RunsInEDT
-  public @Nonnull Point pointAt(@Nonnull JList<?> list, @Nullable String value) {
+  @Nonnull public Point pointAt(@Nonnull JList<?> list, @Nullable String value) {
     return centerOfMatchingItemCell(list, value, cellReader());
   }
 
@@ -806,7 +806,7 @@ public class JListDriver extends JComponentDriver {
     return checkNotNull(result);
   }
 
-  private @Nonnull LocationUnavailableException failMatchingNotFound(@Nonnull JList<?> list,
+  @Nonnull private LocationUnavailableException failMatchingNotFound(@Nonnull JList<?> list,
                                                                      @Nonnull TextMatcher matcher) {
     String format = "Unable to find item matching the %s %s among the JList contents %s";
     String msg = String.format(format, matcher.description(), matcher.formattedValues(),
@@ -826,7 +826,7 @@ public class JListDriver extends JComponentDriver {
    * @see #replaceCellReader(JListCellReader)
    */
   @RunsInEDT
-  public @Nullable String value(@Nonnull JList<?> list, int index) {
+  @Nullable public String value(@Nonnull JList<?> list, int index) {
     return itemValue(list, index, cellReader());
   }
 
@@ -854,7 +854,7 @@ public class JListDriver extends JComponentDriver {
     assertThat(actual).as(propertyName(list, "itemCount")).isEqualTo(expected);
   }
 
-  private @Nonnull JListCellReader cellReader() {
+  @Nonnull private JListCellReader cellReader() {
     return cellReader;
   }
 }

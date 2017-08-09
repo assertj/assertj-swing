@@ -27,7 +27,7 @@ public class JTextComponentTextReader extends TextReader<JTextComponent> {
    * @return {@code JTextComponent.class}.
    */
   @Override
-  public @Nonnull Class<JTextComponent> supportedComponent() {
+  @Nonnull public Class<JTextComponent> supportedComponent() {
     return JTextComponent.class;
   }
 

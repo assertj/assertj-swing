@@ -51,7 +51,7 @@ public final class GUITestFinder {
     return false;
   }
 
-  private static @Nullable Method findMethod(@Nonnull Class<?> type, @Nonnull Method method) {
+  @Nullable private static Method findMethod(@Nonnull Class<?> type, @Nonnull Method method) {
     try {
       return type.getDeclaredMethod(method.getName(), method.getParameterTypes());
     } catch (Throwable t) {

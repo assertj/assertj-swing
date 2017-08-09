@@ -53,7 +53,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * @param name the id to match.
    * @return the created matcher.
    */
-  public static @Nonnull JLabelMatcher withName(@Nullable String name) {
+  @Nonnull public static JLabelMatcher withName(@Nullable String name) {
     return new JLabelMatcher(name, anyValue());
   }
 
@@ -81,7 +81,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * @param text the text to match. It can be a regular expression.
    * @return the created matcher.
    */
-  public static @Nonnull JLabelMatcher withText(@Nullable String text) {
+  @Nonnull public static JLabelMatcher withText(@Nullable String text) {
     return new JLabelMatcher(anyValue(), text);
   }
 
@@ -109,7 +109,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * @param textPattern the regular expression pattern to match.
    * @return the created matcher.
    */
-  public static @Nonnull JLabelMatcher withText(@Nonnull Pattern textPattern) {
+  @Nonnull public static JLabelMatcher withText(@Nonnull Pattern textPattern) {
     return new JLabelMatcher(anyValue(), textPattern);
   }
 
@@ -118,7 +118,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    *
    * @return the created matcher.
    */
-  public static @Nonnull JLabelMatcher any() {
+  @Nonnull public static JLabelMatcher any() {
     return new JLabelMatcher(anyValue(), anyValue());
   }
 
@@ -134,7 +134,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * @param newText the new text to match. It can be a regular expression.
    * @return this matcher.
    */
-  public @Nonnull JLabelMatcher andText(@Nullable String newText) {
+  @Nonnull public JLabelMatcher andText(@Nullable String newText) {
     text = newText;
     return this;
   }
@@ -146,7 +146,7 @@ public final class JLabelMatcher extends NamedComponentMatcherTemplate<JLabel> {
    * @param textPattern the regular expression pattern to match.
    * @return this matcher.
    */
-  public @Nonnull JLabelMatcher andText(@Nonnull Pattern textPattern) {
+  @Nonnull public JLabelMatcher andText(@Nonnull Pattern textPattern) {
     text = textPattern;
     return this;
   }

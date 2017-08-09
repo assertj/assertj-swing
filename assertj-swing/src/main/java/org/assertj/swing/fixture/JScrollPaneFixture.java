@@ -46,33 +46,33 @@ public class JScrollPaneFixture extends
    * @param robot performs simulation of user events on a {@code JScrollPane}.
    * @param panelName the name of the {@code JScrollPane} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JScrollPane} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JScrollPane} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JScrollPane} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JScrollPane} is found.
    */
   public JScrollPaneFixture(@Nonnull Robot robot, @Nullable String panelName) {
     super(JScrollPaneFixture.class, robot, panelName, JScrollPane.class);
   }
 
   @Override
-  protected @Nonnull JScrollPaneDriver createDriver(@Nonnull Robot robot) {
+  @Nonnull protected JScrollPaneDriver createDriver(@Nonnull Robot robot) {
     return new JScrollPaneDriver(robot);
   }
 
   /**
    * @return a fixture managing the horizontal {@code JScrollBar} of this target's {@code JScrollPane}.
    */
-  public @Nonnull JScrollBarFixture horizontalScrollBar() {
+  @Nonnull public JScrollBarFixture horizontalScrollBar() {
     return scrollBarFixture(driver().horizontalScrollBarIn(target()));
   }
 
   /**
    * @return a fixture managing the vertical {@code JScrollBar} of this target's {@code JScrollPane}.
    */
-  public @Nonnull JScrollBarFixture verticalScrollBar() {
+  @Nonnull public JScrollBarFixture verticalScrollBar() {
     return scrollBarFixture(driver().verticalScrollBarIn(target()));
   }
 
-  private @Nonnull JScrollBarFixture scrollBarFixture(@Nonnull JScrollBar scrollBar) {
+  @Nonnull private JScrollBarFixture scrollBarFixture(@Nonnull JScrollBar scrollBar) {
     return new JScrollBarFixture(robot(), scrollBar);
   }
 }

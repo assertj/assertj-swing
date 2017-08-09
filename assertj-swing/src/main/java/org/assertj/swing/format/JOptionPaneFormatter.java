@@ -58,7 +58,7 @@ public class JOptionPaneFormatter extends ComponentFormatterTemplate {
    */
   @RunsInCurrentThread
   @Override
-  protected @Nonnull String doFormat(@Nonnull Component c) {
+  @Nonnull protected String doFormat(@Nonnull Component c) {
     JOptionPane optionPane = (JOptionPane) c;
     String format = "%s[message=%s, messageType=%s, optionType=%s, enabled=%b, visible=%b, showing=%b]";
     return String.format(format, getRealClassName(c), quote(optionPane.getMessage()),
@@ -70,7 +70,7 @@ public class JOptionPaneFormatter extends ComponentFormatterTemplate {
    * @return {@code JOptionPane.class}.
    */
   @Override
-  public @Nonnull Class<? extends Component> targetType() {
+  @Nonnull public Class<? extends Component> targetType() {
     return JOptionPane.class;
   }
 }

@@ -96,7 +96,7 @@ public class AWT {
    * @return the translated coordinates.
    */
   @RunsInCurrentThread
-  public static @Nullable
+  @Nullable public static
   Point translate(@Nonnull Component c, int x, int y) {
     Point p = locationOnScreenOf(c);
     if (p == null) {
@@ -113,7 +113,7 @@ public class AWT {
    * @return a point at the center of the visible area of the given {@code Component}.
    */
   @RunsInEDT
-  public static @Nonnull
+  @Nonnull public static
   Point visibleCenterOf(@Nonnull final Component c) {
     Point center = execute(() -> {
       if (c instanceof JComponent) {
@@ -138,7 +138,7 @@ public class AWT {
    * @return a point at the center of the given {@code Component}.
    */
   @RunsInCurrentThread
-  public static @Nonnull
+  @Nonnull public static
   Point centerOf(@Nonnull Component c) {
     Dimension size = c.getSize();
     return new Point(size.width / 2, size.height / 2);
@@ -158,7 +158,7 @@ public class AWT {
    * @return a point at the center of the visible rectangle of the given {@code JComponent}.
    */
   @RunsInCurrentThread
-  public static @Nonnull
+  @Nonnull public static
   Point centerOfVisibleRect(@Nonnull JComponent c) {
     Rectangle r = c.getVisibleRect();
     return centerOf(checkNotNull(r));
@@ -178,7 +178,7 @@ public class AWT {
    * @return a point at the center of the given {@code Rectangle}.
    */
   @RunsInCurrentThread
-  public static @Nonnull
+  @Nonnull public static
   Point centerOf(@Nonnull Rectangle r) {
     return new Point((r.x + (r.width / 2)), (r.y + (r.height / 2)));
   }
@@ -197,7 +197,7 @@ public class AWT {
    * @return the insets of the given {@code Container}, or an empty one if no insets can be found.
    */
   @RunsInCurrentThread
-  public static @Nonnull
+  @Nonnull public static
   Insets insetsFrom(@Nonnull Container c) {
     try {
       Insets insets = c.getInsets();
@@ -262,7 +262,7 @@ public class AWT {
   }
 
   @RunsInCurrentThread
-  private static @Nullable
+  @Nullable private static
   String obtainNameSafely(@Nonnull Component c) {
     // Work around some components throwing exceptions if getName is called prematurely
     try {
@@ -288,7 +288,7 @@ public class AWT {
    *     pop-up of any sort.
    */
   @RunsInCurrentThread
-  public static @Nullable
+  @Nullable public static
   Component invokerOf(final @Nonnull Component c) {
     if (c instanceof JPopupMenu) {
       return ((JPopupMenu) c).getInvoker();
@@ -311,7 +311,7 @@ public class AWT {
    * @return the a point specifying the {@code Component}'s top-left corner in the screen's coordinate space.
    */
   @RunsInCurrentThread
-  public static @Nonnull
+  @Nonnull public static
   Point locationOnScreenOf(@Nonnull Component c) {
     return new Point(c.getLocationOnScreen());
   }

@@ -40,7 +40,7 @@ public final class ComponentSizeQuery {
    * @see Component#getSize()
    */
   @RunsInEDT
-  public static @Nonnull Dimension sizeOf(final @Nonnull Component component) {
+  @Nonnull public static Dimension sizeOf(final @Nonnull Component component) {
     Dimension result = execute(() -> component.getSize());
     return checkNotNull(result);
   }

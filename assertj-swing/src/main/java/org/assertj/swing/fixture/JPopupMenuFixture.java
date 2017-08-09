@@ -43,7 +43,7 @@ public class JPopupMenuFixture extends AbstractJComponentFixture<JPopupMenuFixtu
   }
 
   @Override
-  protected @Nonnull JPopupMenuDriver createDriver(@Nonnull Robot robot) {
+  @Nonnull protected JPopupMenuDriver createDriver(@Nonnull Robot robot) {
     return new JPopupMenuDriver(robot);
   }
 
@@ -57,7 +57,7 @@ public class JPopupMenuFixture extends AbstractJComponentFixture<JPopupMenuFixtu
    * @throws org.assertj.swing.exception.ComponentLookupException if more than one {@code JMenuItem} having a matching
    *           name is found.
    */
-  public @Nonnull JMenuItemFixture menuItem(@Nullable String name) {
+  @Nonnull public JMenuItemFixture menuItem(@Nullable String name) {
     return new JMenuItemFixture(robot(), driver().menuItem(target(), name));
   }
 
@@ -73,7 +73,7 @@ public class JPopupMenuFixture extends AbstractJComponentFixture<JPopupMenuFixtu
    *           given search criteria is
    *           found.
    */
-  public @Nonnull JMenuItemFixture menuItem(@Nonnull GenericTypeMatcher<? extends JMenuItem> matcher) {
+  @Nonnull public JMenuItemFixture menuItem(@Nonnull GenericTypeMatcher<? extends JMenuItem> matcher) {
     return new JMenuItemFixture(robot(), driver().menuItem(target(), matcher));
   }
 
@@ -97,14 +97,14 @@ public class JPopupMenuFixture extends AbstractJComponentFixture<JPopupMenuFixtu
    *           be found.
    * @throws AssertionError if the {@code Component} found under the given path is not a {@code JMenuItem}.
    */
-  public @Nonnull JMenuItemFixture menuItemWithPath(@Nonnull String... path) {
+  @Nonnull public JMenuItemFixture menuItemWithPath(@Nonnull String... path) {
     return new JMenuItemFixture(robot(), menuItemFinder.menuItemWithPath(path));
   }
 
   /**
    * @return a {@code String} array representing the contents of this fixture's {@code JPopupMenu}.
    */
-  public @Nonnull String[] menuLabels() {
+  @Nonnull public String[] menuLabels() {
     return driver().menuLabelsOf(target());
   }
 }

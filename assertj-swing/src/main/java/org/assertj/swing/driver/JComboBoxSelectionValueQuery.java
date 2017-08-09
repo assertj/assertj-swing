@@ -38,7 +38,7 @@ final class JComboBoxSelectionValueQuery {
                                                   final @Nonnull JComboBoxCellReader cellReader) {
     Pair<Boolean, String> result = execute(new GuiQuery<Pair<Boolean, String>>() {
       @Override
-      protected @Nullable Pair<Boolean, String> executeInEDT() {
+      @Nullable protected Pair<Boolean, String> executeInEDT() {
         int selectedIndex = comboBox.getSelectedIndex();
         if (selectedIndex == -1) {
           return valueForNoSelection(comboBox);
@@ -49,7 +49,7 @@ final class JComboBoxSelectionValueQuery {
     return checkNotNull(result);
   }
 
-  private static @Nonnull Pair<Boolean, String> valueForNoSelection(@Nonnull JComboBox<?> comboBox) {
+  @Nonnull private static Pair<Boolean, String> valueForNoSelection(@Nonnull JComboBox<?> comboBox) {
     if (!comboBox.isEditable()) {
       return NO_SELECTION;
     }
@@ -63,7 +63,7 @@ final class JComboBoxSelectionValueQuery {
     return NO_SELECTION;
   }
 
-  private static @Nonnull Pair<Boolean, String> selection(@Nullable String selection) {
+  @Nonnull private static Pair<Boolean, String> selection(@Nullable String selection) {
     return Pair.of(true, selection);
   }
 

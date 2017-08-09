@@ -36,7 +36,7 @@ class ParsedKeyStrokeMappingProvider implements KeyStrokeMappingProvider {
   }
 
   /**
-   * Returns the mapping of characters and {@link KeyStroke}s. The mappings are obtained from a text file. In addition,
+   * Returns the mapping of characters and {@link javax.swing.KeyStroke}s. The mappings are obtained from a text file. In addition,
    * this provider will automatically add mappings for following keys:
    * <ul>
    * <li>Backspace</li>
@@ -49,7 +49,7 @@ class ParsedKeyStrokeMappingProvider implements KeyStrokeMappingProvider {
    * @return the mapping of characters and {@code KeyStroke}s.
    */
   @Override
-  public @Nonnull Collection<KeyStrokeMapping> keyStrokeMappings() {
+  @Nonnull public Collection<KeyStrokeMapping> keyStrokeMappings() {
     return unmodifiableList(mappings);
   }
 }

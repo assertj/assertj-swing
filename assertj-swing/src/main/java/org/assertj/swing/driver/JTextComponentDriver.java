@@ -212,7 +212,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
   }
 
   @RunsInEDT
-  private static @Nonnull Point checkStateAndScrollToPosition(final @Nonnull JTextComponent textBox, final int index) {
+  @Nonnull private static Point checkStateAndScrollToPosition(final @Nonnull JTextComponent textBox, final int index) {
     Point result = execute(() -> {
       checkEnabledAndShowing(textBox);
       return scrollToVisible(textBox, index);
@@ -221,7 +221,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
   }
 
   @RunsInEDT
-  private static @Nonnull Point scrollToPosition(final @Nonnull JTextComponent textBox, final int index) {
+  @Nonnull private static Point scrollToPosition(final @Nonnull JTextComponent textBox, final int index) {
     Point result = execute(() -> scrollToVisible(textBox, index));
     return checkNotNull(result);
   }
@@ -235,7 +235,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
    * @throws ActionFailedException if it was not possible to scroll to the location of the given index.
    */
   @RunsInCurrentThread
-  private static @Nonnull Point scrollToVisible(@Nonnull JTextComponent textBox, int index) {
+  @Nonnull private static Point scrollToVisible(@Nonnull JTextComponent textBox, int index) {
     Rectangle indexLocation = locationOf(textBox, index);
     if (isRectangleVisible(textBox, indexLocation)) {
       return centerOf(indexLocation);
@@ -251,7 +251,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
   }
 
   @RunsInCurrentThread
-  private static @Nonnull Rectangle locationOf(@Nonnull JTextComponent textBox, int index) {
+  @Nonnull private static Rectangle locationOf(@Nonnull JTextComponent textBox, int index) {
     Rectangle r = null;
     try {
       r = textBox.modelToView(index);
@@ -304,14 +304,14 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
     ((JComponent) parent).scrollRectToVisible(addPointToRectangle(checkNotNull(pointAndParent.first), r));
   }
 
-  private static @Nonnull Rectangle addPointToRectangle(@Nonnull Point p, @Nonnull Rectangle r) {
+  @Nonnull private static Rectangle addPointToRectangle(@Nonnull Point p, @Nonnull Rectangle r) {
     Rectangle destination = new Rectangle(r);
     destination.x += p.x;
     destination.y += p.y;
     return destination;
   }
 
-  private static @Nonnull Point centerOf(@Nonnull Rectangle r) {
+  @Nonnull private static Point centerOf(@Nonnull Rectangle r) {
     return new Point(r.x + r.width / 2, r.y + r.height / 2);
   }
 
@@ -375,7 +375,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
   }
 
   @RunsInEDT
-  private static @Nonnull Description textProperty(@Nonnull JTextComponent textBox) {
+  @Nonnull private static Description textProperty(@Nonnull JTextComponent textBox) {
     return propertyName(textBox, TEXT_PROPERTY);
   }
 
@@ -407,7 +407,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
   }
 
   @RunsInEDT
-  private static @Nonnull Description editableProperty(@Nonnull JTextComponent textBox) {
+  @Nonnull private static Description editableProperty(@Nonnull JTextComponent textBox) {
     return propertyName(textBox, EDITABLE_PROPERTY);
   }
 
@@ -419,7 +419,7 @@ public class JTextComponentDriver extends JComponentDriver implements TextDispla
    */
   @RunsInEDT
   @Override
-  public @Nullable String textOf(@Nonnull JTextComponent textBox) {
+  @Nullable public String textOf(@Nonnull JTextComponent textBox) {
     return JTextComponentTextQuery.textOf(textBox);
   }
 }

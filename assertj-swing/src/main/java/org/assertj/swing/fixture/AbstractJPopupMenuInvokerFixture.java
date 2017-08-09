@@ -83,13 +83,13 @@ public abstract class AbstractJPopupMenuInvokerFixture<S, T extends JComponent, 
    * Shows a pop-up menu using this fixture's {@code JComponent} as the invoker of the pop-up menu.
    *
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JComponent} is disabled.
    * @throws IllegalStateException if this fixture's {@code JComponent} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull JPopupMenuFixture showPopupMenu() {
+  @Nonnull public JPopupMenuFixture showPopupMenu() {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target()));
   }
 
@@ -98,13 +98,13 @@ public abstract class AbstractJPopupMenuInvokerFixture<S, T extends JComponent, 
    *
    * @param p the given point where to show the pop-up menu.
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JComponent} is disabled.
    * @throws IllegalStateException if this fixture's {@code JComponent} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
+  @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target(), p));
   }
 }

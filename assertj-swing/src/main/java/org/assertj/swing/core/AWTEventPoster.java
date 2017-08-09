@@ -57,7 +57,7 @@ class AWTEventPoster {
   }
 
   /* Usually only needed when dealing with Applets. */
-  private @Nullable EventQueue eventQueueFor(@Nullable Component c) {
+  @Nullable private EventQueue eventQueueFor(@Nullable Component c) {
     return c != null ? windowMonitor.eventQueueFor(c) : toolkit.getSystemEventQueue();
   }
 }

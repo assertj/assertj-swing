@@ -35,7 +35,7 @@ public class KeyStrokeMapping {
    * @param modifiers the set of modifiers for the intended {@code KeyStroke}.
    * @return the created {@code KeyStrokeMapping}.
    */
-  public static @Nonnull KeyStrokeMapping mapping(char character, int keyCode, int modifiers) {
+  @Nonnull public static KeyStrokeMapping mapping(char character, int keyCode, int modifiers) {
     return new KeyStrokeMapping(character, keyCode, modifiers);
   }
 
@@ -71,7 +71,7 @@ public class KeyStrokeMapping {
   /**
    * @return the {@code KeyStroke} corresponding to this mapping's character.
    */
-  public @Nonnull KeyStroke keyStroke() {
+  @Nonnull public KeyStroke keyStroke() {
     return keyStroke;
   }
 

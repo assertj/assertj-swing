@@ -95,7 +95,7 @@ public final class Arrays {
    * @param array the array to format.
    * @return the data of the given array formatted to make it easier to read.
    */
-  public static @Nonnull String format(@Nullable String[][] array) {
+  @Nonnull public static String format(@Nullable String[][] array) {
     if (array == null) {
       return NULL;
     }
@@ -144,7 +144,7 @@ public final class Arrays {
    * @return the created copy.
    * @throws NullPointerException if the array to copy is {@code null}.
    */
-  public static @Nonnull int[] copyOf(@Nonnull int[] array) {
+  @Nonnull public static int[] copyOf(@Nonnull int[] array) {
     checkNotNull(array);
     int arraySize = array.length;
     int[] copy = new int[arraySize];

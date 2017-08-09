@@ -190,7 +190,7 @@ public class ComponentDriver {
     robot.click(c, where);
   }
 
-  protected @Nonnull Settings settings() {
+  @Nonnull protected Settings settings() {
     return robot.settings();
   }
 
@@ -229,7 +229,7 @@ public class ComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Description visibleProperty(@Nonnull Component c) {
+  @Nonnull private static Description visibleProperty(@Nonnull Component c) {
     return propertyName(c, VISIBLE_PROPERTY);
   }
 
@@ -244,10 +244,10 @@ public class ComponentDriver {
     assertThat(hasFocus(c)).as(requiredFocusedErrorMessage(c)).isTrue();
   }
 
-  private static @Nonnull Description requiredFocusedErrorMessage(final Component c) {
+  @Nonnull private static Description requiredFocusedErrorMessage(final Component c) {
     return new GuiLazyLoadingDescription() {
       @Override
-      protected @Nonnull String loadDescription() {
+      @Nonnull protected String loadDescription() {
         return String.format("Expected component %s to have input focus", format(c));
       }
     };
@@ -288,7 +288,7 @@ public class ComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Description enabledProperty(@Nonnull Component c) {
+  @Nonnull private static Description enabledProperty(@Nonnull Component c) {
     return propertyName(c, ENABLED_PROPERTY);
   }
 
@@ -357,7 +357,7 @@ public class ComponentDriver {
    * @throws IllegalArgumentException if the given code is not a valid key code.
    * @throws IllegalStateException if the {@code Component} is disabled.
    * @throws IllegalStateException if the {@code Component} is not showing on the screen.
-   * @see #pressKeyWhileRunning(Component, int)
+   * @see #pressKeyWhileRunning(Component, int, Runnable)
    * @see java.awt.event.KeyEvent
    */
   @RunsInEDT
@@ -548,7 +548,7 @@ public class ComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu invokePopupMenu(@Nonnull Component c) {
+  @Nonnull public JPopupMenu invokePopupMenu(@Nonnull Component c) {
     checkClickAllowed(c);
     return robot.showPopupMenu(c);
   }
@@ -567,7 +567,7 @@ public class ComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu invokePopupMenu(@Nonnull Component c, @Nonnull Point p) {
+  @Nonnull public JPopupMenu invokePopupMenu(@Nonnull Component c, @Nonnull Point p) {
     checkNotNull(p);
     checkClickAllowed(c);
     return robot.showPopupMenu(c, p);
@@ -624,10 +624,10 @@ public class ComponentDriver {
    * @see org.assertj.swing.format.Formatting#format(Component)
    */
   @RunsInEDT
-  public static @Nonnull Description propertyName(final @Nonnull Component c, final @Nonnull String propertyName) {
+  @Nonnull public static Description propertyName(final @Nonnull Component c, final @Nonnull String propertyName) {
     return new GuiLazyLoadingDescription() {
       @Override
-      protected @Nonnull String loadDescription() {
+      @Nonnull protected String loadDescription() {
         return String.format("%s - property:'%s'", format(c), propertyName);
       }
     };
@@ -670,7 +670,7 @@ public class ComponentDriver {
    * @return the font of the given {@code Component}.
    */
   @RunsInEDT
-  public @Nonnull Font fontOf(final @Nonnull Component c) {
+  @Nonnull public Font fontOf(final @Nonnull Component c) {
     Font result = execute(() -> c.getFont());
     return checkNotNull(result);
   }
@@ -682,7 +682,7 @@ public class ComponentDriver {
    * @return the background color of the given {@code Component}.
    */
   @RunsInEDT
-  public @Nonnull Color backgroundOf(final @Nonnull Component c) {
+  @Nonnull public Color backgroundOf(final @Nonnull Component c) {
     Color result = execute(() -> c.getBackground());
     return checkNotNull(result);
   }
@@ -694,7 +694,7 @@ public class ComponentDriver {
    * @return the foreground color of the given {@code Component}.
    */
   @RunsInEDT
-  public @Nonnull Color foregroundOf(final @Nonnull Component c) {
+  @Nonnull public Color foregroundOf(final @Nonnull Component c) {
     Color result = execute(() -> c.getForeground());
     return checkNotNull(result);
   }

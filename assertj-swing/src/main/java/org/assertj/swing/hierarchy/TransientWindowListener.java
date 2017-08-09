@@ -65,7 +65,7 @@ public final class TransientWindowListener implements AWTEventListener {
     }
   }
 
-  private @Nullable Window sourceOf(@Nonnull AWTEvent e) {
+  @Nullable private Window sourceOf(@Nonnull AWTEvent e) {
     return (Window) e.getSource();
   }
 

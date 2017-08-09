@@ -35,7 +35,7 @@ public final class Timeout {
    * 
    * @return the created {@code Timeout}.
    */
-  public static @Nonnull Timeout timeout() {
+  @Nonnull public static Timeout timeout() {
     return timeout(DEFAULT_DELAY);
   }
 
@@ -45,7 +45,7 @@ public final class Timeout {
    * @param duration the duration of the timeout in milliseconds.
    * @return the created {@code Timeout}.
    */
-  public static @Nonnull Timeout timeout(long duration) {
+  @Nonnull public static Timeout timeout(long duration) {
     return new Timeout(duration);
   }
 
@@ -57,7 +57,7 @@ public final class Timeout {
    * @return the created {@code Timeout}.
    * @throws NullPointerException if the given time unit is {@code null}.
    */
-  public static @Nonnull Timeout timeout(long duration, @Nonnull TimeUnit timeUnit) {
+  @Nonnull public static Timeout timeout(long duration, @Nonnull TimeUnit timeUnit) {
     checkNotNull(timeUnit);
     return new Timeout(timeUnit.toMillis(duration));
   }

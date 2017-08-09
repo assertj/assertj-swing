@@ -46,7 +46,7 @@ public class TestWindow extends JFrame {
    * @return the created window.
    */
   @RunsInEDT
-  public static @Nonnull TestWindow createAndShowNewWindow(final @Nonnull Class<?> testClass) {
+  @Nonnull public static TestWindow createAndShowNewWindow(final @Nonnull Class<?> testClass) {
     TestWindow result = execute(() -> {
       TestWindow window = createInCurrentThread(testClass);
       TestWindow.display(window);
@@ -65,12 +65,12 @@ public class TestWindow extends JFrame {
    * @return the created window.
    */
   @RunsInEDT
-  public static @Nonnull TestWindow createNewWindow(final @Nonnull Class<?> testClass) {
+  @Nonnull public static TestWindow createNewWindow(final @Nonnull Class<?> testClass) {
     TestWindow result = execute(() -> createInCurrentThread(testClass));
     return checkNotNull(result);
   }
 
-  private static @Nonnull TestWindow createInCurrentThread(@Nonnull Class<?> testClass) {
+  @Nonnull private static TestWindow createInCurrentThread(@Nonnull Class<?> testClass) {
     return new TestWindow(testClass);
   }
 
@@ -136,7 +136,7 @@ public class TestWindow extends JFrame {
    * @return the displayed window.
    */
   @RunsInCurrentThread
-  protected static @Nonnull <T extends TestWindow> T display(@Nonnull T w) {
+  @Nonnull protected static <T extends TestWindow> T display(@Nonnull T w) {
     w.setLocation(DEFAULT_WINDOW_LOCATION);
     packAndShow(w);
     return w;

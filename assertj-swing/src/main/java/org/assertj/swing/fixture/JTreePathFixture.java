@@ -46,10 +46,10 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ActionFailedException if this method fails to expand the path.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to expand the path.
    */
   @Override
-  public @Nonnull JTreePathFixture expand() {
+  @Nonnull public JTreePathFixture expand() {
     tree.expandPath(path());
     return this;
   }
@@ -60,10 +60,10 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ActionFailedException if this method fails to collapse the path.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to collapse the path.
    */
   @Override
-  public @Nonnull JTreePathFixture collapse() {
+  @Nonnull public JTreePathFixture collapse() {
     tree.collapsePath(path());
     return this;
   }
@@ -77,7 +77,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTreePathFixture select() {
+  @Nonnull public JTreePathFixture select() {
     tree.selectPath(path());
     return this;
   }
@@ -90,7 +90,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if this fixture's {@code JTree} is disabled.
    * @throws IllegalStateException if this fixture's {@code JTree} is not showing on the screen.
    */
-  public @Nonnull JTreePathFixture unselect() {
+  @Nonnull public JTreePathFixture unselect() {
     tree.unselectPath(path());
     return this;
   }
@@ -103,7 +103,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTreePathFixture click() {
+  @Nonnull public JTreePathFixture click() {
     tree.clickPath(path());
     return this;
   }
@@ -118,7 +118,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTreePathFixture click(@Nonnull MouseButton button) {
+  @Nonnull public JTreePathFixture click(@Nonnull MouseButton button) {
     tree.clickPath(path(), button);
     return this;
   }
@@ -133,7 +133,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTreePathFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
+  @Nonnull public JTreePathFixture click(@Nonnull MouseClickInfo mouseClickInfo) {
     tree.clickPath(path(), mouseClickInfo);
     return this;
   }
@@ -146,7 +146,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTreePathFixture doubleClick() {
+  @Nonnull public JTreePathFixture doubleClick() {
     tree.doubleClickPath(path());
     return this;
   }
@@ -159,7 +159,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTreePathFixture rightClick() {
+  @Nonnull public JTreePathFixture rightClick() {
     tree.rightClickPath(path());
     return this;
   }
@@ -172,7 +172,7 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
    */
   @Override
-  public @Nonnull JTreePathFixture drag() {
+  @Nonnull public JTreePathFixture drag() {
     tree.drag(path());
     return this;
   }
@@ -183,10 +183,10 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @Override
-  public @Nonnull JTreePathFixture drop() {
+  @Nonnull public JTreePathFixture drop() {
     tree.drop(path());
     return this;
   }
@@ -197,10 +197,10 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @return a fixture that handles functional testing of the displayed pop-up menu.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull JPopupMenuFixture showPopupMenu() {
+  @Nonnull public JPopupMenuFixture showPopupMenu() {
     return tree.showPopupMenuAt(path());
   }
 
@@ -208,14 +208,14 @@ public class JTreePathFixture implements JTreeNodeFixture<JTreePathFixture> {
    * @return the {@code String} representation of this fixture's tree node.
    */
   @Override
-  public @Nullable String value() {
+  @Nullable public String value() {
     return tree.valueAt(path());
   }
 
   /**
    * @return the path of this fixture's node.
    */
-  public @Nonnull String path() {
+  @Nonnull public String path() {
     return path;
   }
 

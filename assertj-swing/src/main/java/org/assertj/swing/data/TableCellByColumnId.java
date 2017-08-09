@@ -104,12 +104,12 @@ public class TableCellByColumnId implements TableCellFinder {
    */
   @RunsInEDT
   @Override
-  public @Nonnull TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
+  @Nonnull public TableCell findCell(@Nonnull JTable table, @Nonnull JTableCellReader cellReader) {
     return findCell(table, row, columnId);
   }
 
   @RunsInEDT
-  private static @Nonnull TableCell findCell(final @Nonnull JTable table, final int row, final @Nonnull Object columnId) {
+  @Nonnull private static TableCell findCell(final @Nonnull JTable table, final int row, final @Nonnull Object columnId) {
     TableCell result = execute(() -> {
       int column = columnIndexByIdentifier(table, columnId);
       if (column == -1) {

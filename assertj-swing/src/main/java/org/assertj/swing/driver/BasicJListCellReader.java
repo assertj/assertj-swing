@@ -69,7 +69,7 @@ public class BasicJListCellReader implements JListCellReader {
    */
   @Override
   @RunsInCurrentThread
-  public @Nullable String valueAt(@Nonnull JList list, int index) {
+  @Nullable public String valueAt(@Nonnull JList list, int index) {
     Object element = list.getModel().getElementAt(index);
     ListSelectionModel lsm = list.getSelectionModel();
     boolean isSelected = lsm.isSelectedIndex(index);

@@ -62,7 +62,7 @@ public class AbstractComponentFixture_equals_hashCode_Test extends RobotBasedTes
     }
 
     @Override
-    protected @Nonnull ComponentDriver createDriver(@Nonnull Robot robot) {
+    @Nonnull protected ComponentDriver createDriver(@Nonnull Robot robot) {
       return mock(ComponentDriver.class);
     }
   }

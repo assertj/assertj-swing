@@ -81,7 +81,7 @@ public class KeyStrokeMappingProvider_de implements KeyStrokeMappingProvider {
    * @return the mapping between characters and {@code KeyStroke}s for locale {@code Locale.GERMAN}.
    */
   @Override
-  public @Nonnull Collection<KeyStrokeMapping> keyStrokeMappings() {
+  @Nonnull public Collection<KeyStrokeMapping> keyStrokeMappings() {
     List<KeyStrokeMapping> mappings = Lists.newArrayList(defaultMappings());
     mappings.add(mapping('0', VK_0, NO_MASK));
     mappings.add(mapping('=', VK_0, SHIFT_MASK));

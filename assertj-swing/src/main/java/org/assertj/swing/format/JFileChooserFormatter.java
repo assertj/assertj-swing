@@ -44,7 +44,7 @@ public class JFileChooserFormatter extends ComponentFormatterTemplate {
    */
   @RunsInCurrentThread
   @Override
-  protected @Nonnull String doFormat(@Nonnull Component c) {
+  @Nonnull protected String doFormat(@Nonnull Component c) {
     JFileChooser fileChooser = (JFileChooser) c;
     String format = "%s[name=%s, dialogTitle=%s, dialogType=%s, currentDirectory=%s, enabled=%b, visible=%b, showing=%b";
     return String.format(format, getRealClassName(c), quote(fileChooser.getName()),
@@ -58,7 +58,7 @@ public class JFileChooserFormatter extends ComponentFormatterTemplate {
    * @return {@code JFileChooser.class}.
    */
   @Override
-  public @Nonnull Class<? extends Component> targetType() {
+  @Nonnull public Class<? extends Component> targetType() {
     return JFileChooser.class;
   }
 }

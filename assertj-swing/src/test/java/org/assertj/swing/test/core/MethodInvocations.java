@@ -41,7 +41,7 @@ public class MethodInvocations {
    * @param methodName the name of the invoked method.
    * @return {@code this}.
    */
-  public @Nonnull MethodInvocations invoked(@Nonnull String methodName) {
+  @Nonnull public MethodInvocations invoked(@Nonnull String methodName) {
     invocations.put(methodName, new Object[0]);
     return this;
   }
@@ -53,7 +53,7 @@ public class MethodInvocations {
    * @param args the arguments passed to the invoked method.
    * @return {@code this}.
    */
-  public @Nonnull MethodInvocations invoked(@Nonnull String methodName, @Nonnull Args args) {
+  @Nonnull public MethodInvocations invoked(@Nonnull String methodName, @Nonnull Args args) {
     checkNotNull(args);
     invocations.put(methodName, args.args);
     return this;
@@ -66,7 +66,7 @@ public class MethodInvocations {
    * @return {@code this}.
    * @throws AssertionError if the method was not invoked.
    */
-  public @Nonnull MethodInvocations requireInvoked(@Nonnull String methodName) {
+  @Nonnull public MethodInvocations requireInvoked(@Nonnull String methodName) {
     if (!invocations.containsKey(methodName)) {
       methodNotInvoked(methodName);
     }
@@ -82,7 +82,7 @@ public class MethodInvocations {
    * @throws AssertionError if the method was not invoked.
    * @throws AssertionError if different arguments were passed to the method to verify.
    */
-  public @Nonnull MethodInvocations requireInvoked(@Nonnull String methodName, @Nonnull Args args) {
+  @Nonnull public MethodInvocations requireInvoked(@Nonnull String methodName, @Nonnull Args args) {
     checkNotNull(args);
     if (!invocations.containsKey(methodName)) {
       methodNotInvoked(methodName);
@@ -114,7 +114,7 @@ public class MethodInvocations {
      * @param args the arguments to store.
      * @return the created {@code Args}.
      */
-    public static @Nonnull Args args(@Nullable Object... args) {
+    @Nonnull public static Args args(@Nullable Object... args) {
       return new Args(args);
     }
 

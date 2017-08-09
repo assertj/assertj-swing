@@ -78,7 +78,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
     this(selfType, robot, findTarget(robot, type));
   }
 
-  private static @Nonnull <C extends Component> C findTarget(@Nonnull Robot robot, @Nonnull Class<? extends C> type) {
+  @Nonnull private static <C extends Component> C findTarget(@Nonnull Robot robot, @Nonnull Class<? extends C> type) {
     checkNotNull(robot);
     checkNotNull(type);
     return robot.finder().findByType(type, requireShowing(robot));
@@ -101,7 +101,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
     this(selfType, robot, findTarget(robot, name, type));
   }
 
-  private static @Nonnull <C extends Component> C findTarget(@Nonnull Robot robot, @Nullable String name,
+  @Nonnull private static <C extends Component> C findTarget(@Nonnull Robot robot, @Nullable String name,
                                                              @Nonnull Class<? extends C> type) {
     checkNotNull(robot);
     checkNotNull(type);

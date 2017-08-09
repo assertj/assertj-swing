@@ -77,7 +77,7 @@ public abstract class Condition {
    * 
    * @return by default, an empty {@code String}.
    */
-  protected @Nonnull String descriptionAddendum() {
+  @Nonnull protected String descriptionAddendum() {
     return EMPTY_TEXT;
   }
 

@@ -36,7 +36,7 @@ public final class AbstractButtonTextQuery {
    * @return the text of the given Swing {@code AbstractButton}.
    */
   @RunsInEDT
-  public static @Nullable String textOf(final @Nonnull AbstractButton button) {
+  @Nullable public static String textOf(final @Nonnull AbstractButton button) {
     return execute(() -> button.getText());
   }
 

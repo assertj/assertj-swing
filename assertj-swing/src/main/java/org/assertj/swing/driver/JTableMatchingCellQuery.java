@@ -41,7 +41,7 @@ final class JTableMatchingCellQuery {
   }
 
   @RunsInCurrentThread
-  private static @Nonnull TableCell findMatchingCell(@Nonnull JTable table, @Nonnull TextMatcher matcher,
+  @Nonnull private static TableCell findMatchingCell(@Nonnull JTable table, @Nonnull TextMatcher matcher,
                                                      @Nonnull JTableCellReader cellReader) {
     int rCount = table.getRowCount();
     int cCount = table.getColumnCount();

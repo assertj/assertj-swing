@@ -47,7 +47,7 @@ public final class Containers {
    * @see #frameFor(Container)
    */
   @RunsInEDT
-  public static @Nonnull
+  @Nonnull public static
   FrameFixture showInFrame(@Nonnull Container contentPane) {
 	FrameFixture frameFixture = frameFixtureFor(contentPane);
 	frameFixture.show();
@@ -65,7 +65,7 @@ public final class Containers {
    * @see #frameFor(Container)
    */
   @RunsInEDT
-  public static @Nonnull
+  @Nonnull public static
   FrameFixture showInFrame(@Nonnull Robot robot, @Nonnull Container contentPane) {
 	FrameFixture frameFixture = frameFixtureFor(robot, contentPane);
 	frameFixture.show();
@@ -88,7 +88,7 @@ public final class Containers {
    * @see #frameFor(Container)
    */
   @RunsInEDT
-  public static @Nonnull
+  @Nonnull public static
   FrameFixture frameFixtureFor(@Nonnull Container contentPane) {
 	return new FrameFixture(frameFor(contentPane));
   }
@@ -105,7 +105,7 @@ public final class Containers {
    * @see #frameFor(Container)
    */
   @RunsInEDT
-  public static @Nonnull
+  @Nonnull public static
   FrameFixture frameFixtureFor(@Nonnull Robot robot, @Nonnull Container contentPane) {
 	return new FrameFixture(robot, frameFor(contentPane));
   }
@@ -118,7 +118,7 @@ public final class Containers {
    * @return the created {@code JFrame}.
    */
   @RunsInEDT
-  public static @Nonnull
+  @Nonnull public static
   JFrame frameFor(final @Nonnull Container contentPane) {
 	JFrame result = execute(new GuiQuery<JFrame>() {
 	  @Override

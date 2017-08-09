@@ -80,7 +80,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
   }
 
   @Override
-  protected @Nonnull JTableDriver createDriver(@Nonnull Robot robot) {
+  @Nonnull protected JTableDriver createDriver(@Nonnull Robot robot) {
     return new JTableDriver(robot);
   }
 
@@ -105,7 +105,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws NullPointerException if the cell is {@code null}.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull ColorFixture backgroundAt(@Nonnull TableCell cell) {
+  @Nonnull public ColorFixture backgroundAt(@Nonnull TableCell cell) {
     Color background = driver().background(target(), cell);
     return new ColorFixture(checkNotNull(background), cellProperty(cell, BACKGROUND_PROPERTY));
   }
@@ -118,12 +118,12 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws NullPointerException if the cell is {@code null}.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull ColorFixture foregroundAt(@Nonnull TableCell cell) {
+  @Nonnull public ColorFixture foregroundAt(@Nonnull TableCell cell) {
     Color foreground = driver().foreground(target(), cell);
     return new ColorFixture(checkNotNull(foreground), cellProperty(cell, FOREGROUND_PROPERTY));
   }
 
-  private @Nonnull Description cellProperty(TableCell cell, String propertyName) {
+  @Nonnull private Description cellProperty(TableCell cell, String propertyName) {
     return propertyName(target(), concat(propertyName, " ", cell));
   }
 
@@ -134,7 +134,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @return a {@code JTableCellFixture} wrapping the table cell whose value matches the given one.
    * @throws org.assertj.swing.exception.ActionFailedException if a cell with a matching value cannot be found.
    */
-  public @Nonnull JTableCellFixture cell(String value) {
+  @Nonnull public JTableCellFixture cell(String value) {
     TableCell cell = driver().cell(target(), value);
     return new JTableCellFixture(this, cell);
   }
@@ -149,7 +149,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws NullPointerException if the given regular expression pattern is {@code null}.
    * @throws org.assertj.swing.exception.ActionFailedException if a cell with a matching value cannot be found.
    */
-  public @Nonnull JTableCellFixture cell(@Nonnull Pattern valuePattern) {
+  @Nonnull public JTableCellFixture cell(@Nonnull Pattern valuePattern) {
     TableCell cell = driver().cell(target(), valuePattern);
     return new JTableCellFixture(this, cell);
   }
@@ -163,7 +163,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws org.assertj.swing.exception.ActionFailedException if a matching cell could not be found.
    * @throws IndexOutOfBoundsException if the row or column indices in the found cell are out of bounds.
    */
-  public @Nonnull JTableCellFixture cell(@Nonnull TableCellFinder cellFinder) {
+  @Nonnull public JTableCellFixture cell(@Nonnull TableCellFinder cellFinder) {
     TableCell cell = driver().cell(target(), cellFinder);
     return new JTableCellFixture(this, cell);
   }
@@ -176,7 +176,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws NullPointerException if the cell is {@code null}.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull JTableCellFixture cell(@Nonnull TableCell cell) {
+  @Nonnull public JTableCellFixture cell(@Nonnull TableCell cell) {
     driver().checkCellIndicesInBounds(target(), cell);
     return new JTableCellFixture(this, cell);
   }
@@ -185,7 +185,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @return a {@code JTableHeaderFixture} wrapping the {@code JTableHeader} in this fixture's {@code JTable}.
    * @throws AssertionError if the {@code JTableHeader} in this fixture's {@code JTable} is {@code null}.
    */
-  public @Nonnull JTableHeaderFixture tableHeader() {
+  @Nonnull public JTableHeaderFixture tableHeader() {
     JTableHeader tableHeader = driver().tableHeaderOf(target());
     return new JTableHeaderFixture(robot(), checkNotNull(tableHeader));
   }
@@ -198,7 +198,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @return the {@code String} representation of the selected cell.
    * @see #replaceCellReader(JTableCellReader)
    */
-  public @Nullable String selectionValue() {
+  @Nullable public String selectionValue() {
     return driver().selectionValue(target());
   }
 
@@ -210,7 +210,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws NullPointerException if the cell is {@code null}.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull Point pointAt(@Nonnull TableCell cell) {
+  @Nonnull public Point pointAt(@Nonnull TableCell cell) {
     return driver().pointAt(target(), cell);
   }
 
@@ -219,7 +219,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    *         fixture's {@link JTableCellReader}.
    * @see #replaceCellReader(JTableCellReader)
    */
-  public @Nonnull String[][] contents() {
+  @Nonnull public String[][] contents() {
     return driver().contents(target());
   }
 
@@ -243,7 +243,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @see #replaceCellReader(JTableCellReader)
    */
-  public @Nullable String valueAt(@Nonnull TableCell cell) {
+  @Nullable public String valueAt(@Nonnull TableCell cell) {
     return driver().value(target(), cell);
   }
 
@@ -257,7 +257,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull JTableFixture selectCell(@Nonnull TableCell cell) {
+  @Nonnull public JTableFixture selectCell(@Nonnull TableCell cell) {
     driver().selectCell(target(), cell);
     return this;
   }
@@ -274,7 +274,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws NullPointerException if any element in {@code cells} is {@code null}.
    * @throws IndexOutOfBoundsException if any of the indices of any of the {@code cells} are out of bounds.
    */
-  public @Nonnull JTableFixture selectCells(@Nonnull TableCell... cells) {
+  @Nonnull public JTableFixture selectCells(@Nonnull TableCell... cells) {
     driver().selectCells(target(), cells);
     return this;
   }
@@ -290,7 +290,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the given indices is out of bounds.
    */
-  public @Nonnull JTableFixture selectRows(@Nonnull int... rows) {
+  @Nonnull public JTableFixture selectRows(@Nonnull int... rows) {
     driver().selectRows(target(), rows);
     return this;
   }
@@ -305,7 +305,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull JTableFixture unselectCell(@Nonnull TableCell cell) {
+  @Nonnull public JTableFixture unselectCell(@Nonnull TableCell cell) {
     driver().unselectCell(target(), cell);
     return this;
   }
@@ -322,7 +322,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws NullPointerException if any element in {@code cells} is {@code null}.
    * @throws IndexOutOfBoundsException if any of the indices of any of the {@code cells} are out of bounds.
    */
-  public @Nonnull JTableFixture unselectCells(@Nonnull TableCell... cells) {
+  @Nonnull public JTableFixture unselectCells(@Nonnull TableCell... cells) {
     driver().unselectCells(target(), cells);
     return this;
   }
@@ -338,7 +338,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the given indices is out of bounds.
    */
-  public @Nonnull JTableFixture unselectRows(@Nonnull int... rows) {
+  @Nonnull public JTableFixture unselectRows(@Nonnull int... rows) {
     driver().unselectRows(target(), rows);
     return this;
   }
@@ -353,7 +353,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull JTableFixture drag(@Nonnull TableCell cell) {
+  @Nonnull public JTableFixture drag(@Nonnull TableCell cell) {
     driver().drag(target(), cell);
     return this;
   }
@@ -368,7 +368,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull JTableFixture drop(@Nonnull TableCell cell) {
+  @Nonnull public JTableFixture drop(@Nonnull TableCell cell) {
     driver().drop(target(), cell);
     return this;
   }
@@ -384,7 +384,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull JTableFixture click(@Nonnull TableCell cell, @Nonnull MouseButton button) {
+  @Nonnull public JTableFixture click(@Nonnull TableCell cell, @Nonnull MouseButton button) {
     click(cell, button, 1);
     return this;
   }
@@ -402,7 +402,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
-  public @Nonnull JTableFixture click(@Nonnull TableCell cell, @Nonnull MouseClickInfo mouseClickInfo) {
+  @Nonnull public JTableFixture click(@Nonnull TableCell cell, @Nonnull MouseClickInfo mouseClickInfo) {
     checkNotNull(mouseClickInfo);
     click(cell, mouseClickInfo.button(), mouseClickInfo.times());
     return this;
@@ -430,7 +430,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @see #replaceCellWriter(JTableCellWriter)
    * @see JTableCellFixture#editor()
    */
-  public @Nonnull JTableFixture enterValue(@Nonnull TableCell cell, @Nonnull String value) {
+  @Nonnull public JTableFixture enterValue(@Nonnull TableCell cell, @Nonnull String value) {
     driver().enterValueInCell(target(), cell, value);
     return this;
   }
@@ -446,7 +446,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code JTable} does not have the given number of rows.
    */
-  public @Nonnull JTableFixture requireRowCount(int expected) {
+  @Nonnull public JTableFixture requireRowCount(int expected) {
     driver().requireRowCount(target(), expected);
     return this;
   }
@@ -460,7 +460,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws AssertionError if the set of selected rows in this fixture's {@code JTable} (if any) do not contain the
    *           given indices.
    */
-  public @Nonnull JTableFixture requireSelectedRows(@Nonnull int... rows) {
+  @Nonnull public JTableFixture requireSelectedRows(@Nonnull int... rows) {
     driver().requireSelectedRows(target(), rows);
     return this;
   }
@@ -472,7 +472,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code JTable} does not have the given number of columns.
    */
-  public @Nonnull JTableFixture requireColumnCount(int expected) {
+  @Nonnull public JTableFixture requireColumnCount(int expected) {
     driver().requireColumnCount(target(), expected);
     return this;
   }
@@ -486,7 +486,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws AssertionError if the given cell is not editable.
    */
-  public @Nonnull JTableFixture requireEditable(@Nonnull TableCell cell) {
+  @Nonnull public JTableFixture requireEditable(@Nonnull TableCell cell) {
     driver().requireEditable(target(), cell);
     return this;
   }
@@ -500,7 +500,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws AssertionError if the given cell is editable.
    */
-  public @Nonnull JTableFixture requireNotEditable(@Nonnull TableCell cell) {
+  @Nonnull public JTableFixture requireNotEditable(@Nonnull TableCell cell) {
     driver().requireNotEditable(target(), cell);
     return this;
   }
@@ -511,7 +511,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @return this fixture.
    * @throws AssertionError if this fixture's {@code JTable} has a selection.
    */
-  public @Nonnull JTableFixture requireNoSelection() {
+  @Nonnull public JTableFixture requireNoSelection() {
     driver().requireNoSelection(target());
     return this;
   }
@@ -526,7 +526,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws AssertionError if the value of the given cell does not match the given value.
    */
-  public @Nonnull JTableFixture requireCellValue(@Nonnull TableCell cell, @Nullable String value) {
+  @Nonnull public JTableFixture requireCellValue(@Nonnull TableCell cell, @Nullable String value) {
     driver().requireCellValue(target(), cell, value);
     return this;
   }
@@ -542,7 +542,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    * @throws AssertionError if the value of the given cell does not match the given regular expression pattern.
    */
-  public @Nonnull JTableFixture requireCellValue(@Nonnull TableCell cell, @Nonnull Pattern pattern) {
+  @Nonnull public JTableFixture requireCellValue(@Nonnull TableCell cell, @Nonnull Pattern pattern) {
     driver().requireCellValue(target(), cell, pattern);
     return this;
   }
@@ -556,7 +556,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @return this fixture.
    * @see #replaceCellReader(JTableCellReader)
    */
-  public @Nonnull JTableFixture requireContents(@Nonnull String[][] contents) {
+  @Nonnull public JTableFixture requireContents(@Nonnull String[][] contents) {
     driver().requireContents(target(), contents);
     return this;
   }
@@ -598,7 +598,7 @@ public class JTableFixture extends AbstractJPopupMenuInvokerFixture<JTableFixtur
    * @throws IllegalStateException if this fixture's {@code JTable} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
-  public @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull TableCell cell) {
+  @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull TableCell cell) {
     return new JPopupMenuFixture(robot(), driver().showPopupMenuAt(target(), cell));
   }
 }

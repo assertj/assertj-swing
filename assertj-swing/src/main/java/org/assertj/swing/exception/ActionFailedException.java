@@ -29,7 +29,7 @@ public class ActionFailedException extends RuntimeException {
    * @param message the detail message.
    * @return the created exception.
    */
-  public static @Nonnull ActionFailedException actionFailure(@Nonnull String message) {
+  @Nonnull public static ActionFailedException actionFailure(@Nonnull String message) {
     return new ActionFailedException(message);
   }
 

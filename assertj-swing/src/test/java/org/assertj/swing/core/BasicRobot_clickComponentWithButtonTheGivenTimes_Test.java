@@ -40,7 +40,7 @@ public class BasicRobot_clickComponentWithButtonTheGivenTimes_Test extends Basic
   private final int times;
 
   @Parameters
-  public static @Nonnull Collection<Object[]> buttons() {
+  @Nonnull public static Collection<Object[]> buttons() {
     return newArrayList(clickingData());
   }
 

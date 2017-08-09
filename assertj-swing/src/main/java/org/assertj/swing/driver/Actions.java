@@ -54,7 +54,7 @@ final class Actions {
     throw actionFailure(message);
   }
 
-  private static @Nonnull List<String> formatAllActionKeys(@Nonnull Object[] keys) {
+  @Nonnull private static List<String> formatAllActionKeys(@Nonnull Object[] keys) {
     List<String> formattedKeys = newArrayList();
     for (Object key : keys) {
       String keyAsString = keyAsString(key);
@@ -66,7 +66,7 @@ final class Actions {
     return formattedKeys;
   }
 
-  private static @Nullable String keyAsString(@Nullable Object key) {
+  @Nullable private static String keyAsString(@Nullable Object key) {
     if (key == null) {
       return null;
     }

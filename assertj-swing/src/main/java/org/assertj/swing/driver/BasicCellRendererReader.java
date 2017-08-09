@@ -43,7 +43,7 @@ public class BasicCellRendererReader implements CellRendererReader {
    */
   @RunsInCurrentThread
   @Override
-  public @Nullable String valueFrom(@Nullable Component c) {
+  @Nullable public String valueFrom(@Nullable Component c) {
     if (c instanceof JLabel) {
       return ((JLabel) c).getText();
     }

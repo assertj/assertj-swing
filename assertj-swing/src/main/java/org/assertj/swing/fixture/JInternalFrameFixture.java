@@ -38,8 +38,8 @@ public class JInternalFrameFixture extends
    * @param robot performs simulation of user events on a {@code JInternalFrame}.
    * @param internalFrameName the name of the {@code JInternalFrame} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JInternalFrame} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JInternalFrame} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JInternalFrame} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JInternalFrame} is found.
    */
   public JInternalFrameFixture(@Nonnull Robot robot, @Nullable String internalFrameName) {
     super(JInternalFrameFixture.class, robot, internalFrameName, JInternalFrame.class);
@@ -58,7 +58,7 @@ public class JInternalFrameFixture extends
   }
 
   @Override
-  protected @Nonnull JInternalFrameDriver createDriver(@Nonnull Robot robot) {
+  @Nonnull protected JInternalFrameDriver createDriver(@Nonnull Robot robot) {
     return new JInternalFrameDriver(robot);
   }
 
@@ -70,7 +70,7 @@ public class JInternalFrameFixture extends
    * @throws AssertionError if the toolTip in this fixture's {@code JInternalFrame} does not match the given value.
    */
   @Override
-  public @Nonnull JInternalFrameFixture requireToolTip(@Nullable String expected) {
+  @Nonnull public JInternalFrameFixture requireToolTip(@Nullable String expected) {
     driver().requireToolTip(target(), expected);
     return this;
   }
@@ -85,7 +85,7 @@ public class JInternalFrameFixture extends
    *           expression.
    */
   @Override
-  public @Nonnull JInternalFrameFixture requireToolTip(@Nonnull Pattern pattern) {
+  @Nonnull public JInternalFrameFixture requireToolTip(@Nonnull Pattern pattern) {
     driver().requireToolTip(target(), pattern);
     return this;
   }
@@ -98,7 +98,7 @@ public class JInternalFrameFixture extends
    * @throws NullPointerException if the given key is {@code null}.
    */
   @Override
-  public @Nullable Object clientProperty(@Nonnull Object key) {
+  @Nullable public Object clientProperty(@Nonnull Object key) {
     return driver().clientProperty(target(), key);
   }
 
@@ -108,7 +108,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull JInternalFrameFixture moveToFront() {
+  @Nonnull public JInternalFrameFixture moveToFront() {
     driver().moveToFront(target());
     return this;
   }
@@ -119,7 +119,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull JInternalFrameFixture moveToBack() {
+  @Nonnull public JInternalFrameFixture moveToBack() {
     driver().moveToBack(target());
     return this;
   }
@@ -128,10 +128,10 @@ public class JInternalFrameFixture extends
    * Simulates a user deiconifying this fixture's {@code JInternalFrame}.
    *
    * @return this fixture.
-   * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
-  public @Nonnull JInternalFrameFixture deiconify() {
+  @Nonnull public JInternalFrameFixture deiconify() {
     driver().deiconify(target());
     return this;
   }
@@ -140,11 +140,11 @@ public class JInternalFrameFixture extends
    * Simulates a user iconifying this fixture's {@code JInternalFrame}.
    *
    * @return this fixture.
-   * @throws ActionFailedException if the given {@code JInternalFrame} is not iconifiable.
-   * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code JInternalFrame} is not iconifiable.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
-  public @Nonnull JInternalFrameFixture iconify() {
+  @Nonnull public JInternalFrameFixture iconify() {
     driver().iconify(target());
     return this;
   }
@@ -153,11 +153,11 @@ public class JInternalFrameFixture extends
    * Simulates a user maximizing this fixture's {@code JInternalFrame}, deconifying it first if it is iconified.
    *
    * @return this fixture.
-   * @throws ActionFailedException if the given {@code JInternalFrame} is not maximizable.
-   * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code JInternalFrame} is not maximizable.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
-  public @Nonnull JInternalFrameFixture maximize() {
+  @Nonnull public JInternalFrameFixture maximize() {
     driver().maximize(target());
     return this;
   }
@@ -166,10 +166,10 @@ public class JInternalFrameFixture extends
    * Simulates a user normalizing this fixture's {@code JInternalFrame}, deconifying it first if it is iconified.
    *
    * @return this fixture.
-   * @throws ActionFailedException if the {@code JInternalFrame} vetoes the action.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} vetoes the action.
    */
   @Override
-  public @Nonnull JInternalFrameFixture normalize() {
+  @Nonnull public JInternalFrameFixture normalize() {
     driver().normalize(target());
     return this;
   }
@@ -177,7 +177,7 @@ public class JInternalFrameFixture extends
   /**
    * Simulates a user closing this fixture's {@code JInternalFrame}.
    *
-   * @throws ActionFailedException if the {@code JInternalFrame} is not closable.
+   * @throws org.assertj.swing.exception.ActionFailedException if the {@code JInternalFrame} is not closable.
    */
   @Override
   public void close() {
@@ -192,7 +192,7 @@ public class JInternalFrameFixture extends
    * @throws AssertionError if the size of this fixture's {@code JInternalFrame} is not equal to the given size.
    */
   @Override
-  public @Nonnull JInternalFrameFixture requireSize(@Nonnull Dimension size) {
+  @Nonnull public JInternalFrameFixture requireSize(@Nonnull Dimension size) {
     driver().requireSize(target(), size);
     return this;
   }
@@ -204,7 +204,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull JInternalFrameFixture resizeWidthTo(int width) {
+  @Nonnull public JInternalFrameFixture resizeWidthTo(int width) {
     driver().resizeWidth(target(), width);
     return this;
   }
@@ -216,7 +216,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull JInternalFrameFixture resizeHeightTo(int height) {
+  @Nonnull public JInternalFrameFixture resizeHeightTo(int height) {
     driver().resizeHeight(target(), height);
     return this;
   }
@@ -228,7 +228,7 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull JInternalFrameFixture resizeTo(@Nonnull Dimension size) {
+  @Nonnull public JInternalFrameFixture resizeTo(@Nonnull Dimension size) {
     driver().resizeTo(target(), size);
     return this;
   }
@@ -240,13 +240,13 @@ public class JInternalFrameFixture extends
    * @return this fixture.
    */
   @Override
-  public @Nonnull JInternalFrameFixture moveTo(@Nonnull Point p) {
+  @Nonnull public JInternalFrameFixture moveTo(@Nonnull Point p) {
     driver().move(target(), p);
     return this;
   }
 
   @Override
-  public @Nonnull JInternalFrameFixture requireTitle(String expected) {
+  @Nonnull public JInternalFrameFixture requireTitle(String expected) {
     driver().requireTitle(target(), expected);
     return this;
   }
@@ -255,13 +255,13 @@ public class JInternalFrameFixture extends
    * Shows a pop-up menu using this fixture's {@code JInternalFrame} as the invoker of the pop-up menu.
    *
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JInternalFrame} is disabled.
    * @throws IllegalStateException if this fixture's {@code JInternalFrame} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull JPopupMenuFixture showPopupMenu() {
+  @Nonnull public JPopupMenuFixture showPopupMenu() {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target()));
   }
 
@@ -271,13 +271,13 @@ public class JInternalFrameFixture extends
    *
    * @param p the given point where to show the pop-up menu.
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
    *           fixture's {@code JInternalFrame} is disabled.
    * @throws IllegalStateException if this fixture's {@code JInternalFrame} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
-  public @Nonnull JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
+  @Nonnull public JPopupMenuFixture showPopupMenuAt(@Nonnull Point p) {
     return new JPopupMenuFixture(robot(), driver().invokePopupMenu(target(), p));
   }
 }

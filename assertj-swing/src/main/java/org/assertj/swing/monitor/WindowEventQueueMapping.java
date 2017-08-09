@@ -55,7 +55,7 @@ class WindowEventQueueMapping {
     windowMapping.put((Window) component, TRUE);
   }
 
-  private @Nonnull Map<Window, Boolean> createWindowMapping(EventQueue queue) {
+  @Nonnull private Map<Window, Boolean> createWindowMapping(EventQueue queue) {
     Map<Window, Boolean> windowMapping = newWeakHashMap();
     queueMap.put(queue, windowMapping);
     return windowMapping;

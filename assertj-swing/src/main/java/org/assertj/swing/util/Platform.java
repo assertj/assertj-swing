@@ -48,12 +48,12 @@ public final class Platform {
   }
 
   /**
-   * Return the modifier key for the appropriate accelerator key for menu shortcuts: {@link KeyEvent#VK_CONTROL}
-   * (default) or {@link KeyEvent#VK_META} (MacOS).
+   * Return the modifier key for the appropriate accelerator key for menu shortcuts: {@link java.awt.event.KeyEvent#VK_CONTROL}
+   * (default) or {@link java.awt.event.KeyEvent#VK_META} (MacOS).
    * 
    * @return the modifier key for the appropriate accelerator key for menu shortcuts.
    * @throws AssertionError if unable to find the appropriate key.
-   * @throws HeadlessException if {@code GraphicsEnvironment.isHeadless()}.
+   * @throws java.awt.HeadlessException if {@code GraphicsEnvironment.isHeadless()}.
    */
   public static int controlOrCommandKey() {
     int menuShortcutKeyMask = controlOrCommandMask();
@@ -63,11 +63,11 @@ public final class Platform {
   }
 
   /**
-   * Return the modifier mask for the appropriate accelerator key for menu shortcuts: {@link Event#CTRL_MASK} (default)
-   * or {@link Event#META_MASK} (MacOS).
+   * Return the modifier mask for the appropriate accelerator key for menu shortcuts: {@link java.awt.Event#CTRL_MASK} (default)
+   * or {@link java.awt.Event#META_MASK} (MacOS).
    * 
    * @return the modifier mask for the appropriate accelerator key for menu shortcuts.
-   * @throws HeadlessException if {@code GraphicsEnvironment.isHeadless()}.
+   * @throws java.awt.HeadlessException if {@code GraphicsEnvironment.isHeadless()}.
    */
   public static int controlOrCommandMask() {
     return toolkit.getMenuShortcutKeyMask();
@@ -179,7 +179,7 @@ public final class Platform {
   /**
    * @return the current operating system family.
    */
-  public static @Nonnull OSFamily osFamily() {
+  @Nonnull public static OSFamily osFamily() {
     return osIdentifier.osFamily();
   }
 

@@ -86,14 +86,14 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
   }
 
   @Override
-  public @Nonnull BufferedImage takeScreenshotOf(@Nonnull Component c) {
+  @Nonnull public BufferedImage takeScreenshotOf(@Nonnull Component c) {
     Point locationOnScreen = locationOnScreen(c);
     Dimension size = sizeOf(c);
     Rectangle r = new Rectangle(locationOnScreen.x, locationOnScreen.y, size.width, size.height);
     return takeScreenshot(r);
   }
 
-  private @Nonnull BufferedImage takeScreenshot(Rectangle r) {
+  @Nonnull private BufferedImage takeScreenshot(Rectangle r) {
     JTextComponent textComponent = findFocusOwnerAndHideItsCaret();
     robot.waitForIdle();
     try {
@@ -121,7 +121,7 @@ public class ScreenshotTaker implements ScreenshotTakerIF {
   }
 
   // TODO(Alex): Verify that this method really needs to be executed in the EDT.
-  private static @Nonnull BufferedImage takeScreenshot(final @Nonnull Robot robot, final @Nonnull Rectangle r) {
+  @Nonnull private static BufferedImage takeScreenshot(final @Nonnull Robot robot, final @Nonnull Rectangle r) {
     BufferedImage result = execute(() -> robot.createScreenCapture(r));
     return checkNotNull(result);
   }

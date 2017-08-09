@@ -85,7 +85,7 @@ public class BasicJTableCellReader implements JTableCellReader {
    */
   @Override
   @RunsInCurrentThread
-  public @Nullable String valueAt(@Nonnull JTable table, int row, int column) {
+  @Nullable public String valueAt(@Nonnull JTable table, int row, int column) {
     Component c = cellRendererIn(table, row, column);
     String value = (c != null) ? rendererReader.valueFrom(c) : null;
     if (value != null) {
@@ -103,7 +103,7 @@ public class BasicJTableCellReader implements JTableCellReader {
     return asText(table.getValueAt(row, column));
   }
 
-  private @Nullable String valueAsText(@Nonnull JComboBox<?> comboBox) {
+  @Nullable private String valueAsText(@Nonnull JComboBox<?> comboBox) {
     int selectedIndex = comboBox.getSelectedIndex();
     if (selectedIndex == -1) {
       return null;
@@ -128,7 +128,7 @@ public class BasicJTableCellReader implements JTableCellReader {
    */
   @Override
   @RunsInCurrentThread
-  public @Nullable Font fontAt(@Nonnull JTable table, int row, int column) {
+  @Nullable public Font fontAt(@Nonnull JTable table, int row, int column) {
     Component c = cellRendererIn(table, row, column);
     return c != null ? c.getFont() : null;
   }
@@ -145,7 +145,7 @@ public class BasicJTableCellReader implements JTableCellReader {
    */
   @Override
   @RunsInCurrentThread
-  public @Nullable Color backgroundAt(@Nonnull JTable table, int row, int column) {
+  @Nullable public Color backgroundAt(@Nonnull JTable table, int row, int column) {
     Component c = cellRendererIn(table, row, column);
     return c != null ? c.getBackground() : null;
   }
@@ -167,13 +167,13 @@ public class BasicJTableCellReader implements JTableCellReader {
    */
   @Override
   @RunsInCurrentThread
-  public @Nullable Color foregroundAt(@Nonnull JTable table, int row, int column) {
+  @Nullable public Color foregroundAt(@Nonnull JTable table, int row, int column) {
     Component c = cellRendererIn(table, row, column);
     return c != null ? c.getForeground() : null;
   }
 
   @RunsInCurrentThread
-  private @Nullable Component cellRendererIn(final @Nonnull JTable table, final int row, final int column) {
+  @Nullable private Component cellRendererIn(final @Nonnull JTable table, final int row, final int column) {
     return table.prepareRenderer(table.getCellRenderer(row, column), row, column);
   }
 }

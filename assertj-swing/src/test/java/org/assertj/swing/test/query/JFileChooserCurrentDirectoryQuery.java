@@ -37,7 +37,7 @@ public final class JFileChooserCurrentDirectoryQuery {
    * @return the current directory of the given {@code JFileChooser}.
    */
   @RunsInEDT
-  public static @Nonnull File currentDirectoryOf(final @Nonnull JFileChooser fileChooser) {
+  @Nonnull public static File currentDirectoryOf(final @Nonnull JFileChooser fileChooser) {
     File result = execute(() -> fileChooser.getCurrentDirectory());
     return checkNotNull(result);
   }

@@ -46,7 +46,7 @@ final class JProgressBarWaitUntilValueIsEqualToExpectedTask {
   private static Description untilValueIsEqualTo(final @Nonnull JProgressBar progressBar, final int expected) {
     return new GuiLazyLoadingDescription() {
       @Override
-      protected @Nonnull String loadDescription() {
+      @Nonnull protected String loadDescription() {
         return String.format("value of %s to be equal to %d", format(progressBar), expected);
       }
     };

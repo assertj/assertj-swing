@@ -104,7 +104,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
    *
    * @return the created finder.
    */
-  public static @Nonnull JFileChooserFinder findFileChooser() {
+  @Nonnull public static JFileChooserFinder findFileChooser() {
     return new JFileChooserFinder();
   }
 
@@ -114,7 +114,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
    * @param name the name of the file chooser to find.
    * @return the created finder.
    */
-  public static @Nonnull JFileChooserFinder findFileChooser(@Nullable String name) {
+  @Nonnull public static JFileChooserFinder findFileChooser(@Nullable String name) {
     return new JFileChooserFinder(name);
   }
 
@@ -124,7 +124,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
    * @param matcher the given matcher.
    * @return the created finder.
    */
-  public static @Nonnull JFileChooserFinder findFileChooser(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher) {
+  @Nonnull public static JFileChooserFinder findFileChooser(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher) {
     return new JFileChooserFinder(matcher);
   }
 
@@ -136,7 +136,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
    * @throws org.assertj.swing.exception.WaitTimedOutError if a {@code JFileChooser} could not be found.
    */
   @Override
-  public @Nonnull JFileChooserFixture using(@Nonnull Robot robot) {
+  @Nonnull public JFileChooserFixture using(@Nonnull Robot robot) {
     return new JFileChooserFixture(robot, findComponentWith(robot));
   }
 
@@ -148,7 +148,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
    * @throws IllegalArgumentException if the timeout is a negative number.
    */
   @Override
-  public @Nonnull JFileChooserFinder withTimeout(@Nonnegative long timeout) {
+  @Nonnull public JFileChooserFinder withTimeout(@Nonnegative long timeout) {
     super.withTimeout(timeout);
     return this;
   }
@@ -163,7 +163,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
    * @throws IllegalArgumentException if the timeout is a negative number.
    */
   @Override
-  public @Nonnull JFileChooserFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
+  @Nonnull public JFileChooserFinder withTimeout(@Nonnegative long timeout, @Nonnull TimeUnit unit) {
     super.withTimeout(timeout, unit);
     return this;
   }
@@ -174,7 +174,7 @@ public class JFileChooserFinder extends ComponentFinderTemplate<JFileChooser> {
    * @return the given {@code Component}, casted to {@code JFileChooser}.
    */
   @Override
-  protected @Nullable JFileChooser cast(@Nullable Component c) {
+  @Nullable protected JFileChooser cast(@Nullable Component c) {
     return (JFileChooser) c;
   }
 }

@@ -108,7 +108,7 @@ public class JTableDriver extends JComponentDriver {
    * @return the {@code JTableHeader} of the given {@code JTable}.
    */
   @RunsInEDT
-  public @Nullable JTableHeader tableHeaderOf(@Nonnull JTable table) {
+  @Nullable public JTableHeader tableHeaderOf(@Nonnull JTable table) {
     return tableHeader(table);
   }
 
@@ -121,12 +121,12 @@ public class JTableDriver extends JComponentDriver {
    * @see #replaceCellReader(JTableCellReader)
    */
   @RunsInEDT
-  public @Nullable String selectionValue(@Nonnull JTable table) {
+  @Nullable public String selectionValue(@Nonnull JTable table) {
     return selectionValue(table, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable String selectionValue(final @Nonnull JTable table, final @Nonnull JTableCellReader cellReader) {
+  @Nullable private static String selectionValue(final @Nonnull JTable table, final @Nonnull JTableCellReader cellReader) {
     return execute(() -> {
       if (table.getSelectedRowCount() == 0) {
         return null;
@@ -146,7 +146,7 @@ public class JTableDriver extends JComponentDriver {
    * @throws ActionFailedException if a matching cell could not be found.
    */
   @RunsInEDT
-  public @Nonnull TableCell cell(@Nonnull JTable table, @Nonnull TableCellFinder cellFinder) {
+  @Nonnull public TableCell cell(@Nonnull JTable table, @Nonnull TableCellFinder cellFinder) {
     checkNotNull(cellFinder);
     TableCell cell = cellFinder.findCell(table, cellReader());
     checkCellIndicesInBounds(table, cell);
@@ -162,7 +162,7 @@ public class JTableDriver extends JComponentDriver {
    * @throws ActionFailedException if a cell with a matching value cannot be found.
    */
   @RunsInEDT
-  public @Nonnull TableCell cell(@Nonnull JTable table, @Nullable String value) {
+  @Nonnull public TableCell cell(@Nonnull JTable table, @Nullable String value) {
     return cellWithValue(table, new StringTextMatcher(value), cellReader());
   }
 
@@ -176,7 +176,7 @@ public class JTableDriver extends JComponentDriver {
    * @throws ActionFailedException if a cell with a matching value cannot be found.
    */
   @RunsInEDT
-  public @Nonnull TableCell cell(@Nonnull JTable table, @Nonnull Pattern pattern) {
+  @Nonnull public TableCell cell(@Nonnull JTable table, @Nonnull Pattern pattern) {
     return cellWithValue(table, new PatternTextMatcher(pattern), cellReader());
   }
 
@@ -192,13 +192,13 @@ public class JTableDriver extends JComponentDriver {
    * @see #replaceCellReader(JTableCellReader)
    */
   @RunsInEDT
-  public @Nullable String value(@Nonnull JTable table, @Nonnull TableCell cell) {
+  @Nullable public String value(@Nonnull JTable table, @Nonnull TableCell cell) {
     checkNotNull(cell);
     return cellValue(table, cell, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable String cellValue(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  @Nullable private static String cellValue(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                             final @Nonnull JTableCellReader cellReader) {
     return execute(() -> {
       JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
@@ -218,12 +218,12 @@ public class JTableDriver extends JComponentDriver {
    * @see #replaceCellReader(JTableCellReader)
    */
   @RunsInEDT
-  public @Nullable String value(@Nonnull JTable table, int row, int column) {
+  @Nullable public String value(@Nonnull JTable table, int row, int column) {
     return cellValue(table, row, column, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable String cellValue(final @Nonnull JTable table, final int row, final int column,
+  @Nullable private static String cellValue(final @Nonnull JTable table, final int row, final int column,
                                             final @Nonnull JTableCellReader cellReader) {
     return execute(() -> {
       JTableCellPreconditions.checkCellIndicesInBounds(table, row, column);
@@ -241,13 +241,13 @@ public class JTableDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
   @RunsInEDT
-  public @Nullable Font font(@Nonnull JTable table, @Nonnull TableCell cell) {
+  @Nullable public Font font(@Nonnull JTable table, @Nonnull TableCell cell) {
     checkNotNull(cell);
     return cellFont(table, cell, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable Font cellFont(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  @Nullable private static Font cellFont(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                          final @Nonnull JTableCellReader cellReader) {
     return execute(() -> {
       JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
@@ -271,7 +271,7 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nullable Color cellBackground(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  @Nullable private static Color cellBackground(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                                 final @Nonnull JTableCellReader cellReader) {
     return execute(() -> {
       JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
@@ -289,13 +289,13 @@ public class JTableDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
   @RunsInEDT
-  public @Nullable Color foreground(@Nonnull JTable table, @Nonnull TableCell cell) {
+  @Nullable public Color foreground(@Nonnull JTable table, @Nonnull TableCell cell) {
     checkNotNull(cell);
     return cellForeground(table, cell, cellReader());
   }
 
   @RunsInEDT
-  private static @Nullable Color cellForeground(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  @Nullable private static Color cellForeground(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                                 final @Nonnull JTableCellReader cellReader) {
     return execute(() -> {
       JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
@@ -481,13 +481,13 @@ public class JTableDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu showPopupMenuAt(@Nonnull JTable table, @Nonnull TableCell cell) {
+  @Nonnull public JPopupMenu showPopupMenuAt(@Nonnull JTable table, @Nonnull TableCell cell) {
     Point pointAtCell = scrollToPointAtCell(table, cell, location());
     return robot.showPopupMenu(table, pointAtCell);
   }
 
   @RunsInEDT
-  private @Nonnull Point scrollToPointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  @Nonnull private Point scrollToPointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                              final @Nonnull JTableLocation location) {
     checkNotNull(cell);
     Point result = execute(() -> {
@@ -514,12 +514,12 @@ public class JTableDriver extends JComponentDriver {
    * @throws IndexOutOfBoundsException if any of the indices (row and column) is out of bounds.
    */
   @RunsInEDT
-  public @Nonnull Point pointAt(@Nonnull JTable table, @Nonnull TableCell cell) {
+  @Nonnull public Point pointAt(@Nonnull JTable table, @Nonnull TableCell cell) {
     return pointAtCell(table, cell, location());
   }
 
   @RunsInEDT
-  private static @Nonnull Point pointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
+  @Nonnull private static Point pointAtCell(final @Nonnull JTable table, final @Nonnull TableCell cell,
                                             final @Nonnull JTableLocation location) {
     Point result = execute(() -> {
       JTableCellPreconditions.checkCellIndicesInBounds(table, cell);
@@ -561,7 +561,7 @@ public class JTableDriver extends JComponentDriver {
    * @see #replaceCellReader(JTableCellReader)
    */
   @RunsInEDT
-  public @Nonnull String[][] contents(@Nonnull JTable table) {
+  @Nonnull public String[][] contents(@Nonnull JTable table) {
     return tableContents(table, cellReader());
   }
 
@@ -597,7 +597,7 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull Description cellValueProperty(@Nonnull JTable table, @Nonnull TableCell cell) {
+  @Nonnull private Description cellValueProperty(@Nonnull JTable table, @Nonnull TableCell cell) {
     return cellProperty(table, concat(VALUE_PROPERTY, " ", cell));
   }
 
@@ -658,7 +658,7 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull Description cellProperty(@Nonnull JTable table, @Nonnull String propertyName) {
+  @Nonnull private static Description cellProperty(@Nonnull JTable table, @Nonnull String propertyName) {
     return propertyName(table, propertyName);
   }
 
@@ -810,7 +810,7 @@ public class JTableDriver extends JComponentDriver {
     return checkNotNull(result);
   }
 
-  private static @Nonnull ActionFailedException failColumnIndexNotFound(@Nonnull Object columnId) {
+  @Nonnull private static ActionFailedException failColumnIndexNotFound(@Nonnull Object columnId) {
     throw actionFailure(String.format("Unable to find a column with id '%s'", columnId.toString()));
   }
 
@@ -904,7 +904,7 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private @Nonnull Pair<Boolean, Point> cellSelectionInfo(final @Nonnull JTable table, final int row,
+  @Nonnull private Pair<Boolean, Point> cellSelectionInfo(final @Nonnull JTable table, final int row,
                                                           final int column,
                                                           final @Nonnull JTableLocation location) {
     Pair<Boolean, Point> result = execute(new GuiQuery<Pair<Boolean, Point>>() {
@@ -941,7 +941,7 @@ public class JTableDriver extends JComponentDriver {
   }
 
   @RunsInEDT
-  private static @Nonnull int[] selectedRowsOf(final @Nonnull JTable table) {
+  @Nonnull private static int[] selectedRowsOf(final @Nonnull JTable table) {
     int[] result = execute(() -> table.getSelectedRows());
     return checkNotNull(result);
   }
@@ -952,7 +952,7 @@ public class JTableDriver extends JComponentDriver {
     return cellReader;
   }
 
-  private @Nonnull JTableLocation location() {
+  @Nonnull private JTableLocation location() {
     return location;
   }
 }

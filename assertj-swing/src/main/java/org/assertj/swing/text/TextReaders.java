@@ -111,7 +111,7 @@ public class TextReaders {
     return reader.containsText(c, text);
   }
 
-  private @Nullable TextReader<?> readerFor(@Nonnull Component c) {
+  @Nullable private TextReader<?> readerFor(@Nonnull Component c) {
     Class<?> type = c.getClass();
     while (type != null) {
       TextReader<?> reader = readers.get(type);
@@ -129,7 +129,7 @@ public class TextReaders {
   /**
    * @return the singleton instance of this class.
    */
-  public static @Nonnull TextReaders instance() {
+  @Nonnull public static TextReaders instance() {
     return SingletonHolder.INSTANCE;
   }
 

@@ -34,7 +34,7 @@ public final class ComponentSetPopupMenuTask {
   }
 
   @RunsInEDT
-  public static @Nonnull JPopupMenu createAndSetPopupMenu(final @Nonnull JComponent c, final String... items) {
+  @Nonnull public static JPopupMenu createAndSetPopupMenu(final @Nonnull JComponent c, final String... items) {
     JPopupMenu result = execute(() -> {
       JPopupMenu popupMenu = new JPopupMenu();
       for (String item : items) {

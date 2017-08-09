@@ -80,7 +80,7 @@ public class AbstractComponentFixture_constructor_withLookupByType_Test {
     }
 
     @Override
-    protected @Nonnull ComponentDriver createDriver(@Nonnull Robot robot) {
+    @Nonnull protected ComponentDriver createDriver(@Nonnull Robot robot) {
       return new ComponentDriver(robot);
     }
   }

@@ -51,7 +51,7 @@ final class JPopupMenuElementsAsTextQuery {
     return checkNotNull(result);
   }
 
-  private static @Nullable String textOf(@Nonnull MenuElement e) {
+  @Nullable private static String textOf(@Nonnull MenuElement e) {
     Component c = componentIn(e);
     if (c instanceof JMenuItem) {
       return ((JMenuItem) c).getText();

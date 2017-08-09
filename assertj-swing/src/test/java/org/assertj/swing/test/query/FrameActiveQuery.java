@@ -31,7 +31,7 @@ public final class FrameActiveQuery {
    * @return <code>true</code> if the given {@link Frame} is currently active.
    */
   @RunsInEDT
-  public static @Nonnull Boolean isActive(final @Nonnull Frame frame) {
+  @Nonnull public static Boolean isActive(final @Nonnull Frame frame) {
     return execute(() -> frame.isActive());
   }
 

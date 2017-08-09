@@ -177,12 +177,12 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, int columnIndex) {
+  @Nonnull public JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, int columnIndex) {
     return robot.showPopupMenu(tableHeader, pointAtIndex(tableHeader, columnIndex, location));
   }
 
   @RunsInEDT
-  private static @Nonnull Point pointAtIndex(final @Nonnull JTableHeader tableHeader, final int columnIndex,
+  @Nonnull private static Point pointAtIndex(final @Nonnull JTableHeader tableHeader, final int columnIndex,
                                              final JTableHeaderLocation location) {
     Point result = execute(() -> {
       Point p = location.pointAt(tableHeader, columnIndex);
@@ -204,7 +204,7 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nullable String columnName) {
+  @Nonnull public JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nullable String columnName) {
     return robot.showPopupMenu(tableHeader, pointAtName(tableHeader, new StringTextMatcher(columnName), location()));
   }
 
@@ -220,12 +220,12 @@ public class JTableHeaderDriver extends JComponentDriver {
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @RunsInEDT
-  public @Nonnull JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nonnull Pattern pattern) {
+  @Nonnull public JPopupMenu showPopupMenu(@Nonnull JTableHeader tableHeader, @Nonnull Pattern pattern) {
     return robot.showPopupMenu(tableHeader, pointAtName(tableHeader, new PatternTextMatcher(pattern), location()));
   }
 
   @RunsInEDT
-  private static @Nonnull Point pointAtName(final @Nonnull JTableHeader tableHeader,
+  @Nonnull private static Point pointAtName(final @Nonnull JTableHeader tableHeader,
                                             final @Nonnull TextMatcher matcher,
                                             final @Nonnull JTableHeaderLocation location) {
     Point result = execute(() -> {
@@ -237,7 +237,7 @@ public class JTableHeaderDriver extends JComponentDriver {
     return checkNotNull(result);
   }
 
-  private @Nonnull JTableHeaderLocation location() {
+  @Nonnull private JTableHeaderLocation location() {
     return location;
   }
 }

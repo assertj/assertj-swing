@@ -127,97 +127,97 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 
   @RunsInEDT
   @Override
-  public @Nonnull JButtonFixture button() {
+  @Nonnull public JButtonFixture button() {
     return new JButtonFixture(robot(), findByType(JButton.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JButtonFixture button(@Nonnull GenericTypeMatcher<? extends JButton> matcher) {
+  @Nonnull public JButtonFixture button(@Nonnull GenericTypeMatcher<? extends JButton> matcher) {
     return new JButtonFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JButtonFixture button(@Nullable String name) {
+  @Nonnull public JButtonFixture button(@Nullable String name) {
     return new JButtonFixture(robot(), findByName(name, JButton.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JCheckBoxFixture checkBox() {
+  @Nonnull public JCheckBoxFixture checkBox() {
     return new JCheckBoxFixture(robot(), findByType(JCheckBox.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JCheckBoxFixture checkBox(@Nonnull GenericTypeMatcher<? extends JCheckBox> matcher) {
+  @Nonnull public JCheckBoxFixture checkBox(@Nonnull GenericTypeMatcher<? extends JCheckBox> matcher) {
     return new JCheckBoxFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JCheckBoxFixture checkBox(@Nullable String name) {
+  @Nonnull public JCheckBoxFixture checkBox(@Nullable String name) {
     return new JCheckBoxFixture(robot(), findByName(name, JCheckBox.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JComboBoxFixture comboBox() {
+  @Nonnull public JComboBoxFixture comboBox() {
     return new JComboBoxFixture(robot(), findByType(JComboBox.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JComboBoxFixture comboBox(@Nonnull GenericTypeMatcher<? extends JComboBox> matcher) {
+  @Nonnull public JComboBoxFixture comboBox(@Nonnull GenericTypeMatcher<? extends JComboBox> matcher) {
     return new JComboBoxFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JComboBoxFixture comboBox(@Nullable String name) {
+  @Nonnull public JComboBoxFixture comboBox(@Nullable String name) {
     return new JComboBoxFixture(robot(), findByName(name, JComboBox.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull DialogFixture dialog() {
+  @Nonnull public DialogFixture dialog() {
     return dialog(defaultDialogLookupTimeout());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull DialogFixture dialog(@Nonnull Timeout timeout) {
+  @Nonnull public DialogFixture dialog(@Nonnull Timeout timeout) {
     TypeMatcher matcher = new TypeMatcher(Dialog.class, requireShowing());
     return findDialog(matcher, timeout);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull DialogFixture dialog(@Nonnull GenericTypeMatcher<? extends Dialog> matcher) {
+  @Nonnull public DialogFixture dialog(@Nonnull GenericTypeMatcher<? extends Dialog> matcher) {
     return dialog(matcher, defaultDialogLookupTimeout());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull DialogFixture dialog(@Nonnull GenericTypeMatcher<? extends Dialog> matcher, @Nonnull Timeout timeout) {
+  @Nonnull public DialogFixture dialog(@Nonnull GenericTypeMatcher<? extends Dialog> matcher, @Nonnull Timeout timeout) {
     return findDialog(matcher, timeout);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull DialogFixture dialog(@Nullable String name) {
+  @Nonnull public DialogFixture dialog(@Nullable String name) {
     return dialog(name, defaultDialogLookupTimeout());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull DialogFixture dialog(@Nullable String name, @Nonnull Timeout timeout) {
+  @Nonnull public DialogFixture dialog(@Nullable String name, @Nonnull Timeout timeout) {
     NameMatcher matcher = new NameMatcher(name, Dialog.class, requireShowing());
     return findDialog(matcher, timeout);
   }
 
-  private @Nonnull DialogFixture findDialog(@Nonnull ComponentMatcher matcher, @Nonnull Timeout timeout) {
+  @Nonnull private DialogFixture findDialog(@Nonnull ComponentMatcher matcher, @Nonnull Timeout timeout) {
     String description = "dialog to be found using matcher " + matcher;
     ComponentFoundCondition condition = new ComponentFoundCondition(description, robot().finder(), matcher);
     pause(condition, timeout);
@@ -227,44 +227,44 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 
   @RunsInEDT
   @Override
-  public @Nonnull JFileChooserFixture fileChooser() {
+  @Nonnull public JFileChooserFixture fileChooser() {
     return fileChooser(defaultDialogLookupTimeout());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JFileChooserFixture fileChooser(@Nonnull Timeout timeout) {
+  @Nonnull public JFileChooserFixture fileChooser(@Nonnull Timeout timeout) {
     TypeMatcher matcher = new TypeMatcher(JFileChooser.class, requireShowing());
     return findFileChooser(matcher, timeout);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JFileChooserFixture fileChooser(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher) {
+  @Nonnull public JFileChooserFixture fileChooser(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher) {
     return fileChooser(matcher, defaultDialogLookupTimeout());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JFileChooserFixture fileChooser(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher,
+  @Nonnull public JFileChooserFixture fileChooser(@Nonnull GenericTypeMatcher<? extends JFileChooser> matcher,
                                                   @Nonnull Timeout timeout) {
     return findFileChooser(matcher, timeout);
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JFileChooserFixture fileChooser(@Nullable String name) {
+  @Nonnull public JFileChooserFixture fileChooser(@Nullable String name) {
     return new JFileChooserFixture(robot(), findByName(name, JFileChooser.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JFileChooserFixture fileChooser(@Nullable String name, @Nonnull Timeout timeout) {
+  @Nonnull public JFileChooserFixture fileChooser(@Nullable String name, @Nonnull Timeout timeout) {
     NameMatcher matcher = new NameMatcher(name, JFileChooser.class, requireShowing());
     return findFileChooser(matcher, timeout);
   }
 
-  private @Nonnull JFileChooserFixture findFileChooser(@Nonnull ComponentMatcher matcher, @Nonnull Timeout timeout) {
+  @Nonnull private JFileChooserFixture findFileChooser(@Nonnull ComponentMatcher matcher, @Nonnull Timeout timeout) {
     String description = "file chooser to be found using matcher " + matcher;
     ComponentFoundCondition condition = new ComponentFoundCondition(description, robot().finder(), matcher);
     pause(condition, timeout);
@@ -274,86 +274,86 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 
   @RunsInEDT
   @Override
-  public @Nonnull JInternalFrameFixture internalFrame() {
+  @Nonnull public JInternalFrameFixture internalFrame() {
     return new JInternalFrameFixture(robot(), findByType(JInternalFrame.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JInternalFrameFixture internalFrame(@Nonnull GenericTypeMatcher<? extends JInternalFrame> matcher) {
+  @Nonnull public JInternalFrameFixture internalFrame(@Nonnull GenericTypeMatcher<? extends JInternalFrame> matcher) {
     return new JInternalFrameFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JInternalFrameFixture internalFrame(@Nullable String name) {
+  @Nonnull public JInternalFrameFixture internalFrame(@Nullable String name) {
     return new JInternalFrameFixture(robot(), findByName(name, JInternalFrame.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JLabelFixture label() {
+  @Nonnull public JLabelFixture label() {
     return new JLabelFixture(robot(), findByType(JLabel.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JLabelFixture label(@Nonnull GenericTypeMatcher<? extends JLabel> matcher) {
+  @Nonnull public JLabelFixture label(@Nonnull GenericTypeMatcher<? extends JLabel> matcher) {
     return new JLabelFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JLabelFixture label(@Nullable String name) {
+  @Nonnull public JLabelFixture label(@Nullable String name) {
     return new JLabelFixture(robot(), findByName(name, JLabel.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JListFixture list() {
+  @Nonnull public JListFixture list() {
     return new JListFixture(robot(), findByType(JList.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JListFixture list(@Nonnull GenericTypeMatcher<? extends JList> matcher) {
+  @Nonnull public JListFixture list(@Nonnull GenericTypeMatcher<? extends JList> matcher) {
     return new JListFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JListFixture list(@Nullable String name) {
+  @Nonnull public JListFixture list(@Nullable String name) {
     return new JListFixture(robot(), findByName(name, JList.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JMenuItemFixture menuItemWithPath(@Nonnull String... path) {
+  @Nonnull public JMenuItemFixture menuItemWithPath(@Nonnull String... path) {
     return new JMenuItemFixture(robot(), menuItemFinder.menuItemWithPath(path));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JMenuItemFixture menuItem(@Nullable String name) {
+  @Nonnull public JMenuItemFixture menuItem(@Nullable String name) {
     boolean requireShowing = SHOWING_ONLY.equals(robot().settings().componentLookupScope());
     return new JMenuItemFixture(robot(), finder().findByName(target(), name, JMenuItem.class, requireShowing));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JMenuItemFixture menuItem(@Nonnull GenericTypeMatcher<? extends JMenuItem> matcher) {
+  @Nonnull public JMenuItemFixture menuItem(@Nonnull GenericTypeMatcher<? extends JMenuItem> matcher) {
     return new JMenuItemFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JOptionPaneFixture optionPane() {
+  @Nonnull public JOptionPaneFixture optionPane() {
     return optionPane(defaultDialogLookupTimeout());
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JOptionPaneFixture optionPane(@Nonnull Timeout timeout) {
+  @Nonnull public JOptionPaneFixture optionPane(@Nonnull Timeout timeout) {
     TypeMatcher matcher = new TypeMatcher(JOptionPane.class, requireShowing());
     String description = "option pane to be found using matcher " + matcher;
     ComponentFoundCondition condition = new ComponentFoundCondition(description, robot().finder(), matcher);
@@ -364,253 +364,253 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 
   @RunsInEDT
   @Override
-  public @Nonnull JPanelFixture panel() {
+  @Nonnull public JPanelFixture panel() {
     return new JPanelFixture(robot(), findByType(JPanel.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JPanelFixture panel(@Nonnull GenericTypeMatcher<? extends JPanel> matcher) {
+  @Nonnull public JPanelFixture panel(@Nonnull GenericTypeMatcher<? extends JPanel> matcher) {
     return new JPanelFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JPanelFixture panel(@Nullable String name) {
+  @Nonnull public JPanelFixture panel(@Nullable String name) {
     return new JPanelFixture(robot(), findByName(name, JPanel.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JProgressBarFixture progressBar() {
+  @Nonnull public JProgressBarFixture progressBar() {
     return new JProgressBarFixture(robot(), findByType(JProgressBar.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JProgressBarFixture progressBar(@Nonnull GenericTypeMatcher<? extends JProgressBar> matcher) {
+  @Nonnull public JProgressBarFixture progressBar(@Nonnull GenericTypeMatcher<? extends JProgressBar> matcher) {
     return new JProgressBarFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JProgressBarFixture progressBar(@Nullable String name) {
+  @Nonnull public JProgressBarFixture progressBar(@Nullable String name) {
     return new JProgressBarFixture(robot(), findByName(name, JProgressBar.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JRadioButtonFixture radioButton() {
+  @Nonnull public JRadioButtonFixture radioButton() {
     return new JRadioButtonFixture(robot(), findByType(JRadioButton.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JRadioButtonFixture radioButton(@Nonnull GenericTypeMatcher<? extends JRadioButton> matcher) {
+  @Nonnull public JRadioButtonFixture radioButton(@Nonnull GenericTypeMatcher<? extends JRadioButton> matcher) {
     return new JRadioButtonFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JRadioButtonFixture radioButton(@Nullable String name) {
+  @Nonnull public JRadioButtonFixture radioButton(@Nullable String name) {
     return new JRadioButtonFixture(robot(), findByName(name, JRadioButton.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JScrollBarFixture scrollBar() {
+  @Nonnull public JScrollBarFixture scrollBar() {
     return new JScrollBarFixture(robot(), findByType(JScrollBar.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JScrollBarFixture scrollBar(@Nonnull GenericTypeMatcher<? extends JScrollBar> matcher) {
+  @Nonnull public JScrollBarFixture scrollBar(@Nonnull GenericTypeMatcher<? extends JScrollBar> matcher) {
     return new JScrollBarFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JScrollBarFixture scrollBar(@Nullable String name) {
+  @Nonnull public JScrollBarFixture scrollBar(@Nullable String name) {
     return new JScrollBarFixture(robot(), findByName(name, JScrollBar.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JScrollPaneFixture scrollPane() {
+  @Nonnull public JScrollPaneFixture scrollPane() {
     return new JScrollPaneFixture(robot(), findByType(JScrollPane.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JScrollPaneFixture scrollPane(@Nonnull GenericTypeMatcher<? extends JScrollPane> matcher) {
+  @Nonnull public JScrollPaneFixture scrollPane(@Nonnull GenericTypeMatcher<? extends JScrollPane> matcher) {
     return new JScrollPaneFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JScrollPaneFixture scrollPane(@Nullable String name) {
+  @Nonnull public JScrollPaneFixture scrollPane(@Nullable String name) {
     return new JScrollPaneFixture(robot(), findByName(name, JScrollPane.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JSliderFixture slider() {
+  @Nonnull public JSliderFixture slider() {
     return new JSliderFixture(robot(), findByType(JSlider.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JSliderFixture slider(@Nonnull GenericTypeMatcher<? extends JSlider> matcher) {
+  @Nonnull public JSliderFixture slider(@Nonnull GenericTypeMatcher<? extends JSlider> matcher) {
     return new JSliderFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JSliderFixture slider(@Nullable String name) {
+  @Nonnull public JSliderFixture slider(@Nullable String name) {
     return new JSliderFixture(robot(), findByName(name, JSlider.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JSpinnerFixture spinner() {
+  @Nonnull public JSpinnerFixture spinner() {
     return new JSpinnerFixture(robot(), findByType(JSpinner.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JSpinnerFixture spinner(@Nonnull GenericTypeMatcher<? extends JSpinner> matcher) {
+  @Nonnull public JSpinnerFixture spinner(@Nonnull GenericTypeMatcher<? extends JSpinner> matcher) {
     return new JSpinnerFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JSpinnerFixture spinner(@Nullable String name) {
+  @Nonnull public JSpinnerFixture spinner(@Nullable String name) {
     return new JSpinnerFixture(robot(), findByName(name, JSpinner.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JSplitPaneFixture splitPane() {
+  @Nonnull public JSplitPaneFixture splitPane() {
     return new JSplitPaneFixture(robot(), findByType(JSplitPane.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JSplitPaneFixture splitPane(@Nonnull GenericTypeMatcher<? extends JSplitPane> matcher) {
+  @Nonnull public JSplitPaneFixture splitPane(@Nonnull GenericTypeMatcher<? extends JSplitPane> matcher) {
     return new JSplitPaneFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JSplitPaneFixture splitPane(@Nullable String name) {
+  @Nonnull public JSplitPaneFixture splitPane(@Nullable String name) {
     return new JSplitPaneFixture(robot(), findByName(name, JSplitPane.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTabbedPaneFixture tabbedPane() {
+  @Nonnull public JTabbedPaneFixture tabbedPane() {
     return new JTabbedPaneFixture(robot(), findByType(JTabbedPane.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTabbedPaneFixture tabbedPane(@Nonnull GenericTypeMatcher<? extends JTabbedPane> matcher) {
+  @Nonnull public JTabbedPaneFixture tabbedPane(@Nonnull GenericTypeMatcher<? extends JTabbedPane> matcher) {
     return new JTabbedPaneFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTabbedPaneFixture tabbedPane(@Nullable String name) {
+  @Nonnull public JTabbedPaneFixture tabbedPane(@Nullable String name) {
     return new JTabbedPaneFixture(robot(), findByName(name, JTabbedPane.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTableFixture table() {
+  @Nonnull public JTableFixture table() {
     return new JTableFixture(robot(), findByType(JTable.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTableFixture table(@Nonnull GenericTypeMatcher<? extends JTable> matcher) {
+  @Nonnull public JTableFixture table(@Nonnull GenericTypeMatcher<? extends JTable> matcher) {
     return new JTableFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTableFixture table(@Nullable String name) {
+  @Nonnull public JTableFixture table(@Nullable String name) {
     return new JTableFixture(robot(), findByName(name, JTable.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTextComponentFixture textBox() {
+  @Nonnull public JTextComponentFixture textBox() {
     return new JTextComponentFixture(robot(), findByType(JTextComponent.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTextComponentFixture textBox(@Nonnull GenericTypeMatcher<? extends JTextComponent> matcher) {
+  @Nonnull public JTextComponentFixture textBox(@Nonnull GenericTypeMatcher<? extends JTextComponent> matcher) {
     return new JTextComponentFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTextComponentFixture textBox(@Nullable String name) {
+  @Nonnull public JTextComponentFixture textBox(@Nullable String name) {
     return new JTextComponentFixture(robot(), findByName(name, JTextComponent.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JToggleButtonFixture toggleButton() {
+  @Nonnull public JToggleButtonFixture toggleButton() {
     return new JToggleButtonFixture(robot(), findByType(JToggleButton.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JToggleButtonFixture toggleButton(@Nonnull GenericTypeMatcher<? extends JToggleButton> matcher) {
+  @Nonnull public JToggleButtonFixture toggleButton(@Nonnull GenericTypeMatcher<? extends JToggleButton> matcher) {
     return new JToggleButtonFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JToggleButtonFixture toggleButton(@Nullable String name) {
+  @Nonnull public JToggleButtonFixture toggleButton(@Nullable String name) {
     return new JToggleButtonFixture(robot(), findByName(name, JToggleButton.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JToolBarFixture toolBar() {
+  @Nonnull public JToolBarFixture toolBar() {
     return new JToolBarFixture(robot(), findByType(JToolBar.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JToolBarFixture toolBar(@Nonnull GenericTypeMatcher<? extends JToolBar> matcher) {
+  @Nonnull public JToolBarFixture toolBar(@Nonnull GenericTypeMatcher<? extends JToolBar> matcher) {
     return new JToolBarFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JToolBarFixture toolBar(@Nullable String name) {
+  @Nonnull public JToolBarFixture toolBar(@Nullable String name) {
     return new JToolBarFixture(robot(), findByName(name, JToolBar.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTreeFixture tree() {
+  @Nonnull public JTreeFixture tree() {
     return new JTreeFixture(robot(), findByType(JTree.class));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTreeFixture tree(@Nonnull GenericTypeMatcher<? extends JTree> matcher) {
+  @Nonnull public JTreeFixture tree(@Nonnull GenericTypeMatcher<? extends JTree> matcher) {
     return new JTreeFixture(robot(), find(matcher));
   }
 
   @RunsInEDT
   @Override
-  public @Nonnull JTreeFixture tree(@Nullable String name) {
+  @Nonnull public JTreeFixture tree(@Nullable String name) {
     return new JTreeFixture(robot(), findByName(name, JTree.class));
   }
 
@@ -657,7 +657,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
 
   @RunsInEDT
   @Override
-  public @Nonnull <T extends Component, F extends AbstractComponentFixture<?, T, ?>> F with(
+  @Nonnull public <T extends Component, F extends AbstractComponentFixture<?, T, ?>> F with(
                                                                                             @Nonnull ComponentFixtureExtension<T, F> extension) {
     return extension.createFixture(robot(), target());
   }
@@ -673,7 +673,7 @@ public abstract class AbstractContainerFixture<S, C extends Container, D extends
    * @return the timeout to use when looking for a dialog. It's value is 100 ms.
    */
   @Override
-  public @Nonnull Timeout defaultDialogLookupTimeout() {
+  @Nonnull public Timeout defaultDialogLookupTimeout() {
     return DEFAULT_DIALOG_LOOKUP_TIMEOUT;
   }
 }

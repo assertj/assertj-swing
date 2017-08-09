@@ -121,7 +121,7 @@ public class InputState {
     }
   }
 
-  private @Nullable Point screenLocation(@Nonnull MouseEvent event) {
+  @Nullable private Point screenLocation(@Nonnull MouseEvent event) {
     // childAt and locationOnScreenOf want the tree lock, so be careful not to use any additional locks at the same time
     // to avoid deadlock.
     // Determine the current mouse position in screen coordinates

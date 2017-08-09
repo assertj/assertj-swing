@@ -31,8 +31,8 @@ public class JMenuItemFixture extends AbstractJComponentFixture<JMenuItemFixture
    * @param robot performs simulation of user events on a {@code JMenuItem}.
    * @param menuItemName the name of the {@code JMenuItem} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JMenuItem} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JMenuItem} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JMenuItem} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JMenuItem} is found.
    */
   public JMenuItemFixture(@Nonnull Robot robot, @Nullable String menuItemName) {
     this(robot, robot.finder().findByName(menuItemName, JMenuItem.class, false));
@@ -51,7 +51,7 @@ public class JMenuItemFixture extends AbstractJComponentFixture<JMenuItemFixture
   }
 
   @Override
-  protected @Nonnull JMenuItemDriver createDriver(@Nonnull Robot robot) {
+  @Nonnull protected JMenuItemDriver createDriver(@Nonnull Robot robot) {
     return new JMenuItemDriver(robot);
   }
 }

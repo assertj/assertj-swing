@@ -69,7 +69,7 @@ public class ExtensionTest extends RobotBasedTestCase {
     }
 
     @Override
-    protected @Nonnull JComponentDriver createDriver(@Nonnull Robot robot) {
+    @Nonnull protected JComponentDriver createDriver(@Nonnull Robot robot) {
       return new JComponentDriver(robot);
     }
   }
