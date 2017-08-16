@@ -41,9 +41,10 @@ public abstract class AssertJSwingJUnitTestCase extends AssertJSwingTestCaseTemp
    *
    * @see #setUpRobot()
    * @see #onSetUp()
+   * @throws Exception when the set up of the test fails which results in the complete test fails
    */
   @Before
-  public final void setUp() {
+  public final void setUp() throws Exception {
     setUpRobot();
     onSetUp();
   }
@@ -51,8 +52,10 @@ public abstract class AssertJSwingJUnitTestCase extends AssertJSwingTestCaseTemp
   /**
    * Subclasses need set up their own test fixture in this method. This method is called <strong>after</strong>
    * executing <code>{@link #setUp()}</code>.
+   *
+   * @throws Exception when the set up of the test fails which results in the complete test fails
    */
-  protected abstract void onSetUp();
+  protected abstract void onSetUp() throws Exception;
 
   /**
    * Removes the <code>{@link FailOnThreadViolationRepaintManager}</code> again to allow EDT violating and EDT safe
@@ -69,9 +72,10 @@ public abstract class AssertJSwingJUnitTestCase extends AssertJSwingTestCaseTemp
    *
    * @see #cleanUp()
    * @see #onTearDown()
+   * @throws Exception when the tear down of the test fails which results in that the test will not be cleaned up properly
    */
   @After
-  public final void tearDown() {
+  public final void tearDown() throws Exception {
     try {
       onTearDown();
     } finally {
@@ -82,7 +86,8 @@ public abstract class AssertJSwingJUnitTestCase extends AssertJSwingTestCaseTemp
   /**
    * Subclasses need to clean up resources in this method. This method is called <strong>before</strong> executing
    * <code>{@link #tearDown()}</code>.
+   * 
+   * @throws Exception when the tear down of the test fails which results in that the test will not be cleaned up properly
    */
-  protected void onTearDown() {
-  }
+  protected void onTearDown() throws Exception {}
 }
