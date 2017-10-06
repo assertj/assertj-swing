@@ -14,7 +14,6 @@ package org.assertj.swing.applet;
 
 import static java.util.Collections.enumeration;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.applet.Applet;
@@ -24,6 +23,7 @@ import java.awt.Image;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -54,7 +54,7 @@ public class BasicAppletContext implements AppletContext {
     }
   }
 
-  private final Map<String, InputStream> streamMap = newHashMap();
+  private final Map<String, InputStream> streamMap = new HashMap<>();
   private final StatusDisplay statusDisplay;
 
   /**

@@ -16,12 +16,12 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static javax.swing.JSplitPane.HORIZONTAL_SPLIT;
 import static javax.swing.JSplitPane.VERTICAL_SPLIT;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 import java.awt.Insets;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -39,7 +39,7 @@ import org.assertj.swing.edt.GuiQuery;
  * @author Alex Ruiz
  */
 final class JSplitPaneLocationCalculator {
-  private static Map<Integer, LocationFinder> FINDERS = newHashMap();
+  private static Map<Integer, LocationFinder> FINDERS = new HashMap<>();
 
   static {
     add(new VerticalOrientationLocationFinder(), new HorizontalOrientationLocationFinder());

@@ -14,10 +14,10 @@ package org.assertj.swing.driver;
 
 import static java.awt.Adjustable.HORIZONTAL;
 import static java.awt.Adjustable.VERTICAL;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Point;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -36,7 +36,7 @@ public final class JScrollBarLocation {
 
   private static final int BLOCK_OFFSET = 4;
 
-  private static final Map<Integer, JScrollBarLocationStrategy> LOCATIONS = newHashMap();
+  private static final Map<Integer, JScrollBarLocationStrategy> LOCATIONS = new HashMap<>();
 
   static {
     LOCATIONS.put(HORIZONTAL, new HorizontalJScrollBarLocation());

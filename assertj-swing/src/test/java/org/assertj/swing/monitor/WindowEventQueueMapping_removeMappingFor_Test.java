@@ -13,10 +13,10 @@
 package org.assertj.swing.monitor;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Maps.newHashMap;
 
 import java.awt.EventQueue;
 import java.awt.Window;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
@@ -40,7 +40,7 @@ public class WindowEventQueueMapping_removeMappingFor_Test extends WindowEventQu
   @Test
   public void should_Remove_Component_From_All_Mappings() {
     EventQueue anotherEventQueue = new EventQueue();
-    Map<Window, Boolean> windowMapping = newHashMap();
+    Map<Window, Boolean> windowMapping = new HashMap<>();
     windowMapping.put(window, true);
     queueMap.put(anotherEventQueue, windowMapping);
     mapping.removeMappingFor(window);

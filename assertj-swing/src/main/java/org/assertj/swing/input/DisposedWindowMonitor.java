@@ -14,12 +14,12 @@ package org.assertj.swing.input;
 
 import static java.awt.event.WindowEvent.WINDOW_CLOSED;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
-import static org.assertj.core.util.Maps.newWeakHashMap;
 
 import java.awt.AWTEvent;
 import java.awt.Window;
 import java.awt.event.WindowEvent;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 /**
  * Verifies that a notification of the disposal of an AWT or Swing {@code Window} is not duplicated.
@@ -27,7 +27,7 @@ import java.util.Map;
  * @author Alex Ruiz
  */
 class DisposedWindowMonitor {
-  final Map<Window, Boolean> disposedWindows = newWeakHashMap();
+  final Map<Window, Boolean> disposedWindows = new WeakHashMap<>();
 
   // We want to ignore consecutive event indicating window disposal; it needs to be an intervening SHOWN/OPEN before
   // we're interested again.

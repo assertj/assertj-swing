@@ -14,11 +14,11 @@ package org.assertj.swing.driver;
 
 import static javax.swing.SwingConstants.HORIZONTAL;
 import static javax.swing.SwingConstants.VERTICAL;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.Insets;
 import java.awt.Point;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -33,7 +33,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * @author Yvonne Wang
  */
 public final class JSliderLocation {
-  private static final Map<Integer, JSliderLocationStrategy> LOCATIONS = newHashMap();
+  private static final Map<Integer, JSliderLocationStrategy> LOCATIONS = new HashMap<>();
 
   static {
     LOCATIONS.put(HORIZONTAL, new JSliderHorizontalLocation());

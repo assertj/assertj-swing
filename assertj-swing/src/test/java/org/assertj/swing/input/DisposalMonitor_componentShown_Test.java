@@ -13,10 +13,10 @@
 package org.assertj.swing.input;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Maps.newHashMap;
 
 import java.awt.Window;
 import java.awt.event.ComponentEvent;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
@@ -38,7 +38,7 @@ public class DisposalMonitor_componentShown_Test {
   @Before
   public void setUp() {
     frame = TestWindow.createNewWindow(DisposalMonitor_componentShown_Test.class);
-    disposedWindows = newHashMap();
+    disposedWindows = new HashMap<>();
     monitor = new DisposalMonitor(disposedWindows);
     frame.addComponentListener(monitor);
   }

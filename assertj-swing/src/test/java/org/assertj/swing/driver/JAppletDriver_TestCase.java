@@ -13,7 +13,6 @@
 package org.assertj.swing.driver;
 
 import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 import static org.assertj.swing.core.TestRobots.singletonRobotMock;
@@ -21,6 +20,7 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.applet.AppletContext;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JApplet;
@@ -55,8 +55,8 @@ public class JAppletDriver_TestCase extends EDTSafeTestCase {
   }
 
   static class JAppletStub extends JApplet {
-    private final Map<String, Boolean> methodCallsInEDT = newHashMap();
-    private final Map<String, String> parameters = newHashMap();
+    private final Map<String, Boolean> methodCallsInEDT = new HashMap<>();
+    private final Map<String, String> parameters = new HashMap<>();
 
     private AppletContext context;
     private URL codeBase;

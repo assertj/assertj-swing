@@ -12,7 +12,6 @@
  */
 package org.assertj.swing.monitor;
 
-import static org.assertj.core.util.Maps.newWeakHashMap;
 import static org.assertj.core.util.Sets.newHashSet;
 
 import java.awt.Component;
@@ -21,6 +20,7 @@ import java.lang.ref.WeakReference;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
+import java.util.WeakHashMap;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -34,7 +34,7 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * @author Alex Ruiz
  */
 class EventQueueMapping {
-  final Map<Component, WeakReference<EventQueue>> queueMap = newWeakHashMap();
+  final Map<Component, WeakReference<EventQueue>> queueMap = new WeakHashMap<>();
 
   @RunsInCurrentThread
   void addQueueFor(@Nonnull Component c) {

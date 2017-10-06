@@ -13,7 +13,6 @@
 package org.assertj.swing.format;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
@@ -23,6 +22,7 @@ import java.awt.Component;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,7 +44,7 @@ public final class IntrospectionComponentFormatter extends ComponentFormatterTem
   private final Class<? extends Component> targetType;
   private final List<String> propertyNames;
 
-  private final Map<String, PropertyDescriptor> descriptors = newHashMap();
+  private final Map<String, PropertyDescriptor> descriptors = new HashMap<>();
 
   /**
    * Creates a new {@link IntrospectionComponentFormatter}.

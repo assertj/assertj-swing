@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.hierarchy;
 
-import static org.assertj.core.util.Maps.newWeakHashMap;
 import static org.assertj.swing.awt.AWT.isSharedInvisibleFrame;
 
 import java.awt.Component;
 import java.awt.Window;
 import java.util.Collection;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -44,10 +44,10 @@ class WindowFilter {
   }
 
   // Map of components to ignore
-  final Map<Component, Boolean> ignored = newWeakHashMap();
+  final Map<Component, Boolean> ignored = new WeakHashMap<>();
 
   // Map of components implicitly ignored; these will be removed if they are re-shown.
-  final Map<Component, Boolean> implicitlyIgnored = newWeakHashMap();
+  final Map<Component, Boolean> implicitlyIgnored = new WeakHashMap<>();
 
   boolean isImplicitlyIgnored(@Nonnull Component c) {
     return implicitlyIgnored.containsKey(c);

@@ -12,7 +12,6 @@
  */
 package org.assertj.swing.test.awt;
 
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.mockito.Mockito.spy;
 
 import java.awt.Button;
@@ -81,6 +80,7 @@ import java.awt.peer.TextFieldPeer;
 import java.awt.peer.WindowPeer;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -99,7 +99,7 @@ public class ToolkitStub extends Toolkit {
   static ToolkitStub createNew(EventQueue eventQueue) {
     ToolkitStub stub = spy(new ToolkitStub());
     stub.eventQueue(eventQueue);
-    stub.eventListeners = newHashMap();
+    stub.eventListeners = new HashMap<>();
     return stub;
   }
 

@@ -13,8 +13,8 @@
 package org.assertj.swing.launcher;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Maps.newHashMap;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.assertj.swing.test.swing.TestApplet;
@@ -34,7 +34,7 @@ public class AppletLauncher_withParametersAsMap_Test extends AppletLauncher_Test
 
   @Test
   public void should_Set_Parameters_In_Given_Map() {
-    Map<String, String> parameters = newHashMap();
+    Map<String, String> parameters = new HashMap<>();
     parameters.put("bgcolor", "blue");
     parameters.put("color", "red");
     applet = TestApplet.createNew();

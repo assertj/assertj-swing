@@ -13,8 +13,8 @@
 package org.assertj.swing.applet;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Maps.newHashMap;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
@@ -28,7 +28,7 @@ import org.junit.Test;
 public class BasicAppletStub_getParameter_Test extends BasicAppletStub_TestCase {
   @Test
   public void should_Return_Parameter() {
-    Map<String, String> parameters = newHashMap();
+    Map<String, String> parameters = new HashMap<>();
     parameters.put("key1", "value1");
     stub = new BasicAppletStub(viewer, context, parameters);
     assertThat(stub.getParameter("key1")).isEqualTo("value1");
