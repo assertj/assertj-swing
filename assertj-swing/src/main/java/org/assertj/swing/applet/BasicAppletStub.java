@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.applet;
 
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.applet.AppletContext;
 import java.applet.AppletStub;
 import java.awt.Window;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
 public class BasicAppletStub implements AppletStub {
   private final Window viewer;
   private final AppletContext context;
-  private final Map<String, String> parameters = newHashMap();
+  private final Map<String, String> parameters = new HashMap<>();
 
   /**
    * Creates a new {@link BasicAppletStub}.

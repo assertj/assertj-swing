@@ -12,8 +12,7 @@
  */
 package org.assertj.swing.keystroke;
 
-import static org.assertj.core.util.Maps.newHashMap;
-
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -26,8 +25,8 @@ import javax.swing.KeyStroke;
  * @author Alex Ruiz
  */
 class KeyStrokeMapCollection {
-  private final Map<Character, KeyStroke> charToKeyStroke = newHashMap();
-  private final Map<KeyStroke, Character> keyStrokeToChar = newHashMap();
+  private final Map<Character, KeyStroke> charToKeyStroke = new HashMap<>();
+  private final Map<KeyStroke, Character> keyStrokeToChar = new HashMap<>();
 
   void add(@Nonnull Character character, @Nonnull KeyStroke keyStroke) {
     charToKeyStroke.put(character, keyStroke);

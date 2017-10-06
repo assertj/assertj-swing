@@ -13,7 +13,6 @@
 package org.assertj.swing.test.recorder;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 
 import java.awt.AWTEvent;
@@ -22,6 +21,7 @@ import java.awt.Container;
 import java.awt.Toolkit;
 import java.awt.event.AWTEventListener;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +35,7 @@ import javax.annotation.Nonnull;
  */
 public class ToolkitClickRecorder extends AbstractClickRecorder {
 
-  private static Map<ToolkitClickRecorder, ClickListener> recorderListeners = newHashMap();
+  private static Map<ToolkitClickRecorder, ClickListener> recorderListeners = new HashMap<>();
 
   ToolkitClickRecorder() {
     // hide the constructor from the outside

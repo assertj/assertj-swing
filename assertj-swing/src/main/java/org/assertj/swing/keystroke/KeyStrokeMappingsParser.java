@@ -16,7 +16,6 @@ import static java.lang.Thread.currentThread;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Closeables.closeQuietly;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.concat;
@@ -34,6 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -96,7 +96,7 @@ import org.fest.reflect.exception.ReflectionError;
  * @author Alex Ruiz
  */
 public class KeyStrokeMappingsParser {
-  private static final Map<String, Character> SPECIAL_MAPPINGS = newHashMap();
+  private static final Map<String, Character> SPECIAL_MAPPINGS = new HashMap<>();
 
   static {
     SPECIAL_MAPPINGS.put("COMMA", ',');

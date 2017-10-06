@@ -13,7 +13,6 @@
 package org.assertj.swing.monitor;
 
 import static java.lang.Boolean.TRUE;
-import static org.assertj.core.util.Maps.newWeakHashMap;
 import static org.assertj.core.util.Sets.newHashSet;
 import static org.assertj.swing.query.ComponentParentQuery.parentOf;
 
@@ -24,6 +23,7 @@ import java.awt.Window;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
+import java.util.WeakHashMap;
 
 import javax.annotation.Nonnull;
 
@@ -36,10 +36,10 @@ import org.assertj.swing.annotation.RunsInCurrentThread;
  * @author Yvonne Wang
  */
 class WindowEventQueueMapping {
-  final Map<EventQueue, Map<Window, Boolean>> queueMap = newWeakHashMap();
+  final Map<EventQueue, Map<Window, Boolean>> queueMap = new WeakHashMap<>();
 
   void addQueueFor(@Nonnull Toolkit toolkit) {
-    Map<Window, Boolean> map = newWeakHashMap();
+    Map<Window, Boolean> map = new WeakHashMap<>();
     queueMap.put(toolkit.getSystemEventQueue(), map);
   }
 
@@ -56,7 +56,7 @@ class WindowEventQueueMapping {
   }
 
   private @Nonnull Map<Window, Boolean> createWindowMapping(EventQueue queue) {
-    Map<Window, Boolean> windowMapping = newWeakHashMap();
+    Map<Window, Boolean> windowMapping = new WeakHashMap<>();
     queueMap.put(queue, windowMapping);
     return windowMapping;
   }

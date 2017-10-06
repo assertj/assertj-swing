@@ -17,11 +17,11 @@ import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.exception.ActionFailedException.actionFailure;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -32,7 +32,7 @@ import javax.annotation.Nonnull;
  * @author Alex Ruiz
  */
 final class JOptionPaneMessageTypes {
-  private static final Map<Integer, String> messageMap = newHashMap();
+  private static final Map<Integer, String> messageMap = new HashMap<>();
   static {
     messageMap.put(ERROR_MESSAGE, "Error Message");
     messageMap.put(INFORMATION_MESSAGE, "Information Message");

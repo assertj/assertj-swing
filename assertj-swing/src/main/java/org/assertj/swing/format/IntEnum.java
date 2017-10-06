@@ -13,8 +13,8 @@
 package org.assertj.swing.format;
 
 import static java.lang.String.valueOf;
-import static org.assertj.core.util.Maps.newHashMap;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * @author Alex Ruiz
  */
 final class IntEnum {
-  private final Map<Integer, String> map = newHashMap();
+  private final Map<Integer, String> map = new HashMap<>();
 
   @Nullable
   String get(int key) {

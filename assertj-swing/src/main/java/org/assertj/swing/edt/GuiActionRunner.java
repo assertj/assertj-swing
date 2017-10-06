@@ -14,7 +14,7 @@ package org.assertj.swing.edt;
 
 import static javax.swing.SwingUtilities.invokeLater;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
-import static org.assertj.core.util.Throwables.appendStackTraceInCurentThreadToThrowable;
+import static org.assertj.core.util.Throwables.appendStackTraceInCurrentThreadToThrowable;
 import static org.assertj.swing.exception.UnexpectedException.unexpected;
 
 import java.util.concurrent.CountDownLatch;
@@ -146,7 +146,7 @@ public class GuiActionRunner {
       return;
     }
     if (caughtException instanceof RuntimeException) {
-      appendStackTraceInCurentThreadToThrowable(caughtException, "execute");
+      appendStackTraceInCurrentThreadToThrowable(caughtException, "execute");
       throw (RuntimeException) caughtException;
     }
     if (caughtException instanceof Error) {

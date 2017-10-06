@@ -13,13 +13,13 @@
 package org.assertj.swing.test.recorder;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
 import static org.assertj.swing.core.MouseButton.MIDDLE_BUTTON;
 import static org.assertj.swing.core.MouseButton.RIGHT_BUTTON;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -34,7 +34,7 @@ import org.assertj.swing.core.MouseButton;
  */
 public class AbstractClickRecorder {
 
-  private static final Map<Integer, MouseButton> MOUSE_BUTTON_MAP = newHashMap();
+  private static final Map<Integer, MouseButton> MOUSE_BUTTON_MAP = new HashMap<>();
 
   static {
     MOUSE_BUTTON_MAP.put(MouseEvent.BUTTON1, LEFT_BUTTON);

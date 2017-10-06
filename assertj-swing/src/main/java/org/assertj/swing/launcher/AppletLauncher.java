@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.launcher;
 
-import static org.assertj.core.util.Maps.newHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.launcher.NewAppletViewerQuery.showAppletViewerWith;
 
 import java.applet.Applet;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -81,7 +81,7 @@ import org.assertj.swing.exception.UnexpectedException;
  */
 public class AppletLauncher {
   private final Applet applet;
-  private final Map<String, String> parameters = newHashMap();
+  private final Map<String, String> parameters = new HashMap<>();
 
   /**
    * Creates a new {@link AppletLauncher}. The {@code Applet} to launch is a new instance of the given type. It is

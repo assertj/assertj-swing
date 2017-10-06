@@ -12,13 +12,12 @@
  */
 package org.assertj.swing.monitor;
 
-import static org.assertj.core.util.Maps.newWeakHashMap;
-
 import java.awt.Component;
 import java.awt.Window;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.WeakHashMap;
 
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.GuardedBy;
@@ -39,19 +38,19 @@ class Windows {
 
   /** {@link Window#isShowing() isShowing} is true but are not yet ready for input. */
   @GuardedBy("lock")
-  final Map<Window, TimerTask> pending = newWeakHashMap();
+  final Map<Window, TimerTask> pending = new WeakHashMap<>();
 
   /** Considered to be ready to use. */
   @GuardedBy("lock")
-  final Map<Window, Boolean> open = newWeakHashMap();
+  final Map<Window, Boolean> open = new WeakHashMap<>();
 
   /** Have sent a {@link java.awt.event.WindowEvent#WINDOW_CLOSED WINDOW_CLOSED} event. */
   @GuardedBy("lock")
-  final Map<Window, Boolean> closed = newWeakHashMap();
+  final Map<Window, Boolean> closed = new WeakHashMap<>();
 
   /** Not visible. */
   @GuardedBy("lock")
-  final Map<Window, Boolean> hidden = newWeakHashMap();
+  final Map<Window, Boolean> hidden = new WeakHashMap<>();
 
   private final Timer windowReadyTimer;
 

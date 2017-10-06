@@ -12,13 +12,13 @@
  */
 package org.assertj.swing.text;
 
-import static org.assertj.core.util.Maps.newConcurrentHashMap;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.awt.Component;
 import java.awt.Container;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
@@ -38,7 +38,7 @@ public class TextReaders {
   private static Logger logger = Logger.getLogger(TextReaders.class.getCanonicalName());
 
   @VisibleForTesting
-  final ConcurrentMap<Class<?>, TextReader<?>> readers = newConcurrentHashMap();
+  final ConcurrentMap<Class<?>, TextReader<?>> readers = new ConcurrentHashMap<>();
 
   @VisibleForTesting
   TextReaders() {
