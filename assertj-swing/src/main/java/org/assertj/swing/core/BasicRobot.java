@@ -20,6 +20,7 @@ import static java.awt.event.KeyEvent.KEY_TYPED;
 import static java.awt.event.KeyEvent.VK_UNDEFINED;
 import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import static java.lang.System.currentTimeMillis;
+import static java.lang.System.lineSeparator;
 import static javax.swing.SwingUtilities.getWindowAncestor;
 import static javax.swing.SwingUtilities.isEventDispatchThread;
 import static org.assertj.core.util.Lists.newArrayList;
@@ -68,10 +69,7 @@ import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-import javax.swing.JComponent;
-import javax.swing.JMenu;
-import javax.swing.JPopupMenu;
-import javax.swing.KeyStroke;
+import javax.swing.*;
 
 import org.assertj.core.util.VisibleForTesting;
 import org.assertj.swing.annotation.RunsInCurrentThread;
@@ -866,7 +864,7 @@ public class BasicRobot implements Robot {
    *
    * @param c the given {@code Component}.
    * @return {@code true} if the given {@code Component} is ready for input, {@code false} otherwise.
-   * @throws ActionFailedException if the given {@code Component} does not have a {@code Window} ancestor.
+   * @throws org.assertj.swing.exception.ActionFailedException if the given {@code Component} does not have a {@code Window} ancestor.
    */
   @Override
   @RunsInCurrentThread
@@ -898,23 +896,35 @@ public class BasicRobot implements Robot {
   @RunsInEDT
   private @Nullable JPopupMenu activePopupMenu() {
     List<Component> found = newArrayList(finder().findAll(POPUP_MATCHER));
-    if (found.size() >= 1) {
+
+    if (found.size() == 1) {
+      // single popup found, pass it back (most common optimization)
+      return (JPopupMenu) found.get(0);
+    }
+    // otherwise could be a cascade of popups
+    if (found.size() > 1) {
       return findOuterPopupMenu(found);
     }
+    // not found any popup
     return null;
+
   }
 
   @RunsInEDT
   private JPopupMenu findOuterPopupMenu(List<Component> found) {
+    // need to determine the last/outer popup, or if there are more than
+    // one group of popups (the latter would be a condition of multiple
+    // active popups found and thus a failure condition)
+    List<JPopupMenu> innerMenus = newArrayList();
+
+    innerMenus.addAll(determineInnerPopupsToRemove(found));
+
+    found.removeAll(innerMenus);
+
     if (found.size() == 1) {
       return (JPopupMenu) found.get(0);
     }
-    List<JPopupMenu> innerMenus = newArrayList();
-    for (Component component : found) {
-      innerMenus.addAll(popupMenus(((JPopupMenu) component).getComponents()));
-    }
-    found.removeAll(innerMenus);
-    return findOuterPopupMenu(found);
+    throw multiplePopupMenusFound(found);
   }
 
   @RunsInEDT
@@ -952,5 +962,90 @@ public class BasicRobot implements Robot {
   @VisibleForTesting
   final @Nullable Object screenLockOwner() {
     return screenLockOwner;
+  }
+
+  @RunsInEDT
+  private static @Nonnull ComponentLookupException multiplePopupMenusFound(@Nonnull Collection<Component> found) {
+    StringBuilder message = new StringBuilder();
+    String format = "Found more than one popup menu.%n%nFound:";
+    message.append(String.format(format));
+    appendComponents(message, found);
+    if (!found.isEmpty()) {
+      message.append(lineSeparator());
+    }
+    throw new ComponentLookupException(message.toString(), found);
+  }
+
+  @RunsInEDT
+  private static void appendComponents(final @Nonnull StringBuilder message, final @Nonnull Collection<Component> found) {
+    execute(new GuiTask() {
+      @Override
+      protected void executeInEDT() {
+        for (Component c : found) {
+          message.append(String.format("%n%s", format(c)));
+        }
+      }
+    });
+  }
+  @RunsInEDT
+  private Collection<? extends JPopupMenu> determineInnerPopupsToRemove(List<Component> found) {
+
+    // JPopupMenu contains JMenuItem's (note: JMenu extends JMenuItem):
+    // ...... JMenu  [implying a cascading JPopupMenu automatically set up]
+    // ...... JMenuItem (maybe text, checkbox,........,JMenu)
+    //
+    // A JPopupMenu has little sense as a component of another JPopupMenu as
+    // no text is displayed as a select-able menu-item
+    //
+    // lightweight and heacyweight have different approaches to popup menu
+    // implementation and storage (the Java tutorials do not do a good
+    // job of presenting the approaches)
+    //
+    // need to deermine the way popups associate with each other in a cascade
+    // ans set up menus-set to record inner menus that should be removed
+    Set<JPopupMenu> menusSetToRemoveData = newHashSet();
+
+    // go through the found popups and process the child components so as
+    // to work out the cascade relationships. The relationship is a mix
+    // of parent-popup, next-popup arrangement, and is further complicated by
+    // the light vs heavy weight approaches
+    //
+    for (Component fndComp : found) {
+      Component[] compArr = ((JPopupMenu) fndComp).getComponents();
+
+      for (Component component : compArr) {
+        if (component instanceof JPopupMenu) {
+          // in line with original day code of findActive popup
+          menusSetToRemoveData.add((JPopupMenu) component);
+
+        } else if (component instanceof JMenuItem) {
+          // could be heavyweight or lightweight
+
+          JMenuItem jmiComp = (JMenuItem) component;
+          JPopupMenu jpNextLevelComp = jmiComp.getComponentPopupMenu();
+
+          if (jpNextLevelComp == null) {
+            if (component instanceof JMenu) {
+              // JMenu is a menu item with a popup and as such will be a
+              // cascade item to another/next popup (lightweight)
+              //
+              // find the next popups (that is the next level of popup to
+              // see if this menu's popup-parent is cascading
+              //
+              JMenu jmComp = (JMenu) component;
+              jpNextLevelComp = jmComp.getPopupMenu();
+            }
+          }
+          if (jpNextLevelComp != null) {
+            if (found.contains(jpNextLevelComp)) {
+              // this menu item and its popup-parent are in fact an
+              // inner popup
+              menusSetToRemoveData.add((JPopupMenu) component.getParent());
+            }
+          }
+        }
+      }
+    }
+    return menusSetToRemoveData;
   }
 }
