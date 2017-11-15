@@ -85,4 +85,11 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
+
+  <scm>
+    <developerConnection>scm:git:git@github.com:joel-costigliola/assertj-swing.git</developerConnection>
+    <connection>git://github.com/joel-costigliola/assertj-swing.git</connection>
+    <url>https://github.com/joel-costigliola/assertj-swing</url>
+    <tag>HEAD</tag>
+  </scm>
 </project>
