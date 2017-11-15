@@ -13,7 +13,6 @@
 package org.assertj.swing.jide.grids.driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.Arrays.format;
 import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 
@@ -129,7 +128,7 @@ public class ListComboBoxDriver extends AbstractComboBoxDriver {
     // match sufficiently, so we need to throw an appropriate exception that can be used to diagnose the problem.
     throw new LocationUnavailableException(concat("Unable to find item ", quote(toSelect),
                                                   " among the ListComboBox contents (",
-                                                  format(new StandardRepresentation(), contentsOf(comboBox)),
+                                                  new StandardRepresentation().toStringOf(contentsOf(comboBox)),
                                                   ")"));
   }
 
