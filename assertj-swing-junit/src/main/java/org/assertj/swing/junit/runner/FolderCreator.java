@@ -18,8 +18,8 @@ import static org.assertj.core.util.Strings.concat;
 import static org.assertj.core.util.Strings.quote;
 
 import java.io.File;
-
-import org.assertj.core.api.exception.RuntimeIOException;
+import java.io.IOException;
+import java.io.UncheckedIOException;
 
 /**
  * Understands creation of folders.
@@ -38,7 +38,12 @@ class FolderCreator {
       imageFolder.mkdir();
       return imageFolder;
     } catch (Exception e) {
-      throw new RuntimeIOException(concat("Unable to create directory ", quote(name)), e);
+      String message = concat("Unable to create directory ", quote(name));
+
+      if (e instanceof IOException) {
+        throw new UncheckedIOException(message, (IOException) e);
+      }
+      throw new RuntimeException(message, e);
     }
   }
 }
