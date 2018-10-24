@@ -20,7 +20,6 @@ import static org.easymock.classextension.EasyMock.createMock;
 import java.io.File;
 import java.io.IOException;
 
-import org.assertj.core.api.exception.RuntimeIOException;
 import org.easymock.EasyMock;
 import org.fest.mocks.EasyMockTemplate;
 import org.junit.BeforeClass;
@@ -81,7 +80,7 @@ public class FolderCreator_createFolder_Test {
         try {
           creator.createFolder(f, "hello", true);
           fail("expecting exception");
-        } catch (RuntimeIOException e) {
+        } catch (RuntimeException e) {
           assertThat(e).hasMessage("Unable to create directory 'hello'");
           assertThat(e.getCause()).isSameAs(error);
         }

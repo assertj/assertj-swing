@@ -16,8 +16,6 @@ import static org.assertj.core.util.Strings.concat;
 import static org.assertj.swing.util.Strings.isNullOrEmpty;
 
 import java.io.File;
-
-import org.assertj.core.api.exception.RuntimeIOException;
 import org.testng.ITestContext;
 
 /**
@@ -47,6 +45,6 @@ class OutputDirectory {
       return;
     if (f.mkdirs())
       return;
-    throw new RuntimeIOException(concat("Unable to create output directory ", path));
+    throw new RuntimeException(concat("Unable to create output directory ", path));
   }
 }
