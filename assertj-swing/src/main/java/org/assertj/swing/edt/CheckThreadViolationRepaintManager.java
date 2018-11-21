@@ -37,6 +37,10 @@ import javax.swing.RepaintManager;
  *         https://swinghelper.dev.java.net/
  */
 abstract class CheckThreadViolationRepaintManager extends RepaintManager {
+  // Should always be turned on because it shouldn't matter
+  // whether the component is showing (realized) or not.
+  // This flag exists only for historical reasons, see
+  // https://stackoverflow.com/questions/491323/is-it-safe-to-construct-swing-awt-widgets-not-on-the-event-dispatch-thread
   private final boolean completeCheck;
 
   private WeakReference<JComponent> lastComponent;
@@ -62,14 +66,24 @@ abstract class CheckThreadViolationRepaintManager extends RepaintManager {
     super.addDirtyRegion(component, x, y, w, h);
   }
 
+  /**
+   * Rules enforced by this method:
+   * (1) it is always OK to reach this method on the Event Dispatch Thread.
+   * (2) it is generally not OK to reach this method outside the Event Dispatch Thread.
+   * (3) (exception form rule 2) except when we get here from a repaint() call, because repaint() is thread-safe
+   * (4) (exception from rule 3) it is not OK if swing code calls repaint() outside the EDT, because swing code should be called on the EDT.
+   * (5) (exception from rule 4) using SwingWorker subclasses should not be considered swing code.
+   */
   private void checkThreadViolations(@Nonnull JComponent c) {
     if (!isEventDispatchThread() && (completeCheck || c.isShowing())) {
       boolean imageUpdate = false;
       boolean repaint = false;
-      boolean fromSwing = false;
+      boolean fromSwing = false; // whether we were in a swing method before before the repaint() call
       StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
       for (StackTraceElement st : stackTrace) {
-        if (repaint && st.getClassName().startsWith("javax.swing.")) {
+        if (repaint
+                && st.getClassName().startsWith("javax.swing.")
+                && !st.getClassName().startsWith("javax.swing.SwingWorker")) {
           fromSwing = true;
         }
         if (repaint && "imageUpdate".equals(st.getMethodName())) {
