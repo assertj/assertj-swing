@@ -28,7 +28,7 @@ public interface JPopupMenuInvokerFixture {
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Nonnull
   JPopupMenuFixture showPopupMenu();
@@ -40,7 +40,7 @@ public interface JPopupMenuInvokerFixture {
    * @return a fixture that manages the displayed pop-up menu.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Nonnull
   JPopupMenuFixture showPopupMenuAt(@Nonnull Point p);

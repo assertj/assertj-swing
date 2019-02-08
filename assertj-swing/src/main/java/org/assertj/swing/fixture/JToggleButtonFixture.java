@@ -41,8 +41,10 @@ public class JToggleButtonFixture extends AbstractTwoStateButtonFixture<JToggleB
    * @param robot performs simulation of user events on a {@code JToggleButton}.
    * @param toggleButtonName the name of the {@code JToggleButton} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JToggleButton} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JToggleButton} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JToggleButton} could not be
+   *           found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JToggleButton} is
+   *           found.
    */
   public JToggleButtonFixture(@Nonnull Robot robot, @Nonnull String toggleButtonName) {
     super(JToggleButtonFixture.class, robot, toggleButtonName, JToggleButton.class);

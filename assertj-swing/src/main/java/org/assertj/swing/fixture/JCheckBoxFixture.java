@@ -41,8 +41,8 @@ public class JCheckBoxFixture extends AbstractTwoStateButtonFixture<JCheckBoxFix
    * @param robot performs simulation of user events on a {@code JCheckBox}.
    * @param checkBoxName the name of the {@code JCheckBox} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JCheckBox} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JCheckBox} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JCheckBox} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JCheckBox} is found.
    */
   public JCheckBoxFixture(@Nonnull Robot robot, @Nonnull String checkBoxName) {
     super(JCheckBoxFixture.class, robot, checkBoxName, JCheckBox.class);

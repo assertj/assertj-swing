@@ -61,6 +61,7 @@ public interface FrameLikeFixture<S> extends WindowLikeContainerFixture<S> {
    * Verifies that the title of the given frame is equal to the expected one.
    *
    * @param expected the expected title.
+   * @return this fixture.
    * @throws AssertionError if the title of the given frame is not equal to the expected one.
    */
   S requireTitle(String expected);

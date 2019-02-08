@@ -43,8 +43,9 @@ public class JRadioButtonFixture extends AbstractTwoStateButtonFixture<JRadioBut
    * @param robot performs simulation of user events on a {@code JRadioButton}.
    * @param buttonName the name of the {@code JRadioButton} to find using the given {@code Robot}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JRadioButton} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JRadioButton} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JRadioButton} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JRadioButton} is
+   *           found.
    */
   public JRadioButtonFixture(@Nonnull Robot robot, @Nullable String buttonName) {
     super(JRadioButtonFixture.class, robot, buttonName, JRadioButton.class);

@@ -21,13 +21,14 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * Utility methods related to maps.
  *
- *
  * @author Christian Rösch
  */
 public class Maps {
   /**
    * Returns a <em>mutable</em> {@code HashMap} that is empty.
    *
+   * @param <K> the type of the key
+   * @param <V> the type of the value
    * @return the created {@code HashMap}.
    */
   public static <K, V> Map<K, V> newHashMap() {
@@ -37,6 +38,8 @@ public class Maps {
   /**
    * Returns a <em>mutable</em> {@code ConcurrentMap} that is empty.
    *
+   * @param <K> the type of the key
+   * @param <V> the type of the value
    * @return the created {@code ConcurrentMap}.
    */
   public static <K, V> ConcurrentMap<K, V> newConcurrentHashMap() {
@@ -46,6 +49,8 @@ public class Maps {
   /**
    * Returns a <em>mutable</em> {@code WeakHashMap} that is empty.
    *
+   * @param <K> the type of the key
+   * @param <V> the type of the value
    * @return the created {@code WeakHashMap}.
    */
   public static <K, V> WeakHashMap<K, V> newWeakHashMap() {

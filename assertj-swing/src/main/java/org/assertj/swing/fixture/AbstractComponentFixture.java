@@ -78,7 +78,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
     this(selfType, robot, findTarget(robot, type));
   }
 
-  @Nonnull private static <C extends Component> C findTarget(@Nonnull Robot robot, @Nonnull Class<? extends C> type) {
+  @Nonnull
+  private static <C extends Component> C findTarget(@Nonnull Robot robot, @Nonnull Class<? extends C> type) {
     checkNotNull(robot);
     checkNotNull(type);
     return robot.finder().findByType(type, requireShowing(robot));
@@ -101,8 +102,9 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
     this(selfType, robot, findTarget(robot, name, type));
   }
 
-  @Nonnull private static <C extends Component> C findTarget(@Nonnull Robot robot, @Nullable String name,
-                                                             @Nonnull Class<? extends C> type) {
+  @Nonnull
+  private static <C extends Component> C findTarget(@Nonnull Robot robot, @Nullable String name,
+                                                    @Nonnull Class<? extends C> type) {
     checkNotNull(robot);
     checkNotNull(type);
     return robot.finder().findByName(name, type, requireShowing(robot));
@@ -159,7 +161,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Simulates a user clicking this fixture's {@code Component}.
    *
    * @return this fixture.
-   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is
+   *           <code>false</code> and this
    *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
@@ -175,7 +178,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @param button the button to click.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseButton} is {@code null}.
-   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is
+   *           <code>false</code> and this
    *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
@@ -191,7 +195,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * @param mouseClickInfo specifies the button to click and the times the button should be clicked.
    * @return this fixture.
    * @throws NullPointerException if the given {@code MouseClickInfo} is {@code null}.
-   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is
+   *           <code>false</code> and this
    *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
@@ -205,7 +210,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Simulates a user double-clicking this fixture's {@code Component}.
    *
    * @return this fixture.
-   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is
+   *           <code>false</code> and this
    *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
@@ -232,7 +238,8 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * Simulates a user right-clicking this fixture's {@code Component}.
    *
    * @return this fixture.
-   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is
+   *           <code>false</code> and this
    *           fixture's {@code Component} is disabled.
    * @throws IllegalStateException if this fixture's {@code Component} is not showing on the screen.
    */
@@ -308,6 +315,7 @@ public abstract class AbstractComponentFixture<S, C extends Component, D extends
    * releasing the key again.
    *
    * @param keyCode the code of the key to press.
+   * @param runnable the {@link Runnable} to run while the key is pressed
    * @return this fixture.
    * @throws IllegalArgumentException if any of the given code is not a valid key code.
    * @throws IllegalStateException if this fixture's {@code Component} is disabled.

@@ -162,7 +162,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
    * @throws IndexOutOfBoundsException if this item's index is negative or greater than the index of the last item in
    *           the {@code JList}.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Override
   public final @Nonnull JPopupMenuFixture showPopupMenu() {
@@ -171,7 +171,8 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
 
   /**
    * Returns the {@code String} representation of the value of this fixture's list item, using the
-   * {@link JListCellReader} from the {@link JListFixture} that created this {@link JListItemFixture}.
+   * {@link org.assertj.swing.cell.JListCellReader} from the {@link JListFixture} that created this
+   * {@link JListItemFixture}.
    *
    * @return the {@code String} representation of the value of this fixture's list item.
    * @throws IndexOutOfBoundsException if this item's index is negative or greater than the index of the last item in
@@ -206,7 +207,7 @@ public class JListItemFixture implements ItemFixture<JListItemFixture> {
    * @throws IllegalStateException if this fixture's {@code JList} is not showing on the screen.
    * @throws IndexOutOfBoundsException if this item's index is negative or greater than the index of the last item in
    *           the {@code JList}.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @Override
   public final @Nonnull JListItemFixture drop() {

@@ -240,6 +240,7 @@ public interface Robot {
    *
    * @param c the {@code Component} to click on.
    * @param where the given coordinates, relative to the given {@code Component}.
+   * @param runnable the {@link Runnable} to run while the mouse is pressed
    * @see #pressMouse(Component, Point)
    */
   void pressMouseWhileRunning(@Nonnull Component c, @Nonnull Point where, @Nonnull Runnable runnable);
@@ -261,6 +262,7 @@ public interface Robot {
    * @param c the {@code Component} to click on.
    * @param where the given coordinates, relative to the given {@code Component}.
    * @param button the mouse button to press.
+   * @param runnable the {@link Runnable} to run while the mouse is pressed
    * @see #pressMouse(Component, Point, MouseButton)
    */
   void pressMouseWhileRunning(@Nonnull Component c, @Nonnull Point where, @Nonnull MouseButton button,
@@ -281,6 +283,7 @@ public interface Robot {
    *
    * @param where the position where to press the given mouse button.
    * @param button the mouse button to press.
+   * @param runnable the {@link Runnable} to run while the mouse is pressed
    * @see #pressMouse(Point, MouseButton)
    */
   void pressMouseWhileRunning(@Nonnull Point where, @Nonnull MouseButton button, @Nonnull Runnable runnable);
@@ -430,6 +433,7 @@ public interface Robot {
    * affect the current focus.
    *
    * @param keyCode the code of the key to press.
+   * @param runnable the {@link Runnable} to run while the key is pressed
    * @see java.awt.event.KeyEvent
    * @see #pressKey(int)
    * @throws IllegalArgumentException if the given code is not a valid key code.

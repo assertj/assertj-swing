@@ -58,7 +58,7 @@ public interface ItemFixture<S> extends MouseInputSimulationFixture<S> {
    * @return this fixture.
    * @throws IllegalStateException if the component containing this fixture's item is disabled.
    * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
-   * @throws ActionFailedException if there is no drag action in effect.
+   * @throws org.assertj.swing.exception.ActionFailedException if there is no drag action in effect.
    */
   @Nonnull
   S drop();
@@ -69,7 +69,7 @@ public interface ItemFixture<S> extends MouseInputSimulationFixture<S> {
    * @return a fixture that handles functional testing of the displayed pop-up menu.
    * @throws IllegalStateException if the component containing this fixture's item is disabled.
    * @throws IllegalStateException if the component containing this fixture's item is not showing on the screen.
-   * @throws ComponentLookupException if a pop-up menu cannot be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
   @Nonnull
   JPopupMenuFixture showPopupMenu();

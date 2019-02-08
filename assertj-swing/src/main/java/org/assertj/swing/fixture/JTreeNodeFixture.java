@@ -29,7 +29,7 @@ public interface JTreeNodeFixture<S> extends ItemFixture<S> {
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ActionFailedException if this method fails to expand the row.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to expand the row.
    */
   @Nonnull
   S expand();
@@ -40,7 +40,7 @@ public interface JTreeNodeFixture<S> extends ItemFixture<S> {
    * @return this fixture.
    * @throws IllegalStateException if the {@code JTree} is disabled.
    * @throws IllegalStateException if the {@code JTree} is not showing on the screen.
-   * @throws ActionFailedException if this method fails to collapse the row.
+   * @throws org.assertj.swing.exception.ActionFailedException if this method fails to collapse the row.
    */
   @Nonnull
   S collapse();

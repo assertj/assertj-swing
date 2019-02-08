@@ -43,8 +43,8 @@ public class JButtonFixture extends AbstractButtonFixture<JButtonFixture, JButto
    * @param robot performs simulation of user events on a {@code JButton}.
    * @param buttonName the name of the {@code JButton} to find using the given {@code RobotFixture}.
    * @throws NullPointerException if {@code robot} is {@code null}.
-   * @throws ComponentLookupException if a matching {@code JButton} could not be found.
-   * @throws ComponentLookupException if more than one matching {@code JButton} is found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if a matching {@code JButton} could not be found.
+   * @throws org.assertj.swing.exception.ComponentLookupException if more than one matching {@code JButton} is found.
    */
   public JButtonFixture(@Nonnull Robot robot, @Nullable String buttonName) {
     super(JButtonFixture.class, robot, buttonName, JButton.class);

@@ -246,8 +246,8 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    * Shows a pop-up menu using this fixture's {@code Window} as the invoker of the pop-up menu.
    *
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
-   *           fixture's {@code Window} is disabled.
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is
+   *           <code>false</code> and this fixture's {@code Window} is disabled.
    * @throws IllegalStateException if this fixture's {@code Window} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
@@ -261,8 +261,8 @@ public abstract class AbstractWindowFixture<S, C extends Window, D extends Windo
    *
    * @param p the given point where to show the pop-up menu.
    * @return a fixture that manages the displayed pop-up menu.
-   * @throws IllegalStateException if {@link Settings#clickOnDisabledComponentsAllowed()} is <code>false</code> and this
-   *           fixture's {@code Window} is disabled.
+   * @throws IllegalStateException if {@link org.assertj.swing.core.Settings#clickOnDisabledComponentsAllowed()} is
+   *           <code>false</code> and this fixture's {@code Window} is disabled.
    * @throws IllegalStateException if this fixture's {@code Window} is not showing on the screen.
    * @throws org.assertj.swing.exception.ComponentLookupException if a pop-up menu cannot be found.
    */
