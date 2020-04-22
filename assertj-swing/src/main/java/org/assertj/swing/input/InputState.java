@@ -109,13 +109,16 @@ public class InputState {
       }
       if (inputEvent instanceof MouseEvent) {
         MouseEvent mouseEvent = (MouseEvent) inputEvent;
-        Point eventScreenLocation = screenLocation(mouseEvent);
-        synchronized (this) {
-          lastEventTime(mouseEvent);
-          dragDropInfo.update(mouseEvent);
-          mouseInfo.modifiers(modifiers);
-          mouseInfo.update(mouseEvent, eventScreenLocation);
-          modifiers(mouseInfo.modifiers());
+        //TrayIcon might post events without a component
+        if(mouseEvent.getComponent() != null) {
+          Point eventScreenLocation = screenLocation(mouseEvent);
+          synchronized (this) {
+            lastEventTime(mouseEvent);
+            dragDropInfo.update(mouseEvent);
+            mouseInfo.modifiers(modifiers);
+            mouseInfo.update(mouseEvent, eventScreenLocation);
+            modifiers(mouseInfo.modifiers());
+          }
         }
       }
     }
