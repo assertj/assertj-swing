@@ -4,17 +4,17 @@
   <parent>
     <groupId>org.assertj</groupId>
     <artifactId>assertj-swing-parent-pom</artifactId>
-    <version>3.9.2</version>
+    <version>3.17.0</version>
   </parent>
 
   <artifactId>assertj-swing-jide</artifactId>
-  <version>3.10.0-SNAPSHOT</version>
+  <version>3.17.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>AssertJ-Swing - JIDE Extension</name>
   <description>JIDE specific extensions for testing</description>
 
   <properties>
-    <jide.version>3.7.5</jide.version>
+    <jide.version>3.7.10</jide.version>
   </properties>
 
   <dependencies>
