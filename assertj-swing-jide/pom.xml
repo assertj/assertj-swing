@@ -87,9 +87,9 @@
   </dependencies>
 
   <scm>
-    <developerConnection>scm:git:git@github.com:joel-costigliola/assertj-swing.git</developerConnection>
-    <connection>git://github.com/joel-costigliola/assertj-swing.git</connection>
-    <url>https://github.com/joel-costigliola/assertj-swing</url>
+    <developerConnection>scm:git:git@github.com:assertj/assertj-swing.git</developerConnection>
+    <connection>git://github.com/assertj/assertj-swing.git</connection>
+    <url>https://github.com/assertj/assertj-swing</url>
     <tag>HEAD</tag>
   </scm>
 </project>
