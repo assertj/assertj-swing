@@ -36,7 +36,7 @@ This project is a fork of https://github.com/alexruiz/fest-swing-1.x.
 
 
 
-1. Preconditions: You need ssh setup for being able to push to [joel-costigliola/assertj-swing](), gpg setup for signing the release and ossrh setup in Maven for being able to publish the release, including the right to publish assertj-swing releases.
+1. Preconditions: You need ssh setup for being able to push to [assertj/assertj-swing](https://github.com/assertj/assertj-swing), gpg setup for signing the release and ossrh setup in Maven for being able to publish the release, including the right to publish assertj-swing releases.
 
 2. Make sure you have the latest sources: `git pull`
 
