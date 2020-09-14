@@ -88,7 +88,7 @@ This project is a fork of https://github.com/alexruiz/fest-swing-1.x.
 
 26. Perform: `mvn release:perform`
 
-27. Update documentation - pull [assertj/doc]()
+27. Update documentation - pull [assertj/doc](https://github.com/assertj/doc)
 
 28. Update at least `src/docs/asciidoc/user-guide/assertj-swing-release-notes.adoc`
 
