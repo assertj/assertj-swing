@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>assertj-swing-jide</artifactId>
-  <version>3.17.1-SNAPSHOT</version>
+  <version>3.17.1</version>
   <packaging>jar</packaging>
   <name>AssertJ-Swing - JIDE Extension</name>
   <description>JIDE specific extensions for testing</description>
@@ -90,6 +90,6 @@
     <developerConnection>scm:git:git@github.com:assertj/assertj-swing.git</developerConnection>
     <connection>git://github.com/assertj/assertj-swing.git</connection>
     <url>https://github.com/assertj/assertj-swing</url>
-    <tag>HEAD</tag>
+    <tag>assertj-swing-jide-3.17.1</tag>
   </scm>
 </project>
