@@ -35,9 +35,9 @@ import org.junit.Test;
  */
 public class ComponentNamerTest extends RobotBasedTestCase {
   @Rule
-  public  ExpectedException thrown = none();
+  public ExpectedException thrown = none();
 
-  private SimpleWindow      simpleWindow;
+  private SimpleWindow simpleWindow;
   private ContainerFixture simpleFixture;
 
   private NestedWindow nestedWindow;
@@ -49,8 +49,8 @@ public class ComponentNamerTest extends RobotBasedTestCase {
   private SimpleWindowAnonymousField simpleAnonymousFieldWindow;
   private ContainerFixture simpleAnonymousFieldFixture;
 
- private  ParentReferenceWindow parentReferenceWindow;
-  private ContainerFixture      parentReferenceFixture;
+  private ParentReferenceWindow parentReferenceWindow;
+  private ContainerFixture parentReferenceFixture;
 
   @Override
   protected final void onSetUp() {
@@ -66,7 +66,7 @@ public class ComponentNamerTest extends RobotBasedTestCase {
     simpleAnonymousFieldWindow = SimpleWindowAnonymousField.createNew(getClass());
     simpleAnonymousFieldFixture = new ContainerFixture(robot, simpleAnonymousFieldWindow);
 
-    parentReferenceWindow  = ParentReferenceWindow.createNew(getClass());
+    parentReferenceWindow = ParentReferenceWindow.createNew(getClass());
     parentReferenceFixture = new ContainerFixture(robot, parentReferenceWindow);
   }
 
@@ -89,6 +89,20 @@ public class ComponentNamerTest extends RobotBasedTestCase {
     robot.showWindow(simpleAlreadyNamedWindow);
     namer(simpleAlreadyNamedWindow).setMissingNames();
     assertThat(simpleAlreadyNamedFixture.textBox("notReallyThatSpecial").target()).isSameAs(simpleAlreadyNamedWindow.specialText);
+  }
+
+  @Test
+  public void should_overwrite_named_field_if_asked() {
+    robot.showWindow(simpleAlreadyNamedWindow);
+    namer(simpleAlreadyNamedWindow).overwriteExisting().setMissingNames();
+    assertThat(simpleAlreadyNamedFixture.textBox("specialText").target()).isSameAs(simpleAlreadyNamedWindow.specialText);
+  }
+
+  @Test
+  public void should_use_generated_names_if_asked() {
+    robot.showWindow(simpleAlreadyNamedWindow);
+    namer(simpleAlreadyNamedWindow).overwriteExisting().useGeneratedNamesOnly().setMissingNames();
+    assertThat(simpleAlreadyNamedFixture.textBox("JTextField-2").target()).isSameAs(simpleAlreadyNamedWindow.specialText);
   }
 
   @Test
@@ -203,4 +217,5 @@ public class ComponentNamerTest extends RobotBasedTestCase {
       add(new JTextField("child"));
     }
   }
+
 }

@@ -35,6 +35,9 @@ public class ComponentNamer {
 
   private static final Map<Class<?>, List<Field>> DECLARED_FIELDS_BY_CLASS = new HashMap<>();
 
+  private boolean overwriteExisting = false;
+  private boolean useGeneratedNamesOnly = false;
+
   private ComponentNamer(Container container) {
     this.container = container;
     counter = new AtomicLong(1L);
@@ -43,13 +46,34 @@ public class ComponentNamer {
   /**
    * Create an instance of a ComponentNamer
    * @param container to introspect
-   * @return a new instance of a ComponentNamer
+   * @return the namer for fluent coding
    */
   public static ComponentNamer namer(Container container) {
     if (container == null) {
       throw new IllegalArgumentException("Container cannot be null");
     }
     return new ComponentNamer(container);
+  }
+
+  /**
+   * Overwrite the name of the field, even if it already has one. This is useful when dealing with 3rd party components
+   * that have unsuitable names. Combine with {@link ComponentNamer#useGeneratedNamesOnly} to force a consistent
+   * set of names for the components.
+   * @return the namer for fluent coding
+   */
+  public ComponentNamer overwriteExisting() {
+    this.overwriteExisting = true;
+    return this;
+  }
+
+  /**
+   * Only use generated names for the components. This is useful when the hierarchy of Containers contains components 
+   * which have the same name set, or have declared fields with the same name.
+   * @return the namer for fluent coding
+   */
+  public ComponentNamer useGeneratedNamesOnly() {
+    this.useGeneratedNamesOnly = true;
+    return this;
   }
 
   /**
@@ -77,13 +101,17 @@ public class ComponentNamer {
   }
 
   private void setMissingName(Component component, Map<Object, String> allFields) {
-    if (component.getName() == null || component.getName().isEmpty()) {
-      if (allFields.containsKey(component)) {
+    if (shouldRenameComponent(component)) {
+      if (!useGeneratedNamesOnly && allFields.containsKey(component)) {
         component.setName(allFields.get(component));
       } else {
         component.setName(component.getClass().getSimpleName() + "-" + counter.getAndIncrement());
       }
     }
+  }
+
+  private boolean shouldRenameComponent(Component component) {
+    return overwriteExisting || (component.getName() == null || component.getName().isEmpty());
   }
 
   private Object getFieldValue(Container container, Field f) {
