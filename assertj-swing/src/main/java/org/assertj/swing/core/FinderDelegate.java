@@ -19,6 +19,7 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import java.awt.Component;
 import java.util.Collection;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javax.annotation.Nonnull;
 
@@ -35,11 +36,15 @@ final class FinderDelegate {
   @RunsInEDT
   @Nonnull
   Collection<Component> find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
-    Set<Component> found = newLinkedHashSet();
-    for (Component c : rootsOf(h)) {
-      find(h, m, checkNotNull(c), found);
-    }
-    return found;
+    AtomicReference<Collection<Component>> responseReference = new AtomicReference<>();
+    execute(() -> {
+      Set<Component> found = newLinkedHashSet();
+      for (Component c : rootsOf(h)) {
+        find(h, m, checkNotNull(c), found);
+      }
+      responseReference.set(found);
+    });
+    return responseReference.get();
   }
 
   @RunsInEDT
@@ -56,29 +61,33 @@ final class FinderDelegate {
   @RunsInEDT
   @Nonnull private static Collection<Component> childrenOfComponent(final @Nonnull Component c,
                                                                     final @Nonnull ComponentHierarchy h) {
-    Collection<Component> children = execute(() -> h.childrenOf(c));
+    Collection<Component> children = h.childrenOf(c);
     return checkNotNull(children);
   }
 
   @RunsInEDT
   private static boolean isMatching(@Nonnull final Component c, @Nonnull final ComponentMatcher m) {
-    Boolean matching = execute(() -> m.matches(c));
+    Boolean matching = m.matches(c);
     return checkNotNull(matching);
   }
 
   @RunsInEDT
   @Nonnull
   <T extends Component> Collection<T> find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m) {
-    Set<T> found = newLinkedHashSet();
-    for (Component c : rootsOf(h)) {
-      find(h, m, checkNotNull(c), found);
-    }
-    return found;
+    AtomicReference<Set<T>> responseReference = new AtomicReference<>();
+    execute(() -> {
+      Set<T> found = newLinkedHashSet();
+      for (Component c : rootsOf(h)) {
+        find(h, m, checkNotNull(c), found);
+      }
+      responseReference.set(found);
+    });
+    return responseReference.get();
   }
 
   @RunsInEDT
   @Nonnull private static Collection<? extends Component> rootsOf(final @Nonnull ComponentHierarchy h) {
-    return checkNotNull(execute(() -> h.roots()));
+    return checkNotNull(h.roots());
   }
 
   @RunsInEDT
@@ -95,7 +104,7 @@ final class FinderDelegate {
   @RunsInEDT
   private static <T extends Component> boolean isMatching(final @Nonnull Component c,
                                                           final @Nonnull GenericTypeMatcher<T> m) {
-    Boolean matching = execute(() -> m.matches(c));
+    Boolean matching = m.matches(c);
     return checkNotNull(matching);
   }
 }
