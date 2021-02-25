@@ -19,7 +19,6 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 import java.awt.Component;
 import java.util.Collection;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicReference;
 
 import javax.annotation.Nonnull;
 
@@ -36,15 +35,13 @@ final class FinderDelegate {
   @RunsInEDT
   @Nonnull
   Collection<Component> find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
-    AtomicReference<Collection<Component>> responseReference = new AtomicReference<>();
+    Set<Component> found = newLinkedHashSet();
     execute(() -> {
-      Set<Component> found = newLinkedHashSet();
       for (Component c : rootsOf(h)) {
         find(h, m, checkNotNull(c), found);
       }
-      responseReference.set(found);
     });
-    return responseReference.get();
+    return found;
   }
 
   @RunsInEDT
@@ -74,15 +71,13 @@ final class FinderDelegate {
   @RunsInEDT
   @Nonnull
   <T extends Component> Collection<T> find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m) {
-    AtomicReference<Set<T>> responseReference = new AtomicReference<>();
+    Set<T> found = newLinkedHashSet();
     execute(() -> {
-      Set<T> found = newLinkedHashSet();
       for (Component c : rootsOf(h)) {
         find(h, m, checkNotNull(c), found);
       }
-      responseReference.set(found);
     });
-    return responseReference.get();
+    return found;
   }
 
   @RunsInEDT
