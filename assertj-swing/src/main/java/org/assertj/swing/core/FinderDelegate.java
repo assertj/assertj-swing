@@ -36,9 +36,11 @@ final class FinderDelegate {
   @Nonnull
   Collection<Component> find(@Nonnull ComponentHierarchy h, @Nonnull ComponentMatcher m) {
     Set<Component> found = newLinkedHashSet();
-    for (Component c : rootsOf(h)) {
-      find(h, m, checkNotNull(c), found);
-    }
+    execute(() -> {
+      for (Component c : rootsOf(h)) {
+        find(h, m, checkNotNull(c), found);
+      }
+    });
     return found;
   }
 
@@ -56,13 +58,13 @@ final class FinderDelegate {
   @RunsInEDT
   @Nonnull private static Collection<Component> childrenOfComponent(final @Nonnull Component c,
                                                                     final @Nonnull ComponentHierarchy h) {
-    Collection<Component> children = execute(() -> h.childrenOf(c));
+    Collection<Component> children = h.childrenOf(c);
     return checkNotNull(children);
   }
 
   @RunsInEDT
   private static boolean isMatching(@Nonnull final Component c, @Nonnull final ComponentMatcher m) {
-    Boolean matching = execute(() -> m.matches(c));
+    Boolean matching = m.matches(c);
     return checkNotNull(matching);
   }
 
@@ -70,15 +72,17 @@ final class FinderDelegate {
   @Nonnull
   <T extends Component> Collection<T> find(@Nonnull ComponentHierarchy h, @Nonnull GenericTypeMatcher<T> m) {
     Set<T> found = newLinkedHashSet();
-    for (Component c : rootsOf(h)) {
-      find(h, m, checkNotNull(c), found);
-    }
+    execute(() -> {
+      for (Component c : rootsOf(h)) {
+        find(h, m, checkNotNull(c), found);
+      }
+    });
     return found;
   }
 
   @RunsInEDT
   @Nonnull private static Collection<? extends Component> rootsOf(final @Nonnull ComponentHierarchy h) {
-    return checkNotNull(execute(() -> h.roots()));
+    return checkNotNull(h.roots());
   }
 
   @RunsInEDT
@@ -95,7 +99,7 @@ final class FinderDelegate {
   @RunsInEDT
   private static <T extends Component> boolean isMatching(final @Nonnull Component c,
                                                           final @Nonnull GenericTypeMatcher<T> m) {
-    Boolean matching = execute(() -> m.matches(c));
+    Boolean matching = m.matches(c);
     return checkNotNull(matching);
   }
 }
