@@ -131,7 +131,7 @@ public class ComponentNamer {
       while (clazz != null) {
         //@format:off
         fields.addAll(stream(clazz.getDeclaredFields())
-               .filter(f -> Component.class.isAssignableFrom(f.getDeclaringClass()))
+               .filter(f -> Component.class.isAssignableFrom(f.getType()))
                .collect(toList()));
         //@format:on
         clazz = clazz.getSuperclass();
