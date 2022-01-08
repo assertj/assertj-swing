@@ -18,6 +18,7 @@
   <modules>
     <module>assertj-swing</module>
     <module>assertj-swing-junit</module>
+    <module>assertj-swing-junit-jupiter</module>
     <module>assertj-swing-testng</module>
   </modules>
 
