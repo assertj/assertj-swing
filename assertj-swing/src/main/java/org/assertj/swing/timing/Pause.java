@@ -159,7 +159,7 @@ public final class Pause {
   private static Condition allConditions(@Nonnull Condition[] conditions) {
     String description = Stream.of(conditions)
             .map(Condition::toString)
-            .collect(Collectors.joining("\n", "=>", ""));
+            .collect(Collectors.joining(", ", "[", "]"));
     return new Condition(description) {
       @Override
       public boolean test() {
