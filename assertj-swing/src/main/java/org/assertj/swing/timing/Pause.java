@@ -16,13 +16,14 @@ import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Preconditions.checkNotNullOrEmpty;
 import static org.assertj.swing.timing.Timeout.timeout;
 
-import java.util.concurrent.Callable;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.annotation.Nonnull;
 
@@ -38,7 +39,6 @@ import org.assertj.swing.exception.WaitTimedOutError;
 public final class Pause {
   private static final Timeout DEFAULT_TIMEOUT = timeout();
   private static final int SLEEP_INTERVAL = 10;
-  private static final ExecutorService EXECUTOR_SERVICE = Executors.newCachedThreadPool();
 
   /**
    * Waits until the given condition is satisfied.
@@ -76,36 +76,32 @@ public final class Pause {
   public static void pause(@Nonnull final Condition condition, final long timeout) {
     checkNotNull(condition);
     try {
-      Callable<Object> task = new Callable<Object>() {
-        @Override
-        public Object call() {
-          while (!Thread.currentThread().isInterrupted() && !condition.test()) {
-            pause();
-          }
-          return condition;
-        }
-      };
-      performPause(task, timeout, condition);
+      performPause(timeout, condition);
     } finally {
       condition.done();
     }
   }
 
-  private static void performPause(Callable<Object> task, long timeout, Object value) {
-    Future<Object> futureResult = EXECUTOR_SERVICE.submit(task);
+  private static void performPause(long timeout, Condition condition) {
+    AtomicBoolean cancelled = new AtomicBoolean(false);
+
+    Runnable runnable = () -> {
+      while (!cancelled.get() && !Thread.currentThread().isInterrupted() && !condition.test()) {
+        pause();
+      }
+    };
+    Future<Void> future = CompletableFuture.runAsync(runnable);
     try {
-      futureResult.get(timeout, TimeUnit.MILLISECONDS);
-    } catch (TimeoutException ex) {
-      futureResult.cancel(true);
-      throw new WaitTimedOutError(String.format("Timed out waiting for %s",
-                                                new StandardRepresentation().toStringOf(value)));
-    } catch (InterruptedException e) {
-      e.printStackTrace();
+      future.get(timeout, TimeUnit.MILLISECONDS);
     } catch (ExecutionException e) {
       if (e.getCause() instanceof RuntimeException) {
         throw (RuntimeException) e.getCause();
       }
+    } catch (InterruptedException e) {
       e.printStackTrace();
+    } catch (TimeoutException e) {
+      cancelled.set(true);
+      throw new WaitTimedOutError("Timed out waiting for " + new StandardRepresentation().toStringOf(condition));
     }
   }
 
@@ -152,31 +148,37 @@ public final class Pause {
     for (Condition condition : conditions) {
       checkNotNull(condition);
     }
+    Condition condition = allConditions(conditions);
     try {
-      Callable<Object> task = new Callable<Object>() {
-        @Override
-        public Object call() {
-          while (!Thread.currentThread().isInterrupted() && !areSatisfied(conditions)) {
-            pause();
-          }
-          return conditions;
-        }
-      };
-      performPause(task, timeout, conditions);
+      performPause(timeout, condition);
     } finally {
-      for (Condition condition : conditions) {
-        condition.done();
-      }
+      condition.done();
     }
   }
 
-  private static boolean areSatisfied(@Nonnull Condition[] conditions) {
-    for (Condition condition : conditions) {
-      if (!condition.test()) {
-        return false;
+  private static Condition allConditions(@Nonnull Condition[] conditions) {
+    String description = Stream.of(conditions)
+            .map(Condition::toString)
+            .collect(Collectors.joining("\n", "=>", ""));
+    return new Condition(description) {
+      @Override
+      public boolean test() {
+        for (Condition condition : conditions) {
+          if (!condition.test()) {
+            return false;
+          }
+        }
+        return true;
       }
-    }
-    return true;
+
+      @Override
+      protected void done() {
+        for (Condition condition : conditions) {
+         condition.done();
+        }
+      }
+    };
+
   }
 
   /**
