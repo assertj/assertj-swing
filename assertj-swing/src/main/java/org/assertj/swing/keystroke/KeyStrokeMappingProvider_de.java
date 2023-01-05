@@ -180,10 +180,10 @@ public class KeyStrokeMappingProvider_de implements KeyStrokeMappingProvider {
     mappings.add(mapping('W', VK_W, SHIFT_MASK));
     mappings.add(mapping('x', VK_X, NO_MASK));
     mappings.add(mapping('X', VK_X, SHIFT_MASK));
-    mappings.add(mapping('y', VK_Y, NO_MASK));
-    mappings.add(mapping('Y', VK_Y, SHIFT_MASK));
-    mappings.add(mapping('z', VK_Z, NO_MASK));
-    mappings.add(mapping('Z', VK_Z, SHIFT_MASK));
+    mappings.add(mapping('y', VK_Z, NO_MASK));
+    mappings.add(mapping('Y', VK_Z, SHIFT_MASK));
+    mappings.add(mapping('z', VK_Y, NO_MASK));
+    mappings.add(mapping('Z', VK_Y, SHIFT_MASK));
     return mappings;
   }
 }
