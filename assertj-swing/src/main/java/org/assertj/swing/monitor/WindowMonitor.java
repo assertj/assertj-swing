@@ -49,10 +49,6 @@ public class WindowMonitor {
    * {@code AppContext}s.
    * </p>
    *
-   * <p>
-   * <strong>WARNING:</strong> if an applet loads this class, it will only ever see stuff in its own {@code AppContext}.
-   * </p>
-   *
    * @param toolkit the {@code Toolkit} to use.
    */
   @RunsInCurrentThread
@@ -106,9 +102,8 @@ public class WindowMonitor {
   }
 
   /**
-   * Returns the event queue corresponding to the given AWT or Swing {@code Compoenent}. In most cases, this is the same
-   * as {@code Component.getToolkit().getSystemEventQueue()}, but in the case of applets will bypass the
-   * {@code AppContext} and provide the real event queue.
+   * Returns the event queue corresponding to the given AWT or Swing {@code Component}. In most cases, this is the same
+   * as {@code Component.getToolkit().getSystemEventQueue()}.
    *
    * @param c the given {@code Component}.
    * @return the event queue corresponding to the given component.
@@ -126,8 +121,7 @@ public class WindowMonitor {
 
   /**
    * Return all available root {@code Window}s. A root {@code Window} is one that has a {@code null} parent. Nominally
-   * this means a list similar to that returned by {@code Frame.getFrames()}, but in the case of an {@code Applet} may
-   * return a few dialogs as well.
+   * this means a list similar to that returned by {@code Frame.getFrames()}.
    *
    * @return all available root {@code Window}s.
    */

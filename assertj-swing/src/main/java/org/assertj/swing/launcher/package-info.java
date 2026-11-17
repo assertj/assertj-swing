@@ -11,7 +11,7 @@
  * Copyright 2012-2018 the original author or authors.
  */
 /**
- * Java applications and {@code Applet}s launcher.
+ * Java applications launcher.
  * 
  * @author Alex Ruiz
  */

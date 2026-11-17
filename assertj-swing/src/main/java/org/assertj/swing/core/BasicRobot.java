@@ -51,7 +51,6 @@ import static org.assertj.swing.util.Modifiers.keysFor;
 import static org.assertj.swing.util.Modifiers.updateModifierWithKeyCode;
 import static org.assertj.swing.util.TimeoutWatch.startWatchWithTimeoutOf;
 
-import java.applet.Applet;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -241,27 +240,9 @@ public class BasicRobot implements Robot {
   @Override
   public void close(@Nonnull Window w) {
     WindowEvent event = new WindowEvent(w, WINDOW_CLOSING);
-    // If the window contains an applet, send the event on the applet's queue instead to ensure a shutdown from the
-    // applet's context (assists AppletViewer cleanup).
-    Component applet = findAppletDescendent(w);
-    EventQueue eventQueue = windowMonitor.eventQueueFor(applet != null ? applet : w);
+    EventQueue eventQueue = windowMonitor.eventQueueFor(w);
     checkNotNull(eventQueue).postEvent(event);
     waitForIdle();
-  }
-
-  /**
-   * Returns the {@code Applet} descendant of the given AWT {@code Container}, if any.
-   *
-   * @param c the given {@code Container}.
-   * @return the {@code Applet} descendant of the given AWT {@code Container}, or {@code null} if none is found.
-   */
-  @RunsInEDT
-  @Nullable private Applet findAppletDescendent(@Nonnull Container c) {
-    List<Component> found = newArrayList(finder.findAll(c, new TypeMatcher(Applet.class)));
-    if (found.size() == 1) {
-      return (Applet) found.get(0);
-    }
-    return null;
   }
 
   @RunsInEDT

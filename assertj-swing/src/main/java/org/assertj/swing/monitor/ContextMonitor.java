@@ -23,7 +23,6 @@ import static java.awt.event.WindowEvent.WINDOW_OPENED;
 import static org.assertj.swing.listener.WeakEventListener.attachAsWeakEventListener;
 import static org.assertj.swing.query.ComponentParentQuery.parentOf;
 
-import java.applet.Applet;
 import java.awt.AWTEvent;
 import java.awt.Component;
 import java.awt.FileDialog;
@@ -64,11 +63,10 @@ final class ContextMonitor implements AWTEventListener {
     }
     ComponentEvent event = (ComponentEvent) e;
     Component component = event.getComponent();
-    // This is our sole means of accessing other AppContexts (if running within an applet). We look for window events
-    // beyond OPENED in order to catch windows that have already opened by the time we start listening but which are not
-    // in the Frame.getFrames list (i.e. they are on a different context). Specifically watch for COMPONENT_SHOWN on
-    // applets, since we may not get frame events for them.
-    if (!(component instanceof Applet) && !(component instanceof Window)) {
+    // This is our sole means of accessing other AppContexts. We look for window events beyond OPENED in order to catch
+    // windows that have already opened by the time we start listening but which are not in the Frame.getFrames list
+    // (i.e. they are on a different context).
+    if (!(component instanceof Window)) {
       return;
     }
     processEvent(event);

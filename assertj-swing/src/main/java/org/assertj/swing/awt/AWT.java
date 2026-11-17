@@ -210,16 +210,6 @@ public class AWT {
   }
 
   /**
-   * Returns {@code true} if the given component is an Applet viewer.
-   *
-   * @param c the component to check.
-   * @return {@code true} if the given component is an Applet viewer, {@code false} otherwise.
-   */
-  public static boolean isAppletViewer(@Nullable Component c) {
-    return c != null && "sun.applet.AppletViewer".equals(c.getClass().getName());
-  }
-
-  /**
    * Returns whether the given component is the default Swing hidden frame.
    *
    * @param c the component to check.
@@ -229,7 +219,7 @@ public class AWT {
     if (c == null) {
       return false;
     }
-    // Must perform an additional check, since applets may have their own version in their AppContext
+
     return c instanceof Frame
         && (c == JOptionPane.getRootFrame() || c.getClass().getName().startsWith(ROOT_FRAME_CLASSNAME));
   }

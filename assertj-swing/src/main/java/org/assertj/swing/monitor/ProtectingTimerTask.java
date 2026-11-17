@@ -13,12 +13,9 @@
 package org.assertj.swing.monitor;
 
 import static java.util.logging.Level.WARNING;
-import static org.fest.reflect.core.Reflection.field;
 
 import java.util.TimerTask;
 import java.util.logging.Logger;
-
-import org.assertj.core.util.Preconditions;
 
 /**
  * Prevents misbehaving {@code TimerTask}s from canceling the timer thread by throwing exceptions and/or errors.
@@ -26,11 +23,10 @@ import org.assertj.core.util.Preconditions;
  * @author Alex Ruiz
  */
 class ProtectingTimerTask extends TimerTask {
-  private static final int CANCELED = 3;
-
   private static Logger logger = Logger.getLogger(ProtectingTimerTask.class.getCanonicalName());
 
   private final TimerTask task;
+  private volatile boolean canceled;
 
   ProtectingTimerTask(TimerTask task) {
     this.task = task;
@@ -38,8 +34,7 @@ class ProtectingTimerTask extends TimerTask {
 
   @Override
   public void run() {
-    if (isCanceled()) {
-      cancel();
+    if (canceled) {
       return;
     }
     try {
@@ -49,14 +44,11 @@ class ProtectingTimerTask extends TimerTask {
     }
   }
 
-  private boolean isCanceled() {
-    try {
-      int state = Preconditions.checkNotNull(field("state").ofType(int.class).in(task).get());
-      return state == CANCELED;
-    } catch (RuntimeException e) {
-      handleException(e);
-    }
-    return false;
+  @Override
+  public boolean cancel() {
+    canceled = true;
+    task.cancel();
+    return super.cancel();
   }
 
   private void handleException(Throwable thrown) {

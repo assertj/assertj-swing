@@ -29,13 +29,7 @@ import javax.annotation.concurrent.ThreadSafe;
  * <p>
  * AWT event listener that ensures all events are handled on the event dispatch thread (EDT).
  * </p>
- * 
- * <p>
- * NOTE from Abbot: {@code Applet} runners may run several simultaneous event dispatch threads when displaying multiple
- * {@code Applet}s simultaneously. If this listener is installed in the parent context of those dispatch threads, it
- * will be invoked on each of those threads, possibly simultaneously.
- * </p>
- * 
+ *
  * @author Yvonne Wang
  * @author Alex Ruiz
  */

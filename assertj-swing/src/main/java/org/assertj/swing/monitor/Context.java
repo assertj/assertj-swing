@@ -61,8 +61,7 @@ class Context {
 
   /**
    * Return all available root {@code Window}s. A root {@code Window} is one that has a {@code null} parent. Nominally
-   * this means a list similar to that returned by {@code Frame.getFrames()}, but in the case of an {@code Applet} may
-   * return a few dialogs as well.
+   * this means a list similar to that returned by {@code Frame.getFrames()}.
    *
    * @return all available root {@code Window}s.
    */
@@ -121,8 +120,7 @@ class Context {
   @Nullable private static Component topParentOf(final @Nonnull Component c) {
     return execute(() -> {
       Component parent = c;
-      // Components above the applet in the hierarchy may or may not share the same context with the applet itself.
-      while (!(parent instanceof java.applet.Applet) && parent.getParent() != null) {
+      while (parent.getParent() != null) {
         parent = parent.getParent();
       }
       return parent;

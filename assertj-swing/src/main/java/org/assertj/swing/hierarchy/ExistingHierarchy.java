@@ -13,7 +13,6 @@
 package org.assertj.swing.hierarchy;
 
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.swing.awt.AWT.isAppletViewer;
 import static org.assertj.swing.awt.AWT.isSharedInvisibleFrame;
 
 import java.awt.Component;
@@ -124,9 +123,6 @@ public class ExistingHierarchy implements ComponentHierarchy {
   @Override
   @RunsInCurrentThread
   public void dispose(@Nonnull Window w) {
-    if (isAppletViewer(w)) {
-      return;
-    }
     for (Window owned : w.getOwnedWindows()) {
       if (owned != null) {
         dispose(owned);

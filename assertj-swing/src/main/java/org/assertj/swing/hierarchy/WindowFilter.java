@@ -58,7 +58,6 @@ class WindowFilter {
     if (c == null) {
       return false;
     }
-    // TODO if ("sun.plugin.ConsoleWindow".equals(c.getClass().getName())) return !trackAppletConsole;
     if (ignored.containsKey(c)) {
       return true;
     }

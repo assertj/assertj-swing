@@ -56,7 +56,6 @@ class AWTEventPoster {
     pause(settings.delayBetweenEvents());
   }
 
-  /* Usually only needed when dealing with Applets. */
   @Nullable private EventQueue eventQueueFor(@Nullable Component c) {
     return c != null ? windowMonitor.eventQueueFor(c) : toolkit.getSystemEventQueue();
   }

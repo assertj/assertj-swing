@@ -23,11 +23,9 @@ import static org.assertj.swing.monitor.TestWindows.newWindowsMock;
 import static org.assertj.swing.test.awt.Toolkits.newToolkitStub;
 import static org.assertj.swing.test.builder.JTextFields.textField;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
-import java.applet.Applet;
 import java.awt.EventQueue;
 import java.awt.FileDialog;
 import java.awt.Window;
@@ -80,7 +78,7 @@ public class ContextMonitor_eventDispatched_Test extends EDTSafeTestCase {
   }
 
   @Test
-  public void shouldNotProcessEventIfComponentIsNotWindowOrApplet() {
+  public void shouldNotProcessEventIfComponentIsNotWindow() {
     monitor.eventDispatched(new ComponentEvent(textField().createNew(), 8));
     verifyZeroInteractions(windows, context);
   }
@@ -111,15 +109,6 @@ public class ContextMonitor_eventDispatched_Test extends EDTSafeTestCase {
     monitor.eventDispatched(new ComponentEvent(window, WINDOW_CLOSED));
     verify(context).removeContextFor(window);
     verify(windows).markAsClosed(window);
-  }
-
-  @Test
-  public void shouldProcessEventWithIdEqualToWindowClosedAndWithNotRootWindow() {
-    final Applet applet = new Applet();
-    window.add(applet);
-    when(context.storedQueueFor(applet)).thenReturn(applet.getToolkit().getSystemEventQueue());
-    monitor.eventDispatched(new ComponentEvent(applet, WINDOW_CLOSED));
-    verifyNoMoreInteractions(windows);
   }
 
   @Test
