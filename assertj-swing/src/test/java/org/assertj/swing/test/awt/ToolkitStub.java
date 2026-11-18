@@ -13,20 +13,14 @@
 package org.assertj.swing.test.awt;
 
 import static org.assertj.swing.util.Maps.newHashMap;
-import static org.mockito.Mockito.spy;
+import static org.mockito.Answers.CALLS_REAL_METHODS;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.withSettings;
 
-import java.awt.Button;
-import java.awt.Canvas;
-import java.awt.Checkbox;
-import java.awt.CheckboxMenuItem;
-import java.awt.Choice;
-import java.awt.Desktop;
-import java.awt.Dialog;
 import java.awt.Dialog.ModalExclusionType;
 import java.awt.Dialog.ModalityType;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.FileDialog;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Frame;
@@ -34,51 +28,15 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Insets;
-import java.awt.Label;
-import java.awt.Menu;
-import java.awt.MenuBar;
-import java.awt.MenuItem;
-import java.awt.Panel;
-import java.awt.PopupMenu;
 import java.awt.PrintJob;
-import java.awt.ScrollPane;
-import java.awt.Scrollbar;
-import java.awt.TextArea;
-import java.awt.TextField;
 import java.awt.Toolkit;
-import java.awt.Window;
 import java.awt.datatransfer.Clipboard;
-import java.awt.dnd.DragGestureEvent;
-import java.awt.dnd.InvalidDnDOperationException;
-import java.awt.dnd.peer.DragSourceContextPeer;
 import java.awt.event.AWTEventListener;
 import java.awt.font.TextAttribute;
 import java.awt.im.InputMethodHighlight;
 import java.awt.image.ColorModel;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
-import java.awt.peer.ButtonPeer;
-import java.awt.peer.CanvasPeer;
-import java.awt.peer.CheckboxMenuItemPeer;
-import java.awt.peer.CheckboxPeer;
-import java.awt.peer.ChoicePeer;
-import java.awt.peer.DesktopPeer;
-import java.awt.peer.DialogPeer;
-import java.awt.peer.FileDialogPeer;
-import java.awt.peer.FontPeer;
-import java.awt.peer.FramePeer;
-import java.awt.peer.LabelPeer;
-import java.awt.peer.ListPeer;
-import java.awt.peer.MenuBarPeer;
-import java.awt.peer.MenuItemPeer;
-import java.awt.peer.MenuPeer;
-import java.awt.peer.PanelPeer;
-import java.awt.peer.PopupMenuPeer;
-import java.awt.peer.ScrollPanePeer;
-import java.awt.peer.ScrollbarPeer;
-import java.awt.peer.TextAreaPeer;
-import java.awt.peer.TextFieldPeer;
-import java.awt.peer.WindowPeer;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,7 +46,7 @@ import java.util.Properties;
 /**
  * @author Alex Ruiz
  */
-public class ToolkitStub extends Toolkit {
+public abstract class ToolkitStub extends Toolkit {
   private Map<AWTEventListener, Long> eventListeners;
   private EventQueue eventQueue;
 
@@ -97,7 +55,7 @@ public class ToolkitStub extends Toolkit {
   }
 
   static ToolkitStub createNew(EventQueue eventQueue) {
-    ToolkitStub stub = spy(new ToolkitStub());
+    ToolkitStub stub = mock(ToolkitStub.class, withSettings().useConstructor().defaultAnswer(CALLS_REAL_METHODS));
     stub.eventQueue(eventQueue);
     stub.eventListeners = newHashMap();
     return stub;
@@ -167,46 +125,6 @@ public class ToolkitStub extends Toolkit {
     throw new UnsupportedOperationException();
   }
 
-  protected ButtonPeer createButton(Button target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected CanvasPeer createCanvas(Canvas target) {
-    throw new UnsupportedOperationException();
-  }
-
-  protected CheckboxPeer createCheckbox(Checkbox target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected CheckboxMenuItemPeer createCheckboxMenuItem(CheckboxMenuItem target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected ChoicePeer createChoice(Choice target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected DesktopPeer createDesktopPeer(Desktop target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected DialogPeer createDialog(Dialog target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  public DragSourceContextPeer createDragSourceContextPeer(DragGestureEvent dge) throws InvalidDnDOperationException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected FileDialogPeer createFileDialog(FileDialog target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected FramePeer createFrame(Frame target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
   @Override
   public Image createImage(String filename) {
     throw new UnsupportedOperationException();
@@ -227,54 +145,6 @@ public class ToolkitStub extends Toolkit {
     throw new UnsupportedOperationException();
   }
 
-  protected LabelPeer createLabel(Label target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected ListPeer createList(java.awt.List target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected MenuPeer createMenu(Menu target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected MenuBarPeer createMenuBar(MenuBar target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected MenuItemPeer createMenuItem(MenuItem target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected PanelPeer createPanel(Panel target) {
-    throw new UnsupportedOperationException();
-  }
-
-  protected PopupMenuPeer createPopupMenu(PopupMenu target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected ScrollPanePeer createScrollPane(ScrollPane target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected ScrollbarPeer createScrollbar(Scrollbar target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected TextAreaPeer createTextArea(TextArea target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected TextFieldPeer createTextField(TextField target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
-  protected WindowPeer createWindow(Window target) throws HeadlessException {
-    throw new UnsupportedOperationException();
-  }
-
   @Override
   public ColorModel getColorModel() throws HeadlessException {
     throw new UnsupportedOperationException();
@@ -289,11 +159,6 @@ public class ToolkitStub extends Toolkit {
   @Override
   @Deprecated
   public FontMetrics getFontMetrics(Font font) {
-    throw new UnsupportedOperationException();
-  }
-
-  @Deprecated
-  protected FontPeer getFontPeer(String name, int style) {
     throw new UnsupportedOperationException();
   }
 
