@@ -43,16 +43,16 @@ public class AbstractComponentFixture_equals_hashCode_Test extends RobotBasedTes
   public void should_Work() {
     ConcreteComponentFixture one = new ConcreteComponentFixture(robot, execute(() -> new JLabel()));
     ConcreteComponentFixture two = new ConcreteComponentFixture(robot, execute(() -> new JLabel()));
-    EqualsVerifier<AbstractComponentFixture> verifier = EqualsVerifier.forClass(AbstractComponentFixture.class);
-    verifier.withPrefabValues(ConcreteComponentFixture.class, one, two);
-    verifier.withPrefabValues(Component.class, execute(() -> new JLabel()), execute(() -> new JButton()));
-    verifier.withPrefabValues(Container.class, execute(() -> new Container()), execute(() -> new Container()));
+    var verifier = EqualsVerifier.forClass(AbstractComponentFixture.class)
+      .withPrefabValues(ConcreteComponentFixture.class, one, two)
+      .withPrefabValues(Component.class, execute(() -> new JLabel()), execute(() -> new JButton()))
+      .withPrefabValues(Container.class, execute(() -> new Container()), execute(() -> new Container()));
     List<Component> listOne = newArrayList();
     List<Component> listTwo = newArrayList();
     listOne.add(execute(() -> new JCheckBox()));
     listTwo.add(execute(() -> new JPanel()));
-    verifier.withPrefabValues(List.class, listOne, listTwo);
-    verifier.usingGetClass().withIgnoredFields("robot", "myself", "driver").verify();
+    verifier.withPrefabValues(List.class, listOne, listTwo)
+      .usingGetClass().withIgnoredFields("robot", "myself", "driver").verify();
   }
 
   private static class ConcreteComponentFixture extends

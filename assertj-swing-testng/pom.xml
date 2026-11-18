@@ -50,19 +50,25 @@
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>6.11</version>
+      <version>7.7.0</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
-      <version>4.0</version>
-      <classifier>no_aop</classifier>
+      <version>7.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>33.8.0-jre</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <version>4.13.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -91,9 +97,8 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.7</version>
+        <version>3.12.0</version>
         <configuration>
-          <aggregate>true</aggregate>
           <minmemory>128m</minmemory>
           <maxmemory>512m</maxmemory>
           <breakiterator>true</breakiterator>
@@ -110,6 +115,7 @@
         <reportSets>
           <reportSet>
             <reports>
+              <report>aggregate</report>
               <report>javadoc</report>
             </reports>
           </reportSet>

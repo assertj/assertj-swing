@@ -17,25 +17,26 @@
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
-      <version>1.10</version>
+      <version>1.23.0</version>
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.apache.ant</groupId>
       <artifactId>ant-junit</artifactId>
-      <version>1.10.1</version>
+      <version>1.10.18</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <version>4.13.1</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-swing</artifactId>
-      <version>3.17.2-SNAPSHOT</version>
+      <version>${project.version}</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -45,6 +46,7 @@
     <dependency>
       <groupId>org.easytesting</groupId>
       <artifactId>fest-test</artifactId>
+      <version>2.1.0</version>
     </dependency>
     <dependency>
       <groupId>org.easytesting</groupId>
@@ -100,26 +102,25 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.12.0</version>
         <configuration>
-          <aggregate>true</aggregate>
           <minmemory>128m</minmemory>
           <maxmemory>512m</maxmemory>
           <breakiterator>true</breakiterator>
           <quiet>true</quiet>
-          <source>1.5</source>
+          <source>17</source>
           <verbose>false</verbose>
           <linksource>true</linksource>
           <links>
-            <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
-            <link>http://testng.org/javadocs</link>
-            <link>http://www.junit.org/junit/javadoc/4.3</link>
-            <link>http://fest.easytesting.org/swing/apidocs/</link>
+            <link>https://docs.oracle.com/en/java/javase/17/docs/api/</link>
+            <link>https://junit.org/junit4/javadoc/4.13.2/</link>
           </links>
         </configuration>
         <reportSets>
           <reportSet>
             <reports>
               <report>javadoc</report>
+              <report>aggregate</report>
             </reports>
           </reportSet>
         </reportSets>
